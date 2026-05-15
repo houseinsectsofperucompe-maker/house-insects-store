@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function Home() {
   return (
     <main style={{
@@ -12,8 +14,14 @@ export default function Home() {
       textAlign: 'center',
       padding: '40px',
     }}>
-      <div style={{ fontSize: '5rem', marginBottom: '20px' }}>🦋</div>
-      <h1 style={{ fontSize: '2.5rem', fontWeight: 300, marginBottom: '10px' }}>
+      <Image
+        src="/logo.png"
+        alt="House Insects of Peru"
+        width={300}
+        height={300}
+        style={{ marginBottom: '30px' }}
+      />
+      <h1 style={{ fontSize: '2rem', fontWeight: 300, marginBottom: '10px' }}>
         House Insects of Peru
       </h1>
       <p style={{ fontSize: '1rem', opacity: 0.6, marginBottom: '30px' }}>
@@ -22,17 +30,6 @@ export default function Home() {
       <p style={{ fontSize: '1.1rem', opacity: 0.8, maxWidth: '500px', lineHeight: 1.8 }}>
         Especímenes biológicos · Joyería · Artesanías · Rarezas
       </p>
-      <div style={{
-        marginTop: '40px',
-        padding: '14px 32px',
-        background: '#C9A84C',
-        color: '#1A1209',
-        borderRadius: '8px',
-        fontSize: '1rem',
-        fontWeight: 700,
-      }}>
-        Próximamente — Coming Soon
-      </div>
     </main>
   )
 }
