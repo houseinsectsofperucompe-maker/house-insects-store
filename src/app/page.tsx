@@ -14,7 +14,7 @@ export default function Home() {
   const cat = CATALOGOS.find(c=>c.id===activo)
   if (activo && cat) return (
     <div style={{minHeight:'100vh',background:'#000',position:'relative',overflow:'hidden',fontFamily:'Georgia,serif'}}>
-      <video autoPlay loop muted playsInline style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',opacity:.65}}><source src={cat.video} type="video/mp4"/></video>
+      <video autoPlay loop muted playsInline preload="none" poster="/logo.png" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',opacity:.65}}><source src={cat.video} type="video/mp4"/></video>
       <div style={{position:'absolute',inset:0,background:`linear-gradient(to bottom,rgba(0,0,0,0.2),${cat.colorFondo})`}}/>
       <div style={{position:'relative',zIndex:10,minHeight:'100vh',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',textAlign:'center',padding:'40px'}}>
         <img src={cat.imagen} alt={cat.nombre} style={{width:150,height:150,borderRadius:'50%',border:'2px solid #C9A84C',objectFit:'cover',marginBottom:20}}/>
