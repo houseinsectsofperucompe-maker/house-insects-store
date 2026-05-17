@@ -65,6 +65,10 @@ export default function Home() {
     <a href="/contacto" style={{ color:'rgba(201,168,76,0.5)', fontSize:'.65rem', textDecoration:'none' }}>📞 Contacto</a>
   </div>
   <p style={{ color:'rgba(232,201,122,0.25)', fontSize:'.65rem' }}>© 2026 HOUSE INSECTS OF PERU E.I.R.L. · TINGO MARÍA, PERÚ · EXPORTACIÓN MUNDIAL</p>
-</div>
-  )
-}
+68    </div>
+)
+
+
+
+
+
