@@ -57,9 +57,12 @@ export default function Home() {
           </button>
         ))}
       </div>
-      <div style={{textAlign:'center',padding:'20px',borderTop:'1px solid rgba(201,168,76,0.15)'}}>
-        <p style={{color:'rgba(232,201,122,0.25)',fontSize:'.68rem'}}>© 2026 HOUSE INSECTS OF PERU E.I.R.L. · TINGO MARÍA, PERÚ</p>
-      </div>
-    </div>
-  )
-}
+  <div style={{ textAlign:'center', padding:'20px', borderTop:'1px solid rgba(201,168,76,0.15)' }}>
+  <div style={{ display:'flex', gap:20, justifyContent:'center', flexWrap:'wrap', marginBottom:10 }}>
+    <a href="/privacidad" style={{ color:'rgba(201,168,76,0.5)', fontSize:'.65rem', textDecoration:'none' }}>🔒 Privacidad</a>
+    <a href="/terminos" style={{ color:'rgba(201,168,76,0.5)', fontSize:'.65rem', textDecoration:'none' }}>📋 Términos</a>
+    <a href="/envios" style={{ color:'rgba(201,168,76,0.5)', fontSize:'.65rem', textDecoration:'none' }}>🚚 Envíos</a>
+    <a href="/contacto" style={{ color:'rgba(201,168,76,0.5)', fontSize:'.65rem', textDecoration:'none' }}>📞 Contacto</a>
+  </div>
+  <p style={{ color:'rgba(232,201,122,0.25)', fontSize:'.65rem' }}>© 2026 HOUSE INSECTS OF PERU E.I.R.L. · TINGO MARÍA, PERÚ · EXPORTACIÓN MUNDIAL</p>
+</div> 
