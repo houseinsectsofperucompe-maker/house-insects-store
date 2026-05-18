@@ -53,12 +53,18 @@ const ABBREV_CHART = [
   {k:'EP', d:'Ex-pupae, reared or farmed.'},
   {k:'S', d:'Set — a specially priced set of more than a single item at a discount.'},
 ]
-function PopupHeader({title,onClose}:{title:string,onClose:()=>void}) {
+function PopupHeader({title,onClose,foto,nombre}:{title:string,onClose:()=>void,foto?:string,nombre?:string}) {
   return (
-    <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:16,paddingBottom:12,borderBottom:'1px solid rgba(201,168,76,0.2)'}}>
-      <img src="/logo-house-insects-peru.png" style={{width:52,height:52,objectFit:'contain'}} alt="House Insects of Peru"/>
-      <span style={{color:'#C9A84C',fontSize:'1rem',fontWeight:700,letterSpacing:'.06em',flex:1}}>{title}</span>
-      <button onClick={onClose} style={{background:'none',border:'none',color:'rgba(232,201,122,0.5)',cursor:'pointer',fontSize:'1.2rem',lineHeight:1}}>✕</button>
+    <div>
+      <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:12,paddingBottom:12,borderBottom:'1px solid rgba(201,168,76,0.2)'}}>
+        <img src="/logo-house-insects-peru.png" className="popup-logo" style={{width:48,height:48,objectFit:'contain'}} alt="House Insects of Peru"/>
+        <span style={{color:'#C9A84C',fontSize:'1rem',fontWeight:700,letterSpacing:'.06em',flex:1}}>{title}</span>
+        <button onClick={onClose} style={{background:'none',border:'none',color:'rgba(232,201,122,0.5)',cursor:'pointer',fontSize:'1.2rem',lineHeight:1}}>✕</button>
+      </div>
+      {foto&&<div style={{textAlign:'center',marginBottom:12}}>
+        <img src={foto} alt={nombre||''} className="sel-img" style={{width:120,height:120,objectFit:'cover',borderRadius:8,border:'1px solid rgba(201,168,76,0.3)'}}/>
+        {nombre&&<p style={{color:'#E8C97A',fontSize:'.75rem',fontStyle:'italic',marginTop:6}}>{nombre}</p>}
+      </div>}
     </div>
   )
 }
@@ -69,13 +75,13 @@ const POPUP_STYLE = {
   val: {color:'rgba(232,201,122,0.8)',fontSize:'.82rem',lineHeight:1.6},
   btn: {background:'rgba(201,168,76,0.1)',border:'1px solid rgba(201,168,76,0.3)',borderRadius:6,padding:'7px 24px',cursor:'pointer',fontSize:'.8rem',fontFamily:'Georgia,serif',color:'#C9A84C',marginTop:16,transition:'background 0.15s'},
 }
-function PopupCalidad({onClose}:{onClose:()=>void}) {
+function PopupCalidad({onClose,foto,nombre}:{onClose:()=>void,foto?:string,nombre?:string}) {
   return (
     <div onClick={onClose} style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.75)',zIndex:100,display:'flex',alignItems:'center',justifyContent:'center',padding:'20px'}}>
-      <div onClick={e=>e.stopPropagation()} style={POPUP_STYLE.box}>
-        <PopupHeader title="Quality Chart" onClose={onClose}/>
+      <div onClick={e=>e.stopPropagation()} className="popup-box" style={POPUP_STYLE.box}>
+        <PopupHeader title="Quality Chart" onClose={onClose} foto={foto} nombre={nombre}/>
         {QUALITY_CHART.map((r,i)=>(
-          <div key={i} style={POPUP_STYLE.row}>
+          <div key={i} className="popup-row-item" style={{...POPUP_STYLE.row,borderRadius:4,padding:'9px 6px'}}>
             <span style={POPUP_STYLE.key}>{r.q}</span>
             <span style={POPUP_STYLE.val}>{r.d}</span>
           </div>
@@ -87,13 +93,13 @@ function PopupCalidad({onClose}:{onClose:()=>void}) {
     </div>
   )
 }
-function PopupAbrev({onClose}:{onClose:()=>void}) {
+function PopupAbrev({onClose,foto,nombre}:{onClose:()=>void,foto?:string,nombre?:string}) {
   return (
     <div onClick={onClose} style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.75)',zIndex:100,display:'flex',alignItems:'center',justifyContent:'center',padding:'20px'}}>
-      <div onClick={e=>e.stopPropagation()} style={{...POPUP_STYLE.box,maxWidth:380}}>
-        <PopupHeader title="Abbreviation Chart" onClose={onClose}/>
+      <div onClick={e=>e.stopPropagation()} className="popup-box" style={{...POPUP_STYLE.box,maxWidth:380}}>
+        <PopupHeader title="Abbreviation Chart" onClose={onClose} foto={foto} nombre={nombre}/>
         {ABBREV_CHART.map((r,i)=>(
-          <div key={i} style={POPUP_STYLE.row}>
+          <div key={i} className="popup-row-item" style={{...POPUP_STYLE.row,borderRadius:4,padding:'9px 6px'}}>
             <span style={{...POPUP_STYLE.key,minWidth:32}}>{r.k}</span>
             <span style={POPUP_STYLE.val}>{r.d}</span>
           </div>
@@ -120,38 +126,47 @@ export default function Page() {
   const pagEsp = filtrados.slice((pag-1)*POR_PAG, pag*POR_PAG)
   if(sel) return (
     <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'40px 20px'}}>
-      {showQ&&<PopupCalidad onClose={()=>setShowQ(false)}/>}
-      {showA&&<PopupAbrev onClose={()=>setShowA(false)}/>}
-      <style>{`.sel-img{transition:transform 0.3s ease,box-shadow 0.3s ease}.sel-img:hover{transform:scale(1.04);box-shadow:0 12px 40px rgba(201,168,76,0.25)}.logo-ani{transition:transform 0.4s ease,opacity 0.3s ease}.logo-ani:hover{transform:scale(1.08) rotate(3deg);opacity:0.85}`}</style>
+      {showQ&&<PopupCalidad onClose={()=>setShowQ(false)} foto={sel?.foto} nombre={sel?.n}/>}
+      {showA&&<PopupAbrev onClose={()=>setShowA(false)} foto={sel?.foto} nombre={sel?.n}/>}
+      <style>{`.sel-img{transition:transform 0.3s ease,box-shadow 0.3s ease}.sel-img:hover{transform:scale(1.04);box-shadow:0 12px 40px rgba(201,168,76,0.3)}.logo-ani{transition:transform 0.4s ease,opacity 0.3s ease}.logo-ani:hover{transform:scale(1.08) rotate(3deg);opacity:0.9}.help-btn{transition:transform 0.15s ease,background 0.15s ease,box-shadow 0.15s ease}.help-btn:hover{transform:translateY(-2px) scale(1.12);background:rgba(201,168,76,0.28)!important;box-shadow:0 4px 12px rgba(201,168,76,0.3)}.stat-card{transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s ease}.stat-card:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 8px 24px rgba(201,168,76,0.2);border-color:rgba(201,168,76,0.5)!important}.wa-btn{transition:transform 0.15s ease,box-shadow 0.15s ease}.wa-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 8px 20px rgba(37,211,102,0.4)}@keyframes popIn{from{opacity:0;transform:scale(0.85) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}.popup-box{animation:popIn 0.25s cubic-bezier(0.34,1.56,0.64,1)}.popup-row-item{transition:background 0.15s ease,transform 0.15s ease}.popup-row-item:hover{background:rgba(201,168,76,0.08);transform:translateX(4px)}.popup-logo{transition:transform 0.4s ease}.popup-logo:hover{transform:scale(1.1) rotate(-5deg)}`}</style>
       <button onClick={()=>setSel(null)} style={{color:'#C9A84C',fontSize:'.8rem',background:'none',border:'none',cursor:'pointer',marginBottom:32,display:'block'}}>← Volver al catálogo</button>
       <div style={{maxWidth:640,margin:'0 auto',textAlign:'center'}}>
         {sel.video&&<video autoPlay loop muted playsInline className="sel-img" style={{width:'100%',maxWidth:400,borderRadius:12,border:'2px solid #C9A84C',marginBottom:16}}><source src={sel.video} type="video/mp4"/></video>}
         {!sel.video&&sel.foto&&<img src={sel.foto} alt={sel.n} className="sel-img" style={{width:'100%',maxWidth:400,height:280,objectFit:'cover',borderRadius:12,border:'2px solid #C9A84C',marginBottom:16}}/>}
-        {!sel.video&&!sel.foto&&<div style={{width:220,height:220,background:'rgba(201,168,76,0.06)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,margin:'0 auto 16px',display:'flex',alignItems:'center',justifyContent:'center'}}><img src="/logo-house-insects-peru.png" className="logo-ani" style={{width:180,height:180,objectFit:'contain',opacity:.7}} onError={(ev)=>{(ev.target as HTMLImageElement).src='/logo.png'}}/></div>}
+        {!sel.video&&!sel.foto&&(
+          <div className="sel-img" style={{width:320,maxWidth:'100%',height:280,background:'linear-gradient(135deg,#1A1209,#2A2010)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,margin:'0 auto 16px',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',position:'relative',overflow:'hidden',cursor:'default'}}>
+            <div style={{position:'absolute',inset:0,backgroundImage:'radial-gradient(circle at 30% 30%, rgba(201,168,76,0.1) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(201,168,76,0.06) 0%, transparent 50%)'}}/>
+            <div style={{position:'absolute',top:12,left:12,right:12,bottom:12,border:'1px solid rgba(201,168,76,0.1)',borderRadius:8}}/>
+            <img src="/logo-house-insects-peru.png" className="logo-ani" style={{width:120,height:120,objectFit:'contain',opacity:.8,filter:'drop-shadow(0 4px 20px rgba(201,168,76,0.5))',marginBottom:12,position:'relative',zIndex:1}} onError={(ev)=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>
+            <div style={{width:60,height:1,background:'linear-gradient(to right,transparent,rgba(201,168,76,0.5),transparent)',marginBottom:10,position:'relative',zIndex:1}}/>
+            <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.7rem',letterSpacing:'.15em',position:'relative',zIndex:1}}>FOTO PRÓXIMAMENTE</p>
+            <p style={{color:'rgba(232,201,122,0.25)',fontSize:'.6rem',letterSpacing:'.08em',marginTop:4,position:'relative',zIndex:1}}>HOUSE INSECTS OF PERU</p>
+          </div>
+        )}
         <p style={{color:'rgba(232,201,122,0.35)',fontSize:'.7rem',marginBottom:8,letterSpacing:'.08em'}}>ORDER: LEPIDOPTERA · AMAZONIA PERUANA · SERFOR · CITES</p>
-        <h1 style={{fontSize:'1.8rem',fontWeight:300,color:'#E8C97A',fontStyle:'italic',marginBottom:20}}>\{sel.n}</h1>
+        <h1 style={{fontSize:'1.8rem',fontWeight:300,color:'#E8C97A',fontStyle:'italic',marginBottom:20}}>{sel.n}</h1>
         <div style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:10,padding:'16px',marginBottom:20,textAlign:'left'}}>
           {[
             ['FAMILY', fid],
             ['LOCALITY', 'Tingo María, Perú'],
           ].map(([k,v])=>(
             <div key={k} style={{display:'flex',justifyContent:'space-between',padding:'6px 0',borderBottom:'1px solid rgba(201,168,76,0.08)'}}>
-              <span style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',letterSpacing:'.06em'}}>\{k}</span>
-              <span style={{color:'#E8C97A',fontSize:'.78rem',fontStyle:'italic'}}>\{v}</span>
+              <span style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',letterSpacing:'.06em'}}>{k}</span>
+              <span style={{color:'#E8C97A',fontSize:'.78rem',fontStyle:'italic'}}>{v}</span>
             </div>
           ))}
           <div style={{display:'flex',justifyContent:'space-between',padding:'6px 0',borderBottom:'1px solid rgba(201,168,76,0.08)',alignItems:'center'}}>
             <span style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',letterSpacing:'.06em'}}>QUALITY</span>
             <span style={{display:'flex',alignItems:'center',gap:6}}>
               <span style={{color:'#C9A84C',fontSize:'.78rem',fontWeight:700}}>A1</span>
-              <button onClick={()=>setShowQ(true)} style={{background:'rgba(201,168,76,0.12)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:3,padding:'1px 6px',fontSize:'.65rem',cursor:'pointer',fontFamily:'Georgia,serif'}}>? help</button>
+              <button onClick={()=>setShowQ(true)} className="help-btn" style={{background:'rgba(201,168,76,0.12)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:3,padding:'1px 6px',fontSize:'.65rem',cursor:'pointer',fontFamily:'Georgia,serif'}}>? help</button>
             </span>
           </div>
           <div style={{display:'flex',justifyContent:'space-between',padding:'6px 0',borderBottom:'1px solid rgba(201,168,76,0.08)',alignItems:'center'}}>
             <span style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',letterSpacing:'.06em'}}>SEX</span>
             <span style={{display:'flex',alignItems:'center',gap:6}}>
               <span style={{color:'#E8C97A',fontSize:'.78rem'}}>M or F</span>
-              <button onClick={()=>setShowA(true)} style={{background:'rgba(201,168,76,0.12)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:3,padding:'1px 6px',fontSize:'.65rem',cursor:'pointer',fontFamily:'Georgia,serif'}}>? help</button>
+              <button onClick={()=>setShowA(true)} className="help-btn" style={{background:'rgba(201,168,76,0.12)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:3,padding:'1px 6px',fontSize:'.65rem',cursor:'pointer',fontFamily:'Georgia,serif'}}>? help</button>
             </span>
           </div>
           <div style={{display:'flex',justifyContent:'space-between',padding:'6px 0',alignItems:'center'}}>
@@ -160,31 +175,31 @@ export default function Page() {
           </div>
         </div>
         <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:12,marginBottom:20}}>
-          <div style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:14}}>
+          <div className='stat-card' style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:14}}>
             <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.6rem',marginBottom:4,letterSpacing:'.06em'}}>PRICE USD</div>
             <div style={{color:'#E8C97A',fontSize:'1.5rem',fontWeight:700}}>${sel.p}</div>
           </div>
-          <div style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:14}}>
+          <div className='stat-card' style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:14}}>
             <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.6rem',marginBottom:4,letterSpacing:'.06em'}}>STOCK</div>
-            <div style={{color:'#E8C97A',fontSize:'1.5rem',fontWeight:700}}>\{sel.s}</div>
+            <div style={{color:'#E8C97A',fontSize:'1.5rem',fontWeight:700}}>{sel.s}</div>
           </div>
-          <div style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:14}}>
+          <div className='stat-card' style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:14}}>
             <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.6rem',marginBottom:4,letterSpacing:'.06em'}}>QUALITY</div>
             <div style={{color:'#7EC87E',fontSize:'1rem',fontWeight:700}}>A1</div>
           </div>
         </div>
         <div style={{fontSize:'.7rem',color:'rgba(232,201,122,0.4)',marginBottom:20,lineHeight:2,letterSpacing:'.06em'}}>SERFOR · CITES · EXPORTAFACIL · DHL · FEDEX · UPS · ARAMEX · RUC 20447397804</div>
         <div style={{display:'flex',gap:10,justifyContent:'center',flexWrap:'wrap'}}>
-          <a href={`https://wa.me/51940699405?text=Me interesa: ${sel.n} USD $${sel.p}`} target="_blank" style={{background:'#25D366',color:'white',padding:'12px 22px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>💬 +51 940 699 405</a>
-          <a href={`https://wa.me/51920644433?text=Me interesa: ${sel.n} USD $${sel.p}`} target="_blank" style={{background:'#25D366',color:'white',padding:'12px 22px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>💬 +51 920 644 433</a>
+          <a href={`https://wa.me/51940699405?text=Me interesa: ${sel.n} USD $${sel.p}`} target="_blank" className='wa-btn' style={{background:'#25D366',color:'white',padding:'12px 22px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>💬 +51 940 699 405</a>
+          <a href={`https://wa.me/51920644433?text=Me interesa: ${sel.n} USD $${sel.p}`} target="_blank" className='wa-btn' style={{background:'#25D366',color:'white',padding:'12px 22px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>💬 +51 920 644 433</a>
         </div>
       </div>
     </div>
   )
   return (
     <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'32px 16px'}}>
-      {showQ&&<PopupCalidad onClose={()=>setShowQ(false)}/>}
-      {showA&&<PopupAbrev onClose={()=>setShowA(false)}/>}
+      {showQ&&<PopupCalidad onClose={()=>setShowQ(false)} foto={sel?.foto} nombre={sel?.n}/>}
+      {showA&&<PopupAbrev onClose={()=>setShowA(false)} foto={sel?.foto} nombre={sel?.n}/>}
       <a href="/" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none',display:'block',marginBottom:16}}>← Inicio</a>
       <div style={{maxWidth:1200,margin:'0 auto'}}>
         <div style={{textAlign:'center',marginBottom:20}}>
@@ -192,16 +207,22 @@ export default function Page() {
           <h1 style={{fontSize:'1.6rem',fontWeight:300,color:'#E8C97A',marginBottom:4}}>Especimenes Biologicos Secos</h1>
           <p style={{color:'rgba(232,201,122,0.3)',fontSize:'.7rem',letterSpacing:'.08em'}}>HOUSE INSECTS OF PERU · AMAZONIA · SERFOR · CITES · RUC 20447397804</p>
         </div>
+        <style>{`
+          .ord-btn{transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.15s ease}
+          .ord-btn:hover{transform:translateY(-2px) scale(1.06);box-shadow:0 4px 14px rgba(201,168,76,0.3)}
+          .fam-btn{transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.15s ease,color 0.15s ease}
+          .fam-btn:hover{transform:translateY(-3px) scale(1.08);box-shadow:0 6px 18px rgba(201,168,76,0.25);border-color:rgba(201,168,76,0.5)!important;color:#E8C97A!important}
+        `}</style>
         <div style={{display:'flex',gap:4,flexWrap:'wrap',justifyContent:'center',marginBottom:12}}>
           {ORDS.map(c=>(
-            <button key={c.o} onClick={()=>{setOrd(c.o);setFid(c.f[0].id);setQ('');setPag(1)}} style={{padding:'6px 12px',background:ord===c.o?'#C9A84C':'rgba(201,168,76,0.08)',color:ord===c.o?'#1A1209':'#C9A84C',border:'1px solid rgba(201,168,76,0.25)',borderRadius:4,fontSize:'.7rem',cursor:'pointer',fontWeight:ord===c.o?700:400}}>
+            <button key={c.o} onClick={()=>{setOrd(c.o);setFid(c.f[0].id);setQ('');setPag(1)}} className="ord-btn" style={{padding:'6px 12px',background:ord===c.o?'#C9A84C':'rgba(201,168,76,0.08)',color:ord===c.o?'#1A1209':'#C9A84C',border:'1px solid rgba(201,168,76,0.25)',borderRadius:4,fontSize:'.7rem',cursor:'pointer',fontWeight:ord===c.o?700:400}}>
               {c.o}
             </button>
           ))}
         </div>
         <div style={{display:'flex',gap:3,flexWrap:'wrap',justifyContent:'center',marginBottom:14,padding:'8px',background:'rgba(201,168,76,0.03)',borderRadius:8,border:'1px solid rgba(201,168,76,0.08)'}}>
           {catAct.f.map(f=>(
-            <button key={f.id} onClick={()=>{setFid(f.id);setQ('');setPag(1)}} style={{padding:'4px 10px',background:fid===f.id?'#C9A84C':'transparent',color:fid===f.id?'#1A1209':'rgba(201,168,76,0.6)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:12,fontSize:'.65rem',cursor:'pointer',fontStyle:'italic',fontWeight:fid===f.id?700:400}}>
+            <button key={f.id} onClick={()=>{setFid(f.id);setQ('');setPag(1)}} className="fam-btn" style={{padding:'4px 10px',background:fid===f.id?'#C9A84C':'transparent',color:fid===f.id?'#1A1209':'rgba(201,168,76,0.6)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:12,fontSize:'.65rem',cursor:'pointer',fontStyle:'italic',fontWeight:fid===f.id?700:400}}>
               {f.nm}{f.e.length>0?` (${f.e.length})`:''}</button>
           ))}
         </div>
@@ -218,12 +239,19 @@ export default function Page() {
               {pagEsp.map((e,i)=>(
                 <button key={i} onClick={()=>setSel(e)} className="esp-card">
                   <div style={{width:'100%',height:75,background:'rgba(201,168,76,0.06)',borderRadius:5,marginBottom:6,display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden'}}>
-                    {e.foto?<img src={e.foto} style={{width:'100%',height:'100%',objectFit:'cover'}}/>:<img src="/logo-house-insects-peru.png" style={{width:54,height:54,objectFit:'contain',opacity:.45}} onError={(ev)=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>}
+                    {e.foto?<img src={e.foto} style={{width:'100%',height:'100%',objectFit:'cover'}}/>:(
+                    <div style={{width:'100%',height:'100%',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',background:'linear-gradient(135deg,rgba(26,18,9,0.9),rgba(42,32,16,0.95))',position:'relative',overflow:'hidden'}}>
+                      <div style={{position:'absolute',inset:0,backgroundImage:'radial-gradient(circle at 30% 40%, rgba(201,168,76,0.08) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(201,168,76,0.05) 0%, transparent 50%)'}}/>
+                      <img src="/logo-house-insects-peru.png" style={{width:44,height:44,objectFit:'contain',opacity:.6,marginBottom:4,filter:'drop-shadow(0 2px 8px rgba(201,168,76,0.4))'}} onError={(ev)=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>
+                      <div style={{width:30,height:1,background:'rgba(201,168,76,0.3)',margin:'3px auto'}}/>
+                      <span style={{color:'rgba(201,168,76,0.4)',fontSize:'.5rem',letterSpacing:'.12em'}}>FOTO PRÓXIMAMENTE</span>
+                    </div>
+                  )}
                   </div>
-                  <div style={{fontSize:'.68rem',fontStyle:'italic',color:'#E8C97A',marginBottom:4,lineHeight:1.3}}>\{e.n}</div>
+                  <div style={{fontSize:'.68rem',fontStyle:'italic',color:'#E8C97A',marginBottom:4,lineHeight:1.3}}>{e.n}</div>
                   <div style={{display:'flex',justifyContent:'space-between'}}>
                     <span style={{color:'#C9A84C',fontWeight:700,fontSize:'.75rem'}}>${e.p}</span>
-                    <span style={{color:'rgba(232,201,122,0.3)',fontSize:'.58rem'}}>\{e.s}</span>
+                    <span style={{color:'rgba(232,201,122,0.3)',fontSize:'.58rem'}}>{e.s}</span>
                   </div>
                 </button>
               ))}
@@ -232,7 +260,7 @@ export default function Page() {
               <div style={{display:'flex',gap:5,justifyContent:'center',flexWrap:'wrap',marginTop:20,paddingTop:14,borderTop:'1px solid rgba(201,168,76,0.12)'}}>
                 <button onClick={()=>setPag(p=>Math.max(1,p-1))} disabled={pag===1} style={{padding:'5px 10px',background:'rgba(201,168,76,0.08)',color:pag===1?'rgba(201,168,76,0.25)':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:pag===1?'not-allowed':'pointer',fontSize:'.7rem'}}>← Ant</button>
                 {Array.from({length:Math.min(totalPag,10)},(_,i)=>i+1).map(n=>(
-                  <button key={n} onClick={()=>setPag(n)} style={{padding:'5px 9px',background:pag===n?'#C9A84C':'rgba(201,168,76,0.08)',color:pag===n?'#1A1209':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:'pointer',fontSize:'.7rem',fontWeight:pag===n?700:400,minWidth:28}}>\{n}</button>
+                  <button key={n} onClick={()=>setPag(n)} style={{padding:'5px 9px',background:pag===n?'#C9A84C':'rgba(201,168,76,0.08)',color:pag===n?'#1A1209':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:'pointer',fontSize:'.7rem',fontWeight:pag===n?700:400,minWidth:28}}>{n}</button>
                 ))}
                 <button onClick={()=>setPag(p=>Math.min(totalPag,p+1))} disabled={pag===totalPag} style={{padding:'5px 10px',background:'rgba(201,168,76,0.08)',color:pag===totalPag?'rgba(201,168,76,0.25)':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:pag===totalPag?'not-allowed':'pointer',fontSize:'.7rem'}}>Sig →</button>
               </div>
@@ -240,7 +268,7 @@ export default function Page() {
           </>
         ):(
           <div style={{textAlign:'center',padding:'40px 20px'}}>
-            <p style={{color:'rgba(232,201,122,0.3)',marginBottom:12}}>\{fam.e.length===0?`Proximamente especies de ${fid}`:'No se encontraron'}</p>
+            <p style={{color:'rgba(232,201,122,0.3)',marginBottom:12}}>{fam.e.length===0?`Proximamente especies de ${fid}`:'No se encontraron'}</p>
             <a href="https://wa.me/51940699405" target="_blank" style={{display:'inline-block',background:'#25D366',color:'white',padding:'10px 20px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.8rem'}}>Consultar disponibilidad</a>
           </div>
         )}
