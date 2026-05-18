@@ -80,7 +80,7 @@ const familiaSchema = defineType({
 export default defineConfig({
   name: 'house-insects-peru',
   title: 'House Insects of Peru 🦋',
-  projectId: 'lyty7d3g',
+  projectId: '4zd6pr6j',
   dataset: 'production',
   plugins: [
     structureTool({
