@@ -56,7 +56,7 @@ export default function HerramientasPage() {
         .wa-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.4)}
         .pieza-card{background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.1);border-radius:8px;padding:10px;margin-bottom:8px;display:flex;gap:10px;align-items:center;transition:all 0.18s ease}
         .pieza-card:hover{background:rgba(201,168,76,0.08);transform:translateX(4px);border-color:rgba(201,168,76,0.25)}
-        .alert-card{background:rgba(239,83,80,0.08);border:1px solid rgba(239,83,80,0.3);border-radius:8px;padding:10px;margin-bottom:12px}
+        
       `}</style>
       <div className="pc" style={{maxWidth:1000,margin:'0 auto'}}>
         <a href="/" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none',display:'block',marginBottom:16}}>← Inicio</a>
@@ -73,14 +73,7 @@ export default function HerramientasPage() {
           </div>
         </div>
 
-        {(cat==='reptiles'||cat==='marina'||cat==='taxidermia')&&(
-          <div className="alert-card" style={{maxWidth:700,margin:'0 auto 16px'}}>
-            <p style={{color:'#EF5350',fontSize:'.78rem',fontWeight:700}}>⚠️ CATEGORÍA CONTROLADA — PERMISO OBLIGATORIO</p>
-            <p style={{color:'rgba(239,83,80,0.7)',fontSize:'.68rem',marginTop:4}}>
-              Todo producto en esta categoría requiere: Permiso SERFOR + CITES (fauna terrestre) o PRODUCE + SANIPES (fauna marina) antes de generar guía de exportación.
-            </p>
-          </div>
-        )}
+
 
         <div style={{display:'flex',gap:8,flexWrap:'wrap',justifyContent:'center',marginBottom:24}}>
           {CATS.map(c=>(
