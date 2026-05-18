@@ -111,6 +111,10 @@ export default function AdminPage() {
             {id:'logistica',label:'✈️ Logística'},
             {id:'precios',label:'💰 Precios & Drawback'},
             {id:'qr',label:'🔍 Códigos QR'},
+            {id:'sunat',label:'📄 SUNAT & Docs'},
+            {id:'pagos',label:'💳 Pagos & Bancos'},
+            {id:'sunat',label:'📄 SUNAT & Docs'},
+            {id:'pagos',label:'💳 Pagos & Bancos'},
           ].map(t=>(
             <button key={t.id} onClick={()=>setTab(t.id)} className={`tab-btn ${tab===t.id?'active':'inactive'}`}>{t.label}</button>
           ))}
