@@ -1,530 +1,121 @@
 'use client'
 import { useState } from 'react'
-type E = { nombre:string; precio:number; stock:number; calidad:string; foto?:string; video?:string }
-type F = { id:string; nombre:string; especies:E[] }
-const CATALOGOS = [
-  { orden:'Lepidoptera Diurnae', familias:[
-    { id:'Brassolidae', nombre:'Brassolidae', especies:[
-      {nombre:'Caligo eurilochus livius',precio:4.0,stock:800,calidad:'A1'},
-      {nombre:'Caligo idomenius idomenides',precio:6.5,stock:100,calidad:'A1'},
-      {nombre:'Caligo illioneus',precio:3.5,stock:200,calidad:'A1'},
-      {nombre:'Caligo placidianus',precio:4.0,stock:200,calidad:'A1'},
-      {nombre:'Caligo prometheus',precio:9.0,stock:200,calidad:'A1'},
-      {nombre:'Caligo superbus',precio:15.0,stock:50,calidad:'A1'},
-      {nombre:'Caligo teucer semicaerulea',precio:3.5,stock:300,calidad:'A1'},
-      {nombre:'Dynastor darius darius',precio:15.0,stock:10,calidad:'A1'},
-      {nombre:'Opoptera aorsa',precio:4.5,stock:100,calidad:'A1'},
-      {nombre:'Opoptera arsippe arsippe',precio:4.5,stock:200,calidad:'A1'},
-      {nombre:'Opsiphanes bogatanus',precio:3.5,stock:100,calidad:'A1'},
-      {nombre:'Opsiphanes tamarindi incolumis',precio:4.0,stock:50,calidad:'A1'},
-      {nombre:'Caligo illioneus oberon',precio:4.0,stock:200,calidad:'A1'},
-      {nombre:'Caligo Oberthuri floklides',precio:10.0,stock:50,calidad:'A1'},
-      {nombre:'Eryphanis Polyxena',precio:7.5,stock:200,calidad:'A1'},
-      {nombre:'Catoblepia Berecynthia',precio:10.0,stock:20,calidad:'A1'},
-      {nombre:'Dynastor macrosirus stix',precio:30.0,stock:5,calidad:'A1'},
-      {nombre:'Opoptera Arsippe Bracteolata',precio:4.0,stock:20,calidad:'A1'},
-      {nombre:'Opsiphanes Cassina',precio:3.5,stock:50,calidad:'A1'},
-      {nombre:'Opsiphanes Sallei',precio:3.0,stock:100,calidad:'A1'},
-      {nombre:'Opsiphanes Invirae Agasthenes',precio:2.5,stock:200,calidad:'A1'},
-      {nombre:'Opsiphanes Quiteria Quirinalis',precio:2.5,stock:100,calidad:'A1'},
-    ] as E[] },
-    { id:'Danaidae', nombre:'Danaidae', especies:[
-      {nombre:'Danaus plexippus nigrippus',precio:2.5,stock:2000,calidad:'A1'},
-      {nombre:'Lycorea halia',precio:4.0,stock:20,calidad:'A1'},
-      {nombre:'Lycorea ilione lamaris',precio:1.5,stock:2000,calidad:'A1'},
-      {nombre:'Lycorea Ituna Ilione Phenarete',precio:2.0,stock:100,calidad:'A1'},
-      {nombre:'Danaus Gilippus thersippus',precio:3.0,stock:200,calidad:'A1'},
-    ] as E[] },
-    { id:'Heliconidae', nombre:'Heliconidae', especies:[
-      {nombre:'Dione juno',precio:1.3,stock:5000,calidad:'A1'},
-      {nombre:'Dione moneta',precio:2.5,stock:500,calidad:'A1'},
-      {nombre:'Dryas julia',precio:1.3,stock:5000,calidad:'A1'},
-      {nombre:'Eueides (Heliconius) aliphera',precio:1.8,stock:2000,calidad:'A1'},
-      {nombre:'Eueides isabella dissolutus',precio:2.5,stock:5,calidad:'A1'},
-      {nombre:'Euides tales',precio:2.0,stock:500,calidad:'A1'},
-      {nombre:'Godyris duillia (Ithomidae)',precio:2.5,stock:500,calidad:'A1'},
-      {nombre:'Godyris zavalata huanaco',precio:1.8,stock:500,calidad:'A1'},
-      {nombre:'Heliconius burneyi huebneri',precio:4.0,stock:100,calidad:'A1'},
-      {nombre:'Heliconius erato microclea',precio:2.5,stock:200,calidad:'A1'},
-      {nombre:'Heliconius hecale shanki',precio:5.5,stock:10,calidad:'A1'},
-      {nombre:'Heliconius melpomene amaryllis',precio:2.0,stock:5000,calidad:'A1'},
-      {nombre:'Heliconius melpomene',precio:2.5,stock:20,calidad:'A1'},
-      {nombre:'Heliconius numata bicoloratus',precio:2.0,stock:500,calidad:'A1'},
-      {nombre:'Heliconius telesiphe telesiphe',precio:2.0,stock:500,calidad:'A1'},
-      {nombre:'Heliconius wallacei flavescens',precio:1.8,stock:500,calidad:'A1'},
-      {nombre:'Methona curvifascia',precio:1.8,stock:3000,calidad:'A1'},
-      {nombre:'Philaethria (Metamorpha) dido',precio:4.0,stock:200,calidad:'A1'},
-      {nombre:'Thyridia psidii cetoides',precio:1.5,stock:2000,calidad:'A1'},
-      {nombre:'Tithorea harmonia',precio:2.5,stock:200,calidad:'A1'},
-      {nombre:'Hypothyris semifulva',precio:2.0,stock:300,calidad:'A1'},
-      {nombre:'Mechanitis polymnia',precio:2.0,stock:10,calidad:'A1'},
-    ] as E[] },
-    { id:'Hesperiidae', nombre:'Hesperiidae', especies:[] as E[] },
-    { id:'Ithomidae', nombre:'Ithomidae', especies:[] as E[] },
-    { id:'Lycaenidae', nombre:'Lycaenidae', especies:[
-      {nombre:'Arawacus seperata',precio:6.5,stock:200,calidad:'A1'},
-      {nombre:'Arcas imperialis',precio:15.0,stock:200,calidad:'A1'},
-      {nombre:'Arcas tuneta',precio:15.0,stock:100,calidad:'A1'},
-      {nombre:'Evenus gannymedes',precio:18.0,stock:20,calidad:'A1'},
-      {nombre:'Thecla gibberosa',precio:12.0,stock:100,calidad:'A1'},
-      {nombre:'Arawacus dolylas',precio:10.0,stock:15,calidad:'A1'},
-    ] as E[] },
-    { id:'Morphidae', nombre:'Morphidae', especies:[
-      {nombre:'Morpho absoloni',precio:45,stock:100,calidad:'A1'},
-      {nombre:'Morpho aurora aureola',precio:15,stock:200,calidad:'A1'},
-      {nombre:'Morpho eugenia',precio:20,stock:50,calidad:'A1'},
-      {nombre:'Morpho lympharis selenarys',precio:15,stock:1000,calidad:'A1'},
-      {nombre:'Morpho sulkowskyi descimokoenigi',precio:13,stock:200,calidad:'A1'},
-      {nombre:'Morpho rhetenor cacica',precio:35,stock:500,calidad:'A1'},
-      {nombre:'Morpho rethenor helena',precio:45,stock:1000,calidad:'A1'},
-      {nombre:'Morpho telemachus',precio:6,stock:500,calidad:'A1'},
-      {nombre:'Morpho zephritis',precio:14,stock:1000,calidad:'A1'},
-      {nombre:'Morpho theseus juturna',precio:24,stock:500,calidad:'A1'},
-      {nombre:'Morpho menelaus assarpai',precio:12,stock:500,calidad:'A1'},
-      {nombre:'Morpho cisseis gahua',precio:15,stock:200,calidad:'A1'},
-      {nombre:'Morpho cisseis phanademus',precio:18,stock:50,calidad:'A1'},
-      {nombre:'Morpho adonis huallaga',precio:12,stock:200,calidad:'A1'},
-      {nombre:'Morpho amphitrion cinerous',precio:48,stock:100,calidad:'A1'},
-      {nombre:'Morpho deidamia marie',precio:7.5,stock:1000,calidad:'A1'},
-      {nombre:'Morpho achilles helenor',precio:5.5,stock:1000,calidad:'A1'},
-      {nombre:'Morpho didius',precio:6.5,stock:5000,calidad:'A1'},
-      {nombre:'Morpho didius tingomaria',precio:6.5,stock:5000,calidad:'A1'},
-      {nombre:'Morpho menelaus michaelus',precio:23,stock:20,calidad:'A1'},
-      {nombre:'Morpho menelaus pucallpensis',precio:21,stock:50,calidad:'A1'},
-      {nombre:'Morpho helenor amazonius',precio:7,stock:200,calidad:'A1'},
-      {nombre:'Morpho mariosiajane',precio:50,stock:50,calidad:'A1'},
-      {nombre:'Morpho sulkowoskii nieva',precio:30,stock:50,calidad:'A1'},
-      {nombre:'Morpho sulkowoskii zachi',precio:45,stock:100,calidad:'A1'},
-      {nombre:'Morpho godartii julanthicus',precio:12,stock:500,calidad:'A1'},
-      {nombre:'Morpho menelaus zischkai',precio:13,stock:5000,calidad:'A1'},
-      {nombre:'Morpho rethenor mariosiojane small',precio:45,stock:200,calidad:'A1'},
-      {nombre:'Morpho aurora isidorssoni',precio:18,stock:100,calidad:'A1'},
-      {nombre:'Morpho aurora lamasi',precio:16,stock:200,calidad:'A1'},
-      {nombre:'Morpho cisseis gahua ssp gahua',precio:120,stock:10,calidad:'A1'},
-    ] as E[] },
-    { id:'Nymphalidae', nombre:'Nymphalidae', especies:[
-      {nombre:'Adelpha mesentina',precio:1.8,stock:500,calidad:'A1'},
-      {nombre:'Adelpha erotia erotia f. erotia',precio:2.0,stock:200,calidad:'A1'},
-      {nombre:'Adelpha iphiclus',precio:2.0,stock:200,calidad:'A1'},
-      {nombre:'Adelpha lycorias lara',precio:2.0,stock:500,calidad:'A1'},
-      {nombre:'Agraulis vanillae lucina f. catella',precio:2.5,stock:500,calidad:'A1'},
-      {nombre:'Agrias amydon zenodorus',precio:60.0,stock:100,calidad:'A1'},
-      {nombre:'Agrias claudina lugens',precio:10.0,stock:2000,calidad:'A1'},
-      {nombre:'Agrias hewitsonius beata (=beatifica beata)',precio:6.0,stock:3000,calidad:'A1'},
-      {nombre:'Agrias hewitsonius stuarti (=beatifica stuarti)',precio:40.0,stock:10,calidad:'A1'},
-      {nombre:'Agrias pericles peruviana',precio:120.0,stock:10,calidad:'A1'},
-      {nombre:'Agrias sardanapulis',precio:30.0,stock:200,calidad:'A1'},
-      {nombre:'Asterope degandii allyni (= A. adamsi)',precio:5.0,stock:200,calidad:'A1'},
-      {nombre:'Asterope degandii bartletti',precio:5.5,stock:200,calidad:'A1'},
-      {nombre:'Asterope markii davisi',precio:3.0,stock:500,calidad:'A1'},
-      {nombre:'Asterope markii hewitsoni',precio:20.0,stock:5,calidad:'A1'},
-      {nombre:'Asterope optima f. eminens',precio:5.5,stock:500,calidad:'A1'},
-      {nombre:'Asterope optima philotina',precio:3.5,stock:20,calidad:'A1'},
-      {nombre:'Asterope whitelyi whitelyi',precio:5.0,stock:50,calidad:'A1'},
-      {nombre:'Baeotus (Megistanis) amazonicus',precio:5.0,stock:200,calidad:'A1'},
-      {nombre:'Baeotus (Megistanis) japetus',precio:5.0,stock:200,calidad:'A1'},
-      {nombre:'Baeotus (Megistanis) deucalion',precio:5.0,stock:300,calidad:'A1'},
-      {nombre:'Batesia hypochlora f.hypochlora',precio:8.0,stock:500,calidad:'A1'},
-      {nombre:'Biblis hyperia',precio:2.0,stock:500,calidad:'A1'},
-      {nombre:'Callicore (Catagramma)hytaspes',precio:2.0,stock:500,calidad:'A1'},
-      {nombre:'Callicore cynosura -Verso Aberration',precio:2.5,stock:2000,calidad:'A1'},
-      {nombre:'Callicore cynosura cynosura',precio:2.5,stock:5000,calidad:'A1'},
-      {nombre:'Callicore discrepans',precio:10.0,stock:500,calidad:'A1'},
-      {nombre:'Callicore eunomia',precio:2.0,stock:1000,calidad:'A1'},
-      {nombre:'Callicore excelsior pastazza',precio:3.0,stock:200,calidad:'A1'},
-      {nombre:'Callicore felderi cajetani',precio:3.0,stock:100,calidad:'A1'},
-      {nombre:'Callicore hesperis',precio:2.5,stock:1000,calidad:'A1'},
-      {nombre:'Callicore lyca aegina',precio:2.5,stock:5000,calidad:'A1'},
-      {nombre:'Callicore texa maimuna',precio:3.0,stock:100,calidad:'A1'},
-      {nombre:'Callicore tolima',precio:6.5,stock:50,calidad:'A1'},
-      {nombre:'Callidula pyramus',precio:4.0,stock:10,calidad:'A1'},
-      {nombre:'Catenophele salambria',precio:3.0,stock:500,calidad:'A1'},
-      {nombre:'Catonephele acontius',precio:2.0,stock:500,calidad:'A1'},
-      {nombre:'Catonephele chromis chromis',precio:2.5,stock:100,calidad:'A1'},
-      {nombre:'Catonephele numilia (Peru)',precio:2.5,stock:500,calidad:'A1'},
-      {nombre:'Catonephele numilia (Peru) F',precio:6.0,stock:4,calidad:'A1'},
-      {nombre:'Catonephele selambria',precio:2.5,stock:100,calidad:'A1'},
-      {nombre:'Coenophlebia (Anaea) archidona',precio:6.5,stock:100,calidad:'A1'},
-      {nombre:'Colubura dirce',precio:2.0,stock:200,calidad:'A1'},
-      {nombre:'Consul (Anaea) fabius divisus',precio:2.5,stock:200,calidad:'A1'},
-      {nombre:'Diaethria (Catacore) kolyma',precio:3.0,stock:2000,calidad:'A1'},
-      {nombre:'Diaethria (Catacore) kolyma f. pasithea',precio:3.5,stock:100,calidad:'A1'},
-      {nombre:'Diaethria clymena peruviana',precio:1.8,stock:5000,calidad:'A1'},
-      {nombre:'Diaethria neglecta neglecta',precio:1.5,stock:5000,calidad:'A1'},
-      {nombre:'Doxocopa agathina',precio:4.0,stock:200,calidad:'A1'},
-      {nombre:'Doxocopa cherubina',precio:2.5,stock:5000,calidad:'A1'},
-      {nombre:'Doxocopa cyane',precio:2.5,stock:500,calidad:'A1'},
-      {nombre:'Doxocopa elis',precio:2.0,stock:1000,calidad:'A1'},
-      {nombre:'Doxocopa lavinia',precio:3.0,stock:200,calidad:'A1'},
-      {nombre:'Doxocopa linda f. linda',precio:2.5,stock:500,calidad:'A1'},
-      {nombre:'Doxocopa linda f. selina',precio:2.0,stock:1000,calidad:'A1'},
-      {nombre:'Doxocopa pavon',precio:3.5,stock:150,calidad:'A1'},
-      {nombre:'Doxocopa zunilda floris',precio:4.0,stock:50,calidad:'A1'},
-      {nombre:'Eunica carias ninetta',precio:5.0,stock:100,calidad:'A1'},
-      {nombre:'Eunica alcmena flora',precio:4.0,stock:2000,calidad:'A1'},
-      {nombre:'Eunica ameliae',precio:4.0,stock:2000,calidad:'A1'},
-      {nombre:'Eunica bechina',precio:5.5,stock:50,calidad:'A1'},
-      {nombre:'Eunica caralis caralis',precio:6.0,stock:100,calidad:'A1'},
-      {nombre:'Eunica carias ninetta',precio:6.0,stock:100,calidad:'A1'},
-      {nombre:'Eunica chlorochroa',precio:5.0,stock:200,calidad:'A1'},
-      {nombre:'Eunica clytia',precio:3.5,stock:50,calidad:'A1'},
-      {nombre:'Eunica eurota',precio:4.5,stock:500,calidad:'A1'},
-      {nombre:'Eunica excelsa',precio:4.5,stock:500,calidad:'A1'},
-      {nombre:'Eunica malvina',precio:4.0,stock:500,calidad:'A1'},
-      {nombre:'Eunica mygdona',precio:6.5,stock:50,calidad:'A1'},
-      {nombre:'Eunica norica',precio:2.5,stock:5000,calidad:'A1'},
-      {nombre:'Eunica orphise',precio:5.0,stock:50,calidad:'A1'},
-      {nombre:'Eunica pomona pomona',precio:7.5,stock:20,calidad:'A1'},
-      {nombre:'Eunica sophonisba agele',precio:12.0,stock:5,calidad:'A1'},
-      {nombre:'Eunica sydonia',precio:6.0,stock:100,calidad:'A1'},
-      {nombre:'Eunica veronica',precio:8.0,stock:200,calidad:'A1'},
-      {nombre:'Eunica volumna celma',precio:4.0,stock:500,calidad:'A1'},
-      {nombre:'Fountainea (Anaea) eurypyle (=tehuana)',precio:2.0,stock:2000,calidad:'A1'},
-      {nombre:'Fountainea (Anaea) ryphea ryphea (Peru)',precio:2.0,stock:2000,calidad:'A1'},
-      {nombre:'Hamadryas amphinome',precio:3.5,stock:500,calidad:'A1'},
-      {nombre:'Hamadryas arinome',precio:3.0,stock:500,calidad:'A1'},
-      {nombre:'Hamadryas chloe',precio:3.0,stock:50,calidad:'A1'},
-      {nombre:'Hamadryas epinome',precio:3.0,stock:100,calidad:'A1'},
-      {nombre:'Hamadryas feronia',precio:2.5,stock:2000,calidad:'A1'},
-      {nombre:'Hamadryas fornax',precio:3.0,stock:500,calidad:'A1'},
-      {nombre:'Hamadryas iphthime iphthime',precio:2.0,stock:500,calidad:'A1'},
-      {nombre:'Hamadryas laodamia laodamia',precio:4.0,stock:500,calidad:'A1'},
-      {nombre:'Historis odius',precio:1.5,stock:5000,calidad:'A1'},
-      {nombre:'Junonia l(Precis) lavinia lavinia',precio:3.5,stock:500,calidad:'A1'},
-      {nombre:'Marpesia berania',precio:1.2,stock:5000,calidad:'A1'},
-      {nombre:'Hypna (Anaea) clymenestra negra',precio:1.5,stock:500,calidad:'A1'},
-      {nombre:'Marpesia coresia',precio:2.0,stock:500,calidad:'A1'},
-      {nombre:'Marpesia crethon',precio:1.5,stock:2000,calidad:'A1'},
-      {nombre:'Marpesia hermione',precio:3.0,stock:50,calidad:'A1'},
-      {nombre:'Marpesia marcella/corinna',precio:2.5,stock:5000,calidad:'A1'},
-      {nombre:'Marpesia petreus',precio:3.0,stock:100,calidad:'A1'},
-      {nombre:'Memphis (Anaea) acaudata',precio:8.0,stock:20,calidad:'A1'},
-      {nombre:'Memphis (Anaea) alberta',precio:8.0,stock:20,calidad:'A1'},
-      {nombre:'Memphis (Anaea) arginussa (Peru)',precio:2.0,stock:100,calidad:'A1'},
-      {nombre:'Memphis (Anaea) cerelia (Peru)',precio:4.0,stock:500,calidad:'A1'},
-      {nombre:'Memphis (Anaea) falcata',precio:15.0,stock:20,calidad:'A1'},
-      {nombre:'Memphis (Anaea) florita',precio:3.5,stock:100,calidad:'A1'},
-      {nombre:'Memphis (Anaea) lemnos (Peru)',precio:2.5,stock:200,calidad:'A1'},
-      {nombre:'Memphis (Anaea) lineata (Peru)',precio:3.0,stock:500,calidad:'A1'},
-      {nombre:'Memphis (Anaea) mora montana',precio:3.0,stock:100,calidad:'A1'},
-      {nombre:'Memphis (Anaea) moruus morpheus',precio:4.0,stock:200,calidad:'A1'},
-      {nombre:'Memphis (Anaea) offa',precio:5.0,stock:100,calidad:'A1'},
-      {nombre:'Memphis (Anaea) philumena philumena (Peru)',precio:3.0,stock:500,calidad:'A1'},
-      {nombre:'Memphis (Anaea) pithyusa pithyusa (Peru)',precio:3.0,stock:500,calidad:'A1'},
-      {nombre:'Memphis (Anaea) polycarmes (Peru)',precio:2.5,stock:500,calidad:'A1'},
-      {nombre:'Memphis (Anaea) polyxo',precio:3.5,stock:500,calidad:'A1'},
-      {nombre:'Memphis (Anaea) praxias (Peru)',precio:4.0,stock:500,calidad:'A1'},
-      {nombre:'Memphis (Anaea) xenocles xenocles (Peru)',precio:2.5,stock:500,calidad:'A1'},
-      {nombre:'Napocles jucunda',precio:4.0,stock:500,calidad:'A1'},
-      {nombre:'Nessaea hewitsoni',precio:4.0,stock:500,calidad:'A1'},
-      {nombre:'Orophila (Perisama) diotima cecidas',precio:2.5,stock:20,calidad:'A1'},
-      {nombre:'Panacea prola',precio:2.5,stock:5000,calidad:'A1'},
-      {nombre:'Panacea regina chalcothea',precio:3.5,stock:500,calidad:'A1'},
-      {nombre:'Paulogramma pyracmon peristera',precio:2.0,stock:3000,calidad:'A1'},
-      {nombre:'Perisama alicia',precio:3.0,stock:500,calidad:'A1'},
-      {nombre:'Perisama ambatensis',precio:5.0,stock:500,calidad:'A1'},
-      {nombre:'Perisama bomplandii albipenis',precio:4.0,stock:200,calidad:'A1'},
-      {nombre:'Perisama canoma',precio:2.5,stock:500,calidad:'A1'},
-      {nombre:'Perisama cecidas',precio:4.0,stock:50,calidad:'A1'},
-      {nombre:'Perisama comnena',precio:3.0,stock:500,calidad:'A1'},
-      {nombre:'Perisama hilara',precio:3.5,stock:500,calidad:'A1'},
-      {nombre:'Perisama humboldti',precio:3.0,stock:500,calidad:'A1'},
-      {nombre:'Perisama jurinei jurinei',precio:3.5,stock:500,calidad:'A1'},
-      {nombre:'Perisama lanice picteti',precio:3.0,stock:500,calidad:'A1'},
-      {nombre:'Perisama oppellii viridinota',precio:4.0,stock:100,calidad:'A1'},
-      {nombre:'Perisama pericles',precio:3.0,stock:500,calidad:'A1'},
-      {nombre:'Perisama philinus saussurei',precio:3.5,stock:500,calidad:'A1'},
-      {nombre:'Perisama tringa',precio:3.5,stock:500,calidad:'A1'},
-      {nombre:'Perisama vitringa vitringa',precio:3.5,stock:500,calidad:'A1'},
-      {nombre:'Perisama xanthica xanthica',precio:3.5,stock:500,calidad:'A1'},
-      {nombre:'Polygrapha (Anaea) cyanea cyanea',precio:3.5,stock:500,calidad:'A1'},
-      {nombre:'Polygrapha (Anaea) tyrianthina',precio:15.0,stock:100,calidad:'A1'},
-      {nombre:'Polygrapha (Anaea) xenocrates xenocrates (Peru)',precio:2.5,stock:200,calidad:'A1'},
-      {nombre:'Prepona (Archeoprepona) amphimachus',precio:4.0,stock:200,calidad:'A1'},
-      {nombre:'Prepona (Archeoprepona) camilla',precio:3.0,stock:200,calidad:'A1'},
-      {nombre:'Prepona (Archeoprepona) demophon muson',precio:3.0,stock:500,calidad:'A1'},
-      {nombre:'Prepona (Archeoprepona) licomedes',precio:4.0,stock:500,calidad:'A1'},
-      {nombre:'Prepona (Archeoprepona) meander megabates',precio:4.0,stock:500,calidad:'A1'},
-      {nombre:'Prepona (Archeoprepona/Norepa) chromus',precio:3.0,stock:500,calidad:'A1'},
-      {nombre:'Prepona deiphile neoterpe',precio:50.0,stock:5,calidad:'A1'},
-      {nombre:'Prepona dexamenes',precio:18.0,stock:5,calidad:'A1'},
-      {nombre:'Prepona eugenes',precio:4.0,stock:500,calidad:'A1'},
-      {nombre:'Prepona laertes',precio:4.0,stock:500,calidad:'A1'},
-      {nombre:'Prepona pheridamas',precio:4.0,stock:500,calidad:'A1'},
-      {nombre:'Prepona praeneste (Dept San Martin, N. Peru)',precio:80.0,stock:20,calidad:'A1'},
-      {nombre:'Prepona praeneste confusa',precio:70.0,stock:20,calidad:'A1'},
-      {nombre:'Prepona praeneste praenestina',precio:70.0,stock:50,calidad:'A1'},
-      {nombre:'Prepona sub-omphale pseudoomphale',precio:25.0,stock:5,calidad:'A1'},
-      {nombre:'Pyrrhogyra edocla maculata',precio:1.5,stock:500,calidad:'A1'},
-      {nombre:'Pyrrhogyra neaerea',precio:1.5,stock:500,calidad:'A1'},
-      {nombre:'Pyrrhogyra otalais',precio:1.5,stock:500,calidad:'A1'},
-      {nombre:'Siderone (Anaea) galanthis galanthis (=marthesia)',precio:10.0,stock:50,calidad:'A1'},
-      {nombre:'Siderone (Anaea) galanthis thebais',precio:10.0,stock:50,calidad:'A1'},
-      {nombre:'Siproeta (Victorina) stelenes',precio:2.0,stock:5000,calidad:'A1'},
-      {nombre:'Siproeta epaphus',precio:1.5,stock:5000,calidad:'A1'},
-      {nombre:'Smryna blomfieldia',precio:3.0,stock:100,calidad:'A1'},
-      {nombre:'Temenis lathoe',precio:3.0,stock:100,calidad:'A1'},
-      {nombre:'Temenis pulchra pallidior',precio:2.0,stock:200,calidad:'A1'},
-      {nombre:'Villa emilia',precio:2.0,stock:100,calidad:'A1'},
-      {nombre:'Zaretis (Anaea) isidora',precio:3.0,stock:300,calidad:'A1'},
-      {nombre:'Anaea anna',precio:15.0,stock:50,calidad:'A1'},
-    ] as E[] },
-    { id:'Papilionidae', nombre:'Papilionidae', especies:[
-      {nombre:'Battus crassus',precio:3.5,stock:50,calidad:'A1'},
-      {nombre:'Battus madyes chlorodamas',precio:3.5,stock:50,calidad:'A1'},
-      {nombre:'Battus polydamas',precio:4.0,stock:20,calidad:'A1'},
-      {nombre:'Battus streckerianus',precio:9.0,stock:50,calidad:'A1'},
-      {nombre:'Eurytides leucaspis',precio:1.8,stock:1000,calidad:'A1'},
-      {nombre:'Eurytides serville',precio:1.4,stock:5000,calidad:'A1'},
-      {nombre:'Heraclides (Papilio) anchisiades',precio:1.8,stock:500,calidad:'A1'},
-      {nombre:'Heraclides (Papilio) torquatus torquatus',precio:1.8,stock:2000,calidad:'A1'},
-      {nombre:'Mimoides (Eurytides) ariarathes gayi',precio:4.0,stock:5,calidad:'A1'},
-      {nombre:'Mimoides (Eurytides) pausianus cleombrotus',precio:8.0,stock:10,calidad:'A1'},
-      {nombre:'Mimoides (Eurytides) xeniades',precio:1.8,stock:500,calidad:'A1'},
-      {nombre:'Neographium (Eurytides) agesilaus',precio:1.8,stock:500,calidad:'A1'},
-      {nombre:'Neographium (Eurytides) dioxippus diores',precio:2.5,stock:100,calidad:'A1'},
-      {nombre:'Neographium (Eurytides) thyastes thyastinus',precio:3.5,stock:200,calidad:'A1'},
-      {nombre:'Papilio (Heraclides) androgeus',precio:2.7,stock:200,calidad:'A1'},
-      {nombre:'Papilio (Heraclides) isodorus tingo',precio:1.8,stock:500,calidad:'A1'},
-      {nombre:'Papilio xanthopleura',precio:40.0,stock:10,calidad:'A1'},
-      {nombre:'Parides aeneas bolivar',precio:17.5,stock:20,calidad:'A1'},
-      {nombre:'Parides chabrias',precio:7.0,stock:100,calidad:'A1'},
-      {nombre:'Parides erlaces (=erathalion) xanthias',precio:3.5,stock:200,calidad:'A1'},
-      {nombre:'Parides lysander brissonius',precio:9.0,stock:20,calidad:'A1'},
-      {nombre:'Parides neophilus anaximenes',precio:7.5,stock:20,calidad:'A1'},
-      {nombre:'Parides phalaceus nieva',precio:20.0,stock:10,calidad:'A1'},
-      {nombre:'Parides pizzaro',precio:5.0,stock:100,calidad:'A1'},
-      {nombre:'Parides sesostris',precio:2.5,stock:200,calidad:'A1'},
-      {nombre:'Parides vertumnus astorius',precio:2.5,stock:500,calidad:'A1'},
-      {nombre:'Parides vertumnus bogatanus',precio:4.0,stock:20,calidad:'A1'},
-      {nombre:'Pterourus (Papilio) bachus chrysomelus',precio:12.0,stock:20,calidad:'A1'},
-      {nombre:'Pterourus (Papilio) cacicus inca',precio:40.0,stock:100,calidad:'A1'},
-      {nombre:'Pterourus (Papilio) cacicus mendozaensis',precio:60.0,stock:20,calidad:'A1'},
-      {nombre:'Pterourus (Papilio) euterpinus',precio:4.0,stock:100,calidad:'A1'},
-      {nombre:'Pterourus (Papilio) menatius bitias',precio:3.0,stock:2000,calidad:'A1'},
-      {nombre:'Pterourus (Papilio) menatius coelebs',precio:25.0,stock:5,calidad:'A1'},
-      {nombre:'Pterourus (Papilio) warscewiczi jelskii',precio:10.0,stock:100,calidad:'A1'},
-      {nombre:'Pterourus (Papilio) warscewiczi mercedes',precio:10.0,stock:200,calidad:'A1'},
-      {nombre:'Pterourus (Papilio) zagreus batesi',precio:15.0,stock:20,calidad:'A1'},
-      {nombre:'Pterourus (Papilio) zagreus chrysoxanthus',precio:6.5,stock:500,calidad:'A1'},
-      {nombre:'Pterourus (Papilio) zagreus',precio:6.5,stock:500,calidad:'A1'},
-    ] as E[] },
-    { id:'Pieridae', nombre:'Pieridae', especies:[
-      {nombre:'Anteos chlorinde',precio:45.0,stock:100,calidad:'A1'},
-      {nombre:'Archonias (=Catasticta) hebra',precio:15.0,stock:200,calidad:'A1'},
-      {nombre:'Archonias (=Catasticta) eurigania straminea',precio:20.0,stock:50,calidad:'A1'},
-      {nombre:'Archonias (=Catasticta) hebra',precio:15.0,stock:1000,calidad:'A1'},
-      {nombre:'Archonias (=Catasticta) poujadei',precio:13.0,stock:200,calidad:'A1'},
-      {nombre:'Archonias bellona negrina',precio:35.0,stock:500,calidad:'A1'},
-      {nombre:'Ascia buniae',precio:45.0,stock:1000,calidad:'A1'},
-      {nombre:'Dismorphia amphione',precio:6.0,stock:500,calidad:'A1'},
-      {nombre:'Eurema arbela',precio:14.0,stock:1000,calidad:'A1'},
-      {nombre:'Eurema reticulata',precio:24.0,stock:500,calidad:'A1'},
-      {nombre:'Hesperocharis marchali coloe',precio:12.0,stock:500,calidad:'A1'},
-      {nombre:'Itaballia demophile demophile',precio:15.0,stock:200,calidad:'A1'},
-      {nombre:'Leptophobia aripa aripa',precio:18.0,stock:50,calidad:'A1'},
-      {nombre:'Leptophobia eleone eleone',precio:12.0,stock:200,calidad:'A1'},
-      {nombre:'Leptophobia philoma',precio:48.0,stock:100,calidad:'A1'},
-      {nombre:'Leptophobia tovaria maruga',precio:7.5,stock:1000,calidad:'A1'},
-      {nombre:'Lieinix (Dismorphia) nemesis',precio:5.5,stock:1000,calidad:'A1'},
-      {nombre:'Methania agasicles',precio:6.5,stock:5000,calidad:'A1'},
-      {nombre:'Methania aureomaculata',precio:6.5,stock:5000,calidad:'A1'},
-      {nombre:'Pereute callinara',precio:23.0,stock:20,calidad:'A1'},
-      {nombre:'Pereute charops peruviana',precio:2.5,stock:200,calidad:'A1'},
-      {nombre:'Perrhybris lorena lorena',precio:1.8,stock:2000,calidad:'A1'},
-      {nombre:'Phoebis (Aphrissa) statira',precio:2.5,stock:500,calidad:'A1'},
-      {nombre:'Phoebis (Rhabdodryas) trite',precio:3.0,stock:1000,calidad:'A1'},
-      {nombre:'Phoebis argante',precio:1.8,stock:5000,calidad:'A1'},
-      {nombre:'Phoebis neocypris rurina',precio:1.5,stock:5000,calidad:'A1'},
-      {nombre:'Phoebis philea',precio:1.8,stock:5000,calidad:'A1'},
-      {nombre:'Pieriballia mandela apicalis',precio:1.5,stock:500,calidad:'A1'},
-    ] as E[] },
-    { id:'Riodinidae', nombre:'Riodinidae', especies:[
-      {nombre:'Ancyluris aulestes',precio:45.0,stock:100,calidad:'A1'},
-      {nombre:'Ancyluris etias',precio:15.0,stock:200,calidad:'A1'},
-      {nombre:'Ancyluris formisissima venerabilis',precio:20.0,stock:50,calidad:'A1'},
-      {nombre:'Ancyluris huscar',precio:15.0,stock:1000,calidad:'A1'},
-      {nombre:'Ancyluris meliboeus eudaemon',precio:13.0,stock:200,calidad:'A1'},
-      {nombre:'Ancyluris pulchra',precio:35.0,stock:500,calidad:'A1'},
-      {nombre:'Cartea vitula',precio:45.0,stock:1000,calidad:'A1'},
-      {nombre:'Chorinea amazon',precio:6.0,stock:500,calidad:'A1'},
-      {nombre:'Chorinea batesii',precio:14.0,stock:1000,calidad:'A1'},
-      {nombre:'Chorinea sylphina',precio:24.0,stock:500,calidad:'A1'},
-      {nombre:'Cremna acoris',precio:12.0,stock:500,calidad:'A1'},
-      {nombre:'Eurybia halimede',precio:15.0,stock:200,calidad:'A1'},
-      {nombre:'Lyropteryx appollonia',precio:18.0,stock:50,calidad:'A1'},
-      {nombre:'Necyria bellona juturna',precio:12.0,stock:200,calidad:'A1'},
-      {nombre:'Nymphidium cachrus',precio:48.0,stock:100,calidad:'A1'},
-      {nombre:'Rhetus arcius',precio:7.5,stock:1000,calidad:'A1'},
-      {nombre:'Rhetus dysoni',precio:5.5,stock:1000,calidad:'A1'},
-      {nombre:'Rhetus periander',precio:6.5,stock:5000,calidad:'A1'},
-      {nombre:'Siseme hellotis',precio:6.5,stock:5000,calidad:'A1'},
-      {nombre:'Stalachitis euterpe',precio:23.0,stock:20,calidad:'A1'},
-      {nombre:'Thisbe irene',precio:4.0,stock:20,calidad:'A1'},
-      {nombre:'Siseme neurodes',precio:2.0,stock:500,calidad:'A1'},
-    ] as E[] },
-    { id:'Satyridae', nombre:'Satyridae', especies:[
-      {nombre:'Cithaerais pireta',precio:45.0,stock:100,calidad:'A1'},
-      {nombre:'Cithaerias pyropina',precio:15.0,stock:200,calidad:'A1'},
-      {nombre:'Corades enyo',precio:20.0,stock:50,calidad:'A1'},
-      {nombre:'Corades iduna',precio:15.0,stock:1000,calidad:'A1'},
-      {nombre:'Corades medeba',precio:13.0,stock:200,calidad:'A1'},
-      {nombre:'Haetera macleannania',precio:35.0,stock:500,calidad:'A1'},
-      {nombre:'Haetera piera',precio:45.0,stock:1000,calidad:'A1'},
-      {nombre:'Oressinoma typhia',precio:6.0,stock:500,calidad:'A1'},
-      {nombre:'Oxeoschistus iphigenia',precio:14.0,stock:1000,calidad:'A1'},
-      {nombre:'Pierella albofasciata',precio:24.0,stock:500,calidad:'A1'},
-      {nombre:'Pierella amalia',precio:12.0,stock:500,calidad:'A1'},
-      {nombre:'Pierella hortona hortona f. ocellata',precio:15.0,stock:200,calidad:'A1'},
-      {nombre:'Pierella hyceta',precio:18.0,stock:50,calidad:'A1'},
-      {nombre:'Pierella lamia chalybaea',precio:12.0,stock:200,calidad:'A1'},
-      {nombre:'Pierella lena',precio:48.0,stock:100,calidad:'A1'},
-      {nombre:'Pierella lucia',precio:7.5,stock:1000,calidad:'A1'},
-      {nombre:'Pseudohaetera (Haetera) hypasia',precio:5.5,stock:1000,calidad:'A1'},
-    ] as E[] },
-  ] as F[]},
-  { orden:'Moths Nocturnas', familias:[
-    { id:'Arctiidae', nombre:'Arctiidae', especies:[] as E[] },
-    { id:'Castnia', nombre:'Castnia', especies:[] as E[] },
-    { id:'Hepalidae', nombre:'Hepalidae', especies:[] as E[] },
-    { id:'Noctuidae', nombre:'Noctuidae', especies:[] as E[] },
-    { id:'Saturnidae', nombre:'Saturnidae', especies:[] as E[] },
-    { id:'Sphingidae', nombre:'Sphingidae', especies:[] as E[] },
-    { id:'Uranidae', nombre:'Uranidae', especies:[] as E[] },
-    { id:'Geometridae', nombre:'Geometridae', especies:[] as E[] },
-    { id:'Eribidae', nombre:'Eribidae', especies:[] as E[] },
-  ] as F[]},
-  { orden:'Coleoptera Insectos', familias:[
-    { id:'Buprestidae', nombre:'Buprestidae', especies:[] as E[] },
-    { id:'Cerambycidae', nombre:'Cerambycidae', especies:[] as E[] },
-    { id:'Cetonidae', nombre:'Cetonidae', especies:[] as E[] },
-    { id:'Chrysomelidae', nombre:'Chrysomelidae', especies:[] as E[] },
-    { id:'Cicindelidae', nombre:'Cicindelidae', especies:[] as E[] },
-    { id:'Curculionidae', nombre:'Curculionidae', especies:[] as E[] },
-    { id:'Dynastidae', nombre:'Dynastidae', especies:[] as E[] },
-    { id:'Elateridae', nombre:'Elateridae', especies:[] as E[] },
-    { id:'Euchiridae', nombre:'Euchiridae', especies:[] as E[] },
-    { id:'Rutilidae', nombre:'Rutilidae', especies:[] as E[] },
-    { id:'Lucanidae', nombre:'Lucanidae', especies:[] as E[] },
-    { id:'Scarabaeidae', nombre:'Scarabaeidae', especies:[] as E[] },
-    { id:'Trictenotomidae', nombre:'Trictenotomidae', especies:[] as E[] },
-  ] as F[]},
-  { orden:'Arthropoda', familias:[
-    { id:'Spider', nombre:'Spider (Araneae)', especies:[] as E[] },
-    { id:'Homoptera', nombre:'Homoptera (Cicada)', especies:[] as E[] },
-    { id:'Phasmidae', nombre:'Phasmidae', especies:[] as E[] },
-    { id:'Phylliidae', nombre:'Phylliidae', especies:[] as E[] },
-    { id:'Mantidae', nombre:'Mantidae (Mantis)', especies:[] as E[] },
-    { id:'Orthoptera', nombre:'Orthoptera (Grillidae)', especies:[] as E[] },
-    { id:'Hemiptera', nombre:'Hemiptera', especies:[] as E[] },
-    { id:'Hymenoptera', nombre:'Hymenoptera', especies:[] as E[] },
-    { id:'Escorpion', nombre:'Escorpion', especies:[] as E[] },
-    { id:'Odonata', nombre:'Odonata', especies:[] as E[] },
-  ] as F[]},
+type E = { n:string; p:number; s:number; foto?:string; video?:string }
+type F = { id:string; nm:string; e:E[] }
+const FAM:F[] = [{id:'Brassolidae',nm:'Brassolidae',e:[{n:'Caligo eurilochus livius',p:4.0,s:800},{n:'Caligo idomenius idomenides',p:6.5,s:100},{n:'Caligo illioneus',p:3.5,s:200},{n:'Caligo placidianus',p:4.0,s:200},{n:'Caligo prometheus',p:9.0,s:200},{n:'Caligo superbus',p:15.0,s:50},{n:'Caligo teucer semicaerulea',p:3.5,s:300},{n:'Dynastor darius darius',p:15.0,s:10},{n:'Opoptera aorsa',p:4.5,s:100},{n:'Opoptera arsippe arsippe',p:4.5,s:200},{n:'Opsiphanes bogatanus',p:3.5,s:100},{n:'Opsiphanes tamarindi incolumis',p:4.0,s:50},{n:'Caligo illioneus oberon',p:4.0,s:200},{n:'Caligo Oberthuri floklides',p:10.0,s:50},{n:'Eryphanis Polyxena',p:7.5,s:200},{n:'Catoblepia Berecynthia',p:10.0,s:20},{n:'Dynastor macrosirus stix',p:30.0,s:5},{n:'Opoptera Arsippe Bracteolata',p:4.0,s:20},{n:'Opsiphanes Cassina',p:3.5,s:50},{n:'Opsiphanes Sallei',p:3.0,s:100},{n:'Opsiphanes Invirae Agasthenes',p:2.5,s:200},{n:'Opsiphanes Quiteria Quirinalis',p:2.5,s:100}]},{id:'Danaidae',nm:'Danaidae',e:[{n:'Danaus plexippus nigrippus',p:2.5,s:2000},{n:'Lycorea halia',p:4.0,s:20},{n:'Lycorea ilione lamaris',p:1.5,s:2000},{n:'Lycorea Ituna Ilione Phenarete',p:2.0,s:100},{n:'Danaus Gilippus thersippus',p:3.0,s:200}]},{id:'Heliconidae',nm:'Heliconidae',e:[{n:'Dione juno',p:1.3,s:5000},{n:'Dione moneta',p:2.5,s:500},{n:'Dryas julia',p:1.3,s:5000},{n:'Eueides (Heliconius) aliphera',p:1.8,s:2000},{n:'Eueides isabella dissolutus',p:2.5,s:5},{n:'Euides tales',p:2.0,s:500},{n:'Godyris duillia (Ithomidae)',p:2.5,s:500},{n:'Godyris zavalata huanaco',p:1.8,s:500},{n:'Heliconius burneyi huebneri',p:4.0,s:100},{n:'Heliconius erato microclea',p:2.5,s:200},{n:'Heliconius hecale shanki',p:5.5,s:10},{n:'Heliconius melpomene amaryllis',p:2.0,s:5000},{n:'Heliconius melpomene',p:2.5,s:20},{n:'Heliconius numata bicoloratus',p:2.0,s:500},{n:'Heliconius telesiphe telesiphe',p:2.0,s:500},{n:'Heliconius wallacei flavescens',p:1.8,s:500},{n:'Methona curvifascia',p:1.8,s:3000},{n:'Philaethria (Metamorpha) dido',p:4.0,s:200},{n:'Thyridia psidii cetoides',p:1.5,s:2000},{n:'Tithorea harmonia',p:2.5,s:200},{n:'Hypothyris semifulva',p:2.0,s:300},{n:'Mechanitis polymnia',p:2.0,s:10}]},{id:'Lycaenidae',nm:'Lycaenidae',e:[{n:'Arawacus seperata',p:6.5,s:200},{n:'Arcas imperialis',p:15.0,s:200},{n:'Arcas tuneta',p:15.0,s:100},{n:'Evenus gannymedes',p:18.0,s:20},{n:'Thecla gibberosa',p:12.0,s:100},{n:'Arawacus dolylas',p:10.0,s:15}]},{id:'Morphidae',nm:'Morphidae',e:[{n:'Morpho absoloni',p:45,s:100},{n:'Morpho aurora aureola',p:15,s:200},{n:'Morpho eugenia',p:20,s:50},{n:'Morpho lympharis selenarys',p:15,s:1000},{n:'Morpho sulkowskyi descimokoenigi',p:13,s:200},{n:'Morpho rhetenor cacica',p:35,s:500},{n:'Morpho rethenor helena',p:45,s:1000},{n:'Morpho telemachus',p:6,s:500},{n:'Morpho zephritis',p:14,s:1000},{n:'Morpho theseus juturna',p:24,s:500},{n:'Morpho menelaus assarpai',p:12,s:500},{n:'Morpho cisseis gahua',p:15,s:200},{n:'Morpho cisseis phanademus',p:18,s:50},{n:'Morpho adonis huallaga',p:12,s:200},{n:'Morpho amphitrion cinerous',p:48,s:100},{n:'Morpho deidamia marie',p:7.5,s:1000},{n:'Morpho achilles helenor',p:5.5,s:1000},{n:'Morpho didius',p:6.5,s:5000},{n:'Morpho didius tingomaria',p:6.5,s:5000},{n:'Morpho menelaus michaelus',p:23,s:20},{n:'Morpho menelaus pucallpensis',p:21,s:50},{n:'Morpho helenor amazonius',p:7,s:200},{n:'Morpho mariosiajane',p:50,s:50},{n:'Morpho sulkowoskii nieva',p:30,s:50},{n:'Morpho sulkowoskii zachi',p:45,s:100},{n:'Morpho godartii julanthicus',p:12,s:500},{n:'Morpho menelaus zischkai',p:13,s:5000},{n:'Morpho rethenor mariosiojane small',p:45,s:200},{n:'Morpho aurora isidorssoni',p:18,s:100},{n:'Morpho aurora lamasi',p:16,s:200},{n:'Morpho cisseis gahua ssp gahua',p:120,s:10}]},{id:'Nymphalidae',nm:'Nymphalidae',e:[{n:'Adelpha mesentina',p:1.8,s:500},{n:'Adelpha erotia erotia f. erotia',p:2.0,s:200},{n:'Adelpha iphiclus',p:2.0,s:200},{n:'Adelpha lycorias lara',p:2.0,s:500},{n:'Agraulis vanillae lucina f. catella',p:2.5,s:500},{n:'Agrias amydon zenodorus',p:60.0,s:100},{n:'Agrias claudina lugens',p:10.0,s:2000},{n:'Agrias hewitsonius beata (=beatifica beata)',p:6.0,s:3000},{n:'Agrias hewitsonius stuarti (=beatifica stuarti)',p:40.0,s:10},{n:'Agrias pericles peruviana',p:120.0,s:10},{n:'Agrias sardanapulis',p:30.0,s:200},{n:'Asterope degandii allyni (= A. adamsi)',p:5.0,s:200},{n:'Asterope degandii bartletti',p:5.5,s:200},{n:'Asterope markii davisi',p:3.0,s:500},{n:'Asterope markii hewitsoni',p:20.0,s:5},{n:'Asterope optima f. eminens',p:5.5,s:500},{n:'Asterope optima philotina',p:3.5,s:20},{n:'Asterope whitelyi whitelyi',p:5.0,s:50},{n:'Baeotus (Megistanis) amazonicus',p:5.0,s:200},{n:'Baeotus (Megistanis) japetus',p:5.0,s:200},{n:'Baeotus (Megistanis) deucalion',p:5.0,s:300},{n:'Batesia hypochlora f.hypochlora',p:8.0,s:500},{n:'Biblis hyperia',p:2.0,s:500},{n:'Callicore (Catagramma)hytaspes',p:2.0,s:500},{n:'Callicore cynosura -Verso Aberration',p:2.5,s:2000},{n:'Callicore cynosura cynosura',p:2.5,s:5000},{n:'Callicore discrepans',p:10.0,s:500},{n:'Callicore eunomia',p:2.0,s:1000},{n:'Callicore excelsior pastazza',p:3.0,s:200},{n:'Callicore felderi cajetani',p:3.0,s:100},{n:'Callicore hesperis',p:2.5,s:1000},{n:'Callicore lyca aegina',p:2.5,s:5000},{n:'Callicore texa maimuna',p:3.0,s:100},{n:'Callicore tolima',p:6.5,s:50},{n:'Callidula pyramus',p:4.0,s:10},{n:'Catenophele salambria',p:3.0,s:500},{n:'Catonephele acontius',p:2.0,s:500},{n:'Catonephele chromis chromis',p:2.5,s:100},{n:'Catonephele numilia (Peru)',p:2.5,s:500},{n:'Catonephele numilia (Peru) F',p:6.0,s:4},{n:'Catonephele selambria',p:2.5,s:100},{n:'Coenophlebia (Anaea) archidona',p:6.5,s:100},{n:'Colubura dirce',p:2.0,s:200},{n:'Consul (Anaea) fabius divisus',p:2.5,s:200},{n:'Diaethria (Catacore) kolyma',p:3.0,s:2000},{n:'Diaethria (Catacore) kolyma f. pasithea',p:3.5,s:100},{n:'Diaethria clymena peruviana',p:1.8,s:5000},{n:'Diaethria neglecta neglecta',p:1.5,s:5000},{n:'Doxocopa agathina',p:4.0,s:200},{n:'Doxocopa cherubina',p:2.5,s:5000},{n:'Doxocopa cyane',p:2.5,s:500},{n:'Doxocopa elis',p:2.0,s:1000},{n:'Doxocopa lavinia',p:3.0,s:200},{n:'Doxocopa linda f. linda',p:2.5,s:500},{n:'Doxocopa linda f. selina',p:2.0,s:1000},{n:'Doxocopa pavon',p:3.5,s:150},{n:'Doxocopa zunilda floris',p:4.0,s:50},{n:'Eunica carias ninetta',p:5.0,s:100},{n:'Eunica alcmena flora',p:4.0,s:2000},{n:'Eunica ameliae',p:4.0,s:2000},{n:'Eunica bechina',p:5.5,s:50},{n:'Eunica caralis caralis',p:6.0,s:100},{n:'Eunica carias ninetta',p:6.0,s:100},{n:'Eunica chlorochroa',p:5.0,s:200},{n:'Eunica clytia',p:3.5,s:50},{n:'Eunica eurota',p:4.5,s:500},{n:'Eunica excelsa',p:4.5,s:500},{n:'Eunica malvina',p:4.0,s:500},{n:'Eunica mygdona',p:6.5,s:50},{n:'Eunica norica',p:2.5,s:5000},{n:'Eunica orphise',p:5.0,s:50},{n:'Eunica pomona pomona',p:7.5,s:20},{n:'Eunica sophonisba agele',p:12.0,s:5},{n:'Eunica sydonia',p:6.0,s:100},{n:'Eunica veronica',p:8.0,s:200},{n:'Eunica volumna celma',p:4.0,s:500},{n:'Fountainea (Anaea) eurypyle (=tehuana)',p:2.0,s:2000},{n:'Fountainea (Anaea) ryphea ryphea (Peru)',p:2.0,s:2000},{n:'Hamadryas amphinome',p:3.5,s:500},{n:'Hamadryas arinome',p:3.0,s:500},{n:'Hamadryas chloe',p:3.0,s:50},{n:'Hamadryas epinome',p:3.0,s:100},{n:'Hamadryas feronia',p:2.5,s:2000},{n:'Hamadryas fornax',p:3.0,s:500},{n:'Hamadryas iphthime iphthime',p:2.0,s:500},{n:'Hamadryas laodamia laodamia',p:4.0,s:500},{n:'Historis odius',p:1.5,s:5000},{n:'Junonia l(Precis) lavinia lavinia',p:3.5,s:500},{n:'Marpesia berania',p:1.2,s:5000},{n:'Hypna (Anaea) clymenestra negra',p:1.5,s:500},{n:'Marpesia coresia',p:2.0,s:500},{n:'Marpesia crethon',p:1.5,s:2000},{n:'Marpesia hermione',p:3.0,s:50},{n:'Marpesia marcella/corinna',p:2.5,s:5000},{n:'Marpesia petreus',p:3.0,s:100},{n:'Memphis (Anaea) acaudata',p:8.0,s:20},{n:'Memphis (Anaea) alberta',p:8.0,s:20},{n:'Memphis (Anaea) arginussa (Peru)',p:2.0,s:100},{n:'Memphis (Anaea) cerelia (Peru)',p:4.0,s:500},{n:'Memphis (Anaea) falcata',p:15.0,s:20},{n:'Memphis (Anaea) florita',p:3.5,s:100},{n:'Memphis (Anaea) lemnos (Peru)',p:2.5,s:200},{n:'Memphis (Anaea) lineata (Peru)',p:3.0,s:500},{n:'Memphis (Anaea) mora montana',p:3.0,s:100},{n:'Memphis (Anaea) moruus morpheus',p:4.0,s:200},{n:'Memphis (Anaea) offa',p:5.0,s:100},{n:'Memphis (Anaea) philumena philumena (Peru)',p:3.0,s:500},{n:'Memphis (Anaea) pithyusa pithyusa (Peru)',p:3.0,s:500},{n:'Memphis (Anaea) polycarmes (Peru)',p:2.5,s:500},{n:'Memphis (Anaea) polyxo',p:3.5,s:500},{n:'Memphis (Anaea) praxias (Peru)',p:4.0,s:500},{n:'Memphis (Anaea) xenocles xenocles (Peru)',p:2.5,s:500},{n:'Napocles jucunda',p:4.0,s:500},{n:'Nessaea hewitsoni',p:4.0,s:500},{n:'Orophila (Perisama) diotima cecidas',p:2.5,s:20},{n:'Panacea prola',p:2.5,s:5000},{n:'Panacea regina chalcothea',p:3.5,s:500},{n:'Paulogramma pyracmon peristera',p:2.0,s:3000},{n:'Perisama alicia',p:3.0,s:500},{n:'Perisama ambatensis',p:5.0,s:500},{n:'Perisama bomplandii albipenis',p:4.0,s:200},{n:'Perisama canoma',p:2.5,s:500},{n:'Perisama cecidas',p:4.0,s:50},{n:'Perisama comnena',p:3.0,s:500},{n:'Perisama hilara',p:3.5,s:500},{n:'Perisama humboldti',p:3.0,s:500},{n:'Perisama jurinei jurinei',p:3.5,s:500},{n:'Perisama lanice picteti',p:3.0,s:500},{n:'Perisama oppellii viridinota',p:4.0,s:100},{n:'Perisama pericles',p:3.0,s:500},{n:'Perisama philinus saussurei',p:3.5,s:500},{n:'Perisama tringa',p:3.5,s:500},{n:'Perisama vitringa vitringa',p:3.5,s:500},{n:'Perisama xanthica xanthica',p:3.5,s:500},{n:'Polygrapha (Anaea) cyanea cyanea',p:3.5,s:500},{n:'Polygrapha (Anaea) tyrianthina',p:15.0,s:100},{n:'Polygrapha (Anaea) xenocrates xenocrates (Peru)',p:2.5,s:200},{n:'Prepona (Archeoprepona) amphimachus',p:4.0,s:200},{n:'Prepona (Archeoprepona) camilla',p:3.0,s:200},{n:'Prepona (Archeoprepona) demophon muson',p:3.0,s:500},{n:'Prepona (Archeoprepona) licomedes',p:4.0,s:500},{n:'Prepona (Archeoprepona) meander megabates',p:4.0,s:500},{n:'Prepona (Archeoprepona/Norepa) chromus',p:3.0,s:500},{n:'Prepona deiphile neoterpe',p:50.0,s:5},{n:'Prepona dexamenes',p:18.0,s:5},{n:'Prepona eugenes',p:4.0,s:500},{n:'Prepona laertes',p:4.0,s:500},{n:'Prepona pheridamas',p:4.0,s:500},{n:'Prepona praeneste (Dept San Martin, N. Peru)',p:80.0,s:20},{n:'Prepona praeneste confusa',p:70.0,s:20},{n:'Prepona praeneste praenestina',p:70.0,s:50},{n:'Prepona sub-omphale pseudoomphale',p:25.0,s:5},{n:'Pyrrhogyra edocla maculata',p:1.5,s:500},{n:'Pyrrhogyra neaerea',p:1.5,s:500},{n:'Pyrrhogyra otalais',p:1.5,s:500},{n:'Siderone (Anaea) galanthis galanthis (=marthesia)',p:10.0,s:50},{n:'Siderone (Anaea) galanthis thebais',p:10.0,s:50},{n:'Siproeta (Victorina) stelenes',p:2.0,s:5000},{n:'Siproeta epaphus',p:1.5,s:5000},{n:'Smryna blomfieldia',p:3.0,s:100},{n:'Temenis lathoe',p:3.0,s:100},{n:'Temenis pulchra pallidior',p:2.0,s:200},{n:'Villa emilia',p:2.0,s:100},{n:'Zaretis (Anaea) isidora',p:3.0,s:300},{n:'Anaea anna',p:15.0,s:50}]},{id:'Papilionidae',nm:'Papilionidae',e:[{n:'Battus crassus',p:3.5,s:50},{n:'Battus madyes chlorodamas',p:3.5,s:50},{n:'Battus polydamas',p:4.0,s:20},{n:'Battus streckerianus',p:9.0,s:50},{n:'Eurytides leucaspis',p:1.8,s:1000},{n:'Eurytides serville',p:1.4,s:5000},{n:'Heraclides (Papilio) anchisiades',p:1.8,s:500},{n:'Heraclides (Papilio) torquatus torquatus',p:1.8,s:2000},{n:'Mimoides (Eurytides) ariarathes gayi',p:4.0,s:5},{n:'Mimoides (Eurytides) pausianus cleombrotus',p:8.0,s:10},{n:'Mimoides (Eurytides) xeniades',p:1.8,s:500},{n:'Neographium (Eurytides) agesilaus',p:1.8,s:500},{n:'Neographium (Eurytides) dioxippus diores',p:2.5,s:100},{n:'Neographium (Eurytides) thyastes thyastinus',p:3.5,s:200},{n:'Papilio (Heraclides) androgeus',p:2.7,s:200},{n:'Papilio (Heraclides) isodorus tingo',p:1.8,s:500},{n:'Papilio xanthopleura',p:40.0,s:10},{n:'Parides aeneas bolivar',p:17.5,s:20},{n:'Parides chabrias',p:7.0,s:100},{n:'Parides erlaces (=erathalion) xanthias',p:3.5,s:200},{n:'Parides lysander brissonius',p:9.0,s:20},{n:'Parides neophilus anaximenes',p:7.5,s:20},{n:'Parides phalaceus nieva',p:20.0,s:10},{n:'Parides pizzaro',p:5.0,s:100},{n:'Parides sesostris',p:2.5,s:200},{n:'Parides vertumnus astorius',p:2.5,s:500},{n:'Parides vertumnus bogatanus',p:4.0,s:20},{n:'Pterourus (Papilio) bachus chrysomelus',p:12.0,s:20},{n:'Pterourus (Papilio) cacicus inca',p:40.0,s:100},{n:'Pterourus (Papilio) cacicus mendozaensis',p:60.0,s:20},{n:'Pterourus (Papilio) euterpinus',p:4.0,s:100},{n:'Pterourus (Papilio) menatius bitias',p:3.0,s:2000},{n:'Pterourus (Papilio) menatius coelebs',p:25.0,s:5},{n:'Pterourus (Papilio) warscewiczi jelskii',p:10.0,s:100},{n:'Pterourus (Papilio) warscewiczi mercedes',p:10.0,s:200},{n:'Pterourus (Papilio) zagreus batesi',p:15.0,s:20},{n:'Pterourus (Papilio) zagreus chrysoxanthus',p:6.5,s:500},{n:'Pterourus (Papilio) zagreus',p:6.5,s:500}]},{id:'Pieridae',nm:'Pieridae',e:[{n:'Anteos chlorinde',p:45.0,s:100},{n:'Archonias (=Catasticta) hebra',p:15.0,s:200},{n:'Archonias (=Catasticta) eurigania straminea',p:20.0,s:50},{n:'Archonias (=Catasticta) hebra',p:15.0,s:1000},{n:'Archonias (=Catasticta) poujadei',p:13.0,s:200},{n:'Archonias bellona negrina',p:35.0,s:500},{n:'Ascia buniae',p:45.0,s:1000},{n:'Dismorphia amphione',p:6.0,s:500},{n:'Eurema arbela',p:14.0,s:1000},{n:'Eurema reticulata',p:24.0,s:500},{n:'Hesperocharis marchali coloe',p:12.0,s:500},{n:'Itaballia demophile demophile',p:15.0,s:200},{n:'Leptophobia aripa aripa',p:18.0,s:50},{n:'Leptophobia eleone eleone',p:12.0,s:200},{n:'Leptophobia philoma',p:48.0,s:100},{n:'Leptophobia tovaria maruga',p:7.5,s:1000},{n:'Lieinix (Dismorphia) nemesis',p:5.5,s:1000},{n:'Methania agasicles',p:6.5,s:5000},{n:'Methania aureomaculata',p:6.5,s:5000},{n:'Pereute callinara',p:23.0,s:20},{n:'Pereute charops peruviana',p:2.5,s:200},{n:'Perrhybris lorena lorena',p:1.8,s:2000},{n:'Phoebis (Aphrissa) statira',p:2.5,s:500},{n:'Phoebis (Rhabdodryas) trite',p:3.0,s:1000},{n:'Phoebis argante',p:1.8,s:5000},{n:'Phoebis neocypris rurina',p:1.5,s:5000},{n:'Phoebis philea',p:1.8,s:5000},{n:'Pieriballia mandela apicalis',p:1.5,s:500}]},{id:'Riodinidae',nm:'Riodinidae',e:[{n:'Ancyluris aulestes',p:45.0,s:100},{n:'Ancyluris etias',p:15.0,s:200},{n:'Ancyluris formisissima venerabilis',p:20.0,s:50},{n:'Ancyluris huscar',p:15.0,s:1000},{n:'Ancyluris meliboeus eudaemon',p:13.0,s:200},{n:'Ancyluris pulchra',p:35.0,s:500},{n:'Cartea vitula',p:45.0,s:1000},{n:'Chorinea amazon',p:6.0,s:500},{n:'Chorinea batesii',p:14.0,s:1000},{n:'Chorinea sylphina',p:24.0,s:500},{n:'Cremna acoris',p:12.0,s:500},{n:'Eurybia halimede',p:15.0,s:200},{n:'Lyropteryx appollonia',p:18.0,s:50},{n:'Necyria bellona juturna',p:12.0,s:200},{n:'Nymphidium cachrus',p:48.0,s:100},{n:'Rhetus arcius',p:7.5,s:1000},{n:'Rhetus dysoni',p:5.5,s:1000},{n:'Rhetus periander',p:6.5,s:5000},{n:'Siseme hellotis',p:6.5,s:5000},{n:'Stalachitis euterpe',p:23.0,s:20},{n:'Thisbe irene',p:4.0,s:20},{n:'Siseme neurodes',p:2.0,s:500}]},{id:'Satyridae',nm:'Satyridae',e:[{n:'Cithaerais pireta',p:45.0,s:100},{n:'Cithaerias pyropina',p:15.0,s:200},{n:'Corades enyo',p:20.0,s:50},{n:'Corades iduna',p:15.0,s:1000},{n:'Corades medeba',p:13.0,s:200},{n:'Haetera macleannania',p:35.0,s:500},{n:'Haetera piera',p:45.0,s:1000},{n:'Oressinoma typhia',p:6.0,s:500},{n:'Oxeoschistus iphigenia',p:14.0,s:1000},{n:'Pierella albofasciata',p:24.0,s:500},{n:'Pierella amalia',p:12.0,s:500},{n:'Pierella hortona hortona f. ocellata',p:15.0,s:200},{n:'Pierella hyceta',p:18.0,s:50},{n:'Pierella lamia chalybaea',p:12.0,s:200},{n:'Pierella lena',p:48.0,s:100},{n:'Pierella lucia',p:7.5,s:1000},{n:'Pseudohaetera (Haetera) hypasia',p:5.5,s:1000}]}]
+const MOTS:F[] = [
+  {id:'Arctiidae',nm:'Arctiidae',e:[]},{id:'Castnia',nm:'Castnia',e:[]},
+  {id:'Noctuidae',nm:'Noctuidae',e:[]},{id:'Saturnidae',nm:'Saturnidae',e:[]},
+  {id:'Sphingidae',nm:'Sphingidae',e:[]},{id:'Uranidae',nm:'Uranidae',e:[]},
+  {id:'Geometridae',nm:'Geometridae',e:[]},{id:'Eribidae',nm:'Eribidae',e:[]},
 ]
-const todasFamilias = CATALOGOS.flatMap(c=>c.familias)
-export default function EspecimenesPage() {
-  const [ordenActivo, setOrdenActivo] = useState('Lepidoptera Diurnae')
-  const [familiaId, setFamiliaId] = useState('Morphidae')
+const COL:F[] = [
+  {id:'Buprestidae',nm:'Buprestidae',e:[]},{id:'Cerambycidae',nm:'Cerambycidae',e:[]},
+  {id:'Cetonidae',nm:'Cetonidae',e:[]},{id:'Dynastidae',nm:'Dynastidae',e:[]},
+  {id:'Lucanidae',nm:'Lucanidae',e:[]},{id:'Scarabaeidae',nm:'Scarabaeidae',e:[]},
+]
+const ART:F[] = [
+  {id:'Spider',nm:'Spider (Araneae)',e:[]},{id:'Mantidae',nm:'Mantidae (Mantis)',e:[]},
+  {id:'Phasmidae',nm:'Phasmidae',e:[]},{id:'Escorpion',nm:'Escorpion',e:[]},
+  {id:'Odonata',nm:'Odonata',e:[]},
+]
+const ORDS = [
+  {o:'Lepidoptera Diurnae',f:FAM},
+  {o:'Moths Nocturnas',f:MOTS},
+  {o:'Coleoptera',f:COL},
+  {o:'Arthropoda',f:ART},
+]
+const POR_PAG = 24
+export default function Page() {
+  const [ord, setOrd] = useState('Lepidoptera Diurnae')
+  const [fid, setFid] = useState('Morphidae')
   const [sel, setSel] = useState<E|null>(null)
-  const [buscar, setBuscar] = useState('')
-  const [pagina, setPagina] = useState(1)
-  const POR_PAGINA = 20
-  const catalogoActivo = CATALOGOS.find(c=>c.orden===ordenActivo)!
-  const familia = todasFamilias.find(f=>f.id===familiaId)||catalogoActivo.familias[0]
-  const filtrados = familia.especies.filter(p=>p.nombre.toLowerCase().includes(buscar.toLowerCase()))
-  const totalPaginas = Math.ceil(filtrados.length / POR_PAGINA)
-  const especiesEnPagina = filtrados.slice((pagina-1)*POR_PAGINA, pagina*POR_PAGINA)
-  if (sel) return (
-    <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'40px 20px'}}>
-      <button onClick={()=>setSel(null)} style={{color:'#C9A84C',fontSize:'.8rem',background:'none',border:'none',cursor:'pointer',marginBottom:32,display:'block'}}>Volver al catalogo</button>
-      <div style={{maxWidth:640,margin:'0 auto',textAlign:'center'}}>
-        {sel.video&&<video autoPlay loop muted playsInline style={{width:'100%',maxWidth:400,borderRadius:12,border:'2px solid #C9A84C',marginBottom:16}}><source src={sel.video} type="video/mp4"/></video>}
-        {!sel.video&&<div style={{width:220,height:220,background:'rgba(201,168,76,0.08)',border:'2px solid #C9A84C',borderRadius:12,margin:'0 auto 16px',display:'flex',alignItems:'center',justifyContent:'center'}}><img src="/logo.png" alt={sel.nombre} style={{width:160,height:160,objectFit:'contain'}}/></div>}
-        {sel.foto&&!sel.video&&<img src={sel.foto} alt={sel.nombre} style={{width:'100%',maxWidth:400,borderRadius:12,border:'2px solid #C9A84C',marginBottom:16,objectFit:'cover',height:300}}/>}
-        <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.75rem',marginBottom:4}}>Familia: {familiaId} - Amazonia Peruana - SERFOR - CITES</p>
-        <h1 style={{fontSize:'1.8rem',fontWeight:300,color:'#E8C97A',fontStyle:'italic',marginBottom:24}}>{sel.nombre}</h1>
-        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:12,marginBottom:24}}>
-          <div style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:16}}>
-            <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem',marginBottom:4}}>PRECIO USD</div>
-            <div style={{color:'#E8C97A',fontSize:'1.5rem',fontWeight:700}}>${sel.precio}</div>
+  const [q, setQ] = useState('')
+  const [pag, setPag] = useState(1)
+  const catAct = ORDS.find(c=>c.o===ord)!
+  const fam = catAct.f.find(f=>f.id===fid)||catAct.f[0]
+  const filtrados = fam.e.filter(e=>e.n.toLowerCase().includes(q.toLowerCase()))
+  const totalPag = Math.ceil(filtrados.length/POR_PAG)
+  const pagEsp = filtrados.slice((pag-1)*POR_PAG, pag*POR_PAG)
+  if(sel) return(
+    <div style={minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'40px 20px'}>
+      <button onClick={()=>setSel(null)} style={color:'#C9A84C',fontSize:'.8rem',background:'none',border:'none',cursor:'pointer',marginBottom:32,display:'block'}>← Volver</button>
+      <div style={maxWidth:640,margin:'0 auto',textAlign:'center'}>
+        {sel.video&&<video autoPlay loop muted playsInline style={width:'100%',maxWidth:400,borderRadius:12,border:'2px solid #C9A84C',marginBottom:16}><source src={sel.video} type="video/mp4"/></video>}
+        {!sel.video&&sel.foto&&<img src={sel.foto} alt={sel.n} style={width:'100%',maxWidth:400,height:280,objectFit:'cover',borderRadius:12,border:'2px solid #C9A84C',marginBottom:16}/>}
+        {!sel.video&&!sel.foto&&<div style={width:200,height:200,background:'rgba(201,168,76,0.08)',border:'2px solid #C9A84C',borderRadius:12,margin:'0 auto 16px',display:'flex',alignItems:'center',justifyContent:'center'}><img src="/logo.png" style={width:150,height:150,objectFit:'contain'}/></div>}
+        <p style={color:'rgba(232,201,122,0.4)',fontSize:'.75rem',marginBottom:4}>Familia: {fid} · Amazonia Peruana · SERFOR · CITES</p>
+        <h1 style={fontSize:'1.8rem',fontWeight:300,color:'#E8C97A',fontStyle:'italic',marginBottom:20}>{sel.n}</h1>
+        <div style={display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:12,marginBottom:20}>
+          <div style={background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:14}>
+            <div style={color:'rgba(232,201,122,0.4)',fontSize:'.6rem',marginBottom:4}>PRECIO USD</div>
+            <div style={color:'#E8C97A',fontSize:'1.5rem',fontWeight:700}>${sel.p}</div>
           </div>
-          <div style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:16}}>
-            <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem',marginBottom:4}}>STOCK</div>
-            <div style={{color:'#E8C97A',fontSize:'1.5rem',fontWeight:700}}>{sel.stock}</div>
+          <div style={background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:14}>
+            <div style={color:'rgba(232,201,122,0.4)',fontSize:'.6rem',marginBottom:4}>STOCK</div>
+            <div style={color:'#E8C97A',fontSize:'1.5rem',fontWeight:700}>{sel.s}</div>
           </div>
-          <div style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:16}}>
-            <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem',marginBottom:4}}>CALIDAD</div>
-            <div style={{color:'#7EC87E',fontSize:'1rem',fontWeight:700}}>{sel.calidad}</div>
+          <div style={background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:14}>
+            <div style={color:'rgba(232,201,122,0.4)',fontSize:'.6rem',marginBottom:4}>CALIDAD</div>
+            <div style={color:'#7EC87E',fontSize:'1rem',fontWeight:700}>A1</div>
           </div>
         </div>
-        <div style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.1)',borderRadius:8,padding:14,marginBottom:20,fontSize:'.78rem',color:'rgba(232,201,122,0.6)',lineHeight:1.9}}>
-          SERFOR - CITES - Envio mundial - ExportaFacil - DHL - FedEx - UPS - Aramex - RUC 20447397804
+        <div style={fontSize:'.75rem',color:'rgba(232,201,122,0.5)',marginBottom:20,lineHeight:1.8}>SERFOR · CITES · ExportaFacil · DHL · FedEx · UPS · Aramex · RUC 20447397804</div>
+        <div style={display:'flex',gap:10,justifyContent:'center',flexWrap:'wrap'}>
+          <a href={`https://wa.me/51940699405?text=Me interesa: ${sel.n} USD $${sel.p}`} target="_blank" style={background:'#25D366',color:'white',padding:'12px 22px',borderRadius:4,fontWeight:700,textDecoration:'none'}>💬 +51 940 699 405</a>
+          <a href={`https://wa.me/51920644433?text=Me interesa: ${sel.n} USD $${sel.p}`} target="_blank" style={background:'#25D366',color:'white',padding:'12px 22px',borderRadius:4,fontWeight:700,textDecoration:'none'}>💬 +51 920 644 433</a>
         </div>
-        <div style={{display:'flex',gap:10,justifyContent:'center',flexWrap:'wrap',marginBottom:10}}>
-          <a href={`https://wa.me/51940699405?text=Hola me interesa: ${sel.nombre} USD $${sel.precio}`} target="_blank" style={{background:'#25D366',color:'white',padding:'12px 22px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>+51 940 699 405</a>
-          <a href={`https://wa.me/51920644433?text=Hola me interesa: ${sel.nombre} USD $${sel.precio}`} target="_blank" style={{background:'#25D366',color:'white',padding:'12px 22px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>+51 920 644 433</a>
-        </div>
-        <a href="mailto:houseinsectsofperu.com.pe@gmail.com" style={{display:'block',marginTop:8,color:'#C9A84C',fontSize:'.82rem',textDecoration:'none'}}>houseinsectsofperu.com.pe@gmail.com</a>
       </div>
     </div>
   )
-  return (
-    <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'40px 20px'}}>
-      <a href="/" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none',display:'block',marginBottom:20}}>Volver al inicio</a>
-      <div style={{maxWidth:1200,margin:'0 auto'}}>
-        <div style={{textAlign:'center',marginBottom:24}}>
-          <img src="/logo.png" alt="House Insects of Peru" style={{width:80,height:80,marginBottom:10}}/>
-          <h1 style={{fontSize:'1.7rem',fontWeight:300,color:'#E8C97A',marginBottom:4}}>Especimenes Biologicos Secos</h1>
-          <p style={{color:'rgba(232,201,122,0.35)',fontSize:'.72rem',letterSpacing:'.12em'}}>HOUSE INSECTS OF PERU - AMAZONIA PERUANA - SERFOR - CITES - RUC 20447397804</p>
+  return(
+    <div style={minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'32px 16px'}>
+      <a href="/" style={color:'#C9A84C',fontSize:'.8rem',textDecoration:'none',display:'block',marginBottom:16}>← Inicio</a>
+      <div style={maxWidth:1200,margin:'0 auto'}>
+        <div style={textAlign:'center',marginBottom:20}>
+          <img src="/logo.png" style={width:72,height:72,marginBottom:10}/>
+          <h1 style={fontSize:'1.6rem',fontWeight:300,color:'#E8C97A',marginBottom:4}>Especimenes Biologicos Secos</h1>
+          <p style={color:'rgba(232,201,122,0.3)',fontSize:'.7rem'}>HOUSE INSECTS OF PERU · AMAZONIA · SERFOR · CITES · RUC 20447397804</p>
         </div>
-        <div style={{display:'flex',gap:5,flexWrap:'wrap',justifyContent:'center',marginBottom:14}}>
-          {CATALOGOS.map(c=>(
-            <button key={c.orden} onClick={()=>{setOrdenActivo(c.orden);setFamiliaId(c.familias[0].id);setBuscar('');setSel(null);setPagina(1)}}
-              style={{padding:'7px 14px',background:ordenActivo===c.orden?'#C9A84C':'rgba(201,168,76,0.08)',color:ordenActivo===c.orden?'#1A1209':'#C9A84C',border:'1px solid rgba(201,168,76,0.3)',borderRadius:4,fontSize:'.72rem',cursor:'pointer',fontFamily:'Georgia,serif',fontWeight:ordenActivo===c.orden?700:400}}>
-              {c.orden}
-            </button>
-          ))}
+        <div style={display:'flex',gap:4,flexWrap:'wrap',justifyContent:'center',marginBottom:12}>
+          {ORDS.map(c=><button key={c.o} onClick={()=>{setOrd(c.o);setFid(c.f[0].id);setQ('');setPag(1)}} style={padding:'6px 12px',background:ord===c.o?'#C9A84C':'rgba(201,168,76,0.08)',color:ord===c.o?'#1A1209':'#C9A84C',border:'1px solid rgba(201,168,76,0.25)',borderRadius:4,fontSize:'.7rem',cursor:'pointer',fontWeight:ord===c.o?700:400}>{c.o}</button>)}
         </div>
-        <div style={{display:'flex',gap:4,flexWrap:'wrap',justifyContent:'center',marginBottom:18,padding:'10px',background:'rgba(201,168,76,0.03)',borderRadius:8,border:'1px solid rgba(201,168,76,0.08)'}}>
-          {catalogoActivo.familias.map(f=>(
-            <button key={f.id} onClick={()=>{setFamiliaId(f.id);setBuscar('');setSel(null);setPagina(1)}}
-              style={{padding:'5px 11px',background:familiaId===f.id?'#C9A84C':'transparent',color:familiaId===f.id?'#1A1209':'rgba(201,168,76,0.65)',border:'1px solid rgba(201,168,76,0.18)',borderRadius:14,fontSize:'.68rem',cursor:'pointer',fontFamily:'Georgia,serif',fontStyle:'italic',fontWeight:familiaId===f.id?700:400}}>
-              {f.nombre}{f.especies.length>0?` (${f.especies.length})`:''}
-            </button>
-          ))}
+        <div style={display:'flex',gap:3,flexWrap:'wrap',justifyContent:'center',marginBottom:14,padding:'8px',background:'rgba(201,168,76,0.03)',borderRadius:8,border:'1px solid rgba(201,168,76,0.08)'}>
+          {catAct.f.map(f=><button key={f.id} onClick={()=>{setFid(f.id);setQ('');setPag(1)}} style={padding:'4px 10px',background:fid===f.id?'#C9A84C':'transparent',color:fid===f.id?'#1A1209':'rgba(201,168,76,0.6)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:12,fontSize:'.65rem',cursor:'pointer',fontStyle:'italic',fontWeight:fid===f.id?700:400}>{f.nm}{f.e.length>0?` (${f.e.length})`:''}</button>)}
         </div>
-        <div style={{textAlign:'center',marginBottom:18}}>
-          <input value={buscar} onChange={e=>{setBuscar(e.target.value);setPagina(1)}} placeholder={`Buscar en ${familiaId}...`} style={{width:'100%',maxWidth:360,padding:'9px 14px',background:'#2A2010',color:'#E8C97A',border:'1px solid #C9A84C',borderRadius:8,fontSize:'.82rem',outline:'none'}}/>
+        <div style={textAlign:'center',marginBottom:14}>
+          <input value={q} onChange={e=>{setQ(e.target.value);setPag(1)}} placeholder={`Buscar en ${fid}...`} style={width:'100%',maxWidth:340,padding:'8px 14px',background:'#2A2010',color:'#E8C97A',border:'1px solid #C9A84C',borderRadius:8,fontSize:'.8rem',outline:'none'}/>
         </div>
         {filtrados.length>0?(
-          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(160px,1fr))',gap:8}}>
-            {especiesEnPagina.map((p,i)=>(
-              <button key={i} onClick={()=>setSel(p)} style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.14)',borderRadius:10,padding:11,cursor:'pointer',textAlign:'left',fontFamily:'Georgia,serif'}}>
-                <div style={{width:'100%',height:80,background:'rgba(201,168,76,0.06)',borderRadius:6,marginBottom:7,display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden'}}>
-                  {p.foto?<img src={p.foto} alt={p.nombre} style={{width:'100%',height:'100%',objectFit:'cover'}}/>:<img src="/logo.png" alt={p.nombre} style={{width:48,height:48,objectFit:'contain',opacity:.45}}/>}
-                </div>
-                <div style={{fontSize:'.7rem',fontStyle:'italic',color:'#E8C97A',marginBottom:5,lineHeight:1.3}}>{p.nombre}</div>
-                <div style={{display:'flex',justifyContent:'space-between'}}>
-                  <span style={{color:'#C9A84C',fontWeight:700,fontSize:'.78rem'}}>${p.precio}</span>
-                  <span style={{color:'rgba(232,201,122,0.3)',fontSize:'.6rem'}}>Stock: {p.stock}</span>
-                </div>
-              </button>
-            ))}
-          </div>
-          {totalPaginas > 1 && (
-            <div style={{display:'flex',gap:6,justifyContent:'center',flexWrap:'wrap',marginTop:24,paddingTop:16,borderTop:'1px solid rgba(201,168,76,0.15)'}}>
-              <button onClick={()=>setPagina(p=>Math.max(1,p-1))} disabled={pagina===1} style={{padding:'6px 12px',background:'rgba(201,168,76,0.08)',color:pagina===1?'rgba(201,168,76,0.3)':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:pagina===1?'not-allowed':'pointer',fontSize:'.75rem'}}>Anterior</button>
-              {Array.from({length:Math.min(totalPaginas,10)},(_,i)=>i+1).map(n=>(
-                <button key={n} onClick={()=>setPagina(n)} style={{padding:'6px 10px',background:pagina===n?'#C9A84C':'rgba(201,168,76,0.08)',color:pagina===n?'#1A1209':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:'pointer',fontSize:'.75rem',fontWeight:pagina===n?700:400,minWidth:32}}>{n}</button>
+          <>
+            <div style={display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(155px,1fr))',gap:7}>
+              {pagEsp.map((e,i)=>(
+                <button key={i} onClick={()=>setSel(e)} style={background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.12)',borderRadius:9,padding:10,cursor:'pointer',textAlign:'left',fontFamily:'Georgia,serif'}>
+                  <div style={width:'100%',height:75,background:'rgba(201,168,76,0.06)',borderRadius:5,marginBottom:6,display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden'}>
+                    {e.foto?<img src={e.foto} style={width:'100%',height:'100%',objectFit:'cover'}/>:<img src="/logo.png" style={width:44,height:44,objectFit:'contain',opacity:.4}/>}
+                  </div>
+                  <div style={fontSize:'.68rem',fontStyle:'italic',color:'#E8C97A',marginBottom:4,lineHeight:1.3}>{e.n}</div>
+                  <div style={display:'flex',justifyContent:'space-between'}>
+                    <span style={color:'#C9A84C',fontWeight:700,fontSize:'.75rem'}>${e.p}</span>
+                    <span style={color:'rgba(232,201,122,0.3)',fontSize:'.58rem'}>{e.s}</span>
+                  </div>
+                </button>
               ))}
-              <button onClick={()=>setPagina(p=>Math.min(totalPaginas,p+1))} disabled={pagina===totalPaginas} style={{padding:'6px 12px',background:'rgba(201,168,76,0.08)',color:pagina===totalPaginas?'rgba(201,168,76,0.3)':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:pagina===totalPaginas?'not-allowed':'pointer',fontSize:'.75rem'}}>Siguiente</button>
             </div>
-          )}
+            {totalPag>1&&(
+              <div style={display:'flex',gap:5,justifyContent:'center',flexWrap:'wrap',marginTop:20,paddingTop:14,borderTop:'1px solid rgba(201,168,76,0.12)'}>
+                <button onClick={()=>setPag(p=>Math.max(1,p-1))} disabled={pag===1} style={padding:'5px 10px',background:'rgba(201,168,76,0.08)',color:pag===1?'rgba(201,168,76,0.25)':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:pag===1?'not-allowed':'pointer',fontSize:'.7rem'}>← Ant</button>
+                {Array.from({length:Math.min(totalPag,10)},(_,i)=>i+1).map(n=>(
+                  <button key={n} onClick={()=>setPag(n)} style={padding:'5px 9px',background:pag===n?'#C9A84C':'rgba(201,168,76,0.08)',color:pag===n?'#1A1209':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:'pointer',fontSize:'.7rem',fontWeight:pag===n?700:400,minWidth:28}>{n}</button>
+                ))}
+                <button onClick={()=>setPag(p=>Math.min(totalPag,p+1))} disabled={pag===totalPag} style={padding:'5px 10px',background:'rgba(201,168,76,0.08)',color:pag===totalPag?'rgba(201,168,76,0.25)':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:pag===totalPag?'not-allowed':'pointer',fontSize:'.7rem'}>Sig →</button>
+              </div>
+            )}
+          </>
         ):(
-          <div style={{textAlign:'center',padding:'50px 20px'}}>
-            <p style={{color:'rgba(232,201,122,0.3)',marginBottom:8}}>{familia.especies.length===0?`Proximamente especies de ${familiaId}`:'No se encontraron'}</p>
-            <a href="https://wa.me/51940699405" target="_blank" style={{display:'inline-block',marginTop:12,background:'#25D366',color:'white',padding:'10px 22px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.82rem'}}>Consultar disponibilidad</a>
+          <div style={textAlign:'center',padding:'40px 20px'}>
+            <p style={color:'rgba(232,201,122,0.3)',marginBottom:12}>{fam.e.length===0?`Proximamente especies de ${fid}`:'No se encontraron'}</p>
+            <a href="https://wa.me/51940699405" target="_blank" style={display:'inline-block',background:'#25D366',color:'white',padding:'10px 20px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.8rem'}>Consultar disponibilidad</a>
           </div>
         )}
       </div>
