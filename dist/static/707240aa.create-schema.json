@@ -1,0 +1,269 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "nombre",
+        "type": "string",
+        "title": "Nombre Científico"
+      },
+      {
+        "options": {
+          "list": [
+            "Lepidoptera Diurnae",
+            "Moths Nocturnas",
+            "Coleoptera",
+            "Arthropoda"
+          ]
+        },
+        "name": "orden",
+        "type": "string"
+      },
+      {
+        "name": "familia",
+        "type": "string"
+      },
+      {
+        "name": "subfamilia",
+        "type": "string"
+      },
+      {
+        "initialValue": "Tingo María, Perú",
+        "name": "localidad",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            "A1",
+            "A1/A1-",
+            "A1-",
+            "VGA2",
+            "A2"
+          ]
+        },
+        "initialValue": "A1",
+        "name": "calidad",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            "M",
+            "F",
+            "P",
+            "EP",
+            "S",
+            "M or F"
+          ]
+        },
+        "initialValue": "M or F",
+        "name": "sexo",
+        "type": "string"
+      },
+      {
+        "name": "tamano",
+        "type": "string",
+        "title": "Tamaño (cm)"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 0
+              }
+            ]
+          }
+        ],
+        "name": "precio",
+        "type": "number",
+        "title": "Precio USD"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "min",
+                "constraint": 0
+              }
+            ]
+          }
+        ],
+        "name": "stock",
+        "type": "number"
+      },
+      {
+        "name": "codigoQR",
+        "type": "string",
+        "title": "Código QR / SKU"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Descripción"
+          }
+        ],
+        "name": "fotoFrente",
+        "type": "image",
+        "title": "📸 Foto Frente"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "fotoLado",
+        "type": "image",
+        "title": "📸 Foto Lado"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "fotoReverso",
+        "type": "image",
+        "title": "📸 Foto Reverso"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "name": "video",
+        "type": "url",
+        "title": "🎥 Video URL (Cloudinary)"
+      },
+      {
+        "rows": 3,
+        "name": "descripcion",
+        "type": "text",
+        "title": "Descripción"
+      },
+      {
+        "initialValue": true,
+        "name": "activo",
+        "type": "boolean",
+        "title": "Activo en catálogo"
+      },
+      {
+        "name": "orden_display",
+        "type": "number",
+        "title": "Orden en lista (1,2,3...)"
+      }
+    ],
+    "name": "especie",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "source": "nombre"
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "name": "id",
+        "type": "slug",
+        "title": "ID único"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "nombre",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            "Lepidoptera Diurnae",
+            "Moths Nocturnas",
+            "Coleoptera",
+            "Arthropoda"
+          ]
+        },
+        "name": "orden",
+        "type": "string",
+        "title": "Orden (Lepidoptera, Moths, etc)"
+      },
+      {
+        "name": "descripcion",
+        "type": "text",
+        "title": "Descripción"
+      },
+      {
+        "initialValue": true,
+        "name": "activo",
+        "type": "boolean"
+      },
+      {
+        "name": "orden_display",
+        "type": "number",
+        "title": "Orden en lista"
+      }
+    ],
+    "name": "familia",
+    "type": "document",
+    "title": "Familia / Subfamilia"
+  }
+]
