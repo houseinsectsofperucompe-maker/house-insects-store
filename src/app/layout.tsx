@@ -7,18 +7,8 @@ export const metadata: Metadata = {
     shortcut: '/favicon.png',
     apple: '/favicon.png',
   },
-  icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
-    apple: '/favicon.png',
-  },
   title: 'House Insects of Peru E.I.R.L. | Amazonian Art & Bio-Trade',
   description: 'Exportación de arte biológico premium, cuadros en pan de oro, artesanías de plata y bronce, textiles de alpaca, minerales de colección, hongos deshidratados, condimentos naturales disecados, plantas medicinales y esculturas en maderas finas. CITES · SERFOR · RUC 20447397804',
-  icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-    shortcut: '/favicon-32x32.png',
-  },
   openGraph: {
     title: 'House Insects of Peru E.I.R.L.',
     description: 'Amazonian Art & Bio-Trade · Especímenes biológicos · Joyería natural · Artesanías amazónicas',
