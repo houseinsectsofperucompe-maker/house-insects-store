@@ -197,15 +197,16 @@ export default function Page() {
             )}
             {vista!=='video'&&sel.foto&&<img src={sel.foto} alt={sel.n} className="sel-img" style={{width:'100%',height:280,objectFit:'cover',borderRadius:12,border:'2px solid #C9A84C'}}/>}
             {vista!=='video'&&!sel.foto&&(
-          <div className="sel-img" style={{width:320,maxWidth:'100%',height:280,background:'linear-gradient(135deg,#1A1209,#2A2010)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,margin:'0 auto 16px',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',position:'relative',overflow:'hidden',cursor:'default'}}>
-            <div style={{position:'absolute',inset:0,backgroundImage:'radial-gradient(circle at 30% 30%, rgba(201,168,76,0.1) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(201,168,76,0.06) 0%, transparent 50%)'}}/>
-            <div style={{position:'absolute',top:12,left:12,right:12,bottom:12,border:'1px solid rgba(201,168,76,0.1)',borderRadius:8}}/>
-            <img src="/logo-house-insects-peru.png" className="logo-ani" style={{width:120,height:120,objectFit:'contain',opacity:.8,filter:'drop-shadow(0 4px 20px rgba(201,168,76,0.5))',marginBottom:12,position:'relative',zIndex:1}} onError={(ev)=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>
-            <div style={{width:60,height:1,background:'linear-gradient(to right,transparent,rgba(201,168,76,0.5),transparent)',marginBottom:10,position:'relative',zIndex:1}}/>
-            <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.7rem',letterSpacing:'.15em',position:'relative',zIndex:1}}>FOTO PRÓXIMAMENTE</p>
-            <p style={{color:'rgba(232,201,122,0.25)',fontSize:'.6rem',letterSpacing:'.08em',marginTop:4,position:'relative',zIndex:1}}>HOUSE INSECTS OF PERU</p>
+              <div className="sel-img" style={{width:'100%',height:280,background:'linear-gradient(135deg,#1A1209,#2A2010)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',position:'relative',overflow:'hidden',cursor:'default'}}>
+                <div style={{position:'absolute',inset:0,backgroundImage:'radial-gradient(circle at 30% 30%, rgba(201,168,76,0.1) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(201,168,76,0.06) 0%, transparent 50%)'}}/>
+                <img src="/logo-house-insects-peru.png" className="logo-ani" style={{width:120,height:120,objectFit:'contain',opacity:.8,filter:'drop-shadow(0 4px 20px rgba(201,168,76,0.5))',marginBottom:12,position:'relative',zIndex:1}} onError={(ev)=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>
+                <div style={{width:60,height:1,background:'linear-gradient(to right,transparent,rgba(201,168,76,0.5),transparent)',marginBottom:10,position:'relative',zIndex:1}}/>
+                <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.7rem',letterSpacing:'.15em',position:'relative',zIndex:1}}>FOTO PRÓXIMAMENTE</p>
+                <p style={{color:'rgba(232,201,122,0.25)',fontSize:'.6rem',letterSpacing:'.08em',marginTop:4,position:'relative',zIndex:1}}>HOUSE INSECTS OF PERU</p>
+              </div>
+            )}
           </div>
-        )}
+        </div>
         <p style={{color:'rgba(232,201,122,0.35)',fontSize:'.7rem',marginBottom:8,letterSpacing:'.08em'}}>ORDER: LEPIDOPTERA · AMAZONIA PERUANA · SERFOR · CITES</p>
         <h1 className='desc-text' style={{fontSize:'1.8rem',fontWeight:300,color:'#E8C97A',fontStyle:'italic',marginBottom:20}}>{sel.n}</h1>
         <div style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:10,padding:'16px',marginBottom:20,textAlign:'left'}}>
