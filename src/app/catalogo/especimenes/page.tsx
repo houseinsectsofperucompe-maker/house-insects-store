@@ -16,7 +16,7 @@ const FAM:F[] = [
 ]
 const ORDS = [
   { o:'Lepidoptera Diurnae', f:FAM },
-  { o:'Cuadros Mariposas Diurnas', f:[
+  { o:'Moths Nocturnas', f:[
     { id:'Arctiidae', nm:'Arctiidae', e:[] as E[] },
     { id:'Castnia', nm:'Castnia', e:[] as E[] },
     { id:'Hepalidae', nm:'Hepalidae', e:[] as E[] },
