@@ -428,9 +428,13 @@ export default function EspecimenesPage() {
   const [familiaId, setFamiliaId] = useState('Morphidae')
   const [sel, setSel] = useState<E|null>(null)
   const [buscar, setBuscar] = useState('')
+  const [pagina, setPagina] = useState(1)
+  const POR_PAGINA = 20
   const catalogoActivo = CATALOGOS.find(c=>c.orden===ordenActivo)!
   const familia = todasFamilias.find(f=>f.id===familiaId)||catalogoActivo.familias[0]
   const filtrados = familia.especies.filter(p=>p.nombre.toLowerCase().includes(buscar.toLowerCase()))
+  const totalPaginas = Math.ceil(filtrados.length / POR_PAGINA)
+  const especiesEnPagina = filtrados.slice((pagina-1)*POR_PAGINA, pagina*POR_PAGINA)
   if (sel) return (
     <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'40px 20px'}}>
       <button onClick={()=>setSel(null)} style={{color:'#C9A84C',fontSize:'.8rem',background:'none',border:'none',cursor:'pointer',marginBottom:32,display:'block'}}>Volver al catalogo</button>
@@ -476,7 +480,7 @@ export default function EspecimenesPage() {
         </div>
         <div style={{display:'flex',gap:5,flexWrap:'wrap',justifyContent:'center',marginBottom:14}}>
           {CATALOGOS.map(c=>(
-            <button key={c.orden} onClick={()=>{setOrdenActivo(c.orden);setFamiliaId(c.familias[0].id);setBuscar('');setSel(null)}}
+            <button key={c.orden} onClick={()=>{setOrdenActivo(c.orden);setFamiliaId(c.familias[0].id);setBuscar('');setSel(null);setPagina(1)}}
               style={{padding:'7px 14px',background:ordenActivo===c.orden?'#C9A84C':'rgba(201,168,76,0.08)',color:ordenActivo===c.orden?'#1A1209':'#C9A84C',border:'1px solid rgba(201,168,76,0.3)',borderRadius:4,fontSize:'.72rem',cursor:'pointer',fontFamily:'Georgia,serif',fontWeight:ordenActivo===c.orden?700:400}}>
               {c.orden}
             </button>
@@ -484,18 +488,18 @@ export default function EspecimenesPage() {
         </div>
         <div style={{display:'flex',gap:4,flexWrap:'wrap',justifyContent:'center',marginBottom:18,padding:'10px',background:'rgba(201,168,76,0.03)',borderRadius:8,border:'1px solid rgba(201,168,76,0.08)'}}>
           {catalogoActivo.familias.map(f=>(
-            <button key={f.id} onClick={()=>{setFamiliaId(f.id);setBuscar('');setSel(null)}}
+            <button key={f.id} onClick={()=>{setFamiliaId(f.id);setBuscar('');setSel(null);setPagina(1)}}
               style={{padding:'5px 11px',background:familiaId===f.id?'#C9A84C':'transparent',color:familiaId===f.id?'#1A1209':'rgba(201,168,76,0.65)',border:'1px solid rgba(201,168,76,0.18)',borderRadius:14,fontSize:'.68rem',cursor:'pointer',fontFamily:'Georgia,serif',fontStyle:'italic',fontWeight:familiaId===f.id?700:400}}>
               {f.nombre}{f.especies.length>0?` (${f.especies.length})`:''}
             </button>
           ))}
         </div>
         <div style={{textAlign:'center',marginBottom:18}}>
-          <input value={buscar} onChange={e=>setBuscar(e.target.value)} placeholder={`Buscar en ${familiaId}...`} style={{width:'100%',maxWidth:360,padding:'9px 14px',background:'#2A2010',color:'#E8C97A',border:'1px solid #C9A84C',borderRadius:8,fontSize:'.82rem',outline:'none'}}/>
+          <input value={buscar} onChange={e=>{setBuscar(e.target.value);setPagina(1)}} placeholder={`Buscar en ${familiaId}...`} style={{width:'100%',maxWidth:360,padding:'9px 14px',background:'#2A2010',color:'#E8C97A',border:'1px solid #C9A84C',borderRadius:8,fontSize:'.82rem',outline:'none'}}/>
         </div>
         {filtrados.length>0?(
           <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(160px,1fr))',gap:8}}>
-            {filtrados.map((p,i)=>(
+            {especiesEnPagina.map((p,i)=>(
               <button key={i} onClick={()=>setSel(p)} style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.14)',borderRadius:10,padding:11,cursor:'pointer',textAlign:'left',fontFamily:'Georgia,serif'}}>
                 <div style={{width:'100%',height:80,background:'rgba(201,168,76,0.06)',borderRadius:6,marginBottom:7,display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden'}}>
                   {p.foto?<img src={p.foto} alt={p.nombre} style={{width:'100%',height:'100%',objectFit:'cover'}}/>:<img src="/logo.png" alt={p.nombre} style={{width:48,height:48,objectFit:'contain',opacity:.45}}/>}
@@ -508,6 +512,15 @@ export default function EspecimenesPage() {
               </button>
             ))}
           </div>
+          {totalPaginas > 1 && (
+            <div style={{display:'flex',gap:6,justifyContent:'center',flexWrap:'wrap',marginTop:24,paddingTop:16,borderTop:'1px solid rgba(201,168,76,0.15)'}}>
+              <button onClick={()=>setPagina(p=>Math.max(1,p-1))} disabled={pagina===1} style={{padding:'6px 12px',background:'rgba(201,168,76,0.08)',color:pagina===1?'rgba(201,168,76,0.3)':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:pagina===1?'not-allowed':'pointer',fontSize:'.75rem'}}>Anterior</button>
+              {Array.from({length:Math.min(totalPaginas,10)},(_,i)=>i+1).map(n=>(
+                <button key={n} onClick={()=>setPagina(n)} style={{padding:'6px 10px',background:pagina===n?'#C9A84C':'rgba(201,168,76,0.08)',color:pagina===n?'#1A1209':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:'pointer',fontSize:'.75rem',fontWeight:pagina===n?700:400,minWidth:32}}>{n}</button>
+              ))}
+              <button onClick={()=>setPagina(p=>Math.min(totalPaginas,p+1))} disabled={pagina===totalPaginas} style={{padding:'6px 12px',background:'rgba(201,168,76,0.08)',color:pagina===totalPaginas?'rgba(201,168,76,0.3)':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:pagina===totalPaginas?'not-allowed':'pointer',fontSize:'.75rem'}}>Siguiente</button>
+            </div>
+          )}
         ):(
           <div style={{textAlign:'center',padding:'50px 20px'}}>
             <p style={{color:'rgba(232,201,122,0.3)',marginBottom:8}}>{familia.especies.length===0?`Proximamente especies de ${familiaId}`:'No se encontraron'}</p>
