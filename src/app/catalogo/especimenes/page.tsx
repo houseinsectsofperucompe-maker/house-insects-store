@@ -162,6 +162,7 @@ export default function Page() {
   const [pag, setPag] = useState(1)
   const [showQ, setShowQ] = useState(false)
   const [showA, setShowA] = useState(false)
+  const [vista, setVista] = useState<'frente'|'lado'|'reverso'|'video'>('frente')
   const catAct = ORDS.find(c=>c.o===ord)!
   const fam = catAct.f.find(f=>f.id===fid)||catAct.f[0]
   const filtrados = fam.e.filter(e=>e.n.toLowerCase().includes(q.toLowerCase()))
@@ -174,9 +175,28 @@ export default function Page() {
       <style>{`@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@keyframes popIn{from{opacity:0;transform:scale(0.85) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}.sel-img{transition:transform 0.3s ease,box-shadow 0.3s ease}.sel-img:hover{transform:scale(1.04);box-shadow:0 12px 40px rgba(201,168,76,0.3)}.logo-ani{transition:transform 0.4s ease,opacity 0.3s ease}.logo-ani:hover{transform:scale(1.08) rotate(3deg);opacity:0.9}.help-btn{transition:transform 0.15s ease,background 0.15s ease,box-shadow 0.15s ease}.help-btn:hover{transform:translateY(-2px) scale(1.12);background:rgba(201,168,76,0.28)!important;box-shadow:0 4px 12px rgba(201,168,76,0.3)}.stat-card{transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s ease}.stat-card:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 8px 24px rgba(201,168,76,0.2);border-color:rgba(201,168,76,0.5)!important}.wa-btn{transition:transform 0.18s ease,box-shadow 0.18s ease}.wa-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.5)}.popup-box{animation:popIn 0.25s cubic-bezier(0.34,1.56,0.64,1)}.popup-row-item{transition:background 0.15s ease,transform 0.15s ease}.popup-row-item:hover{background:rgba(201,168,76,0.08);transform:translateX(4px)}.popup-logo{transition:transform 0.4s ease}.popup-logo:hover{transform:scale(1.1) rotate(-5deg)}.pag-btn{transition:transform 0.15s ease,background 0.15s ease,box-shadow 0.15s ease}.pag-btn:hover:not(:disabled){transform:translateY(-2px) scale(1.1);box-shadow:0 4px 12px rgba(201,168,76,0.3)}.volver-btn{transition:transform 0.15s ease,color 0.15s ease}.volver-btn:hover{transform:translateX(-4px);color:#E8C97A!important}.inicio-btn{transition:transform 0.15s ease,color 0.15s ease}.inicio-btn:hover{transform:translateX(-4px);color:#E8C97A!important}.desc-text{transition:color 0.2s ease}.desc-text:hover{color:rgba(232,201,122,0.7)!important}.consult-btn{transition:transform 0.18s ease,box-shadow 0.18s ease}.consult-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.4)}.esp-card{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.12);border-radius:9px;padding:10px;cursor:pointer;text-align:left;font-family:Georgia,serif;transition:transform 0.18s ease,border-color 0.18s ease,background 0.18s ease,box-shadow 0.18s ease}.esp-card:hover{transform:translateY(-5px) scale(1.04);border-color:rgba(201,168,76,0.55);background:rgba(201,168,76,0.11);box-shadow:0 10px 28px rgba(0,0,0,0.45)}.esp-card img{transition:opacity 0.18s ease}.esp-card:hover img{opacity:0.9}.ord-btn{transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.15s ease}.ord-btn:hover{transform:translateY(-2px) scale(1.06);box-shadow:0 4px 14px rgba(201,168,76,0.3)}.fam-btn{transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.15s ease,color 0.15s ease}.fam-btn:hover{transform:translateY(-3px) scale(1.08);box-shadow:0 6px 18px rgba(201,168,76,0.25);border-color:rgba(201,168,76,0.5)!important;color:#E8C97A!important}`}</style>
       <button onClick={()=>setSel(null)} className='volver-btn' style={{color:'#C9A84C',fontSize:'.8rem',background:'none',border:'none',cursor:'pointer',marginBottom:32,display:'block'}}>← Volver al catálogo</button>
       <div style={{maxWidth:640,margin:'0 auto',textAlign:'center'}}>
-        {sel.video&&<video autoPlay loop muted playsInline className="sel-img" style={{width:'100%',maxWidth:400,borderRadius:12,border:'2px solid #C9A84C',marginBottom:16}}><source src={sel.video} type="video/mp4"/></video>}
-        {!sel.video&&sel.foto&&<img src={sel.foto} alt={sel.n} className="sel-img" style={{width:'100%',maxWidth:400,height:280,objectFit:'cover',borderRadius:12,border:'2px solid #C9A84C',marginBottom:16}}/>}
-        {!sel.video&&!sel.foto&&(
+        <div style={{marginBottom:20}}>
+          <div style={{display:'flex',gap:6,justifyContent:'center',marginBottom:10}}>
+            {(['frente','lado','reverso','video'] as const).map(v=>(
+              <button key={v} onClick={()=>setVista(v)} style={{
+                padding:'5px 12px',borderRadius:20,cursor:'pointer',fontSize:'.7rem',fontFamily:'Georgia,serif',
+                background:vista===v?'#C9A84C':'rgba(201,168,76,0.08)',
+                color:vista===v?'#1A1209':'#C9A84C',
+                border:`1px solid ${vista===v?'#C9A84C':'rgba(201,168,76,0.2)'}`,
+                transition:'all 0.18s ease',textTransform:'capitalize'
+              }}>{v==='frente'?'📸 Frente':v==='lado'?'📸 Lado':v==='reverso'?'📸 Reverso':'🎥 Video'}</button>
+            ))}
+          </div>
+          <div style={{width:'100%',maxWidth:420,margin:'0 auto'}}>
+            {vista==='video'&&sel.video&&<video autoPlay loop muted playsInline className="sel-img" style={{width:'100%',borderRadius:12,border:'2px solid #C9A84C'}}><source src={sel.video} type="video/mp4"/></video>}
+            {vista==='video'&&!sel.video&&(
+              <div className="sel-img" style={{width:'100%',height:280,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
+                <div style={{fontSize:'2rem',marginBottom:8}}>🎥</div>
+                <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.75rem'}}>Video próximamente</p>
+              </div>
+            )}
+            {vista!=='video'&&sel.foto&&<img src={sel.foto} alt={sel.n} className="sel-img" style={{width:'100%',height:280,objectFit:'cover',borderRadius:12,border:'2px solid #C9A84C'}}/>}
+            {vista!=='video'&&!sel.foto&&(
           <div className="sel-img" style={{width:320,maxWidth:'100%',height:280,background:'linear-gradient(135deg,#1A1209,#2A2010)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,margin:'0 auto 16px',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',position:'relative',overflow:'hidden',cursor:'default'}}>
             <div style={{position:'absolute',inset:0,backgroundImage:'radial-gradient(circle at 30% 30%, rgba(201,168,76,0.1) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(201,168,76,0.06) 0%, transparent 50%)'}}/>
             <div style={{position:'absolute',top:12,left:12,right:12,bottom:12,border:'1px solid rgba(201,168,76,0.1)',borderRadius:8}}/>
