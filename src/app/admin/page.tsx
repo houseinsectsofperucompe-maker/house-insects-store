@@ -10,23 +10,23 @@ const COURIERS = [
 ]
 
 const RUBROS = [
-  { id:'especimenes', nombre:'🦋 Especímenes Secos', licencias:['SERFOR','CITES'], partida:'9705.00.00.00' },
-  { id:'nocturnas', nombre:'🌙 Mariposas Nocturnas', licencias:['SERFOR','CITES'], partida:'9705.00.00.00' },
-  { id:'coleoptera', nombre:'🪲 Coleópteros', licencias:['SERFOR','CITES'], partida:'9705.00.00.00' },
+  { id:'especimenes', nombre:'🦋 Especímenes Secos', licencias:['SERFOR','CITES'], partida:'9705.21.00.00' },
+  { id:'nocturnas', nombre:'🌙 Mariposas Nocturnas', licencias:['SERFOR','CITES'], partida:'9705.21.00.00' },
+  { id:'coleoptera', nombre:'🪲 Coleópteros', licencias:['SERFOR','CITES'], partida:'9705.21.00.00' },
   { id:'joyeria', nombre:'✨ Joyería Natural', licencias:['SUNAT'], partida:'7113.19.00.00' },
   { id:'artesanias', nombre:'🗿 Artesanías', licencias:['SUNAT','CITE'], partida:'9601.90.00.00' },
   { id:'frutas', nombre:'🍎 Frutas Exóticas', licencias:['SENASA'], partida:'0813.40.00.00' },
-  { id:'semillas', nombre:'🌱 Semillas & Plantas', licencias:['SENASA','SERFOR'], partida:'1211.90.90.00' },
+  { id:'semillas', nombre:'🌱 Semillas & Plantas', licencias:['SENASA','SERFOR'], partida:'1211.90.90.90' },
   { id:'alimentos', nombre:'🌶️ Alimentos', licencias:['SENASA','DIGESA'], partida:'2103.90.90.00' },
-  { id:'superalimentos', nombre:'🫧 Superalimentos', licencias:['SENASA','DIGESA'], partida:'2106.90.99.00' },
+  { id:'superalimentos', nombre:'🫧 Superalimentos', licencias:['SENASA','DIGESA'], partida:'2106.90.99.90' },
   { id:'textileria', nombre:'🧶 Textilería & Alpaca', licencias:['SUNAT'], partida:'5112.19.00.00' },
   { id:'minerales', nombre:'💎 Minerales', licencias:['MEM','SUNAT'], partida:'2616.90.00.00' },
-  { id:'hongos', nombre:'🍄 Hongos', licencias:['SENASA'], partida:'0712.30.00.00' },
-  { id:'pinturas', nombre:'🎨 Pinturas & Arte', licencias:['SUNAT','MIN.CULTURA'], partida:'9701.10.00.00' },
+  { id:'hongos', nombre:'🍄 Hongos', licencias:['SENASA'], partida:'0712.39.00.00' },
+  { id:'pinturas', nombre:'🎨 Pinturas & Arte', licencias:['SUNAT','MIN.CULTURA'], partida:'9701.21.00.00' },
   { id:'maderas', nombre:'🪵 Maderas Finas', licencias:['SERFOR'], partida:'4420.90.00.00' },
-  { id:'herramientas', nombre:'🔬 Herramientas', licencias:['SUNAT'], partida:'9027.80.90.00' },
-  { id:'esencias', nombre:'🌸 Esencias & Aceites', licencias:['SENASA','DIGESA'], partida:'3301.29.00.00' },
-  { id:'rarezas', nombre:'🦋 Rarezas & Gynandro', licencias:['SERFOR','CITES'], partida:'9705.00.00.00' },
+  { id:'herramientas', nombre:'🔬 Herramientas', licencias:['SUNAT'], partida:'9027.89.00.00' },
+  { id:'esencias', nombre:'🌸 Esencias & Aceites', licencias:['SENASA','DIGESA'], partida:'3301.29.90.00' },
+  { id:'rarezas', nombre:'🦋 Rarezas & Gynandro', licencias:['SERFOR','CITES'], partida:'9705.21.00.00' },
 ]
 
 const SEGUROS = [
