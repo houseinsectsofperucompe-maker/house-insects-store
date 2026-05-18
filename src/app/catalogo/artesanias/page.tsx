@@ -1,23 +1,60 @@
 'use client'
 import { useState } from 'react'
+
 export default function ArtesaniasPage() {
   const [vista, setVista] = useState('frente')
+  const [cat, setCat] = useState('todas')
+
+  const CATEGORIAS = [
+    { id:'todas', nm:'✨ Todas las Piezas' },
+    { id:'mascaras', nm:'🎭 Máscaras Folclóricas' },
+    { id:'ayacucho', nm:'🏛️ Arte de Ayacucho' },
+    { id:'totora', nm:'🌾 Caballitos de Totora' },
+    { id:'joyeria', nm:'💍 Platería & Orfebrería' },
+    { id:'tumi', nm:'🏆 Tumi & Símbolos Sagrados' },
+  ]
+
   return (
     <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'32px 16px'}}>
       <style>{`
         @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
         .pc{animation:fadeInUp 0.6s ease both}
-        .bb:hover{color:#F5E6C8!important;transform:translateX(-4px)}
-        .wb:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.4)}
+        .cat-btn{transition:all 0.18s ease;cursor:pointer}
+        .cat-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(201,168,76,0.2)}
+        .wa-btn{transition:transform 0.18s ease,box-shadow 0.18s ease}
+        .wa-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.4)}
       `}</style>
-      <div className="pc" style={{maxWidth:900,margin:'0 auto'}}>
+      <div className="pc" style={{maxWidth:1000,margin:'0 auto'}}>
         <a href="/" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none',display:'block',marginBottom:16}}>← Inicio</a>
-        <div style={{textAlign:'center',marginBottom:24}}>
-          <img src="/logo-house-insects-peru.png" style={{width:72,height:72,marginBottom:10,objectFit:'contain'}}/>
-          <h1 style={{fontSize:'1.8rem',fontWeight:300,color:'#E8C97A',marginBottom:4}}>🗿 Artesanías & Resinas</h1>
-          <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.75rem',letterSpacing:'.1em'}}>HOUSE INSECTS OF PERU · AMAZONIA · RUC 20447397804</p>
+
+        {/* HEADER LUJO */}
+        <div style={{textAlign:'center',marginBottom:32}}>
+          <img src="/logo-house-insects-peru.png" style={{width:72,height:72,marginBottom:12,objectFit:'contain'}}/>
+          <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · COLECCIÓN EXCLUSIVA</div>
+          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}>🗿 Peruvian Art & Heritage</h1>
+          <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
+          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
+            Piezas exclusivas de la tradición peruana, hechas a mano por maestros artesanos de Ayacucho y plateros tradicionales, utilizando técnicas ancestrales y metales preciosos.
+          </p>
+          <div style={{marginTop:12,color:'rgba(232,201,122,0.35)',fontSize:'.65rem',letterSpacing:'.15em'}}>
+            PARTIDA 9601.90.00.00 · SERFOR · SUNAT · RUC 20447397804
+          </div>
         </div>
-        <div style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:12,padding:24,textAlign:'center'}}>
+
+        {/* CATEGORIAS */}
+        <div style={{display:'flex',gap:8,flexWrap:'wrap',justifyContent:'center',marginBottom:24}}>
+          {CATEGORIAS.map(c=>(
+            <button key={c.id} onClick={()=>setCat(c.id)} className="cat-btn" style={{
+              padding:'7px 14px',borderRadius:20,fontSize:'.75rem',fontFamily:'Georgia,serif',
+              background:cat===c.id?'#C9A84C':'rgba(201,168,76,0.08)',
+              color:cat===c.id?'#1A1209':'#C9A84C',
+              border:`1px solid ${cat===c.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
+            }}>{c.nm}</button>
+          ))}
+        </div>
+
+        {/* TABS FOTOS */}
+        <div style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:12,padding:24,textAlign:'center',marginBottom:24}}>
           <div style={{display:'flex',gap:6,justifyContent:'center',marginBottom:16}}>
             {['frente','lado','reverso','video'].map(v=>(
               <button key={v} onClick={()=>setVista(v)} style={{
@@ -34,9 +71,31 @@ export default function ArtesaniasPage() {
             <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.75rem',letterSpacing:'.1em'}}>CATÁLOGO EN PREPARACIÓN</p>
             <p style={{color:'rgba(232,201,122,0.25)',fontSize:'.62rem',marginTop:4}}>FOTO PRÓXIMAMENTE</p>
           </div>
+
+          {/* DESCRIPCION LUJO */}
+          <div style={{maxWidth:600,margin:'0 auto 20px',textAlign:'left',background:'rgba(201,168,76,0.04)',border:'1px solid rgba(201,168,76,0.1)',borderRadius:8,padding:16}}>
+            <div style={{color:'#C9A84C',fontSize:'.7rem',letterSpacing:'.1em',marginBottom:8}}>✨ COLECCIONES DISPONIBLES</div>
+            {[
+              {icon:'🎭',nm:'Máscaras Folclóricas',desc:'Danzas tradicionales · Hecho a mano · Madera tallada'},
+              {icon:'🏛️',nm:'Retablos de Ayacucho',desc:'Arte popular · Maestros artesanos · Técnica ancestral'},
+              {icon:'⛪',nm:'Iglesias de Quinua',desc:'Cerámica fina · Detalle microscópico · Colección'},
+              {icon:'🌾',nm:'Caballitos de Totora',desc:'Fibra vegetal · Artesanal · Norte del Perú'},
+              {icon:'💍',nm:'Caballito de Plata 925',desc:'Plata fina · Orfebrería · Certificado'},
+              {icon:'🏆',nm:'Tumi Sagrado',desc:'Plata/Cobre bañado en oro · Símbolo ancestral · Lujo'},
+            ].map(p=>(
+              <div key={p.nm} style={{display:'flex',gap:10,alignItems:'center',marginBottom:10,padding:'8px',borderRadius:6,background:'rgba(201,168,76,0.04)'}}>
+                <span style={{fontSize:'1.3rem'}}>{p.icon}</span>
+                <div>
+                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{p.nm}</div>
+                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{p.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
           <div style={{display:'flex',gap:10,justifyContent:'center',flexWrap:'wrap'}}>
-            <a href="https://wa.me/51940699405" target="_blank" style={{background:'#25D366',color:'white',padding:'10px 20px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.8rem'}}>💬 +51 940 699 405</a>
-            <a href="https://wa.me/51920644433" target="_blank" style={{background:'#25D366',color:'white',padding:'10px 20px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.8rem'}}>💬 +51 920 644 433</a>
+            <a href="https://wa.me/51940699405" target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'10px 20px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.8rem'}}>💬 +51 940 699 405</a>
+            <a href="https://wa.me/51920644433" target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'10px 20px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.8rem'}}>💬 +51 920 644 433</a>
           </div>
         </div>
       </div>
