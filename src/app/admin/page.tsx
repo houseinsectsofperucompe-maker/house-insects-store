@@ -452,6 +452,62 @@ export default function AdminPage() {
           </div>
         )}
 
+
+        {tab==='sunat'&&(
+          <div style={{animation:'fadeInUp 0.5s ease',display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
+            <div className="admin-card">
+              <div className="section-title">🧾 DOCUMENTOS SUNAT</div>
+              {[{icon:'🧾',doc:'Factura Electrónica',serie:'F001'},{icon:'🌍',doc:'Factura Exportación',serie:'E001'},{icon:'🚚',doc:'Guía de Remisión',serie:'T001'},{icon:'📦',doc:'Packing List',serie:'PL-2026'},{icon:'💰',doc:'Liquidación de Compra',serie:'LC001'}].map(d=>(
+                <div key={d.doc} className="rubro-card" style={{marginBottom:8,display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+                  <div style={{display:'flex',gap:10,alignItems:'center'}}><span style={{fontSize:'1.3rem'}}>{d.icon}</span><span style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{d.doc}</span></div>
+                  <span style={{color:'#C9A84C',fontSize:'.7rem',fontFamily:'monospace'}}>{d.serie}</span>
+                </div>
+              ))}
+              <div style={{marginTop:12,background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:12}}>
+                <div style={{color:'#C9A84C',fontSize:'.9rem',fontWeight:700}}>RUC 20447397804</div>
+                <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>HOUSE INSECTS OF PERU E.I.R.L.</div>
+              </div>
+            </div>
+            <div className="admin-card">
+              <div className="section-title">🏛️ CERTIFICACIONES</div>
+              {[{icon:'🌿',cert:'SERFOR',color:'#7EC87E'},{icon:'🏛️',cert:'CITES',color:'#4A90D9'},{icon:'🌱',cert:'SENASA',color:'#FFA726'},{icon:'🔬',cert:'Fitosanitario',color:'#AB47BC'},{icon:'🐄',cert:'Zoosanitario',color:'#EF5350'},{icon:'📦',cert:'ExportaFácil Serpost',color:'#26C6DA'},{icon:'📮',cert:'Serpost Correo Común',color:'#1565C0'},{icon:'🏦',cert:'DHL/FedEx Aduanas',color:'#FFCC00'}].map(c=>(
+                <div key={c.cert} className="rubro-card" style={{marginBottom:6,display:'flex',alignItems:'center',gap:10}}>
+                  <span style={{fontSize:'1.2rem'}}>{c.icon}</span>
+                  <span style={{color:'#E8C97A',fontSize:'.8rem',flex:1}}>{c.cert}</span>
+                  <span style={{width:10,height:10,borderRadius:'50%',background:c.color,display:'inline-block'}}/>
+                </div>
+              ))}
+              <div style={{marginTop:12,display:'grid',gridTemplateColumns:'1fr 1fr',gap:8}}>
+                {[['N° SERFOR','SRF-2026'],['N° CITES','CITES-PE'],['N° SENASA','SEN-2026'],['N° FITOSANITARIO','FIT-2026']].map(([l,p])=>(
+                  <div key={l} className="field-group"><label className="field-label">{l}</label><input className="field-input" placeholder={p}/></div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+        {tab==='pagos'&&(
+          <div style={{animation:'fadeInUp 0.5s ease',display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
+            <div className="admin-card">
+              <div className="section-title">🏦 BANCA INTERNACIONAL</div>
+              {[{icon:'🏦',n:'First Bank',d:'WeChat·Alipay·Stripe Atlas',e:'En proceso'},{icon:'💼',n:'Kateno Business',d:'Recepción internacional',e:'En proceso'},{icon:'💳',n:'Stripe Atlas',d:'USA·Europa·Tarjetas',e:'Pendiente API'},{icon:'💼',n:'Payoneer Business',d:'B2B·Empresas·Museos',e:'Activo'},{icon:'💸',n:'Wise',d:'Transferencias internacionales',e:'Activo'},{icon:'💛',n:'Western Union',d:'Mundial',e:'Activo'},{icon:'💵',n:'MoneyGram',d:'Transferencias globales',e:'Activo'},{icon:'🏛️',n:'SWIFT Bancario',d:'Interbank·BBVA',e:'Activo'}].map(b=>(
+                <div key={b.n} className="rubro-card" style={{marginBottom:7,display:'flex',alignItems:'center',gap:8,justifyContent:'space-between'}}>
+                  <div style={{display:'flex',gap:8,alignItems:'center'}}><span style={{fontSize:'1.2rem'}}>{b.icon}</span><div><div style={{color:'#E8C97A',fontSize:'.8rem',fontWeight:700}}>{b.n}</div><div style={{color:'rgba(232,201,122,0.4)',fontSize:'.6rem'}}>{b.d}</div></div></div>
+                  <span style={{fontSize:'.6rem',padding:'2px 7px',borderRadius:10,fontWeight:700,background:b.e==='Activo'?'rgba(126,200,126,0.15)':b.e==='En proceso'?'rgba(255,167,38,0.15)':'rgba(201,168,76,0.1)',color:b.e==='Activo'?'#7EC87E':b.e==='En proceso'?'#FFA726':'rgba(232,201,122,0.5)',whiteSpace:'nowrap'}}>{b.e}</span>
+                </div>
+              ))}
+            </div>
+            <div className="admin-card">
+              <div className="section-title">📱 PAGOS DIGITALES</div>
+              {[{icon:'🇵🇪',n:'Izipay',d:'Visa/Mastercard nacional',e:'Pendiente'},{icon:'🔵',n:'Google Pay',d:'Android/iOS mundial',e:'Pendiente'},{icon:'📱',n:'Yape',d:'Clientes peruanos BCP',e:'Activo'},{icon:'📲',n:'Plin',d:'BBVA/Interbank Perú',e:'Activo'},{icon:'🇨🇳',n:'Alipay',d:'China·Via First Bank',e:'En proceso'},{icon:'💚',n:'WeChat Pay',d:'China·API First Bank',e:'En proceso'}].map(p=>(
+                <div key={p.n} className="rubro-card" style={{marginBottom:7,display:'flex',alignItems:'center',gap:8,justifyContent:'space-between'}}>
+                  <div style={{display:'flex',gap:8,alignItems:'center'}}><span style={{fontSize:'1.2rem'}}>{p.icon}</span><div><div style={{color:'#E8C97A',fontSize:'.8rem',fontWeight:700}}>{p.n}</div><div style={{color:'rgba(232,201,122,0.4)',fontSize:'.6rem'}}>{p.d}</div></div></div>
+                  <span style={{fontSize:'.6rem',padding:'2px 7px',borderRadius:10,fontWeight:700,background:p.e==='Activo'?'rgba(126,200,126,0.15)':p.e==='En proceso'?'rgba(255,167,38,0.15)':'rgba(201,168,76,0.1)',color:p.e==='Activo'?'#7EC87E':p.e==='En proceso'?'#FFA726':'rgba(232,201,122,0.5)',whiteSpace:'nowrap'}}>{p.e}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   )
