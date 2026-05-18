@@ -16,7 +16,7 @@ const FAM:F[] = [
 ]
 const ORDS = [
   { o:'Lepidoptera Diurnae', f:FAM },
-  { o:'Moths Nocturnas', f:[
+  { o:'Cuadros Mariposas Diurnas', f:[
     { id:'Arctiidae', nm:'Arctiidae', e:[] as E[] },
     { id:'Castnia', nm:'Castnia', e:[] as E[] },
     { id:'Hepalidae', nm:'Hepalidae', e:[] as E[] },
@@ -162,6 +162,9 @@ export default function Page() {
   const [pag, setPag] = useState(1)
   const [showQ, setShowQ] = useState(false)
   const [showA, setShowA] = useState(false)
+  const [composicion, setComposicion] = useState('individual')
+  const [marco, setMarco] = useState('rectangular')
+  const [vidrio, setVidrio] = useState('normal')
   const [vista, setVista] = useState<'frente'|'lado'|'reverso'|'video'>('frente')
   const catAct = ORDS.find(c=>c.o===ord)!
   const fam = catAct.f.find(f=>f.id===fid)||catAct.f[0]
@@ -207,6 +210,35 @@ export default function Page() {
             )}
           </div>
         </div>
+        {ord==='Lepidoptera Diurnae'&&(
+          <div style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:10,padding:14,marginBottom:16}}>
+            <div style={{color:'#C9A84C',fontSize:'.7rem',letterSpacing:'.1em',marginBottom:10}}>🖼️ CONFIGURAR CUADRO DE MARIPOSAS</div>
+            <div style={{marginBottom:10}}>
+              <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginBottom:6}}>COMPOSICIÓN</div>
+              <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
+                {[{id:'individual',nm:'🦋 Individual'},{id:'mixto',nm:'🎨 Mixto/Combinado'}].map(o=>(
+                  <button key={o.id} onClick={()=>setComposicion(o.id)} style={{padding:'4px 10px',borderRadius:16,cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif',background:composicion===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:composicion===o.id?'#1A1209':'#C9A84C',border:`1px solid ${composicion===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,transition:'all 0.15s ease'}}>{o.nm}</button>
+                ))}
+              </div>
+            </div>
+            <div style={{marginBottom:10}}>
+              <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginBottom:6}}>FORMATO DEL MARCO</div>
+              <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
+                {[{id:'rectangular',nm:'⬛ Rectangular'},{id:'redondo',nm:'⭕ Redondo'},{id:'triangular',nm:'🔺 Triangular'},{id:'cubo',nm:'📦 Cubo 3D'},{id:'cupula',nm:'🔮 Cúpula'},{id:'reloj',nm:'🕐 Tipo Reloj'}].map(o=>(
+                  <button key={o.id} onClick={()=>setMarco(o.id)} style={{padding:'4px 10px',borderRadius:16,cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif',background:marco===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:marco===o.id?'#1A1209':'#C9A84C',border:`1px solid ${marco===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,transition:'all 0.15s ease'}}>{o.nm}</button>
+                ))}
+              </div>
+            </div>
+            <div>
+              <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginBottom:6}}>TIPO DE PROTECCIÓN</div>
+              <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
+                {[{id:'normal',nm:'🔲 Cristal Normal',extra:0},{id:'uv',nm:'☀️ Cristal UV Premium',extra:20},{id:'resina',nm:'💎 Resina Epóxica',extra:35}].map(o=>(
+                  <button key={o.id} onClick={()=>setVidrio(o.id)} style={{padding:'4px 10px',borderRadius:16,cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif',background:vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:vidrio===o.id?'#1A1209':'#C9A84C',border:`1px solid ${vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,transition:'all 0.15s ease'}}>{o.nm}{o.extra>0?` +$${o.extra}`:''}</button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
         <p style={{color:'rgba(232,201,122,0.35)',fontSize:'.7rem',marginBottom:8,letterSpacing:'.08em'}}>ORDER: LEPIDOPTERA · AMAZONIA PERUANA · SERFOR · CITES</p>
         <h1 className='desc-text' style={{fontSize:'1.8rem',fontWeight:300,color:'#E8C97A',fontStyle:'italic',marginBottom:20}}>{sel.n}</h1>
         <div style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:10,padding:'16px',marginBottom:20,textAlign:'left'}}>
