@@ -22,6 +22,7 @@ const SECCIONES = [
   {id:'banners',icon:'📢',nm:'Banners'},
   {id:'stock',icon:'📋',nm:'Stock'},
   {id:'estadisticas',icon:'📈',nm:'Estadísticas'},
+  {id:'prospectos',icon:'🌍',nm:'Prospectos'},
 ]
 
 const PEDIDOS_DEMO = [
