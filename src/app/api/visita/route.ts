@@ -15,7 +15,6 @@ const PAISES_VIP: Record<string,string> = {
   'KW':'🇰🇼 Kuwait',
   'AU':'🇦🇺 Australia',
   'CN':'🇨🇳 China',
-  'JP':'🇯🇵 Japón',
   'KR':'🇰🇷 Corea',
   'IT':'🇮🇹 Italia',
   'NL':'🇳🇱 Holanda',

@@ -1,7 +1,6 @@
+'use client'
 import { useState, useEffect } from 'react'
-import BannerUploader from './BannerUploader'
 import Image from 'next/image'
-import { useState } from 'react'
 
 const IDIOMAS = [
   {code:'es',flag:'🇵🇪',nm:'Español'},
