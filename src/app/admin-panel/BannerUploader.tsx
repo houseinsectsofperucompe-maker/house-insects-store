@@ -2,7 +2,7 @@
 import { useState, useRef } from 'react'
 
 const CLOUD_NAME = 'dv3mvukmq'
-const UPLOAD_PRESET = 'house_insects_banners'
+const UPLOAD_PRESET = 'house_Insects_banners'
 
 const TIPOS_BANNER = [
   'Header Principal',
