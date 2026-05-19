@@ -214,6 +214,15 @@ export default function AdminPanel() {
         )}
 
         {/* ESTADISTICAS */}
+        {seccion==='prospectos' && (
+          <div className='fade-up'>
+            <h2 style={{color:'#E8C97A',fontSize:'1.3rem',fontWeight:300,marginBottom:24}}>🌍 Prospección Global</h2>
+            <div style={{background:'rgba(201,168,76,0.04)',border:'1px solid rgba(201,168,76,0.1)',borderRadius:10,padding:24,textAlign:'center'}}>
+              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.85rem',marginBottom:16}}>Busca clientes en 38 nichos y 37 países con Apollo AI</p>
+              <a href='/admin-panel/prospectos' style={{background:'linear-gradient(135deg,#C9A84C,#E8C97A)',color:'#1A1209',padding:'12px 28px',borderRadius:6,fontSize:'.82rem',fontWeight:700,textDecoration:'none',display:'inline-block'}}>🌍 Abrir Módulo de Prospección →</a>
+            </div>
+          </div>
+        )}
         {seccion==='estadisticas' && (
           <div className="fade-up">
             <h2 style={{color:'#E8C97A',fontSize:'1.3rem',fontWeight:300,marginBottom:24}}>📈 Estadísticas</h2>
