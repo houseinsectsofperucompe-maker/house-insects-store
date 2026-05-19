@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import BannerUploader from './BannerUploader'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -108,6 +108,14 @@ const CSS = `
 
 export default function Home() {
   const [activo, setActivo] = useState<number|null>(null)
+  const [geoProfile, setGeoProfile] = useState<any>(null)
+
+  useEffect(() => {
+    fetch('/api/geoip').then(r=>r.json()).then(data=>{
+      setGeoProfile(data)
+      if(data.idioma && data.idioma !== 'es') setIdioma(data.idioma)
+    }).catch(()=>{})
+  }, [])
   const [idioma, setIdioma] = useState('es')
   const [showIdiomas, setShowIdiomas] = useState(false)
   const cat = CATALOGOS.find(c=>c.id===activo)
