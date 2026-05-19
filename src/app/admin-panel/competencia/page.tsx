@@ -7,14 +7,13 @@ const RUBROS = [
     nm:'🦋 Mariposas & Especímenes',
     competidores:[
       {nm:'InsectNet', pais:'🇺🇸 USA', url:'insectnet.com', desde:'1995', fortaleza:'Mayor catálogo online', debilidad:'Sin certificación CITES propia', precio:'$2-500'},
-      {nm:'Collector\'s Secret', pais:'🇺🇸 USA', url:'collectorssecret.com', desde:'2001', fortaleza:'Marketing digital fuerte', debilidad:'No produce, solo revende', precio:'$5-1000'},
-      {nm:'Worldwide Butterflies', pais:'🇬🇧 UK', url:'wwb.co.uk', desde:'1961', fortaleza:'65 años de historia', debilidad:'Precios altos, poca variedad amazónica', precio:'$3-200'},
-      {nm:'BioQuip', pais:'🇺🇸 USA', url:'bioquip.com', desde:'1947', fortaleza:'Equipos + especímenes', debilidad:'Enfocado en herramientas', precio:'$1-100'},
-      {nm:'Entomologie Krefeld', pais:'🇩🇪 Alemania', url:'entomologie.de', desde:'1985', fortaleza:'Mercado europeo sólido', debilidad:'Solo Europa', precio:'€5-300'},
+      {nm:"Collector's Secret", pais:'🇺🇸 USA', url:'collectorssecret.com', desde:'2001', fortaleza:'Marketing digital fuerte', debilidad:'No produce, solo revende', precio:'$5-1000'},
+      {nm:'Worldwide Butterflies', pais:'🇬🇧 UK', url:'wwb.co.uk', desde:'1961', fortaleza:'65 años de historia', debilidad:'Poca variedad amazónica', precio:'$3-200'},
+      {nm:'BioQuip', pais:'🇺🇸 USA', url:'bioquip.com', desde:'1947', fortaleza:'Equipos y especímenes', debilidad:'Enfocado en herramientas', precio:'$1-100'},
+      {nm:'Entomologie Krefeld', pais:'🇩🇪 Alemania', url:'entomologie.de', desde:'1985', fortaleza:'Mercado europeo sólido', debilidad:'Solo Europa', precio:'5-300 EUR'},
     ],
-    mercados:['Museos', 'Universidades', 'Coleccionistas privados', 'Joyerías'],
     compradores:'Alemanes, japoneses, americanos, chinos',
-    ventaja:'Somos productores directos en Tingo María — precio A1 sin intermediarios',
+    ventaja:'Productores directos en Tingo María — precio A1 sin intermediarios',
     tamano:'$2.3B mercado global coleccionismo entomológico',
   },
   {
@@ -22,11 +21,9 @@ const RUBROS = [
     nm:'💍 Joyería Natural',
     competidores:[
       {nm:'Frozen In Time', pais:'🇺🇸 USA', url:'frozenintime.com', desde:'2005', fortaleza:'Diseño moderno', debilidad:'No usa oro real', precio:'$50-500'},
-      {nm:'Insect Lab', pais:'🇬🇧 UK', url:'insectlab.co.uk', desde:'2004', fortaleza:'Viral en redes', debilidad:'Solo electroplatedo básico', precio:'$80-800'},
-      {nm:'Gold Bug', pais:'🇺🇸 USA', url:'goldbug.com', desde:'1998', fortaleza:'Tienda física en Scottsdale', debilidad:'Sin certificación SERFOR', precio:'$100-2000'},
-      {nm:'Etsy sellers', pais:'🌍 Global', url:'etsy.com', desde:'2005', fortaleza:'Masivo', debilidad:'Sin calidad garantizada', precio:'$20-300'},
+      {nm:'Insect Lab', pais:'🇬🇧 UK', url:'insectlab.co.uk', desde:'2004', fortaleza:'Viral en redes sociales', debilidad:'Solo electroplatedo básico', precio:'$80-800'},
+      {nm:'Gold Bug', pais:'🇺🇸 USA', url:'goldbug.com', desde:'1998', fortaleza:'Tienda física Scottsdale', debilidad:'Sin certificación SERFOR', precio:'$100-2000'},
     ],
-    mercados:['Alta moda', 'Joyerías premium', 'Coleccionistas', 'Regalos corporativos'],
     compradores:'Europeas, japonesas, americanas, árabes',
     ventaja:'Oro 24k real + plata .950 + especímenes A1 certificados CITES',
     tamano:'$340B mercado joyería lujo global',
@@ -35,39 +32,22 @@ const RUBROS = [
     id:'minerales',
     nm:'💎 Minerales & Cristales',
     competidores:[
-      {nm:'Astro Gallery', pais:'🇺🇸 USA', url:'astrogallery.com', desde:'1981', fortaleza:'NYC flagship store', debilidad:'No tiene pirita peruana', precio:'$20-50,000'},
+      {nm:'Astro Gallery', pais:'🇺🇸 USA', url:'astrogallery.com', desde:'1981', fortaleza:'NYC flagship store', debilidad:'Sin pirita peruana', precio:'$20-50,000'},
       {nm:'Crystal Mountain', pais:'🇦🇺 Australia', url:'crystalmountain.com.au', desde:'1990', fortaleza:'Australasia market', debilidad:'Sin certificaciones peruanas', precio:'$10-5000'},
-      {nm:'Mineralogical Research', pais:'🇺🇸 USA', url:'minresco.com', desde:'1964', fortaleza:'Científico', debilidad:'No vende retail', precio:'$50-10,000'},
-      {nm:'Inti Minerals', pais:'🇵🇪 Perú', url:'intiminerals.com', desde:'2010', fortaleza:'Conocen Peru', debilidad:'Pequeño, sin marketing', precio:'$5-500'},
+      {nm:'Inti Minerals', pais:'🇵🇪 Perú', url:'intiminerals.com', desde:'2010', fortaleza:'Conocen Perú', debilidad:'Pequeño sin marketing', precio:'$5-500'},
     ],
-    mercados:['Tiendas esotéricas', 'Decoración premium', 'Museos', 'Coleccionistas'],
     compradores:'Chinos, americanos, europeos, indios',
-    ventaja:'Extracción directa en Perú + certificación minería + precio competitivo',
+    ventaja:'Extracción directa Perú + certificación minería + precio competitivo',
     tamano:'$22B mercado minerales y cristales global',
-  },
-  {
-    id:'maderas',
-    nm:'🪵 Maderas Finas',
-    competidores:[
-      {nm:'Rare Woods USA', pais:'🇺🇸 USA', url:'rarewoodsusa.com', desde:'2000', fortaleza:'Gran catálogo', debilidad:'No tiene amazónicas certificadas', precio:'$20-500/plank'},
-      {nm:'Wood Vendors', pais:'🇺🇸 USA', url:'woodvendors.com', desde:'1995', fortaleza:'Online masivo', debilidad:'Sin SERFOR', precio:'$10-200'},
-      {nm:'Coremark Metals', pais:'🇺🇸 USA', url:'coremark.com', desde:'1947', fortaleza:'Industrial', debilidad:'No fine wood', precio:'$50-1000'},
-    ],
-    mercados:['Ebanistería', 'Instrumentos musicales', 'Arte', 'Decoración'],
-    compradores:'Alemanes, japoneses, americanos, chinos',
-    ventaja:'SERFOR certificado + maderas únicas amazónicas + precio origen',
-    tamano:'$600B mercado maderas global',
   },
   {
     id:'superalimentos',
     nm:'💊 Superalimentos & Agroindustria',
     competidores:[
-      {nm:'Amazon Origins', pais:'🇵🇪 Perú', url:'amazonorigins.com', desde:'2012', fortaleza:'Branding moderno', debilidad:'Sin diversificación', precio:'$10-100'},
       {nm:'Navitas Organics', pais:'🇺🇸 USA', url:'navitasorganics.com', desde:'2003', fortaleza:'Distribución masiva', debilidad:'No origen directo Perú', precio:'$15-80'},
-      {nm:'Terrasoul Superfoods', pais:'🇺🇸 USA', url:'terrasoul.com', desde:'2013', fortaleza:'Amazon marketplace', debilidad:'Genérico', precio:'$8-50'},
-      {nm:'Rainforest Foods', pais:'🇬🇧 UK', url:'rainforestfoods.co.uk', desde:'2014', fortaleza:'UK market', debilidad:'Sin certificación SENASA', precio:'$12-60'},
+      {nm:'Rainforest Foods', pais:'🇬🇧 UK', url:'rainforestfoods.co.uk', desde:'2014', fortaleza:'UK market fuerte', debilidad:'Sin certificación SENASA', precio:'$12-60'},
+      {nm:'Amazon Origins', pais:'🇵🇪 Perú', url:'amazonorigins.com', desde:'2012', fortaleza:'Branding moderno', debilidad:'Sin diversificación', precio:'$10-100'},
     ],
-    mercados:['Health stores', 'Restaurantes', 'Farmacias', 'Online'],
     compradores:'Americanos, europeos, australianos, japoneses',
     ventaja:'SENASA certificado + origen Tingo María + precios productor directo',
     tamano:'$214B mercado superalimentos global',
@@ -80,7 +60,6 @@ const RUBROS = [
       {nm:'Sol Alpaca', pais:'🇵🇪 Perú', url:'solalpaca.com', desde:'2000', fortaleza:'Lujo peruano', debilidad:'Solo alpaca fina', precio:'$100-2000'},
       {nm:'Novica', pais:'🇺🇸 USA', url:'novica.com', desde:'1999', fortaleza:'National Geographic partner', debilidad:'Comisión alta', precio:'$20-300'},
     ],
-    mercados:['Moda', 'Hoteles', 'Regalos corporativos', 'Online'],
     compradores:'Americanos, europeos, japoneses',
     ventaja:'Textilería amazónica única + alpaca + precios productor directo',
     tamano:'$1.7T mercado textil global',
@@ -93,10 +72,20 @@ const RUBROS = [
       {nm:'Host Defense', pais:'🇺🇸 USA', url:'hostdefense.com', desde:'1999', fortaleza:'Científico', debilidad:'Solo hongos USA', precio:'$20-60'},
       {nm:'Real Mushrooms', pais:'🇨🇦 Canadá', url:'realmushrooms.com', desde:'2014', fortaleza:'Online fuerte', debilidad:'Sin SENASA', precio:'$25-70'},
     ],
-    mercados:['Farmacias', 'Health stores', 'Restaurantes', 'Investigación'],
     compradores:'Americanos, europeos, chinos, japoneses',
     ventaja:'Hongos amazónicos únicos + SENASA + precio origen',
     tamano:'$69B mercado hongos medicinales global',
+  },
+  {
+    id:'maderas',
+    nm:'🪵 Maderas Finas',
+    competidores:[
+      {nm:'Rare Woods USA', pais:'🇺🇸 USA', url:'rarewoodsusa.com', desde:'2000', fortaleza:'Gran catálogo', debilidad:'Sin amazónicas certificadas', precio:'$20-500'},
+      {nm:'Wood Vendors', pais:'🇺🇸 USA', url:'woodvendors.com', desde:'1995', fortaleza:'Online masivo', debilidad:'Sin SERFOR', precio:'$10-200'},
+    ],
+    compradores:'Alemanes, japoneses, americanos, chinos',
+    ventaja:'SERFOR certificado + maderas únicas amazónicas + precio origen',
+    tamano:'$600B mercado maderas global',
   },
 ]
 
@@ -106,18 +95,31 @@ const FERIAS = [
   {nm:'Munich Mineral Show', lugar:'🇩🇪 Alemania', frecuencia:'Octubre anual', tipo:'Minerales', rubros:'Minerales, geodas, cristales'},
   {nm:'Art Basel', lugar:'🇨🇭 Suiza / Miami / HK', frecuencia:'Junio anual', tipo:'Arte', rubros:'Bio-art, joyería, cuadros'},
   {nm:'Biofach', lugar:'🇩🇪 Núremberg', frecuencia:'Enero anual', tipo:'Orgánicos', rubros:'Superalimentos, hongos, plantas'},
-  {nm:'Natural Products Expo', lugar:'🇺🇸 California', frecuencia:'Marzo anual', tipo:'Natural', rubros:'Superalimentos, aceites, plantas'},
+  {nm:'Natural Products Expo West', lugar:'🇺🇸 California', frecuencia:'Marzo anual', tipo:'Natural', rubros:'Superalimentos, aceites, plantas'},
   {nm:'Jewellery & Gem World HK', lugar:'🇭🇰 Hong Kong', frecuencia:'Septiembre anual', tipo:'Joyería', rubros:'Joyería, minerales, piedras'},
-  {nm:'Expo CITES', lugar:'🌍 Internacional', frecuencia:'Cada 3 años', tipo:'Legal/Científica', rubros:'Todos los rubros CITES'},
+  {nm:'Canton Fair', lugar:'🇨🇳 China', frecuencia:'Abril y Octubre', tipo:'Comercial', rubros:'Todos los productos'},
+  {nm:'Dubai Expo & Trade', lugar:'🇦🇪 Dubai', frecuencia:'Anual', tipo:'Lujo', rubros:'Lujo, minerales, arte'},
+  {nm:'Tokyo International Gift Show', lugar:'🇯🇵 Japón', frecuencia:'Febrero y Septiembre', tipo:'Regalos', rubros:'Arte, joyería, souvenirs'},
   {nm:'PROMPERÚ Misiones Comerciales', lugar:'🇵🇪 Perú + mundo', frecuencia:'Todo el año', tipo:'Exportación', rubros:'Todos los rubros'},
-  {nm:'Canton Fair', lugar:'🇨🇳 China', frecuencia:'Abril/Octubre', tipo:'Comercial', rubros:'Todos los productos'},
-  {nm:'Dubai Expo & Trade', lugar:'🇦🇪 Dubai', frecuencia:'Anual', tipo:'Lujo/Comercial', rubros:'Lujo, minerales, arte'},
-  {nm:'Tokyo International Gift Show', lugar:'🇯🇵 Japón', frecuencia:'Febrero/Septiembre', tipo:'Regalos', rubros:'Arte, joyería, souvenirs'},
+  {nm:'Expo CITES', lugar:'🌍 Internacional', frecuencia:'Cada 3 años', tipo:'Legal', rubros:'Todos los rubros CITES'},
+]
+
+const PLATAFORMAS = [
+  {nm:'eBay', tipo:'Marketplace', rubros:'Especímenes, minerales, joyería', comision:'10-15%', clientes:'Global masivo'},
+  {nm:'Etsy', tipo:'Artesanía/Lujo', rubros:'Joyería, textilería, arte', comision:'6.5%', clientes:'USA, UK, Alemania'},
+  {nm:'Amazon', tipo:'Marketplace masivo', rubros:'Superalimentos, hongos', comision:'15-20%', clientes:'Global'},
+  {nm:'1stDibs', tipo:'Lujo premium', rubros:'Joyería, arte, colección', comision:'20%', clientes:'HNWI global'},
+  {nm:'Catawiki', tipo:'Subastas', rubros:'Especímenes, minerales, rarezas', comision:'12.5%', clientes:'Europa'},
+  {nm:'iNaturalist', tipo:'Científico', rubros:'Material científico', comision:'0%', clientes:'Universidades'},
+  {nm:'Alibaba', tipo:'B2B masivo', rubros:'Materias primas, agroindustria', comision:'Variable', clientes:'China, Asia'},
+  {nm:'Faire', tipo:'B2B wholesale', rubros:'Textilería, artesanías', comision:'15%', clientes:'USA, UK'},
+  {nm:'WeChat Shop', tipo:'China social', rubros:'Todo lujo', comision:'Variable', clientes:'China premium'},
+  {nm:'PROMPERÚ Sierra Exportadora', tipo:'Gubernamental', rubros:'Todos', comision:'0%', clientes:'Global institucional'},
 ]
 
 export default function CompetenciaPage() {
   const [rubro, setRubro] = useState('mariposas')
-  const [vista, setVista] = useState<'competencia'|'ferias'>('competencia')
+  const [vista, setVista] = useState<'competencia'|'ferias'|'plataformas'>('competencia')
   const r = RUBROS.find(x=>x.id===rubro)
 
   return (
@@ -136,67 +138,67 @@ export default function CompetenciaPage() {
 
         <div style={{textAlign:'center',marginBottom:28}}>
           <h1 style={{fontSize:'1.5rem',fontWeight:300,color:'#E8C97A',marginBottom:6}}>🔍 Inteligencia Competitiva & Mercados</h1>
-          <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.72rem'}}>Competidores · Ferias Internacionales · Donde Vender · 17 Rubros</p>
+          <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.72rem'}}>Competidores · Ferias · Plataformas · 7 Rubros Analizados</p>
         </div>
 
-        {/* TABS */}
-        <div style={{display:'flex',gap:8,marginBottom:24,justifyContent:'center'}}>
-          <button onClick={()=>setVista('competencia')} className="tab" style={{background:vista==='competencia'?'linear-gradient(135deg,#C9A84C,#E8C97A)':'rgba(201,168,76,0.06)',color:vista==='competencia'?'#1A1209':'#C9A84C',border:`1px solid ${vista==='competencia'?'transparent':'rgba(201,168,76,0.2)'}`,padding:'8px 24px',borderRadius:20,fontSize:'.8rem',fontFamily:'Georgia,serif'}}>🏆 Competencia</button>
-          <button onClick={()=>setVista('ferias')} className="tab" style={{background:vista==='ferias'?'linear-gradient(135deg,#C9A84C,#E8C97A)':'rgba(201,168,76,0.06)',color:vista==='ferias'?'#1A1209':'#C9A84C',border:`1px solid ${vista==='ferias'?'transparent':'rgba(201,168,76,0.2)'}`,padding:'8px 24px',borderRadius:20,fontSize:'.8rem',fontFamily:'Georgia,serif'}}>🌍 Ferias & Donde Vender</button>
+        <div style={{display:'flex',gap:8,marginBottom:24,justifyContent:'center',flexWrap:'wrap'}}>
+          {[
+            {id:'competencia',nm:'🏆 Competencia'},
+            {id:'ferias',nm:'🌍 Ferias Internacionales'},
+            {id:'plataformas',nm:'🛒 Donde Vender Online'},
+          ].map(t=>(
+            <button key={t.id} onClick={()=>setVista(t.id as any)} className="tab" style={{background:vista===t.id?'linear-gradient(135deg,#C9A84C,#E8C97A)':'rgba(201,168,76,0.06)',color:vista===t.id?'#1A1209':'#C9A84C',border:`1px solid ${vista===t.id?'transparent':'rgba(201,168,76,0.2)'}`,padding:'8px 20px',borderRadius:20,fontSize:'.78rem',fontFamily:'Georgia,serif'}}>
+              {t.nm}
+            </button>
+          ))}
         </div>
 
         {vista==='competencia' && (
           <div className="fade-up">
-            {/* SELECTOR RUBRO */}
-            <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:24}}>
+            <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:20}}>
               {RUBROS.map(x=>(
-                <button key={x.id} onClick={()=>setRubro(x.id)} className="tab" style={{background:rubro===x.id?'linear-gradient(135deg,#C9A84C,#E8C97A)':'rgba(201,168,76,0.05)',color:rubro===x.id?'#1A1209':'#C9A84C',border:`1px solid ${rubro===x.id?'transparent':'rgba(201,168,76,0.1)'}`,padding:'6px 14px',borderRadius:20,fontSize:'.72rem',fontFamily:'Georgia,serif'}}>
+                <button key={x.id} onClick={()=>setRubro(x.id)} className="tab" style={{background:rubro===x.id?'linear-gradient(135deg,#C9A84C,#E8C97A)':'rgba(201,168,76,0.05)',color:rubro===x.id?'#1A1209':'#C9A84C',border:`1px solid ${rubro===x.id?'transparent':'rgba(201,168,76,0.1)'}`,padding:'6px 12px',borderRadius:16,fontSize:'.7rem',fontFamily:'Georgia,serif'}}>
                   {x.nm}
                 </button>
               ))}
             </div>
-
             {r && (
               <>
-                {/* MERCADO */}
                 <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(200px,1fr))',gap:10,marginBottom:20}}>
                   <div style={{background:'rgba(37,211,102,0.06)',border:'1px solid rgba(37,211,102,0.15)',borderRadius:8,padding:14}}>
-                    <p style={{color:'rgba(37,211,102,0.6)',fontSize:'.6rem',letterSpacing:'.1em',marginBottom:4}}>TAMAÑO DE MERCADO</p>
-                    <p style={{color:'#25D366',fontSize:'.9rem',fontWeight:700}}>{r.tamano}</p>
+                    <p style={{color:'rgba(37,211,102,0.5)',fontSize:'.6rem',letterSpacing:'.1em',marginBottom:4}}>TAMAÑO DE MERCADO</p>
+                    <p style={{color:'#25D366',fontSize:'.88rem',fontWeight:700}}>{r.tamano}</p>
                   </div>
-                  <div style={{background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:14}}>
-                    <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.6rem',letterSpacing:'.1em',marginBottom:4}}>COMPRADORES ACTIVOS</p>
-                    <p style={{color:'#C9A84C',fontSize:'.82rem'}}>{r.compradores}</p>
+                  <div style={{background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.12)',borderRadius:8,padding:14}}>
+                    <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.6rem',letterSpacing:'.1em',marginBottom:4}}>COMPRADORES</p>
+                    <p style={{color:'#C9A84C',fontSize:'.78rem'}}>{r.compradores}</p>
                   </div>
                   <div style={{background:'rgba(5,15,30,0.3)',border:'1px solid rgba(201,168,76,0.1)',borderRadius:8,padding:14}}>
                     <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.6rem',letterSpacing:'.1em',marginBottom:4}}>NUESTRA VENTAJA</p>
-                    <p style={{color:'#E8C97A',fontSize:'.75rem',lineHeight:1.5}}>{r.ventaja}</p>
+                    <p style={{color:'#E8C97A',fontSize:'.72rem',lineHeight:1.5}}>{r.ventaja}</p>
                   </div>
                 </div>
-
-                {/* COMPETIDORES */}
-                <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.62rem',letterSpacing:'.1em',marginBottom:12}}>COMPETIDORES PRINCIPALES</p>
+                <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.62rem',letterSpacing:'.1em',marginBottom:10}}>COMPETIDORES</p>
                 {r.competidores.map((c,i)=>(
-                  <div key={i} className="card" style={{background:'rgba(201,168,76,0.03)',border:'1px solid rgba(201,168,76,0.08)',borderRadius:10,padding:16,marginBottom:10}}>
-                    <div style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap',gap:10,marginBottom:10}}>
+                  <div key={i} className="card" style={{background:'rgba(201,168,76,0.03)',border:'1px solid rgba(201,168,76,0.08)',borderRadius:10,padding:14,marginBottom:8}}>
+                    <div style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap',gap:8,marginBottom:8}}>
                       <div>
-                        <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:4}}>
-                          <p style={{color:'#E8C97A',fontSize:'.9rem',fontWeight:400}}>{c.nm}</p>
-                          <span style={{color:'rgba(201,168,76,0.4)',fontSize:'.65rem'}}>{c.pais}</span>
-                          <span style={{color:'rgba(201,168,76,0.3)',fontSize:'.6rem'}}>desde {c.desde}</span>
+                        <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:3,flexWrap:'wrap'}}>
+                          <p style={{color:'#E8C97A',fontSize:'.85rem'}}>{c.nm}</p>
+                          <span style={{color:'rgba(201,168,76,0.4)',fontSize:'.62rem'}}>{c.pais} · desde {c.desde}</span>
                         </div>
-                        <a href={`https://${c.url}`} target="_blank" style={{color:'rgba(201,168,76,0.3)',fontSize:'.65rem',textDecoration:'none'}}>🌐 {c.url}</a>
+                        <a href={`https://${c.url}`} target="_blank" style={{color:'rgba(201,168,76,0.3)',fontSize:'.62rem',textDecoration:'none'}}>🌐 {c.url}</a>
                       </div>
                       <p style={{color:'#C9A84C',fontSize:'.8rem',fontWeight:700}}>{c.precio}</p>
                     </div>
-                    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8}}>
-                      <div style={{background:'rgba(37,211,102,0.06)',borderRadius:6,padding:'8px 10px'}}>
-                        <p style={{color:'rgba(37,211,102,0.5)',fontSize:'.58rem',letterSpacing:'.08em',marginBottom:3}}>FORTALEZA</p>
-                        <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.68rem'}}>{c.fortaleza}</p>
+                    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:6}}>
+                      <div style={{background:'rgba(37,211,102,0.05)',borderRadius:6,padding:'6px 10px'}}>
+                        <p style={{color:'rgba(37,211,102,0.5)',fontSize:'.58rem',marginBottom:2}}>✅ FORTALEZA</p>
+                        <p style={{color:'rgba(232,201,122,0.55)',fontSize:'.65rem'}}>{c.fortaleza}</p>
                       </div>
-                      <div style={{background:'rgba(255,100,100,0.06)',borderRadius:6,padding:'8px 10px'}}>
-                        <p style={{color:'rgba(255,100,100,0.5)',fontSize:'.58rem',letterSpacing:'.08em',marginBottom:3}}>DEBILIDAD</p>
-                        <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.68rem'}}>{c.debilidad}</p>
+                      <div style={{background:'rgba(255,100,100,0.05)',borderRadius:6,padding:'6px 10px'}}>
+                        <p style={{color:'rgba(255,100,100,0.5)',fontSize:'.58rem',marginBottom:2}}>❌ DEBILIDAD</p>
+                        <p style={{color:'rgba(232,201,122,0.55)',fontSize:'.65rem'}}>{c.debilidad}</p>
                       </div>
                     </div>
                   </div>
@@ -210,14 +212,38 @@ export default function CompetenciaPage() {
           <div className="fade-up">
             <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.62rem',letterSpacing:'.1em',marginBottom:16}}>12 FERIAS INTERNACIONALES DONDE PUEDES VENDER</p>
             {FERIAS.map((f,i)=>(
-              <div key={i} className="card" style={{background:'rgba(201,168,76,0.03)',border:'1px solid rgba(201,168,76,0.08)',borderRadius:10,padding:16,marginBottom:10}}>
-                <div style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap',gap:10}}>
+              <div key={i} className="card" style={{background:'rgba(201,168,76,0.03)',border:'1px solid rgba(201,168,76,0.08)',borderRadius:10,padding:14,marginBottom:8}}>
+                <div style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap',gap:8}}>
                   <div style={{flex:1}}>
-                    <p style={{color:'#E8C97A',fontSize:'.88rem',marginBottom:4}}>{f.nm}</p>
-                    <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.7rem',marginBottom:3}}>{f.lugar} · {f.frecuencia}</p>
-                    <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{f.rubros}</p>
+                    <p style={{color:'#E8C97A',fontSize:'.85rem',marginBottom:4}}>{f.nm}</p>
+                    <p style={{color:'rgba(201,168,76,0.45)',fontSize:'.68rem',marginBottom:2}}>{f.lugar} · {f.frecuencia}</p>
+                    <p style={{color:'rgba(232,201,122,0.35)',fontSize:'.62rem'}}>{f.rubros}</p>
                   </div>
-                  <span style={{background:'rgba(201,168,76,0.1)',border:'1px solid rgba(201,168,76,0.2)',color:'#C9A84C',padding:'4px 10px',borderRadius:10,fontSize:'.62rem',height:'fit-content'}}>{f.tipo}</span>
+                  <span style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.15)',color:'#C9A84C',padding:'3px 10px',borderRadius:10,fontSize:'.6rem',height:'fit-content'}}>{f.tipo}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {vista==='plataformas' && (
+          <div className="fade-up">
+            <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.62rem',letterSpacing:'.1em',marginBottom:16}}>10 PLATAFORMAS ONLINE DONDE PUEDES VENDER</p>
+            {PLATAFORMAS.map((p,i)=>(
+              <div key={i} className="card" style={{background:'rgba(201,168,76,0.03)',border:'1px solid rgba(201,168,76,0.08)',borderRadius:10,padding:14,marginBottom:8}}>
+                <div style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap',gap:8}}>
+                  <div style={{flex:1}}>
+                    <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:4,flexWrap:'wrap'}}>
+                      <p style={{color:'#E8C97A',fontSize:'.88rem',fontWeight:400}}>{p.nm}</p>
+                      <span style={{background:'rgba(201,168,76,0.08)',color:'#C9A84C',padding:'2px 8px',borderRadius:8,fontSize:'.6rem'}}>{p.tipo}</span>
+                    </div>
+                    <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.68rem',marginBottom:2}}>{p.rubros}</p>
+                    <p style={{color:'rgba(201,168,76,0.35)',fontSize:'.62rem'}}>Clientes: {p.clientes}</p>
+                  </div>
+                  <div style={{textAlign:'right'}}>
+                    <p style={{color:'#C9A84C',fontSize:'.82rem',fontWeight:700}}>{p.comision}</p>
+                    <p style={{color:'rgba(201,168,76,0.3)',fontSize:'.58rem'}}>comisión</p>
+                  </div>
                 </div>
               </div>
             ))}
