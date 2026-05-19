@@ -80,7 +80,7 @@ export default function NocturnasPage() {
         <div className="fade-down" style={{textAlign:'center',marginBottom:32}}>
           <img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,objectFit:'contain',marginBottom:14,borderRadius:'50%'}}/>
           <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · MAS DE 40 ANOS DE EXPERIENCIA</p>
-          <h1 style={{fontSize:'clamp(1.4rem,4vw,2.2rem)',fontWeight:400,color:'#E8C97A',letterSpacing:'.08em',marginBottom:8}}>Mariposas Nocturnas Tropicales</h1>
+          <h1 style={{fontSize:'clamp(1.4rem,4vw,2.2rem)',fontWeight:400,color:'#E8C97A',letterSpacing:'.08em',marginBottom:8}}>CUADROS DE MARIPOSA TROPICAL SECOS</h1>
           <div style={{width:120,height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'0 auto 12px'}}/>
           <p style={{color:'rgba(255,255,255,0.5)',fontSize:'.8rem',maxWidth:500,margin:'0 auto',lineHeight:1.7}}>Arctiidae · Saturnidae · Sphingidae · Uranidae · Amazonicas</p>
           <p style={{color:'rgba(201,168,76,0.3)',fontSize:'.65rem',marginTop:8}}>PARTIDA 9705.21.00.00 · SERFOR · CITES · RUC 20447397804</p>
