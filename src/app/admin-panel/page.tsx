@@ -118,6 +118,7 @@ const SECCIONES = [
   {id:'archivos',icon:'🗂️',nm:'Archivos'},
   {id:'stock',icon:'📋',nm:'Stock'},
   {id:'estadisticas',icon:'📈',nm:'Estadísticas'},
+  {id:'demografia',icon:'📊',nm:'Demografía'},
 ]
 
 const PEDIDOS = [
