@@ -63,7 +63,7 @@ export default function CuadrosPage() {
 
           {/* LOGO DINÁMICO */}
           <div className="logo-wrap logo-pulse" style={{
-            width: 84, height: 84, margin: '0 auto 12px',
+            width: 160, height: 160, margin: '0 auto 12px',
             borderRadius: '50%', border: '2px solid rgba(201,168,76,0.5)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             background: 'radial-gradient(circle, rgba(201,168,76,0.1), transparent)',
