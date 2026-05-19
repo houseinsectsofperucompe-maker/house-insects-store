@@ -141,10 +141,12 @@ export default function AdminPanel() {
           <div className="fade-up">
             <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:24,flexWrap:'wrap',gap:12}}>
               <h2 style={{color:'#E8C97A',fontSize:'1.3rem',fontWeight:300}}>🦋 Productos</h2>
+              <a href="/admin-panel/upload" style={{background:"linear-gradient(135deg,#25D366,#128C7E)",color:"white",padding:"10px 20px",borderRadius:6,fontSize:".78rem",fontWeight:700,textDecoration:"none",display:"inline-block",marginBottom:16}}>📤 Subir Fotos & Videos</a>
               <a href="/studio" target="_blank" style={{background:'linear-gradient(135deg,#C9A84C,#E8C97A)',color:'#1A1209',padding:'10px 20px',borderRadius:6,fontSize:'.78rem',fontWeight:700,textDecoration:'none'}}>+ Agregar en Sanity</a>
             </div>
             <div style={{background:'rgba(201,168,76,0.04)',border:'1px solid rgba(201,168,76,0.1)',borderRadius:10,padding:24,textAlign:'center'}}>
               <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.85rem',marginBottom:16}}>Gestiona tus productos desde Sanity Studio</p>
+              <a href="/admin-panel/upload" style={{background:"linear-gradient(135deg,#25D366,#128C7E)",color:"white",padding:"10px 20px",borderRadius:6,fontSize:".78rem",fontWeight:700,textDecoration:"none",display:"inline-block",marginBottom:16}}>📤 Subir Fotos & Videos</a>
               <a href="/studio" target="_blank" style={{background:'rgba(201,168,76,0.1)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',padding:'12px 28px',borderRadius:6,fontSize:'.82rem',fontWeight:700,textDecoration:'none',display:'inline-block'}}>Abrir Sanity Studio →</a>
             </div>
           </div>
@@ -203,6 +205,7 @@ export default function AdminPanel() {
             <h2 style={{color:'#E8C97A',fontSize:'1.3rem',fontWeight:300,marginBottom:24}}>📋 Control de Stock</h2>
             <div style={{background:'rgba(201,168,76,0.04)',border:'1px solid rgba(201,168,76,0.1)',borderRadius:10,padding:24,textAlign:'center'}}>
               <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.85rem',marginBottom:16}}>Gestiona el stock desde Sanity Studio — cada especie tiene su campo de stock actualizable.</p>
+              <a href="/admin-panel/upload" style={{background:"linear-gradient(135deg,#25D366,#128C7E)",color:"white",padding:"10px 20px",borderRadius:6,fontSize:".78rem",fontWeight:700,textDecoration:"none",display:"inline-block",marginBottom:16}}>📤 Subir Fotos & Videos</a>
               <a href="/studio" target="_blank" style={{background:'rgba(201,168,76,0.1)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',padding:'12px 28px',borderRadius:6,fontSize:'.82rem',fontWeight:700,textDecoration:'none',display:'inline-block'}}>Actualizar Stock en Sanity →</a>
             </div>
           </div>
