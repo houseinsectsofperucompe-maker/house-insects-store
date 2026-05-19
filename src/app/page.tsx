@@ -72,7 +72,7 @@ export default function Home() {
             <a href="https://wa.me/51940699405" target="_blank" className="home-btn home-btn-wa" style={{background:'#25D366',color:'white',padding:'12px 24px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none'}}>💬 +51 940 699 405</a>
             <a href="https://wa.me/51920644433" target="_blank" className="home-btn home-btn-wa" style={{background:'#25D366',color:'white',padding:'12px 24px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none'}}>💬 +51 920 644 433</a>
           </div>
-          <a href={cat.ruta} className="video-btn-catalogo" style={{background:'#C9A84C',color:'#1A1209',padding:'12px 32px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none',marginBottom:16,display:'inline-block'}}>🦋 Ver Catálogo Completo →</a>
+          <a href={cat.ruta} className="video-btn-catalogo" style={{background:'#C9A84C',color:'#1A1209',padding:'12px 32px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none',marginBottom:16,display:'inline-block'}}> Ver Catálogo Completo →</a>
           <button onClick={()=>setActivo(null)} className="video-btn-volver" style={{background:'transparent',border:'1px solid rgba(255,255,255,0.3)',color:'rgba(255,255,255,0.6)',padding:'10px 24px',borderRadius:4,fontSize:'.8rem',cursor:'pointer',marginTop:8}}>← Volver al inicio</button>
         </div>
       </div>

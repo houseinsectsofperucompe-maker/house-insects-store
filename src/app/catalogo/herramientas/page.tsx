@@ -19,7 +19,7 @@ export default function HerramientasPage() {
       {icon:'📐',nm:'Material de Laboratorio Biológico',desc:'Cajas entomológicas · Etiquetas · Equipos de campo'},
     ],
     taxidermia:[
-      {icon:'🦋',nm:'Especímenes en Cúpulas de Vidrio',desc:'Mariposas montadas · Marco de lujo · Colección · Dubai'},
+      {icon:'',nm:'Especímenes en Cúpulas de Vidrio',desc:'Mariposas montadas · Marco de lujo · Colección · Dubai'},
       {icon:'🪲',nm:'Coleoptera en Display Premium',desc:'Escarabajos · Marco dorado · Museos · Coleccionistas élite'},
       {icon:'🦎',nm:'Taxidermia de Fauna Silvestre Legal',desc:'SERFOR + CITES obligatorio · Precio bajo consulta'},
     ],

@@ -5,14 +5,14 @@ export default function RarezasPage() {
   const [cat, setCat] = useState('todas')
   const CATS = [
     {id:'todas',nm:'✨ Todas'},
-    {id:'gynandromorphs',nm:'🦋 Gynandromorphs'},
+    {id:'gynandromorphs',nm:' Gynandromorphs'},
     {id:'aberraciones',nm:'🎨 Aberraciones'},
     {id:'hibridos',nm:'🧬 Híbridos'},
     {id:'freaks',nm:'💀 Freaks'},
     {id:'raros',nm:'🪲 Insectos Raros'},
   ]
   const PIEZAS = [
-    {icon:'🦋',nm:'Gynandromorphs',desc:'Mitad macho/mitad hembra · Fenómeno natural único · Precio bajo consulta · CITES'},
+    {icon:'',nm:'Gynandromorphs',desc:'Mitad macho/mitad hembra · Fenómeno natural único · Precio bajo consulta · CITES'},
     {icon:'🎨',nm:'Aberraciones Cromáticas',desc:'Colores anormales · Mutaciones naturales · Rarísimas · Certificado'},
     {icon:'🧬',nm:'Híbridos Naturales',desc:'Cruce de especies · Únicos en el mundo · Certificado SERFOR + CITES'},
     {icon:'💀',nm:'Freaks',desc:'Deformidades naturales únicas · Alas dobles · Antenas bifurcadas · Colección científica'},
@@ -35,7 +35,7 @@ export default function RarezasPage() {
         <div style={{textAlign:'center',marginBottom:32}}>
           <img src="/logo-house-insects-peru.png" style={{width:72,height:72,marginBottom:12,objectFit:'contain'}}/>
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · COLECCIÓN ÚNICA EN EL MUNDO</div>
-          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}>🦋 Rarezas, Freaks & Piezas Únicas</h1>
+          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}> Rarezas, Freaks & Piezas Únicas</h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
           <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
             Especímenes únicos en el mundo — Gynandromorphs, Freaks, aberraciones cromáticas e híbridos naturales. Piezas para coleccionistas y museos de élite mundial. Precio bajo consulta.

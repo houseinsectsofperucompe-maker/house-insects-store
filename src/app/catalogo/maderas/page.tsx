@@ -14,7 +14,7 @@ export default function MaderasPage() {
   const COLECCIONES = {
     sculptures:[
       {icon:'🗿',nm:'Tótems Místicos Amazónicos',desc:'Partida 4420.11.00.00 · Tallado a mano · Madera tropical · Único'},
-      {icon:'🦋',nm:'Esculturas de Mariposas en Madera',desc:'Morpho · Tallado artesanal · Decoración de lujo · Dubai'},
+      {icon:'',nm:'Esculturas de Mariposas en Madera',desc:'Morpho · Tallado artesanal · Decoración de lujo · Dubai'},
       {icon:'🦁',nm:'Fauna Amazónica Tallada',desc:'Animales nativos · Madera tropical · Arte de colección'},
       {icon:'🏔️',nm:'Figuras Andinas Tradicionales',desc:'Iconografía andina · Tallado a mano · Cedro · Caoba'},
       {icon:'🌀',nm:'Estatuillas Místicas Amazónicas',desc:'Visiones · Tótems · Arte espiritual · Madera selecta'},

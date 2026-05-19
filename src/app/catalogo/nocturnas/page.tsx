@@ -16,12 +16,12 @@ export default function CuadrosPage() {
     { id: 'cubo',        icon: '📦', nombre: 'Cubo & Urna 3D',         desc: 'Caja de cristal · Vista 360° · Ver el insecto por todos lados' },
     { id: 'cupula',      icon: '🔮', nombre: 'Cúpula & Campana',       desc: 'Domo de vidrio victoriano · Exhibición de museo · Lujo clásico' },
     { id: 'reloj',       icon: '🕐', nombre: 'Tipo Reloj',             desc: 'Marco circular con reloj de alta gama integrado · Dubai · Lujo extremo' },
-    { id: 'mixto',       icon: '🦋', nombre: 'Composiciones Mixtas',   desc: 'Varias especies juntas · Arte cromático · Colores amazónicos' },
+    { id: 'mixto',       icon: '', nombre: 'Composiciones Mixtas',   desc: 'Varias especies juntas · Arte cromático · Colores amazónicos' },
     { id: 'resina2',     icon: '💎', nombre: 'Encapsulado en Resina',  desc: 'Eterno · Irrompible · Moderno · El más exclusivo del mundo' },
   ]
 
   const msg = encodeURIComponent(
-    `Hola House Insects of Peru 🦋\nQuiero cotizar un cuadro:\n• Composición: ${composicion === 'individual' ? 'Individual' : 'Mixto/Combinado'}\n• Marco: ${marco}\n• Protección: ${vidrio === 'normal' ? 'Cristal Normal' : vidrio === 'uv' ? 'Cristal UV Premium (+$20)' : 'Resina Epóxica (+$35)'}\n\n¿Pueden enviarme precios y disponibilidad? Gracias.`
+    `Hola House Insects of Peru \nQuiero cotizar un cuadro:\n• Composición: ${composicion === 'individual' ? 'Individual' : 'Mixto/Combinado'}\n• Marco: ${marco}\n• Protección: ${vidrio === 'normal' ? 'Cristal Normal' : vidrio === 'uv' ? 'Cristal UV Premium (+$20)' : 'Resina Epóxica (+$35)'}\n\n¿Pueden enviarme precios y disponibilidad? Gracias.`
   )
 
   return (
@@ -54,48 +54,45 @@ export default function CuadrosPage() {
 
       <div className="fade-up" style={{ maxWidth: 1000, margin: '0 auto' }}>
 
-        {/* BACK - BOTÓN VISIBLE */}
-        <a href="/" style={{
-          color: '#1A1209', textDecoration: 'none', display: 'inline-flex',
-          alignItems: 'center', gap: 8, marginBottom: 20,
-          background: 'linear-gradient(135deg,#C9A84C,#E8C97A)',
-          padding: '10px 20px', borderRadius: 30,
-          fontSize: '1rem', fontWeight: 700, fontFamily: 'Georgia, serif',
-          boxShadow: '0 4px 16px rgba(201,168,76,0.4)',
-          transition: 'all 0.2s ease',
-        }}>
-          ← Volver al Inicio
-        </a>
+        {/* BACK */}
+        <a href="/" style={{ color: '#C9A84C', fontSize: '.8rem', textDecoration: 'none', display: 'block', marginBottom: 16 }}>← Inicio</a>
 
         {/* HEADER */}
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
-          {/* LOGO RESPONSIVE - máx 140px en mobile */}
-          <div className="logo-pulse" style={{
-            width: 'min(140px, 38vw)', height: 'min(140px, 38vw)',
-            margin: '0 auto 14px',
-            borderRadius: '50%', border: '3px solid rgba(201,168,76,0.6)',
-            overflow: 'hidden', boxShadow: '0 0 30px rgba(201,168,76,0.15)',
+          <div className="butterfly-float" style={{ fontSize: '2.5rem', marginBottom: 6 }}></div>
+
+          {/* LOGO DINÁMICO */}
+          <div className="logo-wrap logo-pulse" style={{
+            width: 84, height: 84, margin: '0 auto 12px',
+            borderRadius: '50%', border: '2px solid rgba(201,168,76,0.5)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            background: 'radial-gradient(circle, rgba(201,168,76,0.1), transparent)',
           }}>
             <img
               src="/logo-house-insects-peru.png"
-              className="butterfly-float"
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              alt="House Insects of Peru - Morpho Rethenor Helena"
+              style={{ width: 74, height: 74, objectFit: 'contain', borderRadius: '50%' }}
+              onError={(e) => {
+                const el = e.target as HTMLImageElement
+                el.style.display = 'none'
+                const p = el.parentElement!
+                p.innerHTML = '<span style="font-size:2.2rem"></span>'
+              }}
+              alt="House Insects of Peru"
             />
           </div>
 
-          <div style={{ color: 'rgba(201,168,76,0.5)', fontSize: 'clamp(.55rem,.9vw,.65rem)', letterSpacing: '.15em', marginBottom: 8 }}>
+          <div style={{ color: 'rgba(201,168,76,0.5)', fontSize: '.62rem', letterSpacing: '.2em', marginBottom: 8 }}>
             HOUSE INSECTS OF PERU · MÁS DE 40 AÑOS DE EXPERIENCIA
           </div>
-          <h1 style={{ fontSize: 'clamp(1.1rem, 5vw, 2.1rem)', fontWeight: 700, color: '#E8C97A', marginBottom: 8, lineHeight: 1.3, padding: '0 8px' }}>
-            🦋 Cuadros de Mariposas Tropicales Naturales
+          <h1 style={{ fontSize: 'clamp(1.3rem, 5vw, 2.1rem)', fontWeight: 300, color: '#E8C97A', marginBottom: 8, lineHeight: 1.3 }}>
+             Cuadros de Mariposas Tropicales Naturales
           </h1>
           <div style={{ height: 1, background: 'linear-gradient(to right,transparent,#C9A84C,transparent)', margin: '10px auto', maxWidth: 400 }} />
-          <p style={{ color: 'rgba(232,201,122,0.6)', fontSize: 'clamp(.78rem,2.5vw,.88rem)', lineHeight: 1.9, maxWidth: 680, margin: '0 auto', padding: '0 8px' }}>
-            Especímenes secos naturales de la Amazonía peruana montados en marcos de lujo.
+          <p style={{ color: 'rgba(232,201,122,0.6)', fontSize: '.82rem', lineHeight: 1.9, maxWidth: 680, margin: '0 auto' }}>
+            Especímenes secos naturales de la Amazonía peruana montados en marcos de lujo.<br />
             Personaliza tu cuadro — composición, formato y tipo de protección. Certificado SERFOR + CITES.
           </p>
-          <div style={{ color: 'rgba(201,168,76,0.35)', fontSize: '.6rem', letterSpacing: '.1em', marginTop: 8 }}>
+          <div style={{ color: 'rgba(201,168,76,0.35)', fontSize: '.6rem', letterSpacing: '.12em', marginTop: 8 }}>
             PARTIDA 9705.21.00.00 · SERFOR · CITES · RUC 20447397804
           </div>
         </div>
@@ -108,58 +105,55 @@ export default function CuadrosPage() {
             <div style={{ background: 'rgba(201,168,76,0.05)', border: '1px solid rgba(201,168,76,0.15)', borderRadius: 12, padding: 20 }}>
               <div style={{ color: '#C9A84C', fontSize: '.68rem', letterSpacing: '.1em', marginBottom: 14 }}>🖼️ CONFIGURA TU CUADRO</div>
 
-              {/* TABS VISTA - íconos SVG dorados */}
+              {/* TABS VISTA */}
               <div className="vista-tabs" style={{ display: 'flex', gap: 6, justifyContent: 'center', marginBottom: 12, flexWrap: 'wrap' }}>
                 {[
-                  { id: 'frente', label: 'Frente', svg: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg> },
-                  { id: 'lado',   label: 'Lado',   svg: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 3l14 9-14 9V3z"/></svg> },
-                  { id: 'reverso',label: 'Reverso', svg: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg> },
-                  { id: 'video',  label: 'Video',  svg: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg> },
+                  { id: 'frente', label: '🖼️ Frente' },
+                  { id: 'lado',   label: '📐 Lado' },
+                  { id: 'reverso',label: '🔄 Reverso' },
+                  { id: 'video',  label: '🎬 Video' },
                 ].map(v => (
                   <button key={v.id} onClick={() => setVista(v.id)} className="btn-opt" style={{
-                    padding: '8px 16px', borderRadius: 20, fontSize: '.78rem',
-                    display: 'flex', alignItems: 'center', gap: 6,
+                    padding: '6px 14px', borderRadius: 20, fontSize: '.75rem',
                     background: vista === v.id ? 'linear-gradient(135deg,#C9A84C,#E8C97A)' : 'rgba(201,168,76,0.08)',
                     color: vista === v.id ? '#1A1209' : 'rgba(232,201,122,0.7)',
-                    border: vista === v.id ? 'none' : '1px solid rgba(201,168,76,0.25)',
+                    border: vista === v.id ? 'none' : '1px solid rgba(201,168,76,0.2)',
                     fontWeight: vista === v.id ? 700 : 400,
-                  }}>
-                    {v.svg} {v.label}
-                  </button>
+                  }}>{v.label}</button>
                 ))}
               </div>
 
-              {/* PREVIEW con logo real animado */}
+              {/* PREVIEW con mariposa animada */}
               <div style={{
                 width: '100%', aspectRatio: '4/3',
                 background: 'rgba(201,168,76,0.04)',
                 border: '1px solid rgba(201,168,76,0.15)', borderRadius: 10,
                 display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                marginBottom: 16, overflow: 'hidden', gap: 10,
+                marginBottom: 16, overflow: 'hidden',
               }}>
-                <div style={{
-                  width: 'min(180px, 50%)', height: 'min(180px, 50%)',
-                  borderRadius: '50%',
-                  border: '3px solid rgba(201,168,76,0.5)',
-                  overflow: 'hidden',
-                  boxShadow: '0 0 24px rgba(201,168,76,0.2)',
+                <div className="butterfly-float" style={{ fontSize: '3.5rem', marginBottom: 10 }}></div>
+                <div className="logo-wrap" style={{
+                  width: 56, height: 56, borderRadius: '50%',
+                  border: '2px solid rgba(201,168,76,0.3)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  background: 'rgba(201,168,76,0.05)',
                 }}>
                   <img src="/logo-house-insects-peru.png"
-                    className="butterfly-float"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    alt="Morpho Rethenor Helena"
+                    style={{ width: 48, height: 48, objectFit: 'contain', borderRadius: '50%', opacity: 0.75 }}
+                    onError={(e) => { (e.target as HTMLImageElement).replaceWith(Object.assign(document.createElement('span'), { textContent: '', style: 'font-size:1.8rem' })) }}
+                    alt=""
                   />
                 </div>
-                <div style={{ color: 'rgba(201,168,76,0.5)', fontSize: '.65rem', letterSpacing: '.1em' }}>
+                <div style={{ color: 'rgba(201,168,76,0.4)', fontSize: '.6rem', marginTop: 10, letterSpacing: '.1em' }}>
                   {vista === 'video' ? '▶ VIDEO PRÓXIMAMENTE' : 'FOTO PRÓXIMAMENTE'}
                 </div>
               </div>
 
               {/* COMPOSICIÓN */}
               <div style={{ marginBottom: 14 }}>
-                <div style={{ color: 'rgba(201,168,76,0.5)', fontSize: '.62rem', letterSpacing: '.1em', marginBottom: 8 }}>🦋 COMPOSICIÓN</div>
+                <div style={{ color: 'rgba(201,168,76,0.5)', fontSize: '.62rem', letterSpacing: '.1em', marginBottom: 8 }}> COMPOSICIÓN</div>
                 <div className="btn-opts-wrap" style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                  {[{ id: 'individual', label: '🦋 Individual' }, { id: 'mixto', label: '🎨 Mixto/Combinado' }].map(c => (
+                  {[{ id: 'individual', label: ' Individual' }, { id: 'mixto', label: '🎨 Mixto/Combinado' }].map(c => (
                     <button key={c.id} onClick={() => setComposicion(c.id)} className="btn-opt" style={{
                       padding: '8px 16px', borderRadius: 20, fontSize: '.78rem',
                       background: composicion === c.id ? 'linear-gradient(135deg,#C9A84C,#E8C97A)' : 'rgba(201,168,76,0.08)',
@@ -218,7 +212,7 @@ export default function CuadrosPage() {
               <div style={{ background: 'rgba(201,168,76,0.06)', border: '1px solid rgba(201,168,76,0.2)', borderRadius: 10, padding: 14, marginBottom: 14 }}>
                 <div style={{ color: '#C9A84C', fontSize: '.68rem', fontWeight: 700, marginBottom: 8 }}>📋 TU CONFIGURACIÓN:</div>
                 <div style={{ color: 'rgba(232,201,122,0.7)', fontSize: '.75rem', lineHeight: 2 }}>
-                  🦋 {composicion === 'individual' ? 'Individual' : 'Mixto/Combinado'}<br />
+                   {composicion === 'individual' ? 'Individual' : 'Mixto/Combinado'}<br />
                   🖼️ Marco {marco.charAt(0).toUpperCase() + marco.slice(1)}<br />
                   💎 {vidrio === 'normal' ? 'Cristal Normal' : vidrio === 'uv' ? 'Cristal UV Premium' : 'Resina Epóxica'}
                   {precioExtra > 0 && <span style={{ color: '#E8C97A', marginLeft: 6, fontSize: '.7rem' }}>(+${precioExtra})</span>}
@@ -274,21 +268,10 @@ export default function CuadrosPage() {
               </div>
             </div>
 
-            {/* LOGO DECORATIVO ANIMADO */}
+            {/* MARIPOSA DECORATIVA */}
             <div style={{ textAlign: 'center', marginTop: 20 }}>
-              <div style={{
-                width: 80, height: 80, borderRadius: '50%',
-                border: '2px solid rgba(201,168,76,0.4)',
-                overflow: 'hidden', margin: '0 auto',
-                boxShadow: '0 0 16px rgba(201,168,76,0.12)',
-              }}>
-                <img src="/logo-house-insects-peru.png"
-                  className="butterfly-float"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  alt=""
-                />
-              </div>
-              <div style={{ color: 'rgba(201,168,76,0.3)', fontSize: '.58rem', letterSpacing: '.15em', marginTop: 8 }}>AMAZONÍA PERUANA</div>
+              <div className="butterfly-float" style={{ fontSize: '3rem' }}></div>
+              <div style={{ color: 'rgba(201,168,76,0.3)', fontSize: '.58rem', letterSpacing: '.15em', marginTop: 4 }}>AMAZONÍA PERUANA</div>
             </div>
           </div>
         </div>

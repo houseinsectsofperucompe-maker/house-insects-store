@@ -216,7 +216,7 @@ export default function Page() {
             <div style={{marginBottom:10}}>
               <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginBottom:6}}>COMPOSICIÓN</div>
               <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
-                {[{id:'individual',nm:'🦋 Individual'},{id:'mixto',nm:'🎨 Mixto/Combinado'}].map(o=>(
+                {[{id:'individual',nm:' Individual'},{id:'mixto',nm:'🎨 Mixto/Combinado'}].map(o=>(
                   <button key={o.id} onClick={()=>setComposicion(o.id)} style={{padding:'4px 10px',borderRadius:16,cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif',background:composicion===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:composicion===o.id?'#1A1209':'#C9A84C',border:`1px solid ${composicion===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,transition:'all 0.15s ease'}}>{o.nm}</button>
                 ))}
               </div>

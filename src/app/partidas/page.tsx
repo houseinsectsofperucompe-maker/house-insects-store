@@ -1,7 +1,7 @@
 'use client'
 export default function PartidasPage() {
   const PARTIDAS = [
-    { rubro:'🦋 Especímenes Biológicos Secos', partida:'9705.00.00.00', entidad:'SERFOR + CITES', drawback:'Sí', senasa:'No' },
+    { rubro:' Especímenes Biológicos Secos', partida:'9705.00.00.00', entidad:'SERFOR + CITES', drawback:'Sí', senasa:'No' },
     { rubro:'🌙 Mariposas Nocturnas', partida:'9705.00.00.00', entidad:'SERFOR + CITES', drawback:'Sí', senasa:'No' },
     { rubro:'🪲 Coleópteros & Artrópodos', partida:'9705.00.00.00', entidad:'SERFOR + CITES', drawback:'Sí', senasa:'No' },
     { rubro:'✨ Joyería Natural & Orfebrería', partida:'7113.19.00.00', entidad:'SUNAT', drawback:'Sí', senasa:'No' },

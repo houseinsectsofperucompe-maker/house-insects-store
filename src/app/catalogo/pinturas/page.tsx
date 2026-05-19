@@ -9,7 +9,7 @@ export default function PinturasPage() {
     {id:'sacred',nm:'⛪ Sacred & Mystical Art'},
     {id:'sculptures',nm:'🏺 Sculptures & Sphinxes'},
     {id:'pottery',nm:'🪆 Ancestral Pottery'},
-    {id:'bioart',nm:'🦋 Bio-Art 3D & 4D'},
+    {id:'bioart',nm:' Bio-Art 3D & 4D'},
   ]
   const COLECCIONES = {
     fineart:[
@@ -28,7 +28,7 @@ export default function PinturasPage() {
     sculptures:[
       {icon:'🏺',nm:'Esfinges Decorativas de Madera',desc:'Partida 4420.11.00.00 · Madera tropical · Talladas a mano · Lujo'},
       {icon:'🗿',nm:'Esculturas de Pared 3D',desc:'Resina · Metal · Madera fina · Gran formato · Arte de vanguardia'},
-      {icon:'🦋',nm:'Esculturas de Mariposas en Pared',desc:'Partida 9703.10.00.00 · Resina · Efecto 3D · Coleccionistas'},
+      {icon:'',nm:'Esculturas de Mariposas en Pared',desc:'Partida 9703.10.00.00 · Resina · Efecto 3D · Coleccionistas'},
       {icon:'🪲',nm:'Esculturas de Coleoptera en Relieve',desc:'Escarabajos rinoceronte · Arte escultórico · Museos · Lujo'},
     ],
     pottery:[
@@ -37,10 +37,10 @@ export default function PinturasPage() {
       {icon:'🎭',nm:'Artesanías Decorativas en Miniatura',desc:'Las 3 regiones · Cerámica fina · Pintadas a mano'},
     ],
     bioart:[
-      {icon:'🦋',nm:'Cuadros 3D — Morpho & Mariposas Raras',desc:'Relieve en resina · Alas elevadas del lienzo · Ultra lujo · Con video'},
+      {icon:'',nm:'Cuadros 3D — Morpho & Mariposas Raras',desc:'Relieve en resina · Alas elevadas del lienzo · Ultra lujo · Con video'},
       {icon:'🌈',nm:'Paneles Lenticulares 4D de Mariposas',desc:'Tecnología lenticular · Alas que se mueven · Efecto 4D · Dubai'},
       {icon:'🪲',nm:'Esculturas 3D de Coleoptera',desc:'Escarabajos rinoceronte · Resina · Gran formato · Museos élite'},
-      {icon:'🦋',nm:'Bio-Art de Gynandromorphs',desc:'Tributo artístico · Sin tocar espécimen real · Arte sostenible'},
+      {icon:'',nm:'Bio-Art de Gynandromorphs',desc:'Tributo artístico · Sin tocar espécimen real · Arte sostenible'},
     ],
   }
   const PARTIDAS: Record<string,{codigo:string,desc:string}> = {

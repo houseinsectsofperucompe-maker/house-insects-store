@@ -10,7 +10,7 @@ const COURIERS = [
 ]
 
 const RUBROS = [
-  { id:'especimenes', nombre:'🦋 Especímenes Secos', licencias:['SERFOR','CITES'], partida:'9705.21.00.00' },
+  { id:'especimenes', nombre:' Especímenes Secos', licencias:['SERFOR','CITES'], partida:'9705.21.00.00' },
   { id:'nocturnas', nombre:'🌙 Mariposas Nocturnas', licencias:['SERFOR','CITES'], partida:'9705.21.00.00' },
   { id:'coleoptera', nombre:'🪲 Coleópteros', licencias:['SERFOR','CITES'], partida:'9705.21.00.00' },
   { id:'joyeria', nombre:'✨ Joyería Natural', licencias:['SUNAT'], partida:'7113.19.00.00' },
@@ -26,7 +26,7 @@ const RUBROS = [
   { id:'maderas', nombre:'🪵 Maderas Finas', licencias:['SERFOR'], partida:'4420.90.00.00' },
   { id:'herramientas', nombre:'🔬 Herramientas', licencias:['SUNAT'], partida:'9027.89.00.00' },
   { id:'esencias', nombre:'🌸 Esencias & Aceites', licencias:['SENASA','DIGESA'], partida:'3301.29.90.00' },
-  { id:'rarezas', nombre:'🦋 Rarezas & Gynandro', licencias:['SERFOR','CITES'], partida:'9705.21.00.00' },
+  { id:'rarezas', nombre:' Rarezas & Gynandro', licencias:['SERFOR','CITES'], partida:'9705.21.00.00' },
 ]
 
 const SEGUROS = [
@@ -106,7 +106,7 @@ export default function AdminPage() {
         {/* TABS */}
         <div style={{display:'flex',gap:8,flexWrap:'wrap',marginBottom:24}}>
           {[
-            {id:'especie',label:'🦋 Nueva Especie'},
+            {id:'especie',label:' Nueva Especie'},
             {id:'rubros',label:'📦 Rubros & Licencias'},
             {id:'logistica',label:'✈️ Logística'},
             {id:'precios',label:'💰 Precios & Drawback'},
@@ -415,7 +415,7 @@ export default function AdminPage() {
             <div className="admin-card">
               <div className="section-title">🔍 TIPO DE CÓDIGO QR</div>
               {[
-                {id:'ESPECIMEN',label:'QR Espécimen Individual',desc:'Identificación única por espécimen',icon:'🦋'},
+                {id:'ESPECIMEN',label:'QR Espécimen Individual',desc:'Identificación única por espécimen',icon:''},
                 {id:'LOTE',label:'QR Lote / Batch',desc:'Para envíos de múltiples unidades',icon:'📦'},
                 {id:'CITES',label:'QR Certificado CITES',desc:'Vinculado al permiso CITES',icon:'🏛️'},
                 {id:'TRACKING',label:'QR Tracking de Envío',desc:'Rastreo en tiempo real del paquete',icon:'🔍'},

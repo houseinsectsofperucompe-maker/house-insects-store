@@ -10,7 +10,7 @@ export default function JoeriaPage() {
     {id:'esclavas',nm:'⌚ Esclavas'},
     {id:'anillos',nm:'💍 Anillos'},
     {id:'collares',nm:'🪬 Collares'},
-    {id:'mariposas',nm:'🦋 Cuadros con Mariposas Raras'},
+    {id:'mariposas',nm:' Cuadros con Mariposas Raras'},
     {id:'coleoptera',nm:'🪲 Cuadros con Coleoptera Grandes'},
   ]
   const PIEZAS = [
@@ -19,7 +19,7 @@ export default function JoeriaPage() {
     {icon:'⌚',nm:'Esclavas',desc:'Oro 18k · Plata 925 · Grabados amazónicos · Lujo'},
     {icon:'💍',nm:'Anillos',desc:'Oro · Plata · Diseños únicos · Piedras naturales'},
     {icon:'🪬',nm:'Collares',desc:'Oro · Plata · Diseños ancestrales · Certificado'},
-    {icon:'🦋',nm:'Cuadros Oro & Plata con Mariposas Raras',desc:'Marco de oro 18k y plata 925 · Gynandromorphs · Freaks · Aberraciones · Colección élite'},
+    {icon:'',nm:'Cuadros Oro & Plata con Mariposas Raras',desc:'Marco de oro 18k y plata 925 · Gynandromorphs · Freaks · Aberraciones · Colección élite'},
     {icon:'🪲',nm:'Cuadros Oro & Plata con Coleoptera Grandes',desc:'Marco de oro 18k y plata 925 · Escarabajos gigantes · Insectos raros · Museos y coleccionistas'},
   ]
   return (
