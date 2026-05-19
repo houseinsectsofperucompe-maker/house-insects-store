@@ -1,4 +1,7 @@
 'use client'
+import Image from 'next/image'
+import { useState } from 'react'
+
 const IDIOMAS = [
   {code:'es',flag:'🇵🇪',nm:'Español'},
   {code:'en',flag:'🇺🇸',nm:'English'},
@@ -22,8 +25,31 @@ const IDIOMAS = [
   {code:'fi',flag:'🇫🇮',nm:'Suomi'},
   {code:'no',flag:'🇳🇴',nm:'Norsk'},
 ]
-import Image from 'next/image'
-import { useState } from 'react'
+
+const TEXTOS: Record<string,{sel:string,ver:string}> = {
+  es:{sel:'Selecciona un Catálogo',ver:'Ver colección →'},
+  en:{sel:'Select a Catalog',ver:'View collection →'},
+  de:{sel:'Katalog auswählen',ver:'Kollektion ansehen →'},
+  fr:{sel:'Sélectionner un Catalogue',ver:'Voir la collection →'},
+  pt:{sel:'Selecione um Catálogo',ver:'Ver coleção →'},
+  it:{sel:'Seleziona un Catalogo',ver:'Vedi collezione →'},
+  ja:{sel:'カタログを選択',ver:'コレクションを見る →'},
+  zh:{sel:'选择目录',ver:'查看收藏 →'},
+  ar:{sel:'اختر كتالوج',ver:'عرض المجموعة →'},
+  th:{sel:'เลือกแคตาล็อก',ver:'ดูคอลเลกชัน →'},
+  ko:{sel:'카탈로그 선택',ver:'컬렉션 보기 →'},
+  ru:{sel:'Выберите каталог',ver:'Смотреть коллекцию →'},
+  nl:{sel:'Selecteer een Catalogus',ver:'Collectie bekijken →'},
+  pl:{sel:'Wybierz katalog',ver:'Zobacz kolekcję →'},
+  sv:{sel:'Välj en katalog',ver:'Visa samling →'},
+  tr:{sel:'Katalog Seçin',ver:'Koleksiyonu görüntüle →'},
+  vi:{sel:'Chọn danh mục',ver:'Xem bộ sưu tập →'},
+  id:{sel:'Pilih Katalog',ver:'Lihat koleksi →'},
+  da:{sel:'Vælg et katalog',ver:'Se samling →'},
+  fi:{sel:'Valitse luettelo',ver:'Katso kokoelma →'},
+  no:{sel:'Velg en katalog',ver:'Se samling →'},
+}
+
 const CATALOGOS = [
   { id:1, nombre:'Especímenes Biológicos Secos', descripcion:'Mariposas diurnas · Calidad A1 · CITES certificado', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/cazador_catlogo_mariposas_diurnas_vi%CC%81deo_mp__j2nfez.mp4', imagen:'https://res.cloudinary.com/dv3mvukmq/image/upload/logo-house-insects-peru_pvmkud', colorFondo:'rgba(10,30,10,0.85)', ruta:'/catalogo/especimenes' },
   { id:2, nombre:'CUADROS DE MARIPOSA TROPICAL SECOS', descripcion:'Especies nocturnas · Raras · Amazónicas', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.26_dvuw9x.mp4', imagen:'/categorias/Cuadros_butetrfly__diurne.png', colorFondo:'rgba(10,10,30,0.85)', ruta:'/catalogo/nocturnas' },
@@ -32,16 +58,16 @@ const CATALOGOS = [
   { id:5, nombre:'Artesanías & Cúpulas', descripcion:'Cuadros · Cúpulas · Resinas · Arte amazónico', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'https://res.cloudinary.com/dv3mvukmq/image/upload/ARTEZANIAS_DE_COPULAS_vsiioa', colorFondo:'rgba(30,15,5,0.85)', ruta:'/catalogo/artesanias' },
   { id:6, nombre:'Herramientas Biológicas', descripcion:'Sets disección · Lupas binoculares · Kits montaje', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.28_vobsdz.mp4', imagen:'https://res.cloudinary.com/dv3mvukmq/image/upload/HERAMIENTAS_BIOLOGICAS_zhvrn2', colorFondo:'rgba(5,15,30,0.85)', ruta:'/catalogo/herramientas' },
   { id:7, nombre:'CUADRO DE MARIPOSAS NOCTURNAS TROPICAL', descripcion:'Arctiidae · Saturnidae · Sphingidae · Uranidae · Amazónicas', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.26_dvuw9x.mp4', imagen:'https://res.cloudinary.com/dv3mvukmq/image/upload/NOCTURNSA-LOG2_nqnnth', colorFondo:'rgba(10,10,30,0.85)', ruta:'/catalogo/nocturnas' },
-  { id:8, nombre:'🪲 Cuadros de Coleópteros & Artrópodos Tropicales Secos', descripcion:'Escarabajos · Arañas · Mantis · Calidad A1 · SERFOR', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.28_vobsdz.mp4', imagen:'/categorias/marcos_de_de_diferente_colores_pa_ta_insectos.png', colorFondo:'rgba(20,10,5,0.85)', ruta:'/catalogo/coleoptera' },
-  { id:9, nombre:'💎 Minerales & Piedras Preciosas', descripcion:'Minerales peruanos · Piedras preciosas · Colección', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/mineerales_joyas.png', colorFondo:'rgba(5,20,30,0.85)', ruta:'/catalogo/minerales' },
-  { id:10, nombre:'🌱 Semillas & Plantas Medicinales', descripcion:'Flora amazónica · Medicinales · Orgánicas · SENASA', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/Semillas_y_flores.png', colorFondo:'rgba(5,20,10,0.85)', ruta:'/catalogo/semillas' },
-  { id:11, nombre:'🍎 Frutas Exóticas & Deshidratadas', descripcion:'Frutas amazónicas · Wild · Deshidratadas · SENASA', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/frutas__desidratdas.png', colorFondo:'rgba(20,10,5,0.85)', ruta:'/catalogo/frutas' },
-  { id:12, nombre:'🍄 Hongos & Productos Naturales', descripcion:'Hongos amazónicos · Medicinales · Deshidratados', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/Hongo__siolvester_wild.png', colorFondo:'rgba(10,20,5,0.85)', ruta:'/catalogo/hongos' },
-  { id:13, nombre:'🧶 Textilería & Alpaca', descripcion:'Alpaca · Textilería amazónica · Artesanal', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/Textrile_peruana_.png', colorFondo:'rgba(20,15,5,0.85)', ruta:'/catalogo/textileria' },
-  { id:14, nombre:'🌶️ Alimentos Deshidratados', descripcion:'Condimentos amazónicos · Naturales · Sin preservantes', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/comida_desidratda.png', colorFondo:'rgba(25,10,5,0.85)', ruta:'/catalogo/alimentos' },
-  { id:15, nombre:'🎨 Pinturas & Arte Rupestre', descripcion:'Arte amazónico · Pinturas naturales · Colección', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/pinturea_arteanias.png', colorFondo:'rgba(20,10,15,0.85)', ruta:'/catalogo/pinturas' },
-  { id:16, nombre:'🪵 Maderas Finas & Esculturas', descripcion:'Maderas amazónicas · Esculturas · SERFOR certificado', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/Madera__fine.png', colorFondo:'rgba(15,10,5,0.85)', ruta:'/catalogo/maderas' },
-  { id:17, nombre:'🌸 Esencias & Aceites Naturales', descripcion:'Aceites esenciales · Amazónicos · Medicinales', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/Aceites__maderale.png', colorFondo:'rgba(20,5,15,0.85)', ruta:'/catalogo/esencias' },
+  { id:8, nombre:'Cuadros de Coleópteros & Artrópodos Tropicales Secos', descripcion:'Escarabajos · Arañas · Mantis · Calidad A1 · SERFOR', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.28_vobsdz.mp4', imagen:'/categorias/marcos_de_de_diferente_colores_pa_ta_insectos.png', colorFondo:'rgba(20,10,5,0.85)', ruta:'/catalogo/coleoptera' },
+  { id:9, nombre:'Minerales & Piedras Preciosas', descripcion:'Minerales peruanos · Piedras preciosas · Colección', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/mineerales_joyas.png', colorFondo:'rgba(5,20,30,0.85)', ruta:'/catalogo/minerales' },
+  { id:10, nombre:'Semillas & Plantas Medicinales', descripcion:'Flora amazónica · Medicinales · Orgánicas · SENASA', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/Semillas_y_flores.png', colorFondo:'rgba(5,20,10,0.85)', ruta:'/catalogo/semillas' },
+  { id:11, nombre:'Frutas Exóticas & Deshidratadas', descripcion:'Frutas amazónicas · Wild · Deshidratadas · SENASA', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/frutas__desidratdas.png', colorFondo:'rgba(20,10,5,0.85)', ruta:'/catalogo/frutas' },
+  { id:12, nombre:'Hongos & Productos Naturales', descripcion:'Hongos amazónicos · Medicinales · Deshidratados', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/Hongo__siolvester_wild.png', colorFondo:'rgba(10,20,5,0.85)', ruta:'/catalogo/hongos' },
+  { id:13, nombre:'Textilería & Alpaca', descripcion:'Alpaca · Textilería amazónica · Artesanal', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/Textrile_peruana_.png', colorFondo:'rgba(20,15,5,0.85)', ruta:'/catalogo/textileria' },
+  { id:14, nombre:'Alimentos Deshidratados', descripcion:'Condimentos amazónicos · Naturales · Sin preservantes', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/comida_desidratda.png', colorFondo:'rgba(25,10,5,0.85)', ruta:'/catalogo/alimentos' },
+  { id:15, nombre:'Pinturas & Arte Rupestre', descripcion:'Arte amazónico · Pinturas naturales · Colección', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/pinturea_arteanias.png', colorFondo:'rgba(20,10,15,0.85)', ruta:'/catalogo/pinturas' },
+  { id:16, nombre:'Maderas Finas & Esculturas', descripcion:'Maderas amazónicas · Esculturas · SERFOR certificado', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/Madera__fine.png', colorFondo:'rgba(15,10,5,0.85)', ruta:'/catalogo/maderas' },
+  { id:17, nombre:'Esencias & Aceites Naturales', descripcion:'Aceites esenciales · Amazónicos · Medicinales', video:'https://res.cloudinary.com/dv3mvukmq/video/upload/v1778854438/WhatsApp_Video_2026-05-15_at_08.40.39_wnlddk.mp4', imagen:'/categorias/Aceites__maderale.png', colorFondo:'rgba(20,5,15,0.85)', ruta:'/catalogo/esencias' },
 ]
 
 const CSS = `
@@ -75,11 +101,17 @@ const CSS = `
   .video-btn-catalogo:hover{transform:translateY(-4px) scale(1.06);box-shadow:0 10px 30px rgba(201,168,76,0.5)!important}
   .video-btn-volver{transition:transform 0.18s ease,border-color 0.18s ease,color 0.18s ease}
   .video-btn-volver:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.6)!important;color:white!important}
+  .lang-btn{transition:all 0.15s ease}
+  .lang-btn:hover{background:rgba(201,168,76,0.12)!important;color:#E8C97A!important}
 `
 
 export default function Home() {
   const [activo, setActivo] = useState<number|null>(null)
+  const [idioma, setIdioma] = useState('es')
+  const [showIdiomas, setShowIdiomas] = useState(false)
   const cat = CATALOGOS.find(c=>c.id===activo)
+  const t = TEXTOS[idioma]||TEXTOS['es']
+  const idiomaActual = IDIOMAS.find(i=>i.code===idioma)
 
   if (activo && cat) {
     return (
@@ -95,8 +127,8 @@ export default function Home() {
             <a href="https://wa.me/51940699405" target="_blank" className="home-btn home-btn-wa" style={{background:'#25D366',color:'white',padding:'12px 24px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none'}}>💬 +51 940 699 405</a>
             <a href="https://wa.me/51920644433" target="_blank" className="home-btn home-btn-wa" style={{background:'#25D366',color:'white',padding:'12px 24px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none'}}>💬 +51 920 644 433</a>
           </div>
-          <a href={cat.ruta} className="video-btn-catalogo" style={{background:'#C9A84C',color:'#1A1209',padding:'12px 32px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none',marginBottom:16,display:'inline-block'}}> Ver Catálogo Completo →</a>
-          <button onClick={()=>setActivo(null)} className="video-btn-volver" style={{background:'transparent',border:'1px solid rgba(255,255,255,0.3)',color:'rgba(255,255,255,0.6)',padding:'10px 24px',borderRadius:4,fontSize:'.8rem',cursor:'pointer',marginTop:8}}>← Volver al inicio</button>
+          <a href={cat.ruta} className="video-btn-catalogo" style={{background:'#C9A84C',color:'#1A1209',padding:'12px 32px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none',marginBottom:16,display:'inline-block'}}>{t.ver}</a>
+          <button onClick={()=>setActivo(null)} className="video-btn-volver" style={{background:'transparent',border:'1px solid rgba(255,255,255,0.3)',color:'rgba(255,255,255,0.6)',padding:'10px 24px',borderRadius:4,fontSize:'.8rem',cursor:'pointer',marginTop:8}}>← {t.sel}</button>
         </div>
       </div>
     )
@@ -105,6 +137,20 @@ export default function Home() {
   return (
     <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif'}}>
       <style>{CSS}</style>
+      <div style={{position:'fixed',top:12,right:12,zIndex:999}}>
+        <button onClick={()=>setShowIdiomas(!showIdiomas)} style={{background:'rgba(26,18,9,0.95)',border:'1px solid rgba(201,168,76,0.4)',color:'#C9A84C',padding:'6px 14px',borderRadius:20,cursor:'pointer',fontSize:'.8rem',fontFamily:'Georgia,serif',display:'flex',alignItems:'center',gap:6}}>
+          <span>{idiomaActual?.flag}</span><span>{idiomaActual?.nm}</span><span style={{fontSize:'.6rem'}}>▾</span>
+        </button>
+        {showIdiomas&&(
+          <div style={{position:'absolute',right:0,top:40,background:'rgba(20,13,5,0.98)',border:'1px solid rgba(201,168,76,0.25)',borderRadius:8,padding:6,maxHeight:320,overflowY:'auto',minWidth:170,boxShadow:'0 8px 32px rgba(0,0,0,0.6)'}}>
+            {IDIOMAS.map(i=>(
+              <button key={i.code} onClick={()=>{setIdioma(i.code);setShowIdiomas(false)}} className="lang-btn" style={{display:'flex',alignItems:'center',gap:8,width:'100%',background:idioma===i.code?'rgba(201,168,76,0.12)':'transparent',border:'none',color:idioma===i.code?'#C9A84C':'rgba(232,201,122,0.55)',padding:'7px 12px',cursor:'pointer',fontSize:'.78rem',textAlign:'left',fontFamily:'Georgia,serif',borderRadius:4}}>
+                <span>{i.flag}</span><span>{i.nm}</span>
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
       <div style={{display:'flex',flexDirection:'column',alignItems:'center',padding:'50px 20px 30px',textAlign:'center'}}>
         <Image src="/logo-house-insects-peru.png" alt="House Insects of Peru" width={160} height={160} loading="eager" className="home-logo" style={{marginBottom:20,filter:'drop-shadow(0 8px 24px rgba(201,168,76,0.4))'}} onError={(e)=>{(e.target as HTMLImageElement).src='/logo.png'}}/>
         <h1 className="home-title" style={{fontSize:'clamp(1.5rem,4vw,2.8rem)',fontWeight:300,color:'#E8C97A',letterSpacing:'.12em',marginBottom:6,textTransform:'uppercase'}}>House Insects of Peru</h1>
@@ -117,7 +163,7 @@ export default function Home() {
           <a href="mailto:jzalopez02@gmail.com" className="home-btn home-btn-email" style={{background:'#1A1209',color:'#C9A84C',border:'1px solid #C9A84C',padding:'10px 20px',borderRadius:4,fontSize:'.8rem',fontWeight:700,textDecoration:'none'}}>✉️ Email 2</a>
         </div>
         <div style={{width:200,height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',marginBottom:30}}/>
-        <h2 style={{fontSize:'.9rem',color:'rgba(232,201,122,0.5)',letterSpacing:'.3em',textTransform:'uppercase',marginBottom:30}}>Selecciona un Catálogo</h2>
+        <h2 style={{fontSize:'.9rem',color:'rgba(232,201,122,0.5)',letterSpacing:'.3em',textTransform:'uppercase',marginBottom:30}}>{t.sel}</h2>
       </div>
       <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(300px,1fr))',gap:3,maxWidth:1200,margin:'0 auto',padding:'0 3px 60px'}}>
         {CATALOGOS.map(c=>(
@@ -127,7 +173,7 @@ export default function Home() {
             <div style={{position:'absolute',bottom:0,left:0,right:0,padding:'20px',textAlign:'center'}}>
               <h3 className="cat-title" style={{color:'#E8C97A',fontSize:'clamp(.8rem,2vw,.95rem)',fontWeight:400,letterSpacing:'.06em',marginBottom:6}}>{c.nombre}</h3>
               <div className="cat-line" style={{width:25,height:1,background:'#C9A84C',margin:'0 auto 6px'}}/>
-              <p className="cat-ver" style={{color:'rgba(255,255,255,0.5)',fontSize:'.68rem'}}>Ver colección →</p>
+              <p className="cat-ver" style={{color:'rgba(255,255,255,0.5)',fontSize:'.68rem'}}>{t.ver}</p>
             </div>
           </button>
         ))}
