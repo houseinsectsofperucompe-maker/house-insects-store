@@ -24,7 +24,7 @@ export default function NocturnasPage() {
         <div style={{textAlign:'center',marginBottom:32}}>
           <img src="/logo-house-insects-peru.png" style={{width:72,height:72,marginBottom:12,objectFit:'contain'}}/>
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · MÁS DE 40 AÑOS DE EXPERIENCIA</div>
-          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}>🦋 Cuadros de Mariposas Tropicales Naturales</h1>
+          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}>Cuadros de Mariposas Tropicales Naturales</h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
           <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
             Especímenes secos naturales de la Amazonía peruana montados en marcos de lujo. Personaliza tu cuadro — elige composición, formato del marco y tipo de protección. Certificado SERFOR + CITES.
@@ -60,7 +60,7 @@ export default function NocturnasPage() {
             <div style={{marginBottom:14}}>
               <div style={{color:'rgba(232,201,122,0.5)',fontSize:'.65rem',letterSpacing:'.08em',marginBottom:8}}>1️⃣ COMPOSICIÓN</div>
               <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
-                {[{id:'individual',nm:'🦋 Individual'},{id:'mixto',nm:'🎨 Mixto/Combinado'}].map(o=>(
+                {[{id:'individual',nm:'Individual'},{id:'mixto',nm:'🎨 Mixto/Combinado'}].map(o=>(
                   <button key={o.id} onClick={()=>setComposicion(o.id)} className="opt-btn" style={{
                     padding:'6px 14px',borderRadius:20,fontSize:'.75rem',fontFamily:'Georgia,serif',
                     background:composicion===o.id?'#C9A84C':'rgba(201,168,76,0.08)',
@@ -116,7 +116,7 @@ export default function NocturnasPage() {
             <div style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:12,marginBottom:14}}>
               <div style={{color:'#C9A84C',fontSize:'.7rem',fontWeight:700,marginBottom:6}}>📋 TU CONFIGURACIÓN:</div>
               <div style={{color:'rgba(232,201,122,0.7)',fontSize:'.72rem',lineHeight:1.8}}>
-                🦋 {composicion==='individual'?'Individual':'Mixto/Combinado'}<br/>
+                {composicion==='individual'?'Individual':'Mixto/Combinado'}<br/>
                 🖼️ Marco {marco.charAt(0).toUpperCase()+marco.slice(1)}<br/>
                 🛡️ {vidrio==='normal'?'Cristal Normal':vidrio==='uv'?'Cristal UV Premium':'Resina Epóxica'}
                 {precioExtra>0&&<span style={{color:'#C9A84C'}}> (+${precioExtra} USD)</span>}
