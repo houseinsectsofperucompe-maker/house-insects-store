@@ -70,7 +70,7 @@ export default function PinturasPage() {
       <div className="pc" style={{maxWidth:1000,margin:'0 auto'}}>
         <a href="/" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none',display:'block',marginBottom:16}}>← Inicio</a>
         <div style={{textAlign:'center',marginBottom:32}}>
-          <img src="/logo-house-insects-peru.png" style={{width:160,height:160,marginBottom:12,objectFit:'contain'}}/>
+          <img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,marginBottom:12,objectFit:'contain'}}/>
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · GALERÍA DE ARTE</div>
           <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}>🎨 Pinturas, Arte Sacro & Expresiones de las 3 Regiones</h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
@@ -105,7 +105,7 @@ export default function PinturasPage() {
               ))}
             </div>
             <div style={{width:'100%',height:240,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',marginBottom:16}}>
-              <img src="/logo-house-insects-peru.png" style={{width:160,height:160,objectFit:'contain',opacity:.6,marginBottom:10}}/>
+              <img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,objectFit:'contain',opacity:.6,marginBottom:10}}/>
               <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem'}}>GALERÍA EN PREPARACIÓN</p>
               <p style={{color:'rgba(232,201,122,0.25)',fontSize:'.62rem',marginTop:4}}>FOTO & VIDEO 3D PRÓXIMAMENTE</p>
             </div>
