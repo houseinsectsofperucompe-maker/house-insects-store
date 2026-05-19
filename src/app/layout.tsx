@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -8,10 +8,10 @@ export const metadata: Metadata = {
     apple: '/favicon.png',
   },
   title: 'House Insects of Peru E.I.R.L. | Amazonian Art & Bio-Trade',
-  description: 'Exportación de arte biológico premium, cuadros en pan de oro, artesanías de plata y bronce, textiles de alpaca, minerales de colección, hongos deshidratados, condimentos naturales disecados, plantas medicinales y esculturas en maderas finas. CITES · SERFOR · RUC 20447397804',
+  description: 'Exportacion de arte biologico premium, cuadros en pan de oro, artesanias de plata y bronce, textiles de alpaca, minerales de coleccion, hongos deshidratados, condimentos naturales disecados, plantas medicinales y esculturas en maderas finas. CITES · SERFOR · RUC 20447397804',
   openGraph: {
     title: 'House Insects of Peru E.I.R.L.',
-    description: 'Amazonian Art & Bio-Trade · Especímenes biológicos · Joyería natural · Artesanías amazónicas',
+    description: 'Amazonian Art & Bio-Trade · Especimenes biologicos · Joyeria natural · Artesanias amazonicas',
     url: 'https://houseinsectsofperu.com',
     siteName: 'House Insects of Peru',
     images: [{ url: 'https://res.cloudinary.com/dv3mvukmq/image/upload/logo-house-insects-peru_pvmkud' }],
@@ -23,6 +23,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
+      <head>
+        <script async src="https://tracking.metricool.com/micro.js"/>
+      </head>
       <body style={{fontFamily:"Georgia,serif"}}>{children}</body>
     </html>
   )
