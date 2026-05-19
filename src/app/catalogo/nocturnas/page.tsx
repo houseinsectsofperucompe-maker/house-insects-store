@@ -46,7 +46,7 @@ export default function NocturnasPage() {
               ))}
             </div>
             <div style={{width:'100%',height:200,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',marginBottom:16}}>
-              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem'}}>FOTO PROXIMAMENTE</p>
+              <img src="/logo-house-insects-peru.png" className="sello" style={{width:120,height:120,objectFit:"contain",marginBottom:8}}/><p style={{color:"rgba(232,201,122,0.4)",fontSize:".7rem"}}>FOTO PROXIMAMENTE</p>
               <p style={{color:'rgba(232,201,122,0.2)',fontSize:'.6rem',marginTop:4}}>HOUSE INSECTS OF PERU</p>
             </div>
             <div style={{marginBottom:14}}>
