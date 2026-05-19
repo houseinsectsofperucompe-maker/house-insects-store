@@ -1,0 +1,16 @@
+{
+  "nav": {
+    "inicio": "Trang chủ",
+    "catalogo": "Danh mục",
+    "contacto": "Liên hệ",
+    "bandera": "🇻🇳"
+  },
+  "hero": {
+    "titulo": "House Insects of Peru E.I.R.L.",
+    "subtitulo": "Xuất khẩu mẫu vật sinh học quốc tế",
+    "experiencia": "Hơn 40 năm kinh nghiệm"
+  },
+  "footer": {
+    "derechos": "© 2026 House Insects of Peru E.I.R.L. Tất cả quyền được bảo lưu."
+  }
+}

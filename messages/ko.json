@@ -1,0 +1,16 @@
+{
+  "nav": {
+    "inicio": "홈",
+    "catalogo": "카탈로그",
+    "contacto": "연락처",
+    "bandera": "🇰🇷"
+  },
+  "hero": {
+    "titulo": "House Insects of Peru E.I.R.L.",
+    "subtitulo": "생물 표본 국제 수출",
+    "experiencia": "40년 이상의 경험"
+  },
+  "footer": {
+    "derechos": "© 2026 House Insects of Peru E.I.R.L. 모든 권리 보유."
+  }
+}

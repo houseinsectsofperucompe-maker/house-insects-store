@@ -1,0 +1,16 @@
+{
+  "nav": {
+    "inicio": "หน้าแรก",
+    "catalogo": "แคตาล็อก",
+    "contacto": "ติดต่อ",
+    "bandera": "🇹🇭"
+  },
+  "hero": {
+    "titulo": "House Insects of Peru E.I.R.L.",
+    "subtitulo": "การส่งออกตัวอย่างชีวภาพระหว่างประเทศ",
+    "experiencia": "มากกว่า 40 ปีแห่งประสบการณ์"
+  },
+  "footer": {
+    "derechos": "© 2026 House Insects of Peru E.I.R.L. สงวนลิขสิทธิ์"
+  }
+}

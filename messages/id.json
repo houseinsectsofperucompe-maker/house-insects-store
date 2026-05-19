@@ -1,0 +1,16 @@
+{
+  "nav": {
+    "inicio": "Beranda",
+    "catalogo": "Katalog",
+    "contacto": "Kontak",
+    "bandera": "🇮🇩"
+  },
+  "hero": {
+    "titulo": "House Insects of Peru E.I.R.L.",
+    "subtitulo": "Ekspor Internasional Spesimen Biologis",
+    "experiencia": "Lebih dari 40 tahun pengalaman"
+  },
+  "footer": {
+    "derechos": "© 2026 House Insects of Peru E.I.R.L. Semua hak dilindungi."
+  }
+}

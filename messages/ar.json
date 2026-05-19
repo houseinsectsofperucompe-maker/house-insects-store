@@ -1,0 +1,16 @@
+{
+  "nav": {
+    "inicio": "الرئيسية",
+    "catalogo": "الكتالوج",
+    "contacto": "اتصل بنا",
+    "bandera": "🇸🇦"
+  },
+  "hero": {
+    "titulo": "House Insects of Peru E.I.R.L.",
+    "subtitulo": "تصدير دولي للعينات البيولوجية",
+    "experiencia": "أكثر من 40 عاماً من الخبرة"
+  },
+  "footer": {
+    "derechos": "© 2026 House Insects of Peru E.I.R.L. جميع الحقوق محفوظة."
+  }
+}

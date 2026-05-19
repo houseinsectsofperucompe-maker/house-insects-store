@@ -1,0 +1,16 @@
+{
+  "nav": {
+    "inicio": "Inicio",
+    "catalogo": "Catálogo",
+    "contacto": "Contacto",
+    "bandera": "🇵🇪"
+  },
+  "hero": {
+    "titulo": "House Insects of Peru E.I.R.L.",
+    "subtitulo": "Exportación Internacional de Especímenes Biológicos",
+    "experiencia": "Más de 40 años de experiencia"
+  },
+  "footer": {
+    "derechos": "© 2026 House Insects of Peru E.I.R.L. Todos los derechos reservados."
+  }
+}

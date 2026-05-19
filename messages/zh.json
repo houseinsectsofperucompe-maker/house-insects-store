@@ -1,0 +1,16 @@
+{
+  "nav": {
+    "inicio": "首页",
+    "catalogo": "目录",
+    "contacto": "联系我们",
+    "bandera": "🇨🇳"
+  },
+  "hero": {
+    "titulo": "House Insects of Peru E.I.R.L.",
+    "subtitulo": "生物标本国际出口",
+    "experiencia": "40多年经验"
+  },
+  "footer": {
+    "derechos": "© 2026 House Insects of Peru E.I.R.L. 版权所有。"
+  }
+}

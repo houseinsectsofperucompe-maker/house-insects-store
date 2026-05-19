@@ -1,0 +1,16 @@
+{
+  "nav": {
+    "inicio": "Hem",
+    "catalogo": "Katalog",
+    "contacto": "Kontakt",
+    "bandera": "🇸🇪"
+  },
+  "hero": {
+    "titulo": "House Insects of Peru E.I.R.L.",
+    "subtitulo": "Internationell export av biologiska exemplar",
+    "experiencia": "Över 40 års erfarenhet"
+  },
+  "footer": {
+    "derechos": "© 2026 House Insects of Peru E.I.R.L. Alla rättigheter förbehållna."
+  }
+}
