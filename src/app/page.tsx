@@ -1,4 +1,27 @@
 'use client'
+const IDIOMAS = [
+  {code:'es',flag:'🇵🇪',nm:'Español'},
+  {code:'en',flag:'🇺🇸',nm:'English'},
+  {code:'de',flag:'🇩🇪',nm:'Deutsch'},
+  {code:'fr',flag:'🇫🇷',nm:'Français'},
+  {code:'pt',flag:'🇧🇷',nm:'Português'},
+  {code:'it',flag:'🇮🇹',nm:'Italiano'},
+  {code:'ja',flag:'🇯🇵',nm:'日本語'},
+  {code:'zh',flag:'🇨🇳',nm:'中文'},
+  {code:'ar',flag:'🇸🇦',nm:'العربية'},
+  {code:'th',flag:'🇹🇭',nm:'ไทย'},
+  {code:'ko',flag:'🇰🇷',nm:'한국어'},
+  {code:'ru',flag:'🇷🇺',nm:'Русский'},
+  {code:'nl',flag:'🇳🇱',nm:'Nederlands'},
+  {code:'pl',flag:'🇵🇱',nm:'Polski'},
+  {code:'sv',flag:'🇸🇪',nm:'Svenska'},
+  {code:'tr',flag:'🇹🇷',nm:'Türkçe'},
+  {code:'vi',flag:'🇻🇳',nm:'Tiếng Việt'},
+  {code:'id',flag:'🇮🇩',nm:'Bahasa'},
+  {code:'da',flag:'🇩🇰',nm:'Dansk'},
+  {code:'fi',flag:'🇫🇮',nm:'Suomi'},
+  {code:'no',flag:'🇳🇴',nm:'Norsk'},
+]
 import Image from 'next/image'
 import { useState } from 'react'
 const CATALOGOS = [
