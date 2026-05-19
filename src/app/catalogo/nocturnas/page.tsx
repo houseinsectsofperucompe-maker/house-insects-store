@@ -14,6 +14,10 @@ export default function NocturnasPage() {
         @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
         .pc{animation:fadeInUp 0.6s ease both}
         .opt-btn{transition:all 0.18s ease;cursor:pointer}
+        .sello{transition:transform 0.3s ease,box-shadow 0.3s ease;cursor:pointer}
+        .sello:hover{transform:scale(1.12) rotate(5deg);box-shadow:0 0 30px rgba(201,168,76,0.6)}
+        .card-tipo{transition:all 0.2s ease;cursor:pointer}
+        .card-tipo:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 8px 24px rgba(201,168,76,0.3)!important;border-color:rgba(201,168,76,0.5)!important}
         .opt-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(201,168,76,0.2)}
         .wa-btn{transition:transform 0.18s ease,box-shadow 0.18s ease}
         .wa-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.4)}
@@ -22,7 +26,7 @@ export default function NocturnasPage() {
         <a href="/" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none',display:'block',marginBottom:16}}>← Inicio</a>
 
         <div style={{textAlign:'center',marginBottom:32}}>
-          <img src="/logo-house-insects-peru.png" style={{width:72,height:72,marginBottom:12,objectFit:'contain'}}/>
+          <img src="/logo-house-insects-peru.png" className="sello" style={{width:72,height:72,marginBottom:12,objectFit:'contain'}}/>
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · MÁS DE 40 AÑOS DE EXPERIENCIA</div>
           <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}>Cuadros de Mariposas Tropicales Naturales</h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
