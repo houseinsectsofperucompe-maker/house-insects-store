@@ -112,6 +112,12 @@ export default function Home() {
 
   useEffect(() => {
     fetch('/api/geoip').then(r=>r.json()).then(data=>{
+      // Registrar visita VIP
+      fetch('/api/visita', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({pais:data.country, pagina:'home', producto:data.destacados?.[0]})
+      }).catch(()=>{})
       setGeoProfile(data)
       if(data.idioma && data.idioma !== 'es') setIdioma(data.idioma)
     }).catch(()=>{})
