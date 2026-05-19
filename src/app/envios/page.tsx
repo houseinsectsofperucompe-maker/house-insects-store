@@ -23,7 +23,14 @@ export default function EnviosPage() {
         <div className="courier-card">✈️ <strong>DHL Express</strong> — Europa, Asia, Medio Oriente (3-7 días)</div>
         <div className="courier-card">✈️ <strong>FedEx International</strong> — USA, Canadá, Australia (5-10 días)</div>
         <div className="courier-card">✈️ <strong>UPS Worldwide</strong> — Todo el mundo (5-12 días)</div>
-        <div className="courier-card">✈️ <strong>Aramex</strong> — Medio Oriente, Asia, África (7-15 días)</div>
+        <div className="courier-card">✈️ <strong>Aramex</strong> — Medio Oriente, Asia, África (7-15 días)
+        </div>
+        <div className="courier-card">✈️ <strong>Exporta Fácil</strong> — SERPOST · Hasta 30kg · Económico</div>
+        <div className="courier-card">✈️ <strong>EMS Internacional</strong> — Express Mail Service · Todo el mundo</div>
+        <div className="courier-card">✈️ <strong>SERPOST</strong> — Correo oficial del Perú · Envíos internacionales
+              {nm:"Exporta Fácil",desc:"Servicio postal internacional · SERPOST · Hasta 30kg · Económico"},
+              {nm:"EMS Internacional",desc:"Express Mail Service · SERPOST · Prioritario · Todo el mundo"},
+              {nm:"SERPOST",desc:"Correo oficial del Perú · Envíos postales internacionales · Económico"}</div>
         <h2 style={{fontSize:'1.1rem',color:'#C9A84C',marginTop:24,marginBottom:8}}>Documentación Incluida</h2>
         <p style={{fontSize:'.9rem',lineHeight:1.9,marginBottom:16}}>✅ Certificado CITES<br/>✅ Permiso SERFOR<br/>✅ Factura comercial en inglés/español<br/>✅ Declaración aduanera internacional<br/>✅ Partida arancelaria correcta</p>
         <h2 style={{fontSize:'1.1rem',color:'#C9A84C',marginTop:24,marginBottom:8}}>Embalaje</h2>
