@@ -66,6 +66,19 @@ const PAISES = [
   {id:'in', nm:'🇮🇳 India'},
   {id:'ru', nm:'🇷🇺 Rusia'},
   {id:'sa', nm:'🇸🇦 Arabia Saudita'},
+  {id:'au', nm:'🇦🇺 Australia'},
+  {id:'nz', nm:'🇳🇿 Nueva Zelanda'},
+  {id:'pg', nm:'🇵🇬 Papua Nueva Guinea'},
+  {id:'fj', nm:'🇫🇯 Fiji & Oceanía'},
+  {id:'ph', nm:'🇵🇭 Filipinas'},
+  {id:'th', nm:'🇹🇭 Tailandia'},
+  {id:'vn', nm:'🇻🇳 Vietnam'},
+  {id:'id', nm:'🇮🇩 Indonesia'},
+  {id:'my', nm:'🇲🇾 Malasia'},
+  {id:'ke', nm:'🇰🇪 Kenia'},
+  {id:'gh', nm:'🇬🇭 Ghana'},
+  {id:'ma', nm:'🇲🇦 Marruecos'},
+  {id:'pe', nm:'🇵🇪 Perú Local'},
 ]
 
 type Prospecto = {
