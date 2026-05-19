@@ -41,6 +41,32 @@ const especieSchema = defineType({
     defineField({ name: 'video', title: '🎥 Video URL (Cloudinary)', type: 'url' }),
     defineField({ name: 'descripcion', title: 'Descripción', type: 'text', rows: 3 }),
     defineField({ name: 'activo', title: 'Activo en catálogo', type: 'boolean', initialValue: true }),
+    defineField({ name: 'regiones', title: '🌍 Mercados Destacados', type: 'array',
+      of: [{type:'string'}],
+      options: { list: [
+        {title:'🇨🇳 Asia Premium', value:'asia'},
+        {title:'🇯🇵 Japón & Corea', value:'japon'},
+        {title:'🇩🇪 Europa Museum', value:'europa'},
+        {title:'🇸🇪 Nórdicos', value:'nordico'},
+        {title:'🇺🇸 USA Ultra Lujo', value:'america'},
+        {title:'🇦🇪 Dubai & Medio Oriente', value:'oriente'},
+        {title:'🇧🇷 Latinoamérica', value:'latam'},
+        {title:'🌍 Global', value:'global'},
+      ], layout: 'grid'}
+    }),
+    defineField({ name: 'nicho', title: '🎯 Nicho de Cliente', type: 'string',
+      options: { list: [
+        {title:'🏛️ Museo & Científico', value:'museo'},
+        {title:'💎 Coleccionista Lujo', value:'coleccionista'},
+        {title:'🎨 Galería Arte', value:'galeria'},
+        {title:'💍 Joyería Alta Moda', value:'joyeria'},
+        {title:'🏨 Hotel 5 Estrellas', value:'hotel'},
+        {title:'🔬 Farmacéutica', value:'farmaceutica'},
+        {title:'🍽️ Gastronomía', value:'gastronomia'},
+      ]}
+    }),
+    defineField({ name: 'destacado_global', title: '⭐ Destacado Global', type: 'boolean', initialValue: false }),
+    defineField({ name: 'precio_lujo', title: '💎 Precio Lujo USD', type: 'number' }),
     defineField({ name: 'orden_display', title: 'Orden en lista (1,2,3...)', type: 'number' }),
   ],
   preview: {
