@@ -162,6 +162,12 @@ export default function Home() {
       </div>
       <div style={{display:'flex',flexDirection:'column',alignItems:'center',padding:'50px 20px 30px',textAlign:'center'}}>
         <Image src="/logo-house-insects-peru.png" alt="House Insects of Peru" width={160} height={160} loading="eager" className="home-logo" style={{marginBottom:20,filter:'drop-shadow(0 8px 24px rgba(201,168,76,0.4))'}} onError={(e)=>{(e.target as HTMLImageElement).src='/logo.png'}}/>
+        {geoProfile && (
+          <div style={{background:`linear-gradient(135deg,${geoProfile.color2},rgba(0,0,0,0.5))`,border:`1px solid ${geoProfile.color1}40`,borderRadius:12,padding:'10px 20px',marginBottom:16,textAlign:'center',animation:'fadeInUp 0.8s ease'}}>
+            <p style={{color:geoProfile.color1,fontSize:'.85rem',fontWeight:700,marginBottom:2}}>{geoProfile.saludo} — House Insects of Peru</p>
+            <p style={{color:`${geoProfile.color1}99`,fontSize:'.7rem'}}>{geoProfile.mensaje}</p>
+          </div>
+        )}
         <h1 className="home-title" style={{fontSize:'clamp(1.5rem,4vw,2.8rem)',fontWeight:300,color:'#E8C97A',letterSpacing:'.12em',marginBottom:6,textTransform:'uppercase'}}>House Insects of Peru</h1>
         <p className="home-sub" style={{fontSize:'.85rem',color:'rgba(232,201,122,0.45)',letterSpacing:'.15em',marginBottom:4}}>E.I.R.L. · BY JAVIER ZAVALA · EST. 1980</p>
         <p style={{fontSize:'.75rem',color:'rgba(232,201,122,0.3)',marginBottom:30}}>RUC 20447397804 · LEY AMAZÓNIA N°27037 · CITES · SERFOR</p>
