@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import BannerUploader from './BannerUploader'
 
 const PASSWORD = 'HouseInsects2026@'
 
