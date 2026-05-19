@@ -1,16 +1,11 @@
 {
-  "nav": {
-    "inicio": "Hjem",
-    "catalogo": "Katalog",
-    "contacto": "Kontakt",
-    "bandera": "🇳🇴"
-  },
-  "hero": {
-    "titulo": "House Insects of Peru E.I.R.L.",
-    "subtitulo": "Internasjonal eksport av biologiske eksemplarer",
-    "experiencia": "Over 40 års erfaring"
-  },
-  "footer": {
-    "derechos": "© 2026 House Insects of Peru E.I.R.L. Alle rettigheter forbeholdt."
-  }
+  "titulo": "Husinsekter i Peru EIRL",
+  "subtitulo": "Internasjonal eksport av biologiske prøver",
+  "experiencia": "Over 40 års erfaring",
+  "selecciona": "Velg en katalog",
+  "ver": "Se samlingen",
+  "contacto": "Kontakt oss via WhatsApp for mer informasjon og priser",
+  "certificado": "SERFOR- og CITES-sertifisert, SUNAT elektronisk faktura, premiumemballasje",
+  "envio": "Vi eksporterer over hele verden med DHL, FedEx, UPS, Aramex, EMS og SERPOST.",
+  "calidad": "A1-kvalitet, utvalgte eksemplarer, 45 års erfaring"
 }

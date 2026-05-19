@@ -1,16 +1,11 @@
 {
-  "nav": {
-    "inicio": "الرئيسية",
-    "catalogo": "الكتالوج",
-    "contacto": "اتصل بنا",
-    "bandera": "🇸🇦"
-  },
-  "hero": {
-    "titulo": "House Insects of Peru E.I.R.L.",
-    "subtitulo": "تصدير دولي للعينات البيولوجية",
-    "experiencia": "أكثر من 40 عاماً من الخبرة"
-  },
-  "footer": {
-    "derechos": "© 2026 House Insects of Peru E.I.R.L. جميع الحقوق محفوظة."
-  }
+  "titulo": "الحشرات المنزلية في بيرو E.I.R.L.",
+  "subtitulo": "التصدير الدولي للعينات البيولوجية",
+  "experiencia": "أكثر من 40 عامًا من الخبرة",
+  "selecciona": "تحديد كتالوج",
+  "ver": "عرض المجموعة",
+  "contacto": "اتصل بنا على WhatsApp لمزيد من المعلومات والتسعير",
+  "certificado": "شهادة SERFOR و CITES، فاتورة SUNAT الإلكترونية، تغليف متميز",
+  "envio": "نحن نصدر إلى جميع أنحاء العالم مع DHL و FedEx و UPS و Aramex و EMS و SERPOST",
+  "calidad": "الجودة A1، عينات مختارة، 45 عامًا من الخبرة"
 }

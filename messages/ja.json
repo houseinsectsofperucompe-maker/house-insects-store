@@ -1,16 +1,11 @@
 {
-  "nav": {
-    "inicio": "ホーム",
-    "catalogo": "カタログ",
-    "contacto": "お問い合わせ",
-    "bandera": "🇯🇵"
-  },
-  "hero": {
-    "titulo": "House Insects of Peru E.I.R.L.",
-    "subtitulo": "生物標本の国際輸出",
-    "experiencia": "40年以上の経験"
-  },
-  "footer": {
-    "derechos": "© 2026 House Insects of Peru E.I.R.L. 全著作権所有。"
-  }
+  "titulo": "ペルーの家の昆虫E.I.R.L.",
+  "subtitulo": "生物標本の国際輸出",
+  "experiencia": "40年以上の経験",
+  "selecciona": "カタログを選択",
+  "ver": "コレクションを表示",
+  "contacto": "詳細と料金については、WhatsAppでお問い合わせください",
+  "certificado": "SERFORおよびCITES証明書、SUNAT電子請求書、プレミアムパッケージ",
+  "envio": "DHL、FedEx、UPS、Aramex、EMS、SERPOSTで世界中に輸出しています",
+  "calidad": "品質A 1、厳選された検体、45年の経験"
 }

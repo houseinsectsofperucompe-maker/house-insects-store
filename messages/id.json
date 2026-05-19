@@ -1,16 +1,11 @@
 {
-  "nav": {
-    "inicio": "Beranda",
-    "catalogo": "Katalog",
-    "contacto": "Kontak",
-    "bandera": "🇮🇩"
-  },
-  "hero": {
-    "titulo": "House Insects of Peru E.I.R.L.",
-    "subtitulo": "Ekspor Internasional Spesimen Biologis",
-    "experiencia": "Lebih dari 40 tahun pengalaman"
-  },
-  "footer": {
-    "derechos": "© 2026 House Insects of Peru E.I.R.L. Semua hak dilindungi."
-  }
+  "titulo": "Serangga Rumah Peru E.I.R.L.",
+  "subtitulo": "Ekspor Internasional Spesimen Biologis",
+  "experiencia": "40 + tahun pengalaman",
+  "selecciona": "Pilih Katalog",
+  "ver": "Lihat Koleksi",
+  "contacto": "Hubungi kami di WhatsApp untuk informasi dan harga lebih lanjut",
+  "certificado": "Sertifikat SERFOR dan CITES, Faktur Elektronik SUNAT, Kemasan Premium",
+  "envio": "Kami mengekspor ke seluruh dunia dengan DHL, FedEx, UPS, ARAMEX, Ems, dan SERPOST",
+  "calidad": "Kualitas A1, spesimen terpilih, 45 tahun pengalaman"
 }

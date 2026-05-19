@@ -1,16 +1,11 @@
 {
-  "nav": {
-    "inicio": "Startseite",
-    "catalogo": "Katalog",
-    "contacto": "Kontakt",
-    "bandera": "🇩🇪"
-  },
-  "hero": {
-    "titulo": "House Insects of Peru E.I.R.L.",
-    "subtitulo": "Internationaler Export biologischer Exemplare",
-    "experiencia": "Über 40 Jahre Erfahrung"
-  },
-  "footer": {
-    "derechos": "© 2026 House Insects of Peru E.I.R.L. Alle Rechte vorbehalten."
-  }
+  "titulo": "House Insects of Peru E.I.R.L.",
+  "subtitulo": "Internationaler Export von biologischen Exemplaren",
+  "experiencia": "40+ Jahren Erfahrungen",
+  "selecciona": "Wählen Sie einen Katalog aus",
+  "ver": "Kollektion anzeigen",
+  "contacto": "Kontaktieren Sie uns per WhatsApp für weitere Informationen und Preise",
+  "certificado": "SERFOR- und CITES-Zertifikat, SUNAT E-Rechnung, Premium-Verpackung",
+  "envio": "Wir exportieren weltweit mit DHL, FedEx, UPS, Aramex, EMS und SERPOST",
+  "calidad": "A1-Qualität, ausgewählte Exemplare, 45 Jahre Erfahrung"
 }

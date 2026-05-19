@@ -1,16 +1,11 @@
 {
-  "nav": {
-    "inicio": "Koti",
-    "catalogo": "Luettelo",
-    "contacto": "Yhteystiedot",
-    "bandera": "🇫🇮"
-  },
-  "hero": {
-    "titulo": "House Insects of Peru E.I.R.L.",
-    "subtitulo": "Biologisten näytteiden kansainvälinen vienti",
-    "experiencia": "Yli 40 vuoden kokemus"
-  },
-  "footer": {
-    "derechos": "© 2026 House Insects of Peru E.I.R.L. Kaikki oikeudet pidätetään."
-  }
+  "titulo": "Perun talon hyönteiset E.I.R.L.",
+  "subtitulo": "Biologisten näytteiden kansainvälinen vienti",
+  "experiencia": "Yli 40 vuoden kokemus",
+  "selecciona": "Valitse luettelo",
+  "ver": "Näytä kokoelma",
+  "contacto": "Ota meihin yhteyttä WhatsAppissa saadaksesi lisätietoja ja hinnoittelua",
+  "certificado": "SERFOR- ja CITES-todistus, SUNAT-sähköinen lasku, Premium-pakkaus",
+  "envio": "Viemme maailmanlaajuisesti DHL: n, FedExin, UPS: n, Aramexin, EMS: n ja SERPOSTin kanssa",
+  "calidad": "A1-laatu, valikoidut näytteet, 45 vuoden kokemus"
 }

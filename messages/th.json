@@ -1,16 +1,11 @@
 {
-  "nav": {
-    "inicio": "หน้าแรก",
-    "catalogo": "แคตาล็อก",
-    "contacto": "ติดต่อ",
-    "bandera": "🇹🇭"
-  },
-  "hero": {
-    "titulo": "House Insects of Peru E.I.R.L.",
-    "subtitulo": "การส่งออกตัวอย่างชีวภาพระหว่างประเทศ",
-    "experiencia": "มากกว่า 40 ปีแห่งประสบการณ์"
-  },
-  "footer": {
-    "derechos": "© 2026 House Insects of Peru E.I.R.L. สงวนลิขสิทธิ์"
-  }
+  "titulo": "แมลงในบ้านของเปรู E.I.R.L.",
+  "subtitulo": "การส่งออกระหว่างประเทศของตัวอย่างชีวภาพ",
+  "experiencia": "ประสบการณ์กว่า 40 ปี",
+  "selecciona": "เลือกแคตตาล็อก",
+  "ver": "ดูคอลเลกชัน",
+  "contacto": "ติดต่อเราทาง WhatsApp สำหรับข้อมูลเพิ่มเติมและราคา",
+  "certificado": "ใบรับรอง SERFOR และ CITES, ใบแจ้งหนี้อิเล็กทรอนิกส์ SUNAT, บรรจุภัณฑ์พรีเมี่ยม",
+  "envio": "เราส่งออกทั่วโลกด้วย DHL, FEDEX, UPS, ARAMEX, EMS และ SERPOST",
+  "calidad": "คุณภาพ A1 ตัวอย่างที่คัดสรรประสบการณ์ 45 ปี"
 }

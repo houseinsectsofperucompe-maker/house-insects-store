@@ -1,16 +1,11 @@
 {
-  "nav": {
-    "inicio": "首页",
-    "catalogo": "目录",
-    "contacto": "联系我们",
-    "bandera": "🇨🇳"
-  },
-  "hero": {
-    "titulo": "House Insects of Peru E.I.R.L.",
-    "subtitulo": "生物标本国际出口",
-    "experiencia": "40多年经验"
-  },
-  "footer": {
-    "derechos": "© 2026 House Insects of Peru E.I.R.L. 版权所有。"
-  }
+  "titulo": "秘鲁室内昆虫E.I.R.L.",
+  "subtitulo": "生物标本的国际出口",
+  "experiencia": "21年以上经验",
+  "selecciona": "选择一个目录",
+  "ver": "查看收藏",
+  "contacto": "如需了解更多信息和定价，请通过WhatsApp联系我们",
+  "certificado": "SERFOR和CITES证书、SUNAT电子发票、高级包装",
+  "envio": "我们通过DHL、FedEx、UPS、ARAMEX、EMS和SERPOST向全球出口",
+  "calidad": "质量A1 ，精选标本， 45年经验"
 }

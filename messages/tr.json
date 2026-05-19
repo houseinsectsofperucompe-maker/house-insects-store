@@ -1,16 +1,11 @@
 {
-  "nav": {
-    "inicio": "Ana Sayfa",
-    "catalogo": "Katalog",
-    "contacto": "İletişim",
-    "bandera": "🇹🇷"
-  },
-  "hero": {
-    "titulo": "House Insects of Peru E.I.R.L.",
-    "subtitulo": "Biyolojik Örneklerin Uluslararası İhracatı",
-    "experiencia": "40 yılı aşkın deneyim"
-  },
-  "footer": {
-    "derechos": "© 2026 House Insects of Peru E.I.R.L. Tüm hakları saklıdır."
-  }
+  "titulo": "Peru Ev Böcekleri E.I.R.L.",
+  "subtitulo": "Uluslararası Biyolojik Örnek İhracatı",
+  "experiencia": "40 yılı aşkın deneyim",
+  "selecciona": "Bir Katalog Seçin",
+  "ver": "Koleksiyonu Görüntüle",
+  "contacto": "Daha fazla bilgi ve fiyatlandırma için WhatsApp üzerinden bizimle iletişime geçin",
+  "certificado": "SERFOR ve CITES Belgesi, SUNAT Elektronik Fatura, Premium Ambalaj",
+  "envio": "DHL, FedEx, UPS, Aramex, EMS ve SERPOST ile dünya çapında ihracat yapıyoruz",
+  "calidad": "Kalite A1, seçilen numuneler, 45 yıllık deneyim"
 }

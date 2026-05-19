@@ -1,16 +1,11 @@
 {
-  "nav": {
-    "inicio": "홈",
-    "catalogo": "카탈로그",
-    "contacto": "연락처",
-    "bandera": "🇰🇷"
-  },
-  "hero": {
-    "titulo": "House Insects of Peru E.I.R.L.",
-    "subtitulo": "생물 표본 국제 수출",
-    "experiencia": "40년 이상의 경험"
-  },
-  "footer": {
-    "derechos": "© 2026 House Insects of Peru E.I.R.L. 모든 권리 보유."
-  }
+  "titulo": "페루의 집 곤충 E.I.R.L.",
+  "subtitulo": "생물학적 표본의 국제 수출",
+  "experiencia": "40년 이상의 경력",
+  "selecciona": "카탈로그 선택",
+  "ver": "컬렉션 보기",
+  "contacto": "자세한 정보와 요금은 WhatsApp으로 문의하세요.",
+  "certificado": "SERFOR 및 CITES 인증서, SUNAT 전자 송장, 프리미엄 포장",
+  "envio": "DHL, FedEx, UPS, Aramex, EMS 및 SERPOST를 통해 전 세계로 수출합니다.",
+  "calidad": "품질 A1, 선택된 표본, 45년의 경험"
 }

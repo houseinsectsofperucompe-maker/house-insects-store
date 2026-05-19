@@ -1,16 +1,11 @@
 {
-  "nav": {
-    "inicio": "Trang chủ",
-    "catalogo": "Danh mục",
-    "contacto": "Liên hệ",
-    "bandera": "🇻🇳"
-  },
-  "hero": {
-    "titulo": "House Insects of Peru E.I.R.L.",
-    "subtitulo": "Xuất khẩu mẫu vật sinh học quốc tế",
-    "experiencia": "Hơn 40 năm kinh nghiệm"
-  },
-  "footer": {
-    "derechos": "© 2026 House Insects of Peru E.I.R.L. Tất cả quyền được bảo lưu."
-  }
+  "titulo": "Côn trùng nhà ở Peru E.I.R.L.",
+  "subtitulo": "Xuất khẩu quốc tế các mẫu sinh học",
+  "experiencia": "Hơn 40 năm kinh nghiệm",
+  "selecciona": "Chọn một Danh mục",
+  "ver": "Xem bộ sưu tập",
+  "contacto": "Liên hệ với chúng tôi trên WhatsApp để biết thêm thông tin và giá cả",
+  "certificado": "Chứng nhận SERFOR và CITES, Hóa đơn điện tử SUNAT, Bao bì cao cấp",
+  "envio": "Chúng tôi xuất khẩu trên toàn thế giới với DHL, FedEx, UPS, ARAMEX, EMS và SERPOST",
+  "calidad": "Chất lượng A1, mẫu chọn lọc, 45 năm kinh nghiệm"
 }
