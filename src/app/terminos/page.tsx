@@ -35,7 +35,9 @@ export default function TerminosPage() {
           ✅ Katenos Business<br/>
           ✅ Transferencia Bancaria Internacional (SWIFT)<br/>
           ✅ Western Union<br/>
-          ✅ Money Gram
+          ✅ Money Gram<br/>
+          ✅ Alipay<br/>
+          ✅ WeChat Pay Business
         </p>
 
         <h2 style={{fontSize:'1.1rem',color:'#C9A84C',marginTop:24,marginBottom:8}}>5. Garantia</h2>
