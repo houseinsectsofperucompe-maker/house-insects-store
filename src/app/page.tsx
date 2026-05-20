@@ -174,8 +174,6 @@ export default function Home() {
   const [showIdiomas, setShowIdiomas] = useState(false)
   const [activo, setActivo] = useState<number|null>(null)
   const [geoProfile, setGeoProfile] = useState<any>(null)
-  const [moneda, setMoneda] = useState('USD')
-  const [showMonedas, setShowMonedas] = useState(false)
 
   // FIX: setIdioma declarado antes de usarlo en useEffect
   useEffect(() => {
@@ -208,22 +206,7 @@ export default function Home() {
       <style>{CSS}</style>
 
       {/* Selector de idioma */}
-      <div style={{position:'fixed',top:12,right:12,zIndex:999,display:'flex',gap:8,alignItems:'center'}}>
-        <div style={{position:'relative'}}>
-          <button onClick={()=>setShowMonedas(s=>!s)} style={{background:'rgba(26,18,9,0.95)',border:'1px solid rgba(201,168,76,0.4)',color:'#C9A84C',padding:'6px 14px',borderRadius:20,cursor:'pointer',fontSize:'.8rem',fontFamily:'Georgia,serif',display:'flex',alignItems:'center',gap:6}}>
-            <span>{MONEDAS.find(m=>m.code===moneda)?.flag}</span><span>{moneda}</span><span style={{fontSize:'.6rem'}}>▾</span>
-          </button>
-          {showMonedas&&(
-            <div style={{position:'absolute',right:0,top:40,background:'rgba(20,13,5,0.98)',border:'1px solid rgba(201,168,76,0.25)',borderRadius:8,padding:6,maxHeight:320,overflowY:'auto',minWidth:150,boxShadow:'0 8px 32px rgba(0,0,0,0.6)'}}>
-              {MONEDAS.map(m=>(
-                <button key={m.code} onClick={()=>{setMoneda(m.code);setShowMonedas(false)}} className="lang-btn"
-                  style={{display:'flex',alignItems:'center',gap:8,width:'100%',background:moneda===m.code?'rgba(201,168,76,0.12)':'transparent',border:'none',color:moneda===m.code?'#C9A84C':'rgba(232,201,122,0.55)',padding:'7px 12px',cursor:'pointer',fontSize:'.78rem',textAlign:'left',fontFamily:'Georgia,serif',borderRadius:4}}>
-                  <span>{m.flag}</span><span>{m.code}</span><span style={{color:'rgba(255,255,255,0.3)',fontSize:'.7rem'}}>{m.symbol}</span>
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
+      <div style={{position:'fixed',top:12,right:12,zIndex:999}}>
         <button
           onClick={() => setShowIdiomas(s => !s)}
           style={{background:'rgba(26,18,9,0.95)',border:'1px solid rgba(201,168,76,0.4)',color:'#C9A84C',padding:'6px 14px',borderRadius:20,cursor:'pointer',fontSize:'.8rem',fontFamily:'Georgia,serif',display:'flex',alignItems:'center',gap:6}}
