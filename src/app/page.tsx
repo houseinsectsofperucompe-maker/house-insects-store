@@ -104,9 +104,9 @@ const CSS = `
   .lang-btn{transition:all 0.15s ease}
   .lang-btn:hover{background:rgba(201,168,76,0.12)!important;color:#E8C97A!important}
   @keyframes scrollX{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-  .scroll-track{display:flex;animation:scrollX 30s linear infinite;width:max-content}
+  .scroll-track{display:flex;animation:scrollX 30s linear infinite;width:max-content;gap:12px;padding:8px 0}
   .scroll-track:hover{animation-play-state:paused}
-  .scroll-wrapper{overflow:hidden;width:100%}
+  .scroll-wrapper{overflow:hidden;width:100%;padding:0 20px}
   .badge-card{transition:transform 0.2s ease;display:inline-block}
   .badge-card:hover{transform:translateY(-4px) scale(1.05)}
 `
