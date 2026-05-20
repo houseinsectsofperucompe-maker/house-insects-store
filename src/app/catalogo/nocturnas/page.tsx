@@ -26,7 +26,7 @@ export default function NocturnasPage() {
       <div className="pc" style={{maxWidth:1000,margin:'0 auto'}}>
         <a href="/" className="back-link" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none',display:'block',marginBottom:16}}>Inicio</a>
         <div style={{textAlign:'center',marginBottom:32}}>
-          <img src="/logo-house-insects-peru.png" className="sello" style={{width:160,height:160,marginBottom:16,objectFit:'contain'}}/>
+          <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="sello" style={{width:160,height:160,marginBottom:16,objectFit:'contain'}}/></a>
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · MAS DE 40 ANOS DE EXPERIENCIA</div>
           <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}>Cuadros de Mariposas Tropicales Naturales</h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
@@ -46,7 +46,7 @@ export default function NocturnasPage() {
               ))}
             </div>
             <div style={{width:'100%',height:200,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',marginBottom:16}}>
-              <img src="/logo-house-insects-peru.png" className="sello" style={{width:120,height:120,objectFit:"contain",marginBottom:8}}/><p style={{color:"rgba(232,201,122,0.4)",fontSize:".7rem"}}>FOTO PROXIMAMENTE</p>
+              <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="sello" style={{width:120,height:120,objectFit:"contain",marginBottom:8}}/></a><p style={{color:"rgba(232,201,122,0.4)",fontSize:".7rem"}}>FOTO PROXIMAMENTE</p>
               <p style={{color:'rgba(232,201,122,0.2)',fontSize:'.6rem',marginTop:4}}>HOUSE INSECTS OF PERU</p>
             </div>
             <div style={{marginBottom:14}}>
