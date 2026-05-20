@@ -282,6 +282,23 @@ export default function Home() {
           <a href="/rastreo"    className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>🔍 Rastreo</a>
           <a href="/banners"    className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>📢 Publicidad</a>
         </div>
+
+      <div style={{background:"rgba(0,0,0,0.3)",borderTop:"1px solid rgba(201,168,76,0.15)",padding:"24px 20px",textAlign:"center"}}>
+        <p style={{color:"rgba(201,168,76,0.4)",fontSize:".6rem",letterSpacing:".25em",textTransform:"uppercase",marginBottom:"16px"}}>Certificaciones Oficiales</p>
+        <div style={{display:"flex",gap:"10px",justifyContent:"center",flexWrap:"wrap"}}>
+          {[{l:"SERFOR",s:"Reg. Forestal",c:"#2d6a2d"},{l:"CITES",s:"Comercio Int.",c:"#1a4a7a"},{l:"SENASA",s:"Sanidad Agr.",c:"#7a2d1a"},{l:"SUNAT",s:"RUC 20447397804",c:"#4a2d7a"},{l:"FITOSAN.",s:"Certificado",c:"#2d5a3a"},{l:"PROMPEX",s:"Export. Peru",c:"#8a2d00"}].map(x=>(
+            <div key={x.l} style={{background:x.c+"99",border:"1px solid "+x.c,borderRadius:"8px",padding:"8px 14px",textAlign:"center"}}><p style={{color:"#fff",fontSize:".7rem",fontWeight:700,margin:0}}>{x.l}</p><p style={{color:"rgba(255,255,255,0.6)",fontSize:".55rem",margin:0}}>{x.s}</p></div>
+          ))}
+        </div>
+      </div>
+      <div style={{background:"rgba(0,0,0,0.2)",borderTop:"1px solid rgba(201,168,76,0.1)",padding:"24px 20px",textAlign:"center"}}>
+        <p style={{color:"rgba(201,168,76,0.4)",fontSize:".6rem",letterSpacing:".25em",textTransform:"uppercase",marginBottom:"16px"}}>Pagos y Aseguradoras</p>
+        <div style={{display:"flex",gap:"10px",justifyContent:"center",flexWrap:"wrap"}}>
+          {[{l:"FIRST BANK",s:"Transferencia",c:"#1a3a6a",i:"🏦"},{l:"KATENOS",s:"Billetera",c:"#1a5a3a",i:"💳"},{l:"IZIPAY",s:"Tarjetas",c:"#6a1a1a",i:"💰"},{l:"Google Pay",s:"G Pay",c:"#1a4a2a",i:"📱"},{l:"PAYONEER",s:"Internacional",c:"#c44a00",i:"🌐"},{l:"WISE",s:"Transfer.",c:"#163300",i:"💸"},{l:"LLOYDS",s:"London",c:"#0a2a5a",i:"🛡️"},{l:"SHIP INS.",s:"Maritimo",c:"#0a3a5a",i:"🚢"},{l:"INSURTECH",s:"Digital QR",c:"#2a0a5a",i:"📲"}].map(x=>(
+            <div key={x.l} style={{background:x.c+"99",border:"1px solid "+x.c+"99",borderRadius:"8px",padding:"8px 14px",textAlign:"center"}}><p style={{fontSize:"1rem",margin:0}}>{x.i}</p><p style={{color:"#fff",fontSize:".7rem",fontWeight:700,margin:0}}>{x.l}</p><p style={{color:"rgba(255,255,255,0.6)",fontSize:".55rem",margin:0}}>{x.s}</p></div>
+          ))}
+        </div>
+      </div>
         <p style={{color:'rgba(232,201,122,0.25)',fontSize:'.65rem'}}>© 2026 HOUSE INSECTS OF PERU E.I.R.L. · TINGO MARÍA, PERÚ · EXPORTACIÓN MUNDIAL</p>
       </div>
     </div>
