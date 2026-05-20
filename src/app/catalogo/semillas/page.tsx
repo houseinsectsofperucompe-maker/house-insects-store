@@ -1,5 +1,4 @@
 'use client'
-import T from '@/components/T'
 import { useState } from 'react'
 export default function SemillasPage() {
   const [vista, setVista] = useState('frente')
@@ -67,11 +66,13 @@ export default function SemillasPage() {
         <div style={{textAlign:'center',marginBottom:32}}>
           <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,marginBottom:12,objectFit:'contain'}}/></a>
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · BOTÁNICA AMAZÓNICA</div>
-          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}><T t="🌱 Semillas Forestales, Agrícolas & Botánica Decorativa"/></h1>
+          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}>🌱 Semillas Forestales, Agrícolas & Botánica Decorativa</h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
-          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}><T t="Flores secas, plantas medicinales amazónicas, semillas forestales certificadas y plantones vivos. Certificados SENASA para exportación internacional."/></p>
+          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
+            Flores secas, plantas medicinales amazónicas, semillas forestales certificadas y plantones vivos. Certificados SENASA para exportación internacional.
+          </p>
           <div style={{marginTop:12,color:'rgba(232,201,122,0.35)',fontSize:'.65rem',letterSpacing:'.15em'}}>
-            PARTIDA {partida.codigo} · {<T t={partida.desc}/>}
+            PARTIDA {partida.codigo} · {partida.desc}
           </div>
         </div>
         <div style={{display:'flex',gap:8,flexWrap:'wrap',justifyContent:'center',marginBottom:24}}>
@@ -81,7 +82,7 @@ export default function SemillasPage() {
               background:cat===c.id?'#C9A84C':'rgba(201,168,76,0.08)',
               color:cat===c.id?'#1A1209':'#C9A84C',
               border:`1px solid ${cat===c.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-            }}>{<T t={c.nm}/>}</button>
+            }}>{c.nm}</button>
           ))}
         </div>
         <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
@@ -94,21 +95,21 @@ export default function SemillasPage() {
                   color:vista===v?'#1A1209':'#C9A84C',
                   border:`1px solid ${vista===v?'#C9A84C':'rgba(201,168,76,0.2)'}`,
                   transition:'all 0.18s ease'
-                }}>{v==='frente'?<T t='Frente'/>:v==='lado'?<T t='Lado'/>:v==='reverso'?<T t='Reverso'/>:<T t='Video'/>}</button>
+                }}>{v==='frente'?'📸 Frente':v==='lado'?'📸 Lado':v==='reverso'?'📸 Reverso':'🎥 Video'}</button>
               ))}
             </div>
             <div style={{width:'100%',height:240,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',marginBottom:16}}>
               <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,objectFit:'contain',opacity:.6,marginBottom:10}}/></a>
-              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem'}}><T t="FOTO PRÓXIMAMENTE"/></p>
+              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem'}}>FOTO PRÓXIMAMENTE</p>
             </div>
             <div style={{background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:12,marginBottom:12,textAlign:'left'}}>
-              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}><T t="📋 Partida Arancelaria:"/></p>
+              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}>📋 Partida Arancelaria:</p>
               <p style={{color:'#E8C97A',fontSize:'.8rem',fontFamily:'monospace',marginTop:4}}>{partida.codigo}</p>
-              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem',marginTop:2}}>{<T t={partida.desc}/>}</p>
+              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem',marginTop:2}}>{partida.desc}</p>
             </div>
             {cat==='plantones'&&(
               <div style={{background:'rgba(255,167,38,0.08)',border:'1px solid rgba(255,167,38,0.3)',borderRadius:8,padding:10,marginBottom:12,textAlign:'left'}}>
-                <p style={{color:'#FFA726',fontSize:'.72rem',fontWeight:700}}><T t="⚠️ Control Fitosanitario SENASA obligatorio para plantones vivos"/></p>
+                <p style={{color:'#FFA726',fontSize:'.72rem',fontWeight:700}}>⚠️ Control Fitosanitario SENASA obligatorio para plantones vivos</p>
               </div>
             )}
             <div style={{display:'flex',gap:8,justifyContent:'center',flexWrap:'wrap'}}>
@@ -122,13 +123,13 @@ export default function SemillasPage() {
               <div key={p.nm} className="pieza-card">
                 <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
                 <div>
-                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{<T t={p.nm}/>}</div>
-                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{<T t={p.desc}/>}</div>
+                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{p.nm}</div>
+                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{p.desc}</div>
                 </div>
               </div>
             ))}
             <div style={{marginTop:16,background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:12}}>
-              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}><T t="📦 Exportación completa:"/></p>
+              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}>📦 Exportación completa:</p>
               <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.68rem',marginTop:4,lineHeight:1.8}}>
                 ✅ Certificado SENASA<br/>
                 ✅ Certificado Fitosanitario<br/>

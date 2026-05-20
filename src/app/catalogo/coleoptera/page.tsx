@@ -1,5 +1,4 @@
 'use client'
-import T from '@/components/T'
 import { useState } from 'react'
 export default function ColeopteraPage() {
   const [vista, setVista] = useState('frente')
@@ -53,9 +52,11 @@ export default function ColeopteraPage() {
         <div style={{textAlign:'center',marginBottom:32}}>
           <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,marginBottom:12,objectFit:'contain'}}/></a>
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · MÁS DE 40 AÑOS DE EXPERIENCIA</div>
-          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}><T t="🪲 Cuadros de Coleópteros & Artrópodos Tropicales Secos"/></h1>
+          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}>🪲 Cuadros de Coleópteros & Artrópodos Tropicales Secos</h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
-          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}><T t="Escarabajos titán, hércules, dinastidos metálicos, escorpiones, tarántulas y artrópodos amazónicos secos. Montados en marcos profundos, cúpulas y resina para coleccionistas y museos de élite. Certificado SERFOR + CITES."/></p>
+          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
+            Escarabajos titán, hércules, dinastidos metálicos, escorpiones, tarántulas y artrópodos amazónicos secos. Montados en marcos profundos, cúpulas y resina para coleccionistas y museos de élite. Certificado SERFOR + CITES.
+          </p>
           <div style={{marginTop:12,color:'rgba(232,201,122,0.35)',fontSize:'.65rem',letterSpacing:'.15em'}}>
             PARTIDA 9705.21.00.00 · SERFOR · CITES · RUC 20447397804
           </div>
@@ -74,12 +75,12 @@ export default function ColeopteraPage() {
                   background:vista===v?'#C9A84C':'rgba(201,168,76,0.08)',
                   color:vista===v?'#1A1209':'#C9A84C',
                   border:`1px solid ${vista===v?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-                }}>{v==='frente'?<T t='Frente'/>:v==='lado'?<T t='Lado'/>:v==='reverso'?<T t='Reverso'/>:<T t='Video'/>}</button>
+                }}>{v==='frente'?'📸 Frente':v==='lado'?'📸 Lado':v==='reverso'?'📸 Reverso':'🎥 Video'}</button>
               ))}
             </div>
             <div style={{width:'100%',height:180,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',marginBottom:14}}>
               <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,objectFit:'contain',opacity:.6,marginBottom:8}}/></a>
-              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem'}}><T t="FOTO PRÓXIMAMENTE"/></p>
+              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem'}}>FOTO PRÓXIMAMENTE</p>
             </div>
 
             {/* TIPO */}
@@ -92,7 +93,7 @@ export default function ColeopteraPage() {
                     background:tipo===o.id?'#C9A84C':'rgba(201,168,76,0.08)',
                     color:tipo===o.id?'#1A1209':'#C9A84C',
                     border:`1px solid ${tipo===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-                  }}>{<T t={o.nm}/>}</button>
+                  }}>{o.nm}</button>
                 ))}
               </div>
             </div>
@@ -127,7 +128,7 @@ export default function ColeopteraPage() {
                     background:marco===o.id?'#C9A84C':'rgba(201,168,76,0.08)',
                     color:marco===o.id?'#1A1209':'#C9A84C',
                     border:`1px solid ${marco===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-                  }}>{<T t={o.nm}/>}</button>
+                  }}>{o.nm}</button>
                 ))}
               </div>
             </div>
@@ -145,7 +146,7 @@ export default function ColeopteraPage() {
                     background:vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.08)',
                     color:vidrio===o.id?'#1A1209':'#C9A84C',
                     border:`1px solid ${vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-                  }}>{<T t={o.nm}/>}{o.extra>0?` +$${o.extra}`:''}</button>
+                  }}>{o.nm}{o.extra>0?` +$${o.extra}`:''}</button>
                 ))}
               </div>
             </div>
@@ -176,13 +177,13 @@ export default function ColeopteraPage() {
               <div key={p.nm} className="esp-card">
                 <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
                 <div>
-                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700,fontStyle:'italic'}}>{<T t={p.nm}/>}</div>
-                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{<T t={p.desc}/>}</div>
+                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700,fontStyle:'italic'}}>{p.nm}</div>
+                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{p.desc}</div>
                 </div>
               </div>
             ))}
             <div style={{marginTop:12,background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:12}}>
-              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}><T t="📦 Incluye:"/></p>
+              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}>📦 Incluye:</p>
               <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.68rem',marginTop:4,lineHeight:1.8}}>
                 ✅ Certificado SERFOR<br/>
                 ✅ Certificado CITES<br/>

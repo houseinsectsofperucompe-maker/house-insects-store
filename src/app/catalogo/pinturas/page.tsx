@@ -1,5 +1,4 @@
 'use client'
-import T from '@/components/T'
 import { useState } from 'react'
 export default function PinturasPage() {
   const [vista, setVista] = useState('frente')
@@ -79,11 +78,13 @@ export default function PinturasPage() {
         <div style={{textAlign:'center',marginBottom:32}}>
           <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,marginBottom:12,objectFit:'contain'}}/></a>
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · GALERÍA DE ARTE</div>
-          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}><T t="🎨 Pinturas, Arte Sacro & Expresiones de las 3 Regiones"/></h1>
+          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}>🎨 Pinturas, Arte Sacro & Expresiones de las 3 Regiones</h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
-          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}><T t="Nuestra colección Bio-Art rinde homenaje a las especies más raras de la Amazonía peruana. Arte colonial, místico amazónico, sacro, esculturas 3D y paneles lenticulares 4D para coleccionistas de élite en Dubai, Europa y Asia."/></p>
+          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
+            Nuestra colección Bio-Art rinde homenaje a las especies más raras de la Amazonía peruana. Arte colonial, místico amazónico, sacro, esculturas 3D y paneles lenticulares 4D para coleccionistas de élite en Dubai, Europa y Asia.
+          </p>
           <div style={{marginTop:12,color:'rgba(232,201,122,0.35)',fontSize:'.65rem',letterSpacing:'.15em'}}>
-            PARTIDA {partida.codigo} · {<T t={partida.desc}/>}
+            PARTIDA {partida.codigo} · {partida.desc}
           </div>
         </div>
         <div style={{display:'flex',gap:8,flexWrap:'wrap',justifyContent:'center',marginBottom:24}}>
@@ -93,7 +94,7 @@ export default function PinturasPage() {
               background:cat===c.id?'#C9A84C':'rgba(201,168,76,0.08)',
               color:cat===c.id?'#1A1209':'#C9A84C',
               border:`1px solid ${cat===c.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-            }}>{<T t={c.nm}/>}</button>
+            }}>{c.nm}</button>
           ))}
         </div>
         <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
@@ -111,17 +112,17 @@ export default function PinturasPage() {
             </div>
             <div style={{width:'100%',height:240,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',marginBottom:16}}>
               <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,objectFit:'contain',opacity:.6,marginBottom:10}}/></a>
-              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem'}}><T t="GALERÍA EN PREPARACIÓN"/></p>
-              <p style={{color:'rgba(232,201,122,0.25)',fontSize:'.62rem',marginTop:4}}><T t="FOTO & VIDEO 3D PRÓXIMAMENTE"/></p>
+              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem'}}>GALERÍA EN PREPARACIÓN</p>
+              <p style={{color:'rgba(232,201,122,0.25)',fontSize:'.62rem',marginTop:4}}>FOTO & VIDEO 3D PRÓXIMAMENTE</p>
             </div>
             <div style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:10,marginBottom:12,textAlign:'left'}}>
-              <p style={{color:'#C9A84C',fontSize:'.72rem',fontWeight:700}}><T t="✨ Lujo Sostenible & Arte de Vanguardia"/></p>
-              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginTop:4,lineHeight:1.6}}><T t="Cada pieza es única · Hecha a mano · Certificada MINCUL · Precio bajo consulta"/></p>
+              <p style={{color:'#C9A84C',fontSize:'.72rem',fontWeight:700}}>✨ Lujo Sostenible & Arte de Vanguardia</p>
+              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginTop:4,lineHeight:1.6}}>Cada pieza es única · Hecha a mano · Certificada MINCUL · Precio bajo consulta</p>
             </div>
             <div style={{background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:10,marginBottom:12,textAlign:'left'}}>
-              <p style={{color:'#C9A84C',fontSize:'.72rem',fontWeight:700}}><T t="📋 Partida Arancelaria:"/></p>
+              <p style={{color:'#C9A84C',fontSize:'.72rem',fontWeight:700}}>📋 Partida Arancelaria:</p>
               <p style={{color:'#E8C97A',fontSize:'.78rem',fontFamily:'monospace',marginTop:2}}>{partida.codigo}</p>
-              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginTop:2}}>{<T t={partida.desc}/>}</p>
+              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginTop:2}}>{partida.desc}</p>
             </div>
             <div style={{display:'flex',gap:8,justifyContent:'center',flexWrap:'wrap'}}>
               <a href="https://wa.me/51940699405" target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'10px 16px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.78rem'}}>💬 +51 940 699 405</a>
@@ -134,13 +135,13 @@ export default function PinturasPage() {
               <div key={p.nm} className="pieza-card">
                 <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
                 <div>
-                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{<T t={p.nm}/>}</div>
-                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{<T t={p.desc}/>}</div>
+                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{p.nm}</div>
+                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{p.desc}</div>
                 </div>
               </div>
             ))}
             <div style={{marginTop:16,background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:12}}>
-              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}><T t="📦 Exportación completa:"/></p>
+              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}>📦 Exportación completa:</p>
               <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.68rem',marginTop:4,lineHeight:1.8}}>
                 ✅ Certificado MINCUL<br/>
                 ✅ Factura electrónica SUNAT<br/>
