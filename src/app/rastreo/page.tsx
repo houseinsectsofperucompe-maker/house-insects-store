@@ -1,6 +1,5 @@
 'use client'
 import T from '@/components/T'
-"use client"
 import { useState } from "react"
 export default function RastreoPage() {
   const [numero, setNumero] = useState("")
