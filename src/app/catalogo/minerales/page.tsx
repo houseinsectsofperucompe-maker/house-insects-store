@@ -165,7 +165,7 @@ export default function MineralesPage() {
                cat==='coleccion'?'🔬 COLECCIÓN & MUSEOS':'⚙️ MATERIA PRIMA INDUSTRIAL'}
             </div>
             {piezasActuales.map(p=>(
-              <div key={<T t={p.nm}/>} className="pieza-card">
+              <div key={p.nm} className="pieza-card">
                 <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
                 <div>
                   <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{<T t={p.nm}/>}</div>

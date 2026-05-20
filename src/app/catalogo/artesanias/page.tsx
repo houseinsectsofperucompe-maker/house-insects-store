@@ -88,7 +88,7 @@ export default function ArtesaniasPage() {
               {icon:'💍',nm:'Caballito de Plata 925',desc:'Plata fina · Orfebrería · Certificado'},
               {icon:'🏆',nm:'Tumi Sagrado',desc:'Plata/Cobre bañado en oro · Símbolo ancestral · Lujo'},
             ].map(p=>(
-              <div key={<T t={p.nm}/>} style={{display:'flex',gap:10,alignItems:'center',marginBottom:10,padding:'8px',borderRadius:6,background:'rgba(201,168,76,0.04)'}}>
+              <div key={p.nm} style={{display:'flex',gap:10,alignItems:'center',marginBottom:10,padding:'8px',borderRadius:6,background:'rgba(201,168,76,0.04)'}}>
                 <span style={{fontSize:'1.3rem'}}>{p.icon}</span>
                 <div>
                   <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{<T t={p.nm}/>}</div>

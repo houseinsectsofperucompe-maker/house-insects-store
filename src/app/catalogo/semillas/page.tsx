@@ -119,7 +119,7 @@ export default function SemillasPage() {
           <div style={{background:'rgba(201,168,76,0.03)',border:'1px solid rgba(201,168,76,0.1)',borderRadius:12,padding:20}}>
             <div style={{color:'#C9A84C',fontSize:'.7rem',letterSpacing:'.1em',marginBottom:12}}>🌿 PRODUCTOS DISPONIBLES</div>
             {piezasActuales.map(p=>(
-              <div key={<T t={p.nm}/>} className="pieza-card">
+              <div key={p.nm} className="pieza-card">
                 <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
                 <div>
                   <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{<T t={p.nm}/>}</div>

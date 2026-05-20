@@ -104,7 +104,7 @@ export default function NocturnasPage() {
               {icon:'🎨',nm:'Composiciones Mixtas',desc:'Varias especies juntas · Arte cromatico · Colores amazonicos'},
               {icon:'💎',nm:'Encapsulado en Resina',desc:'Eterno · Irrompible · Moderno · El mas exclusivo del mundo'},
             ].map(p=>(
-              <div key={<T t={p.nm}/>} className="card-tipo" style={{display:'flex',gap:10,alignItems:'center',marginBottom:10,padding:'8px',borderRadius:6,background:'rgba(201,168,76,0.04)',border:'1px solid rgba(201,168,76,0.08)'}}>
+              <div key={p.nm} className="card-tipo" style={{display:'flex',gap:10,alignItems:'center',marginBottom:10,padding:'8px',borderRadius:6,background:'rgba(201,168,76,0.04)',border:'1px solid rgba(201,168,76,0.08)'}}>
                 <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
                 <div>
                   <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{<T t={p.nm}/>}</div>

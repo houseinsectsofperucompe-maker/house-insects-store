@@ -173,7 +173,7 @@ export default function ColeopteraPage() {
               {tipo==='coleoptera'?'🪲 COLEÓPTEROS DISPONIBLES':'🦂 ARTRÓPODOS DISPONIBLES'}
             </div>
             {ESPECIES[tipo as keyof typeof ESPECIES].map(p=>(
-              <div key={<T t={p.nm}/>} className="esp-card">
+              <div key={p.nm} className="esp-card">
                 <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
                 <div>
                   <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700,fontStyle:'italic'}}>{<T t={p.nm}/>}</div>
