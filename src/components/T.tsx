@@ -1,14 +1,17 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const cache: Record<string, string> = {}
 
 export default function T({ t }: { t: string }) {
   const [traducido, setTraducido] = useState(t)
+  const mounted = useRef(false)
 
   useEffect(() => {
+    if (mounted.current) return
+    mounted.current = true
     const idioma = localStorage.getItem('lang') || 'es'
-    if (idioma === 'es') { setTraducido(t); return }
+    if (idioma === 'es') return
     const key = idioma + ':' + t
     if (cache[key]) { setTraducido(cache[key]); return }
     fetch('/api/traducir', {
@@ -18,7 +21,7 @@ export default function T({ t }: { t: string }) {
     })
     .then(r => r.json())
     .then(d => { cache[key] = d.traduccion; setTraducido(d.traduccion) })
-    .catch(() => setTraducido(t))
+    .catch(() => {})
   }, [t])
 
   return <>{traducido}</>
