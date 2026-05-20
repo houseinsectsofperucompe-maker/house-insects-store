@@ -59,7 +59,7 @@ export default function HerramientasPage() {
         
       `}</style>
       <div className="pc" style={{maxWidth:1000,margin:'0 auto'}}>
-        <a href="/" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none',display:'block',marginBottom:16}}>← Inicio</a>
+        <a href="/" style={{color:'#C9A84C',fontSize:'1.2rem',fontWeight:700,textDecoration:'none',display:'block',marginBottom:20,padding:'10px 20px',background:'rgba(201,168,76,0.15)',borderRadius:8,border:'1px solid rgba(201,168,76,0.4)',display:'inline-block'}}>← Inicio</a>
         <div style={{textAlign:'center',marginBottom:32}}>
           <img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,marginBottom:12,objectFit:'contain'}}/>
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · CIENCIA & FAUNA SILVESTRE LEGAL</div>

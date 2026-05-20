@@ -25,7 +25,7 @@ export default function ArtesaniasPage() {
         .wa-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.4)}
       `}</style>
       <div className="pc" style={{maxWidth:1000,margin:'0 auto'}}>
-        <a href="/" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none',display:'block',marginBottom:16}}>← Inicio</a>
+        <a href="/" style={{color:'#C9A84C',fontSize:'1.2rem',fontWeight:700,textDecoration:'none',display:'block',marginBottom:20,padding:'10px 20px',background:'rgba(201,168,76,0.15)',borderRadius:8,border:'1px solid rgba(201,168,76,0.4)',display:'inline-block'}}>← Inicio</a>
 
         {/* HEADER LUJO */}
         <div style={{textAlign:'center',marginBottom:32}}>
