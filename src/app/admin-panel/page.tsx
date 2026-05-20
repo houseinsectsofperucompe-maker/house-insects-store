@@ -188,6 +188,15 @@ export default function AdminPanel() {
     else setError('Contraseña incorrecta')
   }
 
+  useEffect(() => {
+    const saved = localStorage.getItem('nicho_search')
+    if (saved) {
+      setNicho(saved)
+      localStorage.removeItem('nicho_search')
+      setSeccion('prospectos')
+    }
+  }, [])
+
   const buscarProspectos = async () => {
     setBuscando(true)
     setErrorProsp('')
