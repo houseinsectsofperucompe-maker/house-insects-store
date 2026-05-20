@@ -4,18 +4,10 @@ import { useState, useEffect } from 'react'
 const cache: Record<string, string> = {}
 
 export default function T({ t }: { t: string }) {
-  const [idioma, setIdioma] = useState('es')
   const [traducido, setTraducido] = useState(t)
 
   useEffect(() => {
-    const saved = localStorage.getItem('lang') || 'es'
-    setIdioma(saved)
-    const handler = (e: any) => setIdioma(e.detail)
-    window.addEventListener('langChange', handler)
-    return () => window.removeEventListener('langChange', handler)
-  }, [])
-
-  useEffect(() => {
+    const idioma = localStorage.getItem('lang') || 'es'
     if (idioma === 'es') { setTraducido(t); return }
     const key = idioma + ':' + t
     if (cache[key]) { setTraducido(cache[key]); return }
@@ -27,7 +19,7 @@ export default function T({ t }: { t: string }) {
     .then(r => r.json())
     .then(d => { cache[key] = d.traduccion; setTraducido(d.traduccion) })
     .catch(() => setTraducido(t))
-  }, [idioma, t])
+  }, [t])
 
   return <>{traducido}</>
 }
