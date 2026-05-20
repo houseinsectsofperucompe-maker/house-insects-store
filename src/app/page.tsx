@@ -105,8 +105,8 @@ const CSS = `
   .lang-btn:hover{background:rgba(201,168,76,0.12)!important;color:#E8C97A!important}
   @keyframes scrollX{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
   .scroll-track{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px;padding:8px 0;width:100%}.scroll-track:hover{}.scroll-wrapper{width:100%;display:flex;justify-content:center;padding:0 20px}
-  .badge-card{transition:transform 0.2s ease;display:inline-block}
-  .badge-card:hover{transform:translateY(-4px) scale(1.05)}
+  .badge-card{transition:transform 0.3s ease,box-shadow 0.3s ease,filter 0.3s ease;display:inline-block}
+  .badge-card:hover{transform:translateY(-8px) scale(1.08) rotate(2deg);box-shadow:0 12px 30px rgba(0,0,0,0.6),0 0 20px rgba(201,168,76,0.3);filter:brightness(1.2)}
 `
 
 // ── Vista de catálogo individual ──────────────────────────────────────────────
