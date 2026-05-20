@@ -1,4 +1,5 @@
 'use client'
+import T from '@/components/T'
 import { useState } from 'react'
 type E = { n:string; p:number; s:number; foto?:string; video?:string }
 type F = { id:string; nm:string; e:E[] }
@@ -307,7 +308,7 @@ export default function Page() {
       <div style={{maxWidth:1200,margin:'0 auto'}}>
         <div style={{textAlign:'center',marginBottom:20}}>
           <img src="/logo-house-insects-peru.png" className="logo-ani" style={{width:80,height:80,marginBottom:10,objectFit:'contain',cursor:'pointer'}} onError={(ev)=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>
-          <h1 style={{fontSize:'1.6rem',fontWeight:300,color:'#E8C97A',marginBottom:4}}>Especimenes Biologicos Secos</h1>
+          <h1 style={{fontSize:'1.6rem',fontWeight:300,color:'#E8C97A',marginBottom:4}}><T t="Especimenes Biologicos Secos"/></h1>
           <p style={{color:'rgba(232,201,122,0.3)',fontSize:'.7rem',letterSpacing:'.08em'}}>HOUSE INSECTS OF PERU · AMAZONIA · SERFOR · CITES · RUC 20447397804</p>
         </div>
         <style>{`

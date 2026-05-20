@@ -1,4 +1,5 @@
 'use client'
+import T from '@/components/T'
 import { useState } from 'react'
 export default function NocturnasPage() {
   const [vista, setVista] = useState('frente')
@@ -34,7 +35,7 @@ export default function NocturnasPage() {
         <div style={{textAlign:'center',marginBottom:32}}>
           <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="sello" style={{width:160,height:160,marginBottom:16,objectFit:'contain'}}/></a>
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · MAS DE 40 ANOS DE EXPERIENCIA</div>
-          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}>Cuadros de Mariposas Tropicales Naturales</h1>
+          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}><T t="Cuadros de Mariposas Tropicales Naturales"/></h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
           <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
             Especimenes secos naturales de la Amazonia peruana, montados en marcos de lujo. Personaliza tu cuadro — elige composicion, formato del marco y tipo de proteccion. Certificado SERFOR + CITES.

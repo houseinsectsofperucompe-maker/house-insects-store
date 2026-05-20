@@ -1,4 +1,5 @@
 'use client'
+import T from '@/components/T'
 import { useState } from 'react'
 export default function TextileriaPage() {
   const [vista, setVista] = useState('frente')
@@ -65,7 +66,7 @@ export default function TextileriaPage() {
         <div style={{textAlign:'center',marginBottom:32}}>
           <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,marginBottom:12,objectFit:'contain'}}/></a>
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · TEXTILERÍA DE LUJO</div>
-          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}>🧶 Textilería Premium: Línea Amazónica, Andina & Costa</h1>
+          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}><T t="🧶 Textilería Premium: Línea Amazónica, Andina & Costa"/></h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
           <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
             Baby Alpaca andina, arte textil Shipibo-Conibo amazónico y algodón Pima de la costa. Patrimonio textil peruano para mercados de lujo en París, Milán, Nueva York y Dubai.
