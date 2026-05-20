@@ -92,7 +92,7 @@ export default function ColeopteraPage() {
                     background:tipo===o.id?'#C9A84C':'rgba(201,168,76,0.08)',
                     color:tipo===o.id?'#1A1209':'#C9A84C',
                     border:`1px solid ${tipo===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-                  }}>{o.nm}</button>
+                  }}>{<T t={o.nm}/>}</button>
                 ))}
               </div>
             </div>
@@ -127,7 +127,7 @@ export default function ColeopteraPage() {
                     background:marco===o.id?'#C9A84C':'rgba(201,168,76,0.08)',
                     color:marco===o.id?'#1A1209':'#C9A84C',
                     border:`1px solid ${marco===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-                  }}>{o.nm}</button>
+                  }}>{<T t={o.nm}/>}</button>
                 ))}
               </div>
             </div>
@@ -145,7 +145,7 @@ export default function ColeopteraPage() {
                     background:vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.08)',
                     color:vidrio===o.id?'#1A1209':'#C9A84C',
                     border:`1px solid ${vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-                  }}>{o.nm}{o.extra>0?` +$${o.extra}`:''}</button>
+                  }}>{<T t={o.nm}/>}{o.extra>0?` +$${o.extra}`:''}</button>
                 ))}
               </div>
             </div>
@@ -173,11 +173,11 @@ export default function ColeopteraPage() {
               {tipo==='coleoptera'?'🪲 COLEÓPTEROS DISPONIBLES':'🦂 ARTRÓPODOS DISPONIBLES'}
             </div>
             {ESPECIES[tipo as keyof typeof ESPECIES].map(p=>(
-              <div key={p.nm} className="esp-card">
+              <div key={<T t={p.nm}/>} className="esp-card">
                 <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
                 <div>
-                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700,fontStyle:'italic'}}>{p.nm}</div>
-                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{p.desc}</div>
+                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700,fontStyle:'italic'}}>{<T t={p.nm}/>}</div>
+                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{<T t={p.desc}/>}</div>
                 </div>
               </div>
             ))}

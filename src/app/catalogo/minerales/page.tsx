@@ -94,7 +94,7 @@ export default function MineralesPage() {
               background:cat===c.id?'#C9A84C':'rgba(201,168,76,0.08)',
               color:cat===c.id?'#1A1209':'#C9A84C',
               border:`1px solid ${cat===c.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-            }}>{c.nm}</button>
+            }}>{<T t={c.nm}/>}</button>
           ))}
         </div>
 
@@ -130,7 +130,7 @@ export default function MineralesPage() {
                     border:`1px solid ${peso===p.id?'#C9A84C':'rgba(201,168,76,0.1)'}`,
                     display:'flex',justifyContent:'space-between'
                   }}>
-                    <span>{p.nm}</span>
+                    <span>{<T t={p.nm}/>}</span>
                     {p.extra>0&&<span style={{color:'#C9A84C',fontSize:'.65rem'}}>+${p.extra} USD</span>}
                   </button>
                 ))}
@@ -165,11 +165,11 @@ export default function MineralesPage() {
                cat==='coleccion'?'🔬 COLECCIÓN & MUSEOS':'⚙️ MATERIA PRIMA INDUSTRIAL'}
             </div>
             {piezasActuales.map(p=>(
-              <div key={p.nm} className="pieza-card">
+              <div key={<T t={p.nm}/>} className="pieza-card">
                 <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
                 <div>
-                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{p.nm}</div>
-                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{p.desc}</div>
+                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{<T t={p.nm}/>}</div>
+                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{<T t={p.desc}/>}</div>
                 </div>
               </div>
             ))}

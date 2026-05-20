@@ -56,7 +56,7 @@ export default function RarezasPage() {
               background:cat===c.id?'#C9A84C':'rgba(201,168,76,0.08)',
               color:cat===c.id?'#1A1209':'#C9A84C',
               border:`1px solid ${cat===c.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-            }}>{c.nm}</button>
+            }}>{<T t={c.nm}/>}</button>
           ))}
         </div>
         <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
@@ -88,11 +88,11 @@ export default function RarezasPage() {
           <div style={{background:'rgba(201,168,76,0.03)',border:'1px solid rgba(201,168,76,0.1)',borderRadius:12,padding:20}}>
             <div style={{color:'#C9A84C',fontSize:'.7rem',letterSpacing:'.1em',marginBottom:12}}>🌟 PIEZAS DISPONIBLES</div>
             {PIEZAS.map(p=>(
-              <div key={p.nm} className="pieza-card">
+              <div key={<T t={p.nm}/>} className="pieza-card">
                 <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
                 <div>
-                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{p.nm}</div>
-                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{p.desc}</div>
+                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{<T t={p.nm}/>}</div>
+                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{<T t={p.desc}/>}</div>
                 </div>
               </div>
             ))}

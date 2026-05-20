@@ -67,7 +67,7 @@ export default function HongosPage() {
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
           <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}><T t="Hongos gourmet de la sierra, adaptógenos medicinales y superalimentos de las 3 regiones del Perú. Certificados DIGESA y SENASA para mercados de bienestar en Europa, Asia y USA."/></p>
           <div style={{marginTop:12,color:'rgba(232,201,122,0.35)',fontSize:'.65rem',letterSpacing:'.15em'}}>
-            PARTIDA {partida.codigo} · {partida.desc}
+            PARTIDA {partida.codigo} · {<T t={partida.desc}/>}
           </div>
         </div>
         <div style={{display:'flex',gap:8,flexWrap:'wrap',justifyContent:'center',marginBottom:24}}>
@@ -77,7 +77,7 @@ export default function HongosPage() {
               background:cat===c.id?'#C9A84C':'rgba(201,168,76,0.08)',
               color:cat===c.id?'#1A1209':'#C9A84C',
               border:`1px solid ${cat===c.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-            }}>{c.nm}</button>
+            }}>{<T t={c.nm}/>}</button>
           ))}
         </div>
         <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
@@ -100,7 +100,7 @@ export default function HongosPage() {
             <div style={{background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:10,marginBottom:12,textAlign:'left'}}>
               <p style={{color:'#C9A84C',fontSize:'.72rem',fontWeight:700}}><T t="📋 Partida Arancelaria:"/></p>
               <p style={{color:'#E8C97A',fontSize:'.78rem',fontFamily:'monospace',marginTop:2}}>{partida.codigo}</p>
-              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginTop:2}}>{partida.desc}</p>
+              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginTop:2}}>{<T t={partida.desc}/>}</p>
             </div>
             <div style={{display:'flex',gap:8,justifyContent:'center',flexWrap:'wrap'}}>
               <a href="https://wa.me/51940699405" target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'10px 16px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.78rem'}}>💬 +51 940 699 405</a>
@@ -110,11 +110,11 @@ export default function HongosPage() {
           <div style={{background:'rgba(201,168,76,0.03)',border:'1px solid rgba(201,168,76,0.1)',borderRadius:12,padding:20}}>
             <div style={{color:'#C9A84C',fontSize:'.7rem',letterSpacing:'.1em',marginBottom:12}}>🍄 PRODUCTOS DISPONIBLES</div>
             {piezasActuales.map(p=>(
-              <div key={p.nm} className="pieza-card">
+              <div key={<T t={p.nm}/>} className="pieza-card">
                 <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
                 <div>
-                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{p.nm}</div>
-                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{p.desc}</div>
+                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{<T t={p.nm}/>}</div>
+                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{<T t={p.desc}/>}</div>
                 </div>
               </div>
             ))}

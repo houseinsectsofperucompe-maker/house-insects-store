@@ -58,7 +58,7 @@ export default function NocturnasPage() {
               <div style={{color:'rgba(232,201,122,0.5)',fontSize:'.65rem',letterSpacing:'.08em',marginBottom:8}}>1 COMPOSICION</div>
               <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
                 {[{id:'individual',nm:'Individual'},{id:'mixto',nm:'Mixto/Combinado'}].map(o=>(
-                  <button key={o.id} onClick={()=>setComposicion(o.id)} className="opt-btn" style={{padding:'6px 14px',borderRadius:20,fontSize:'.75rem',fontFamily:'Georgia,serif',background:composicion===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:composicion===o.id?'#1A1209':'#C9A84C',border:`1px solid ${composicion===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`}}>{o.nm}</button>
+                  <button key={o.id} onClick={()=>setComposicion(o.id)} className="opt-btn" style={{padding:'6px 14px',borderRadius:20,fontSize:'.75rem',fontFamily:'Georgia,serif',background:composicion===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:composicion===o.id?'#1A1209':'#C9A84C',border:`1px solid ${composicion===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`}}>{<T t={o.nm}/>}</button>
                 ))}
               </div>
             </div>
@@ -66,7 +66,7 @@ export default function NocturnasPage() {
               <div style={{color:'rgba(232,201,122,0.5)',fontSize:'.65rem',letterSpacing:'.08em',marginBottom:8}}>2 FORMATO DEL MARCO</div>
               <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
                 {[{id:'rectangular',nm:'Rectangular'},{id:'redondo',nm:'Redondo'},{id:'triangular',nm:'Triangular'},{id:'cubo',nm:'Cubo 3D'},{id:'cupula',nm:'Cupula'},{id:'reloj',nm:'Tipo Reloj'}].map(o=>(
-                  <button key={o.id} onClick={()=>setMarco(o.id)} className="opt-btn" style={{padding:'5px 12px',borderRadius:16,fontSize:'.7rem',fontFamily:'Georgia,serif',background:marco===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:marco===o.id?'#1A1209':'#C9A84C',border:`1px solid ${marco===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`}}>{o.nm}</button>
+                  <button key={o.id} onClick={()=>setMarco(o.id)} className="opt-btn" style={{padding:'5px 12px',borderRadius:16,fontSize:'.7rem',fontFamily:'Georgia,serif',background:marco===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:marco===o.id?'#1A1209':'#C9A84C',border:`1px solid ${marco===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`}}>{<T t={o.nm}/>}</button>
                 ))}
               </div>
             </div>
@@ -74,7 +74,7 @@ export default function NocturnasPage() {
               <div style={{color:'rgba(232,201,122,0.5)',fontSize:'.65rem',letterSpacing:'.08em',marginBottom:8}}>3 TIPO DE PROTECCION</div>
               <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
                 {[{id:'normal',nm:'Cristal Normal',extra:0},{id:'uv',nm:'Cristal UV Premium',extra:20},{id:'resina',nm:'Resina Epoxica',extra:35}].map(o=>(
-                  <button key={o.id} onClick={()=>setVidrio(o.id)} className="opt-btn" style={{padding:'5px 12px',borderRadius:16,fontSize:'.7rem',fontFamily:'Georgia,serif',background:vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:vidrio===o.id?'#1A1209':'#C9A84C',border:`1px solid ${vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`}}>{o.nm}{o.extra>0?` +$${o.extra}`:''}</button>
+                  <button key={o.id} onClick={()=>setVidrio(o.id)} className="opt-btn" style={{padding:'5px 12px',borderRadius:16,fontSize:'.7rem',fontFamily:'Georgia,serif',background:vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:vidrio===o.id?'#1A1209':'#C9A84C',border:`1px solid ${vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`}}>{<T t={o.nm}/>}{o.extra>0?` +$${o.extra}`:''}</button>
                 ))}
               </div>
             </div>
@@ -104,11 +104,11 @@ export default function NocturnasPage() {
               {icon:'🎨',nm:'Composiciones Mixtas',desc:'Varias especies juntas · Arte cromatico · Colores amazonicos'},
               {icon:'💎',nm:'Encapsulado en Resina',desc:'Eterno · Irrompible · Moderno · El mas exclusivo del mundo'},
             ].map(p=>(
-              <div key={p.nm} className="card-tipo" style={{display:'flex',gap:10,alignItems:'center',marginBottom:10,padding:'8px',borderRadius:6,background:'rgba(201,168,76,0.04)',border:'1px solid rgba(201,168,76,0.08)'}}>
+              <div key={<T t={p.nm}/>} className="card-tipo" style={{display:'flex',gap:10,alignItems:'center',marginBottom:10,padding:'8px',borderRadius:6,background:'rgba(201,168,76,0.04)',border:'1px solid rgba(201,168,76,0.08)'}}>
                 <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
                 <div>
-                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{p.nm}</div>
-                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{p.desc}</div>
+                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{<T t={p.nm}/>}</div>
+                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{<T t={p.desc}/>}</div>
                 </div>
               </div>
             ))}
