@@ -30,7 +30,7 @@ export default function LangSelector() {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
-    const saved = localStorage.getItem('lang')
+    const saved = document.cookie.split(';').find(c=>c.trim().startsWith('lang='))?.split('=')[1]
     if (saved) setIdioma(saved)
     else {
       const browser = navigator.language.slice(0,2)
