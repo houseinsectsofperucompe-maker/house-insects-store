@@ -51,7 +51,7 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         from: 'alertas@houseinsectsofperu.com',
-        to: ['houseinsectsofperu.com.pe@gmail.com','jzalopez02@gmail.com'],
+        to: ['info@houseinsectsofperu.com','houseinsectsofperu.com.pe@gmail.com','jzalopez02@gmail.com'],
         subject: `🚨 CLIENTE VIP — ${paisNombre}`,
         html: `
           <div style="font-family:Georgia,serif;background:#1A1209;color:#E8C97A;padding:32px;border-radius:12px">
