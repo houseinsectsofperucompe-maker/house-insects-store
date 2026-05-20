@@ -561,6 +561,33 @@ export default function AdminPanel() {
         )}
 
         {/* ESTADISTICAS */}
+        {seccion==='demografia' && (
+          <div className="fade-up">
+            <h2 style={{color:'#E8C97A',fontSize:'1.3rem',fontWeight:300,marginBottom:20}}>📊 Análisis Demográfico</h2>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(200px,1fr))',gap:10,marginBottom:24}}>
+              {[
+                {nm:'🏛️ Museos Historia Natural',pais:'USA, UK, Alemania, Japón',presupuesto:'$500-$50,000',vol:'alto',color:'rgba(10,30,10,0.3)'},
+                {nm:'💎 Coleccionistas Privados',pais:'Dubai, Mónaco, USA, Japón',presupuesto:'$1,000-$500,000',vol:'muy alto',color:'rgba(30,20,0,0.3)'},
+                {nm:'🎨 Galerías Arte & Diseño',pais:'NYC, Londres, París, Tokio',presupuesto:'$200-$10,000',vol:'medio',color:'rgba(20,10,30,0.3)'},
+                {nm:'💍 Joyerías & Alta Moda',pais:'Italia, Francia, Japón, UAE',presupuesto:'$100-$5,000',vol:'alto',color:'rgba(30,5,15,0.3)'},
+                {nm:'🏨 Hoteles 5 Estrellas',pais:'Dubai, Maldivas, Singapur',presupuesto:'$1,000-$100,000',vol:'muy alto',color:'rgba(5,15,30,0.3)'},
+                {nm:'🎓 Universidades',pais:'USA, UK, Alemania, Japón',presupuesto:'$100-$10,000',vol:'medio',color:'rgba(5,20,10,0.3)'},
+                {nm:'✨ Minerales & Místico',pais:'USA, Alemania, Brasil, China',presupuesto:'$50-$5,000',vol:'medio',color:'rgba(20,5,25,0.3)'},
+                {nm:'🔬 Farmacéuticas',pais:'USA, Suiza, Alemania, Japón',presupuesto:'$500-$50,000',vol:'alto',color:'rgba(5,25,20,0.3)'},
+                {nm:'🍽️ Restaurantes Gourmet',pais:'Francia, Japón, USA, España',presupuesto:'$200-$5,000',vol:'medio',color:'rgba(25,10,5,0.3)'},
+                {nm:'💆 Spa & Wellness',pais:'Bali, Tailandia, Dubai, Suiza',presupuesto:'$300-$10,000',vol:'medio',color:'rgba(5,20,25,0.3)'},
+              ].map((s,i)=>(
+                <div key={i} className="card" style={{background:s.color,border:'1px solid rgba(201,168,76,0.1)',borderRadius:10,padding:16,cursor:'pointer'}} onClick={()=>{setNicho(s.nm.split(' ').slice(1).join(' ').toLowerCase());setSeccion('prospectos')}}>
+                  <h3 style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:400,marginBottom:6}}>{s.nm}</h3>
+                  <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.65rem',marginBottom:4}}>🌍 {s.pais}</p>
+                  <p style={{color:'#C9A84C',fontSize:'.78rem',fontWeight:700,marginBottom:8}}>{s.presupuesto}</p>
+                  <span style={{background:s.vol==='muy alto'?'rgba(37,211,102,0.15)':'rgba(201,168,76,0.15)',color:s.vol==='muy alto'?'#25D366':'#C9A84C',padding:'2px 8px',borderRadius:8,fontSize:'.6rem'}}>{s.vol}</span>
+                  <p style={{color:'rgba(201,168,76,0.3)',fontSize:'.6rem',marginTop:8}}>👆 Clic para buscar clientes</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
         {seccion==='estadisticas' && (
           <div className="fade-up">
             <h2 style={{color:'#E8C97A',fontSize:'1.3rem',fontWeight:300,marginBottom:20}}>📈 Estadísticas</h2>
