@@ -1,4 +1,5 @@
 'use client'
+import T from '@/components/T'
 import { useState } from 'react'
 export default function MineralesPage() {
   const [vista, setVista] = useState('frente')
@@ -77,7 +78,7 @@ export default function MineralesPage() {
         <div style={{textAlign:'center',marginBottom:32}}>
           <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,marginBottom:12,objectFit:'contain'}}/></a>
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · PIEDRAS PRECIOSAS</div>
-          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}>💎 Minerales & Piedras Preciosas</h1>
+          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}><T t="💎 Minerales & Piedras Preciosas"/></h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
           <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
             Piedras peruanas auténticas para suerte, protección espiritual, colección científica y materia prima industrial. Certificadas y exportadas con documentación completa.
@@ -95,7 +96,7 @@ export default function MineralesPage() {
               background:cat===c.id?'#C9A84C':'rgba(201,168,76,0.08)',
               color:cat===c.id?'#1A1209':'#C9A84C',
               border:`1px solid ${cat===c.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-            }}>{c.nm}</button>
+            }}>{<T t={c.nm}/>}</button>
           ))}
         </div>
 
@@ -131,7 +132,7 @@ export default function MineralesPage() {
                     border:`1px solid ${peso===p.id?'#C9A84C':'rgba(201,168,76,0.1)'}`,
                     display:'flex',justifyContent:'space-between'
                   }}>
-                    <span>{p.nm}</span>
+                    <span>{<T t={p.nm}/>}</span>
                     {p.extra>0&&<span style={{color:'#C9A84C',fontSize:'.65rem'}}>+${p.extra} USD</span>}
                   </button>
                 ))}
@@ -169,8 +170,8 @@ export default function MineralesPage() {
               <div key={p.nm} className="pieza-card">
                 <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
                 <div>
-                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{p.nm}</div>
-                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{p.desc}</div>
+                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{<T t={p.nm}/>}</div>
+                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{<T t={p.desc}/>}</div>
                 </div>
               </div>
             ))}
