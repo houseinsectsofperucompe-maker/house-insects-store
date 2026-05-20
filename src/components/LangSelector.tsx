@@ -44,6 +44,7 @@ export default function LangSelector() {
     localStorage.setItem('lang', code)
     setShow(false)
     window.dispatchEvent(new CustomEvent('langChange', {detail: code}))
+    setTimeout(() => window.location.reload(), 100)
   }
 
   const actual = IDIOMAS.find(i=>i.code===idioma)
