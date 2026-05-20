@@ -194,7 +194,7 @@ export default function Page() {
                 color:vista===v?'#1A1209':'#C9A84C',
                 border:`1px solid ${vista===v?'#C9A84C':'rgba(201,168,76,0.2)'}`,
                 transition:'all 0.18s ease',textTransform:'capitalize'
-              }}>{v==='frente'?'📸 Frente':v==='lado'?'📸 Lado':v==='reverso'?'📸 Reverso':'🎥 Video'}</button>
+              }}>{v==='frente'?<T t='Frente'/>:v==='lado'?<T t='Lado'/>:v==='reverso'?<T t='Reverso'/>:<T t='Video'/>}</button>
             ))}
           </div>
           <div style={{width:'100%',maxWidth:420,margin:'0 auto'}}>

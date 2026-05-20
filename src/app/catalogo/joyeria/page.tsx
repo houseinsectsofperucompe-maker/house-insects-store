@@ -70,7 +70,7 @@ export default function JoeriaPage() {
                 color:vista===v?'#1A1209':'#C9A84C',
                 border:`1px solid ${vista===v?'#C9A84C':'rgba(201,168,76,0.2)'}`,
                 transition:'all 0.18s ease'
-              }}>{v==='frente'?'📸 Frente':v==='lado'?'📸 Lado':v==='reverso'?'📸 Reverso':'🎥 Video'}</button>
+              }}>{v==='frente'?<T t='Frente'/>:v==='lado'?<T t='Lado'/>:v==='reverso'?<T t='Reverso'/>:<T t='Video'/>}</button>
             ))}
           </div>
           <div style={{width:'100%',maxWidth:400,margin:'0 auto 16px',height:280,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
