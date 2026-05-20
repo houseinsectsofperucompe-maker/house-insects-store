@@ -103,6 +103,12 @@ const CSS = `
   .video-btn-volver:hover{transform:translateY(-2px);border-color:rgba(255,255,255,0.6)!important;color:white!important}
   .lang-btn{transition:all 0.15s ease}
   .lang-btn:hover{background:rgba(201,168,76,0.12)!important;color:#E8C97A!important}
+  @keyframes scrollX{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .scroll-track{display:flex;animation:scrollX 30s linear infinite;width:max-content}
+  .scroll-track:hover{animation-play-state:paused}
+  .scroll-wrapper{overflow:hidden;width:100%}
+  .badge-card{transition:transform 0.2s ease;display:inline-block}
+  .badge-card:hover{transform:translateY(-4px) scale(1.05)}
 `
 
 // ── Vista de catálogo individual ──────────────────────────────────────────────
@@ -286,8 +292,8 @@ export default function Home() {
       <div style={{background:"rgba(0,0,0,0.3)",borderTop:"1px solid rgba(201,168,76,0.15)",padding:"24px 20px",textAlign:"center"}}>
         <p style={{color:"rgba(201,168,76,0.4)",fontSize:".6rem",letterSpacing:".25em",textTransform:"uppercase",marginBottom:"16px"}}>Certificaciones Oficiales</p>
         <div style={{display:"flex",gap:"10px",justifyContent:"center",flexWrap:"wrap"}}>
-          {[{l:"SERFOR",s:"Reg. Forestal",c:"#2d6a2d"},{l:"CITES",s:"Comercio Int.",c:"#1a4a7a"},{l:"SENASA",s:"Sanidad Agr.",c:"#7a2d1a"},{l:"SUNAT",s:"RUC 20447397804",c:"#4a2d7a"},{l:"FITOSAN.",s:"Certificado",c:"#2d5a3a"},{l:"PROMPEX",s:"Export. Peru",c:"#8a2d00"}].map(x=>(
-            <div key={x.l} style={{background:x.c+"99",border:"1px solid "+x.c,borderRadius:"8px",padding:"8px 14px",textAlign:"center"}}><p style={{color:"#fff",fontSize:".7rem",fontWeight:700,margin:0}}>{x.l}</p><p style={{color:"rgba(255,255,255,0.6)",fontSize:".55rem",margin:0}}>{x.s}</p></div>
+          {[{l:"SERFOR",s:"Reg. Forestal",c:"#2d6a2d",url:"https://www.serfor.gob.pe"},{l:"CITES",s:"Comercio Int.",c:"#1a4a7a",url:"https://cites.org"},{l:"SENASA",s:"Sanidad Agr.",c:"#7a2d1a",url:"https://www.senasa.gob.pe"},{l:"SUNAT",s:"RUC 20447397804",c:"#4a2d7a",url:"https://e-consultaruc.sunat.gob.pe"},{l:"FITOSAN.",s:"Certificado",c:"#2d5a3a",url:"https://www.senasa.gob.pe"},{l:"PROMPEX",s:"Export. Peru",c:"#8a2d00",url:"https://www.promperu.gob.pe"}].map(x=>(
+            <a key={x.l} href={x.url||"#"} target="_blank" rel="noreferrer" style={{textDecoration:"none"}}><div className="badge-card" style={{background:x.c+"99",border:"1px solid "+x.c,borderRadius:"8px",padding:"8px 14px",textAlign:"center",minWidth:"80px"}}><p style={{color:"#fff",fontSize:".7rem",fontWeight:700,margin:0}}>{x.l}</p><p style={{color:"rgba(255,255,255,0.6)",fontSize:".55rem",margin:"2px 0"}}>{x.s}</p><img src={"https://api.qrserver.com/v1/create-qr-code/?size=55x55&data="+encodeURIComponent(x.url||x.l)} alt="QR" style={{width:48,height:48,marginTop:4,borderRadius:4,display:"block",margin:"4px auto 0"}}/></div></a>
           ))}
         </div>
       </div>
