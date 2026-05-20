@@ -564,42 +564,45 @@ export default function AdminPanel() {
         {seccion==='demografia' && (
           <div className="fade-up">
             <h2 style={{color:'#E8C97A',fontSize:'1.3rem',fontWeight:300,marginBottom:8}}>📊 Análisis Demográfico Global</h2>
-            <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.7rem',marginBottom:20}}>27 segmentos · 6 continentes · Clic en cualquier segmento para buscar clientes</p>
+            <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.7rem',marginBottom:20}}>27 segmentos · 6 continentes · Clic para buscar clientes en Apollo</p>
             <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(200px,1fr))',gap:8,marginBottom:24}}>
               {[
-                {nm:'🏛️ Museos Historia Natural',pais:'USA, UK, Alemania, Japón, Francia',presupuesto:'$500-$50,000',vol:'alto',keywords:'natural history museum entomology',color:'rgba(10,30,10,0.3)'},
-                {nm:'💎 Coleccionistas Lujo',pais:'Dubai, Mónaco, USA, Japón, China',presupuesto:'$1,000-$500,000',vol:'muy alto',keywords:'luxury insect collector rare specimen',color:'rgba(30,20,0,0.3)'},
-                {nm:'🎨 Galerías Arte & Ciencia',pais:'NYC, Londres, París, Tokio, Berlín',presupuesto:'$200-$10,000',vol:'medio',keywords:'art gallery biological science specimens',color:'rgba(20,10,30,0.3)'},
-                {nm:'💍 Joyerías & Alta Moda',pais:'Italia, Francia, Japón, UAE, Korea',presupuesto:'$100-$5,000',vol:'alto',keywords:'natural jewelry luxury fashion insect gold',color:'rgba(30,5,15,0.3)'},
-                {nm:'🏨 Hoteles 5 Estrellas',pais:'Dubai, Maldivas, Singapur, Mónaco',presupuesto:'$1,000-$100,000',vol:'muy alto',keywords:'luxury hotel decoration natural art amazon',color:'rgba(5,15,30,0.3)'},
-                {nm:'🎓 Universidades & Institutos',pais:'USA, UK, Alemania, Japón, Australia',presupuesto:'$100-$10,000',vol:'medio',keywords:'entomology university research specimens',color:'rgba(5,20,10,0.3)'},
-                {nm:'🏫 Colegios & Educación',pais:'USA, UK, Alemania, Australia',presupuesto:'$50-$2,000',vol:'medio',keywords:'school education biology natural collection',color:'rgba(8,20,8,0.3)'},
-                {nm:'✨ Minerales & Cristales',pais:'USA, Alemania, Brasil, China, India',presupuesto:'$50-$5,000',vol:'medio',keywords:'peruvian pyrite crystal quartz minerals',color:'rgba(20,5,25,0.3)'},
-                {nm:'🔬 Farmacéuticas',pais:'USA, Suiza, Alemania, Japón, UK',presupuesto:'$500-$50,000',vol:'alto',keywords:'pharmaceutical biological research amazon',color:'rgba(5,25,20,0.3)'},
-                {nm:'🍽️ Restaurantes Gourmet',pais:'Francia, Japón, USA, España, Perú',presupuesto:'$200-$5,000',vol:'medio',keywords:'gourmet restaurant exotic amazon ingredients',color:'rgba(25,10,5,0.3)'},
-                {nm:'💆 Spa & Wellness',pais:'Bali, Tailandia, Dubai, Suiza, USA',presupuesto:'$300-$10,000',vol:'medio',keywords:'spa wellness natural amazon essential oils',color:'rgba(5,20,25,0.3)'},
-                {nm:'🦁 Zoológicos & Acuarios',pais:'USA, UK, Alemania, Japón, China',presupuesto:'$500-$20,000',vol:'medio',keywords:'zoo aquarium natural collection biological',color:'rgba(15,20,5,0.3)'},
-                {nm:'🎪 Ferias Internacionales',pais:'Alemania, USA, China, UAE, UK',presupuesto:'$1,000-$50,000',vol:'alto',keywords:'international fair entomology exhibition',color:'rgba(20,15,0,0.3)'},
-                {nm:'🧶 Textilería & Alpaca',pais:'USA, Europa, Japón, Australia',presupuesto:'$100-$3,000',vol:'medio',keywords:'amazon textile alpaca peru handcraft',color:'rgba(25,5,10,0.3)'},
-                {nm:'🌿 Hierbas Medicinales',pais:'USA, Alemania, Japón, China, India',presupuesto:'$50-$2,000',vol:'alto',keywords:'medicinal herbs natural amazon collection',color:'rgba(5,25,5,0.3)'},
-                {nm:'🍄 Hongos & Setas',pais:'USA, Japón, Alemania, China',presupuesto:'$100-$3,000',vol:'alto',keywords:'mushrooms fungi natural collection amazon',color:'rgba(20,10,0,0.3)'},
-                {nm:'🪵 Maderas Finas',pais:'Alemania, Japón, USA, China, Italia',presupuesto:'$200-$10,000',vol:'medio',keywords:'fine wood amazon tropical timber certified',color:'rgba(25,15,0,0.3)'},
-                {nm:'🌸 Flores & Plantas Secas',pais:'Francia, Japón, USA, Holanda',presupuesto:'$50-$2,000',vol:'medio',keywords:'dried flowers plants botanical collection',color:'rgba(25,5,20,0.3)'},
-                {nm:'🌱 Semillas & Herbarios',pais:'USA, UK, Alemania, Australia',presupuesto:'$50-$1,000',vol:'bajo',keywords:'seeds herbarium botanical collection plant',color:'rgba(5,25,10,0.3)'},
-                {nm:'🍃 Hojas & Plumas',pais:'USA, Francia, Japón, UK',presupuesto:'$50-$1,500',vol:'bajo',keywords:'leaves feathers natural botanical collection',color:'rgba(10,20,5,0.3)'},
-                {nm:'💊 Superalimentos',pais:'USA, UK, Alemania, Australia, Japón',presupuesto:'$100-$5,000',vol:'alto',keywords:'superfoods natural supplement amazon active',color:'rgba(10,25,5,0.3)'},
-                {nm:'🥜 Alimentos Deshidratados',pais:'USA, Europa, Japón, Australia',presupuesto:'$100-$3,000',vol:'medio',keywords:'dehydrated food natural amazon condiments',color:'rgba(20,15,5,0.3)'},
-                {nm:'🔮 Encapsulados Resina',pais:'USA, Japón, UK, Alemania, China',presupuesto:'$50-$2,000',vol:'medio',keywords:'epoxy resin encapsulated specimen luxury',color:'rgba(15,5,25,0.3)'},
-                {nm:'🕌 Coleccionistas Dubai & Gulf',pais:'UAE, Qatar, Kuwait, Arabia Saudita',presupuesto:'$5,000-$500,000',vol:'muy alto',keywords:'dubai gulf luxury collector rare specimen',color:'rgba(25,20,0,0.3)'},
-                {nm:'🎬 Hollywood & Entertainment',pais:'USA - Los Angeles, New York',presupuesto:'$1,000-$100,000',vol:'alto',keywords:'hollywood entertainment luxury decoration natural',color:'rgba(20,5,5,0.3)'},
-                {nm:'🇨🇳 Mercado Asiático Premium',pais:'China, Taiwán, Hong Kong, Singapur',presupuesto:'$500-$50,000',vol:'muy alto',keywords:'china asia luxury natural collection biological',color:'rgba(20,5,5,0.3)'},
-                {nm:'🛍️ Tiendas Lujo & Souvenirs',pais:'Global - aeropuertos y duty free',presupuesto:'$200-$10,000',vol:'alto',keywords:'luxury store souvenir natural exotic products',color:'rgba(15,10,20,0.3)'},
+                {nm:'🏛️ Museos Historia Natural',pais:'USA, UK, Alemania, Japón, Francia, Australia, China',presupuesto:'$500-$50,000',vol:'alto',keywords:'natural history museum entomology biology curator',color:'rgba(10,30,10,0.3)'},
+                {nm:'💎 Coleccionistas Lujo',pais:'Dubai, Mónaco, USA, Japón, China, Suiza, Qatar',presupuesto:'$1,000-$500,000',vol:'muy alto',keywords:'luxury insect collector rare specimen private',color:'rgba(30,20,0,0.3)'},
+                {nm:'🎨 Galerías Arte & Ciencia',pais:'NYC, Londres, París, Tokio, Berlín, Milán, Dubai',presupuesto:'$200-$10,000',vol:'medio',keywords:'art gallery biological science specimens luxury',color:'rgba(20,10,30,0.3)'},
+                {nm:'💍 Joyerías & Alta Moda',pais:'Italia, Francia, Japón, UAE, Korea, USA, UK',presupuesto:'$100-$5,000',vol:'alto',keywords:'natural jewelry luxury fashion insect gold silver',color:'rgba(30,5,15,0.3)'},
+                {nm:'🏨 Hoteles 5 Estrellas',pais:'Dubai, Maldivas, Singapur, Mónaco, Bali, Suiza',presupuesto:'$1,000-$100,000',vol:'muy alto',keywords:'luxury hotel five star decoration natural art',color:'rgba(5,15,30,0.3)'},
+                {nm:'🎓 Universidades & Institutos',pais:'USA, UK, Alemania, Japón, Australia, Francia, China',presupuesto:'$100-$10,000',vol:'medio',keywords:'entomology university research specimens academic',color:'rgba(5,20,10,0.3)'},
+                {nm:'🏫 Colegios & Educación',pais:'USA, UK, Alemania, Australia, Canadá, Francia',presupuesto:'$50-$2,000',vol:'medio',keywords:'school education biology natural collection teaching',color:'rgba(8,20,8,0.3)'},
+                {nm:'✨ Minerales & Cristales',pais:'USA, Alemania, Brasil, China, India, Australia, Japón',presupuesto:'$50-$5,000',vol:'medio',keywords:'peruvian pyrite crystal quartz minerals gems',color:'rgba(20,5,25,0.3)'},
+                {nm:'🔬 Farmacéuticas & Labs',pais:'USA, Suiza, Alemania, Japón, UK, Francia',presupuesto:'$500-$50,000',vol:'alto',keywords:'pharmaceutical biological research amazon laboratory',color:'rgba(5,25,20,0.3)'},
+                {nm:'🍽️ Restaurantes Gourmet',pais:'Francia, Japón, USA, España, Australia, UK, Italia',presupuesto:'$200-$5,000',vol:'medio',keywords:'gourmet restaurant exotic amazon ingredients michelin',color:'rgba(25,10,5,0.3)'},
+                {nm:'💆 Spa & Wellness Premium',pais:'Bali, Tailandia, Dubai, Suiza, USA, Maldivas',presupuesto:'$300-$10,000',vol:'medio',keywords:'spa wellness luxury natural amazon essential oils',color:'rgba(5,20,25,0.3)'},
+                {nm:'🦁 Zoológicos & Acuarios',pais:'USA, UK, Alemania, Japón, China, Australia, UAE',presupuesto:'$500-$20,000',vol:'medio',keywords:'zoo aquarium natural biological collection curator',color:'rgba(15,20,5,0.3)'},
+                {nm:'🎪 Ferias Internacionales',pais:'Alemania, USA, China, UAE, UK, Japón, Francia',presupuesto:'$1,000-$50,000',vol:'alto',keywords:'international fair entomology biological exhibition trade',color:'rgba(20,15,0,0.3)'},
+                {nm:'🧶 Textilería & Alpaca',pais:'USA, Europa, Japón, Australia, Canadá, UAE',presupuesto:'$100-$3,000',vol:'medio',keywords:'amazon textile alpaca peru handcraft artisan',color:'rgba(25,5,10,0.3)'},
+                {nm:'🌿 Hierbas Medicinales',pais:'USA, Alemania, Japón, China, India, Australia, UK',presupuesto:'$50-$2,000',vol:'alto',keywords:'medicinal herbs natural amazon botanical collection',color:'rgba(5,25,5,0.3)'},
+                {nm:'🍄 Hongos & Setas',pais:'USA, Japón, Alemania, China, Francia, Corea',presupuesto:'$100-$3,000',vol:'alto',keywords:'mushrooms fungi natural collection amazon medicinal',color:'rgba(20,10,0,0.3)'},
+                {nm:'🪵 Maderas Finas',pais:'Alemania, Japón, USA, China, Italia, Suiza',presupuesto:'$200-$10,000',vol:'medio',keywords:'fine wood amazon tropical timber certified luxury',color:'rgba(25,15,0,0.3)'},
+                {nm:'🌸 Flores & Plantas Secas',pais:'Francia, Japón, USA, Holanda, UK, Alemania',presupuesto:'$50-$2,000',vol:'medio',keywords:'dried flowers plants botanical collection decoration',color:'rgba(25,5,20,0.3)'},
+                {nm:'💊 Superalimentos Activos',pais:'USA, UK, Alemania, Australia, Japón, Canadá',presupuesto:'$100-$5,000',vol:'alto',keywords:'superfoods natural supplement amazon active health',color:'rgba(10,25,5,0.3)'},
+                {nm:'🥜 Alimentos Deshidratados',pais:'USA, Europa, Japón, Australia, Canadá, UAE',presupuesto:'$100-$3,000',vol:'medio',keywords:'dehydrated food natural amazon exotic condiments',color:'rgba(20,15,5,0.3)'},
+                {nm:'🔮 Arte en Resina Epóxica',pais:'USA, Japón, UK, Alemania, China, Australia',presupuesto:'$50-$2,000',vol:'medio',keywords:'epoxy resin encapsulated specimen art luxury',color:'rgba(15,5,25,0.3)'},
+                {nm:'🕌 Coleccionistas Dubai & Gulf',pais:'UAE, Qatar, Kuwait, Arabia Saudita, Bahréin, Omán',presupuesto:'$5,000-$500,000',vol:'muy alto',keywords:'dubai gulf luxury collector rare specimen art',color:'rgba(25,20,0,0.3)'},
+                {nm:'🎬 Hollywood & Entertainment',pais:'USA - Los Angeles, New York, Miami',presupuesto:'$1,000-$100,000',vol:'alto',keywords:'hollywood entertainment luxury decoration natural art',color:'rgba(20,5,5,0.3)'},
+                {nm:'🇨🇳 Mercado Asiático Premium',pais:'China, Taiwán, Hong Kong, Singapur, Corea, Japón',presupuesto:'$500-$50,000',vol:'muy alto',keywords:'china asia luxury natural collection biological amuleto',color:'rgba(20,5,5,0.3)'},
+                {nm:'🛍️ Tiendas Lujo & Souvenirs',pais:'Global - aeropuertos, duty free, malls premium',presupuesto:'$200-$10,000',vol:'alto',keywords:'luxury store souvenir natural exotic products',color:'rgba(15,10,20,0.3)'},
+                {nm:'🌍 Mercado Africano',pais:'Sudáfrica, Nigeria, Kenia, Ghana, Marruecos, Egipto',presupuesto:'$100-$5,000',vol:'medio',keywords:'africa natural collection biological art luxury',color:'rgba(20,15,0,0.3)'},
+                {nm:'🌊 Oceanía & Pacífico',pais:'Australia, Nueva Zelanda, Fiji, Papua, Polinesia',presupuesto:'$200-$10,000',vol:'medio',keywords:'australia oceania natural collection biological luxury',color:'rgba(0,15,25,0.3)'},
               ].map((s,i)=>(
                 <div key={i} className="card" style={{background:s.color,border:'1px solid rgba(201,168,76,0.1)',borderRadius:10,padding:14,cursor:'pointer'}} onClick={()=>{setBusquedaCustom(s.keywords);setSeccion('prospectos')}}>
                   <h3 style={{color:'#E8C97A',fontSize:'.78rem',fontWeight:400,marginBottom:4}}>{s.nm}</h3>
                   <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.6rem',marginBottom:4}}>🌍 {s.pais}</p>
                   <p style={{color:'#C9A84C',fontSize:'.72rem',fontWeight:700,marginBottom:6}}>{s.presupuesto}</p>
-                  <span style={{background:s.vol==='muy alto'?'rgba(37,211,102,0.15)':s.vol==='alto'?'rgba(201,168,76,0.15)':'rgba(100,100,100,0.15)',color:s.vol==='muy alto'?'#25D366':s.vol==='alto'?'#C9A84C':'rgba(232,201,122,0.4)',padding:'2px 6px',borderRadius:6,fontSize:'.58rem'}}>{s.vol}</span>
+                  <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+                    <span style={{background:s.vol==='muy alto'?'rgba(37,211,102,0.15)':s.vol==='alto'?'rgba(201,168,76,0.15)':'rgba(100,100,100,0.15)',color:s.vol==='muy alto'?'#25D366':s.vol==='alto'?'#C9A84C':'rgba(232,201,122,0.4)',padding:'2px 6px',borderRadius:6,fontSize:'.58rem'}}>{s.vol}</span>
+                    <span style={{color:'rgba(201,168,76,0.3)',fontSize:'.58rem'}}>👆 buscar</span>
+                  </div>
                 </div>
               ))}
             </div>
