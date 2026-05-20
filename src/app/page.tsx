@@ -2,6 +2,15 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
+
+const VIDEOS_RUBROS: Record<number,string> = {
+  1: 'https://res.cloudinary.com/dv3mvukmq/video/upload/q_auto/cazador_catlogo_mariposas_diurnas_vídeo_mp__j2nfez.mp4',
+  2: 'https://res.cloudinary.com/dv3mvukmq/video/upload/q_auto/cazador_catlogo_mariposas_diurnas_vídeo_mp__j2nfez.mp4',
+  7: 'https://res.cloudinary.com/dv3mvukmq/video/upload/q_auto/videos/cuadros_de_amriposas_nocturna_lsjw74.mp4',
+  11: 'https://res.cloudinary.com/dv3mvukmq/video/upload/q_auto/videos/aciete_y_yerbas_video_de_lqtqku.mp4',
+  16: 'https://res.cloudinary.com/dv3mvukmq/video/upload/q_auto/videos/video_de_Pinturas_artes__1_kxly4a.mp4',
+}
+
 const IDIOMAS = [
   {code:'es',flag:'🇵🇪',nm:'Español'},
   {code:'en',flag:'🇺🇸',nm:'English'},
