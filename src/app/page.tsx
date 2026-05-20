@@ -188,7 +188,7 @@ export default function Home() {
           body: JSON.stringify({ pais: data.country, pagina: 'home', producto: data.destacados?.[0] }),
         }).catch(() => {})
         setGeoProfile(data)
-        if (data.idioma && data.idioma !== 'es') setIdioma(data.idioma)
+        if (data.idioma && !localStorage.getItem('lang')) setIdioma(data.idioma)
       })
       .catch(() => {})
   }, [])
