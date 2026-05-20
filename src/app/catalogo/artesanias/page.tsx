@@ -23,7 +23,13 @@ export default function ArtesaniasPage() {
         .cat-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(201,168,76,0.2)}
         .wa-btn{transition:transform 0.18s ease,box-shadow 0.18s ease}
         .wa-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.4)}
-      `}</style>
+      
+  @media(max-width:768px){
+    .wa-btn{padding:14px 20px!important;fontSize:1rem!important;width:100%!important;display:block!important;textAlign:center!important;marginBottom:8px!important}
+    .pieza-card{flexDirection:column!important}
+    h1{fontSize:1.4rem!important}
+  }
+`}</style>
       <div className="pc" style={{maxWidth:1000,margin:'0 auto'}}>
         <a href="/" style={{color:'#C9A84C',fontSize:'1.2rem',fontWeight:700,textDecoration:'none',display:'inline-block',marginBottom:20,padding:'10px 20px',background:'rgba(201,168,76,0.15)',borderRadius:8,border:'1px solid rgba(201,168,76,0.4)'}}>← Inicio</a>
 

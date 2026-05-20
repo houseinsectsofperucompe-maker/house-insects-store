@@ -22,7 +22,13 @@ export default function NocturnasPage() {
         .back-link:hover{transform:translateX(-4px);color:#E8C97A!important}
         .wa-btn{transition:transform 0.18s ease,box-shadow 0.18s ease}
         .wa-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.4)}
-      `}</style>
+      
+  @media(max-width:768px){
+    .wa-btn{padding:14px 20px!important;fontSize:1rem!important;width:100%!important;display:block!important;textAlign:center!important;marginBottom:8px!important}
+    .pieza-card{flexDirection:column!important}
+    h1{fontSize:1.4rem!important}
+  }
+`}</style>
       <div className="pc" style={{maxWidth:1000,margin:'0 auto'}}>
         <a href="/" className="back-link" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none',display:'block',marginBottom:16}}>Inicio</a>
         <div style={{textAlign:'center',marginBottom:32}}>
