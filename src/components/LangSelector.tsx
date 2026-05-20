@@ -41,7 +41,7 @@ export default function LangSelector() {
 
   const select = (code: string) => {
     setIdioma(code)
-    localStorage.setItem('lang', code)
+    document.cookie = 'lang=' + code + ';path=/;max-age=31536000'
     setShow(false)
     window.dispatchEvent(new CustomEvent('langChange', {detail: code}))
   }
