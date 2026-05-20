@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import CurrencySelector from '@/components/CurrencySelector'
 import Image from 'next/image'
+import T from '@/components/T'
 
 const IDIOMAS = [
   {code:'es',flag:'🇵🇪',nm:'Español'},
@@ -156,8 +157,8 @@ function VistaCatalogo({
       <div style={{position:'absolute',inset:0,background:`linear-gradient(to bottom,rgba(0,0,0,0.2),${cat.colorFondo})`}}/>
       <div style={{position:'relative',zIndex:10,minHeight:'100vh',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',textAlign:'center',padding:'40px'}}>
         <img src={cat.imagen} alt={cat.nombre} className="video-logo" style={{width:150,height:150,borderRadius:'50%',border:'2px solid #C9A84C',objectFit:'cover',marginBottom:20}}/>
-        <h1 className="video-title" style={{fontSize:'clamp(1.8rem,5vw,3.5rem)',fontWeight:400,color:'#E8C97A',marginBottom:12}}>{cat.nombre}</h1>
-        <p style={{fontSize:'1.1rem',color:'rgba(255,255,255,0.8)',marginBottom:32,maxWidth:500,lineHeight:1.8}}>{cat.descripcion}</p>
+        <h1 className="video-title" style={{fontSize:'clamp(1.8rem,5vw,3.5rem)',fontWeight:400,color:'#E8C97A',marginBottom:12}}><T t={cat.nombre}/></h1>
+        <p style={{fontSize:'1.1rem',color:'rgba(255,255,255,0.8)',marginBottom:32,maxWidth:500,lineHeight:1.8}}><T t={cat.descripcion}/></p>
         <div style={{display:'flex',gap:12,flexWrap:'wrap',justifyContent:'center',marginBottom:16}}>
           <a href="https://wa.me/51940699405" target="_blank" rel="noreferrer" className="home-btn home-btn-wa" style={{background:'#25D366',color:'white',padding:'12px 24px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none'}}>💬 +51 940 699 405</a>
           <a href="https://wa.me/51920644433" target="_blank" rel="noreferrer" className="home-btn home-btn-wa" style={{background:'#25D366',color:'white',padding:'12px 24px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none'}}>💬 +51 920 644 433</a>
@@ -269,7 +270,7 @@ export default function Home() {
             <img src={c.imagen} alt={c.nombre} className="cat-img" />
             <div style={{position:'absolute',inset:0,background:'linear-gradient(to top,rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.1) 60%)'}}/>
             <div style={{position:'absolute',bottom:0,left:0,right:0,padding:'20px',textAlign:'center'}}>
-              <h3 className="cat-title" style={{color:'#E8C97A',fontSize:'clamp(.8rem,2vw,.95rem)',fontWeight:400,letterSpacing:'.06em',marginBottom:6}}>{c.nombre}</h3>
+              <h3 className="cat-title" style={{color:'#E8C97A',fontSize:'clamp(.8rem,2vw,.95rem)',fontWeight:400,letterSpacing:'.06em',marginBottom:6}}><T t={c.nombre}/></h3>
               <div className="cat-line" style={{width:25,height:1,background:'#C9A84C',margin:'0 auto 6px'}}/>
               <p className="cat-ver" style={{color:'rgba(255,255,255,0.5)',fontSize:'.68rem'}}>{t.ver}</p>
             </div>
