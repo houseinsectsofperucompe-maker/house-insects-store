@@ -246,8 +246,8 @@ export default function Home() {
         <div style={{display:'flex',gap:10,flexWrap:'wrap',justifyContent:'center',marginBottom:30}}>
           <a href="https://wa.me/51940699405" target="_blank" rel="noreferrer" className="home-btn home-btn-wa" style={{background:'#25D366',color:'white',padding:'10px 20px',borderRadius:4,fontSize:'.8rem',fontWeight:700,textDecoration:'none'}}>💬 +51 940 699 405</a>
           <a href="https://wa.me/51920644433" target="_blank" rel="noreferrer" className="home-btn home-btn-wa" style={{background:'#25D366',color:'white',padding:'10px 20px',borderRadius:4,fontSize:'.8rem',fontWeight:700,textDecoration:'none'}}>💬 +51 920 644 433</a>
-          <a href="mailto:houseinsectsofperu.com.pe@gmail.com" className="home-btn home-btn-email" style={{background:'#1A1209',color:'#C9A84C',border:'1px solid #C9A84C',padding:'10px 20px',borderRadius:4,fontSize:'.8rem',fontWeight:700,textDecoration:'none'}}>✉️ Email 1</a>
-          <a href="mailto:jzalopez02@gmail.com" className="home-btn home-btn-email" style={{background:'#1A1209',color:'#C9A84C',border:'1px solid #C9A84C',padding:'10px 20px',borderRadius:4,fontSize:'.8rem',fontWeight:700,textDecoration:'none'}}>✉️ Email 2</a>
+          <a href="mailto:houseinsectsofperu.com.pe@gmail.com" className="home-btn home-btn-email" style={{background:'#1A1209',color:'#C9A84C',border:'1px solid #C9A84C',padding:'10px 20px',borderRadius:4,fontSize:'.8rem',fontWeight:700,textDecoration:'none'}}><T t="Email 1"/></a>
+          <a href="mailto:jzalopez02@gmail.com" className="home-btn home-btn-email" style={{background:'#1A1209',color:'#C9A84C',border:'1px solid #C9A84C',padding:'10px 20px',borderRadius:4,fontSize:'.8rem',fontWeight:700,textDecoration:'none'}}><T t="Email 2"/></a>
         </div>
         <div style={{width:200,height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',marginBottom:30}}/>
         <h2 style={{fontSize:'.9rem',color:'rgba(232,201,122,0.5)',letterSpacing:'.3em',textTransform:'uppercase',marginBottom:30}}>{t.sel}</h2>
@@ -281,24 +281,24 @@ export default function Home() {
       {/* Footer */}
       <div style={{textAlign:'center',padding:'20px',borderTop:'1px solid rgba(201,168,76,0.15)'}}>
         <div style={{display:'flex',gap:20,justifyContent:'center',flexWrap:'wrap',marginBottom:10}}>
-          <a href="/privacidad" className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>🔒 Privacidad</a>
-          <a href="/terminos"   className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>📋 Términos</a>
-          <a href="/envios"     className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>🚚 Envíos</a>
-          <a href="/contacto"   className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>📞 Contacto</a>
-          <a href="/partidas"   className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>📋 Partidas</a>
-          <a href="/rastreo"    className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>🔍 Rastreo</a>
-          <a href="/banners"    className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>📢 Publicidad</a>
+          <a href="/privacidad" className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}><T t="Privacidad"/></a>
+          <a href="/terminos"   className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}><T t="Términos"/></a>
+          <a href="/envios"     className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}><T t="Envíos"/></a>
+          <a href="/contacto"   className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}><T t="Contacto"/></a>
+          <a href="/partidas"   className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}><T t="Partidas"/></a>
+          <a href="/rastreo"    className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}><T t="Rastreo"/></a>
+          <a href="/banners"    className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}><T t="Publicidad"/></a>
         </div>
 
       <div style={{background:"rgba(0,0,0,0.3)",borderTop:"1px solid rgba(201,168,76,0.15)",padding:"24px 20px",textAlign:"center"}}>
-        <p style={{color:"rgba(201,168,76,0.4)",fontSize:".6rem",letterSpacing:".25em",textTransform:"uppercase",marginBottom:"16px"}}>Certificaciones Oficiales</p>
+        <p style={{color:"rgba(201,168,76,0.4)",fontSize:".6rem",letterSpacing:".25em",textTransform:"uppercase",marginBottom:"16px"}}><T t="Certificaciones Oficiales"/></p>
         <div className="scroll-wrapper"><div className="scroll-track">{[{l:"SERFOR",s:"Reg. Forestal",c:"#2d6a2d",url:"https://www.serfor.gob.pe"},{l:"CITES",s:"Comercio Int.",c:"#1a4a7a",url:"https://cites.org"},{l:"SENASA",s:"Sanidad Agr.",c:"#7a2d1a",url:"https://www.senasa.gob.pe"},{l:"SUNAT",s:"RUC 20447397804",c:"#4a2d7a",url:"https://e-consultaruc.sunat.gob.pe"},{l:"FITOSAN.",s:"Certificado",c:"#2d5a3a",url:"https://www.senasa.gob.pe"},{l:"PROMPEX",s:"Export. Peru",c:"#8a2d00",url:"https://www.promperu.gob.pe"}].map(x=>(
             <a key={x.l} href={x.url||"#"} target="_blank" rel="noreferrer" style={{textDecoration:"none"}}><div className="badge-card" style={{background:x.c+"99",border:"1px solid "+x.c,borderRadius:"8px",padding:"8px 14px",textAlign:"center",minWidth:"80px"}}><p style={{color:"#fff",fontSize:".7rem",fontWeight:700,margin:0}}>{x.l}</p><p style={{color:"rgba(255,255,255,0.6)",fontSize:".55rem",margin:"2px 0"}}>{x.s}</p><img src={"https://api.qrserver.com/v1/create-qr-code/?size=55x55&data="+encodeURIComponent(x.url||x.l)} alt="QR" style={{width:48,height:48,marginTop:4,borderRadius:4,display:"block",margin:"4px auto 0"}}/></div></a>
           ))}
         </div>
       </div>
       <div style={{background:"rgba(0,0,0,0.2)",borderTop:"1px solid rgba(201,168,76,0.1)",padding:"24px 20px",textAlign:"center"}}>
-        <p style={{color:"rgba(201,168,76,0.4)",fontSize:".6rem",letterSpacing:".25em",textTransform:"uppercase",marginBottom:"16px"}}>Pagos y Aseguradoras</p>
+        <p style={{color:"rgba(201,168,76,0.4)",fontSize:".6rem",letterSpacing:".25em",textTransform:"uppercase",marginBottom:"16px"}}><T t="Pagos y Aseguradoras"/></p>
         <div className="scroll-wrapper"><div className="scroll-track" style={{animationDuration:"40s"}}>{[{l:"FIRST BANK",s:"Transferencia",c:"#1a3a6a",i:"🏦",url:"https://www.firstbank.com.pe"},{l:"KATENOS",s:"Billetera",c:"#1a5a3a",i:"💳",url:"https://katenos.com"},{l:"IZIPAY",s:"Tarjetas",c:"#6a1a1a",i:"💰",url:"https://izipay.pe"},{l:"Google Pay",s:"G Pay",c:"#1a4a2a",i:"📱",url:"https://pay.google.com"},{l:"PAYONEER",s:"Internacional",c:"#c44a00",i:"🌐",url:"https://www.payoneer.com"},{l:"WISE",s:"Transfer.",c:"#163300",i:"💸"},{l:"LLOYDS",s:"London",c:"#0a2a5a",i:"🛡️",url:"https://www.lloyds.com"},{l:"SHIP INS.",s:"Maritimo",c:"#0a3a5a",i:"🚢",url:"https://shipinsurance.com"},{l:"INSURTECH",s:"Digital QR",c:"#2a0a5a",i:"📲",url:"https://insurtech.pe"},{l:"ALIPAY",s:"China Pay",c:"#1a6a8a",i:"💙",url:"https://global.alipay.com"},{l:"WECHAT PAY",s:"WeChat Biz",c:"#1a7a2a",i:"💚",url:"https://pay.weixin.qq.com"},{l:"PROMPERU",s:"Export. Peru",c:"#8a1a00",i:"🇵🇪",url:"https://www.promperu.gob.pe"}].map(x=>(<a key={x.l} href={x.url||"#"} target="_blank" rel="noreferrer" style={{textDecoration:"none"}}><div style={{background:x.c+"99",border:"1px solid "+x.c+"99",borderRadius:"8px",padding:"8px 14px",textAlign:"center",minWidth:"80px"}}><p style={{fontSize:"1rem",margin:0}}>{x.i}</p><p style={{color:"#fff",fontSize:".7rem",fontWeight:700,margin:0}}>{x.l}</p><p style={{color:"rgba(255,255,255,0.6)",fontSize:".55rem",margin:"2px 0"}}>{x.s}</p>{x.url&&x.l!=="WISE"?<img src={"https://api.qrserver.com/v1/create-qr-code/?size=55x55&data="+encodeURIComponent(x.url)} alt="QR" style={{width:48,height:48,marginTop:4,borderRadius:4,display:"block",margin:"4px auto 0"}}/>:<p style={{color:"rgba(255,255,255,0.3)",fontSize:".5rem",margin:"4px 0"}}>disponible</p>}</div></a>))}
         </div></div>
       </div>
