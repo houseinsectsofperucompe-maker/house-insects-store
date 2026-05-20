@@ -68,9 +68,7 @@ export default function MaderasPage() {
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · TINGO MARÍA · HUÁNUCO</div>
           <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}><T t="🪵 Maderas Finas, Estuches & Esculturas Talladas"/></h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
-          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
-            Maderas tropicales nativas de la selva de Huánuco. Esculturas místicas amazónicas talladas a mano, estuches de lujo para joyería y marcos premium para coleccionistas. Certificado SERFOR.
-          </p>
+          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}><T t="Maderas tropicales nativas de la selva de Huánuco. Esculturas místicas amazónicas talladas a mano, estuches de lujo para joyería y marcos premium para coleccionistas. Certificado SERFOR."/></p>
           <div style={{marginTop:12,color:'rgba(232,201,122,0.35)',fontSize:'.65rem',letterSpacing:'.15em'}}>
             PARTIDA {partida.codigo} · {partida.desc}
           </div>
@@ -100,7 +98,7 @@ export default function MaderasPage() {
             </div>
             <div style={{width:'100%',height:220,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',marginBottom:14}}>
               <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,objectFit:'contain',opacity:.6,marginBottom:10}}/></a>
-              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem'}}>FOTO PRÓXIMAMENTE</p>
+              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem'}}><T t="FOTO PRÓXIMAMENTE"/></p>
             </div>
             <div style={{marginBottom:12,textAlign:'left'}}>
               <div style={{color:'rgba(232,201,122,0.5)',fontSize:'.68rem',letterSpacing:'.08em',marginBottom:8}}>🪵 TIPO DE MADERA</div>
@@ -116,7 +114,7 @@ export default function MaderasPage() {
               </div>
             </div>
             <div style={{background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:10,marginBottom:12,textAlign:'left'}}>
-              <p style={{color:'#C9A84C',fontSize:'.72rem',fontWeight:700}}>📋 Partida Arancelaria:</p>
+              <p style={{color:'#C9A84C',fontSize:'.72rem',fontWeight:700}}><T t="📋 Partida Arancelaria:"/></p>
               <p style={{color:'#E8C97A',fontSize:'.78rem',fontFamily:'monospace',marginTop:2}}>{partida.codigo}</p>
               <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginTop:2}}>{partida.desc}</p>
             </div>
@@ -137,7 +135,7 @@ export default function MaderasPage() {
               </div>
             ))}
             <div style={{marginTop:16,background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:12}}>
-              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}>📦 Exportación completa:</p>
+              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}><T t="📦 Exportación completa:"/></p>
               <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.68rem',marginTop:4,lineHeight:1.8}}>
                 ✅ Certificado SERFOR<br/>
                 ✅ Guía de remisión forestal<br/>

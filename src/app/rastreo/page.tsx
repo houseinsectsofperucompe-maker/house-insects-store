@@ -1,3 +1,5 @@
+'use client'
+import T from '@/components/T'
 "use client"
 import { useState } from "react"
 export default function RastreoPage() {
@@ -19,8 +21,8 @@ export default function RastreoPage() {
     <div style={{minHeight:"100vh",background:"#1A1209",fontFamily:"Georgia,serif",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"40px",textAlign:"center"}}>
       <a href="/" style={{color:"#C9A84C",fontSize:".8rem",textDecoration:"none",marginBottom:32,display:"block"}}>← Volver al inicio</a>
       <img src="/logo.png" alt="Logo" style={{width:100,height:100,marginBottom:20}}/>
-      <h1 style={{fontSize:"2rem",fontWeight:300,color:"#E8C97A",marginBottom:8}}>Rastrear mi Pedido</h1>
-      <p style={{color:"rgba(232,201,122,0.5)",marginBottom:32}}>Ingresa tu numero de seguimiento</p>
+      <h1 style={{fontSize:"2rem",fontWeight:300,color:"#E8C97A",marginBottom:8}}><T t="Rastrear mi Pedido"/></h1>
+      <p style={{color:"rgba(232,201,122,0.5)",marginBottom:32}}><T t="Ingresa tu numero de seguimiento"/></p>
       <div style={{display:"flex",gap:10,flexWrap:"wrap",justifyContent:"center",marginBottom:16,width:"100%",maxWidth:500}}>
         <select value={courier} onChange={e=>setCourier(e.target.value)} style={{padding:"12px",background:"#2A2010",color:"#E8C97A",border:"1px solid #C9A84C",borderRadius:4}}>
           <option value="exportafacil">⭐ ExportaFácil / SUNAT</option>
@@ -35,7 +37,7 @@ export default function RastreoPage() {
       </div>
       {url && <a href={url} target="_blank" style={{color:"#C9A84C",fontWeight:700,fontSize:"1rem",textDecoration:"none",marginTop:16,display:"block",padding:"14px 28px",background:"rgba(201,168,76,0.1)",border:"1px solid #C9A84C",borderRadius:8}}>📦 Ver estado del envío →</a>}
       <div style={{marginTop:40,padding:"16px 24px",background:"rgba(255,255,255,0.03)",borderRadius:8,border:"1px solid rgba(255,255,255,0.08)",maxWidth:500}}>
-        <p style={{color:"rgba(232,201,122,0.4)",fontSize:".75rem",lineHeight:1.8}}>ExportaFácil es el servicio oficial de SERPOST integrado con SUNAT para exportaciones peruanas · CITES · SERFOR certificado</p>
+        <p style={{color:"rgba(232,201,122,0.4)",fontSize:".75rem",lineHeight:1.8}}><T t="ExportaFácil es el servicio oficial de SERPOST integrado con SUNAT para exportaciones peruanas · CITES · SERFOR certificado"/></p>
       </div>
     </div>
   )

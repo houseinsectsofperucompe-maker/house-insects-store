@@ -40,9 +40,7 @@ export default function ArtesaniasPage() {
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · COLECCIÓN EXCLUSIVA</div>
           <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}><T t="🗿 Peruvian Art & Heritage"/></h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
-          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
-            Piezas exclusivas de la tradición peruana, hechas a mano por maestros artesanos de Ayacucho y plateros tradicionales, utilizando técnicas ancestrales y metales preciosos.
-          </p>
+          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}><T t="Piezas exclusivas de la tradición peruana, hechas a mano por maestros artesanos de Ayacucho y plateros tradicionales, utilizando técnicas ancestrales y metales preciosos."/></p>
           <div style={{marginTop:12,color:'rgba(232,201,122,0.35)',fontSize:'.65rem',letterSpacing:'.15em'}}>
             PARTIDA 9601.90.00.00 · SERFOR · SUNAT · RUC 20447397804
           </div>
@@ -75,8 +73,8 @@ export default function ArtesaniasPage() {
           </div>
           <div style={{width:'100%',maxWidth:400,margin:'0 auto 16px',height:280,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
             <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,objectFit:'contain',opacity:.6,marginBottom:12}}/></a>
-            <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.75rem',letterSpacing:'.1em'}}>CATÁLOGO EN PREPARACIÓN</p>
-            <p style={{color:'rgba(232,201,122,0.25)',fontSize:'.62rem',marginTop:4}}>FOTO PRÓXIMAMENTE</p>
+            <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.75rem',letterSpacing:'.1em'}}><T t="CATÁLOGO EN PREPARACIÓN"/></p>
+            <p style={{color:'rgba(232,201,122,0.25)',fontSize:'.62rem',marginTop:4}}><T t="FOTO PRÓXIMAMENTE"/></p>
           </div>
 
           {/* DESCRIPCION LUJO */}

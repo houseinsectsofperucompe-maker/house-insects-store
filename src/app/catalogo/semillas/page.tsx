@@ -69,9 +69,7 @@ export default function SemillasPage() {
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · BOTÁNICA AMAZÓNICA</div>
           <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}><T t="🌱 Semillas Forestales, Agrícolas & Botánica Decorativa"/></h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
-          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
-            Flores secas, plantas medicinales amazónicas, semillas forestales certificadas y plantones vivos. Certificados SENASA para exportación internacional.
-          </p>
+          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}><T t="Flores secas, plantas medicinales amazónicas, semillas forestales certificadas y plantones vivos. Certificados SENASA para exportación internacional."/></p>
           <div style={{marginTop:12,color:'rgba(232,201,122,0.35)',fontSize:'.65rem',letterSpacing:'.15em'}}>
             PARTIDA {partida.codigo} · {partida.desc}
           </div>
@@ -101,16 +99,16 @@ export default function SemillasPage() {
             </div>
             <div style={{width:'100%',height:240,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',marginBottom:16}}>
               <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,objectFit:'contain',opacity:.6,marginBottom:10}}/></a>
-              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem'}}>FOTO PRÓXIMAMENTE</p>
+              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem'}}><T t="FOTO PRÓXIMAMENTE"/></p>
             </div>
             <div style={{background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:12,marginBottom:12,textAlign:'left'}}>
-              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}>📋 Partida Arancelaria:</p>
+              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}><T t="📋 Partida Arancelaria:"/></p>
               <p style={{color:'#E8C97A',fontSize:'.8rem',fontFamily:'monospace',marginTop:4}}>{partida.codigo}</p>
               <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem',marginTop:2}}>{partida.desc}</p>
             </div>
             {cat==='plantones'&&(
               <div style={{background:'rgba(255,167,38,0.08)',border:'1px solid rgba(255,167,38,0.3)',borderRadius:8,padding:10,marginBottom:12,textAlign:'left'}}>
-                <p style={{color:'#FFA726',fontSize:'.72rem',fontWeight:700}}>⚠️ Control Fitosanitario SENASA obligatorio para plantones vivos</p>
+                <p style={{color:'#FFA726',fontSize:'.72rem',fontWeight:700}}><T t="⚠️ Control Fitosanitario SENASA obligatorio para plantones vivos"/></p>
               </div>
             )}
             <div style={{display:'flex',gap:8,justifyContent:'center',flexWrap:'wrap'}}>
@@ -130,7 +128,7 @@ export default function SemillasPage() {
               </div>
             ))}
             <div style={{marginTop:16,background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:12}}>
-              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}>📦 Exportación completa:</p>
+              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}><T t="📦 Exportación completa:"/></p>
               <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.68rem',marginTop:4,lineHeight:1.8}}>
                 ✅ Certificado SENASA<br/>
                 ✅ Certificado Fitosanitario<br/>

@@ -37,9 +37,7 @@ export default function NocturnasPage() {
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · MAS DE 40 ANOS DE EXPERIENCIA</div>
           <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}><T t="Cuadros de Mariposas Tropicales Naturales"/></h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
-          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
-            Especimenes secos naturales de la Amazonia peruana, montados en marcos de lujo. Personaliza tu cuadro — elige composicion, formato del marco y tipo de proteccion. Certificado SERFOR + CITES.
-          </p>
+          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}><T t="Especimenes secos naturales de la Amazonia peruana, montados en marcos de lujo. Personaliza tu cuadro — elige composicion, formato del marco y tipo de proteccion. Certificado SERFOR + CITES."/></p>
           <div style={{marginTop:12,color:'rgba(232,201,122,0.35)',fontSize:'.65rem',letterSpacing:'.15em'}}>
             PARTIDA 9705.21.00.00 · SERFOR · CITES · RUC 20447397804
           </div>
@@ -53,8 +51,8 @@ export default function NocturnasPage() {
               ))}
             </div>
             <div style={{width:'100%',height:200,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',marginBottom:16}}>
-              <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="sello" style={{width:120,height:120,objectFit:"contain",marginBottom:8}}/></a><p style={{color:"rgba(232,201,122,0.4)",fontSize:".7rem"}}>FOTO PROXIMAMENTE</p>
-              <p style={{color:'rgba(232,201,122,0.2)',fontSize:'.6rem',marginTop:4}}>HOUSE INSECTS OF PERU</p>
+              <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="sello" style={{width:120,height:120,objectFit:"contain",marginBottom:8}}/></a><p style={{color:"rgba(232,201,122,0.4)",fontSize:".7rem"}}><T t="FOTO PROXIMAMENTE"/></p>
+              <p style={{color:'rgba(232,201,122,0.2)',fontSize:'.6rem',marginTop:4}}><T t="HOUSE INSECTS OF PERU"/></p>
             </div>
             <div style={{marginBottom:14}}>
               <div style={{color:'rgba(232,201,122,0.5)',fontSize:'.65rem',letterSpacing:'.08em',marginBottom:8}}>1 COMPOSICION</div>
@@ -115,7 +113,7 @@ export default function NocturnasPage() {
               </div>
             ))}
             <div style={{marginTop:12,background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:12}}>
-              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}>Incluye:</p>
+              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}><T t="Incluye:"/></p>
               <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.68rem',marginTop:4,lineHeight:1.8}}>
                 Certificado SERFOR<br/>
                 Certificado CITES<br/>

@@ -44,9 +44,7 @@ export default function RarezasPage() {
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · COLECCIÓN ÚNICA EN EL MUNDO</div>
           <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}><T t="Rarezas, Freaks & Piezas Únicas"/></h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
-          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
-            Especímenes únicos en el mundo — Gynandromorphs, Freaks, aberraciones cromáticas e híbridos naturales. Piezas para coleccionistas y museos de élite mundial. Precio bajo consulta.
-          </p>
+          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}><T t="Especímenes únicos en el mundo — Gynandromorphs, Freaks, aberraciones cromáticas e híbridos naturales. Piezas para coleccionistas y museos de élite mundial. Precio bajo consulta."/></p>
           <div style={{marginTop:12,color:'rgba(232,201,122,0.35)',fontSize:'.65rem',letterSpacing:'.15em'}}>
             PARTIDA 9705.21.00.00 · SERFOR · CITES · RUC 20447397804
           </div>
@@ -76,11 +74,11 @@ export default function RarezasPage() {
             </div>
             <div style={{width:'100%',height:240,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',marginBottom:16}}>
               <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,objectFit:'contain',opacity:.6,marginBottom:10}}/></a>
-              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem'}}>COLECCIÓN ÚNICA · PRÓXIMAMENTE</p>
+              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem'}}><T t="COLECCIÓN ÚNICA · PRÓXIMAMENTE"/></p>
             </div>
             <div style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:12,marginBottom:16}}>
-              <p style={{color:'#C9A84C',fontSize:'.78rem',fontWeight:700}}>⚠️ Piezas únicas — precio bajo consulta</p>
-              <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.7rem',marginTop:4}}>Cada pieza tiene certificado SERFOR + CITES + documento de autenticidad</p>
+              <p style={{color:'#C9A84C',fontSize:'.78rem',fontWeight:700}}><T t="⚠️ Piezas únicas — precio bajo consulta"/></p>
+              <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.7rem',marginTop:4}}><T t="Cada pieza tiene certificado SERFOR + CITES + documento de autenticidad"/></p>
             </div>
             <div style={{display:'flex',gap:8,justifyContent:'center',flexWrap:'wrap'}}>
               <a href="https://wa.me/51940699405" target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'10px 16px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.78rem'}}>💬 +51 940 699 405</a>
@@ -99,7 +97,7 @@ export default function RarezasPage() {
               </div>
             ))}
             <div style={{marginTop:16,background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:12}}>
-              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}>📋 Documentación incluida:</p>
+              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}><T t="📋 Documentación incluida:"/></p>
               <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.68rem',marginTop:4,lineHeight:1.8}}>
                 ✅ Permiso SERFOR<br/>
                 ✅ Certificado CITES<br/>
