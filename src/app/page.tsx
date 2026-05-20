@@ -106,7 +106,7 @@ const CSS = `
   @keyframes scrollX{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
   .scroll-track{display:flex;animation:scrollX 30s linear infinite;width:max-content;gap:12px;padding:8px 0}
   .scroll-track:hover{animation-play-state:paused}
-  .scroll-wrapper{overflow:hidden;width:100%;padding:0 20px}
+  .scroll-wrapper{overflow:hidden;width:100%;padding:0 20px;display:flex;justify-content:center}
   .badge-card{transition:transform 0.2s ease;display:inline-block}
   .badge-card:hover{transform:translateY(-4px) scale(1.05)}
 `
