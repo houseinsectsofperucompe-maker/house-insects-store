@@ -21,7 +21,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es">
       <head>
-        <script dangerouslySetInnerHTML={{__html:`function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"fa2c62a23e07cbf3fed9e83a12f22bd3"})});`}}/>
+        <link rel="preconnect" href="https://res.cloudinary.com"/>
+        <link rel="preconnect" href="https://api.qrserver.com"/>
+        <link rel="dns-prefetch" href="https://tracker.metricool.com"/>
+        <meta name="baidu-site-verification" content="house-insects-peru"/>
+        <meta name="applicable-device" content="pc,mobile"/>
+        <script defer dangerouslySetInnerHTML={{__html:`(function(){var d=document,s=d.createElement('script');s.src='https://tracker.metricool.com/resources/be.js';s.defer=true;s.onload=function(){beTracker.t({hash:'fa2c62a23e07cbf3fed9e83a12f22bd3'})};d.head.appendChild(s)})();`}}/>
       </head>
       <body style={{fontFamily:"Georgia,serif"}}>
         <LangSelector/>
