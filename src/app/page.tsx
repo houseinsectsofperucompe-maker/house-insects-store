@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect, useRef, useCallback } from 'react'
+import CurrencySelector from '@/components/CurrencySelector'
 import Image from 'next/image'
 
 const IDIOMAS = [
@@ -206,7 +207,8 @@ export default function Home() {
       <style>{CSS}</style>
 
       {/* Selector de idioma */}
-      <div style={{position:'fixed',top:12,right:12,zIndex:999}}>
+      <div style={{position:'fixed',top:12,right:12,zIndex:999,display:'flex',gap:8,alignItems:'center'}}>
+        <CurrencySelector/>
         <button
           onClick={() => setShowIdiomas(s => !s)}
           style={{background:'rgba(26,18,9,0.95)',border:'1px solid rgba(201,168,76,0.4)',color:'#C9A84C',padding:'6px 14px',borderRadius:20,cursor:'pointer',fontSize:'.8rem',fontFamily:'Georgia,serif',display:'flex',alignItems:'center',gap:6}}
