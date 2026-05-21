@@ -219,7 +219,7 @@ export default function Home() {
         {showIdiomas && (
           <div style={{position:'absolute',right:0,top:40,background:'rgba(20,13,5,0.98)',border:'1px solid rgba(201,168,76,0.25)',borderRadius:8,padding:6,maxHeight:320,overflowY:'auto',minWidth:170,boxShadow:'0 8px 32px rgba(0,0,0,0.6)'}}>
             {IDIOMAS.map(i => (
-              <button key={i.code} onClick={() => { setIdioma(i.code); setShowIdiomas(false) }} className="lang-btn"
+              <button key={i.code} onClick={() => { document.cookie = 'lang=' + i.code + ';path=/;max-age=31536000'; setShowIdiomas(false); window.location.reload() }} className="lang-btn"
                 style={{display:'flex',alignItems:'center',gap:8,width:'100%',background:idioma===i.code?'rgba(201,168,76,0.12)':'transparent',border:'none',color:idioma===i.code?'#C9A84C':'rgba(232,201,122,0.55)',padding:'7px 12px',cursor:'pointer',fontSize:'.78rem',textAlign:'left',fontFamily:'Georgia,serif',borderRadius:4}}>
                 <span>{i.flag}</span><span>{i.nm}</span>
               </button>
