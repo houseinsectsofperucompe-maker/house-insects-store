@@ -211,8 +211,8 @@ export default function Page() {
                 <div style={{position:'absolute',inset:0,backgroundImage:'radial-gradient(circle at 30% 30%, rgba(201,168,76,0.1) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(201,168,76,0.06) 0%, transparent 50%)'}}/>
                 <img src="/logo-house-insects-peru.png" className="logo-ani" style={{width:120,height:120,objectFit:'contain',opacity:.8,filter:'drop-shadow(0 4px 20px rgba(201,168,76,0.5))',marginBottom:12,position:'relative',zIndex:1}} onError={(ev)=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>
                 <div style={{width:60,height:1,background:'linear-gradient(to right,transparent,rgba(201,168,76,0.5),transparent)',marginBottom:10,position:'relative',zIndex:1}}/>
-                <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.7rem',letterSpacing:'.15em',position:'relative',zIndex:1}}>FOTO PRÓXIMAMENTE</p>
-                <p style={{color:'rgba(232,201,122,0.25)',fontSize:'.6rem',letterSpacing:'.08em',marginTop:4,position:'relative',zIndex:1}}>HOUSE INSECTS OF PERU</p>
+                <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.7rem',letterSpacing:'.15em',position:'relative',zIndex:1}}><ST t="FOTO PRÓXIMAMENTE"/></p>
+                <p style={{color:'rgba(232,201,122,0.25)',fontSize:'.6rem',letterSpacing:'.08em',marginTop:4,position:'relative',zIndex:1}}><ST t="HOUSE INSECTS OF PERU"/></p>
               </div>
             )}
           </div>
@@ -221,7 +221,7 @@ export default function Page() {
           <div style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:10,padding:14,marginBottom:16}}>
             <div style={{color:'#C9A84C',fontSize:'.7rem',letterSpacing:'.1em',marginBottom:10}}>🖼️ CONFIGURAR CUADRO DE MARIPOSAS</div>
             <div style={{marginBottom:10}}>
-              <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginBottom:6}}>COMPOSICIÓN</div>
+              <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginBottom:6}}><ST t="COMPOSICIÓN"/></div>
               <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
                 {[{id:'individual',nm:' Individual'},{id:'mixto',nm:'🎨 Mixto/Combinado'}].map(o=>(
                   <button key={o.id} onClick={()=>setComposicion(o.id)} style={{padding:'4px 10px',borderRadius:16,cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif',background:composicion===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:composicion===o.id?'#1A1209':'#C9A84C',border:`1px solid ${composicion===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,transition:'all 0.15s ease'}}>{<ST t={o.nm}/>}</button>
@@ -229,7 +229,7 @@ export default function Page() {
               </div>
             </div>
             <div style={{marginBottom:10}}>
-              <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginBottom:6}}>FORMATO DEL MARCO</div>
+              <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginBottom:6}}><ST t="FORMATO DEL MARCO"/></div>
               <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
                 {[{id:'rectangular',nm:'⬛ Rectangular'},{id:'redondo',nm:'⭕ Redondo'},{id:'triangular',nm:'🔺 Triangular'},{id:'cubo',nm:'📦 Cubo 3D'},{id:'cupula',nm:'🔮 Cúpula'},{id:'reloj',nm:'🕐 Tipo Reloj'}].map(o=>(
                   <button key={o.id} onClick={()=>setMarco(o.id)} style={{padding:'4px 10px',borderRadius:16,cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif',background:marco===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:marco===o.id?'#1A1209':'#C9A84C',border:`1px solid ${marco===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,transition:'all 0.15s ease'}}>{<ST t={o.nm}/>}</button>
@@ -237,7 +237,7 @@ export default function Page() {
               </div>
             </div>
             <div>
-              <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginBottom:6}}>TIPO DE PROTECCIÓN</div>
+              <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginBottom:6}}><ST t="TIPO DE PROTECCIÓN"/></div>
               <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
                 {[{id:'normal',nm:'🔲 Cristal Normal',extra:0},{id:'uv',nm:'☀️ Cristal UV Premium',extra:20},{id:'resina',nm:'💎 Resina Epóxica',extra:35}].map(o=>(
                   <button key={o.id} onClick={()=>setVidrio(o.id)} style={{padding:'4px 10px',borderRadius:16,cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif',background:vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:vidrio===o.id?'#1A1209':'#C9A84C',border:`1px solid ${vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,transition:'all 0.15s ease'}}>{<ST t={o.nm}/>}{o.extra>0?` +$${o.extra}`:''}</button>
@@ -259,35 +259,35 @@ export default function Page() {
             </div>
           ))}
           <div style={{display:'flex',justifyContent:'space-between',padding:'6px 0',borderBottom:'1px solid rgba(201,168,76,0.08)',alignItems:'center'}}>
-            <span style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',letterSpacing:'.06em'}}>QUALITY</span>
+            <span style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',letterSpacing:'.06em'}}><ST t="QUALITY"/></span>
             <span style={{display:'flex',alignItems:'center',gap:6}}>
               <span style={{color:'#C9A84C',fontSize:'.78rem',fontWeight:700}}>A1</span>
               <button onClick={()=>setShowQ(true)} className="help-btn" style={{background:'rgba(201,168,76,0.12)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:3,padding:'1px 6px',fontSize:'.65rem',cursor:'pointer',fontFamily:'Georgia,serif'}}>? help</button>
             </span>
           </div>
           <div style={{display:'flex',justifyContent:'space-between',padding:'6px 0',borderBottom:'1px solid rgba(201,168,76,0.08)',alignItems:'center'}}>
-            <span style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',letterSpacing:'.06em'}}>SEX</span>
+            <span style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',letterSpacing:'.06em'}}><ST t="SEX"/></span>
             <span style={{display:'flex',alignItems:'center',gap:6}}>
               <span style={{color:'#E8C97A',fontSize:'.78rem'}}>M or F</span>
               <button onClick={()=>setShowA(true)} className="help-btn" style={{background:'rgba(201,168,76,0.12)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:3,padding:'1px 6px',fontSize:'.65rem',cursor:'pointer',fontFamily:'Georgia,serif'}}>? help</button>
             </span>
           </div>
           <div style={{display:'flex',justifyContent:'space-between',padding:'6px 0',alignItems:'center'}}>
-            <span style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',letterSpacing:'.06em'}}>SIZE RANGE</span>
+            <span style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',letterSpacing:'.06em'}}><ST t="SIZE RANGE"/></span>
             <span style={{color:'#E8C97A',fontSize:'.78rem'}}>— cm</span>
           </div>
         </div>
         <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:12,marginBottom:20}}>
           <div className='stat-card' style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:14}}>
-            <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.6rem',marginBottom:4,letterSpacing:'.06em'}}>PRICE USD</div>
+            <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.6rem',marginBottom:4,letterSpacing:'.06em'}}><ST t="PRICE USD"/></div>
             <div style={{color:'#E8C97A',fontSize:'1.5rem',fontWeight:700}}>${sel.p}</div>
           </div>
           <div className='stat-card' style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:14}}>
-            <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.6rem',marginBottom:4,letterSpacing:'.06em'}}>STOCK</div>
+            <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.6rem',marginBottom:4,letterSpacing:'.06em'}}><ST t="STOCK"/></div>
             <div style={{color:'#E8C97A',fontSize:'1.5rem',fontWeight:700}}>{sel.s}</div>
           </div>
           <div className='stat-card' style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:14}}>
-            <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.6rem',marginBottom:4,letterSpacing:'.06em'}}>QUALITY</div>
+            <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.6rem',marginBottom:4,letterSpacing:'.06em'}}><ST t="QUALITY"/></div>
             <div style={{color:'#7EC87E',fontSize:'1rem',fontWeight:700}}>A1</div>
           </div>
         </div>
@@ -348,7 +348,7 @@ export default function Page() {
                       <div style={{position:'absolute',inset:0,backgroundImage:'radial-gradient(circle at 30% 40%, rgba(201,168,76,0.08) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(201,168,76,0.05) 0%, transparent 50%)'}}/>
                       <img src="/logo-house-insects-peru.png" style={{width:44,height:44,objectFit:'contain',opacity:.6,marginBottom:4,filter:'drop-shadow(0 2px 8px rgba(201,168,76,0.4))'}} onError={(ev)=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>
                       <div style={{width:30,height:1,background:'rgba(201,168,76,0.3)',margin:'3px auto'}}/>
-                      <span style={{color:'rgba(201,168,76,0.4)',fontSize:'.5rem',letterSpacing:'.12em'}}>FOTO PRÓXIMAMENTE</span>
+                      <span style={{color:'rgba(201,168,76,0.4)',fontSize:'.5rem',letterSpacing:'.12em'}}><ST t="FOTO PRÓXIMAMENTE"/></span>
                     </div>
                   )}
                   </div>
