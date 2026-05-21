@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 const cache: Record<string, string> = {}
 
 export default function T({ t }: { t: string }) {
-  const [out, setOut] = useState(t)
+  const [out, setOut] = useState<string | null>(null)
 
   useEffect(() => {
     const lang = document.cookie.split(';').find(c => c.trim().startsWith('lang='))?.split('=')[1] || 'es'
@@ -21,5 +21,5 @@ export default function T({ t }: { t: string }) {
     .catch(() => setOut(t))
   }, [t])
 
-  return <>{out}</>
+  return <>{out ?? t}</>
 }
