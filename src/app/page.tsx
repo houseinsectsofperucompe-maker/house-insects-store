@@ -172,7 +172,7 @@ function VistaCatalogo({
 
 // ── Página principal ──────────────────────────────────────────────────────────
 export default function Home() {
-  const [idioma, setIdioma] = useState('es')
+  const [idioma, setIdioma] = useState(() => { if (typeof window !== 'undefined') return document.cookie.split(';').find(x=>x.trim().startsWith('lang='))?.split('=')[1] || 'es'; return 'es' })
   const [showIdiomas, setShowIdiomas] = useState(false)
   const [activo, setActivo] = useState<number|null>(null)
   const [geoProfile, setGeoProfile] = useState<any>(null)
