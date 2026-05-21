@@ -173,7 +173,6 @@ function VistaCatalogo({
 // ── Página principal ──────────────────────────────────────────────────────────
 export default function Home() {
   const [idioma, setIdioma] = useState('es')
-  const [showIdiomas, setShowIdiomas] = useState(false)
   const [activo, setActivo] = useState<number|null>(null)
   const [geoProfile, setGeoProfile] = useState<any>(null)
 
@@ -197,7 +196,6 @@ export default function Home() {
   const handleVolver = useCallback(() => setActivo(null), [])
 
   const t = TEXTOS[idioma] || TEXTOS['es']
-  const idiomaActual = IDIOMAS.find(i => i.code === idioma)
   const cat = CATALOGOS.find(c => c.id === activo)
 
   if (activo && cat) {
@@ -207,28 +205,6 @@ export default function Home() {
   return (
     <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif'}}>
       <style>{CSS}</style>
-
-      {/* Selector de idioma */}
-      <div style={{position:'fixed',top:12,right:12,zIndex:999,display:'flex',gap:8,alignItems:'center'}}>
-        <CurrencySelector/>
-        <button
-          onClick={() => setShowIdiomas(s => !s)}
-          style={{background:'rgba(26,18,9,0.95)',border:'1px solid rgba(201,168,76,0.4)',color:'#C9A84C',padding:'6px 14px',borderRadius:20,cursor:'pointer',fontSize:'.8rem',fontFamily:'Georgia,serif',display:'flex',alignItems:'center',gap:6}}
-        >
-          <span>{idiomaActual?.flag}</span><span>{idiomaActual?.nm}</span><span style={{fontSize:'.6rem'}}>▾</span>
-        </button>
-        {showIdiomas && (
-          <div style={{position:'absolute',right:0,top:40,background:'rgba(20,13,5,0.98)',border:'1px solid rgba(201,168,76,0.25)',borderRadius:8,padding:6,maxHeight:320,overflowY:'auto',minWidth:170,boxShadow:'0 8px 32px rgba(0,0,0,0.6)'}}>
-            {IDIOMAS.map(i => (
-              <button key={i.code} onClick={() => { document.cookie = 'lang=' + i.code + ';path=/;max-age=31536000'; setShowIdiomas(false); window.location.reload() }} className="lang-btn"
-                style={{display:'flex',alignItems:'center',gap:8,width:'100%',background:idioma===i.code?'rgba(201,168,76,0.12)':'transparent',border:'none',color:idioma===i.code?'#C9A84C':'rgba(232,201,122,0.55)',padding:'7px 12px',cursor:'pointer',fontSize:'.78rem',textAlign:'left',fontFamily:'Georgia,serif',borderRadius:4}}>
-                <span>{i.flag}</span><span>{i.nm}</span>
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
-
       {/* Header */}
       <div style={{display:'flex',flexDirection:'column',alignItems:'center',padding:'50px 20px 30px',textAlign:'center'}}>
         <Image src="/logo-house-insects-peru.png" alt="House Insects of Peru" width={160} height={160} loading="eager" className="home-logo"
