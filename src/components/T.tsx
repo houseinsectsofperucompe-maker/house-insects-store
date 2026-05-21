@@ -5,8 +5,10 @@ const cache: Record<string, string> = {}
 
 export default function T({ t }: { t: string }) {
   const [out, setOut] = useState(t)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     const lang = document.cookie.split(';').find(c => c.trim().startsWith('lang='))?.split('=')[1] || 'es'
     if (lang === 'es') return
     const key = lang + ':' + t
@@ -21,5 +23,5 @@ export default function T({ t }: { t: string }) {
     .catch(() => {})
   }, [t])
 
-  return <>{out}</>
+  return <span suppressHydrationWarning>{mounted ? out : t}</span>
 }
