@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
   const key = idioma + ':' + texto.slice(0, 80)
   if (cache[key]) return NextResponse.json({ traduccion: cache[key] })
   const response = await client.messages.create({
-    model: 'claude-sonnet-4-20250514',
+    model: 'claude-opus-4-6',
     max_tokens: 200,
     messages: [{ role: 'user', content: 'Traduce al idioma "' + idioma + '". Solo el texto traducido sin explicaciones:\n\n' + texto }]
   })
