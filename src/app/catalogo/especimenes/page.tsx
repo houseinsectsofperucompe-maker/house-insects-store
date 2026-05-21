@@ -194,7 +194,7 @@ export default function Page() {
                 color:vista===v?'#1A1209':'#C9A84C',
                 border:`1px solid ${vista===v?'#C9A84C':'rgba(201,168,76,0.2)'}`,
                 transition:'all 0.18s ease',textTransform:'capitalize'
-              }}>{v==='frente'?'📸 Frente':v==='lado'?'📸 Lado':v==='reverso'?'📸 Reverso':'🎥 Video'}</button>
+              }}>{v==='frente'?<><span>📸</span> <ST t='Frente'/></>:v==='lado'?<><span>📸</span> <ST t='Lado'/></>:v==='reverso'?<><span>📸</span> <ST t='Reverso'/></>:<><span>🎥</span> <ST t='Video'/></>}</button>
             ))}
           </div>
           <div style={{width:'100%',maxWidth:420,margin:'0 auto'}}>
@@ -202,7 +202,7 @@ export default function Page() {
             {vista==='video'&&!sel.video&&(
               <div className="sel-img" style={{width:'100%',height:280,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
                 <div style={{fontSize:'2rem',marginBottom:8}}>🎥</div>
-                <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.75rem'}}>Video próximamente</p>
+                <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.75rem'}}><ST t='Video próximamente'/></p>
               </div>
             )}
             {vista!=='video'&&sel.foto&&<img src={sel.foto} alt={sel.n} className="sel-img" style={{width:'100%',height:280,objectFit:'cover',borderRadius:12,border:'2px solid #C9A84C'}}/>}
