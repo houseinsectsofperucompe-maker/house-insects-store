@@ -362,11 +362,11 @@ export default function Page() {
             </div>
             {totalPag>1&&(
               <div style={{display:'flex',gap:5,justifyContent:'center',flexWrap:'wrap',marginTop:20,paddingTop:14,borderTop:'1px solid rgba(201,168,76,0.12)'}}>
-                <button onClick={()=>setPag(p=>Math.max(1,p-1))} disabled={pag===1} className='pag-btn' style={{padding:'5px 10px',background:'rgba(201,168,76,0.08)',color:pag===1?'rgba(201,168,76,0.25)':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:pag===1?'not-allowed':'pointer',fontSize:'.7rem'}}>← Ant</button>
+                <button onClick={()=>setPag(p=>Math.max(1,p-1))} disabled={pag===1} className='pag-btn' style={{padding:'5px 10px',background:'rgba(201,168,76,0.08)',color:pag===1?'rgba(201,168,76,0.25)':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:pag===1?'not-allowed':'pointer',fontSize:'.7rem'}}><ST t="← Ant"/></button>
                 {Array.from({length:Math.min(totalPag,10)},(_,i)=>i+1).map(n=>(
                   <button key={n} onClick={()=>setPag(n)} className='pag-btn' style={{padding:'5px 9px',background:pag===n?'#C9A84C':'rgba(201,168,76,0.08)',color:pag===n?'#1A1209':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:'pointer',fontSize:'.7rem',fontWeight:pag===n?700:400,minWidth:28}}>{n}</button>
                 ))}
-                <button onClick={()=>setPag(p=>Math.min(totalPag,p+1))} disabled={pag===totalPag} className='pag-btn' style={{padding:'5px 10px',background:'rgba(201,168,76,0.08)',color:pag===totalPag?'rgba(201,168,76,0.25)':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:pag===totalPag?'not-allowed':'pointer',fontSize:'.7rem'}}>Sig →</button>
+                <button onClick={()=>setPag(p=>Math.min(totalPag,p+1))} disabled={pag===totalPag} className='pag-btn' style={{padding:'5px 10px',background:'rgba(201,168,76,0.08)',color:pag===totalPag?'rgba(201,168,76,0.25)':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:pag===totalPag?'not-allowed':'pointer',fontSize:'.7rem'}}><ST t="Sig →"/></button>
               </div>
             )}
           </>
