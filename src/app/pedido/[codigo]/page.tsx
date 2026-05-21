@@ -58,6 +58,16 @@ export default function PedidoPage({ params }: { params: { codigo: string } }) {
             <div><p style={{color:'#FF8C42',fontWeight:700,margin:0}}>🟠 Aramex</p><p style={{color:'rgba(255,255,255,0.5)',fontSize:'.75rem',margin:'4px 0 0'}}><ST t='Rastrear envío Aramex'/></p></div>
             <span style={{color:'#C9A84C'}}>→</span>
           </a>
+          <a href='https://www.worldfirst.com' target='_blank' rel='noreferrer'
+            style={{background:'rgba(0,80,40,0.1)',border:'1px solid rgba(0,150,80,0.2)',borderRadius:10,padding:16,textDecoration:'none',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+            <div><p style={{color:'#7EC87E',fontWeight:700,margin:0}}>🌍 WorldFirst</p><p style={{color:'rgba(255,255,255,0.5)',fontSize:'.75rem',margin:'4px 0 0'}}><ST t='Verificar pago internacional'/></p></div>
+            <span style={{color:'#C9A84C'}}>→</span>
+          </a>
+          <a href='https://katenos.com' target='_blank' rel='noreferrer'
+            style={{background:'rgba(0,60,30,0.1)',border:'1px solid rgba(0,120,60,0.2)',borderRadius:10,padding:16,textDecoration:'none',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+            <div><p style={{color:'#7EC87E',fontWeight:700,margin:0}}>💳 Katenos Business</p><p style={{color:'rgba(255,255,255,0.5)',fontSize:'.75rem',margin:'4px 0 0'}}><ST t='Verificar pago Katenos'/></p></div>
+            <span style={{color:'#C9A84C'}}>→</span>
+          </a>
           <a href={'https://www.lloyds.com'} target='_blank' rel='noreferrer'
             style={{background:'rgba(10,42,90,0.3)',border:'1px solid rgba(100,150,255,0.2)',borderRadius:10,padding:16,textDecoration:'none',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
             <div><p style={{color:'#8AB4F8',fontWeight:700,margin:0}}>🛡️ Seguro / Insurance</p><p style={{color:'rgba(255,255,255,0.5)',fontSize:'.75rem',margin:'4px 0 0'}}><ST t='Verificar póliza de seguro'/></p></div>
