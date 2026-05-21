@@ -4,53 +4,7 @@ import CurrencySelector from '@/components/CurrencySelector'
 import Image from 'next/image'
 import ST from '@/components/ST'
 
-const IDIOMAS = [
-  {code:'es',flag:'🇵🇪',nm:'Español'},
-  {code:'en',flag:'🇺🇸',nm:'English'},
-  {code:'de',flag:'🇩🇪',nm:'Deutsch'},
-  {code:'fr',flag:'🇫🇷',nm:'Français'},
-  {code:'pt',flag:'🇧🇷',nm:'Português'},
-  {code:'it',flag:'🇮🇹',nm:'Italiano'},
-  {code:'ja',flag:'🇯🇵',nm:'日本語'},
-  {code:'zh',flag:'🇨🇳',nm:'中文'},
-  {code:'ar',flag:'🇸🇦',nm:'العربية'},
-  {code:'th',flag:'🇹🇭',nm:'ไทย'},
-  {code:'ko',flag:'🇰🇷',nm:'한국어'},
-  {code:'ru',flag:'🇷🇺',nm:'Русский'},
-  {code:'nl',flag:'🇳🇱',nm:'Nederlands'},
-  {code:'pl',flag:'🇵🇱',nm:'Polski'},
-  {code:'sv',flag:'🇸🇪',nm:'Svenska'},
-  {code:'tr',flag:'🇹🇷',nm:'Türkçe'},
-  {code:'vi',flag:'🇻🇳',nm:'Tiếng Việt'},
-  {code:'id',flag:'🇮🇩',nm:'Bahasa'},
-  {code:'da',flag:'🇩🇰',nm:'Dansk'},
-  {code:'fi',flag:'🇫🇮',nm:'Suomi'},
-  {code:'no',flag:'🇳🇴',nm:'Norsk'},
-]
 
-const TEXTOS: Record<string,{sel:string,ver:string}> = {
-  es:{sel:'Selecciona un Catálogo',ver:'Ver colección →'},
-  en:{sel:'Select a Catalog',ver:'View collection →'},
-  de:{sel:'Katalog auswählen',ver:'Kollektion ansehen →'},
-  fr:{sel:'Sélectionner un Catalogue',ver:'Voir la collection →'},
-  pt:{sel:'Selecione um Catálogo',ver:'Ver coleção →'},
-  it:{sel:'Seleziona un Catalogo',ver:'Vedi collezione →'},
-  ja:{sel:'カタログを選択',ver:'コレクションを見る →'},
-  zh:{sel:'选择目录',ver:'查看收藏 →'},
-  ar:{sel:'اختر كتالوج',ver:'عرض المجموعة →'},
-  th:{sel:'เลือกแคตาล็อก',ver:'ดูคอลเลกชัน →'},
-  ko:{sel:'카탈로그 선택',ver:'컬렉션 보기 →'},
-  ru:{sel:'Выберите каталог',ver:'Смотреть коллекцию →'},
-  nl:{sel:'Selecteer een Catalogus',ver:'Collectie bekijken →'},
-  pl:{sel:'Wybierz katalog',ver:'Zobacz kolekcję →'},
-  sv:{sel:'Välj en katalog',ver:'Visa samling →'},
-  tr:{sel:'Katalog Seçin',ver:'Koleksiyonu görüntüle →'},
-  vi:{sel:'Chọn danh mục',ver:'Xem bộ sưu tập →'},
-  id:{sel:'Pilih Katalog',ver:'Lihat koleksi →'},
-  da:{sel:'Vælg et katalog',ver:'Se samling →'},
-  fi:{sel:'Valitse luettelo',ver:'Katso kokoelma →'},
-  no:{sel:'Velg en katalog',ver:'Se samling →'},
-}
 
 const CATALOGOS = [
   { id:1,  nombre:'Especímenes Biológicos Secos',                     descripcion:'Mariposas diurnas · Calidad A1 · CITES certificado',             video:'https://res.cloudinary.com/dv3mvukmq/video/upload/q_auto,f_auto/cazador_catlogo_mariposas_diurnas_vídeo_mp__j2nfez.mp4',                       imagen:'https://res.cloudinary.com/dv3mvukmq/image/upload/logo-house-insects-peru_pvmkud',  colorFondo:'rgba(10,30,10,0.85)',  ruta:'/catalogo/especimenes' },
@@ -163,8 +117,8 @@ function VistaCatalogo({
           <a href="https://wa.me/51940699405" target="_blank" rel="noreferrer" className="home-btn home-btn-wa" style={{background:'#25D366',color:'white',padding:'12px 24px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none'}}>💬 +51 940 699 405</a>
           <a href="https://wa.me/51920644433" target="_blank" rel="noreferrer" className="home-btn home-btn-wa" style={{background:'#25D366',color:'white',padding:'12px 24px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none'}}>💬 +51 920 644 433</a>
         </div>
-        <a href={cat.ruta} className="video-btn-catalogo" style={{background:'#C9A84C',color:'#1A1209',padding:'12px 32px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none',marginBottom:16,display:'inline-block'}}>{t.ver}</a>
-        <button onClick={onVolver} className="video-btn-volver" style={{background:'transparent',border:'1px solid rgba(255,255,255,0.3)',color:'rgba(255,255,255,0.6)',padding:'10px 24px',borderRadius:4,fontSize:'.8rem',cursor:'pointer',marginTop:8}}>← {t.sel}</button>
+        <a href={cat.ruta} className="video-btn-catalogo" style={{background:'#C9A84C',color:'#1A1209',padding:'12px 32px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none',marginBottom:16,display:'inline-block'}}><ST t="Ver colección →"/></a>
+        <button onClick={onVolver} className="video-btn-volver" style={{background:'transparent',border:'1px solid rgba(255,255,255,0.3)',color:'rgba(255,255,255,0.6)',padding:'10px 24px',borderRadius:4,fontSize:'.8rem',cursor:'pointer',marginTop:8}}>← <ST t="Selecciona un Catálogo"/></button>
       </div>
     </div>
   )
@@ -172,7 +126,6 @@ function VistaCatalogo({
 
 // ── Página principal ──────────────────────────────────────────────────────────
 export default function Home() {
-  const [idioma, setIdioma] = useState('es')
   const [activo, setActivo] = useState<number|null>(null)
   const [geoProfile, setGeoProfile] = useState<any>(null)
 
@@ -189,17 +142,12 @@ export default function Home() {
       .catch(() => {})
   }, [])
 
-  useEffect(() => {
-    const lang = document.cookie.split(';').find(x=>x.trim().startsWith('lang='))?.split('=')[1]
-    if (lang && lang !== 'es') setIdioma(lang)
-  }, [])
   const handleVolver = useCallback(() => setActivo(null), [])
 
-  const t = TEXTOS[idioma] || TEXTOS['es']
   const cat = CATALOGOS.find(c => c.id === activo)
 
   if (activo && cat) {
-    return <VistaCatalogo cat={cat} t={t} onVolver={handleVolver} />
+    return <VistaCatalogo cat={cat} onVolver={handleVolver} />
   }
 
   return (
@@ -227,7 +175,7 @@ export default function Home() {
           <a href="mailto:jzalopez02@gmail.com" className="home-btn home-btn-email" style={{background:'#1A1209',color:'#C9A84C',border:'1px solid #C9A84C',padding:'10px 20px',borderRadius:4,fontSize:'.8rem',fontWeight:700,textDecoration:'none'}}>✉️ Email 2</a>
         </div>
         <div style={{width:200,height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',marginBottom:30}}/>
-        <h2 style={{fontSize:'.9rem',color:'rgba(232,201,122,0.5)',letterSpacing:'.3em',textTransform:'uppercase',marginBottom:30}}>{t.sel}</h2>
+        <h2 style={{fontSize:'.9rem',color:'rgba(232,201,122,0.5)',letterSpacing:'.3em',textTransform:'uppercase',marginBottom:30}}><ST t="Selecciona un Catálogo"/></h2>
       </div>
 
       {/* Grid de catálogos — FIX: aspect-ratio en el wrapper, imagen absoluta dentro */}
@@ -249,7 +197,7 @@ export default function Home() {
             <div style={{position:'absolute',bottom:0,left:0,right:0,padding:'20px',textAlign:'center'}}>
               <h3 className="cat-title" style={{color:'#E8C97A',fontSize:'clamp(.8rem,2vw,.95rem)',fontWeight:400,letterSpacing:'.06em',marginBottom:6}}><ST t={c.nombre}/></h3>
               <div className="cat-line" style={{width:25,height:1,background:'#C9A84C',margin:'0 auto 6px'}}/>
-              <p className="cat-ver" style={{color:'rgba(255,255,255,0.5)',fontSize:'.68rem'}}>{t.ver}</p>
+              <p className="cat-ver" style={{color:'rgba(255,255,255,0.5)',fontSize:'.68rem'}}><ST t="Ver colección →"/></p>
             </div>
           </div>
         ))}
