@@ -30,7 +30,7 @@ export default function LangSelector() {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
-    const saved = localStorage.getItem('lang')
+    const saved = document.cookie.split(';').find(x=>x.trim().startsWith('lang='))?.split('=')[1]
     if (saved) setIdioma(saved)
     else {
       const browser = navigator.language.slice(0,2)
@@ -39,11 +39,11 @@ export default function LangSelector() {
     }
   }, [])
 
-  const select = (code: string) => {
+    const select = (code: string) => {
     setIdioma(code)
-    localStorage.setItem('lang', code)
+    document.cookie = 'lang=' + code + ';path=/;max-age=31536000'
     setShow(false)
-    window.dispatchEvent(new CustomEvent('langChange', {detail: code}))
+    window.location.reload()
   }
 
   const actual = IDIOMAS.find(i=>i.code===idioma)
