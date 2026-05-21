@@ -282,13 +282,13 @@ export default function Home() {
       {/* Footer */}
       <div style={{textAlign:'center',padding:'20px',borderTop:'1px solid rgba(201,168,76,0.15)'}}>
         <div style={{display:'flex',gap:20,justifyContent:'center',flexWrap:'wrap',marginBottom:10}}>
-          <a href="/privacidad" className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>🔒 Privacidad</a>
-          <a href="/terminos"   className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>📋 Términos</a>
-          <a href="/envios"     className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>🚚 Envíos</a>
-          <a href="/contacto"   className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>📞 Contacto</a>
-          <a href="/partidas"   className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>📋 Partidas</a>
-          <a href="/rastreo"    className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>🔍 Rastreo</a>
-          <a href="/banners"    className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>📢 Publicidad</a>
+          <a href="/privacidad" className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>🔒 <ST t="Privacidad"/></a>
+          <a href="/terminos"   className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>📋 <ST t="Términos"/></a>
+          <a href="/envios"     className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>🚚 <ST t="Envíos"/></a>
+          <a href="/contacto"   className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>📞 <ST t="Contacto"/></a>
+          <a href="/partidas"   className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>📋 <ST t="Partidas"/></a>
+          <a href="/rastreo"    className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>🔍 <ST t="Rastreo"/></a>
+          <a href="/banners"    className="home-footer-link" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none'}}>📢 <ST t="Publicidad"/></a>
         </div>
 
       <div style={{background:"rgba(0,0,0,0.3)",borderTop:"1px solid rgba(201,168,76,0.15)",padding:"24px 20px",textAlign:"center"}}>
