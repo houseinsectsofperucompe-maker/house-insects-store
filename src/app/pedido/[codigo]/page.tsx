@@ -23,6 +23,16 @@ export default function PedidoPage({ params }: { params: { codigo: string } }) {
             <div><p style={{color:'#8AB4F8',fontWeight:700,margin:0}}>📦 ExportaFácil / SERPOST</p><p style={{color:'rgba(255,255,255,0.5)',fontSize:'.75rem',margin:'4px 0 0'}}><ST t='Rastrear envío'/></p></div>
             <span style={{color:'#C9A84C'}}>→</span>
           </a>
+          <a href={'https://exportafacil.serpost.com.pe/tracking?codigo='+codigo} target='_blank' rel='noreferrer'
+            style={{background:'rgba(0,100,200,0.1)',border:'1px solid rgba(0,150,255,0.3)',borderRadius:10,padding:16,textDecoration:'none',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+            <div><p style={{color:'#8AB4F8',fontWeight:700,margin:0}}>⭐ ExportaFácil / SERPOST</p><p style={{color:'rgba(255,255,255,0.5)',fontSize:'.75rem',margin:'4px 0 0'}}><ST t='Rastrear envío nacional e internacional'/></p></div>
+            <span style={{color:'#C9A84C'}}>→</span>
+          </a>
+          <a href={'https://www.serpost.com.pe/tracking?codigo='+codigo} target='_blank' rel='noreferrer'
+            style={{background:'rgba(0,80,160,0.1)',border:'1px solid rgba(0,120,220,0.3)',borderRadius:10,padding:16,textDecoration:'none',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+            <div><p style={{color:'#8AB4F8',fontWeight:700,margin:0}}>📮 EMS Internacional / SERPOST</p><p style={{color:'rgba(255,255,255,0.5)',fontSize:'.75rem',margin:'4px 0 0'}}><ST t='Rastrear envío EMS'/></p></div>
+            <span style={{color:'#C9A84C'}}>→</span>
+          </a>
           <a href={'https://www.dhl.com/global-en/home/tracking.html?tracking-id='+codigo} target='_blank' rel='noreferrer'
             style={{background:'rgba(255,200,0,0.05)',border:'1px solid rgba(255,200,0,0.2)',borderRadius:10,padding:16,textDecoration:'none',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
             <div><p style={{color:'#FFD700',fontWeight:700,margin:0}}>🚚 DHL Express</p><p style={{color:'rgba(255,255,255,0.5)',fontSize:'.75rem',margin:'4px 0 0'}}><ST t='Rastrear envío DHL'/></p></div>
@@ -36,6 +46,16 @@ export default function PedidoPage({ params }: { params: { codigo: string } }) {
           <a href={'https://www.serfor.gob.pe'} target='_blank' rel='noreferrer'
             style={{background:'rgba(0,100,0,0.1)',border:'1px solid rgba(0,150,0,0.2)',borderRadius:10,padding:16,textDecoration:'none',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
             <div><p style={{color:'#7EC87E',fontWeight:700,margin:0}}>🌿 SERFOR / CITES</p><p style={{color:'rgba(255,255,255,0.5)',fontSize:'.75rem',margin:'4px 0 0'}}><ST t='Verificar certificado forestal'/></p></div>
+            <span style={{color:'#C9A84C'}}>→</span>
+          </a>
+          <a href={'https://www.ups.com/track?tracknum='+codigo} target='_blank' rel='noreferrer'
+            style={{background:'rgba(100,60,0,0.1)',border:'1px solid rgba(150,100,0,0.2)',borderRadius:10,padding:16,textDecoration:'none',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+            <div><p style={{color:'#FFD700',fontWeight:700,margin:0}}>🟤 UPS</p><p style={{color:'rgba(255,255,255,0.5)',fontSize:'.75rem',margin:'4px 0 0'}}><ST t='Rastrear envío UPS'/></p></div>
+            <span style={{color:'#C9A84C'}}>→</span>
+          </a>
+          <a href={'https://www.aramex.com/track/results?ShipmentNumber='+codigo} target='_blank' rel='noreferrer'
+            style={{background:'rgba(200,50,0,0.1)',border:'1px solid rgba(255,80,0,0.2)',borderRadius:10,padding:16,textDecoration:'none',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+            <div><p style={{color:'#FF8C42',fontWeight:700,margin:0}}>🟠 Aramex</p><p style={{color:'rgba(255,255,255,0.5)',fontSize:'.75rem',margin:'4px 0 0'}}><ST t='Rastrear envío Aramex'/></p></div>
             <span style={{color:'#C9A84C'}}>→</span>
           </a>
           <a href={'https://www.lloyds.com'} target='_blank' rel='noreferrer'
