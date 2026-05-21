@@ -179,19 +179,7 @@ export default function Home() {
 
   // FIX: setIdioma declarado antes de usarlo en useEffect
   useEffect(() => {
-    fetch('/api/geoip')
-      .then(r => r.json())
-      .then(data => {
-        fetch('/api/visita', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ pais: data.country, pagina: 'home', producto: data.destacados?.[0] }),
-        }).catch(() => {})
-        setGeoProfile(data)
-        if (data.idioma && data.idioma !== 'es') setIdioma(data.idioma)
-      })
-      .catch(() => {})
-  }, [])
+    }, [])
 
   useEffect(() => {
     const lang = document.cookie.split(';').find(x=>x.trim().startsWith('lang='))?.split('=')[1]
