@@ -103,7 +103,7 @@ function VistaCatalogo({
         muted
         playsInline
         loop
-        preload="auto"
+        preload="none"
         style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',opacity:.65}}
       />
       <div style={{position:'absolute',inset:0,background:`linear-gradient(to bottom,rgba(0,0,0,0.2),${cat.colorFondo})`}}/>
