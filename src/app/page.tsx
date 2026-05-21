@@ -193,6 +193,10 @@ export default function Home() {
       .catch(() => {})
   }, [])
 
+  useEffect(() => {
+    const lang = document.cookie.split(';').find(x=>x.trim().startsWith('lang='))?.split('=')[1]
+    if (lang && lang !== 'es') setIdioma(lang)
+  }, [])
   const handleVolver = useCallback(() => setActivo(null), [])
 
   const t = TEXTOS[idioma] || TEXTOS['es']
