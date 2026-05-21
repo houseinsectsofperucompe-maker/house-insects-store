@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
     if (pendientes.length > 0) {
       const lista = pendientes.map((t:string,i:number) => (i+1)+'. '+t).join('\n')
       const response = await client.messages.create({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-sonnet-4-6',
         max_tokens: 2000,
         messages: [{ role: 'user', content: 'Traduce al idioma "'+idioma+'". Responde SOLO con el mismo formato numerado, sin explicaciones:\n\n'+lista }]
       })
