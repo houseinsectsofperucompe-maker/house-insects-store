@@ -227,7 +227,25 @@ export default function Home() {
         </div></div>
       </div>
       </div>
-        <p style={{color:'rgba(232,201,122,0.25)',fontSize:'.65rem'}}>© 2026 HOUSE INSECTS OF PERU E.I.R.L. · TINGO MARÍA, PERÚ · EXPORTACIÓN MUNDIAL</p>
+        
+      {/* Redes Sociales y Marketplaces */}
+      <div style={{textAlign:'center',padding:'20px',borderTop:'1px solid rgba(201,168,76,0.1)'}}>
+        <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.6rem',letterSpacing:'.3em',marginBottom:16}}>SÍGUENOS · MARKETPLACES</p>
+        <div style={{display:'flex',gap:12,justifyContent:'center',flexWrap:'wrap',marginBottom:12}}>
+          <a href='https://facebook.com' target='_blank' rel='noreferrer' style={{color:'rgba(201,168,76,0.6)',fontSize:'.7rem',textDecoration:'none',padding:'4px 10px',border:'1px solid rgba(201,168,76,0.2)',borderRadius:20}}>📘 Facebook</a>
+          <a href='https://instagram.com' target='_blank' rel='noreferrer' style={{color:'rgba(201,168,76,0.6)',fontSize:'.7rem',textDecoration:'none',padding:'4px 10px',border:'1px solid rgba(201,168,76,0.2)',borderRadius:20}}>📸 Instagram</a>
+          <a href='https://tiktok.com' target='_blank' rel='noreferrer' style={{color:'rgba(201,168,76,0.6)',fontSize:'.7rem',textDecoration:'none',padding:'4px 10px',border:'1px solid rgba(201,168,76,0.2)',borderRadius:20}}>🎵 TikTok</a>
+          <a href='https://linkedin.com' target='_blank' rel='noreferrer' style={{color:'rgba(201,168,76,0.6)',fontSize:'.7rem',textDecoration:'none',padding:'4px 10px',border:'1px solid rgba(201,168,76,0.2)',borderRadius:20}}>💼 LinkedIn</a>
+          <a href='https://flickr.com' target='_blank' rel='noreferrer' style={{color:'rgba(201,168,76,0.6)',fontSize:'.7rem',textDecoration:'none',padding:'4px 10px',border:'1px solid rgba(201,168,76,0.2)',borderRadius:20}}>📷 Flickr</a>
+          <a href='https://blogger.com' target='_blank' rel='noreferrer' style={{color:'rgba(201,168,76,0.6)',fontSize:'.7rem',textDecoration:'none',padding:'4px 10px',border:'1px solid rgba(201,168,76,0.2)',borderRadius:20}}>📝 Blogger</a>
+          <a href='https://etsy.com' target='_blank' rel='noreferrer' style={{color:'rgba(201,168,76,0.6)',fontSize:'.7rem',textDecoration:'none',padding:'4px 10px',border:'1px solid rgba(201,168,76,0.2)',borderRadius:20}}>🛒 Etsy</a>
+          <a href='https://ebay.com' target='_blank' rel='noreferrer' style={{color:'rgba(201,168,76,0.6)',fontSize:'.7rem',textDecoration:'none',padding:'4px 10px',border:'1px solid rgba(201,168,76,0.2)',borderRadius:20}}>🛍️ eBay</a>
+          <a href='https://1688.com' target='_blank' rel='noreferrer' style={{color:'rgba(201,168,76,0.6)',fontSize:'.7rem',textDecoration:'none',padding:'4px 10px',border:'1px solid rgba(201,168,76,0.2)',borderRadius:20}}>🇨🇳 1688</a>
+          <a href='https://alibaba.com' target='_blank' rel='noreferrer' style={{color:'rgba(201,168,76,0.6)',fontSize:'.7rem',textDecoration:'none',padding:'4px 10px',border:'1px solid rgba(201,168,76,0.2)',borderRadius:20}}>🌐 Alibaba</a>
+          <a href='https://global.alipay.com' target='_blank' rel='noreferrer' style={{color:'rgba(201,168,76,0.6)',fontSize:'.7rem',textDecoration:'none',padding:'4px 10px',border:'1px solid rgba(201,168,76,0.2)',borderRadius:20}}>💙 Alipay</a>
+          <a href='https://worldfirst.com' target='_blank' rel='noreferrer' style={{color:'rgba(201,168,76,0.6)',fontSize:'.7rem',textDecoration:'none',padding:'4px 10px',border:'1px solid rgba(201,168,76,0.2)',borderRadius:20}}>🌍 WorldFirst</a>
+        </div>
+      </div><p style={{color:'rgba(232,201,122,0.25)',fontSize:'.65rem'}}>© 2026 HOUSE INSECTS OF PERU E.I.R.L. · TINGO MARÍA, PERÚ · EXPORTACIÓN MUNDIAL</p>
       </div>
     </div>
   )
