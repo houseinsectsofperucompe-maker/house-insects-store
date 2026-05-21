@@ -254,7 +254,7 @@ export default function Page() {
             ['LOCALITY', 'Tingo María, Perú'],
           ].map(([k,v])=>(
             <div key={k} style={{display:'flex',justifyContent:'space-between',padding:'6px 0',borderBottom:'1px solid rgba(201,168,76,0.08)'}}>
-              <span style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',letterSpacing:'.06em'}}>{k}</span>
+              <span style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',letterSpacing:'.06em'}}><ST t={k}/></span>
               <span style={{color:'#E8C97A',fontSize:'.78rem',fontStyle:'italic'}}>{v}</span>
             </div>
           ))}
