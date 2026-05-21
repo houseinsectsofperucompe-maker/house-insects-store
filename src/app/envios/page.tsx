@@ -1,5 +1,4 @@
 'use client'
-import T from '@/components/T'
 export default function EnviosPage() {
   return (
     <div style={{minHeight:'100vh',background:'#1A1209',color:'#E8E0D0',fontFamily:'Georgia,serif',padding:'60px 20px'}}>
@@ -15,10 +14,10 @@ export default function EnviosPage() {
 `}</style>
       <div className="page-content" style={{maxWidth:800,margin:'0 auto'}}>
         <a href="/" className="back-btn" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none',display:'block',marginBottom:32}}>← Volver al inicio</a>
-        <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}><T t="Politica de Envios"/></h1>
+        <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}>Politica de Envios</h1>
         <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'16px 0 32px'}}/>
         <p style={{fontSize:'.9rem',lineHeight:1.9,marginBottom:24}}><strong>House Insects of Peru E.I.R.L.</strong> exporta especimenes biologicos a todo el mundo con documentacion legal completa.</p>
-        <h2 style={{fontSize:'1.1rem',color:'#C9A84C',marginTop:24,marginBottom:16}}><T t="Couriers Internacionales"/></h2>
+        <h2 style={{fontSize:'1.1rem',color:'#C9A84C',marginTop:24,marginBottom:16}}>Couriers Internacionales</h2>
         <div className="courier-card">✈️ <strong>DHL Express</strong> — Europa, Asia, Medio Oriente (3-7 dias)</div>
         <div className="courier-card">✈️ <strong>FedEx International</strong> — USA, Canada, Australia (5-10 dias)</div>
         <div className="courier-card">✈️ <strong>UPS Worldwide</strong> — Todo el mundo (5-12 dias)</div>
@@ -26,12 +25,12 @@ export default function EnviosPage() {
         <div className="courier-card">✈️ <strong>Exporta Facil</strong> — SERPOST · Hasta 30kg · Economico</div>
         <div className="courier-card">✈️ <strong>EMS Internacional</strong> — Express Mail Service · Todo el mundo</div>
         <div className="courier-card">✈️ <strong>SERPOST</strong> — Correo oficial del Peru · Envios postales internacionales</div>
-        <h2 style={{fontSize:'1.1rem',color:'#C9A84C',marginTop:24,marginBottom:8}}><T t="Documentacion Incluida"/></h2>
+        <h2 style={{fontSize:'1.1rem',color:'#C9A84C',marginTop:24,marginBottom:8}}>Documentacion Incluida</h2>
         <p style={{fontSize:'.9rem',lineHeight:1.9,marginBottom:16}}>✅ Certificado CITES<br/>✅ Permiso SERFOR<br/>✅ Factura comercial en ingles/espanol<br/>✅ Declaracion aduanera internacional<br/>✅ Partida arancelaria correcta</p>
-        <h2 style={{fontSize:'1.1rem',color:'#C9A84C',marginTop:24,marginBottom:8}}><T t="Embalaje"/></h2>
-        <p style={{fontSize:'.9rem',lineHeight:1.9,marginBottom:16}}><T t="Cada especimen es embalado individualmente con materiales especializados para garantizar su integridad durante el transporte internacional."/></p>
-        <h2 style={{fontSize:'1.1rem',color:'#C9A84C',marginTop:24,marginBottom:8}}><T t="Exportacion Legal"/></h2>
-        <p style={{fontSize:'.9rem',lineHeight:1.9,marginBottom:16}}><T t="Operamos bajo Ley Amazonica N°27037. Todos nuestros envios cumplen con la normativa CITES Apendice II y III."/></p>
+        <h2 style={{fontSize:'1.1rem',color:'#C9A84C',marginTop:24,marginBottom:8}}>Embalaje</h2>
+        <p style={{fontSize:'.9rem',lineHeight:1.9,marginBottom:16}}>Cada especimen es embalado individualmente con materiales especializados para garantizar su integridad durante el transporte internacional.</p>
+        <h2 style={{fontSize:'1.1rem',color:'#C9A84C',marginTop:24,marginBottom:8}}>Exportacion Legal</h2>
+        <p style={{fontSize:'.9rem',lineHeight:1.9,marginBottom:16}}>Operamos bajo Ley Amazonica N°27037. Todos nuestros envios cumplen con la normativa CITES Apendice II y III.</p>
         <p style={{fontSize:'.9rem',lineHeight:1.9}}>WhatsApp: +51 940 699 405 | +51 920 644 433<br/>houseinsectsofperu.com.pe@gmail.com</p>
       </div>
     </div>

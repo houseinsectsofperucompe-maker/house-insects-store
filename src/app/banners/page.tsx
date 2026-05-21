@@ -1,5 +1,4 @@
 'use client'
-import T from '@/components/T'
 import { useState } from 'react'
 
 const BANNERS = [
@@ -44,10 +43,10 @@ export default function BannersPage() {
         <a href="/" className="back-btn" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none',display:'block',marginBottom:24}}>← Volver al inicio</a>
         <div className="fade-up" style={{textAlign:'center',marginBottom:40}}>
           <img src="/logo-house-insects-peru.png" style={{width:100,height:100,objectFit:'contain',marginBottom:16,borderRadius:'50%',border:'2px solid rgba(201,168,76,0.4)'}}/>
-          <h1 style={{fontSize:'clamp(1.5rem,4vw,2.5rem)',fontWeight:300,color:'#E8C97A',marginBottom:8}}><T t="Espacios Publicitarios"/></h1>
+          <h1 style={{fontSize:'clamp(1.5rem,4vw,2.5rem)',fontWeight:300,color:'#E8C97A',marginBottom:8}}>Espacios Publicitarios</h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
           <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',maxWidth:600,margin:'0 auto',lineHeight:1.8}}>Alquila un espacio en <strong style={{color:'#C9A84C'}}>houseinsectsofperu.com</strong> y llega a coleccionistas, museos y científicos de todo el mundo.</p>
-          <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.7rem',marginTop:8}}><T t="Renovación automática · Pago en USD · RUC 20447397804"/></p>
+          <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.7rem',marginTop:8}}>Renovación automática · Pago en USD · RUC 20447397804</p>
         </div>
         <div style={{display:'flex',gap:10,justifyContent:'center',marginBottom:36,flexWrap:'wrap'}}>
           {PLANES.map(p=>(
@@ -66,13 +65,13 @@ export default function BannersPage() {
                 <span style={{color:'#C9A84C',fontSize:'1.8rem',fontWeight:700}}>${b.precios[plan as keyof typeof b.precios]}</span>
                 <span style={{color:'rgba(201,168,76,0.4)',fontSize:'.7rem'}}>USD / {PLANES.find(p=>p.id===plan)?.label}</span>
               </div>
-              {seleccionado===b.id&&<div style={{marginTop:16,padding:'8px 12px',background:'rgba(201,168,76,0.1)',borderRadius:6,border:'1px solid rgba(201,168,76,0.2)'}}><p style={{color:'#C9A84C',fontSize:'.72rem'}}><T t="✅ Seleccionado"/></p></div>}
+              {seleccionado===b.id&&<div style={{marginTop:16,padding:'8px 12px',background:'rgba(201,168,76,0.1)',borderRadius:6,border:'1px solid rgba(201,168,76,0.2)'}}><p style={{color:'#C9A84C',fontSize:'.72rem'}}>✅ Seleccionado</p></div>}
             </div>
           ))}
         </div>
         {seleccionado&&banner&&(
           <div className="fade-up" style={{background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:12,padding:24,textAlign:'center',marginBottom:32}}>
-            <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.15em',marginBottom:8}}><T t="TU SELECCIÓN"/></p>
+            <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.15em',marginBottom:8}}>TU SELECCIÓN</p>
             <h3 style={{color:'#E8C97A',fontSize:'1.2rem',fontWeight:400,marginBottom:4}}>{banner.icon} {banner.nombre}</h3>
             <p style={{color:'#C9A84C',fontSize:'2rem',fontWeight:700,marginBottom:4}}>${precio} USD</p>
             <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.75rem',marginBottom:20}}>{PLANES.find(p=>p.id===plan)?.label} · Renovable automáticamente</p>

@@ -1,5 +1,4 @@
 'use client'
-import T from '@/components/T'
 export default function PartidasPage() {
   const PARTIDAS = [
     { rubro:' Especímenes Biológicos Secos', partida:'9705.00.00.00', entidad:'SERFOR + CITES', drawback:'Sí', senasa:'No' },
@@ -32,16 +31,16 @@ export default function PartidasPage() {
       `}</style>
       <div className="page-content" style={{maxWidth:1100,margin:'0 auto'}}>
         <a href="/" className="back-btn" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none',display:'block',marginBottom:32}}>← Volver al inicio</a>
-        <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}><T t="📋 Partidas Arancelarias"/></h1>
-        <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.75rem',letterSpacing:'.1em',marginBottom:8}}><T t="HOUSE INSECTS OF PERU E.I.R.L. · RUC 20447397804 · RÉGIMEN MYPE · LEY AMAZÓNICA N°27037"/></p>
+        <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}>📋 Partidas Arancelarias</h1>
+        <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.75rem',letterSpacing:'.1em',marginBottom:8}}>HOUSE INSECTS OF PERU E.I.R.L. · RUC 20447397804 · RÉGIMEN MYPE · LEY AMAZÓNICA N°27037</p>
         <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'16px 0 32px'}}/>
         <div style={{overflowX:'auto'}}>
           <div style={{display:'grid',gridTemplateColumns:'2fr 1.2fr 1.2fr 0.5fr 0.5fr',gap:8,padding:'8px',background:'rgba(201,168,76,0.1)',borderRadius:8,marginBottom:8,fontSize:'.7rem',color:'#C9A84C',letterSpacing:'.08em'}}>
-            <span><T t="RUBRO"/></span>
-            <span><T t="PARTIDA ARANCELARIA"/></span>
-            <span><T t="ENTIDAD REGULADORA"/></span>
-            <span><T t="DRAWBACK"/></span>
-            <span><T t="SENASA"/></span>
+            <span>RUBRO</span>
+            <span>PARTIDA ARANCELARIA</span>
+            <span>ENTIDAD REGULADORA</span>
+            <span>DRAWBACK</span>
+            <span>SENASA</span>
           </div>
           {PARTIDAS.map((p,i)=>(
             <div key={i} className="part-row">
