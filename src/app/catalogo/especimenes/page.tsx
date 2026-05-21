@@ -219,7 +219,7 @@ export default function Page() {
         </div>
         {ord==='Lepidoptera Diurnae'&&(
           <div style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:10,padding:14,marginBottom:16}}>
-            <div style={{color:'#C9A84C',fontSize:'.7rem',letterSpacing:'.1em',marginBottom:10}}>🖼️ CONFIGURAR CUADRO DE MARIPOSAS</div>
+            <div style={{color:'#C9A84C',fontSize:'.7rem',letterSpacing:'.1em',marginBottom:10}}><ST t="🖼️ CONFIGURAR CUADRO DE MARIPOSAS"/></div>
             <div style={{marginBottom:10}}>
               <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginBottom:6}}><ST t="COMPOSICIÓN"/></div>
               <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
