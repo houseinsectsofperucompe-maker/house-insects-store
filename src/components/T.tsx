@@ -8,7 +8,7 @@ export default function T({ t }: { t: string }) {
 
   useEffect(() => {
     const lang = document.cookie.split(';').find(c => c.trim().startsWith('lang='))?.split('=')[1] || 'es'
-    if (lang === 'es') { setOut(t); return }
+    if (lang === 'es') return
     const key = lang + ':' + t
     if (cache[key]) { setOut(cache[key]); return }
     fetch('/api/traducir', {
@@ -18,7 +18,7 @@ export default function T({ t }: { t: string }) {
     })
     .then(r => r.json())
     .then(d => { cache[key] = d.traduccion; setOut(d.traduccion) })
-    .catch(() => setOut(t))
+    .catch(() => {})
   }, [t])
 
   return <>{out}</>
