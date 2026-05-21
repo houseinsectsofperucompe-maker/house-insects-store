@@ -1,5 +1,4 @@
 'use client'
-import T from '@/components/T'
 import { useState } from 'react'
 type E = { n:string; p:number; s:number; foto?:string; video?:string }
 type F = { id:string; nm:string; e:E[] }
@@ -224,7 +223,7 @@ export default function Page() {
               <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginBottom:6}}>COMPOSICIÓN</div>
               <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
                 {[{id:'individual',nm:' Individual'},{id:'mixto',nm:'🎨 Mixto/Combinado'}].map(o=>(
-                  <button key={o.id} onClick={()=>setComposicion(o.id)} style={{padding:'4px 10px',borderRadius:16,cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif',background:composicion===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:composicion===o.id?'#1A1209':'#C9A84C',border:`1px solid ${composicion===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,transition:'all 0.15s ease'}}>{<T t={o.nm}/>}</button>
+                  <button key={o.id} onClick={()=>setComposicion(o.id)} style={{padding:'4px 10px',borderRadius:16,cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif',background:composicion===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:composicion===o.id?'#1A1209':'#C9A84C',border:`1px solid ${composicion===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,transition:'all 0.15s ease'}}>{o.nm}</button>
                 ))}
               </div>
             </div>
@@ -232,7 +231,7 @@ export default function Page() {
               <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginBottom:6}}>FORMATO DEL MARCO</div>
               <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
                 {[{id:'rectangular',nm:'⬛ Rectangular'},{id:'redondo',nm:'⭕ Redondo'},{id:'triangular',nm:'🔺 Triangular'},{id:'cubo',nm:'📦 Cubo 3D'},{id:'cupula',nm:'🔮 Cúpula'},{id:'reloj',nm:'🕐 Tipo Reloj'}].map(o=>(
-                  <button key={o.id} onClick={()=>setMarco(o.id)} style={{padding:'4px 10px',borderRadius:16,cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif',background:marco===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:marco===o.id?'#1A1209':'#C9A84C',border:`1px solid ${marco===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,transition:'all 0.15s ease'}}>{<T t={o.nm}/>}</button>
+                  <button key={o.id} onClick={()=>setMarco(o.id)} style={{padding:'4px 10px',borderRadius:16,cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif',background:marco===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:marco===o.id?'#1A1209':'#C9A84C',border:`1px solid ${marco===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,transition:'all 0.15s ease'}}>{o.nm}</button>
                 ))}
               </div>
             </div>
@@ -240,7 +239,7 @@ export default function Page() {
               <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.62rem',marginBottom:6}}>TIPO DE PROTECCIÓN</div>
               <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
                 {[{id:'normal',nm:'🔲 Cristal Normal',extra:0},{id:'uv',nm:'☀️ Cristal UV Premium',extra:20},{id:'resina',nm:'💎 Resina Epóxica',extra:35}].map(o=>(
-                  <button key={o.id} onClick={()=>setVidrio(o.id)} style={{padding:'4px 10px',borderRadius:16,cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif',background:vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:vidrio===o.id?'#1A1209':'#C9A84C',border:`1px solid ${vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,transition:'all 0.15s ease'}}>{<T t={o.nm}/>}{o.extra>0?` +$${o.extra}`:''}</button>
+                  <button key={o.id} onClick={()=>setVidrio(o.id)} style={{padding:'4px 10px',borderRadius:16,cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif',background:vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:vidrio===o.id?'#1A1209':'#C9A84C',border:`1px solid ${vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,transition:'all 0.15s ease'}}>{o.nm}{o.extra>0?` +$${o.extra}`:''}</button>
                 ))}
               </div>
             </div>
@@ -308,7 +307,7 @@ export default function Page() {
       <div style={{maxWidth:1200,margin:'0 auto'}}>
         <div style={{textAlign:'center',marginBottom:20}}>
           <img src="/logo-house-insects-peru.png" className="logo-ani" style={{width:80,height:80,marginBottom:10,objectFit:'contain',cursor:'pointer'}} onError={(ev)=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>
-          <h1 style={{fontSize:'1.6rem',fontWeight:300,color:'#E8C97A',marginBottom:4}}><T t="Especimenes Biologicos Secos"/></h1>
+          <h1 style={{fontSize:'1.6rem',fontWeight:300,color:'#E8C97A',marginBottom:4}}>Especimenes Biologicos Secos</h1>
           <p style={{color:'rgba(232,201,122,0.3)',fontSize:'.7rem',letterSpacing:'.08em'}}>HOUSE INSECTS OF PERU · AMAZONIA · SERFOR · CITES · RUC 20447397804</p>
         </div>
         <style>{`
@@ -327,7 +326,7 @@ export default function Page() {
         <div style={{display:'flex',gap:3,flexWrap:'wrap',justifyContent:'center',marginBottom:14,padding:'8px',background:'rgba(201,168,76,0.03)',borderRadius:8,border:'1px solid rgba(201,168,76,0.08)'}}>
           {catAct.f.map(f=>(
             <button key={f.id} onClick={()=>{setFid(f.id);setQ('');setPag(1)}} className="fam-btn" style={{padding:'4px 10px',background:fid===f.id?'#C9A84C':'transparent',color:fid===f.id?'#1A1209':'rgba(201,168,76,0.6)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:12,fontSize:'.65rem',cursor:'pointer',fontStyle:'italic',fontWeight:fid===f.id?700:400}}>
-              {<T t={f.nm}/>}{f.e.length>0?` (${f.e.length})`:''}</button>
+              {f.nm}{f.e.length>0?` (${f.e.length})`:''}</button>
           ))}
         </div>
         <div style={{textAlign:'center',marginBottom:14}}>

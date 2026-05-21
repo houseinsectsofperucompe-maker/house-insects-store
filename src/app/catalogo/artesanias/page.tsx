@@ -1,5 +1,4 @@
 'use client'
-import T from '@/components/T'
 import { useState } from 'react'
 
 export default function ArtesaniasPage() {
@@ -38,7 +37,7 @@ export default function ArtesaniasPage() {
         <div style={{textAlign:'center',marginBottom:32}}>
           <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,marginBottom:12,objectFit:'contain'}}/></a>
           <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · COLECCIÓN EXCLUSIVA</div>
-          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}><T t="🗿 Peruvian Art & Heritage"/></h1>
+          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}>🗿 Peruvian Art & Heritage</h1>
           <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
           <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
             Piezas exclusivas de la tradición peruana, hechas a mano por maestros artesanos de Ayacucho y plateros tradicionales, utilizando técnicas ancestrales y metales preciosos.
@@ -56,7 +55,7 @@ export default function ArtesaniasPage() {
               background:cat===c.id?'#C9A84C':'rgba(201,168,76,0.08)',
               color:cat===c.id?'#1A1209':'#C9A84C',
               border:`1px solid ${cat===c.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-            }}>{<T t={c.nm}/>}</button>
+            }}>{c.nm}</button>
           ))}
         </div>
 
@@ -93,8 +92,8 @@ export default function ArtesaniasPage() {
               <div key={p.nm} style={{display:'flex',gap:10,alignItems:'center',marginBottom:10,padding:'8px',borderRadius:6,background:'rgba(201,168,76,0.04)'}}>
                 <span style={{fontSize:'1.3rem'}}>{p.icon}</span>
                 <div>
-                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{<T t={p.nm}/>}</div>
-                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{<T t={p.desc}/>}</div>
+                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{p.nm}</div>
+                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{p.desc}</div>
                 </div>
               </div>
             ))}
