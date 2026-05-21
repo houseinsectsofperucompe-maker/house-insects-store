@@ -99,7 +99,7 @@ function VistaCatalogo({
       {/* UN solo video, sin loop, sin autoPlay declarativo */}
       <video
         ref={videoRef}
-        src={cat.video} poster={cat.poster}
+        src={cat.video} poster={cat.poster} poster={cat.poster}
         muted
         playsInline
         loop
