@@ -115,7 +115,7 @@ export default function NocturnasPage() {
               </div>
             ))}
             <div style={{marginTop:12,background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:12}}>
-              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}>Incluye:</p>
+              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}><ST t="Incluye:"/></p>
               <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.68rem',marginTop:4,lineHeight:1.8}}>
                 Certificado SERFOR<br/>
                 Certificado CITES<br/>
