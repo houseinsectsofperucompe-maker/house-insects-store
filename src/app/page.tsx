@@ -68,9 +68,11 @@ const CSS = `
 // ── Vista de catálogo individual ──────────────────────────────────────────────
 function VistaCatalogo({
   cat,
+  t,
   onVolver,
 }: {
   cat: typeof CATALOGOS[0]
+  t: { sel: string; ver: string }
   onVolver: () => void
 }) {
   const videoRef = useRef<HTMLVideoElement>(null)
