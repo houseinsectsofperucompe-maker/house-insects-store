@@ -14,26 +14,32 @@ function setCache(key: string, val: string) {
   try { localStorage.setItem(key, val) } catch {}
 }
 
+function getLang() {
+  return document.cookie.split(';').find(c => c.trim().startsWith('lang='))?.split('=')[1] || 'es'
+}
+
+async function translate(t: string, lang: string): Promise<string> {
+  const key = 'tr:' + lang + ':' + t
+  const cached = getCache(key)
+  if (cached) return cached
+  try {
+    const url = 'https://api.mymemory.translated.net/get?q=' + encodeURIComponent(t) + '&langpair=es|' + lang
+    const d = await fetch(url).then(r => r.json())
+    if (d.responseStatus === 200) {
+      setCache(key, d.responseData.translatedText)
+      return d.responseData.translatedText
+    }
+  } catch {}
+  return t
+}
+
 export default function ST({ t }: { t: string }) {
   const [out, setOut] = useState(t)
 
   useEffect(() => {
-    const lang = document.cookie.split(';').find(c => c.trim().startsWith('lang='))?.split('=')[1] || 'es'
-    if (lang === 'es') return
-    const key = 'tr:' + lang + ':' + t
-    const cached = getCache(key)
-    if (cached) { setOut(cached); return }
-    const url = 'https://api.mymemory.translated.net/get?q=' + encodeURIComponent(t) + '&langpair=es|' + lang
-    fetch(url)
-      .then(r => r.json())
-      .then(d => {
-        if (d.responseStatus === 200) {
-          setCache(key, d.responseData.translatedText)
-          setOut(d.responseData.translatedText)
-        }
-      })
-      .catch(() => {})
+    const lang = getLang()
+    if (lang !== 'es') translate(t, lang).then(setOut)
   }, [t])
 
-  return <>{out}</>
+  return <span suppressHydrationWarning>{out}</span>
 }
