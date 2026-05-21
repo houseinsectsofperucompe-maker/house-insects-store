@@ -331,12 +331,12 @@ export default function Page() {
           ))}
         </div>
         <div style={{textAlign:'center',marginBottom:14}}>
-          <input value={q} onChange={e=>{setQ(e.target.value);setPag(1)}} placeholder={`Buscar en ${fid}...`} style={{width:'100%',maxWidth:340,padding:'8px 14px',background:'#2A2010',color:'#E8C97A',border:'1px solid #C9A84C',borderRadius:8,fontSize:'.8rem',outline:'none'}}/>
+          <input value={q} onChange={e=>{setQ(e.target.value);setPag(1)}} placeholder={useTranslate(`Buscar en ${fid}...`)} style={{width:'100%',maxWidth:340,padding:'8px 14px',background:'#2A2010',color:'#E8C97A',border:'1px solid #C9A84C',borderRadius:8,fontSize:'.8rem',outline:'none'}}/>
         </div>
         {filtrados.length>0?(
           <>
             <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',textAlign:'center',marginBottom:10}}>
-              Mostrando {(pag-1)*POR_PAG+1}–{Math.min(pag*POR_PAG,filtrados.length)} de {filtrados.length} especies · Página {pag} de {totalPag}
+              {useTranslate('Mostrando')} {(pag-1)*POR_PAG+1}–{Math.min(pag*POR_PAG,filtrados.length)} {useTranslate('de')} {filtrados.length} {useTranslate('especies')} · {useTranslate('Página')} {pag} {useTranslate('de')} {totalPag}
             </div>
             <style>{`.esp-card{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.12);border-radius:9px;padding:10px;cursor:pointer;text-align:left;font-family:Georgia,serif;transition:transform 0.18s ease,border-color 0.18s ease,background 0.18s ease,box-shadow 0.18s ease}.esp-card:hover{transform:translateY(-5px) scale(1.04);border-color:rgba(201,168,76,0.55);background:rgba(201,168,76,0.11);box-shadow:0 10px 28px rgba(0,0,0,0.45)}.esp-card img{transition:opacity 0.18s ease}.esp-card:hover img{opacity:0.9}`}</style>
             <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(155px,1fr))',gap:7}}>
