@@ -115,8 +115,8 @@ function VistaCatalogo({
           <a href="https://wa.me/51940699405" target="_blank" rel="noreferrer" className="home-btn home-btn-wa" style={{background:'#25D366',color:'white',padding:'12px 24px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none'}}>💬 +51 940 699 405</a>
           <a href="https://wa.me/51920644433" target="_blank" rel="noreferrer" className="home-btn home-btn-wa" style={{background:'#25D366',color:'white',padding:'12px 24px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none'}}>💬 +51 920 644 433</a>
         </div>
-        <a href={cat.ruta} className="video-btn-catalogo" style={{background:'#C9A84C',color:'#1A1209',padding:'12px 32px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none',marginBottom:16,display:'inline-block'}}><ST t="Ver colección →"/></a>
-        <button onClick={onVolver} className="video-btn-volver" style={{background:'transparent',border:'1px solid rgba(255,255,255,0.3)',color:'rgba(255,255,255,0.6)',padding:'10px 24px',borderRadius:4,fontSize:'.8rem',cursor:'pointer',marginTop:8}}>← <ST t="Selecciona un Catálogo"/></button>
+        <a href={cat.ruta} className="video-btn-catalogo" style={{background:'#C9A84C',color:'#1A1209',padding:'12px 32px',borderRadius:4,fontSize:'.9rem',fontWeight:700,textDecoration:'none',marginBottom:16,display:'inline-block'}}><ST t="Ver su Catálogo o Productos →"/></a>
+        <button onClick={onVolver} className="video-btn-volver" style={{background:'transparent',border:'1px solid rgba(255,255,255,0.3)',color:'rgba(255,255,255,0.6)',padding:'10px 24px',borderRadius:4,fontSize:'.8rem',cursor:'pointer',marginTop:8}}>← <ST t="Seleccione su Categoría"/></button>
       </div>
     </div>
   )
@@ -173,7 +173,7 @@ export default function Home() {
           <a href="mailto:jzalopez02@gmail.com" className="home-btn home-btn-email" style={{background:'#1A1209',color:'#C9A84C',border:'1px solid #C9A84C',padding:'10px 20px',borderRadius:4,fontSize:'.8rem',fontWeight:700,textDecoration:'none'}}>✉️ Email 2</a>
         </div>
         <div style={{width:200,height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',marginBottom:30}}/>
-        <h2 style={{fontSize:'.9rem',color:'rgba(232,201,122,0.5)',letterSpacing:'.3em',textTransform:'uppercase',marginBottom:30}}><ST t="Selecciona un Catálogo"/></h2>
+        <h2 style={{fontSize:'.9rem',color:'rgba(232,201,122,0.5)',letterSpacing:'.3em',textTransform:'uppercase',marginBottom:30}}><ST t="Seleccione su Categoría"/></h2>
       </div>
 
       {/* Grid de catálogos — FIX: aspect-ratio en el wrapper, imagen absoluta dentro */}
@@ -195,7 +195,7 @@ export default function Home() {
             <div style={{position:'absolute',bottom:0,left:0,right:0,padding:'20px',textAlign:'center'}}>
               <h3 className="cat-title" style={{color:'#E8C97A',fontSize:'clamp(.8rem,2vw,.95rem)',fontWeight:400,letterSpacing:'.06em',marginBottom:6}}><ST t={c.nombre}/></h3>
               <div className="cat-line" style={{width:25,height:1,background:'#C9A84C',margin:'0 auto 6px'}}/>
-              <p className="cat-ver" style={{color:'rgba(255,255,255,0.5)',fontSize:'.68rem'}}><ST t="Ver colección →"/></p>
+              <p className="cat-ver" style={{color:'rgba(255,255,255,0.5)',fontSize:'.68rem'}}><ST t="Ver su Catálogo o Productos →"/></p>
             </div>
           </div>
         ))}
