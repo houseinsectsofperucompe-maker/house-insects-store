@@ -43,7 +43,7 @@ if(!courier){setError('Selecciona un courier');return}
 setLoading(true);setError('')
 try{const r=await fetch('/api/izipay/create-payment',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({amount:total,customerEmail:email,customerName:nombre,currency:'USD'})})
 const d=await r.json()
-if(d.success)onPagar({items,total,courier,seguro,email})
+if(d.formToken){setFormToken(d.formToken);setPublicKey(d.publicKey||'')}else if(d.success)onPagar({items,total,courier,seguro,email})
 else setError(d.error||'Error al procesar')}
 catch{setError('Error de conexión')}finally{setLoading(false)}}
 return(<>
