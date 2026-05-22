@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: 'Amazonian Art & Bio-Trade · Especimenes biologicos · Joyeria natural · Artesanias amazonicas',
     url: 'https://houseinsectsofperu.com',
     siteName: 'House Insects of Peru',
-    images: [{ url: 'https://res.cloudinary.com/dv3mvukmq/image/upload/w_1200,h_630,c_fill/logo-house-insects-peru_pvmkud' }],
+    images: [{ url: 'https://www.houseinsectsofperu.com/logo-house-insects-peru.png' }],
     locale: 'es_PE',
     type: 'website',
   },
