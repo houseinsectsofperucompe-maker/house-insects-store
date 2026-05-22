@@ -78,7 +78,6 @@ export default function BannersPage() {
             <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.75rem',marginBottom:20}}>{PLANES.find(p=>p.id===plan)?.label} · Renovable automáticamente</p>
             <div style={{display:'flex',gap:10,justifyContent:'center',flexWrap:'wrap'}}>
               <a href={`https://wa.me/51940699405?text=${msg}`} target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'12px 28px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>💬 +51 940 699 405</a>
-              <BannerPago precio={precio} descripcion={`${banner.nombre} · ${PLANES.find(p=>p.id===plan)?.label}`}/>
               <a href={`https://wa.me/51920644433?text=${msg}`} target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'12px 28px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>💬 +51 920 644 433</a>
               <BannerPago precio={precio} descripcion={`${banner.nombre} · ${PLANES.find(p=>p.id===plan)?.label}`}/>
             </div>
