@@ -1,5 +1,6 @@
 'use client'
 import ST from '@/components/ST'
+import { useCarrito } from '@/components/CarritoContext'
 import CarritoCompras from '@/components/CarritoCompras'
 import { useState } from 'react'
 type E = { n:string; p:number; s:number; foto?:string; video?:string }
@@ -159,7 +160,7 @@ function PopupAbrev({onClose,foto,nombre}:{onClose:()=>void,foto?:string,nombre?
 export default function Page() {
   const [ord, setOrd] = useState('Lepidoptera Diurnae')
   const [fid, setFid] = useState('Morphidae')
-  const [carrito, setCarrito] = useState<{n:string;p:number;qty:number;rubro:string}[]>([])
+  const { items:carrito, addItem, updateItems:setCarrito } = useCarrito()
   const [showCarrito, setShowCarrito] = useState(false)
   const [sel, setSel] = useState<E|null>(null)
   const [q, setQ] = useState('')
