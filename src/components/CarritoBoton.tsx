@@ -10,7 +10,7 @@ export default function CarritoBoton() {
   return (
     <>
       <button onClick={() => setOpen(true)} style={{
-        position:'fixed', bottom:24, right:24, zIndex:998,
+        position:'fixed', bottom:80, right:24, zIndex:998,
         background:'#C9A84C', color:'#1A1209',
         border:'none', borderRadius:50,
         padding:'14px 22px', cursor:'pointer',
