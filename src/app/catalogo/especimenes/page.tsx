@@ -295,7 +295,7 @@ export default function Page() {
           </div>
         </div>
         <div style={{fontSize:'.7rem',color:'rgba(232,201,122,0.4)',marginBottom:20,lineHeight:2,letterSpacing:'.06em'}}>SERFOR · CITES · EXPORTAFACIL · DHL · FEDEX · UPS · ARAMEX · RUC 20447397804</div>
-        <div style={{marginBottom:10,textAlign:'center'}}><button onClick={()=>{setCarrito(c=>{const ex=c.find(x=>x.n===sel.n);return ex?c.map(x=>x.n===sel.n?{...x,qty:x.qty+1}:x):[...c,{n:sel.n,p:sel.p,qty:1,rubro:'especimenes'}]});setSel(null)}} style={{background:'#C9A84C',color:'#1A1209',border:'none',borderRadius:6,padding:'11px 24px',fontWeight:700,cursor:'pointer',fontSize:'.85rem',fontFamily:'Georgia,serif',width:'100%'}}>🛒 Agregar al carrito</button></div>
+        <div style={{marginBottom:10,textAlign:'center'}}><button onClick={()=>{setCarrito(c=>{const ex=c.find(x=>x.n===sel.n);return ex?c.map(x=>x.n===sel.n?{...x,qty:x.qty+1}:x):[...c,{n:sel.n,p:sel.p,qty:1,rubro:'especimenes'}]});setShowCarrito(true);setSel(null)}} style={{background:'#C9A84C',color:'#1A1209',border:'none',borderRadius:6,padding:'11px 24px',fontWeight:700,cursor:'pointer',fontSize:'.85rem',fontFamily:'Georgia,serif',width:'100%'}}>🛒 Agregar al carrito</button></div>
         <div style={{display:'flex',gap:10,justifyContent:'center',flexWrap:'wrap'}}>
           <a href={`https://wa.me/51940699405?text=Me interesa: ${sel.n} USD $${sel.p}`} target="_blank" className='wa-btn' style={{background:'#25D366',color:'white',padding:'12px 22px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>💬 +51 940 699 405</a>
           <a href={`https://wa.me/51920644433?text=Me interesa: ${sel.n} USD $${sel.p}`} target="_blank" className='wa-btn' style={{background:'#25D366',color:'white',padding:'12px 22px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>💬 +51 920 644 433</a>
@@ -309,7 +309,6 @@ export default function Page() {
       {showQ&&<PopupCalidad onClose={()=>setShowQ(false)}/>}
       {showA&&<PopupAbrev onClose={()=>setShowA(false)}/>}
       {showCarrito&&<CarritoCompras items={carrito} onClose={()=>setShowCarrito(false)} onUpdateItems={(its)=>setCarrito(its)} onPagar={(d)=>{console.log(d);setShowCarrito(false)}}/>}
-      {carrito.length>0&&<button onClick={()=>setShowCarrito(true)} style={{position:"fixed",bottom:24,right:24,background:"#C9A84C",color:"#1A1209",border:"none",borderRadius:50,padding:"14px 20px",fontWeight:700,cursor:"pointer",zIndex:150,fontFamily:"Georgia,serif",boxShadow:"0 4px 20px rgba(201,168,76,0.4)"}}>{"🛒 "+carrito.reduce((a,i)=>a+i.qty,0)+" · $"+carrito.reduce((a,i)=>a+i.p*i.qty,0).toFixed(0)}</button>}
       <a href="/" className="inicio-btn" style={{color:'#C9A84C',fontSize:'1.2rem',fontWeight:700,textDecoration:'none',display:'inline-block',marginBottom:20,padding:'10px 20px',background:'rgba(201,168,76,0.15)',borderRadius:8,border:'1px solid rgba(201,168,76,0.4)'}}><ST t="← Inicio"/></a>
       <div style={{maxWidth:1200,margin:'0 auto'}}>
         <div style={{textAlign:'center',marginBottom:20}}>
