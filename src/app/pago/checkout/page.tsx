@@ -31,7 +31,7 @@ function CheckoutForm() {
   const G = '#C9A84C', T = '#E8C97A'
   return (
     <div style={{minHeight:'100vh',background:'#1A1209',display:'flex',alignItems:'center',justifyContent:'center',padding:16,fontFamily:'Georgia,serif'}}>
-      <div style={{background:'linear-gradient(160deg,#1A1209,#221800)',border:'1px solid rgba(201,168,76,0.3)',borderRadius:12,padding:32,width:'100%',maxWidth:480}}>
+      <div style={{background:'linear-gradient(160deg,#2A1F0A,#3A2A0F)',border:'1px solid rgba(201,168,76,0.3)',borderRadius:12,padding:32,width:'100%',maxWidth:480}}>
         <div style={{textAlign:'center',marginBottom:24}}>
           <img src="/logo-house-insects-peru.png" style={{width:80,height:80,objectFit:'contain',marginBottom:12}}/>
           <h1 style={{color:T,fontSize:'1.3rem',fontWeight:400,marginBottom:4}}>Completar Pago</h1>
