@@ -1,4 +1,6 @@
 'use client'
+import dynamic from 'next/dynamic'
+const IzipayForm = dynamic(() => import('./IzipayForm'), { ssr: false })
 import { useState } from 'react'
 type Item={n:string;p:number;qty:number;rubro:string}
 type C='exportafacil'|'ems'|'dhl'|'fedex'|'ups'|'aramex'|''
@@ -19,6 +21,7 @@ const [direccion,setDireccion]=useState('')
 const [codigoPostal,setCodigoPostal]=useState('')
 const [telefono,setTelefono]=useState('')
 const [formToken,setFormToken]=useState('')
+const [publicKey,setPublicKey]=useState('')
 const [paso,setPaso]=useState<'carrito'|'orden'|'pago'>('carrito')
 const [loading,setLoading]=useState(false)
 const [error,setError]=useState('')
@@ -138,7 +141,7 @@ return(<>
 <input value={direccion} onChange={e=>setDireccion(e.target.value)} placeholder="Dirección completa (calle, número, apto) *" style={inp}/>
 <input value={codigoPostal} onChange={e=>setCodigoPostal(e.target.value)} placeholder="Código postal" style={inp}/>
 <input value={telefono} onChange={e=>setTelefono(e.target.value)} placeholder="Teléfono con código de país (+1, +44...)" type="tel" style={inp}/>
-{formToken&&<div id="kr-payment-form" style={{marginTop:8,marginBottom:8}}><div className="kr-smart-form" kr-form-token={formToken}></div></div>}
+{formToken&&publicKey&&<IzipayForm formToken={formToken} publicKey={publicKey} onSuccess={()=>onPagar({items,total,courier,seguro,email})} onError={(msg)=>setError(msg)}/>}
 <div style={{background:'rgba(201,168,76,0.07)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:10,padding:'14px 16px',marginBottom:12}}>
 <div style={{display:'flex',justifyContent:'space-between',marginBottom:6}}><span style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem'}}>Total de tu compra</span><span style={{color:G,fontWeight:700,fontSize:'1.1rem'}}>${total.toFixed(2)} USD</span></div>
 {courier&&<div style={{display:'flex',justifyContent:'space-between'}}><span style={{color:'rgba(232,201,122,0.5)',fontSize:'.8rem'}}>Courier</span><span style={{color:'rgba(232,201,122,0.5)',fontSize:'.78rem'}}>{CI[courier as keyof typeof CI]?.n}</span></div>}
