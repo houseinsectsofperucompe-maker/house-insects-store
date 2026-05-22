@@ -25,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://res.cloudinary.com"/>
+        <link rel="manifest" href="/manifest.json"/>
         <link rel="preconnect" href="https://api.qrserver.com"/>
         <link rel="dns-prefetch" href="https://tracker.metricool.com"/>
         <meta name="baidu-site-verification" content="house-insects-peru"/>
