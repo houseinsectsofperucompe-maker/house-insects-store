@@ -7,7 +7,6 @@ export async function POST(request: NextRequest) {
     
     const shopId = process.env.IZIPAY_SHOP_ID;
     const password = process.env.IZIPAY_TEST_PASSWORD;
-    const apiUrl = process.env.IZIPAY_API_URL;
 
     const credentials = Buffer.from(`${shopId}:${password}`).toString('base64');
     const payload = {
@@ -17,17 +16,22 @@ export async function POST(request: NextRequest) {
       customer: { email: customerEmail },
     };
 
-    const response = await fetch(`${apiUrl}/api-payment/V1/Charge/CreatePayment`, {
+    // Probamos la URL correcta de Izipay Peru
+    const response = await fetch('https://api.micuentaweb.pe/api-payment/V1/Charge/CreatePayment', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Basic ${credentials}` },
+      headers: { 
+        'Content-Type': 'application/json', 
+        Authorization: `Basic ${credentials}` 
+      },
       body: JSON.stringify(payload),
     });
 
     const text = await response.text();
     
     return NextResponse.json({ 
-      status: response.status, 
-      body: text.substring(0, 500)
+      status: response.status,
+      url: 'https://api.micuentaweb.pe/api-payment/V1/Charge/CreatePayment',
+      body: text.substring(0, 1000)
     });
 
   } catch (error) {
