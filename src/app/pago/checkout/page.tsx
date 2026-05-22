@@ -27,6 +27,8 @@ function CheckoutForm() {
     script.setAttribute('kr-public-key', key)
     script.setAttribute('kr-language', 'es-PE')
     script.setAttribute('kr-post-url-success', '/pago/resultado')
+    script.setAttribute('kr-theme', 'material')
+    script.setAttribute('kr-theme-base-color', '#C9A84C')
     document.head.appendChild(script)
   }, [token, key])
 
