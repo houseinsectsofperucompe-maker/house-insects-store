@@ -6,7 +6,7 @@ import CarritoCompras from './CarritoCompras'
 export default function CarritoBoton() {
   const { items, cantidad, updateItems } = useCarrito()
   const [open, setOpen] = useState(false)
-  if (cantidad === 0) return null
+  // siempre visible
   return (
     <>
       <button onClick={() => setOpen(true)} style={{
