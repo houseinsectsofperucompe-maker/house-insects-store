@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
     const password = process.env.IZIPAY_TEST_PASSWORD;
     const credentials = Buffer.from(`${shopId}:${password}`).toString('base64');
     const payload = { amount: Math.round(amount * 100), currency: 'PEN', orderId: `HIP-${Date.now()}`, customer: { email: customerEmail } };
-    const response = await fetch('https://api.micuentaweb.pe/api-payment/V1/Charge/CreatePayment', {
+    const response = await fetch('https://api.micuentaweb.pe/api-payment/V4/Charge/CreatePayment', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Basic ${credentials}` },
       body: JSON.stringify(payload),
