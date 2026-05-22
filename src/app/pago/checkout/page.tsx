@@ -1,5 +1,6 @@
 'use client'
-import { useEffect, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 import { Suspense } from 'react'
 
 function CheckoutForm() {
