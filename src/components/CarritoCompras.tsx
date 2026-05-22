@@ -53,7 +53,7 @@ return(<>
 </div></div></div>
 <div style={{flex:1,overflowY:'auto',padding:'20px 24px'}}>
 {paso==='carrito'&&(<>
-{items.length===0?(<div style={{textAlign:'center',padding:'60px 20px'}}><div style={{fontSize:'4rem',marginBottom:16}}>🦋</div><p style={{color:'rgba(232,201,122,0.4)',fontSize:'1rem'}}>Tu carrito está vacío</p></div>):(<>
+{items.length===0?(<div style={{textAlign:'center',padding:'60px 20px'}}><img src="/logo-house-insects-peru.png" style={{width:80,height:80,objectFit:"contain",marginBottom:16}} /><p style={{color:'rgba(232,201,122,0.4)',fontSize:'1rem'}}>Tu carrito está vacío</p></div>):(<>
 {items.map((item,idx)=>(<div key={idx} style={{display:'flex',alignItems:'center',gap:12,padding:'14px 0',borderBottom:'1px solid rgba(201,168,76,0.08)'}}>
 <div style={{flex:1,minWidth:0}}><div style={{color:T,fontSize:'.85rem',fontStyle:'italic',lineHeight:1.4,marginBottom:3}}>{item.n}</div><div style={{color:'rgba(232,201,122,0.45)',fontSize:'.72rem'}}>${item.p} USD c/u</div></div>
 <div style={{display:'flex',alignItems:'center',gap:8,flexShrink:0}}>
