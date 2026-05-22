@@ -14,6 +14,11 @@ const [seguro,setSeguro]=useState<S>('')
 const [email,setEmail]=useState('')
 const [nombre,setNombre]=useState('')
 const [pais,setPais]=useState('')
+const [ciudad,setCiudad]=useState('')
+const [direccion,setDireccion]=useState('')
+const [codigoPostal,setCodigoPostal]=useState('')
+const [telefono,setTelefono]=useState('')
+const [formToken,setFormToken]=useState('')
 const [paso,setPaso]=useState<'carrito'|'orden'|'pago'>('carrito')
 const [loading,setLoading]=useState(false)
 const [error,setError]=useState('')
@@ -30,7 +35,7 @@ const peso=(piezas*0.1+0.5).toFixed(1)
 const G='#C9A84C',T='#E8C97A',BG='#1A1209'
 const inp={width:'100%',padding:'12px 14px',background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.25)',borderRadius:8,color:T,fontSize:'.9rem',fontFamily:'Georgia,serif',outline:'none',boxSizing:'border-box' as const,marginBottom:10}
 const pagar=async()=>{
-if(!email||!nombre||!pais){setError('Completa todos los campos');return}
+if(!email||!nombre||!pais||!ciudad||!direccion||!telefono){setError('Completa todos los campos obligatorios (*)');return}
 if(!courier){setError('Selecciona un courier');return}
 setLoading(true);setError('')
 try{const r=await fetch('/api/izipay/create-payment',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({amount:total,customerEmail:email,customerName:nombre,currency:'USD'})})
@@ -129,6 +134,11 @@ return(<>
 <input value={nombre} onChange={e=>setNombre(e.target.value)} placeholder="Nombre completo *" style={inp}/>
 <input value={email} onChange={e=>setEmail(e.target.value)} placeholder="Correo electrónico *" type="email" style={inp}/>
 <input value={pais} onChange={e=>setPais(e.target.value)} placeholder="País de destino *" style={inp}/>
+<input value={ciudad} onChange={e=>setCiudad(e.target.value)} placeholder="Ciudad *" style={inp}/>
+<input value={direccion} onChange={e=>setDireccion(e.target.value)} placeholder="Dirección completa (calle, número, apto) *" style={inp}/>
+<input value={codigoPostal} onChange={e=>setCodigoPostal(e.target.value)} placeholder="Código postal" style={inp}/>
+<input value={telefono} onChange={e=>setTelefono(e.target.value)} placeholder="Teléfono con código de país (+1, +44...)" type="tel" style={inp}/>
+{formToken&&<div id="kr-payment-form" style={{marginTop:8,marginBottom:8}}><div className="kr-smart-form" kr-form-token={formToken}></div></div>}
 <div style={{background:'rgba(201,168,76,0.07)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:10,padding:'14px 16px',marginBottom:12}}>
 <div style={{display:'flex',justifyContent:'space-between',marginBottom:6}}><span style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem'}}>Total de tu compra</span><span style={{color:G,fontWeight:700,fontSize:'1.1rem'}}>${total.toFixed(2)} USD</span></div>
 {courier&&<div style={{display:'flex',justifyContent:'space-between'}}><span style={{color:'rgba(232,201,122,0.5)',fontSize:'.8rem'}}>Courier</span><span style={{color:'rgba(232,201,122,0.5)',fontSize:'.78rem'}}>{CI[courier as keyof typeof CI]?.n}</span></div>}
