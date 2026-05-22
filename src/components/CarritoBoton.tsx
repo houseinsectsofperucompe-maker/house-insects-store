@@ -1,12 +1,17 @@
 'use client'
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { useCarrito } from './CarritoContext'
 import CarritoCompras from './CarritoCompras'
 
 export default function CarritoBoton() {
   const { items, cantidad, updateItems } = useCarrito()
   const [open, setOpen] = useState(false)
-  if (cantidad === 0) return null
+  const pathname = usePathname()
+  
+  // Ocultar en página principal si está vacío
+  if (pathname === '/' && cantidad === 0) return null
+
   return (
     <>
       <button onClick={() => setOpen(true)} style={{
@@ -17,17 +22,19 @@ export default function CarritoBoton() {
         display:'flex', alignItems:'center', gap:10,
         boxShadow:'0 4px 24px rgba(201,168,76,0.6)',
         fontFamily:'Georgia,serif', fontWeight:700,
-        fontSize:'1rem'
+        fontSize:'1rem', position:'relative' as const
       }}>
         <span style={{fontSize:'1.4rem'}}>🛒</span>
-        <span>Mi Carrito · {cantidad} items</span>
-        <span style={{
-          position:'absolute', top:-8, right:-8,
-          background:'#e63946', color:'white',
-          borderRadius:'50%', width:26, height:26,
-          display:'flex', alignItems:'center', justifyContent:'center',
-          fontSize:'.8rem', fontWeight:700, border:'3px solid #C9A84C'
-        }}>{cantidad}</span>
+        <span>Mi Carrito{cantidad > 0 ? ` · ${cantidad} items` : ''}</span>
+        {cantidad > 0 && (
+          <span style={{
+            position:'absolute', top:-8, right:-8,
+            background:'#e63946', color:'white',
+            borderRadius:'50%', width:26, height:26,
+            display:'flex', alignItems:'center', justifyContent:'center',
+            fontSize:'.8rem', fontWeight:700, border:'3px solid #C9A84C'
+          }}>{cantidad}</span>
+        )}
       </button>
       {open && (
         <CarritoCompras
