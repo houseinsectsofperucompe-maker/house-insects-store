@@ -22,7 +22,7 @@ export default function CarritoBoton() {
         display:'flex', alignItems:'center', gap:10,
         boxShadow:'0 4px 24px rgba(201,168,76,0.6)',
         fontFamily:'Georgia,serif', fontWeight:700,
-        fontSize:'1rem', position:'relative' as const
+        fontSize:'1rem'
       }}>
         <span style={{fontSize:'1.4rem'}}>🛒</span>
         <span>Mi Carrito{cantidad > 0 ? ` · ${cantidad} items` : ''}</span>
