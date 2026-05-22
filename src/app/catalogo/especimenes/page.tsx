@@ -331,7 +331,7 @@ export default function Page() {
                   <div style={{fontSize:'.68rem',fontStyle:'italic',color:'#E8C97A',marginBottom:4,lineHeight:1.3}}>{e.n}</div>
                   <div style={{display:'flex',justifyContent:'space-between'}}>
                     <span style={{color:'#C9A84C',fontWeight:700,fontSize:'.75rem'}}>${e.p}</span>
-                    <span style={{color:'rgba(232,201,122,0.3)',fontSize:'.58rem'}}>{e.s}</span>
+                    <span style={{color:e.s===0?'#ff6b6b':'rgba(232,201,122,0.3)',fontSize:'.58rem',fontWeight:e.s===0?700:400}}>{e.s===0?'❌ SIN STOCK':`🇵🇪 ${e.s}`}</span>
                   </div>
                 </button>
               ))}
