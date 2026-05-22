@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import BannerPago from '@/components/BannerPago'
 
 const BANNERS = [
   { id:1, nombre:'Header Principal', desc:'Posición premium en la página de inicio · Máxima visibilidad · 728x90px', precios:{mes:25,semestre:120,anual:200}, icon:'👑', color:'rgba(201,168,76,0.15)' },
@@ -77,7 +78,9 @@ export default function BannersPage() {
             <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.75rem',marginBottom:20}}>{PLANES.find(p=>p.id===plan)?.label} · Renovable automáticamente</p>
             <div style={{display:'flex',gap:10,justifyContent:'center',flexWrap:'wrap'}}>
               <a href={`https://wa.me/51940699405?text=${msg}`} target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'12px 28px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>💬 +51 940 699 405</a>
+              <PagarBanner precio={precio} descripcion={`${banner.nombre} · ${PLANES.find(p=>p.id===plan)?.label}`}/>
               <a href={`https://wa.me/51920644433?text=${msg}`} target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'12px 28px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>💬 +51 920 644 433</a>
+              <BannerPago precio={precio} descripcion={`${banner.nombre} · ${PLANES.find(p=>p.id===plan)?.label}`}/>
             </div>
           </div>
         )}
