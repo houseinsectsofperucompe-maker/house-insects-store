@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 import LangSelector from '@/components/LangSelector'
 import CurrencySelector from '@/components/CurrencySelector'
+import { CarritoProvider } from '@/components/CarritoContext'
+import CarritoBoton from '@/components/CarritoBoton'
 
 export const metadata: Metadata = {
   icons: { icon: '/favicon.png', shortcut: '/favicon.png', apple: '/favicon.png' },
@@ -30,7 +32,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script defer dangerouslySetInnerHTML={{__html:`(function(){var d=document,s=d.createElement('script');s.src='https://tracker.metricool.com/resources/be.js';s.defer=true;s.onload=function(){beTracker.t({hash:'fa2c62a23e07cbf3fed9e83a12f22bd3'})};d.head.appendChild(s)})();`}}/>
       </head>
       <body style={{fontFamily:"Georgia,serif"}}>
-        <div style={{position:"fixed",top:12,right:12,zIndex:9999,display:"flex",gap:8,alignItems:"center"}}><CurrencySelector/><LangSelector/></div>
+        <CarritoProvider>
+        <div style={{position:"fixed",top:12,right:12,zIndex:9999,display:"flex",gap:8,alignItems:"center"}}><CarritoBoton/><CurrencySelector/><LangSelector/></div>
         {children}
       </body>
     </html>
