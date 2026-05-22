@@ -220,7 +220,6 @@ export default function Page() {
             )}
           </div>
         </div>
-        )}
         <p style={{color:'rgba(232,201,122,0.35)',fontSize:'.7rem',marginBottom:8,letterSpacing:'.08em'}}>ORDER: LEPIDOPTERA · AMAZONIA PERUANA · SERFOR · CITES</p>
         <h1 className='desc-text' style={{fontSize:'1.8rem',fontWeight:300,color:'#E8C97A',fontStyle:'italic',marginBottom:20}}>{sel.n}</h1>
         <div style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:10,padding:'16px',marginBottom:20,textAlign:'left'}}>
