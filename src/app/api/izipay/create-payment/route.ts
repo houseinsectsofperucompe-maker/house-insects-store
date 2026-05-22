@@ -1,23 +1,45 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createFormToken, solesToCentimos, generateOrderId } from '@/lib/izipay';
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { amount, customerEmail, customerName, orderId, description } = body;
-    if (!amount || amount <= 0) return NextResponse.json({ error: 'Monto inválido' }, { status: 400 });
-    if (!customerEmail) return NextResponse.json({ error: 'Email requerido' }, { status: 400 });
-    const result = await createFormToken({
-      amount: solesToCentimos(amount),
+    const { amount, customerEmail } = body;
+    
+    const shopId = process.env.IZIPAY_SHOP_ID;
+    const password = process.env.IZIPAY_TEST_PASSWORD;
+    const apiUrl = process.env.IZIPAY_API_URL;
+    
+    console.log('[Izipay] Config:', { shopId, apiUrl, hasPassword: !!password });
+    
+    if (!shopId || !password) {
+      return NextResponse.json({ error: 'Variables de entorno faltantes', shopId, apiUrl }, { status: 500 });
+    }
+
+    const credentials = Buffer.from(`${shopId}:${password}`).toString('base64');
+    const payload = {
+      amount: Math.round(amount * 100),
       currency: 'PEN',
-      orderId: orderId || generateOrderId(),
-      customerEmail,
-      customerName,
-      description,
+      orderId: `HIP-${Date.now()}`,
+      customer: { email: customerEmail },
+    };
+
+    const response = await fetch(`${apiUrl}/api-payment/V1/Charge/CreatePayment`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Basic ${credentials}` },
+      body: JSON.stringify(payload),
     });
-    return NextResponse.json({ success: true, formToken: result.formToken, publicKey: result.publicKey });
+
+    const data = await response.json();
+    console.log('[Izipay] Response:', JSON.stringify(data));
+
+    if (data.status !== 'SUCCESS') {
+      return NextResponse.json({ error: data.answer?.errorMessage || 'Error Izipay', raw: data }, { status: 500 });
+    }
+
+    return NextResponse.json({ success: true, formToken: data.answer.formToken });
   } catch (error) {
-    console.error('[Izipay] Error:', error);
-    return NextResponse.json({ error: 'Error al procesar el pago.' }, { status: 500 });
+    const msg = error instanceof Error ? error.message : String(error);
+    console.error('[Izipay] Error:', msg);
+    return NextResponse.json({ error: msg }, { status: 500 });
   }
 }
