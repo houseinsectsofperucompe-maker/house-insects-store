@@ -109,7 +109,7 @@ function VistaCatalogo({
       />
       <div style={{position:'absolute',inset:0,background:`linear-gradient(to bottom,rgba(0,0,0,0.2),${cat.colorFondo})`}}/>
       <div style={{position:'relative',zIndex:10,minHeight:'100vh',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',textAlign:'center',padding:'40px'}}>
-        <img src={cat.imagen} alt={cat.nombre} className="video-logo" style={{width:150,height:150,borderRadius:'50%',border:'2px solid #C9A84C',objectFit:'cover',marginBottom:20}}/>
+        <img src="/logo-house-insects-peru.png" alt="House Insects of Peru" className="video-logo" style={{width:150,height:150,objectFit:'contain',marginBottom:20}}/>
         <h1 className="video-title" style={{fontSize:'clamp(1.8rem,5vw,3.5rem)',fontWeight:400,color:'#E8C97A',marginBottom:12}}><ST t={cat.nombre}/></h1>
         <p style={{fontSize:'1.1rem',color:'rgba(255,255,255,0.8)',marginBottom:32,maxWidth:500,lineHeight:1.8}}><ST t={cat.descripcion}/></p>
         <div style={{display:'flex',gap:12,flexWrap:'wrap',justifyContent:'center',marginBottom:16}}>
