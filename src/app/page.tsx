@@ -210,6 +210,7 @@ export default function Home() {
           <a href="/reembolsos" className="home-footer-link" style={{color:"#C9A84C",fontSize:".8rem",textDecoration:"none"}}>💰 <ST t="Reembolsos"/></a>
           <a href="/exportacion" className="home-footer-link" style={{color:"#C9A84C",fontSize:".8rem",textDecoration:"none"}}>✈️ <ST t="Exportación"/></a>
           <a href="https://www.sunat.gob.pe/orientacionaduanera/exportafacil/index.html" target="_blank" className="home-footer-link" style={{color:"#C9A84C",fontSize:".8rem",textDecoration:"none"}}>🏛️ <ST t="ExportaFácil"/></a>
+          <a href="https://www.sunat.gob.pe/orientacionaduanera/exportafacil/index.html" target="_blank" className="home-footer-link" style={{color:"#C9A84C",fontSize:".8rem",textDecoration:"none"}}>🏛️ <ST t="ExportaFácil"/></a>
           <a href="https://www.sunat.gob.pe" target="_blank" className="home-footer-link" style={{color:"#C9A84C",fontSize:".8rem",textDecoration:"none"}}>🏛️ <ST t="SUNAT"/></a>
           <a href="/banners"    className="home-footer-link" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none'}}>📢 <ST t="Publicidad"/></a>
 
