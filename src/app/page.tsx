@@ -165,10 +165,6 @@ export default function Home() {
         <p className="home-sub" style={{fontSize:'.85rem',color:'rgba(232,201,122,0.45)',letterSpacing:'.15em',marginBottom:4}}>E.I.R.L. · BY JAVIER ZAVALA · EST. 1980</p>
         <p style={{fontSize:'.75rem',color:'rgba(232,201,122,0.3)',marginBottom:30}}>RUC 20447397804 · LEY AMAZÓNIA N°27037 · CITES · SERFOR</p>
         <div style={{display:'flex',gap:10,flexWrap:'wrap',justifyContent:'center',marginBottom:30}}>
-          <a href="https://wa.me/51940699405" target="_blank" rel="noreferrer" className="home-btn home-btn-wa" style={{background:'#25D366',color:'white',padding:'10px 20px',borderRadius:4,fontSize:'.8rem',fontWeight:700,textDecoration:'none'}}>💬 +51 940 699 405</a>
-          <a href="https://wa.me/51920644433" target="_blank" rel="noreferrer" className="home-btn home-btn-wa" style={{background:'#25D366',color:'white',padding:'10px 20px',borderRadius:4,fontSize:'.8rem',fontWeight:700,textDecoration:'none'}}>💬 +51 920 644 433</a>
-          <a href="mailto:houseinsectsofperu.com.pe@gmail.com" className="home-btn home-btn-email" style={{background:'#1A1209',color:'#C9A84C',border:'1px solid #C9A84C',padding:'10px 20px',borderRadius:4,fontSize:'.8rem',fontWeight:700,textDecoration:'none'}}>✉️ Email 1</a>
-          <a href="mailto:jzalopez02@gmail.com" className="home-btn home-btn-email" style={{background:'#1A1209',color:'#C9A84C',border:'1px solid #C9A84C',padding:'10px 20px',borderRadius:4,fontSize:'.8rem',fontWeight:700,textDecoration:'none'}}>✉️ Email 2</a>
         </div>
         <div style={{width:200,height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',marginBottom:30}}/>
         <h2 style={{fontSize:'.9rem',color:'rgba(232,201,122,0.5)',letterSpacing:'.3em',textTransform:'uppercase',marginBottom:30}}><ST t="Seleccione su Categoría"/></h2>
