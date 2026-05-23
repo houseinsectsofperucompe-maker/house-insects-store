@@ -4,6 +4,7 @@ import LangSelector from '@/components/LangSelector'
 import CurrencySelector from '@/components/CurrencySelector'
 import { CarritoProvider } from '@/components/CarritoContext'
 import CarritoBoton from '@/components/CarritoBoton'
+import ContactoFlotante from '@/components/ContactoFlotante'
 
 export const metadata: Metadata = {
   icons: { icon: '/favicon.png', shortcut: '/favicon.png', apple: '/favicon.png' },
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CarritoProvider>
         <div style={{position:"fixed",top:12,right:12,zIndex:9999,display:"flex",gap:8,alignItems:"center"}}><CarritoBoton/><CurrencySelector/><LangSelector/></div>
         {children}
+        <ContactoFlotante />
         </CarritoProvider>
       </body>
     </html>
