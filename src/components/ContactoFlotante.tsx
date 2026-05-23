@@ -4,7 +4,7 @@ import { useState } from 'react'
 export default function ContactoFlotante() {
   const [abierto, setAbierto] = useState(false)
   return (
-    <div style={{position:'fixed',left:16,top:80,zIndex:9999,display:'flex',flexDirection:'column',alignItems:'flex-start',gap:8}}>
+    <div style={{position:'fixed',left:32,top:80,zIndex:9999,display:'flex',flexDirection:'column',alignItems:'flex-start',gap:8}}>
       {abierto && (
         <>
           <a href="https://wa.me/51940699405" target="_blank" rel="noreferrer"
