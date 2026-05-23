@@ -281,7 +281,7 @@ export default function Page() {
       {showQ&&<PopupCalidad onClose={()=>setShowQ(false)}/>}
       {showA&&<PopupAbrev onClose={()=>setShowA(false)}/>}
       {showCarrito&&<CarritoCompras items={carrito} onClose={()=>setShowCarrito(false)} onUpdateItems={(its)=>setCarrito(its)} onPagar={(d)=>{console.log(d);setShowCarrito(false)}}/>}
-      <a href="/" className="inicio-btn" style={{color:'#C9A84C',fontSize:'1.2rem',fontWeight:700,textDecoration:'none',display:'inline-block',marginBottom:20,padding:'10px 20px',background:'rgba(201,168,76,0.15)',borderRadius:8,border:'1px solid rgba(201,168,76,0.4)'}}><ST t="← Inicio"/></a>
+      <a href="/" className="inicio-btn" style={{color:'#C9A84C',fontSize:'1.5rem',fontWeight:700,textDecoration:'none',display:'inline-block',marginBottom:20,padding:'10px 20px',background:'rgba(201,168,76,0.15)',borderRadius:8,border:'1px solid rgba(201,168,76,0.4)'}}><ST t="← Inicio"/></a>
       <div style={{maxWidth:1200,margin:'0 auto'}}>
         <div style={{textAlign:'center',marginBottom:20}}>
           <img src="/logo-house-insects-peru.png" className="logo-ani" style={{width:80,height:80,marginBottom:10,objectFit:'contain',cursor:'pointer'}} onError={(ev)=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>
