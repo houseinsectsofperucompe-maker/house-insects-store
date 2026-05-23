@@ -205,6 +205,7 @@ export default function Home() {
           <a href="/terminos"   className="home-footer-link" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none'}}>📋 <ST t="Términos"/></a>
           <a href="/envios"     className="home-footer-link" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none'}}>🚚 <ST t="Envíos"/></a>
           <a href="/sobre-nosotros" className="home-footer-link" style={{color:"#C9A84C",fontSize:".8rem",textDecoration:"none"}}>🏢 <ST t="Nosotros"/></a>
+          <a href="/sobre-nosotros" className="home-footer-link" style={{color:"#C9A84C",fontSize:".8rem",textDecoration:"none"}}>🏢 <ST t="Nosotros"/></a>
           <a href="/contacto"   className="home-footer-link" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none'}}>📞 <ST t="Contacto"/></a>
           <a href="/partidas"   className="home-footer-link" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none'}}>📋 <ST t="Partidas"/></a>
           <a href="/rastreo"    className="home-footer-link" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none'}}>🔍 <ST t="Rastreo"/></a>
