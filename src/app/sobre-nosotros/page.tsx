@@ -4,6 +4,7 @@ export default function SobreNosotros() {
     <div style={{background:'#1A1209',minHeight:'100vh',fontFamily:'Georgia,serif',color:'#E8C97A',padding:'40px 20px'}}>
       <div style={{maxWidth:800,margin:'0 auto'}}>
         <div style={{textAlign:'center',marginBottom:40}}>
+          <img src="https://res.cloudinary.com/dv3mvukmq/image/upload/v1779570739/sobre-nosotros-local.png" style={{width:"100%",height:280,objectFit:"cover",borderRadius:12,border:"1px solid rgba(201,168,76,0.3)",marginBottom:24,display:"block"}} alt="Local House Insects of Peru Tingo Maria"/>
           <img src="/logo-house-insects-peru.png" style={{width:100,height:100,objectFit:'contain',borderRadius:'50%',border:'2px solid rgba(201,168,76,0.4)',marginBottom:16}} alt="House Insects of Peru"/>
           <h1 style={{fontSize:'1.6rem',fontWeight:300,letterSpacing:'.08em',marginBottom:6}}>House Insects of Peru E.I.R.L.</h1>
           <p style={{fontSize:'.7rem',color:'rgba(201,168,76,0.4)',letterSpacing:'.12em'}}>RUC 20447397804 · TINGO MARÍA, HUÁNUCO, PERÚ · EST. 2002</p>
