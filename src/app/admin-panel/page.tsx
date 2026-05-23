@@ -417,6 +417,7 @@ export default function AdminPanel() {
                 <p style={{fontSize:'.8rem',fontWeight:700}}>Sanity Studio</p>
                 <p style={{fontSize:'.65rem',color:'rgba(201,168,76,0.4)',marginTop:4}}>Agregar · Editar · Eliminar especies</p>
               </a>
+              <a href="/admin-panel/especimenes" className="btn" style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:10,padding:20,color:'#C9A84C',textDecoration:'none',textAlign:'center',display:'block'}}><div style={{fontSize:'2rem',marginBottom:8}}>✏️</div><p style={{fontSize:'.8rem',fontWeight:700}}>Gestor Especímenes</p><p style={{fontSize:'.65rem',color:'rgba(201,168,76,0.4)',marginTop:4}}>Editar precios · stock · fotos</p></a>
               <a href="/catalogo/especimenes" target="_blank" className="btn" style={{background:'rgba(10,30,10,0.2)',border:'1px solid rgba(201,168,76,0.1)',borderRadius:10,padding:20,color:'#C9A84C',textDecoration:'none',textAlign:'center',display:'block'}}>
                 <div style={{fontSize:'2rem',marginBottom:8}}>👁️</div>
                 <p style={{fontSize:'.8rem',fontWeight:700}}>Ver Catálogo</p>
