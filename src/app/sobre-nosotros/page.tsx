@@ -56,7 +56,7 @@ export default function SobreNosotros() {
         </div>
 
         <div style={{textAlign:'center'}}>
-          <a href="/" style={{color:'rgba(201,168,76,0.5)',fontSize:'.75rem',textDecoration:'none'}}>← Volver al Inicio</a>
+          <a href="/" style={{display:'inline-block',background:'rgba(201,168,76,0.1)',border:'1px solid rgba(201,168,76,0.3)',borderRadius:8,padding:'10px 24px',color:'#C9A84C',fontSize:'.82rem',textDecoration:'none',fontWeight:700}}>← Volver al Escritorio Principal</a>
         </div>
       </div>
     </div>
