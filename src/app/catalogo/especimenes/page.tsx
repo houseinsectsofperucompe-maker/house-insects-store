@@ -103,7 +103,7 @@ function PopupHeader({title,onClose,foto,nombre}:{title:string,onClose:()=>void,
   return (
     <div>
       <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:12,paddingBottom:12,borderBottom:'1px solid rgba(201,168,76,0.2)'}}>
-        <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="popup-logo" style={{width:48,height:48,objectFit:'contain'}} alt="House Insects of Peru"/></a>
+        <a href="/" style={{display:"flex",justifyContent:"center"}}><img src="/logo-house-insects-peru.png" className="popup-logo" style={{width:120,height:120,objectFit:'contain'}} alt="House Insects of Peru"/></a>
         <span style={{color:'#C9A84C',fontSize:'1rem',fontWeight:700,letterSpacing:'.06em',flex:1}}>{title}</span>
         <button onClick={onClose} style={{background:'none',border:'none',color:'rgba(232,201,122,0.5)',cursor:'pointer',fontSize:'1.2rem',lineHeight:1}}>✕</button>
       </div>
