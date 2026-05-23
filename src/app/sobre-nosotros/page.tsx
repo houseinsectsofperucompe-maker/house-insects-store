@@ -45,7 +45,7 @@ export default function SobreNosotros() {
         </div>
 
         <div style={{display:'flex',gap:10,flexWrap:'wrap',justifyContent:'center',marginBottom:32}}>
-          {[['https://e-consultaruc.sunat.gob.pe','🏛️ Verificar RUC SUNAT'],['https://serfor.gob.pe','🌿 Portal SERFOR'],['https://www.senasa.gob.pe','🌱 Portal SENASA'],['https://cites.org','🌍 Portal CITES']].map(([url,label])=>(
+          {[['https://e-consultaruc.sunat.gob.pe','🏛️ Verificar RUC SUNAT'],['https://www.gob.pe/serfor','🌿 Portal SERFOR'],['https://www.senasa.gob.pe','🌱 Portal SENASA'],['https://cites.org','🌍 Portal CITES']].map(([url,label])=>(
             <a key={String(url)} href={String(url)} target="_blank" style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:6,padding:'8px 14px',color:'#C9A84C',textDecoration:'none',fontSize:'.72rem'}}>{String(label)}</a>
           ))}
         </div>
