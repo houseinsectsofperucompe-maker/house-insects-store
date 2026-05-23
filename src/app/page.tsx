@@ -1,4 +1,5 @@
 'use client'
+import DivisionesMenu from '@/components/DivisionesMenu'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import CurrencySelector from '@/components/CurrencySelector'
 import Image from 'next/image'
@@ -163,7 +164,8 @@ export default function Home() {
         )}
         <h1 className="home-title" style={{fontSize:'clamp(1.5rem,4vw,2.8rem)',fontWeight:300,color:'#E8C97A',letterSpacing:'.12em',marginBottom:6,textTransform:'uppercase'}}>House Insects of Peru</h1>
         <p className="home-sub" style={{fontSize:'.85rem',color:'rgba(232,201,122,0.45)',letterSpacing:'.15em',marginBottom:4}}>E.I.R.L. · BY JAVIER ZAVALA · EST. 1980</p>
-        <p style={{fontSize:'.75rem',color:'rgba(232,201,122,0.3)',marginBottom:30}}>RUC 20447397804 · LEY AMAZÓNIA N°27037 · CITES · SERFOR</p>
+        <p style={{fontSize:'.75rem',color:'rgba(232,201,122,0.3)',marginBottom:16}}>RUC 20447397804 · LEY AMAZÓNIA N°27037 · CITES · SERFOR</p>
+        <DivisionesMenu />
         <div style={{display:'flex',gap:10,flexWrap:'wrap',justifyContent:'center',marginBottom:30}}>
         </div>
         <div style={{width:200,height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',marginBottom:30}}/>

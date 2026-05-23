@@ -4,6 +4,7 @@ import LangSelector from '@/components/LangSelector'
 import CurrencySelector from '@/components/CurrencySelector'
 import { CarritoProvider } from '@/components/CarritoContext'
 import CarritoBoton from '@/components/CarritoBoton'
+import DivisionesMenu from '@/components/DivisionesMenu'
 import ContactoFlotante from '@/components/ContactoFlotante'
 
 export const metadata: Metadata = {
