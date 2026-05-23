@@ -208,6 +208,7 @@ export default function Home() {
           <a href="/partidas"   className="home-footer-link" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none'}}>📋 <ST t="Partidas"/></a>
           <a href="/rastreo"    className="home-footer-link" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none'}}>🔍 <ST t="Rastreo"/></a>
           <a href="/reembolsos" className="home-footer-link" style={{color:"#C9A84C",fontSize:".8rem",textDecoration:"none"}}>💰 <ST t="Reembolsos"/></a>
+          <a href="/exportacion" className="home-footer-link" style={{color:"#C9A84C",fontSize:".8rem",textDecoration:"none"}}>✈️ <ST t="Exportación"/></a>
           <a href="/banners"    className="home-footer-link" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none'}}>📢 <ST t="Publicidad"/></a>
           <a href="/exportacion" className="home-footer-link" style={{color:'#C9A84C',fontSize:'.65rem',textDecoration:'none',fontWeight:700}}>✈️ <ST t="Exportación"/></a>
         </div>
