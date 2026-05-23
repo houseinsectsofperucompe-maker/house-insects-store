@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import React from 'react'
 const D=[
 {id:1,img:'https://res.cloudinary.com/dv3mvukmq/image/upload/w_40,h_40,c_fill,r_max/v1779509553/house-insects/morphidae-male/machilles.webp',n:'Entomologia & Arte',r:[
 {n:'Especimenes Biologicos Secos',u:'/catalogo/especimenes'},
@@ -26,6 +27,9 @@ const D=[
 ]}
 ]
 export default function DivisionesMenu(){
+const [w,setW]=React.useState(typeof window!=='undefined'?window.innerWidth:1200)
+React.useEffect(()=>{const h=()=>setW(window.innerWidth);window.addEventListener('resize',h);return()=>window.removeEventListener('resize',h)},[])
+const mobile=w<640
 const [a,setA]=useState<number|null>(null)
 return(
 <div style={{display:'flex',gap:12,flexWrap:'wrap',justifyContent:'center',margin:'24px 0'}}>
