@@ -115,7 +115,7 @@ function PopupHeader({title,onClose,foto,nombre}:{title:string,onClose:()=>void,
     </div>
 
       <Lightbox
-        open={lbEsp!==null}
+        open={lbEsp!=null}
         nombre={lbEsp?.n||''}
         vistas={lbEsp?[
           {label:'Frente',url:lbEsp.foto||'',tipo:'img'},
