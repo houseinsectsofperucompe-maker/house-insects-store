@@ -177,12 +177,12 @@ export default function DiurnasPage() {
                 <button key={f.id} onClick={()=>setFamSel(f.id)} style={{padding:'4px 10px',background:famSel===f.id?'#C9A84C':'transparent',color:famSel===f.id?'#1A1209':'rgba(201,168,76,0.6)',border:'1px solid rgba(201,168,76,0.25)',borderRadius:12,fontSize:'.65rem',cursor:'pointer',fontStyle:'italic'}}>{f.nm}</button>
               ))}
             </div>
-            {famActual.e.length===0?<p style={{color:'rgba(201,168,76,0.3)',fontSize:'.7rem',fontStyle:'italic',textAlign:'center',padding:20}}>Próximamente</p>:famActual.e.map(p=>(
+            {famActual.e.length===0?<p style={{color:'rgba(201,168,76,0.3)',fontSize:'.7rem',fontStyle:'italic',textAlign:'center',padding:20}}>Proximamente</p>:famActual.e.map((p,i)=>(
               <div key={p.nm} className="esp-card">
-                <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
+                <span style={{fontSize:'1.4rem'}}>🦋</span>
                 <div>
-                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700,fontStyle:'italic'}}>{<ST t={p.nm}/>}</div>
-                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{<ST t={p.desc}/>}</div>
+                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700,fontStyle:'italic'}}>{p.n}</div>
+                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>${p.p.toFixed(2)} USD · Stock: {p.s}</div>
                 </div>
               </div>
             ))}
