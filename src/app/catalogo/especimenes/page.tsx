@@ -2,7 +2,8 @@
 import ST from '@/components/ST'
 import { useCarrito } from '@/components/CarritoContext'
 import CarritoCompras from '@/components/CarritoCompras'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 type E = { n:string; p:number; s:number; foto?:string; video?:string }
 type F = { id:string; nm:string; e:E[] }
 const FAM:F[] = [
@@ -158,7 +159,8 @@ function PopupAbrev({onClose,foto,nombre}:{onClose:()=>void,foto?:string,nombre?
   )
 }
 export default function Page() {
-  const [ord, setOrd] = useState('Lepidoptera Diurnae')
+  const [searchParams] = useSearchParams ? [useSearchParams()] : [null]
+  const [ord, setOrd] = useState(searchParams?.get('ord')||'Lepidoptera Diurnae')
   const [fid, setFid] = useState('Morphidae')
   const { items:carrito, addItem, updateItems:setCarrito } = useCarrito()
   const [showCarrito, setShowCarrito] = useState(false)
