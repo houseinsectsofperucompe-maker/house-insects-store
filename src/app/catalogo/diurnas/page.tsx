@@ -10,24 +10,22 @@ export default function DiurnasPage() {
 
   const precioExtra = vidrio==='uv'?20:vidrio==='resina'?35:0
 
-  const ESPECIES = {
-    coleoptera:[
-      {icon:'🪲',nm:'Megasoma actaeon',desc:'El escarabajo más pesado · Gigante · Amazónico · SERFOR+CITES'},
-      {icon:'🦏',nm:'Dynastes hercules',desc:'El más largo del mundo · Cuernos imponentes · Colección élite'},
-      {icon:'🪲',nm:'Titanus giganteus',desc:'Cerambycidae gigante · Amazónico · Rarísimo · Museo'},
-      {icon:'✨',nm:'Escarabajos Metálicos',desc:'Colores iridiscentes · Buprestidae · Colección decorativa'},
-      {icon:'🪲',nm:'Dynastidae Tropicales',desc:'Cuernos · Amazónicos · Tingo María · SERFOR · CITES'},
-      {icon:'🟤',nm:'Lucanidae — Ciervos Volantes',desc:'Mandíbulas gigantes · Colección · Europa · Dubai'},
-    ],
-    artropodos:[
-      {icon:'🦂',nm:'Escorpiones Amazónicos',desc:'Luminiscentes · Secos · Colección científica · SERFOR'},
-      {icon:'🕷️',nm:'Tarántulas Tropicales',desc:'Selva peruana · Secas · Display · Coleccionistas élite'},
-      {icon:'🦗',nm:'Mantis Religiosa Gigante',desc:'Posición de caza · Montada · Arte científico · Lujo'},
-      {icon:'🪰',nm:'Fásmidos — Insectos Palo',desc:'Camuflaje perfecto · Rarísimos · Colección · Museos'},
-      {icon:'🐛',nm:'Ciempiés Gigantes Amazónicos',desc:'Scolopendra gigantea · Impresionantes · Colección'},
-      {icon:'🦟',nm:'Artrópodos Raros de la Selva',desc:'Especies únicas · Tingo María · SERFOR + CITES'},
-    ],
-  }
+  const FAMILIAS = [
+    {id:'Brassolidae',nm:'Brassolidae',e:[{n:'Caligo eurilochus livius',p:4.0,s:800},{n:'Caligo idomenius idomenides',p:6.5,s:100},{n:'Caligo illioneus',p:3.5,s:200},{n:'Caligo placidianus',p:4.0,s:200},{n:'Caligo prometheus',p:9.0,s:200},{n:'Caligo superbus',p:15.0,s:50},{n:'Caligo teucer semicaerulea',p:3.5,s:300},{n:'Caligo Oberthuri floklides',p:10.0,s:50}]},
+    {id:'Morphidae',nm:'Morphidae',e:[{n:'Morpho didius',p:7.0,s:5000},{n:'Morpho didius tingomaria',p:7.0,s:5000},{n:'Morpho achilles helenor',p:5.5,s:1000},{n:'Morpho rhetenor cacica',p:33.0,s:500},{n:'Morpho rhtenor helena',p:45.0,s:1000},{n:'Morpho menelaus assarpai',p:12.0,s:500},{n:'Morpho absoloni',p:43.0,s:100},{n:'Morpho aurora aureola',p:13.0,s:200}]},
+    {id:'Nymphalidae',nm:'Nymphalidae',e:[{n:'Agrias pericles peruviana',p:120.0,s:10},{n:'Diaethria clymena peruviana',p:1.8,s:5000},{n:'Historis odius',p:1.5,s:5000},{n:'Panacea prola',p:2.5,s:5000},{n:'Siproeta epaphus',p:1.5,s:5000}]},
+    {id:'Papilionidae',nm:'Papilionidae',e:[{n:'Papilio xanthopleura',p:40.0,s:10},{n:'Parides aeneas bolivar',p:17.5,s:20},{n:'Pterourus cacicus inca',p:40.0,s:100},{n:'Eurytides serville',p:1.4,s:5000}]},
+    {id:'Heliconidae',nm:'Heliconidae & Ithomidae',e:[{n:'Dione juno',p:1.3,s:5000},{n:'Dryas julia',p:1.3,s:5000},{n:'Heliconius melpomene amaryllis',p:2.0,s:5000},{n:'Heliconius hecale shanki',p:5.5,s:10}]},
+    {id:'Danaidae',nm:'Danaidae',e:[{n:'Danaus plexippus nigrippus',p:2.5,s:2000},{n:'Lycorea halia',p:4.0,s:20},{n:'Lycorea ilione lamaris',p:1.5,s:2000}]},
+    {id:'Lycaenidae',nm:'Lycaenidae',e:[{n:'Arcas imperialis',p:15.0,s:200},{n:'Evenus gannymedes',p:18.0,s:20},{n:'Thecla gibberosa',p:12.0,s:100}]},
+    {id:'Pieridae',nm:'Pieridae',e:[{n:'Anteos chlorinde',p:45.0,s:100},{n:'Phoebis argante',p:1.8,s:5000},{n:'Phoebis philea',p:1.8,s:5000}]},
+    {id:'Riodinidae',nm:'Riodinidae',e:[{n:'Ancyluris aulestes',p:45.0,s:100},{n:'Rhetus periander',p:6.5,s:5000}]},
+    {id:'Satyridae',nm:'Satyridae',e:[{n:'Cithaerais pireta',p:45.0,s:100},{n:'Haetera piera',p:45.0,s:1000},{n:'Pierella lena',p:48.0,s:100}]},
+    {id:'Hesperiidae',nm:'Hesperiidae',e:[]},
+    {id:'Ithomiidae',nm:'Ithomiidae',e:[]},
+  ]
+  const [famSel,setFamSel]=useState('Brassolidae')
+  const famActual=FAMILIAS.find(f=>f.id===famSel)||FAMILIAS[0]
 
   return (
     <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'32px 16px'}}>
@@ -174,7 +172,12 @@ export default function DiurnasPage() {
             <div style={{color:'#C9A84C',fontSize:'.7rem',letterSpacing:'.1em',marginBottom:12}}>
               {tipo==='coleoptera'?'🪲 COLEÓPTEROS DISPONIBLES':'🦂 ARTRÓPODOS DISPONIBLES'}
             </div>
-            {ESPECIES[tipo as keyof typeof ESPECIES].map(p=>(
+            <div style={{display:'flex',gap:6,flexWrap:'wrap',marginBottom:12}}>
+              {FAMILIAS.map(f=>(
+                <button key={f.id} onClick={()=>setFamSel(f.id)} style={{padding:'4px 10px',background:famSel===f.id?'#C9A84C':'transparent',color:famSel===f.id?'#1A1209':'rgba(201,168,76,0.6)',border:'1px solid rgba(201,168,76,0.25)',borderRadius:12,fontSize:'.65rem',cursor:'pointer',fontStyle:'italic'}}>{f.nm}</button>
+              ))}
+            </div>
+            {famActual.e.length===0?<p style={{color:'rgba(201,168,76,0.3)',fontSize:'.7rem',fontStyle:'italic',textAlign:'center',padding:20}}>Próximamente</p>:famActual.e.map(p=>(
               <div key={p.nm} className="esp-card">
                 <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
                 <div>
