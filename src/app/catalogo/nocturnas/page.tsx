@@ -10,7 +10,9 @@ export default function NocturnasPage() {
 
   const precioExtra = vidrio==='uv'?20:vidrio==='resina'?35:0
 
-  const FAMILIAS = [
+  type Esp={n:string;p:number;s:number}
+  type Fam={id:string;nm:string;e:Esp[]}
+  const FAMILIAS:Fam[] = [
     {id:'Arctiidae',nm:'Arctiidae',e:[]},
     {id:'Castnia',nm:'Castnia',e:[]},
     {id:'Hepalidae',nm:'Hepalidae',e:[]},
