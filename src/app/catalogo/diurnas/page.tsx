@@ -1,7 +1,9 @@
 'use client'
 import ST from '@/components/ST'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 export default function DiurnasPage() {
+  const router = useRouter()
   const [vista, setVista] = useState('frente')
   const [tipo, setTipo] = useState('coleoptera')
   const [marco, setMarco] = useState('rectangular')
@@ -46,7 +48,7 @@ export default function DiurnasPage() {
   }
 `}</style>
       <div className="pc" style={{maxWidth:1000,margin:'0 auto'}}>
-        <a href="/" style={{color:'#C9A84C',fontSize:'1.2rem',fontWeight:700,textDecoration:'none',display:'inline-block',marginBottom:20,padding:'10px 20px',background:'rgba(201,168,76,0.15)',borderRadius:8,border:'1px solid rgba(201,168,76,0.4)'}}><ST t="← Inicio"/></a>
+        <div style={{display:'flex',gap:10,marginBottom:20}}><button onClick={()=>router.back()} style={{color:'#C9A84C',fontSize:'.8rem',fontWeight:700,background:'rgba(201,168,76,0.15)',borderRadius:8,border:'1px solid rgba(201,168,76,0.4)',padding:'8px 16px',cursor:'pointer',fontFamily:'Georgia,serif'}}>← Volver</button><a href="/" style={{color:'#C9A84C',fontSize:'.8rem',fontWeight:700,textDecoration:'none',padding:'8px 16px',background:'rgba(201,168,76,0.1)',borderRadius:8,border:'1px solid rgba(201,168,76,0.3)'}}>🏠 Inicio</a></div>
 
         <div style={{textAlign:'center',marginBottom:32}}>
           <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,marginBottom:12,objectFit:'contain'}}/></a>
