@@ -84,20 +84,7 @@ export default function DiurnasPage() {
               <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem'}}><ST t="FOTO PRÓXIMAMENTE"/></p>
             </div>
 
-            {/* TIPO */}
-            <div style={{marginBottom:12}}>
-              <div style={{color:'rgba(232,201,122,0.5)',fontSize:'.65rem',letterSpacing:'.08em',marginBottom:8}}>1️⃣ TIPO DE ESPECIE</div>
-              <div style={{display:'flex',gap:8}}>
-                {[{id:'coleoptera',nm:'🪲 Coleópteros'},{id:'artropodos',nm:'🦂 Artrópodos'}].map(o=>(
-                  <button key={o.id} onClick={()=>setTipo(o.id)} className="opt-btn" style={{
-                    padding:'6px 14px',borderRadius:20,fontSize:'.75rem',fontFamily:'Georgia,serif',
-                    background:tipo===o.id?'#C9A84C':'rgba(201,168,76,0.08)',
-                    color:tipo===o.id?'#1A1209':'#C9A84C',
-                    border:`1px solid ${tipo===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-                  }}>{<ST t={o.nm}/>}</button>
-                ))}
-              </div>
-            </div>
+
 
             {/* TAMANO */}
             <div style={{marginBottom:12}}>
@@ -172,7 +159,7 @@ export default function DiurnasPage() {
           {/* ESPECIES */}
           <div style={{background:'rgba(201,168,76,0.03)',border:'1px solid rgba(201,168,76,0.1)',borderRadius:12,padding:20}}>
             <div style={{color:'#C9A84C',fontSize:'.7rem',letterSpacing:'.1em',marginBottom:12}}>
-              {tipo==='coleoptera'?'🪲 COLEÓPTEROS DISPONIBLES':'🦂 ARTRÓPODOS DISPONIBLES'}
+              {'MARIPOSAS DIURNAS DISPONIBLES'}
             </div>
             <div style={{display:'flex',gap:6,flexWrap:'wrap',marginBottom:12}}>
               {FAMILIAS.map(f=>(
