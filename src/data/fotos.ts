@@ -1,0 +1,2 @@
+export type FotosEspecimen={f1?:string;f2?:string;f3?:string;video?:string}
+export const FOTOS:Record<string,FotosEspecimen>={'Morphidae-15':{f1:'https://res.cloudinary.com/dv3mvukmq/image/upload/v1779631145/specimens/achilles-frente.jpg',f2:'https://res.cloudinary.com/dv3mvukmq/image/upload/v1779631116/specimens/achilles-lateral.jpg',f3:'https://res.cloudinary.com/dv3mvukmq/image/upload/v1779631146/specimens/achilles-reverso.jpg'}}

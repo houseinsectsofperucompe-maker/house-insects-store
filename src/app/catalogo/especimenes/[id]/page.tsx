@@ -4,6 +4,7 @@ import { useState } from 'react'
 import ST from '@/components/ST'
 import { useCarrito } from '@/components/CarritoContext'
 import CarritoCompras from '@/components/CarritoCompras'
+import { FOTOS } from '@/data/fotos'
 type E={n:string;p:number;s:number;foto?:string;video?:string}
 type F={id:string;nm:string;e:E[]}
 const FAM:F[]=[
@@ -25,6 +26,7 @@ export default function EspecimenPage(){
   const parts=rawId.split('-')
   const idx=parseInt(parts[parts.length-1])
   const famId=parts.slice(0,-1).join('-')
+  const fotos=FOTOS[rawId]
   const fam=FAM.find(f=>f.id===famId)
   const esp=fam?.e[idx]
   if(!fam||!esp)return(
@@ -48,8 +50,8 @@ export default function EspecimenPage(){
       <div style={{maxWidth:480,margin:'0 auto',padding:'20px 16px'}}>
         <div style={{background:CARD,border:`1px solid ${BD}`,borderRadius:12,overflow:'hidden',marginBottom:16}}>
           <div style={{width:'100%',height:280,background:'#050501',display:'flex',alignItems:'center',justifyContent:'center'}}>
-            {v==='Video'&&esp.video?<video src={esp.video} controls autoPlay muted playsInline style={{width:'100%',height:'100%',objectFit:'contain'}}/>
-            :v==='Frente'&&esp.foto?<img src={esp.foto} alt={esp.n} style={{width:'100%',height:'100%',objectFit:'contain'}}/>
+            {v==='Video'&&fotos?.video?<video src={fotos.video} controls autoPlay muted playsInline style={{width:'100%',height:'100%',objectFit:'contain'}}/>
+            :v==='Frente'&&fotos?.f1?<img src={fotos.f1} alt={esp.n} style={{width:'100%',height:'100%',objectFit:'contain'}}/>
             :<div style={{textAlign:'center',color:'rgba(201,168,76,0.25)',fontSize:'.7rem'}}><div style={{fontSize:'3rem',marginBottom:8}}>📷</div><div style={{textTransform:'uppercase',letterSpacing:2}}>{v}</div><div style={{marginTop:4,fontSize:'.6rem'}}>PRÓXIMAMENTE</div></div>}
           </div>
           <div style={{display:'flex',gap:4,padding:'10px 12px',borderTop:`1px solid ${BD}`}}>
