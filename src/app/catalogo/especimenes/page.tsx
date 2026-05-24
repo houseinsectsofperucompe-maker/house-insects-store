@@ -215,9 +215,6 @@ export default function Page() {
   const [marco, setMarco] = useState('rectangular')
   const [vidrio, setVidrio] = useState('normal')
   const [vista, setVista] = useState<'frente'|'lado'|'reverso'|'video'>('frente')
-  const [lbOpen, setLbOpen] = useState(false)
-  const [lbEsp, setLbEsp] = useState<E|null>(null)
-  const [lbVista, setLbVista] = useState(0)
   const catAct = ORDS.find(c=>c.o===ord)!
   const fam = catAct.f.find(f=>f.id===fid)||catAct.f[0]
   const filtrados = fam.e.filter(e=>e.n.toLowerCase().includes(q.toLowerCase()))
