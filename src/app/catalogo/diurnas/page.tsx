@@ -178,7 +178,7 @@ export default function DiurnasPage() {
               ))}
             </div>
             {famActual.e.length===0?<p style={{color:'rgba(201,168,76,0.3)',fontSize:'.7rem',fontStyle:'italic',textAlign:'center',padding:20}}>Proximamente</p>:famActual.e.map((p,i)=>(
-              <div key={p.nm} className="esp-card">
+              <div key={p.n} className="esp-card">
                 <span style={{fontSize:'1.4rem'}}>🦋</span>
                 <div>
                   <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700,fontStyle:'italic'}}>{p.n}</div>
