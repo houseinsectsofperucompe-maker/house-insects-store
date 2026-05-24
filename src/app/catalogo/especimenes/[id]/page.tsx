@@ -101,7 +101,7 @@ export default function EspecimenPage(){
           onTouchEnd={e=>{const d=e.changedTouches[0].clientX-dragStart;if(Math.abs(d)>40){const vs=['Frente','Lado','Reverso'] as const;const ci=vs.indexOf(v as any);if(d<0&&ci<2)setV(vs[ci+1]);else if(d>0&&ci>0)setV(vs[ci-1]);}}}
         >
           <button onClick={()=>setLb(false)} style={{position:'absolute',top:16,right:16,background:'rgba(201,168,76,0.15)',border:'2px solid rgba(201,168,76,0.4)',color:'#C9A84C',width:40,height:40,borderRadius:'50%',cursor:'pointer',fontSize:'1.2rem',zIndex:10}}>x</button>
-          <div style={{width:'min(900px,95vw)',height:'min(900px,85vh)',display:'flex',alignItems:'center',justifyContent:'center'}}>
+          <div style={{width:'min(900px,95vw)',height:'min(900px,85vh)',display:'flex',alignItems:'center',justifyContent:'center',border:'1px solid rgba(201,168,76,0.3)',borderRadius:12,background:'#0A0A05'}}>
             {fotoUrl?<img src={fotoUrl} alt={esp.n} style={{maxWidth:'100%',maxHeight:'100%',objectFit:'contain'}}/>:<img src='https://res.cloudinary.com/dv3mvukmq/image/upload/v1779640351/specimens/logo-hip-correct.png' style={{width:280,opacity:0.4}}/>}
           </div>
           <div style={{display:'flex',gap:20,marginTop:16,alignItems:'center'}}>
