@@ -128,5 +128,12 @@ export default function DiurnasPage() {
         </div>
       </div>
     </div>
+    <div style={{marginTop:32,padding:'0 16px 32px'}}>
+      <h2 style={{color:'#C9A84C',fontSize:'1.1rem',fontWeight:300,textAlign:'center',marginBottom:20,letterSpacing:'.1em',fontFamily:'Georgia,serif'}}>SELECCIONA TU MARIPOSA PARA EL CUADRO</h2>
+      <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.7rem',textAlign:'center',marginBottom:20}}>Lepidoptera Diurnae · Amazonia Peruana · Tingo Maria</p>
+      <a href="/catalogo/especimenes" style={{display:'block',textAlign:'center',padding:'12px 24px',background:'rgba(201,168,76,0.1)',border:'1px solid rgba(201,168,76,0.3)',borderRadius:8,color:'#C9A84C',fontFamily:'Georgia,serif',fontSize:'.8rem',textDecoration:'none',maxWidth:300,margin:'0 auto'}}>
+        Ver catalogo completo de Lepidoptera Diurnae →
+      </a>
+    </div>
   )
 }
