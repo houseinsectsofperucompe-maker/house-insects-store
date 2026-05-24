@@ -10,24 +10,37 @@ export default function ColeopteraPage() {
 
   const precioExtra = vidrio==='uv'?20:vidrio==='resina'?35:0
 
-  const ESPECIES = {
-    coleoptera:[
-      {icon:'🪲',nm:'Megasoma actaeon',desc:'El escarabajo más pesado · Gigante · Amazónico · SERFOR+CITES'},
-      {icon:'🦏',nm:'Dynastes hercules',desc:'El más largo del mundo · Cuernos imponentes · Colección élite'},
-      {icon:'🪲',nm:'Titanus giganteus',desc:'Cerambycidae gigante · Amazónico · Rarísimo · Museo'},
-      {icon:'✨',nm:'Escarabajos Metálicos',desc:'Colores iridiscentes · Buprestidae · Colección decorativa'},
-      {icon:'🪲',nm:'Dynastidae Tropicales',desc:'Cuernos · Amazónicos · Tingo María · SERFOR · CITES'},
-      {icon:'🟤',nm:'Lucanidae — Ciervos Volantes',desc:'Mandíbulas gigantes · Colección · Europa · Dubai'},
-    ],
-    artropodos:[
-      {icon:'🦂',nm:'Escorpiones Amazónicos',desc:'Luminiscentes · Secos · Colección científica · SERFOR'},
-      {icon:'🕷️',nm:'Tarántulas Tropicales',desc:'Selva peruana · Secas · Display · Coleccionistas élite'},
-      {icon:'🦗',nm:'Mantis Religiosa Gigante',desc:'Posición de caza · Montada · Arte científico · Lujo'},
-      {icon:'🪰',nm:'Fásmidos — Insectos Palo',desc:'Camuflaje perfecto · Rarísimos · Colección · Museos'},
-      {icon:'🐛',nm:'Ciempiés Gigantes Amazónicos',desc:'Scolopendra gigantea · Impresionantes · Colección'},
-      {icon:'🦟',nm:'Artrópodos Raros de la Selva',desc:'Especies únicas · Tingo María · SERFOR + CITES'},
-    ],
-  }
+  type Esp={n:string;p:number;s:number}
+  type Fam={id:string;nm:string;e:Esp[]}
+  const COLEOPTERA:Fam[] = [
+    {id:'Buprestidae',nm:'Buprestidae',e:[]},
+    {id:'Cerambycidae',nm:'Cerambycidae',e:[]},
+    {id:'Cetonidae',nm:'Cetonidae',e:[]},
+    {id:'Chrysomelidae',nm:'Chrysomelidae',e:[]},
+    {id:'Cicindelidae',nm:'Cicindelidae',e:[]},
+    {id:'Curculionidae',nm:'Curculionidae',e:[]},
+    {id:'Dynastidae',nm:'Dynastidae',e:[]},
+    {id:'Elateridae',nm:'Elateridae',e:[]},
+    {id:'Euchiridade',nm:'Euchiridade',e:[]},
+    {id:'Lucanidae',nm:'Lucanidae',e:[]},
+    {id:'Rutilidae',nm:'Rutilidae',e:[]},
+    {id:'Scarabaeidae',nm:'Scarabaeidae',e:[]},
+    {id:'Tristenotomidae',nm:'Tristenotomidae',e:[]},
+  ]
+  const ARTHROPODA:Fam[] = [
+    {id:'Spider',nm:'Spider (Araneae)',e:[]},
+    {id:'Homoptera',nm:'Homoptera (Cicada)',e:[]},
+    {id:'Phasmidae',nm:'Phasmidae',e:[]},
+    {id:'Phylliidae',nm:'Phylliidae',e:[]},
+    {id:'Mantidae',nm:'Mantidae (Mantis)',e:[]},
+    {id:'Orthoptera',nm:'Orthoptera (Grillidae)',e:[]},
+    {id:'Hemiptera',nm:'Hemiptera',e:[]},
+    {id:'Hymenoptera',nm:'Hymenoptera',e:[]},
+    {id:'Escorpion',nm:'Escorpion',e:[]},
+    {id:'Odonata',nm:'Odonata',e:[]},
+  ]
+  const [famSel,setFamSel]=useState('Buprestidae')
+  const famActual=(tipo==='coleoptera'?COLEOPTERA:ARTHROPODA).find(f=>f.id===famSel)||(tipo==='coleoptera'?COLEOPTERA:ARTHROPODA)[0]
 
   return (
     <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'32px 16px'}}>
@@ -174,12 +187,16 @@ export default function ColeopteraPage() {
             <div style={{color:'#C9A84C',fontSize:'.7rem',letterSpacing:'.1em',marginBottom:12}}>
               {tipo==='coleoptera'?'🪲 COLEÓPTEROS DISPONIBLES':'🦂 ARTRÓPODOS DISPONIBLES'}
             </div>
-            {ESPECIES[tipo as keyof typeof ESPECIES].map(p=>(
-              <div key={p.nm} className="esp-card">
-                <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
+            {(tipo==='coleoptera'?COLEOPTERA:ARTHROPODA).map(f=>(
+                <button key={f.id} onClick={()=>setFamSel(f.id)} style={{padding:'4px 10px',background:famSel===f.id?'#C9A84C':'transparent',color:famSel===f.id?'#1A1209':'rgba(201,168,76,0.6)',border:'1px solid rgba(201,168,76,0.25)',borderRadius:12,fontSize:'.65rem',cursor:'pointer',fontStyle:'italic'}}>{f.nm}</button>
+              ))}
+            </div>
+            {famActual.e.length===0?<p style={{color:'rgba(201,168,76,0.3)',fontSize:'.7rem',fontStyle:'italic',textAlign:'center',padding:20}}>Proximamente</p>:famActual.e.map((p,i)=>(
+              <div key={p.n} className="esp-card">
+                <img src='https://res.cloudinary.com/dv3mvukmq/image/upload/v1779640351/specimens/logo-hip-correct.png' style={{width:40,height:40,objectFit:'contain',opacity:0.5}}/>
                 <div>
-                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700,fontStyle:'italic'}}>{<ST t={p.nm}/>}</div>
-                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{<ST t={p.desc}/>}</div>
+                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700,fontStyle:'italic'}}>{p.n}</div>
+                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>${p.p.toFixed(2)} USD</div>
                 </div>
               </div>
             ))}
