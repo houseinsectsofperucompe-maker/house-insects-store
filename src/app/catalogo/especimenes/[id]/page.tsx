@@ -118,7 +118,7 @@ export default function EspecimenPage(){
           >
             {v==='Video'&&fotos?.video?<video src={fotos.video} controls autoPlay muted playsInline style={{width:'100%',height:'100%',objectFit:'contain'}}/>
             :fotoUrl?<img src={fotoUrl} alt={esp.n} style={{width:'100%',height:'100%',objectFit:'contain'}}/>
-            :<div style={{textAlign:'center',color:'rgba(201,168,76,0.25)',fontSize:'.7rem'}}><div style={{fontSize:'3rem',marginBottom:8}}>📷</div><div style={{textTransform:'uppercase',letterSpacing:2}}>{v}</div><div style={{marginTop:4,fontSize:'.6rem'}}>PROXIMAMENTE</div></div>}
+            :<div style={{textAlign:'center',color:'rgba(201,168,76,0.25)',fontSize:'.7rem'}}><img src="https://res.cloudinary.com/dv3mvukmq/image/upload/w_120,o_30/logo-house-insects-peru_pvmkud" style={{width:120,opacity:0.3,marginBottom:8}}/><div style={{textTransform:'uppercase',letterSpacing:2,fontSize:'.65rem'}}>{v}</div><div style={{marginTop:4,fontSize:'.6rem'}}>PROXIMAMENTE</div></div>}
             {v!=='Video'&&fotoUrl&&<span style={{position:'absolute',bottom:8,right:8,background:'rgba(0,0,0,0.6)',color:'rgba(201,168,76,0.6)',fontSize:'.55rem',padding:'3px 8px',borderRadius:10,fontFamily:'Georgia,serif'}}>+ ver grande</span>}
           </div>
           <div style={{display:'flex',gap:4,padding:'10px 12px',borderTop:`1px solid ${BD}`}}>
