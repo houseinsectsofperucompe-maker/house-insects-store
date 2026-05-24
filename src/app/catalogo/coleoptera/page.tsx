@@ -187,6 +187,7 @@ export default function ColeopteraPage() {
             <div style={{color:'#C9A84C',fontSize:'.7rem',letterSpacing:'.1em',marginBottom:12}}>
               {tipo==='coleoptera'?' COLEPTEROS DISPONIBLES':' ARTRPODOS DISPONIBLES'}
             </div>
+            <div style={{display:'flex',gap:6,flexWrap:'wrap',marginBottom:12}}>
             {(tipo==='coleoptera'?COLEOPTERA:ARTHROPODA).map(f=>(
                 <button key={f.id} onClick={()=>setFamSel(f.id)} style={{padding:'4px 10px',background:famSel===f.id?'#C9A84C':'transparent',color:famSel===f.id?'#1A1209':'rgba(201,168,76,0.6)',border:'1px solid rgba(201,168,76,0.25)',borderRadius:12,fontSize:'.65rem',cursor:'pointer',fontStyle:'italic'}}>{f.nm}</button>
               ))}
