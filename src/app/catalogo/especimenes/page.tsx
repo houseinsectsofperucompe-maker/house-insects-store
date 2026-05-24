@@ -3,7 +3,7 @@ import ST from '@/components/ST'
 import { useCarrito } from '@/components/CarritoContext'
 import CarritoCompras from '@/components/CarritoCompras'
 import { useState } from 'react'
-type E = { n:string; p:number; s:number; foto?:string; video?:string }
+type E = { n:string; p:number; s:number; foto?:string; fotoLado?:string; fotoReverso?:string; video?:string }
 type F = { id:string; nm:string; e:E[] }
 const FAM:F[] = [
   { id:'Brassolidae', nm:'Brassolidae', e:[{n:'Caligo eurilochus livius',p:4.0,s:800},{n:'Caligo idomenius idomenides',p:6.5,s:100},{n:'Caligo illioneus',p:3.5,s:200},{n:'Caligo placidianus',p:4.0,s:200},{n:'Caligo prometheus',p:9.0,s:200},{n:'Caligo superbus',p:15.0,s:50},{n:'Caligo teucer semicaerulea',p:3.5,s:300},{n:'Dynastor darius darius',p:15.0,s:10},{n:'Opoptera aorsa',p:4.5,s:100},{n:'Opoptera arsippe arsippe',p:4.5,s:200},{n:'Opsiphanes bogatanus',p:3.5,s:100},{n:'Opsiphanes tamarindi incolumis',p:4.0,s:50},{n:'Caligo illioneus oberon',p:4.0,s:200},{n:'Caligo Oberthuri floklides',p:10.0,s:50},{n:'Eryphanis Polyxena',p:7.5,s:200},{n:'Catoblepia Berecynthia',p:10.0,s:20},{n:'Dynastor macrosirus stix',p:30.0,s:5},{n:'Opoptera Arsippe Bracteolata',p:4.0,s:20},{n:'Opsiphanes Cassina',p:3.5,s:50},{n:'Opsiphanes Sallei',p:3.0,s:100},{n:'Opsiphanes Invirae Agasthenes',p:2.5,s:200},{n:'Opsiphanes Quiteria Quirinalis',p:2.5,s:100}] },
@@ -100,6 +100,16 @@ const ABBREV_CHART = [
   {k:'S', d:'Set — a specially priced set of more than a single item at a discount.'},
 ]
 function PopupHeader({title,onClose,foto,nombre}:{title:string,onClose:()=>void,foto?:string,nombre?:string}) {
+
+  const lbVistas = (e:E) => [
+    {label:'Frente',url:e.foto||'',tipo:'img'},
+    {label:'Lado',url:e.fotoLado||'',tipo:'img'},
+    {label:'Reverso',url:e.fotoReverso||'',tipo:'img'},
+    {label:'Video',url:e.video||'',tipo:'video'},
+  ]
+  const abrirLB = (e:E,ev:React.MouseEvent) => {ev.stopPropagation();setLbEsp(e);setLbVista(0);setLbOpen(true)}
+  const cerrarLB = () => setLbOpen(false)
+
   return (
     <div>
       <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:12,paddingBottom:12,borderBottom:'1px solid rgba(201,168,76,0.2)'}}>
@@ -112,6 +122,26 @@ function PopupHeader({title,onClose,foto,nombre}:{title:string,onClose:()=>void,
         {nombre&&<p style={{color:'#E8C97A',fontSize:'.75rem',fontStyle:'italic',marginTop:6}}>{nombre}</p>}
       </div>}
     </div>
+
+      <div className={`lb-ov${lbOpen?' lb-on':''}`} onClick={(e)=>{if((e.target as HTMLElement).classList.contains('lb-ov'))cerrarLB()}}>
+        <div className="lb-bx">
+          <button className="lb-x" onClick={cerrarLB}>✕</button>
+          <div className="lb-md">
+            {lbEsp&&(()=>{const vs=lbVistas(lbEsp);const v=vs[lbVista];if(!v.url)return <div className="lb-nf"><span style={{fontSize:'2rem'}}>📷</span><span>{v.label.toUpperCase()} · PRÓXIMAMENTE</span></div>;if(v.tipo==='video')return <video src={v.url} autoPlay loop muted playsInline style={{width:'100%',height:'100%',objectFit:'contain'}}/>;return <img src={v.url} alt={v.label} style={{width:'100%',height:'100%',objectFit:'contain'}}/>})()}
+          </div>
+          <div className="lb-nv">
+            <button className="lb-ar" onClick={()=>setLbVista(v=>Math.max(0,v-1))} disabled={lbVista===0}>&#8592;</button>
+            <div className="lb-ts">
+              {lbEsp&&lbVistas(lbEsp).map((v,i)=>(
+                <button key={i} className={`lb-t${lbVista===i?' lb-ta':''}`} onClick={()=>setLbVista(i)}>{v.label}</button>
+              ))}
+            </div>
+            <button className="lb-ar" onClick={()=>setLbVista(v=>Math.min(3,v+1))} disabled={lbVista===3}>&#8594;</button>
+          </div>
+          {lbEsp&&<div style={{textAlign:'center',fontSize:'.75rem',fontStyle:'italic',color:'#E8C97A',marginBottom:2}}>{lbEsp.n}</div>}
+          <div style={{fontSize:'.55rem',color:'rgba(201,168,76,0.2)',textAlign:'center',marginTop:6,fontFamily:'Georgia,serif'}}>Toca fuera para cerrar</div>
+        </div>
+      </div>
   )
 }
 const POPUP_STYLE = {
@@ -168,6 +198,9 @@ export default function Page() {
   const [showQ, setShowQ] = useState(false)
   const [showA, setShowA] = useState(false)
   const [composicion, setComposicion] = useState('individual')
+  const [lbOpen, setLbOpen] = useState(false)
+  const [lbEsp, setLbEsp] = useState<E|null>(null)
+  const [lbVista, setLbVista] = useState(0)
   const [marco, setMarco] = useState('rectangular')
   const [vidrio, setVidrio] = useState('normal')
   const [vista, setVista] = useState<'frente'|'lado'|'reverso'|'video'>('frente')
@@ -180,7 +213,7 @@ export default function Page() {
     <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'40px 20px'}}>
       {showQ&&<PopupCalidad onClose={()=>setShowQ(false)}/>}
       {showA&&<PopupAbrev onClose={()=>setShowA(false)}/>}
-      <style>{`@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@keyframes popIn{from{opacity:0;transform:scale(0.85) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}.sel-img{transition:transform 0.3s ease,box-shadow 0.3s ease}.sel-img:hover{transform:scale(1.04);box-shadow:0 12px 40px rgba(201,168,76,0.3)}.logo-ani{transition:transform 0.4s ease,opacity 0.3s ease}.logo-ani:hover{transform:scale(1.08) rotate(3deg);opacity:0.9}.help-btn{transition:transform 0.15s ease,background 0.15s ease,box-shadow 0.15s ease}.help-btn:hover{transform:translateY(-2px) scale(1.12);background:rgba(201,168,76,0.28)!important;box-shadow:0 4px 12px rgba(201,168,76,0.3)}.stat-card{transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s ease}.stat-card:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 8px 24px rgba(201,168,76,0.2);border-color:rgba(201,168,76,0.5)!important}.wa-btn{transition:transform 0.18s ease,box-shadow 0.18s ease}.wa-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.5)}.popup-box{animation:popIn 0.25s cubic-bezier(0.34,1.56,0.64,1)}.popup-row-item{transition:background 0.15s ease,transform 0.15s ease}.popup-row-item:hover{background:rgba(201,168,76,0.08);transform:translateX(4px)}.popup-logo{transition:transform 0.4s ease}.popup-logo:hover{transform:scale(1.1) rotate(-5deg)}.pag-btn{transition:transform 0.15s ease,background 0.15s ease,box-shadow 0.15s ease}.pag-btn:hover:not(:disabled){transform:translateY(-2px) scale(1.1);box-shadow:0 4px 12px rgba(201,168,76,0.3)}.volver-btn{transition:transform 0.15s ease,color 0.15s ease}.volver-btn:hover{transform:translateX(-4px);color:#E8C97A!important}.inicio-btn{transition:transform 0.15s ease,color 0.15s ease}.inicio-btn:hover{transform:translateX(-4px);color:#E8C97A!important}.desc-text{transition:color 0.2s ease}.desc-text:hover{color:rgba(232,201,122,0.7)!important}.consult-btn{transition:transform 0.18s ease,box-shadow 0.18s ease}.consult-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.4)}.esp-card{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.12);border-radius:9px;padding:10px;cursor:pointer;text-align:left;font-family:Georgia,serif;transition:transform 0.18s ease,border-color 0.18s ease,background 0.18s ease,box-shadow 0.18s ease}.esp-card:hover{transform:translateY(-5px) scale(1.04);border-color:rgba(201,168,76,0.55);background:rgba(201,168,76,0.11);box-shadow:0 10px 28px rgba(0,0,0,0.45)}.esp-card img{transition:opacity 0.18s ease}.esp-card:hover img{opacity:0.9}.ord-btn{transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.15s ease}.ord-btn:hover{transform:translateY(-2px) scale(1.06);box-shadow:0 4px 14px rgba(201,168,76,0.3)}.fam-btn{transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.15s ease,color 0.15s ease}.fam-btn:hover{transform:translateY(-3px) scale(1.08);box-shadow:0 6px 18px rgba(201,168,76,0.25);border-color:rgba(201,168,76,0.5)!important;color:#E8C97A!important}
+      <style>{`@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@keyframes popIn{from{opacity:0;transform:scale(0.85) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}.sel-img{transition:transform 0.3s ease,box-shadow 0.3s ease}.sel-img:hover{transform:scale(1.04);box-shadow:0 12px 40px rgba(201,168,76,0.3)}.logo-ani{transition:transform 0.4s ease,opacity 0.3s ease}.logo-ani:hover{transform:scale(1.08) rotate(3deg);opacity:0.9}.help-btn{transition:transform 0.15s ease,background 0.15s ease,box-shadow 0.15s ease}.help-btn:hover{transform:translateY(-2px) scale(1.12);background:rgba(201,168,76,0.28)!important;box-shadow:0 4px 12px rgba(201,168,76,0.3)}.stat-card{transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s ease}.stat-card:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 8px 24px rgba(201,168,76,0.2);border-color:rgba(201,168,76,0.5)!important}.wa-btn{transition:transform 0.18s ease,box-shadow 0.18s ease}.wa-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.5)}.popup-box{animation:popIn 0.25s cubic-bezier(0.34,1.56,0.64,1)}.popup-row-item{transition:background 0.15s ease,transform 0.15s ease}.popup-row-item:hover{background:rgba(201,168,76,0.08);transform:translateX(4px)}.popup-logo{transition:transform 0.4s ease}.popup-logo:hover{transform:scale(1.1) rotate(-5deg)}.pag-btn{transition:transform 0.15s ease,background 0.15s ease,box-shadow 0.15s ease}.pag-btn:hover:not(:disabled){transform:translateY(-2px) scale(1.1);box-shadow:0 4px 12px rgba(201,168,76,0.3)}.volver-btn{transition:transform 0.15s ease,color 0.15s ease}.volver-btn:hover{transform:translateX(-4px);color:#E8C97A!important}.inicio-btn{transition:transform 0.15s ease,color 0.15s ease}.inicio-btn:hover{transform:translateX(-4px);color:#E8C97A!important}.desc-text{transition:color 0.2s ease}.desc-text:hover{color:rgba(232,201,122,0.7)!important}.consult-btn{transition:transform 0.18s ease,box-shadow 0.18s ease}.consult-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.4)}.lb-ov{position:fixed;inset:0;background:rgba(0,0,0,0);z-index:9999;display:flex;align-items:center;justify-content:center;transition:background 0.3s;pointer-events:none}.lb-ov.lb-on{background:rgba(0,0,0,0.93);pointer-events:all}.lb-bx{background:#1A1209;border:1px solid rgba(201,168,76,0.35);border-radius:14px;width:320px;max-width:92vw;padding:14px;position:relative;transform:scale(0.2) translateY(80px);opacity:0;transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1),opacity 0.3s}.lb-ov.lb-on .lb-bx{transform:scale(1) translateY(0);opacity:1}.lb-x{position:absolute;top:8px;right:8px;width:40px;height:40px;background:rgba(201,168,76,0.15);border:2px solid rgba(201,168,76,0.5);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.4rem;font-weight:700;color:#C9A84C;z-index:10;transition:all 0.2s;font-family:Arial,sans-serif;line-height:1}.lb-x:hover{background:#C9A84C;color:#1A1209}.lb-md{width:100%;height:260px;background:#0A0A05;border-radius:10px;overflow:hidden;margin-bottom:10px;display:flex;align-items:center;justify-content:center}.lb-md img{width:100%;height:100%;object-fit:contain}.lb-md video{width:100%;height:100%;object-fit:contain}.lb-nf{display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(201,168,76,0.3);font-size:.65rem;font-family:Georgia,serif;gap:8px;height:100%}.lb-nv{display:flex;align-items:center;gap:6px;margin-bottom:8px}.lb-ar{width:38px;height:38px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;color:#C9A84C;transition:all 0.18s;flex-shrink:0;font-family:Arial,sans-serif}.lb-ar:hover{background:#C9A84C;color:#1A1209}.lb-ar:disabled{opacity:0.2;cursor:not-allowed}.lb-ts{display:flex;gap:3px;flex:1;justify-content:center}.lb-t{padding:5px 7px;border-radius:14px;font-size:.6rem;cursor:pointer;border:1px solid rgba(201,168,76,0.2);background:transparent;color:rgba(201,168,76,0.4);font-family:Georgia,serif;transition:all 0.18s}.lb-t.lb-ta{background:#C9A84C;color:#1A1209;border-color:#C9A84C}.esp-card{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.12);border-radius:9px;padding:10px;cursor:pointer;text-align:left;font-family:Georgia,serif;transition:transform 0.18s ease,border-color 0.18s ease,background 0.18s ease,box-shadow 0.18s ease}.esp-card:hover{transform:translateY(-5px) scale(1.04);border-color:rgba(201,168,76,0.55);background:rgba(201,168,76,0.11);box-shadow:0 10px 28px rgba(0,0,0,0.45)}.esp-card img{transition:opacity 0.18s ease}.esp-card:hover img{opacity:0.9}.ord-btn{transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.15s ease}.ord-btn:hover{transform:translateY(-2px) scale(1.06);box-shadow:0 4px 14px rgba(201,168,76,0.3)}.fam-btn{transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.15s ease,color 0.15s ease}.fam-btn:hover{transform:translateY(-3px) scale(1.08);box-shadow:0 6px 18px rgba(201,168,76,0.25);border-color:rgba(201,168,76,0.5)!important;color:#E8C97A!important}
   @media(max-width:768px){
     .wa-btn{padding:14px 20px!important;fontSize:1rem!important;width:100%!important;display:block!important;textAlign:center!important;marginBottom:8px!important}
     .pieza-card{flexDirection:column!important}
@@ -320,7 +353,7 @@ export default function Page() {
               {pagEsp.map((e,i)=>(
                 <button key={i} onClick={()=>setSel(e)} className="esp-card">
                   <div style={{width:'100%',height:75,background:'rgba(201,168,76,0.06)',borderRadius:5,marginBottom:6,display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden'}}>
-                    {e.foto?<img src={e.foto} style={{width:'100%',height:'100%',objectFit:'cover'}}/>:(
+                    {e.foto?<img src={e.foto} style={{width:'100%',height:'100%',objectFit:'cover',cursor:'zoom-in'}} onClick={(ev)=>abrirLB(e,ev)}/>:(
                     <div style={{width:'100%',height:'100%',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',background:'linear-gradient(135deg,rgba(26,18,9,0.9),rgba(42,32,16,0.95))',position:'relative',overflow:'hidden'}}>
                       <div style={{position:'absolute',inset:0,backgroundImage:'radial-gradient(circle at 30% 40%, rgba(201,168,76,0.08) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(201,168,76,0.05) 0%, transparent 50%)'}}/>
                       <img src="/logo-house-insects-peru.png" style={{width:44,height:44,objectFit:'contain',opacity:.6,marginBottom:4,filter:'drop-shadow(0 2px 8px rgba(201,168,76,0.4))'}} onError={(ev)=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>
