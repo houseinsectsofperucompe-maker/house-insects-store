@@ -51,7 +51,6 @@ export default function EspecimenPage(){
   const [lb,setLb]=useState(false)
   const [dragStart,setDragStart]=useState(0)
   const [dragging,setDragging]=useState(false)
-  const [dragging,setDragging]=useState(false)
   const [ok,setOk]=useState(false)
   const [popCal,setPopCal]=useState(false)
   const [popAbr,setPopAbr]=useState(false)
