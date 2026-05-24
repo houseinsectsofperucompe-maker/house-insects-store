@@ -3,7 +3,7 @@ import ST from '@/components/ST'
 import { useState } from 'react'
 export default function NocturnasPage() {
   const [vista, setVista] = useState('frente')
-  const [tipo, setTipo] = useState('nocturnas')
+  const [tipo, setTipo] = useState('coleoptera')
   const [marco, setMarco] = useState('rectangular')
   const [vidrio, setVidrio] = useState('normal')
   const [tamano, setTamano] = useState('80mm')
