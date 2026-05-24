@@ -3,7 +3,7 @@ import ST from '@/components/ST'
 import { useCarrito } from '@/components/CarritoContext'
 import CarritoCompras from '@/components/CarritoCompras'
 import { useState } from 'react'
-type E = { n:string; p:number; s:number; foto?:string; fotoLado?:string; fotoReverso?:string; video?:string }
+type E = { n:string; p:number; s:number; foto?:string; video?:string }
 type F = { id:string; nm:string; e:E[] }
 const FAM:F[] = [
   { id:'Brassolidae', nm:'Brassolidae', e:[{n:'Caligo eurilochus livius',p:4.0,s:800},{n:'Caligo idomenius idomenides',p:6.5,s:100},{n:'Caligo illioneus',p:3.5,s:200},{n:'Caligo placidianus',p:4.0,s:200},{n:'Caligo prometheus',p:9.0,s:200},{n:'Caligo superbus',p:15.0,s:50},{n:'Caligo teucer semicaerulea',p:3.5,s:300},{n:'Dynastor darius darius',p:15.0,s:10},{n:'Opoptera aorsa',p:4.5,s:100},{n:'Opoptera arsippe arsippe',p:4.5,s:200},{n:'Opsiphanes bogatanus',p:3.5,s:100},{n:'Opsiphanes tamarindi incolumis',p:4.0,s:50},{n:'Caligo illioneus oberon',p:4.0,s:200},{n:'Caligo Oberthuri floklides',p:10.0,s:50},{n:'Eryphanis Polyxena',p:7.5,s:200},{n:'Catoblepia Berecynthia',p:10.0,s:20},{n:'Dynastor macrosirus stix',p:30.0,s:5},{n:'Opoptera Arsippe Bracteolata',p:4.0,s:20},{n:'Opsiphanes Cassina',p:3.5,s:50},{n:'Opsiphanes Sallei',p:3.0,s:100},{n:'Opsiphanes Invirae Agasthenes',p:2.5,s:200},{n:'Opsiphanes Quiteria Quirinalis',p:2.5,s:100}] },
@@ -100,16 +100,6 @@ const ABBREV_CHART = [
   {k:'S', d:'Set — a specially priced set of more than a single item at a discount.'},
 ]
 function PopupHeader({title,onClose,foto,nombre}:{title:string,onClose:()=>void,foto?:string,nombre?:string}) {
-
-  const lbVistas = (e:E) => [
-    {label:'Frente',url:e.foto||'',tipo:'img'},
-    {label:'Lado',url:e.fotoLado||'',tipo:'img'},
-    {label:'Reverso',url:e.fotoReverso||'',tipo:'img'},
-    {label:'Video',url:e.video||'',tipo:'video'},
-  ]
-  const abrirLB = (e:E,ev:React.MouseEvent) => {ev.stopPropagation();setLbEsp(e);setLbVista(0);setLbOpen(true)}
-  const cerrarLB = () => setLbOpen(false)
-
   return (
     <div>
       <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:12,paddingBottom:12,borderBottom:'1px solid rgba(201,168,76,0.2)'}}>
@@ -122,24 +112,249 @@ function PopupHeader({title,onClose,foto,nombre}:{title:string,onClose:()=>void,
         {nombre&&<p style={{color:'#E8C97A',fontSize:'.75rem',fontStyle:'italic',marginTop:6}}>{nombre}</p>}
       </div>}
     </div>
-      <div className={'lb-ov' + (lbOpen?' lb-on':'')} onClick={(e)=>{if((e.target as HTMLElement).classList.contains('lb-ov'))cerrarLB()}}>
-        <div className="lb-bx">
-          <button className="lb-x" onClick={cerrarLB}>&#x2715;</button>
-          <div className="lb-md">
-            {lbEsp&&(()=>{const vs=lbVistas(lbEsp);const v=vs[lbVista];if(!v.url)return <div className="lb-nf"><span style={{fontSize:'2rem'}}>&#128247;</span><span>{v.label.toUpperCase()} PROXIMAMENTE</span></div>;if(v.tipo==='video')return <video src={v.url} autoPlay loop muted playsInline style={{width:'100%',height:'100%',objectFit:'contain'}}/>;return <img src={v.url} alt={v.label} style={{width:'100%',height:'100%',objectFit:'contain'}}/>})()}
-          </div>
-          <div className="lb-nv">
-            <button className="lb-ar" onClick={()=>setLbVista(v=>Math.max(0,v-1))} disabled={lbVista===0}>&#8592;</button>
-            <div className="lb-ts">
-              {lbEsp&&lbVistas(lbEsp).map((v,i)=>(
-                <button key={i} className={'lb-t'+(lbVista===i?' lb-ta':'')} onClick={()=>setLbVista(i)}>{v.label}</button>
-              ))}
-            </div>
-            <button className="lb-ar" onClick={()=>setLbVista(v=>Math.min(3,v+1))} disabled={lbVista===3}>&#8594;</button>
-          </div>
-          {lbEsp&&<div style={{textAlign:'center',fontSize:'.75rem',fontStyle:'italic',color:'#E8C97A',marginBottom:2}}>{lbEsp.n}</div>}
-          <div style={{fontSize:'.55rem',color:'rgba(201,168,76,0.2)',textAlign:'center',marginTop:6,fontFamily:'Georgia,serif'}}>Toca fuera para cerrar</div>
-        </div>
-      </div>
   )
 }
+const POPUP_STYLE = {
+  box: {background:'#1A1209',border:'1px solid rgba(201,168,76,0.4)',borderRadius:12,padding:'22px 26px',maxWidth:420,width:'100%',fontFamily:'Georgia,serif',boxShadow:'0 20px 60px rgba(0,0,0,0.7)'},
+  row: {display:'flex' as const,gap:14,padding:'9px 0',borderBottom:'1px solid rgba(201,168,76,0.1)',alignItems:'flex-start' as const},
+  key: {color:'#C9A84C',fontWeight:700,fontSize:'.85rem',minWidth:54,textAlign:'right' as const},
+  val: {color:'rgba(232,201,122,0.8)',fontSize:'.82rem',lineHeight:1.6},
+  btn: {background:'rgba(201,168,76,0.1)',border:'1px solid rgba(201,168,76,0.3)',borderRadius:6,padding:'7px 24px',cursor:'pointer',fontSize:'.8rem',fontFamily:'Georgia,serif',color:'#C9A84C',marginTop:16,transition:'background 0.15s'},
+}
+function PopupCalidad({onClose,foto,nombre}:{onClose:()=>void,foto?:string,nombre?:string}) {
+  return (
+    <div onClick={onClose} style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.75)',zIndex:100,display:'flex',alignItems:'center',justifyContent:'center',padding:'20px'}}>
+      <div onClick={e=>e.stopPropagation()} className="popup-box" style={POPUP_STYLE.box}>
+        <PopupHeader title="Quality Chart" onClose={onClose} foto={foto} nombre={nombre}/>
+        {QUALITY_CHART.map((r,i)=>(
+          <div key={i} className="popup-row-item" style={{...POPUP_STYLE.row,borderRadius:4,padding:'9px 6px'}}>
+            <span style={POPUP_STYLE.key}>{r.q}</span>
+            <span style={POPUP_STYLE.val}>{r.d}</span>
+          </div>
+        ))}
+        <div style={{textAlign:'center'}}>
+          <button onClick={onClose} style={POPUP_STYLE.btn}>close window</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+function PopupAbrev({onClose,foto,nombre}:{onClose:()=>void,foto?:string,nombre?:string}) {
+  return (
+    <div onClick={onClose} style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.75)',zIndex:100,display:'flex',alignItems:'center',justifyContent:'center',padding:'20px'}}>
+      <div onClick={e=>e.stopPropagation()} className="popup-box" style={{...POPUP_STYLE.box,maxWidth:380}}>
+        <PopupHeader title="Abbreviation Chart" onClose={onClose} foto={foto} nombre={nombre}/>
+        {ABBREV_CHART.map((r,i)=>(
+          <div key={i} className="popup-row-item" style={{...POPUP_STYLE.row,borderRadius:4,padding:'9px 6px'}}>
+            <span style={{...POPUP_STYLE.key,minWidth:32}}>{r.k}</span>
+            <span style={POPUP_STYLE.val}>{r.d}</span>
+          </div>
+        ))}
+        <div style={{textAlign:'center'}}>
+          <button onClick={onClose} style={POPUP_STYLE.btn}>close window</button>
+        </div>
+      </div>
+    </div>
+  )
+}
+export default function Page() {
+  const [ord, setOrd] = useState('Lepidoptera Diurnae')
+  const [fid, setFid] = useState('Morphidae')
+  const { items:carrito, addItem, updateItems:setCarrito } = useCarrito()
+  const [showCarrito, setShowCarrito] = useState(false)
+  const [sel, setSel] = useState<E|null>(null)
+  const [q, setQ] = useState('')
+  const [pag, setPag] = useState(1)
+  const [showQ, setShowQ] = useState(false)
+  const [showA, setShowA] = useState(false)
+  const [composicion, setComposicion] = useState('individual')
+  const [marco, setMarco] = useState('rectangular')
+  const [vidrio, setVidrio] = useState('normal')
+  const [vista, setVista] = useState<'frente'|'lado'|'reverso'|'video'>('frente')
+  const catAct = ORDS.find(c=>c.o===ord)!
+  const fam = catAct.f.find(f=>f.id===fid)||catAct.f[0]
+  const filtrados = fam.e.filter(e=>e.n.toLowerCase().includes(q.toLowerCase()))
+  const totalPag = Math.ceil(filtrados.length/POR_PAG)
+  const pagEsp = filtrados.slice((pag-1)*POR_PAG, pag*POR_PAG)
+  if(sel) return (
+    <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'40px 20px'}}>
+      {showQ&&<PopupCalidad onClose={()=>setShowQ(false)}/>}
+      {showA&&<PopupAbrev onClose={()=>setShowA(false)}/>}
+      <style>{`@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@keyframes popIn{from{opacity:0;transform:scale(0.85) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}.sel-img{transition:transform 0.3s ease,box-shadow 0.3s ease}.sel-img:hover{transform:scale(1.04);box-shadow:0 12px 40px rgba(201,168,76,0.3)}.logo-ani{transition:transform 0.4s ease,opacity 0.3s ease}.logo-ani:hover{transform:scale(1.08) rotate(3deg);opacity:0.9}.help-btn{transition:transform 0.15s ease,background 0.15s ease,box-shadow 0.15s ease}.help-btn:hover{transform:translateY(-2px) scale(1.12);background:rgba(201,168,76,0.28)!important;box-shadow:0 4px 12px rgba(201,168,76,0.3)}.stat-card{transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s ease}.stat-card:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 8px 24px rgba(201,168,76,0.2);border-color:rgba(201,168,76,0.5)!important}.wa-btn{transition:transform 0.18s ease,box-shadow 0.18s ease}.wa-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.5)}.popup-box{animation:popIn 0.25s cubic-bezier(0.34,1.56,0.64,1)}.popup-row-item{transition:background 0.15s ease,transform 0.15s ease}.popup-row-item:hover{background:rgba(201,168,76,0.08);transform:translateX(4px)}.popup-logo{transition:transform 0.4s ease}.popup-logo:hover{transform:scale(1.1) rotate(-5deg)}.pag-btn{transition:transform 0.15s ease,background 0.15s ease,box-shadow 0.15s ease}.pag-btn:hover:not(:disabled){transform:translateY(-2px) scale(1.1);box-shadow:0 4px 12px rgba(201,168,76,0.3)}.volver-btn{transition:transform 0.15s ease,color 0.15s ease}.volver-btn:hover{transform:translateX(-4px);color:#E8C97A!important}.inicio-btn{transition:transform 0.15s ease,color 0.15s ease}.inicio-btn:hover{transform:translateX(-4px);color:#E8C97A!important}.desc-text{transition:color 0.2s ease}.desc-text:hover{color:rgba(232,201,122,0.7)!important}.consult-btn{transition:transform 0.18s ease,box-shadow 0.18s ease}.consult-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.4)}.esp-card{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.12);border-radius:9px;padding:10px;cursor:pointer;text-align:left;font-family:Georgia,serif;transition:transform 0.18s ease,border-color 0.18s ease,background 0.18s ease,box-shadow 0.18s ease}.esp-card:hover{transform:translateY(-5px) scale(1.04);border-color:rgba(201,168,76,0.55);background:rgba(201,168,76,0.11);box-shadow:0 10px 28px rgba(0,0,0,0.45)}.esp-card img{transition:opacity 0.18s ease}.esp-card:hover img{opacity:0.9}.ord-btn{transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.15s ease}.ord-btn:hover{transform:translateY(-2px) scale(1.06);box-shadow:0 4px 14px rgba(201,168,76,0.3)}.fam-btn{transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.15s ease,color 0.15s ease}.fam-btn:hover{transform:translateY(-3px) scale(1.08);box-shadow:0 6px 18px rgba(201,168,76,0.25);border-color:rgba(201,168,76,0.5)!important;color:#E8C97A!important}
+  @media(max-width:768px){
+    .wa-btn{padding:14px 20px!important;fontSize:1rem!important;width:100%!important;display:block!important;textAlign:center!important;marginBottom:8px!important}
+    .pieza-card{flexDirection:column!important}
+    h1{fontSize:1.4rem!important}
+  }
+`}</style>
+      <button onClick={()=>setSel(null)} className='volver-btn' style={{color:'#C9A84C',fontSize:'.8rem',background:'none',border:'none',cursor:'pointer',marginBottom:32,display:'block'}}>← Volver al catálogo</button>
+      <div style={{maxWidth:640,margin:'0 auto',textAlign:'center'}}>
+        <div style={{marginBottom:20}}>
+          <div style={{display:'flex',gap:6,justifyContent:'center',marginBottom:10}}>
+            {(['frente','lado','reverso','video'] as const).map(v=>(
+              <button key={v} onClick={()=>setVista(v)} style={{
+                padding:'5px 12px',borderRadius:20,cursor:'pointer',fontSize:'.7rem',fontFamily:'Georgia,serif',
+                background:vista===v?'#C9A84C':'rgba(201,168,76,0.08)',
+                color:vista===v?'#1A1209':'#C9A84C',
+                border:`1px solid ${vista===v?'#C9A84C':'rgba(201,168,76,0.2)'}`,
+                transition:'all 0.18s ease',textTransform:'capitalize'
+              }}>{v==='frente'?<><span>📸</span> <ST t='Frente'/></>:v==='lado'?<><span>📸</span> <ST t='Lado'/></>:v==='reverso'?<><span>📸</span> <ST t='Reverso'/></>:<><span>🎥</span> <ST t='Video'/></>}</button>
+            ))}
+          </div>
+          <div style={{width:'100%',maxWidth:420,margin:'0 auto'}}>
+            {vista==='video'&&sel.video&&<video autoPlay loop muted playsInline className="sel-img" style={{width:'100%',borderRadius:12,border:'2px solid #C9A84C'}}><source src={sel.video} type="video/mp4"/></video>}
+            {vista==='video'&&!sel.video&&(
+              <div className="sel-img" style={{width:'100%',height:280,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
+                <div style={{fontSize:'2rem',marginBottom:8}}>🎥</div>
+                <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.75rem'}}><ST t='Video próximamente'/></p>
+              </div>
+            )}
+            {vista!=='video'&&sel.foto&&<img src={sel.foto} alt={sel.n} className="sel-img" style={{width:'100%',height:280,objectFit:'cover',borderRadius:12,border:'2px solid #C9A84C'}}/>}
+            {vista!=='video'&&!sel.foto&&(
+              <div className="sel-img" style={{width:'100%',height:280,background:'linear-gradient(135deg,#1A1209,#2A2010)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',position:'relative',overflow:'hidden',cursor:'default'}}>
+                <div style={{position:'absolute',inset:0,backgroundImage:'radial-gradient(circle at 30% 30%, rgba(201,168,76,0.1) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(201,168,76,0.06) 0%, transparent 50%)'}}/>
+                <img src="/logo-house-insects-peru.png" className="logo-ani" style={{width:200,height:200,objectFit:'contain',opacity:.8,filter:'drop-shadow(0 4px 20px rgba(201,168,76,0.5))',marginBottom:12,position:'relative',zIndex:1}} onError={(ev)=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>
+                <div style={{width:60,height:1,background:'linear-gradient(to right,transparent,rgba(201,168,76,0.5),transparent)',marginBottom:10,position:'relative',zIndex:1}}/>
+                <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.7rem',letterSpacing:'.15em',position:'relative',zIndex:1}}><ST t="FOTO PRÓXIMAMENTE"/></p>
+                <p style={{color:'rgba(232,201,122,0.25)',fontSize:'.6rem',letterSpacing:'.08em',marginTop:4,position:'relative',zIndex:1}}><ST t="HOUSE INSECTS OF PERU"/></p>
+              </div>
+            )}
+          </div>
+        </div>
+        <p style={{color:'rgba(232,201,122,0.35)',fontSize:'.7rem',marginBottom:8,letterSpacing:'.08em'}}>ORDER: LEPIDOPTERA · AMAZONIA PERUANA · SERFOR · CITES</p>
+        <h1 className='desc-text' style={{fontSize:'1.8rem',fontWeight:300,color:'#E8C97A',fontStyle:'italic',marginBottom:20}}>{sel.n}</h1>
+        <div style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:10,padding:'16px',marginBottom:20,textAlign:'left'}}>
+          {[
+            ['FAMILY', fid],
+            ['LOCALITY', 'Tingo María, Perú'],
+          ].map(([k,v])=>(
+            <div key={k} style={{display:'flex',justifyContent:'space-between',padding:'6px 0',borderBottom:'1px solid rgba(201,168,76,0.08)'}}>
+              <span style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',letterSpacing:'.06em'}}><ST t={k}/></span>
+              <span style={{color:'#E8C97A',fontSize:'.78rem',fontStyle:'italic'}}>{v}</span>
+            </div>
+          ))}
+          <div style={{display:'flex',justifyContent:'space-between',padding:'6px 0',borderBottom:'1px solid rgba(201,168,76,0.08)',alignItems:'center'}}>
+            <span style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',letterSpacing:'.06em'}}><ST t="QUALITY"/></span>
+            <span style={{display:'flex',alignItems:'center',gap:6}}>
+              <span style={{color:'#C9A84C',fontSize:'.78rem',fontWeight:700}}>A1</span>
+              <button onClick={()=>setShowQ(true)} className="help-btn" style={{background:'rgba(201,168,76,0.12)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:3,padding:'1px 6px',fontSize:'.65rem',cursor:'pointer',fontFamily:'Georgia,serif'}}>? help</button>
+            </span>
+          </div>
+          <div style={{display:'flex',justifyContent:'space-between',padding:'6px 0',borderBottom:'1px solid rgba(201,168,76,0.08)',alignItems:'center'}}>
+            <span style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',letterSpacing:'.06em'}}><ST t="SEX"/></span>
+            <span style={{display:'flex',alignItems:'center',gap:6}}>
+              <span style={{color:'#E8C97A',fontSize:'.78rem'}}>M or F</span>
+              <button onClick={()=>setShowA(true)} className="help-btn" style={{background:'rgba(201,168,76,0.12)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:3,padding:'1px 6px',fontSize:'.65rem',cursor:'pointer',fontFamily:'Georgia,serif'}}>? help</button>
+            </span>
+          </div>
+          <div style={{display:'flex',justifyContent:'space-between',padding:'6px 0',alignItems:'center'}}>
+            <span style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',letterSpacing:'.06em'}}><ST t="SIZE RANGE"/></span>
+            <span style={{color:'#E8C97A',fontSize:'.78rem'}}>— cm</span>
+          </div>
+        </div>
+        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:12,marginBottom:20}}>
+          <div className='stat-card' style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:14}}>
+            <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.6rem',marginBottom:4,letterSpacing:'.06em'}}><ST t="PRICE USD"/></div>
+            <div style={{color:'#E8C97A',fontSize:'1.5rem',fontWeight:700}}>${sel.p}</div>
+          </div>
+          <div className='stat-card' style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:14}}>
+            <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.6rem',marginBottom:4,letterSpacing:'.06em'}}><ST t="STOCK"/></div>
+            <div style={{color:'#E8C97A',fontSize:'1.5rem',fontWeight:700}}>{sel.s}</div>
+          </div>
+          <div className='stat-card' style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:14}}>
+            <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.6rem',marginBottom:4,letterSpacing:'.06em'}}><ST t="QUALITY"/></div>
+            <div style={{color:'#7EC87E',fontSize:'1rem',fontWeight:700}}>A1</div>
+          </div>
+        </div>
+        <div style={{fontSize:'.7rem',color:'rgba(232,201,122,0.4)',marginBottom:20,lineHeight:2,letterSpacing:'.06em'}}>SERFOR · CITES · EXPORTAFACIL · DHL · FEDEX · UPS · ARAMEX · RUC 20447397804</div>
+        <div style={{marginBottom:10,textAlign:'center'}}><button onClick={()=>{addItem({n:sel.n,p:sel.p,rubro:'especimenes'});setShowCarrito(true);setSel(null)}} style={{background:'#C9A84C',color:'#1A1209',border:'none',borderRadius:6,padding:'11px 24px',fontWeight:700,cursor:'pointer',fontSize:'.85rem',fontFamily:'Georgia,serif',width:'100%'}}>🛒 Agregar al carrito</button></div>
+        <div style={{display:'flex',gap:10,justifyContent:'center',flexWrap:'wrap'}}>
+          <a href={`https://wa.me/51940699405?text=Me interesa: ${sel.n} USD $${sel.p}`} target="_blank" className='wa-btn' style={{background:'#25D366',color:'white',padding:'12px 22px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>💬 +51 940 699 405</a>
+          <a href={`https://wa.me/51920644433?text=Me interesa: ${sel.n} USD $${sel.p}`} target="_blank" className='wa-btn' style={{background:'#25D366',color:'white',padding:'12px 22px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>💬 +51 920 644 433</a>
+        </div>
+      </div>
+    </div>
+  )
+  return (
+    <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'32px 16px'}}>
+      <style>{`.logo-ani{transition:transform 0.4s ease,opacity 0.3s ease;cursor:pointer}.logo-ani:hover{transform:scale(1.12) rotate(5deg);opacity:0.9;filter:drop-shadow(0 0 16px rgba(201,168,76,0.6))}.ord-btn{transition:transform 0.15s ease,box-shadow 0.15s ease}.ord-btn:hover{transform:translateY(-2px) scale(1.06);box-shadow:0 4px 14px rgba(201,168,76,0.3)}.fam-btn{transition:transform 0.15s ease,box-shadow 0.15s ease,color 0.15s ease}.fam-btn:hover{transform:translateY(-3px) scale(1.08);box-shadow:0 6px 18px rgba(201,168,76,0.25);border-color:rgba(201,168,76,0.5)!important;color:#E8C97A!important}.esp-card{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.12);border-radius:9px;padding:10px;cursor:pointer;text-align:left;font-family:Georgia,serif;transition:transform 0.18s ease,border-color 0.18s ease,box-shadow 0.18s ease}.esp-card:hover{transform:translateY(-5px) scale(1.04);border-color:rgba(201,168,76,0.55);box-shadow:0 10px 28px rgba(0,0,0,0.45)}.pag-btn{transition:transform 0.15s ease,box-shadow 0.15s ease}.pag-btn:hover:not(:disabled){transform:translateY(-2px) scale(1.1);box-shadow:0 4px 12px rgba(201,168,76,0.3)}`}</style>
+      {showQ&&<PopupCalidad onClose={()=>setShowQ(false)}/>}
+      {showA&&<PopupAbrev onClose={()=>setShowA(false)}/>}
+      {showCarrito&&<CarritoCompras items={carrito} onClose={()=>setShowCarrito(false)} onUpdateItems={(its)=>setCarrito(its)} onPagar={(d)=>{console.log(d);setShowCarrito(false)}}/>}
+      <a href="/" className="inicio-btn" style={{color:'#C9A84C',fontSize:'1.5rem',fontWeight:700,textDecoration:'none',display:'inline-block',marginBottom:20,padding:'10px 20px',background:'rgba(201,168,76,0.15)',borderRadius:8,border:'1px solid rgba(201,168,76,0.4)'}}><ST t="← Inicio"/></a>
+      <div style={{maxWidth:1200,margin:'0 auto'}}>
+        <div style={{textAlign:'center',marginBottom:20}}>
+          <img src="/logo-house-insects-peru.png" className="logo-ani" style={{width:80,height:80,marginBottom:10,objectFit:'contain',cursor:'pointer'}} onError={(ev)=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>
+          <h1 style={{fontSize:'1.6rem',fontWeight:300,color:'#E8C97A',marginBottom:4}}><ST t="Especimenes Biologicos Secos"/></h1>
+          <p style={{color:'rgba(232,201,122,0.3)',fontSize:'.7rem',letterSpacing:'.08em'}}>HOUSE INSECTS OF PERU · AMAZONIA · SERFOR · CITES · RUC 20447397804</p>
+        </div>
+        <style>{`
+          .ord-btn{transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.15s ease}
+          .ord-btn:hover{transform:translateY(-2px) scale(1.06);box-shadow:0 4px 14px rgba(201,168,76,0.3)}
+          .fam-btn{transition:transform 0.15s ease,box-shadow 0.15s ease,background 0.15s ease,color 0.15s ease}
+          .fam-btn:hover{transform:translateY(-3px) scale(1.08);box-shadow:0 6px 18px rgba(201,168,76,0.25);border-color:rgba(201,168,76,0.5)!important;color:#E8C97A!important}
+        `}</style>
+        <div style={{display:'flex',gap:4,flexWrap:'wrap',justifyContent:'center',marginBottom:12}}>
+          {ORDS.map(c=>(
+            <button key={c.o} onClick={()=>{setOrd(c.o);setFid(c.f[0].id);setQ('');setPag(1)}} className="ord-btn" style={{padding:'6px 12px',background:ord===c.o?'#C9A84C':'rgba(201,168,76,0.08)',color:ord===c.o?'#1A1209':'#C9A84C',border:'1px solid rgba(201,168,76,0.25)',borderRadius:4,fontSize:'.7rem',cursor:'pointer',fontWeight:ord===c.o?700:400}}>
+              {c.o}
+            </button>
+          ))}
+        </div>
+        <div style={{display:'flex',gap:3,flexWrap:'wrap',justifyContent:'center',marginBottom:14,padding:'8px',background:'rgba(201,168,76,0.03)',borderRadius:8,border:'1px solid rgba(201,168,76,0.08)'}}>
+          {catAct.f.map(f=>(
+            <button key={f.id} onClick={()=>{setFid(f.id);setQ('');setPag(1)}} className="fam-btn" style={{padding:'4px 10px',background:fid===f.id?'#C9A84C':'transparent',color:fid===f.id?'#1A1209':'rgba(201,168,76,0.6)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:12,fontSize:'.65rem',cursor:'pointer',fontStyle:'italic',fontWeight:fid===f.id?700:400}}>
+              {<ST t={f.nm}/>}{f.e.length>0?` (${f.e.length})`:''}</button>
+          ))}
+        </div>
+        <div style={{textAlign:'center',marginBottom:14}}>
+          <input value={q} onChange={e=>{setQ(e.target.value);setPag(1)}} placeholder="Buscar..." style={{width:'100%',maxWidth:340,padding:'8px 14px',background:'#2A2010',color:'#E8C97A',border:'1px solid #C9A84C',borderRadius:8,fontSize:'.8rem',outline:'none'}}/>
+        </div>
+        {filtrados.length>0?(
+          <>
+            <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem',textAlign:'center',marginBottom:10}}>
+              <ST t='Mostrando'/> {(pag-1)*POR_PAG+1}–{Math.min(pag*POR_PAG,filtrados.length)} <ST t='de'/> {filtrados.length} <ST t='especies'/> · <ST t='Página'/> {pag} <ST t='de'/> {totalPag}
+            </div>
+            <style>{`.esp-card{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.12);border-radius:9px;padding:10px;cursor:pointer;text-align:left;font-family:Georgia,serif;transition:transform 0.18s ease,border-color 0.18s ease,background 0.18s ease,box-shadow 0.18s ease}.esp-card:hover{transform:translateY(-5px) scale(1.04);border-color:rgba(201,168,76,0.55);background:rgba(201,168,76,0.11);box-shadow:0 10px 28px rgba(0,0,0,0.45)}.esp-card img{transition:opacity 0.18s ease}.esp-card:hover img{opacity:0.9}`}</style>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(155px,1fr))',gap:7}}>
+              {pagEsp.map((e,i)=>(
+                <button key={i} onClick={()=>setSel(e)} className="esp-card">
+                  <div style={{width:'100%',height:75,background:'rgba(201,168,76,0.06)',borderRadius:5,marginBottom:6,display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden'}}>
+                    {e.foto?<img src={e.foto} style={{width:'100%',height:'100%',objectFit:'cover'}}/>:(
+                    <div style={{width:'100%',height:'100%',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',background:'linear-gradient(135deg,rgba(26,18,9,0.9),rgba(42,32,16,0.95))',position:'relative',overflow:'hidden'}}>
+                      <div style={{position:'absolute',inset:0,backgroundImage:'radial-gradient(circle at 30% 40%, rgba(201,168,76,0.08) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(201,168,76,0.05) 0%, transparent 50%)'}}/>
+                      <img src="/logo-house-insects-peru.png" style={{width:44,height:44,objectFit:'contain',opacity:.6,marginBottom:4,filter:'drop-shadow(0 2px 8px rgba(201,168,76,0.4))'}} onError={(ev)=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>
+                      <div style={{width:30,height:1,background:'rgba(201,168,76,0.3)',margin:'3px auto'}}/>
+                      <span style={{color:'rgba(201,168,76,0.4)',fontSize:'.5rem',letterSpacing:'.12em'}}><ST t="FOTO PRÓXIMAMENTE"/></span>
+                    </div>
+                  )}
+                  </div>
+                  <div style={{fontSize:'.68rem',fontStyle:'italic',color:'#E8C97A',marginBottom:4,lineHeight:1.3}}>{e.n}</div>
+                  <div style={{display:'flex',justifyContent:'space-between'}}>
+                    <span style={{color:'#C9A84C',fontWeight:700,fontSize:'.75rem'}}>${e.p}</span>
+                    <span style={{color:e.s===0?'#ff6b6b':'rgba(232,201,122,0.3)',fontSize:e.s===0?'.75rem':'.72rem',fontWeight:700}}>{e.s===0?'❌ SIN STOCK':`🇵🇪 ${e.s} unid`}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+            {totalPag>1&&(
+              <div style={{display:'flex',gap:5,justifyContent:'center',flexWrap:'wrap',marginTop:20,paddingTop:14,borderTop:'1px solid rgba(201,168,76,0.12)'}}>
+                <button onClick={()=>setPag(p=>Math.max(1,p-1))} disabled={pag===1} className='pag-btn' style={{padding:'5px 10px',background:'rgba(201,168,76,0.08)',color:pag===1?'rgba(201,168,76,0.25)':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:pag===1?'not-allowed':'pointer',fontSize:'.7rem'}}><ST t="← Ant"/></button>
+                {Array.from({length:Math.min(totalPag,10)},(_,i)=>i+1).map(n=>(
+                  <button key={n} onClick={()=>setPag(n)} className='pag-btn' style={{padding:'5px 9px',background:pag===n?'#C9A84C':'rgba(201,168,76,0.08)',color:pag===n?'#1A1209':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:'pointer',fontSize:'.7rem',fontWeight:pag===n?700:400,minWidth:28}}>{n}</button>
+                ))}
+                <button onClick={()=>setPag(p=>Math.min(totalPag,p+1))} disabled={pag===totalPag} className='pag-btn' style={{padding:'5px 10px',background:'rgba(201,168,76,0.08)',color:pag===totalPag?'rgba(201,168,76,0.25)':'#C9A84C',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,cursor:pag===totalPag?'not-allowed':'pointer',fontSize:'.7rem'}}><ST t="Sig →"/></button>
+              </div>
+            )}
+          </>
+        ):(
+          <div style={{textAlign:'center',padding:'40px 20px'}}>
+            <p style={{color:'rgba(232,201,122,0.3)',marginBottom:12}}>{fam.e.length===0?`Proximamente especies de ${fid}`:'No se encontraron'}</p>
+            <a href="https://wa.me/51940699405" target="_blank" className='consult-btn' style={{display:'inline-block',background:'#25D366',color:'white',padding:'10px 20px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.8rem'}}>Consultar disponibilidad</a>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+// Mon May 18 00:31:25 -05 2026
