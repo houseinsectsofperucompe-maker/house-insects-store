@@ -112,7 +112,7 @@ export default function EspecimenPage(){
           <p style={{color:'rgba(201,168,76,0.25)',fontSize:'.6rem',marginTop:8,fontFamily:'Georgia,serif'}}>Arrastra para girar · Toca fuera para cerrar</p>
         </div>}
         <div style={{background:CARD,border:`1px solid ${BD}`,borderRadius:12,overflow:'hidden',marginBottom:16}}>
-          <div onClick={()=>{if(fotoUrl&&v!=='Video')setLb(true)}} style={{width:'100%',height:320,background:'#050501',display:'flex',alignItems:'center',justifyContent:'center',cursor:v!=='Video'?'zoom-in':'default',position:'relative'}}
+          <div onClick={()=>{if(v!=='Video')setLb(true)}} style={{width:'100%',height:320,background:'#050501',display:'flex',alignItems:'center',justifyContent:'center',cursor:v!=='Video'?'zoom-in':'default',position:'relative'}}
             onTouchStart={e=>setDragStart(e.touches[0].clientX)}
             onTouchEnd={e=>{const d=e.changedTouches[0].clientX-dragStart;if(Math.abs(d)>40){const vs=['Frente','Lado','Reverso'] as const;const ci=vs.indexOf(v as any);if(d<0&&ci<2)setV(vs[ci+1]);else if(d>0&&ci>0)setV(vs[ci-1]);}}}
           >
