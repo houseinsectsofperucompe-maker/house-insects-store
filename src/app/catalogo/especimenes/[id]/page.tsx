@@ -11,12 +11,14 @@ const FAM:F[]=[
 {id:'Danaidae',nm:'Danaidae',e:[{n:'Danaus plexippus nigrippus',p:2.5,s:2000},{n:'Lycorea halia',p:4.0,s:20},{n:'Lycorea ilione lamaris',p:1.5,s:2000},{n:'Lycorea Ituna Ilione Phenarete',p:2.0,s:100},{n:'Danaus Gilippus thersippus',p:3.0,s:200}]},
 {id:'Heliconidae',nm:'Heliconidae & Ithomidae',e:[{n:'Dione juno',p:1.3,s:5000},{n:'Dione moneta',p:2.5,s:500},{n:'Dryas julia',p:1.3,s:5000},{n:'Eueides (Heliconius) aliphera',p:1.8,s:2000},{n:'Eueides isabella dissolutus',p:2.5,s:5},{n:'Euides tales',p:2.0,s:500},{n:'Godyris duillia (Ithomidae)',p:2.5,s:500},{n:'Godyris zavalata huanaco',p:1.8,s:500},{n:'Heliconius burneyi huebneri',p:4.0,s:100},{n:'Heliconius erato microclea',p:2.5,s:200},{n:'Heliconius hecale shanki',p:5.5,s:10},{n:'Heliconius melpomene amaryllis',p:2.0,s:5000},{n:'Heliconius melpomene',p:2.5,s:20},{n:'Heliconius numata bicoloratus',p:2.0,s:500},{n:'Heliconius telesiphe telesiphe',p:2.0,s:500},{n:'Heliconius wallacei flavescens',p:1.8,s:500},{n:'Methona curvifascia',p:1.8,s:3000},{n:'Philaethria (Metamorpha) dido',p:4.0,s:200},{n:'Thyridia psidii cetoides',p:1.5,s:2000},{n:'Tithorea harmonia',p:2.5,s:200},{n:'Hypothyris semifulva',p:2.0,s:300},{n:'Mechanitis polymnia',p:2.0,s:10}]},
 {id:'Lycaenidae',nm:'Lycaenidae',e:[{n:'Arawacus seperata',p:6.5,s:200},{n:'Arcas imperialis',p:15.0,s:200},{n:'Arcas tuneta',p:15.0,s:100},{n:'Evenus gannymedes',p:18.0,s:20},{n:'Thecla gibberosa',p:12.0,s:100},{n:'Arawacus dolylas',p:10.0,s:15}]},
+]
 const VISTAS=['Frente','Lado','Reverso','Video'] as const
 type Vista=typeof VISTAS[number]
 export default function EspecimenPage(){
   const params=useParams()
   const router=useRouter()
-  const {addItem}=useCarrito()
+  const {items:carrito,addItem,updateItems:setCarrito}=useCarrito()
+  const [showCarrito,setShowCarrito]=useState(false)
   const [v,setV]=useState<Vista>('Frente')
   const [ok,setOk]=useState(false)
   const rawId=typeof params.id==='string'?params.id:''
@@ -38,7 +40,7 @@ export default function EspecimenPage(){
   const G='#C9A84C',BG='#0A0A05',CARD='#1A1209',BD='rgba(201,168,76,0.2)'
   return(
     <main style={{minHeight:'100vh',background:BG,fontFamily:'Georgia,serif',paddingBottom:80}}>
-      <CarritoCompras/>
+      <CarritoCompras items={carrito} onClose={()=>setShowCarrito(false)} onUpdateItems={(its)=>setCarrito(its)} onPagar={(d)=>{console.log(d);setShowCarrito(false)}}/>
       <div style={{padding:'16px 20px',display:'flex',alignItems:'center',gap:12,borderBottom:`1px solid ${BD}`}}>
         <button onClick={()=>router.back()} style={{background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,padding:'7px 14px',borderRadius:6,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.75rem'}}>← <ST t="Volver"/></button>
         <span style={{color:'rgba(201,168,76,0.35)',fontSize:'.7rem'}}>{fam.nm}</span>
