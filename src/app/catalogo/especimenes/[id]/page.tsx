@@ -48,6 +48,8 @@ export default function EspecimenPage(){
   const {items:carrito,addItem,updateItems:setCarrito}=useCarrito()
   const [showCarrito,setShowCarrito]=useState(false)
   const [v,setV]=useState<Vista>('Frente')
+  const [lb,setLb]=useState(false)
+  const [dragStart,setDragStart]=useState(0)
   const [ok,setOk]=useState(false)
   const [popCal,setPopCal]=useState(false)
   const [popAbr,setPopAbr]=useState(false)
@@ -89,11 +91,30 @@ export default function EspecimenPage(){
         <span style={{color:'rgba(201,168,76,0.35)',fontSize:'.7rem'}}>{fam.nm}</span>
       </div>
       <div style={{maxWidth:480,margin:'0 auto',padding:'20px 16px'}}>
+        {lb&&<div onClick={()=>setLb(false)} style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.96)',zIndex:300,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}
+          onTouchStart={e=>setDragStart(e.touches[0].clientX)}
+          onTouchEnd={e=>{const d=e.changedTouches[0].clientX-dragStart;if(Math.abs(d)>40){const vs=['Frente','Lado','Reverso'] as const;const ci=vs.indexOf(v as any);if(d<0&&ci<2)setV(vs[ci+1]);else if(d>0&&ci>0)setV(vs[ci-1]);}}}
+        >
+          <button onClick={()=>setLb(false)} style={{position:'absolute',top:16,right:16,background:'rgba(201,168,76,0.15)',border:'2px solid rgba(201,168,76,0.4)',color:'#C9A84C',width:40,height:40,borderRadius:'50%',cursor:'pointer',fontSize:'1.2rem',zIndex:10}}>x</button>
+          <div style={{width:'min(900px,95vw)',height:'min(900px,85vh)',display:'flex',alignItems:'center',justifyContent:'center'}}>
+            {fotoUrl?<img src={fotoUrl} alt={esp.n} style={{maxWidth:'100%',maxHeight:'100%',objectFit:'contain'}}/>:<div style={{color:'rgba(201,168,76,0.3)',fontFamily:'Georgia,serif',fontSize:'.8rem'}}>Sin foto</div>}
+          </div>
+          <div style={{display:'flex',gap:20,marginTop:16,alignItems:'center'}}>
+            <button onClick={e=>{e.stopPropagation();const vs=['Frente','Lado','Reverso'] as const;const ci=vs.indexOf(v as any);if(ci>0)setV(vs[ci-1]);}} style={{width:54,height:54,background:'rgba(201,168,76,0.1)',border:'2px solid rgba(201,168,76,0.4)',borderRadius:'50%',color:'#C9A84C',fontSize:'1.5rem',cursor:'pointer'}}>&#8592;</button>
+            <span style={{color:'rgba(201,168,76,0.4)',fontSize:'.65rem',letterSpacing:2}}>{v.toUpperCase()}</span>
+            <button onClick={e=>{e.stopPropagation();const vs=['Frente','Lado','Reverso'] as const;const ci=vs.indexOf(v as any);if(ci<2)setV(vs[ci+1]);}} style={{width:54,height:54,background:'rgba(201,168,76,0.1)',border:'2px solid rgba(201,168,76,0.4)',borderRadius:'50%',color:'#C9A84C',fontSize:'1.5rem',cursor:'pointer'}}>&#8594;</button>
+          </div>
+          <p style={{color:'rgba(201,168,76,0.25)',fontSize:'.6rem',marginTop:8,fontFamily:'Georgia,serif'}}>Arrastra para girar · Toca fuera para cerrar</p>
+        </div>}
         <div style={{background:CARD,border:`1px solid ${BD}`,borderRadius:12,overflow:'hidden',marginBottom:16}}>
-          <div style={{width:'100%',height:320,background:'#050501',display:'flex',alignItems:'center',justifyContent:'center'}}>
+          <div onClick={()=>{if(v!=='Video')setLb(true)}} style={{width:'100%',height:320,background:'#050501',display:'flex',alignItems:'center',justifyContent:'center',cursor:v!=='Video'?'zoom-in':'default',position:'relative'}}
+            onTouchStart={e=>setDragStart(e.touches[0].clientX)}
+            onTouchEnd={e=>{const d=e.changedTouches[0].clientX-dragStart;if(Math.abs(d)>40){const vs=['Frente','Lado','Reverso'] as const;const ci=vs.indexOf(v as any);if(d<0&&ci<2)setV(vs[ci+1]);else if(d>0&&ci>0)setV(vs[ci-1]);}}}
+          >
             {v==='Video'&&fotos?.video?<video src={fotos.video} controls autoPlay muted playsInline style={{width:'100%',height:'100%',objectFit:'contain'}}/>
             :fotoUrl?<img src={fotoUrl} alt={esp.n} style={{width:'100%',height:'100%',objectFit:'contain'}}/>
             :<div style={{textAlign:'center',color:'rgba(201,168,76,0.25)',fontSize:'.7rem'}}><div style={{fontSize:'3rem',marginBottom:8}}>📷</div><div style={{textTransform:'uppercase',letterSpacing:2}}>{v}</div><div style={{marginTop:4,fontSize:'.6rem'}}>PROXIMAMENTE</div></div>}
+            {v!=='Video'&&fotoUrl&&<span style={{position:'absolute',bottom:8,right:8,background:'rgba(0,0,0,0.6)',color:'rgba(201,168,76,0.6)',fontSize:'.55rem',padding:'3px 8px',borderRadius:10,fontFamily:'Georgia,serif'}}>+ ver grande</span>}
           </div>
           <div style={{display:'flex',gap:4,padding:'10px 12px',borderTop:`1px solid ${BD}`}}>
             {VISTAS.map(t=>(
