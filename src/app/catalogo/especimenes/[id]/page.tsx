@@ -48,7 +48,7 @@ export default function EspecimenPage(){
   const fotoUrl=v==='Frente'?fotos?.f1:v==='Lado'?fotos?.f2:v==='Reverso'?fotos?.f3:undefined
   return(
     <main style={{minHeight:'100vh',background:BG,fontFamily:'Georgia,serif',paddingBottom:80}}>
-      <CarritoCompras items={carrito} onClose={()=>setShowCarrito(false)} onUpdateItems={(its)=>setCarrito(its)} onPagar={(d)=>{console.log(d);setShowCarrito(false)}}/>
+      {showCarrito&&<CarritoCompras items={carrito} onClose={()=>setShowCarrito(false)} onUpdateItems={(its)=>setCarrito(its)} onPagar={(d)=>{console.log(d);setShowCarrito(false)}}/>}
       <div style={{padding:'16px 20px',display:'flex',alignItems:'center',gap:12,borderBottom:`1px solid ${BD}`}}>
         <button onClick={()=>router.back()} style={{background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,padding:'7px 14px',borderRadius:6,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.75rem'}}><ST t="Volver"/></button>
         <span style={{color:'rgba(201,168,76,0.35)',fontSize:'.7rem'}}>{fam.nm}</span>
