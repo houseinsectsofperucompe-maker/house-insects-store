@@ -127,6 +127,30 @@ export default function DiurnasPage() {
           </div>
         </div>
       </div>
+
+        <div style={{marginTop:32}}>
+          <h2 style={{color:'#C9A84C',fontSize:'1.2rem',fontWeight:300,textAlign:'center',marginBottom:20,letterSpacing:'.1em'}}>SELECCIONA TU MARIPOSA</h2>
+          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(140px,1fr))',gap:10}}>
+            {[
+              {n:'Morpho didius',p:7.0},{n:'Morpho didius tingomaria',p:7.0},{n:'Morpho achilles helenor',p:5.5},
+              {n:'Morpho rhetenor cacica',p:33.0},{n:'Morpho rhtenor helena',p:45.0},{n:'Morpho menelaus assarpai',p:12.0},
+              {n:'Caligo eurilochus livius',p:4.0},{n:'Caligo Oberthuri floklides',p:10.0},{n:'Caligo superbus',p:15.0},
+              {n:'Morpho absoloni',p:43.0},{n:'Morpho aurora aureola',p:13.0},{n:'Morpho telemachus',p:5.5},
+              {n:'Agrias pericles peruviana',p:120.0},{n:'Papilio xanthopleura',p:40.0},{n:'Parides aeneas bolivar',p:17.5},
+              {n:'Arcas imperialis',p:15.0},{n:'Evenus gannymedes',p:18.0},{n:'Heliconius hecale shanki',p:5.5},
+              {n:'Dione juno',p:1.3},{n:'Dryas julia',p:1.3},{n:'Morpho helenor amazonius',p:6.0},
+            ].map((e,i)=>(
+              <div key={i} style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:10,cursor:'pointer',textAlign:'center',transition:'all 0.2s'}}
+                onMouseEnter={el=>el.currentTarget.style.borderColor='rgba(201,168,76,0.5)'}
+                onMouseLeave={el=>el.currentTarget.style.borderColor='rgba(201,168,76,0.15)'}
+              >
+                <img src="https://res.cloudinary.com/dv3mvukmq/image/upload/v1779640351/specimens/logo-hip-correct.png" style={{width:60,opacity:0.3,marginBottom:6}}/>
+                <div style={{fontSize:'.58rem',fontStyle:'italic',color:'#E8C97A',lineHeight:1.3,marginBottom:4}}>{e.n}</div>
+                <div style={{fontSize:'.7rem',fontWeight:700,color:'#C9A84C'}}>${e.p.toFixed(2)}</div>
+              </div>
+            ))}
+          </div>
+        </div>
     </div>
   )
 }
