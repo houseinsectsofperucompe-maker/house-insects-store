@@ -95,8 +95,6 @@ export default function EspecimenPage(){
         {lb&&<div onClick={()=>setLb(false)} style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.96)',zIndex:300,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}
           onMouseDown={e=>{setDragStart(e.clientX);setDragging(true)}}
           onMouseMove={e=>{if(!dragging)return;const d=e.clientX-dragStart;if(Math.abs(d)>60){const vs=['Frente','Lado','Reverso'] as const;const ci=vs.indexOf(v as any);if(d<0&&ci<2){setV(vs[ci+1]);setDragStart(e.clientX);}else if(d>0&&ci>0){setV(vs[ci-1]);setDragStart(e.clientX);}}}}
-          onMouseDown={e=>{setDragStart(e.clientX);setDragging(true)}}
-          onMouseMove={e=>{if(!dragging)return;const d=e.clientX-dragStart;if(Math.abs(d)>60){const vs=['Frente','Lado','Reverso'] as const;const ci=vs.indexOf(v as any);if(d<0&&ci<2){setV(vs[ci+1]);setDragStart(e.clientX);}else if(d>0&&ci>0){setV(vs[ci-1]);setDragStart(e.clientX);}}}}
           onMouseUp={()=>setDragging(false)}
           onMouseLeave={()=>setDragging(false)}
           onTouchStart={e=>setDragStart(e.touches[0].clientX)}
