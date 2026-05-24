@@ -196,7 +196,7 @@ export default function ColeopteraPage() {
                 <img src='https://res.cloudinary.com/dv3mvukmq/image/upload/v1779640351/specimens/logo-hip-correct.png' style={{width:40,height:40,objectFit:'contain',opacity:0.5}}/>
                 <div>
                   <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700,fontStyle:'italic'}}>{p.n}</div>
-                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>${p.p.toFixed(2)} USD</div>
+                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{"$"+p.p.toFixed(2)+" USD"}</div>
                 </div>
               </div>
             ))}
