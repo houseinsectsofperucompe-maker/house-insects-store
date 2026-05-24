@@ -84,7 +84,7 @@ const ORDS = [
     { id:'Odonata', nm:'Odonata', e:[] as E[] },
   ] as F[] },
 ]
-const POR_PAG = 20
+const POR_PAG = 21
 const QUALITY_CHART = [
   {q:'A1', d:'Perfect specimen. As perfect as all reasonable expectations dictate. Many are ex-pupae bred.'},
   {q:'A1/A1-', d:'Virtually perfect and fresh. A minor flaw or so. Sometimes only antennae damage. Excellent quality at significant savings.'},
