@@ -3,7 +3,8 @@ import ST from '@/components/ST'
 import { useCarrito } from '@/components/CarritoContext'
 import CarritoCompras from '@/components/CarritoCompras'
 import { useState } from 'react'
-type E = { n:string; p:number; s:number; foto?:string; video?:string }
+import Lightbox from '@/components/Lightbox'
+type E = { n:string; p:number; s:number; foto?:string; fotoLado?:string; fotoReverso?:string; video?:string }
 type F = { id:string; nm:string; e:E[] }
 const FAM:F[] = [
   { id:'Brassolidae', nm:'Brassolidae', e:[{n:'Caligo eurilochus livius',p:4.0,s:800},{n:'Caligo idomenius idomenides',p:6.5,s:100},{n:'Caligo illioneus',p:3.5,s:200},{n:'Caligo placidianus',p:4.0,s:200},{n:'Caligo prometheus',p:9.0,s:200},{n:'Caligo superbus',p:15.0,s:50},{n:'Caligo teucer semicaerulea',p:3.5,s:300},{n:'Dynastor darius darius',p:15.0,s:10},{n:'Opoptera aorsa',p:4.5,s:100},{n:'Opoptera arsippe arsippe',p:4.5,s:200},{n:'Opsiphanes bogatanus',p:3.5,s:100},{n:'Opsiphanes tamarindi incolumis',p:4.0,s:50},{n:'Caligo illioneus oberon',p:4.0,s:200},{n:'Caligo Oberthuri floklides',p:10.0,s:50},{n:'Eryphanis Polyxena',p:7.5,s:200},{n:'Catoblepia Berecynthia',p:10.0,s:20},{n:'Dynastor macrosirus stix',p:30.0,s:5},{n:'Opoptera Arsippe Bracteolata',p:4.0,s:20},{n:'Opsiphanes Cassina',p:3.5,s:50},{n:'Opsiphanes Sallei',p:3.0,s:100},{n:'Opsiphanes Invirae Agasthenes',p:2.5,s:200},{n:'Opsiphanes Quiteria Quirinalis',p:2.5,s:100}] },
@@ -112,6 +113,18 @@ function PopupHeader({title,onClose,foto,nombre}:{title:string,onClose:()=>void,
         {nombre&&<p style={{color:'#E8C97A',fontSize:'.75rem',fontStyle:'italic',marginTop:6}}>{nombre}</p>}
       </div>}
     </div>
+
+      <Lightbox
+        open={lbEsp!==null}
+        nombre={lbEsp?.n||''}
+        vistas={lbEsp?[
+          {label:'Frente',url:lbEsp.foto||'',tipo:'img'},
+          {label:'Lado',url:lbEsp.fotoLado||'',tipo:'img'},
+          {label:'Reverso',url:lbEsp.fotoReverso||'',tipo:'img'},
+          {label:'Video',url:lbEsp.video||'',tipo:'video'},
+        ]:[]}
+        onClose={()=>setLbEsp(null)}
+      />
   )
 }
 const POPUP_STYLE = {
@@ -168,6 +181,7 @@ export default function Page() {
   const [showQ, setShowQ] = useState(false)
   const [showA, setShowA] = useState(false)
   const [composicion, setComposicion] = useState('individual')
+  const [lbEsp, setLbEsp] = useState<E|null>(null)
   const [marco, setMarco] = useState('rectangular')
   const [vidrio, setVidrio] = useState('normal')
   const [vista, setVista] = useState<'frente'|'lado'|'reverso'|'video'>('frente')
@@ -320,7 +334,7 @@ export default function Page() {
               {pagEsp.map((e,i)=>(
                 <button key={i} onClick={()=>setSel(e)} className="esp-card">
                   <div style={{width:'100%',height:75,background:'rgba(201,168,76,0.06)',borderRadius:5,marginBottom:6,display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden'}}>
-                    {e.foto?<img src={e.foto} style={{width:'100%',height:'100%',objectFit:'cover'}}/>:(
+                    {e.foto?<img src={e.foto} style={{width:'100%',height:'100%',objectFit:'cover',cursor:'zoom-in'}} onClick={(ev)=>{ev.stopPropagation();setLbEsp(e)}}/>:(
                     <div style={{width:'100%',height:'100%',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',background:'linear-gradient(135deg,rgba(26,18,9,0.9),rgba(42,32,16,0.95))',position:'relative',overflow:'hidden'}}>
                       <div style={{position:'absolute',inset:0,backgroundImage:'radial-gradient(circle at 30% 40%, rgba(201,168,76,0.08) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(201,168,76,0.05) 0%, transparent 50%)'}}/>
                       <img src="/logo-house-insects-peru.png" style={{width:44,height:44,objectFit:'contain',opacity:.6,marginBottom:4,filter:'drop-shadow(0 2px 8px rgba(201,168,76,0.4))'}} onError={(ev)=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>
