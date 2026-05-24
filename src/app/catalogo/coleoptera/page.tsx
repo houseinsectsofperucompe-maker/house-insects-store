@@ -102,7 +102,7 @@ export default function ColeopteraPage() {
               <div style={{color:'rgba(232,201,122,0.5)',fontSize:'.65rem',letterSpacing:'.08em',marginBottom:8}}>1 TIPO DE ESPECIE</div>
               <div style={{display:'flex',gap:8}}>
                 {[{id:'coleoptera',nm:' Colepteros'},{id:'artropodos',nm:' Artrpodos'}].map(o=>(
-                  <button key={o.id} onClick={()=>setTipo(o.id)} className="opt-btn" style={{
+                  <button key={o.id} onClick={()=>{setTipo(o.id);setFamSel(o.id==='coleoptera'?'Buprestidae':'Spider')}} className="opt-btn" style={{
                     padding:'6px 14px',borderRadius:20,fontSize:'.75rem',fontFamily:'Georgia,serif',
                     background:tipo===o.id?'#C9A84C':'rgba(201,168,76,0.08)',
                     color:tipo===o.id?'#1A1209':'#C9A84C',
