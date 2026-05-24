@@ -21,6 +21,27 @@ const FAM:F[]=[
 ]
 const VISTAS=['Frente','Lado','Reverso','Video'] as const
 type Vista=typeof VISTAS[number]
+function Acc({title,children,open:init=false}:{title:string;children:React.ReactNode;open?:boolean}){
+  const [op,setOp]=useState(init)
+  const G='#C9A84C',BD='rgba(201,168,76,0.2)',CARD='#1A1209'
+  return(
+    <div style={{background:CARD,border:`1px solid ${BD}`,borderRadius:10,marginBottom:6,overflow:'hidden'}}>
+      <div onClick={()=>setOp(!op)} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'10px 12px',cursor:'pointer'}}>
+        <span style={{fontSize:'.72rem',color:G,fontFamily:'Georgia,serif'}}>{title}</span>
+        <span style={{color:'rgba(201,168,76,0.4)',fontSize:'.75rem'}}>{op?'▴':'▾'}</span>
+      </div>
+      {op&&<div style={{padding:'0 12px 10px'}}>{children}</div>}
+    </div>
+  )
+}
+function ARow({k,v}:{k:string;v:string}){
+  return(
+    <div style={{display:'flex',justifyContent:'space-between',borderBottom:'1px solid rgba(201,168,76,0.08)',padding:'4px 0',fontSize:'.62rem'}}>
+      <span style={{color:'rgba(201,168,76,0.4)'}}>{k}</span>
+      <span style={{color:'#E8C97A',textAlign:'right'}}>{v}</span>
+    </div>
+  )
+}
 export default function EspecimenPage(){
   const params=useParams()
   const router=useRouter()
@@ -28,6 +49,9 @@ export default function EspecimenPage(){
   const [showCarrito,setShowCarrito]=useState(false)
   const [v,setV]=useState<Vista>('Frente')
   const [ok,setOk]=useState(false)
+  const [popCal,setPopCal]=useState(false)
+  const [popAbr,setPopAbr]=useState(false)
+  const [tipo,setTipo]=useState('Sin montar / alas cerradas')
   const rawId=typeof params.id==='string'?params.id:''
   const parts=rawId.split('-')
   const idx=parseInt(parts[parts.length-1])
@@ -43,12 +67,23 @@ export default function EspecimenPage(){
       </div>
     </main>
   )
-  const add=()=>{addItem({n:esp.n,p:esp.p,rubro:fam.nm});setOk(true);setTimeout(()=>setOk(false),2000)}
+  const add=()=>{addItem({n:esp.n,p:esp.p,rubro:fam.nm});setOk(true);setShowCarrito(true);setTimeout(()=>setOk(false),2000)}
   const G='#C9A84C',BG='#0A0A05',CARD='#1A1209',BD='rgba(201,168,76,0.2)'
   const fotoUrl=v==='Frente'?fotos?.f1:v==='Lado'?fotos?.f2:v==='Reverso'?fotos?.f3:undefined
+  const popup=(title:string,rows:{k:string;v:string}[],onClose:()=>void)=>(
+    <div onClick={onClose} style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.85)',zIndex:200,display:'flex',alignItems:'center',justifyContent:'center',padding:20}}>
+      <div onClick={e=>e.stopPropagation()} style={{background:CARD,border:`1px solid ${BD}`,borderRadius:12,width:300,maxWidth:'90vw',padding:16,position:'relative'}}>
+        <button onClick={onClose} style={{position:'absolute',top:8,right:8,background:'rgba(201,168,76,0.1)',border:`1px solid ${BD}`,color:G,width:28,height:28,borderRadius:'50%',cursor:'pointer',fontSize:'.9rem'}}>x</button>
+        <div style={{fontSize:'.75rem',color:G,fontWeight:700,marginBottom:10,fontFamily:'Georgia,serif'}}>{title}</div>
+        {rows.map(r=><div key={r.k} style={{display:'flex',gap:8,padding:'5px 0',borderBottom:`1px solid rgba(201,168,76,0.08)`,fontSize:'.62rem'}}><span style={{color:G,fontWeight:700,minWidth:40}}>{r.k}</span><span style={{color:'rgba(201,168,76,0.7)',lineHeight:1.4}}>{r.v}</span></div>)}
+      </div>
+    </div>
+  )
   return(
     <main style={{minHeight:'100vh',background:BG,fontFamily:'Georgia,serif',paddingBottom:80}}>
       {showCarrito&&<CarritoCompras items={carrito} onClose={()=>setShowCarrito(false)} onUpdateItems={(its)=>setCarrito(its)} onPagar={(d)=>{console.log(d);setShowCarrito(false)}}/>}
+      {popCal&&popup('Tabla de calidad',[{k:'A1',v:'Perfecto, sin defectos. Muchos son ex-pupae criados.'},{k:'A1-',v:'Con defectos pero generalmente respetable.'},{k:'VGA2',v:'Segunda calidad muy buena. Facilmente reparable.'},{k:'A2',v:'Segunda calidad definitiva.'}],()=>setPopCal(false))}
+      {popAbr&&popup('Abreviaciones',[{k:'M',v:'Macho'},{k:'F',v:'Hembra'},{k:'P',v:'Par (macho y hembra)'},{k:'EP',v:'Ex-pupae, criado en granja'},{k:'S',v:'Set con descuento'}],()=>setPopAbr(false))}
       <div style={{padding:'16px 20px',display:'flex',alignItems:'center',gap:12,borderBottom:`1px solid ${BD}`}}>
         <button onClick={()=>router.back()} style={{background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,padding:'7px 14px',borderRadius:6,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.75rem'}}><ST t="Volver"/></button>
         <span style={{color:'rgba(201,168,76,0.35)',fontSize:'.7rem'}}>{fam.nm}</span>
@@ -74,16 +109,61 @@ export default function EspecimenPage(){
             <div style={{textAlign:'right'}}><div style={{fontSize:'.75rem',color:esp.s>0?'#5DBB63':'rgba(201,168,76,0.35)',fontWeight:700}}>{esp.s>0?`${esp.s.toLocaleString()} unid.`:'Sin stock'}</div><div style={{fontSize:'.6rem',color:'rgba(201,168,76,0.3)',marginTop:2}}>Stock</div></div>
           </div>
         </div>
-        <div style={{background:CARD,border:`1px solid ${BD}`,borderRadius:12,padding:'14px 16px',marginBottom:16,fontSize:'.65rem',color:'rgba(201,168,76,0.5)',lineHeight:1.8}}>
-          <div style={{color:G,fontWeight:700,marginBottom:8}}><ST t="Informacion de exportacion"/></div>
-          <div>Tingo Maria, Peru - <ST t="Exportacion mundial"/></div>
-          <div>WhatsApp: +51 940 699 405</div>
-        </div>
-        <div style={{display:'flex',flexDirection:'column',gap:10}}>
+        <Acc title="Especificaciones tecnicas" open={true}>
+          <ARow k="Familia" v={fam.nm}/>
+          <ARow k="Calidad" v="A1"/>
+          <ARow k="Tamanio" v="Variable"/>
+          <ARow k="Origen" v="Tingo Maria, Huanuco, Peru"/>
+          <div style={{display:'flex',gap:8,marginTop:6}}>
+            <button onClick={()=>setPopCal(true)} style={{fontSize:'.55rem',color:'rgba(201,168,76,0.4)',background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,padding:'3px 8px',cursor:'pointer',fontFamily:'Georgia,serif'}}>? Calidad</button>
+            <button onClick={()=>setPopAbr(true)} style={{fontSize:'.55rem',color:'rgba(201,168,76,0.4)',background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,padding:'3px 8px',cursor:'pointer',fontFamily:'Georgia,serif'}}>? Sexo</button>
+          </div>
+        </Acc>
+        <Acc title="Tipo de especimen">
+          <div style={{marginBottom:6}}>
+            <span style={{fontSize:'.6rem',color:'rgba(201,168,76,0.4)',display:'block',marginBottom:4}}>Selecciona el tipo:</span>
+            <select value={tipo} onChange={e=>setTipo(e.target.value)} style={{width:'100%',background:'#0A0A05',border:`1px solid ${BD}`,color:'#E8C97A',padding:'7px 10px',borderRadius:6,fontSize:'.65rem',fontFamily:'Georgia,serif',cursor:'pointer'}}>
+              <option>Sin montar / alas cerradas</option>
+              <option>Montado / alas abiertas</option>
+              <option>Enmarcado</option>
+              <option>Par enmarcado</option>
+              <option>Enmarcado fondo negro</option>
+            </select>
+          </div>
+          <ARow k="Sin montar" v="A granel - precio base"/>
+          <ARow k="Montado" v="+$1.50 por unidad"/>
+          <ARow k="Enmarcado" v="Consultar precio"/>
+        </Acc>
+        <Acc title="Mayorista y minorista">
+          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:5,marginBottom:8}}>
+            {[{q:'1-9',p:`$${esp.p.toFixed(2)}`,l:'Minorista'},{q:'10-49',p:`$${(esp.p*0.85).toFixed(2)}`,l:'Mayorista'},{q:'50-99',p:`$${(esp.p*0.78).toFixed(2)}`,l:'Mayorista+'},{q:'100+',p:'Consultar',l:'Precio especial'}].map(r=>(
+              <div key={r.q} style={{background:'rgba(201,168,76,0.06)',border:`1px solid rgba(201,168,76,0.12)`,borderRadius:6,padding:7,textAlign:'center'}}>
+                <div style={{fontSize:'.8rem',fontWeight:700,color:G}}>{r.q}</div>
+                <div style={{fontSize:'.65rem',color:'#E8C97A'}}>{r.p} c/u</div>
+                <div style={{fontSize:'.52rem',color:'rgba(201,168,76,0.35)',marginTop:2}}>{r.l}</div>
+              </div>
+            ))}
+          </div>
+        </Acc>
+        <Acc title="Condicion y empaque">
+          <ARow k="Condicion" v="Seco, calidad A1"/>
+          <ARow k="Empaque" v="Antihumedad + foam"/>
+          <ARow k="Granel" v="En papel glasin"/>
+          <ARow k="Montado" v="En caja entomologica"/>
+        </Acc>
+        <Acc title="Exportacion mundial">
+          <ARow k="Origen" v="Tingo Maria, Peru"/>
+          <ARow k="CITES" v="Incluido si requerido"/>
+          <ARow k="Certificado" v="Fitosanitario disponible"/>
+          <ARow k="Envio" v="Express mundial"/>
+          <ARow k="RUC" v="20447397804"/>
+          <ARow k="WhatsApp" v="+51 940 699 405"/>
+        </Acc>
+        <div style={{display:'flex',flexDirection:'column',gap:10,marginTop:10}}>
           <button onClick={add} disabled={esp.s===0} style={{width:'100%',padding:'14px',borderRadius:8,fontSize:'.85rem',fontFamily:'Georgia,serif',cursor:esp.s>0?'pointer':'not-allowed',background:ok?'#5DBB63':esp.s>0?G:'rgba(201,168,76,0.15)',color:ok||esp.s>0?CARD:'rgba(201,168,76,0.3)',border:'none',fontWeight:700,transition:'all 0.2s'}}>
-            {ok?'Agregado':<ST t="Agregar al carrito"/>}
+            {ok?'Agregado al carrito':<ST t="Agregar al carrito"/>}
           </button>
-          <a href={`https://wa.me/51940699405?text=Hola, me interesa: ${encodeURIComponent(esp.n)} - $${esp.p.toFixed(2)} USD`} target="_blank" rel="noopener noreferrer" style={{display:'block',textAlign:'center',padding:'12px',borderRadius:8,background:'#25D366',color:'white',fontSize:'.8rem',fontFamily:'Georgia,serif',textDecoration:'none',fontWeight:700}}>
+          <a href={`https://wa.me/51940699405?text=Hola, me interesa: ${encodeURIComponent(esp.n)} - $${esp.p.toFixed(2)} USD - Tipo: ${encodeURIComponent(tipo)}`} target="_blank" rel="noopener noreferrer" style={{display:'block',textAlign:'center',padding:'12px',borderRadius:8,background:'#25D366',color:'white',fontSize:'.8rem',fontFamily:'Georgia,serif',textDecoration:'none',fontWeight:700}}>
             <ST t="Consultar por WhatsApp"/>
           </a>
         </div>
