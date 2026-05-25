@@ -95,7 +95,7 @@ function VistaCatalogo({
   }, [cat.id])
 
   return (
-    <div style={{minHeight:'100vh',background:'#000',position:'relative',overflow:'hidden',fontFamily:'Georgia,serif'}}>
+    <div style={{minHeight:'100vh',background:'#000',position:'relative',overflow:'hidden',fontFamily:'Georgia,serif',maxWidth:'100vw'}}>
       <style>{CSS}</style>
       {/* UN solo video, sin loop, sin autoPlay declarativo */}
       <video
@@ -174,7 +174,7 @@ export default function Home() {
       </div>
 
       {/* Grid de catálogos — FIX: aspect-ratio en el wrapper, imagen absoluta dentro */}
-      <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(300px,1fr))',gap:3,maxWidth:1200,margin:'0 auto',padding:'0 3px 60px'}}>
+      <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(300px,45vw),1fr))',gap:3,maxWidth:1200,margin:'0 auto',padding:'0 3px 60px'}}>
         {CATALOGOS.map(c => (
           <div
             key={c.id}
