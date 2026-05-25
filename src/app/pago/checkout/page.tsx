@@ -12,7 +12,7 @@ function CheckoutForm() {
   useEffect(() => {
     if (!token || !key) return
     const style = document.createElement('style')
-    style.innerHTML = '.kr-field-wrapper{background:#2A1A08!important;border:2px solid #C9A84C!important;border-radius:8px!important;margin-bottom:12px!important}.kr-field-wrapper input{color:#E8C97A!important;font-size:1rem!important;background:#2A1A08!important}.kr-label{background:#1A1209!important;color:#E8C97A!important;font-size:.8rem!important;font-weight:700!important;padding:4px 8px!important;border-radius:6px 6px 0 0!important}.kr-payment-button{background:#2E7D32!important;color:white!important;font-weight:700!important;border-radius:8px!important;font-size:1rem!important}'
+    style.innerHTML = '      .kr-help-button{display:none!important}.kr-popin-modal-header{display:none!important} .kr-field-wrapper{background:#2A1A08!important;border:2px solid #C9A84C!important;border-radius:8px!important;margin-bottom:12px!important}.kr-field-wrapper input{color:#E8C97A!important;font-size:1rem!important;background:#2A1A08!important}.kr-label{background:#1A1209!important;color:#E8C97A!important;font-size:.8rem!important;font-weight:700!important;padding:4px 8px!important;border-radius:6px 6px 0 0!important}.kr-payment-button{background:#2E7D32!important;color:white!important;font-weight:700!important;border-radius:8px!important;font-size:1rem!important}'
     document.head.appendChild(style)
     const link1 = document.createElement('link')
     link1.rel = 'stylesheet'
