@@ -106,9 +106,9 @@ function VistaCatalogo({
         autoPlay
         loop
         preload="metadata"
-        style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',opacity:.65}}
+        style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',opacity:.85}}
       />
-      <div style={{position:'absolute',inset:0,background:`linear-gradient(to bottom,rgba(0,0,0,0.2),${cat.colorFondo})`}}/>
+      <div style={{position:'absolute',inset:0,background:`linear-gradient(to bottom,rgba(0,0,0,0.1),${cat.colorFondo}88`)}}/>
       <div style={{position:'relative',zIndex:10,minHeight:'100vh',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',textAlign:'center',padding:'40px'}}>
         <img src="/logo-house-insects-peru.png" alt="House Insects of Peru" className="video-logo" style={{width:150,height:150,objectFit:'contain',marginBottom:20}}/>
         <h1 className="video-title" style={{fontSize:'clamp(1.8rem,5vw,3.5rem)',fontWeight:400,color:'#E8C97A',marginBottom:12}}><ST t={cat.nombre}/></h1>
