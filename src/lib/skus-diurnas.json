@@ -1,0 +1,5854 @@
+[
+  {
+    "especie": "Caligo eurilochus livius",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-EUR-A1M",
+    "sku_hembra": "MS-BRA-EUR-A1H",
+    "sku_cuadro": "CD-BRA-EUR-ROY"
+  },
+  {
+    "especie": "Caligo idomenius idomenides",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-IDO-A1M",
+    "sku_hembra": "MS-BRA-IDO-A1H",
+    "sku_cuadro": "CD-BRA-IDO-ROY"
+  },
+  {
+    "especie": "Caligo illioneus",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-ILL-A1M",
+    "sku_hembra": "MS-BRA-ILL-A1H",
+    "sku_cuadro": "CD-BRA-ILL-ROY"
+  },
+  {
+    "especie": "Caligo placidianus",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-PLA-A1M",
+    "sku_hembra": "MS-BRA-PLA-A1H",
+    "sku_cuadro": "CD-BRA-PLA-ROY"
+  },
+  {
+    "especie": "Caligo prometheus",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-PRO-A1M",
+    "sku_hembra": "MS-BRA-PRO-A1H",
+    "sku_cuadro": "CD-BRA-PRO-ROY"
+  },
+  {
+    "especie": "Caligo superbus",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-SUP-A1M",
+    "sku_hembra": "MS-BRA-SUP-A1H",
+    "sku_cuadro": "CD-BRA-SUP-ROY"
+  },
+  {
+    "especie": "Caligo teucer semicaerulea",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-TEU-A1M",
+    "sku_hembra": "MS-BRA-TEU-A1H",
+    "sku_cuadro": "CD-BRA-TEU-ROY"
+  },
+  {
+    "especie": "Dynastor darius darius",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-DAR-A1M",
+    "sku_hembra": "MS-BRA-DAR-A1H",
+    "sku_cuadro": "CD-BRA-DAR-ROY"
+  },
+  {
+    "especie": "Opoptera aorsa",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-AOR-A1M",
+    "sku_hembra": "MS-BRA-AOR-A1H",
+    "sku_cuadro": "CD-BRA-AOR-ROY"
+  },
+  {
+    "especie": "Opoptera arsippe arsippe",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-ARS-A1M",
+    "sku_hembra": "MS-BRA-ARS-A1H",
+    "sku_cuadro": "CD-BRA-ARS-ROY"
+  },
+  {
+    "especie": "Opsiphanes bogatanus",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-BOG-A1M",
+    "sku_hembra": "MS-BRA-BOG-A1H",
+    "sku_cuadro": "CD-BRA-BOG-ROY"
+  },
+  {
+    "especie": "Opsiphanes tamarindi incolumis",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-TAM-A1M",
+    "sku_hembra": "MS-BRA-TAM-A1H",
+    "sku_cuadro": "CD-BRA-TAM-ROY"
+  },
+  {
+    "especie": "Caligo illioneus oberon",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-ILL-A1M",
+    "sku_hembra": "MS-BRA-ILL-A1H",
+    "sku_cuadro": "CD-BRA-ILL-ROY"
+  },
+  {
+    "especie": "Caligo Oberthuri floklides",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-OBE-A1M",
+    "sku_hembra": "MS-BRA-OBE-A1H",
+    "sku_cuadro": "CD-BRA-OBE-ROY"
+  },
+  {
+    "especie": "Eryphanis Polyxena",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-POL-A1M",
+    "sku_hembra": "MS-BRA-POL-A1H",
+    "sku_cuadro": "CD-BRA-POL-ROY"
+  },
+  {
+    "especie": "Catoblepia Berecynthia",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-BER-A1M",
+    "sku_hembra": "MS-BRA-BER-A1H",
+    "sku_cuadro": "CD-BRA-BER-ROY"
+  },
+  {
+    "especie": "Dynastor macrosirus stix",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-MAC-A1M",
+    "sku_hembra": "MS-BRA-MAC-A1H",
+    "sku_cuadro": "CD-BRA-MAC-ROY"
+  },
+  {
+    "especie": "Opoptera Arsippe Bracteolata",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-ARS-A1M",
+    "sku_hembra": "MS-BRA-ARS-A1H",
+    "sku_cuadro": "CD-BRA-ARS-ROY"
+  },
+  {
+    "especie": "Opsiphanes Cassina",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-CAS-A1M",
+    "sku_hembra": "MS-BRA-CAS-A1H",
+    "sku_cuadro": "CD-BRA-CAS-ROY"
+  },
+  {
+    "especie": "Opsiphanes Sallei",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-SAL-A1M",
+    "sku_hembra": "MS-BRA-SAL-A1H",
+    "sku_cuadro": "CD-BRA-SAL-ROY"
+  },
+  {
+    "especie": "Opsiphanes Invirae Agasthenes",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-INV-A1M",
+    "sku_hembra": "MS-BRA-INV-A1H",
+    "sku_cuadro": "CD-BRA-INV-ROY"
+  },
+  {
+    "especie": "Opsiphanes Quiteria Quirinalis",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-QUI-A1M",
+    "sku_hembra": "MS-BRA-QUI-A1H",
+    "sku_cuadro": "CD-BRA-QUI-ROY"
+  },
+  {
+    "especie": "Danaus plexippus nigrippus",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-PLE-A1M",
+    "sku_hembra": "MS-BRA-PLE-A1H",
+    "sku_cuadro": "CD-BRA-PLE-ROY"
+  },
+  {
+    "especie": "Lycorea halia",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-HAL-A1M",
+    "sku_hembra": "MS-BRA-HAL-A1H",
+    "sku_cuadro": "CD-BRA-HAL-ROY"
+  },
+  {
+    "especie": "Lycorea ilione lamaris",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-ILI-A1M",
+    "sku_hembra": "MS-BRA-ILI-A1H",
+    "sku_cuadro": "CD-BRA-ILI-ROY"
+  },
+  {
+    "especie": "Lycorea Ituna Ilione Phenarete",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-ITU-A1M",
+    "sku_hembra": "MS-BRA-ITU-A1H",
+    "sku_cuadro": "CD-BRA-ITU-ROY"
+  },
+  {
+    "especie": "Danaus Gilippus thersippus",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-GIL-A1M",
+    "sku_hembra": "MS-BRA-GIL-A1H",
+    "sku_cuadro": "CD-BRA-GIL-ROY"
+  },
+  {
+    "especie": "Dione juno",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-JUN-A1M",
+    "sku_hembra": "MS-BRA-JUN-A1H",
+    "sku_cuadro": "CD-BRA-JUN-ROY"
+  },
+  {
+    "especie": "Dione moneta",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-MON-A1M",
+    "sku_hembra": "MS-BRA-MON-A1H",
+    "sku_cuadro": "CD-BRA-MON-ROY"
+  },
+  {
+    "especie": "Dryas julia",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-JUL-A1M",
+    "sku_hembra": "MS-BRA-JUL-A1H",
+    "sku_cuadro": "CD-BRA-JUL-ROY"
+  },
+  {
+    "especie": "Eueides (Heliconius) aliphera",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-HEL-A1M",
+    "sku_hembra": "MS-BRA-HEL-A1H",
+    "sku_cuadro": "CD-BRA-HEL-ROY"
+  },
+  {
+    "especie": "Eueides isabella dissolutus",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-ISA-A1M",
+    "sku_hembra": "MS-BRA-ISA-A1H",
+    "sku_cuadro": "CD-BRA-ISA-ROY"
+  },
+  {
+    "especie": "Euides tales",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-TAL-A1M",
+    "sku_hembra": "MS-BRA-TAL-A1H",
+    "sku_cuadro": "CD-BRA-TAL-ROY"
+  },
+  {
+    "especie": "Godyris duillia (Ithomidae)",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-DUI-A1M",
+    "sku_hembra": "MS-BRA-DUI-A1H",
+    "sku_cuadro": "CD-BRA-DUI-ROY"
+  },
+  {
+    "especie": "Godyris zavalata huanaco",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-ZAV-A1M",
+    "sku_hembra": "MS-BRA-ZAV-A1H",
+    "sku_cuadro": "CD-BRA-ZAV-ROY"
+  },
+  {
+    "especie": "Heliconius burneyi huebneri",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-BUR-A1M",
+    "sku_hembra": "MS-BRA-BUR-A1H",
+    "sku_cuadro": "CD-BRA-BUR-ROY"
+  },
+  {
+    "especie": "Heliconius erato microclea",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-ERA-A1M",
+    "sku_hembra": "MS-BRA-ERA-A1H",
+    "sku_cuadro": "CD-BRA-ERA-ROY"
+  },
+  {
+    "especie": "Heliconius hecale shanki",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-HEC-A1M",
+    "sku_hembra": "MS-BRA-HEC-A1H",
+    "sku_cuadro": "CD-BRA-HEC-ROY"
+  },
+  {
+    "especie": "Heliconius melpomene amaryllis",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-MEL-A1M",
+    "sku_hembra": "MS-BRA-MEL-A1H",
+    "sku_cuadro": "CD-BRA-MEL-ROY"
+  },
+  {
+    "especie": "Heliconius melpomene",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-MEL-A1M",
+    "sku_hembra": "MS-BRA-MEL-A1H",
+    "sku_cuadro": "CD-BRA-MEL-ROY"
+  },
+  {
+    "especie": "Heliconius numata bicoloratus",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-NUM-A1M",
+    "sku_hembra": "MS-BRA-NUM-A1H",
+    "sku_cuadro": "CD-BRA-NUM-ROY"
+  },
+  {
+    "especie": "Heliconius telesiphe telesiphe",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-TEL-A1M",
+    "sku_hembra": "MS-BRA-TEL-A1H",
+    "sku_cuadro": "CD-BRA-TEL-ROY"
+  },
+  {
+    "especie": "Heliconius wallacei flavescens",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-WAL-A1M",
+    "sku_hembra": "MS-BRA-WAL-A1H",
+    "sku_cuadro": "CD-BRA-WAL-ROY"
+  },
+  {
+    "especie": "Methona curvifascia",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-CUR-A1M",
+    "sku_hembra": "MS-BRA-CUR-A1H",
+    "sku_cuadro": "CD-BRA-CUR-ROY"
+  },
+  {
+    "especie": "Philaethria (Metamorpha) dido",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-MET-A1M",
+    "sku_hembra": "MS-BRA-MET-A1H",
+    "sku_cuadro": "CD-BRA-MET-ROY"
+  },
+  {
+    "especie": "Thyridia psidii cetoides",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-PSI-A1M",
+    "sku_hembra": "MS-BRA-PSI-A1H",
+    "sku_cuadro": "CD-BRA-PSI-ROY"
+  },
+  {
+    "especie": "Tithorea harmonia",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-HAR-A1M",
+    "sku_hembra": "MS-BRA-HAR-A1H",
+    "sku_cuadro": "CD-BRA-HAR-ROY"
+  },
+  {
+    "especie": "Hypothyris semifulva",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-SEM-A1M",
+    "sku_hembra": "MS-BRA-SEM-A1H",
+    "sku_cuadro": "CD-BRA-SEM-ROY"
+  },
+  {
+    "especie": "Mechanitis polymnia",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-POL-A1M",
+    "sku_hembra": "MS-BRA-POL-A1H",
+    "sku_cuadro": "CD-BRA-POL-ROY"
+  },
+  {
+    "especie": "Arawacus seperata",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-SEP-A1M",
+    "sku_hembra": "MS-BRA-SEP-A1H",
+    "sku_cuadro": "CD-BRA-SEP-ROY"
+  },
+  {
+    "especie": "Arcas imperialis",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-IMP-A1M",
+    "sku_hembra": "MS-BRA-IMP-A1H",
+    "sku_cuadro": "CD-BRA-IMP-ROY"
+  },
+  {
+    "especie": "Arcas tuneta",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-TUN-A1M",
+    "sku_hembra": "MS-BRA-TUN-A1H",
+    "sku_cuadro": "CD-BRA-TUN-ROY"
+  },
+  {
+    "especie": "Evenus gannymedes",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-GAN-A1M",
+    "sku_hembra": "MS-BRA-GAN-A1H",
+    "sku_cuadro": "CD-BRA-GAN-ROY"
+  },
+  {
+    "especie": "Thecla gibberosa",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-GIB-A1M",
+    "sku_hembra": "MS-BRA-GIB-A1H",
+    "sku_cuadro": "CD-BRA-GIB-ROY"
+  },
+  {
+    "especie": "Arawacus dolylas",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-DOL-A1M",
+    "sku_hembra": "MS-BRA-DOL-A1H",
+    "sku_cuadro": "CD-BRA-DOL-ROY"
+  },
+  {
+    "especie": "Morpho absoloni",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-ABS-A1M",
+    "sku_hembra": "MS-BRA-ABS-A1H",
+    "sku_cuadro": "CD-BRA-ABS-ROY"
+  },
+  {
+    "especie": "Morpho aurora aureola",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-AUR-A1M",
+    "sku_hembra": "MS-BRA-AUR-A1H",
+    "sku_cuadro": "CD-BRA-AUR-ROY"
+  },
+  {
+    "especie": "Morpho lympharis selenarys",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-LYM-A1M",
+    "sku_hembra": "MS-BRA-LYM-A1H",
+    "sku_cuadro": "CD-BRA-LYM-ROY"
+  },
+  {
+    "especie": "Morpho sulkowskyi  descimokoenigi",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-SUL-A1M",
+    "sku_hembra": "MS-BRA-SUL-A1H",
+    "sku_cuadro": "CD-BRA-SUL-ROY"
+  },
+  {
+    "especie": "Morpho rhetenor cacica",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-RHE-A1M",
+    "sku_hembra": "MS-BRA-RHE-A1H",
+    "sku_cuadro": "CD-BRA-RHE-ROY"
+  },
+  {
+    "especie": "Morpho rhtenor helena",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-RHT-A1M",
+    "sku_hembra": "MS-BRA-RHT-A1H",
+    "sku_cuadro": "CD-BRA-RHT-ROY"
+  },
+  {
+    "especie": "Morpho telemachus",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-TEL-A1M",
+    "sku_hembra": "MS-BRA-TEL-A1H",
+    "sku_cuadro": "CD-BRA-TEL-ROY"
+  },
+  {
+    "especie": "Morpho zephritis",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-ZEP-A1M",
+    "sku_hembra": "MS-BRA-ZEP-A1H",
+    "sku_cuadro": "CD-BRA-ZEP-ROY"
+  },
+  {
+    "especie": "Morpho theseus juturna",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-THE-A1M",
+    "sku_hembra": "MS-BRA-THE-A1H",
+    "sku_cuadro": "CD-BRA-THE-ROY"
+  },
+  {
+    "especie": "Morpho menelaus assarpai",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-MEN-A1M",
+    "sku_hembra": "MS-BRA-MEN-A1H",
+    "sku_cuadro": "CD-BRA-MEN-ROY"
+  },
+  {
+    "especie": "Morpho Cisseis gahua(brows and asure)",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-CIS-A1M",
+    "sku_hembra": "MS-BRA-CIS-A1H",
+    "sku_cuadro": "CD-BRA-CIS-ROY"
+  },
+  {
+    "especie": "Morpho cisseis phanademus(azure)",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-CIS-A1M",
+    "sku_hembra": "MS-BRA-CIS-A1H",
+    "sku_cuadro": "CD-BRA-CIS-ROY"
+  },
+  {
+    "especie": "Morpho adonis huallaga",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-ADO-A1M",
+    "sku_hembra": "MS-BRA-ADO-A1H",
+    "sku_cuadro": "CD-BRA-ADO-ROY"
+  },
+  {
+    "especie": "Morpho amphitriom cinerous",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-AMP-A1M",
+    "sku_hembra": "MS-BRA-AMP-A1H",
+    "sku_cuadro": "CD-BRA-AMP-ROY"
+  },
+  {
+    "especie": "Morpho deidamia marie",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-DEI-A1M",
+    "sku_hembra": "MS-BRA-DEI-A1H",
+    "sku_cuadro": "CD-BRA-DEI-ROY"
+  },
+  {
+    "especie": "Morpho achilles helenor",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-ACH-A1M",
+    "sku_hembra": "MS-BRA-ACH-A1H",
+    "sku_cuadro": "CD-BRA-ACH-ROY"
+  },
+  {
+    "especie": "Morpho didius",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-DID-A1M",
+    "sku_hembra": "MS-BRA-DID-A1H",
+    "sku_cuadro": "CD-BRA-DID-ROY"
+  },
+  {
+    "especie": "Morpho didius tingomaria",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-DID-A1M",
+    "sku_hembra": "MS-BRA-DID-A1H",
+    "sku_cuadro": "CD-BRA-DID-ROY"
+  },
+  {
+    "especie": "Morpho menelaus michaelus",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-MEN-A1M",
+    "sku_hembra": "MS-BRA-MEN-A1H",
+    "sku_cuadro": "CD-BRA-MEN-ROY"
+  },
+  {
+    "especie": "Morpho Menelaus pucallpensis",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-MEN-A1M",
+    "sku_hembra": "MS-BRA-MEN-A1H",
+    "sku_cuadro": "CD-BRA-MEN-ROY"
+  },
+  {
+    "especie": "Morpho helenor amazonius",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-HEL-A1M",
+    "sku_hembra": "MS-BRA-HEL-A1H",
+    "sku_cuadro": "CD-BRA-HEL-ROY"
+  },
+  {
+    "especie": "Morpho mariosiajane",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-MAR-A1M",
+    "sku_hembra": "MS-BRA-MAR-A1H",
+    "sku_cuadro": "CD-BRA-MAR-ROY"
+  },
+  {
+    "especie": "Morpho sulkowoskii Nieva",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-SUL-A1M",
+    "sku_hembra": "MS-BRA-SUL-A1H",
+    "sku_cuadro": "CD-BRA-SUL-ROY"
+  },
+  {
+    "especie": "Morpho sulkowoskii zachi",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-SUL-A1M",
+    "sku_hembra": "MS-BRA-SUL-A1H",
+    "sku_cuadro": "CD-BRA-SUL-ROY"
+  },
+  {
+    "especie": "Morpho godartii julanthicus",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-GOD-A1M",
+    "sku_hembra": "MS-BRA-GOD-A1H",
+    "sku_cuadro": "CD-BRA-GOD-ROY"
+  },
+  {
+    "especie": "Morpho  Menelaus  ssp. zischkai",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-MEN-A1M",
+    "sku_hembra": "MS-BRA-MEN-A1H",
+    "sku_cuadro": "CD-BRA-MEN-ROY"
+  },
+  {
+    "especie": "Morpho Rethenor mariosiojanae (small)",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-RET-A1M",
+    "sku_hembra": "MS-BRA-RET-A1H",
+    "sku_cuadro": "CD-BRA-RET-ROY"
+  },
+  {
+    "especie": "Morpho  aurora Isidorssoni",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-AUR-A1M",
+    "sku_hembra": "MS-BRA-AUR-A1H",
+    "sku_cuadro": "CD-BRA-AUR-ROY"
+  },
+  {
+    "especie": "Morpho aurora lamasi",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-AUR-A1M",
+    "sku_hembra": "MS-BRA-AUR-A1H",
+    "sku_cuadro": "CD-BRA-AUR-ROY"
+  },
+  {
+    "especie": "Morpho Cisseis gahua ssp. Gahua",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-CIS-A1M",
+    "sku_hembra": "MS-BRA-CIS-A1H",
+    "sku_cuadro": "CD-BRA-CIS-ROY"
+  },
+  {
+    "especie": "Morpho Cisseis gahua ssp. Gahua",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-CIS-A1M",
+    "sku_hembra": "MS-BRA-CIS-A1H",
+    "sku_cuadro": "CD-BRA-CIS-ROY"
+  },
+  {
+    "especie": "Adelpha mesentina",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-MES-A1M",
+    "sku_hembra": "MS-BRA-MES-A1H",
+    "sku_cuadro": "CD-BRA-MES-ROY"
+  },
+  {
+    "especie": "Adelpha erotia erotia f. erotia",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-ERO-A1M",
+    "sku_hembra": "MS-BRA-ERO-A1H",
+    "sku_cuadro": "CD-BRA-ERO-ROY"
+  },
+  {
+    "especie": "Adelpha iphiclus",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-IPH-A1M",
+    "sku_hembra": "MS-BRA-IPH-A1H",
+    "sku_cuadro": "CD-BRA-IPH-ROY"
+  },
+  {
+    "especie": "Adelpha lycorias lara",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-LYC-A1M",
+    "sku_hembra": "MS-BRA-LYC-A1H",
+    "sku_cuadro": "CD-BRA-LYC-ROY"
+  },
+  {
+    "especie": "Agraulis vanillae lucina f. catella",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-VAN-A1M",
+    "sku_hembra": "MS-BRA-VAN-A1H",
+    "sku_cuadro": "CD-BRA-VAN-ROY"
+  },
+  {
+    "especie": "Agrias amydon zenodorus",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-AMY-A1M",
+    "sku_hembra": "MS-BRA-AMY-A1H",
+    "sku_cuadro": "CD-BRA-AMY-ROY"
+  },
+  {
+    "especie": "Agrias claudina lugens",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-CLA-A1M",
+    "sku_hembra": "MS-BRA-CLA-A1H",
+    "sku_cuadro": "CD-BRA-CLA-ROY"
+  },
+  {
+    "especie": "Agrias hewitsonius beata (=beatifica beata)",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-HEW-A1M",
+    "sku_hembra": "MS-BRA-HEW-A1H",
+    "sku_cuadro": "CD-BRA-HEW-ROY"
+  },
+  {
+    "especie": "Agrias hewitsonius stuarti (=beatifica stuarti)",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-HEW-A1M",
+    "sku_hembra": "MS-BRA-HEW-A1H",
+    "sku_cuadro": "CD-BRA-HEW-ROY"
+  },
+  {
+    "especie": "Agrias pericles peruviana",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-PER-A1M",
+    "sku_hembra": "MS-BRA-PER-A1H",
+    "sku_cuadro": "CD-BRA-PER-ROY"
+  },
+  {
+    "especie": "Agrias sardanapulis",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-SAR-A1M",
+    "sku_hembra": "MS-BRA-SAR-A1H",
+    "sku_cuadro": "CD-BRA-SAR-ROY"
+  },
+  {
+    "especie": "Asterope degandii allyni (= A. adamsi)",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-DEG-A1M",
+    "sku_hembra": "MS-BRA-DEG-A1H",
+    "sku_cuadro": "CD-BRA-DEG-ROY"
+  },
+  {
+    "especie": "Asterope degandii bartletti",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-DEG-A1M",
+    "sku_hembra": "MS-BRA-DEG-A1H",
+    "sku_cuadro": "CD-BRA-DEG-ROY"
+  },
+  {
+    "especie": "Asterope markii davisi",
+    "familia": "Brassolidae",
+    "sku_macho": "MS-BRA-MAR-A1M",
+    "sku_hembra": "MS-BRA-MAR-A1H",
+    "sku_cuadro": "CD-BRA-MAR-ROY"
+  },
+  {
+    "especie": "Morpho absoloni",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-ABS-A1M",
+    "sku_hembra": "MS-MOR-ABS-A1H",
+    "sku_cuadro": "CD-MOR-ABS-ROY"
+  },
+  {
+    "especie": "Morpho aurora aureola",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-AUR-A1M",
+    "sku_hembra": "MS-MOR-AUR-A1H",
+    "sku_cuadro": "CD-MOR-AUR-ROY"
+  },
+  {
+    "especie": "Morpho lympharis selenarys",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-LYM-A1M",
+    "sku_hembra": "MS-MOR-LYM-A1H",
+    "sku_cuadro": "CD-MOR-LYM-ROY"
+  },
+  {
+    "especie": "Morpho sulkowskyi  descimokoenigi",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-SUL-A1M",
+    "sku_hembra": "MS-MOR-SUL-A1H",
+    "sku_cuadro": "CD-MOR-SUL-ROY"
+  },
+  {
+    "especie": "Morpho rhetenor cacica",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-RHE-A1M",
+    "sku_hembra": "MS-MOR-RHE-A1H",
+    "sku_cuadro": "CD-MOR-RHE-ROY"
+  },
+  {
+    "especie": "Morpho rhtenor helena",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-RHT-A1M",
+    "sku_hembra": "MS-MOR-RHT-A1H",
+    "sku_cuadro": "CD-MOR-RHT-ROY"
+  },
+  {
+    "especie": "Morpho telemachus",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-TEL-A1M",
+    "sku_hembra": "MS-MOR-TEL-A1H",
+    "sku_cuadro": "CD-MOR-TEL-ROY"
+  },
+  {
+    "especie": "Morpho zephritis",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-ZEP-A1M",
+    "sku_hembra": "MS-MOR-ZEP-A1H",
+    "sku_cuadro": "CD-MOR-ZEP-ROY"
+  },
+  {
+    "especie": "Morpho theseus juturna",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-THE-A1M",
+    "sku_hembra": "MS-MOR-THE-A1H",
+    "sku_cuadro": "CD-MOR-THE-ROY"
+  },
+  {
+    "especie": "Morpho menelaus assarpai",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-MEN-A1M",
+    "sku_hembra": "MS-MOR-MEN-A1H",
+    "sku_cuadro": "CD-MOR-MEN-ROY"
+  },
+  {
+    "especie": "Morpho Cisseis gahua(brows and asure)",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CIS-A1M",
+    "sku_hembra": "MS-MOR-CIS-A1H",
+    "sku_cuadro": "CD-MOR-CIS-ROY"
+  },
+  {
+    "especie": "Morpho cisseis phanademus(azure)",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CIS-A1M",
+    "sku_hembra": "MS-MOR-CIS-A1H",
+    "sku_cuadro": "CD-MOR-CIS-ROY"
+  },
+  {
+    "especie": "Morpho adonis huallaga",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-ADO-A1M",
+    "sku_hembra": "MS-MOR-ADO-A1H",
+    "sku_cuadro": "CD-MOR-ADO-ROY"
+  },
+  {
+    "especie": "Morpho amphitriom cinerous",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-AMP-A1M",
+    "sku_hembra": "MS-MOR-AMP-A1H",
+    "sku_cuadro": "CD-MOR-AMP-ROY"
+  },
+  {
+    "especie": "Morpho deidamia marie",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-DEI-A1M",
+    "sku_hembra": "MS-MOR-DEI-A1H",
+    "sku_cuadro": "CD-MOR-DEI-ROY"
+  },
+  {
+    "especie": "Morpho achilles helenor",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-ACH-A1M",
+    "sku_hembra": "MS-MOR-ACH-A1H",
+    "sku_cuadro": "CD-MOR-ACH-ROY"
+  },
+  {
+    "especie": "Morpho didius",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-DID-A1M",
+    "sku_hembra": "MS-MOR-DID-A1H",
+    "sku_cuadro": "CD-MOR-DID-ROY"
+  },
+  {
+    "especie": "Morpho didius tingomaria",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-DID-A1M",
+    "sku_hembra": "MS-MOR-DID-A1H",
+    "sku_cuadro": "CD-MOR-DID-ROY"
+  },
+  {
+    "especie": "Morpho menelaus michaelus",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-MEN-A1M",
+    "sku_hembra": "MS-MOR-MEN-A1H",
+    "sku_cuadro": "CD-MOR-MEN-ROY"
+  },
+  {
+    "especie": "Morpho Menelaus pucallpensis",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-MEN-A1M",
+    "sku_hembra": "MS-MOR-MEN-A1H",
+    "sku_cuadro": "CD-MOR-MEN-ROY"
+  },
+  {
+    "especie": "Morpho helenor amazonius",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-HEL-A1M",
+    "sku_hembra": "MS-MOR-HEL-A1H",
+    "sku_cuadro": "CD-MOR-HEL-ROY"
+  },
+  {
+    "especie": "Morpho mariosiajane",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-MAR-A1M",
+    "sku_hembra": "MS-MOR-MAR-A1H",
+    "sku_cuadro": "CD-MOR-MAR-ROY"
+  },
+  {
+    "especie": "Morpho sulkowoskii Nieva",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-SUL-A1M",
+    "sku_hembra": "MS-MOR-SUL-A1H",
+    "sku_cuadro": "CD-MOR-SUL-ROY"
+  },
+  {
+    "especie": "Morpho sulkowoskii zachi",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-SUL-A1M",
+    "sku_hembra": "MS-MOR-SUL-A1H",
+    "sku_cuadro": "CD-MOR-SUL-ROY"
+  },
+  {
+    "especie": "Morpho godartii julanthicus",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-GOD-A1M",
+    "sku_hembra": "MS-MOR-GOD-A1H",
+    "sku_cuadro": "CD-MOR-GOD-ROY"
+  },
+  {
+    "especie": "Morpho  Menelaus  ssp. zischkai",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-MEN-A1M",
+    "sku_hembra": "MS-MOR-MEN-A1H",
+    "sku_cuadro": "CD-MOR-MEN-ROY"
+  },
+  {
+    "especie": "Morpho Rethenor mariosiojanae (small)",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-RET-A1M",
+    "sku_hembra": "MS-MOR-RET-A1H",
+    "sku_cuadro": "CD-MOR-RET-ROY"
+  },
+  {
+    "especie": "Morpho  aurora Isidorssoni",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-AUR-A1M",
+    "sku_hembra": "MS-MOR-AUR-A1H",
+    "sku_cuadro": "CD-MOR-AUR-ROY"
+  },
+  {
+    "especie": "Morpho aurora lamasi",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-AUR-A1M",
+    "sku_hembra": "MS-MOR-AUR-A1H",
+    "sku_cuadro": "CD-MOR-AUR-ROY"
+  },
+  {
+    "especie": "Morpho Cisseis gahua ssp. Gahua",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CIS-A1M",
+    "sku_hembra": "MS-MOR-CIS-A1H",
+    "sku_cuadro": "CD-MOR-CIS-ROY"
+  },
+  {
+    "especie": "Morpho Cisseis gahua ssp. Gahua",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CIS-A1M",
+    "sku_hembra": "MS-MOR-CIS-A1H",
+    "sku_cuadro": "CD-MOR-CIS-ROY"
+  },
+  {
+    "especie": "Adelpha mesentina",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-MES-A1M",
+    "sku_hembra": "MS-MOR-MES-A1H",
+    "sku_cuadro": "CD-MOR-MES-ROY"
+  },
+  {
+    "especie": "Adelpha erotia erotia f. erotia",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-ERO-A1M",
+    "sku_hembra": "MS-MOR-ERO-A1H",
+    "sku_cuadro": "CD-MOR-ERO-ROY"
+  },
+  {
+    "especie": "Adelpha iphiclus",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-IPH-A1M",
+    "sku_hembra": "MS-MOR-IPH-A1H",
+    "sku_cuadro": "CD-MOR-IPH-ROY"
+  },
+  {
+    "especie": "Adelpha lycorias lara",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-LYC-A1M",
+    "sku_hembra": "MS-MOR-LYC-A1H",
+    "sku_cuadro": "CD-MOR-LYC-ROY"
+  },
+  {
+    "especie": "Agraulis vanillae lucina f. catella",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-VAN-A1M",
+    "sku_hembra": "MS-MOR-VAN-A1H",
+    "sku_cuadro": "CD-MOR-VAN-ROY"
+  },
+  {
+    "especie": "Agrias amydon zenodorus",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-AMY-A1M",
+    "sku_hembra": "MS-MOR-AMY-A1H",
+    "sku_cuadro": "CD-MOR-AMY-ROY"
+  },
+  {
+    "especie": "Agrias claudina lugens",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CLA-A1M",
+    "sku_hembra": "MS-MOR-CLA-A1H",
+    "sku_cuadro": "CD-MOR-CLA-ROY"
+  },
+  {
+    "especie": "Agrias hewitsonius beata (=beatifica beata)",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-HEW-A1M",
+    "sku_hembra": "MS-MOR-HEW-A1H",
+    "sku_cuadro": "CD-MOR-HEW-ROY"
+  },
+  {
+    "especie": "Agrias hewitsonius stuarti (=beatifica stuarti)",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-HEW-A1M",
+    "sku_hembra": "MS-MOR-HEW-A1H",
+    "sku_cuadro": "CD-MOR-HEW-ROY"
+  },
+  {
+    "especie": "Agrias pericles peruviana",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-PER-A1M",
+    "sku_hembra": "MS-MOR-PER-A1H",
+    "sku_cuadro": "CD-MOR-PER-ROY"
+  },
+  {
+    "especie": "Agrias sardanapulis",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-SAR-A1M",
+    "sku_hembra": "MS-MOR-SAR-A1H",
+    "sku_cuadro": "CD-MOR-SAR-ROY"
+  },
+  {
+    "especie": "Asterope degandii allyni (= A. adamsi)",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-DEG-A1M",
+    "sku_hembra": "MS-MOR-DEG-A1H",
+    "sku_cuadro": "CD-MOR-DEG-ROY"
+  },
+  {
+    "especie": "Asterope degandii bartletti",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-DEG-A1M",
+    "sku_hembra": "MS-MOR-DEG-A1H",
+    "sku_cuadro": "CD-MOR-DEG-ROY"
+  },
+  {
+    "especie": "Asterope markii davisi",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-MAR-A1M",
+    "sku_hembra": "MS-MOR-MAR-A1H",
+    "sku_cuadro": "CD-MOR-MAR-ROY"
+  },
+  {
+    "especie": "Asterope markii hewitsoni",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-MAR-A1M",
+    "sku_hembra": "MS-MOR-MAR-A1H",
+    "sku_cuadro": "CD-MOR-MAR-ROY"
+  },
+  {
+    "especie": "Asterope optima f. eminens",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-OPT-A1M",
+    "sku_hembra": "MS-MOR-OPT-A1H",
+    "sku_cuadro": "CD-MOR-OPT-ROY"
+  },
+  {
+    "especie": "Asterope optima philotina",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-OPT-A1M",
+    "sku_hembra": "MS-MOR-OPT-A1H",
+    "sku_cuadro": "CD-MOR-OPT-ROY"
+  },
+  {
+    "especie": "Asterope whitelyi whitelyi",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-WHI-A1M",
+    "sku_hembra": "MS-MOR-WHI-A1H",
+    "sku_cuadro": "CD-MOR-WHI-ROY"
+  },
+  {
+    "especie": "Baeotus (Megistanis) amazonicus",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-MEG-A1M",
+    "sku_hembra": "MS-MOR-MEG-A1H",
+    "sku_cuadro": "CD-MOR-MEG-ROY"
+  },
+  {
+    "especie": "Baeotus (Megistanis) japetus",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-MEG-A1M",
+    "sku_hembra": "MS-MOR-MEG-A1H",
+    "sku_cuadro": "CD-MOR-MEG-ROY"
+  },
+  {
+    "especie": "Baeotus (Megistanis) deucalion",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-MEG-A1M",
+    "sku_hembra": "MS-MOR-MEG-A1H",
+    "sku_cuadro": "CD-MOR-MEG-ROY"
+  },
+  {
+    "especie": "Batesia hypochlora f.hypochlora",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-HYP-A1M",
+    "sku_hembra": "MS-MOR-HYP-A1H",
+    "sku_cuadro": "CD-MOR-HYP-ROY"
+  },
+  {
+    "especie": "Biblis hyperia",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-HYP-A1M",
+    "sku_hembra": "MS-MOR-HYP-A1H",
+    "sku_cuadro": "CD-MOR-HYP-ROY"
+  },
+  {
+    "especie": "Callicore (Catagramma)hytaspes",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CAT-A1M",
+    "sku_hembra": "MS-MOR-CAT-A1H",
+    "sku_cuadro": "CD-MOR-CAT-ROY"
+  },
+  {
+    "especie": "Callicore cynosura -Verso Aberration",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CYN-A1M",
+    "sku_hembra": "MS-MOR-CYN-A1H",
+    "sku_cuadro": "CD-MOR-CYN-ROY"
+  },
+  {
+    "especie": "Callicore cynosura cynosura",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CYN-A1M",
+    "sku_hembra": "MS-MOR-CYN-A1H",
+    "sku_cuadro": "CD-MOR-CYN-ROY"
+  },
+  {
+    "especie": "Callicore discrepans",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-DIS-A1M",
+    "sku_hembra": "MS-MOR-DIS-A1H",
+    "sku_cuadro": "CD-MOR-DIS-ROY"
+  },
+  {
+    "especie": "Callicore eunomia",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-EUN-A1M",
+    "sku_hembra": "MS-MOR-EUN-A1H",
+    "sku_cuadro": "CD-MOR-EUN-ROY"
+  },
+  {
+    "especie": "Callicore excelsior pastazza",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-EXC-A1M",
+    "sku_hembra": "MS-MOR-EXC-A1H",
+    "sku_cuadro": "CD-MOR-EXC-ROY"
+  },
+  {
+    "especie": "Callicore felderi cajetani",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-FEL-A1M",
+    "sku_hembra": "MS-MOR-FEL-A1H",
+    "sku_cuadro": "CD-MOR-FEL-ROY"
+  },
+  {
+    "especie": "Callicore hesperis",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-HES-A1M",
+    "sku_hembra": "MS-MOR-HES-A1H",
+    "sku_cuadro": "CD-MOR-HES-ROY"
+  },
+  {
+    "especie": "Callicore lyca aegina",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-LYC-A1M",
+    "sku_hembra": "MS-MOR-LYC-A1H",
+    "sku_cuadro": "CD-MOR-LYC-ROY"
+  },
+  {
+    "especie": "Callicore texa maimuna",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-TEX-A1M",
+    "sku_hembra": "MS-MOR-TEX-A1H",
+    "sku_cuadro": "CD-MOR-TEX-ROY"
+  },
+  {
+    "especie": "Callicore tolima",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-TOL-A1M",
+    "sku_hembra": "MS-MOR-TOL-A1H",
+    "sku_cuadro": "CD-MOR-TOL-ROY"
+  },
+  {
+    "especie": "Callidula pyramus",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-PYR-A1M",
+    "sku_hembra": "MS-MOR-PYR-A1H",
+    "sku_cuadro": "CD-MOR-PYR-ROY"
+  },
+  {
+    "especie": "Catenophele salambria",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-SAL-A1M",
+    "sku_hembra": "MS-MOR-SAL-A1H",
+    "sku_cuadro": "CD-MOR-SAL-ROY"
+  },
+  {
+    "especie": "Catonephele acontius",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-ACO-A1M",
+    "sku_hembra": "MS-MOR-ACO-A1H",
+    "sku_cuadro": "CD-MOR-ACO-ROY"
+  },
+  {
+    "especie": "Catonephele chromis chromis",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CHR-A1M",
+    "sku_hembra": "MS-MOR-CHR-A1H",
+    "sku_cuadro": "CD-MOR-CHR-ROY"
+  },
+  {
+    "especie": "Catonephele numilia (Peru)",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-NUM-A1M",
+    "sku_hembra": "MS-MOR-NUM-A1H",
+    "sku_cuadro": "CD-MOR-NUM-ROY"
+  },
+  {
+    "especie": "Catonephele numilia (Peru) F",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-NUM-A1M",
+    "sku_hembra": "MS-MOR-NUM-A1H",
+    "sku_cuadro": "CD-MOR-NUM-ROY"
+  },
+  {
+    "especie": "Catonephele selambria",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-SEL-A1M",
+    "sku_hembra": "MS-MOR-SEL-A1H",
+    "sku_cuadro": "CD-MOR-SEL-ROY"
+  },
+  {
+    "especie": "Coenophlebia (Anaea) archidona",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-ANA-A1M",
+    "sku_hembra": "MS-MOR-ANA-A1H",
+    "sku_cuadro": "CD-MOR-ANA-ROY"
+  },
+  {
+    "especie": "Colubura dirce",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-DIR-A1M",
+    "sku_hembra": "MS-MOR-DIR-A1H",
+    "sku_cuadro": "CD-MOR-DIR-ROY"
+  },
+  {
+    "especie": "Consul (Anaea) fabius divisus",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-ANA-A1M",
+    "sku_hembra": "MS-MOR-ANA-A1H",
+    "sku_cuadro": "CD-MOR-ANA-ROY"
+  },
+  {
+    "especie": "Diaethria (Catacore) kolyma",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CAT-A1M",
+    "sku_hembra": "MS-MOR-CAT-A1H",
+    "sku_cuadro": "CD-MOR-CAT-ROY"
+  },
+  {
+    "especie": "Diaethria (Catacore) kolyma f. pasithea",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CAT-A1M",
+    "sku_hembra": "MS-MOR-CAT-A1H",
+    "sku_cuadro": "CD-MOR-CAT-ROY"
+  },
+  {
+    "especie": "Diaethria clymena peruviana",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CLY-A1M",
+    "sku_hembra": "MS-MOR-CLY-A1H",
+    "sku_cuadro": "CD-MOR-CLY-ROY"
+  },
+  {
+    "especie": "Diaethria neglecta neglecta",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-NEG-A1M",
+    "sku_hembra": "MS-MOR-NEG-A1H",
+    "sku_cuadro": "CD-MOR-NEG-ROY"
+  },
+  {
+    "especie": "Doxocopa agathina",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-AGA-A1M",
+    "sku_hembra": "MS-MOR-AGA-A1H",
+    "sku_cuadro": "CD-MOR-AGA-ROY"
+  },
+  {
+    "especie": "Doxocopa cherubina",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CHE-A1M",
+    "sku_hembra": "MS-MOR-CHE-A1H",
+    "sku_cuadro": "CD-MOR-CHE-ROY"
+  },
+  {
+    "especie": "Doxocopa cyane",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CYA-A1M",
+    "sku_hembra": "MS-MOR-CYA-A1H",
+    "sku_cuadro": "CD-MOR-CYA-ROY"
+  },
+  {
+    "especie": "Doxocopa elis",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-ELI-A1M",
+    "sku_hembra": "MS-MOR-ELI-A1H",
+    "sku_cuadro": "CD-MOR-ELI-ROY"
+  },
+  {
+    "especie": "Doxocopa lavinia",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-LAV-A1M",
+    "sku_hembra": "MS-MOR-LAV-A1H",
+    "sku_cuadro": "CD-MOR-LAV-ROY"
+  },
+  {
+    "especie": "Doxocopa linda f. linda",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-LIN-A1M",
+    "sku_hembra": "MS-MOR-LIN-A1H",
+    "sku_cuadro": "CD-MOR-LIN-ROY"
+  },
+  {
+    "especie": "Doxocopa linda f. selina",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-LIN-A1M",
+    "sku_hembra": "MS-MOR-LIN-A1H",
+    "sku_cuadro": "CD-MOR-LIN-ROY"
+  },
+  {
+    "especie": "Doxocopa pavon",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-PAV-A1M",
+    "sku_hembra": "MS-MOR-PAV-A1H",
+    "sku_cuadro": "CD-MOR-PAV-ROY"
+  },
+  {
+    "especie": "Doxocopa zunilda floris",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-ZUN-A1M",
+    "sku_hembra": "MS-MOR-ZUN-A1H",
+    "sku_cuadro": "CD-MOR-ZUN-ROY"
+  },
+  {
+    "especie": "Eunica carias ninetta",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CAR-A1M",
+    "sku_hembra": "MS-MOR-CAR-A1H",
+    "sku_cuadro": "CD-MOR-CAR-ROY"
+  },
+  {
+    "especie": "Eunica alcmena flora",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-ALC-A1M",
+    "sku_hembra": "MS-MOR-ALC-A1H",
+    "sku_cuadro": "CD-MOR-ALC-ROY"
+  },
+  {
+    "especie": "Eunica ameliae",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-AME-A1M",
+    "sku_hembra": "MS-MOR-AME-A1H",
+    "sku_cuadro": "CD-MOR-AME-ROY"
+  },
+  {
+    "especie": "Eunica bechina",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-BEC-A1M",
+    "sku_hembra": "MS-MOR-BEC-A1H",
+    "sku_cuadro": "CD-MOR-BEC-ROY"
+  },
+  {
+    "especie": "Eunica caralis caralis",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CAR-A1M",
+    "sku_hembra": "MS-MOR-CAR-A1H",
+    "sku_cuadro": "CD-MOR-CAR-ROY"
+  },
+  {
+    "especie": "Eunica carias ninetta",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CAR-A1M",
+    "sku_hembra": "MS-MOR-CAR-A1H",
+    "sku_cuadro": "CD-MOR-CAR-ROY"
+  },
+  {
+    "especie": "Eunica chlorochroa",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CHL-A1M",
+    "sku_hembra": "MS-MOR-CHL-A1H",
+    "sku_cuadro": "CD-MOR-CHL-ROY"
+  },
+  {
+    "especie": "Eunica clytia",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-CLY-A1M",
+    "sku_hembra": "MS-MOR-CLY-A1H",
+    "sku_cuadro": "CD-MOR-CLY-ROY"
+  },
+  {
+    "especie": "Eunica eurota",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-EUR-A1M",
+    "sku_hembra": "MS-MOR-EUR-A1H",
+    "sku_cuadro": "CD-MOR-EUR-ROY"
+  },
+  {
+    "especie": "Eunica excelsa",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-EXC-A1M",
+    "sku_hembra": "MS-MOR-EXC-A1H",
+    "sku_cuadro": "CD-MOR-EXC-ROY"
+  },
+  {
+    "especie": "Eunica malvina",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-MAL-A1M",
+    "sku_hembra": "MS-MOR-MAL-A1H",
+    "sku_cuadro": "CD-MOR-MAL-ROY"
+  },
+  {
+    "especie": "Eunica mygdona",
+    "familia": "Morphidae",
+    "sku_macho": "MS-MOR-MYG-A1M",
+    "sku_hembra": "MS-MOR-MYG-A1H",
+    "sku_cuadro": "CD-MOR-MYG-ROY"
+  },
+  {
+    "especie": "Adelpha mesentina",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-MES-A1M",
+    "sku_hembra": "MS-NYM-MES-A1H",
+    "sku_cuadro": "CD-NYM-MES-ROY"
+  },
+  {
+    "especie": "Adelpha erotia erotia f. erotia",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ERO-A1M",
+    "sku_hembra": "MS-NYM-ERO-A1H",
+    "sku_cuadro": "CD-NYM-ERO-ROY"
+  },
+  {
+    "especie": "Adelpha iphiclus",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-IPH-A1M",
+    "sku_hembra": "MS-NYM-IPH-A1H",
+    "sku_cuadro": "CD-NYM-IPH-ROY"
+  },
+  {
+    "especie": "Adelpha lycorias lara",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-LYC-A1M",
+    "sku_hembra": "MS-NYM-LYC-A1H",
+    "sku_cuadro": "CD-NYM-LYC-ROY"
+  },
+  {
+    "especie": "Agraulis vanillae lucina f. catella",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-VAN-A1M",
+    "sku_hembra": "MS-NYM-VAN-A1H",
+    "sku_cuadro": "CD-NYM-VAN-ROY"
+  },
+  {
+    "especie": "Agrias amydon zenodorus",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-AMY-A1M",
+    "sku_hembra": "MS-NYM-AMY-A1H",
+    "sku_cuadro": "CD-NYM-AMY-ROY"
+  },
+  {
+    "especie": "Agrias claudina lugens",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CLA-A1M",
+    "sku_hembra": "MS-NYM-CLA-A1H",
+    "sku_cuadro": "CD-NYM-CLA-ROY"
+  },
+  {
+    "especie": "Agrias hewitsonius beata (=beatifica beata)",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-HEW-A1M",
+    "sku_hembra": "MS-NYM-HEW-A1H",
+    "sku_cuadro": "CD-NYM-HEW-ROY"
+  },
+  {
+    "especie": "Agrias hewitsonius stuarti (=beatifica stuarti)",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-HEW-A1M",
+    "sku_hembra": "MS-NYM-HEW-A1H",
+    "sku_cuadro": "CD-NYM-HEW-ROY"
+  },
+  {
+    "especie": "Agrias pericles peruviana",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-PER-A1M",
+    "sku_hembra": "MS-NYM-PER-A1H",
+    "sku_cuadro": "CD-NYM-PER-ROY"
+  },
+  {
+    "especie": "Agrias sardanapulis",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-SAR-A1M",
+    "sku_hembra": "MS-NYM-SAR-A1H",
+    "sku_cuadro": "CD-NYM-SAR-ROY"
+  },
+  {
+    "especie": "Asterope degandii allyni (= A. adamsi)",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-DEG-A1M",
+    "sku_hembra": "MS-NYM-DEG-A1H",
+    "sku_cuadro": "CD-NYM-DEG-ROY"
+  },
+  {
+    "especie": "Asterope degandii bartletti",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-DEG-A1M",
+    "sku_hembra": "MS-NYM-DEG-A1H",
+    "sku_cuadro": "CD-NYM-DEG-ROY"
+  },
+  {
+    "especie": "Asterope markii davisi",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-MAR-A1M",
+    "sku_hembra": "MS-NYM-MAR-A1H",
+    "sku_cuadro": "CD-NYM-MAR-ROY"
+  },
+  {
+    "especie": "Asterope markii hewitsoni",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-MAR-A1M",
+    "sku_hembra": "MS-NYM-MAR-A1H",
+    "sku_cuadro": "CD-NYM-MAR-ROY"
+  },
+  {
+    "especie": "Asterope optima f. eminens",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-OPT-A1M",
+    "sku_hembra": "MS-NYM-OPT-A1H",
+    "sku_cuadro": "CD-NYM-OPT-ROY"
+  },
+  {
+    "especie": "Asterope optima philotina",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-OPT-A1M",
+    "sku_hembra": "MS-NYM-OPT-A1H",
+    "sku_cuadro": "CD-NYM-OPT-ROY"
+  },
+  {
+    "especie": "Asterope whitelyi whitelyi",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-WHI-A1M",
+    "sku_hembra": "MS-NYM-WHI-A1H",
+    "sku_cuadro": "CD-NYM-WHI-ROY"
+  },
+  {
+    "especie": "Baeotus (Megistanis) amazonicus",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-MEG-A1M",
+    "sku_hembra": "MS-NYM-MEG-A1H",
+    "sku_cuadro": "CD-NYM-MEG-ROY"
+  },
+  {
+    "especie": "Baeotus (Megistanis) japetus",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-MEG-A1M",
+    "sku_hembra": "MS-NYM-MEG-A1H",
+    "sku_cuadro": "CD-NYM-MEG-ROY"
+  },
+  {
+    "especie": "Baeotus (Megistanis) deucalion",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-MEG-A1M",
+    "sku_hembra": "MS-NYM-MEG-A1H",
+    "sku_cuadro": "CD-NYM-MEG-ROY"
+  },
+  {
+    "especie": "Batesia hypochlora f.hypochlora",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-HYP-A1M",
+    "sku_hembra": "MS-NYM-HYP-A1H",
+    "sku_cuadro": "CD-NYM-HYP-ROY"
+  },
+  {
+    "especie": "Biblis hyperia",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-HYP-A1M",
+    "sku_hembra": "MS-NYM-HYP-A1H",
+    "sku_cuadro": "CD-NYM-HYP-ROY"
+  },
+  {
+    "especie": "Callicore (Catagramma)hytaspes",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CAT-A1M",
+    "sku_hembra": "MS-NYM-CAT-A1H",
+    "sku_cuadro": "CD-NYM-CAT-ROY"
+  },
+  {
+    "especie": "Callicore cynosura -Verso Aberration",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CYN-A1M",
+    "sku_hembra": "MS-NYM-CYN-A1H",
+    "sku_cuadro": "CD-NYM-CYN-ROY"
+  },
+  {
+    "especie": "Callicore cynosura cynosura",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CYN-A1M",
+    "sku_hembra": "MS-NYM-CYN-A1H",
+    "sku_cuadro": "CD-NYM-CYN-ROY"
+  },
+  {
+    "especie": "Callicore discrepans",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-DIS-A1M",
+    "sku_hembra": "MS-NYM-DIS-A1H",
+    "sku_cuadro": "CD-NYM-DIS-ROY"
+  },
+  {
+    "especie": "Callicore eunomia",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-EUN-A1M",
+    "sku_hembra": "MS-NYM-EUN-A1H",
+    "sku_cuadro": "CD-NYM-EUN-ROY"
+  },
+  {
+    "especie": "Callicore excelsior pastazza",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-EXC-A1M",
+    "sku_hembra": "MS-NYM-EXC-A1H",
+    "sku_cuadro": "CD-NYM-EXC-ROY"
+  },
+  {
+    "especie": "Callicore felderi cajetani",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-FEL-A1M",
+    "sku_hembra": "MS-NYM-FEL-A1H",
+    "sku_cuadro": "CD-NYM-FEL-ROY"
+  },
+  {
+    "especie": "Callicore hesperis",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-HES-A1M",
+    "sku_hembra": "MS-NYM-HES-A1H",
+    "sku_cuadro": "CD-NYM-HES-ROY"
+  },
+  {
+    "especie": "Callicore lyca aegina",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-LYC-A1M",
+    "sku_hembra": "MS-NYM-LYC-A1H",
+    "sku_cuadro": "CD-NYM-LYC-ROY"
+  },
+  {
+    "especie": "Callicore texa maimuna",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-TEX-A1M",
+    "sku_hembra": "MS-NYM-TEX-A1H",
+    "sku_cuadro": "CD-NYM-TEX-ROY"
+  },
+  {
+    "especie": "Callicore tolima",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-TOL-A1M",
+    "sku_hembra": "MS-NYM-TOL-A1H",
+    "sku_cuadro": "CD-NYM-TOL-ROY"
+  },
+  {
+    "especie": "Callidula pyramus",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-PYR-A1M",
+    "sku_hembra": "MS-NYM-PYR-A1H",
+    "sku_cuadro": "CD-NYM-PYR-ROY"
+  },
+  {
+    "especie": "Catenophele salambria",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-SAL-A1M",
+    "sku_hembra": "MS-NYM-SAL-A1H",
+    "sku_cuadro": "CD-NYM-SAL-ROY"
+  },
+  {
+    "especie": "Catonephele acontius",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ACO-A1M",
+    "sku_hembra": "MS-NYM-ACO-A1H",
+    "sku_cuadro": "CD-NYM-ACO-ROY"
+  },
+  {
+    "especie": "Catonephele chromis chromis",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CHR-A1M",
+    "sku_hembra": "MS-NYM-CHR-A1H",
+    "sku_cuadro": "CD-NYM-CHR-ROY"
+  },
+  {
+    "especie": "Catonephele numilia (Peru)",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-NUM-A1M",
+    "sku_hembra": "MS-NYM-NUM-A1H",
+    "sku_cuadro": "CD-NYM-NUM-ROY"
+  },
+  {
+    "especie": "Catonephele numilia (Peru) F",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-NUM-A1M",
+    "sku_hembra": "MS-NYM-NUM-A1H",
+    "sku_cuadro": "CD-NYM-NUM-ROY"
+  },
+  {
+    "especie": "Catonephele selambria",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-SEL-A1M",
+    "sku_hembra": "MS-NYM-SEL-A1H",
+    "sku_cuadro": "CD-NYM-SEL-ROY"
+  },
+  {
+    "especie": "Coenophlebia (Anaea) archidona",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ANA-A1M",
+    "sku_hembra": "MS-NYM-ANA-A1H",
+    "sku_cuadro": "CD-NYM-ANA-ROY"
+  },
+  {
+    "especie": "Colubura dirce",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-DIR-A1M",
+    "sku_hembra": "MS-NYM-DIR-A1H",
+    "sku_cuadro": "CD-NYM-DIR-ROY"
+  },
+  {
+    "especie": "Consul (Anaea) fabius divisus",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ANA-A1M",
+    "sku_hembra": "MS-NYM-ANA-A1H",
+    "sku_cuadro": "CD-NYM-ANA-ROY"
+  },
+  {
+    "especie": "Diaethria (Catacore) kolyma",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CAT-A1M",
+    "sku_hembra": "MS-NYM-CAT-A1H",
+    "sku_cuadro": "CD-NYM-CAT-ROY"
+  },
+  {
+    "especie": "Diaethria (Catacore) kolyma f. pasithea",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CAT-A1M",
+    "sku_hembra": "MS-NYM-CAT-A1H",
+    "sku_cuadro": "CD-NYM-CAT-ROY"
+  },
+  {
+    "especie": "Diaethria clymena peruviana",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CLY-A1M",
+    "sku_hembra": "MS-NYM-CLY-A1H",
+    "sku_cuadro": "CD-NYM-CLY-ROY"
+  },
+  {
+    "especie": "Diaethria neglecta neglecta",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-NEG-A1M",
+    "sku_hembra": "MS-NYM-NEG-A1H",
+    "sku_cuadro": "CD-NYM-NEG-ROY"
+  },
+  {
+    "especie": "Doxocopa agathina",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-AGA-A1M",
+    "sku_hembra": "MS-NYM-AGA-A1H",
+    "sku_cuadro": "CD-NYM-AGA-ROY"
+  },
+  {
+    "especie": "Doxocopa cherubina",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CHE-A1M",
+    "sku_hembra": "MS-NYM-CHE-A1H",
+    "sku_cuadro": "CD-NYM-CHE-ROY"
+  },
+  {
+    "especie": "Doxocopa cyane",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CYA-A1M",
+    "sku_hembra": "MS-NYM-CYA-A1H",
+    "sku_cuadro": "CD-NYM-CYA-ROY"
+  },
+  {
+    "especie": "Doxocopa elis",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ELI-A1M",
+    "sku_hembra": "MS-NYM-ELI-A1H",
+    "sku_cuadro": "CD-NYM-ELI-ROY"
+  },
+  {
+    "especie": "Doxocopa lavinia",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-LAV-A1M",
+    "sku_hembra": "MS-NYM-LAV-A1H",
+    "sku_cuadro": "CD-NYM-LAV-ROY"
+  },
+  {
+    "especie": "Doxocopa linda f. linda",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-LIN-A1M",
+    "sku_hembra": "MS-NYM-LIN-A1H",
+    "sku_cuadro": "CD-NYM-LIN-ROY"
+  },
+  {
+    "especie": "Doxocopa linda f. selina",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-LIN-A1M",
+    "sku_hembra": "MS-NYM-LIN-A1H",
+    "sku_cuadro": "CD-NYM-LIN-ROY"
+  },
+  {
+    "especie": "Doxocopa pavon",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-PAV-A1M",
+    "sku_hembra": "MS-NYM-PAV-A1H",
+    "sku_cuadro": "CD-NYM-PAV-ROY"
+  },
+  {
+    "especie": "Doxocopa zunilda floris",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ZUN-A1M",
+    "sku_hembra": "MS-NYM-ZUN-A1H",
+    "sku_cuadro": "CD-NYM-ZUN-ROY"
+  },
+  {
+    "especie": "Eunica carias ninetta",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CAR-A1M",
+    "sku_hembra": "MS-NYM-CAR-A1H",
+    "sku_cuadro": "CD-NYM-CAR-ROY"
+  },
+  {
+    "especie": "Eunica alcmena flora",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ALC-A1M",
+    "sku_hembra": "MS-NYM-ALC-A1H",
+    "sku_cuadro": "CD-NYM-ALC-ROY"
+  },
+  {
+    "especie": "Eunica ameliae",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-AME-A1M",
+    "sku_hembra": "MS-NYM-AME-A1H",
+    "sku_cuadro": "CD-NYM-AME-ROY"
+  },
+  {
+    "especie": "Eunica bechina",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-BEC-A1M",
+    "sku_hembra": "MS-NYM-BEC-A1H",
+    "sku_cuadro": "CD-NYM-BEC-ROY"
+  },
+  {
+    "especie": "Eunica caralis caralis",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CAR-A1M",
+    "sku_hembra": "MS-NYM-CAR-A1H",
+    "sku_cuadro": "CD-NYM-CAR-ROY"
+  },
+  {
+    "especie": "Eunica carias ninetta",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CAR-A1M",
+    "sku_hembra": "MS-NYM-CAR-A1H",
+    "sku_cuadro": "CD-NYM-CAR-ROY"
+  },
+  {
+    "especie": "Eunica chlorochroa",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CHL-A1M",
+    "sku_hembra": "MS-NYM-CHL-A1H",
+    "sku_cuadro": "CD-NYM-CHL-ROY"
+  },
+  {
+    "especie": "Eunica clytia",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CLY-A1M",
+    "sku_hembra": "MS-NYM-CLY-A1H",
+    "sku_cuadro": "CD-NYM-CLY-ROY"
+  },
+  {
+    "especie": "Eunica eurota",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-EUR-A1M",
+    "sku_hembra": "MS-NYM-EUR-A1H",
+    "sku_cuadro": "CD-NYM-EUR-ROY"
+  },
+  {
+    "especie": "Eunica excelsa",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-EXC-A1M",
+    "sku_hembra": "MS-NYM-EXC-A1H",
+    "sku_cuadro": "CD-NYM-EXC-ROY"
+  },
+  {
+    "especie": "Eunica malvina",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-MAL-A1M",
+    "sku_hembra": "MS-NYM-MAL-A1H",
+    "sku_cuadro": "CD-NYM-MAL-ROY"
+  },
+  {
+    "especie": "Eunica mygdona",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-MYG-A1M",
+    "sku_hembra": "MS-NYM-MYG-A1H",
+    "sku_cuadro": "CD-NYM-MYG-ROY"
+  },
+  {
+    "especie": "Eunica norica",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-NOR-A1M",
+    "sku_hembra": "MS-NYM-NOR-A1H",
+    "sku_cuadro": "CD-NYM-NOR-ROY"
+  },
+  {
+    "especie": "Eunica orphise",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ORP-A1M",
+    "sku_hembra": "MS-NYM-ORP-A1H",
+    "sku_cuadro": "CD-NYM-ORP-ROY"
+  },
+  {
+    "especie": "Eunica pomona pomona",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-POM-A1M",
+    "sku_hembra": "MS-NYM-POM-A1H",
+    "sku_cuadro": "CD-NYM-POM-ROY"
+  },
+  {
+    "especie": "Eunica sophonisba agele",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-SOP-A1M",
+    "sku_hembra": "MS-NYM-SOP-A1H",
+    "sku_cuadro": "CD-NYM-SOP-ROY"
+  },
+  {
+    "especie": "Eunica sydonia",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-SYD-A1M",
+    "sku_hembra": "MS-NYM-SYD-A1H",
+    "sku_cuadro": "CD-NYM-SYD-ROY"
+  },
+  {
+    "especie": "Eunica veronica",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-VER-A1M",
+    "sku_hembra": "MS-NYM-VER-A1H",
+    "sku_cuadro": "CD-NYM-VER-ROY"
+  },
+  {
+    "especie": "Eunica volumna celma",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-VOL-A1M",
+    "sku_hembra": "MS-NYM-VOL-A1H",
+    "sku_cuadro": "CD-NYM-VOL-ROY"
+  },
+  {
+    "especie": "Fountainea (Anaea) eurypyle (=tehuana)",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ANA-A1M",
+    "sku_hembra": "MS-NYM-ANA-A1H",
+    "sku_cuadro": "CD-NYM-ANA-ROY"
+  },
+  {
+    "especie": "Fountainea (Anaea) ryphea ryphea (Peru)",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ANA-A1M",
+    "sku_hembra": "MS-NYM-ANA-A1H",
+    "sku_cuadro": "CD-NYM-ANA-ROY"
+  },
+  {
+    "especie": "Hamadryas amphinome",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-AMP-A1M",
+    "sku_hembra": "MS-NYM-AMP-A1H",
+    "sku_cuadro": "CD-NYM-AMP-ROY"
+  },
+  {
+    "especie": "Hamadryas arinome",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ARI-A1M",
+    "sku_hembra": "MS-NYM-ARI-A1H",
+    "sku_cuadro": "CD-NYM-ARI-ROY"
+  },
+  {
+    "especie": "Hamadryas chloe",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CHL-A1M",
+    "sku_hembra": "MS-NYM-CHL-A1H",
+    "sku_cuadro": "CD-NYM-CHL-ROY"
+  },
+  {
+    "especie": "Hamadryas epinome",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-EPI-A1M",
+    "sku_hembra": "MS-NYM-EPI-A1H",
+    "sku_cuadro": "CD-NYM-EPI-ROY"
+  },
+  {
+    "especie": "Hamadryas feronia",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-FER-A1M",
+    "sku_hembra": "MS-NYM-FER-A1H",
+    "sku_cuadro": "CD-NYM-FER-ROY"
+  },
+  {
+    "especie": "Hamadryas fornax",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-FOR-A1M",
+    "sku_hembra": "MS-NYM-FOR-A1H",
+    "sku_cuadro": "CD-NYM-FOR-ROY"
+  },
+  {
+    "especie": "Hamadryas iphthime iphthime",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-IPH-A1M",
+    "sku_hembra": "MS-NYM-IPH-A1H",
+    "sku_cuadro": "CD-NYM-IPH-ROY"
+  },
+  {
+    "especie": "Hamadryas laodamia laodamia",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-LAO-A1M",
+    "sku_hembra": "MS-NYM-LAO-A1H",
+    "sku_cuadro": "CD-NYM-LAO-ROY"
+  },
+  {
+    "especie": "Historis odius",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ODI-A1M",
+    "sku_hembra": "MS-NYM-ODI-A1H",
+    "sku_cuadro": "CD-NYM-ODI-ROY"
+  },
+  {
+    "especie": "Junonia l(Precis) lavinia lavinia",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-LPR-A1M",
+    "sku_hembra": "MS-NYM-LPR-A1H",
+    "sku_cuadro": "CD-NYM-LPR-ROY"
+  },
+  {
+    "especie": "Marpesia berania",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-BER-A1M",
+    "sku_hembra": "MS-NYM-BER-A1H",
+    "sku_cuadro": "CD-NYM-BER-ROY"
+  },
+  {
+    "especie": "Hypna (Anaea) clymenestra negra",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ANA-A1M",
+    "sku_hembra": "MS-NYM-ANA-A1H",
+    "sku_cuadro": "CD-NYM-ANA-ROY"
+  },
+  {
+    "especie": "Marpesia coresia",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-COR-A1M",
+    "sku_hembra": "MS-NYM-COR-A1H",
+    "sku_cuadro": "CD-NYM-COR-ROY"
+  },
+  {
+    "especie": "Marpesia crethon",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-CRE-A1M",
+    "sku_hembra": "MS-NYM-CRE-A1H",
+    "sku_cuadro": "CD-NYM-CRE-ROY"
+  },
+  {
+    "especie": "Marpesia hermione",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-HER-A1M",
+    "sku_hembra": "MS-NYM-HER-A1H",
+    "sku_cuadro": "CD-NYM-HER-ROY"
+  },
+  {
+    "especie": "Marpesia marcella/corinna",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-MAR-A1M",
+    "sku_hembra": "MS-NYM-MAR-A1H",
+    "sku_cuadro": "CD-NYM-MAR-ROY"
+  },
+  {
+    "especie": "Marpesia petreus",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-PET-A1M",
+    "sku_hembra": "MS-NYM-PET-A1H",
+    "sku_cuadro": "CD-NYM-PET-ROY"
+  },
+  {
+    "especie": "Memphis (Anaea) acaudata",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ANA-A1M",
+    "sku_hembra": "MS-NYM-ANA-A1H",
+    "sku_cuadro": "CD-NYM-ANA-ROY"
+  },
+  {
+    "especie": "Memphis (Anaea) alberta",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ANA-A1M",
+    "sku_hembra": "MS-NYM-ANA-A1H",
+    "sku_cuadro": "CD-NYM-ANA-ROY"
+  },
+  {
+    "especie": "Memphis (Anaea) arginussa (Peru)",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ANA-A1M",
+    "sku_hembra": "MS-NYM-ANA-A1H",
+    "sku_cuadro": "CD-NYM-ANA-ROY"
+  },
+  {
+    "especie": "Memphis (Anaea) cerelia (Peru)",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ANA-A1M",
+    "sku_hembra": "MS-NYM-ANA-A1H",
+    "sku_cuadro": "CD-NYM-ANA-ROY"
+  },
+  {
+    "especie": "Memphis (Anaea) falcata",
+    "familia": "Nymphalidae",
+    "sku_macho": "MS-NYM-ANA-A1M",
+    "sku_hembra": "MS-NYM-ANA-A1H",
+    "sku_cuadro": "CD-NYM-ANA-ROY"
+  },
+  {
+    "especie": "Battus crassus",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-CRA-A1M",
+    "sku_hembra": "MS-PAP-CRA-A1H",
+    "sku_cuadro": "CD-PAP-CRA-ROY"
+  },
+  {
+    "especie": "Battus madyes chlorodamas",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-MAD-A1M",
+    "sku_hembra": "MS-PAP-MAD-A1H",
+    "sku_cuadro": "CD-PAP-MAD-ROY"
+  },
+  {
+    "especie": "Battus polydamas",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-POL-A1M",
+    "sku_hembra": "MS-PAP-POL-A1H",
+    "sku_cuadro": "CD-PAP-POL-ROY"
+  },
+  {
+    "especie": "Battus streckerianus",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-STR-A1M",
+    "sku_hembra": "MS-PAP-STR-A1H",
+    "sku_cuadro": "CD-PAP-STR-ROY"
+  },
+  {
+    "especie": "Eurytides leucaspis",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-LEU-A1M",
+    "sku_hembra": "MS-PAP-LEU-A1H",
+    "sku_cuadro": "CD-PAP-LEU-ROY"
+  },
+  {
+    "especie": "Eurytides serville",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-SER-A1M",
+    "sku_hembra": "MS-PAP-SER-A1H",
+    "sku_cuadro": "CD-PAP-SER-ROY"
+  },
+  {
+    "especie": "Heraclides (Papilio) anchisiades",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PAP-A1M",
+    "sku_hembra": "MS-PAP-PAP-A1H",
+    "sku_cuadro": "CD-PAP-PAP-ROY"
+  },
+  {
+    "especie": "Heraclides (Papilio) torquatus torquatus",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PAP-A1M",
+    "sku_hembra": "MS-PAP-PAP-A1H",
+    "sku_cuadro": "CD-PAP-PAP-ROY"
+  },
+  {
+    "especie": "Mimoides (Eurytides) ariarathes gayi",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-EUR-A1M",
+    "sku_hembra": "MS-PAP-EUR-A1H",
+    "sku_cuadro": "CD-PAP-EUR-ROY"
+  },
+  {
+    "especie": "Mimoides (Eurytides) pausianus cleombrotus",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-EUR-A1M",
+    "sku_hembra": "MS-PAP-EUR-A1H",
+    "sku_cuadro": "CD-PAP-EUR-ROY"
+  },
+  {
+    "especie": "Mimoides (Eurytides) xeniades",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-EUR-A1M",
+    "sku_hembra": "MS-PAP-EUR-A1H",
+    "sku_cuadro": "CD-PAP-EUR-ROY"
+  },
+  {
+    "especie": "Neographium (Eurytides) agesilaus",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-EUR-A1M",
+    "sku_hembra": "MS-PAP-EUR-A1H",
+    "sku_cuadro": "CD-PAP-EUR-ROY"
+  },
+  {
+    "especie": "Neographium (Eurytides) dioxippus diores",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-EUR-A1M",
+    "sku_hembra": "MS-PAP-EUR-A1H",
+    "sku_cuadro": "CD-PAP-EUR-ROY"
+  },
+  {
+    "especie": "Neographium (Eurytides) thyastes thyastinus",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-EUR-A1M",
+    "sku_hembra": "MS-PAP-EUR-A1H",
+    "sku_cuadro": "CD-PAP-EUR-ROY"
+  },
+  {
+    "especie": "Papilio (Heraclides) androgeus",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-HER-A1M",
+    "sku_hembra": "MS-PAP-HER-A1H",
+    "sku_cuadro": "CD-PAP-HER-ROY"
+  },
+  {
+    "especie": "Papilio (Heraclides) isodorus tingo",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-HER-A1M",
+    "sku_hembra": "MS-PAP-HER-A1H",
+    "sku_cuadro": "CD-PAP-HER-ROY"
+  },
+  {
+    "especie": "Papilio xanthopleura",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-XAN-A1M",
+    "sku_hembra": "MS-PAP-XAN-A1H",
+    "sku_cuadro": "CD-PAP-XAN-ROY"
+  },
+  {
+    "especie": "Parides aeneas bolivar",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-AEN-A1M",
+    "sku_hembra": "MS-PAP-AEN-A1H",
+    "sku_cuadro": "CD-PAP-AEN-ROY"
+  },
+  {
+    "especie": "Parides chabrias",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-CHA-A1M",
+    "sku_hembra": "MS-PAP-CHA-A1H",
+    "sku_cuadro": "CD-PAP-CHA-ROY"
+  },
+  {
+    "especie": "Parides erlaces (=erathalion) xanthias",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-ERL-A1M",
+    "sku_hembra": "MS-PAP-ERL-A1H",
+    "sku_cuadro": "CD-PAP-ERL-ROY"
+  },
+  {
+    "especie": "Parides lysander brissonius",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-LYS-A1M",
+    "sku_hembra": "MS-PAP-LYS-A1H",
+    "sku_cuadro": "CD-PAP-LYS-ROY"
+  },
+  {
+    "especie": "Parides neophilus anaximenes",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-NEO-A1M",
+    "sku_hembra": "MS-PAP-NEO-A1H",
+    "sku_cuadro": "CD-PAP-NEO-ROY"
+  },
+  {
+    "especie": "Parides phalaceus nieva",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PHA-A1M",
+    "sku_hembra": "MS-PAP-PHA-A1H",
+    "sku_cuadro": "CD-PAP-PHA-ROY"
+  },
+  {
+    "especie": "Parides pizzaro",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PIZ-A1M",
+    "sku_hembra": "MS-PAP-PIZ-A1H",
+    "sku_cuadro": "CD-PAP-PIZ-ROY"
+  },
+  {
+    "especie": "Parides sesostris",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-SES-A1M",
+    "sku_hembra": "MS-PAP-SES-A1H",
+    "sku_cuadro": "CD-PAP-SES-ROY"
+  },
+  {
+    "especie": "Parides vertumnus astorius",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-VER-A1M",
+    "sku_hembra": "MS-PAP-VER-A1H",
+    "sku_cuadro": "CD-PAP-VER-ROY"
+  },
+  {
+    "especie": "Parides vertumnus bogatanus",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-VER-A1M",
+    "sku_hembra": "MS-PAP-VER-A1H",
+    "sku_cuadro": "CD-PAP-VER-ROY"
+  },
+  {
+    "especie": "Pterourus (Papilio) bachus chrysomelus",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PAP-A1M",
+    "sku_hembra": "MS-PAP-PAP-A1H",
+    "sku_cuadro": "CD-PAP-PAP-ROY"
+  },
+  {
+    "especie": "Pterourus (Papilio) cacicus inca",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PAP-A1M",
+    "sku_hembra": "MS-PAP-PAP-A1H",
+    "sku_cuadro": "CD-PAP-PAP-ROY"
+  },
+  {
+    "especie": "Pterourus (Papilio) cacicus mendozaensis",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PAP-A1M",
+    "sku_hembra": "MS-PAP-PAP-A1H",
+    "sku_cuadro": "CD-PAP-PAP-ROY"
+  },
+  {
+    "especie": "Pterourus (Papilio) euterpinus",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PAP-A1M",
+    "sku_hembra": "MS-PAP-PAP-A1H",
+    "sku_cuadro": "CD-PAP-PAP-ROY"
+  },
+  {
+    "especie": "Pterourus (Papilio) menatius bitias",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PAP-A1M",
+    "sku_hembra": "MS-PAP-PAP-A1H",
+    "sku_cuadro": "CD-PAP-PAP-ROY"
+  },
+  {
+    "especie": "Pterourus (Papilio) menatius coelebs",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PAP-A1M",
+    "sku_hembra": "MS-PAP-PAP-A1H",
+    "sku_cuadro": "CD-PAP-PAP-ROY"
+  },
+  {
+    "especie": "Pterourus (Papilio) warscewiczi jelskii",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PAP-A1M",
+    "sku_hembra": "MS-PAP-PAP-A1H",
+    "sku_cuadro": "CD-PAP-PAP-ROY"
+  },
+  {
+    "especie": "Pterourus (Papilio) warscewiczi mercedes",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PAP-A1M",
+    "sku_hembra": "MS-PAP-PAP-A1H",
+    "sku_cuadro": "CD-PAP-PAP-ROY"
+  },
+  {
+    "especie": "Pterourus (Papilio) zagreus batesi",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PAP-A1M",
+    "sku_hembra": "MS-PAP-PAP-A1H",
+    "sku_cuadro": "CD-PAP-PAP-ROY"
+  },
+  {
+    "especie": "Pterourus (Papilio) zagreus chrysoxanthus",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PAP-A1M",
+    "sku_hembra": "MS-PAP-PAP-A1H",
+    "sku_cuadro": "CD-PAP-PAP-ROY"
+  },
+  {
+    "especie": "Pterourus (Papilio) zagreus",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PAP-A1M",
+    "sku_hembra": "MS-PAP-PAP-A1H",
+    "sku_cuadro": "CD-PAP-PAP-ROY"
+  },
+  {
+    "especie": "Anteos chlorinde",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-CHL-A1M",
+    "sku_hembra": "MS-PAP-CHL-A1H",
+    "sku_cuadro": "CD-PAP-CHL-ROY"
+  },
+  {
+    "especie": "Archonias (=Catasticta) hebra",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-CAT-A1M",
+    "sku_hembra": "MS-PAP-CAT-A1H",
+    "sku_cuadro": "CD-PAP-CAT-ROY"
+  },
+  {
+    "especie": "Archonias (=Catasticta) eurigania straminea",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-CAT-A1M",
+    "sku_hembra": "MS-PAP-CAT-A1H",
+    "sku_cuadro": "CD-PAP-CAT-ROY"
+  },
+  {
+    "especie": "Archonias (=Catasticta) hebra",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-CAT-A1M",
+    "sku_hembra": "MS-PAP-CAT-A1H",
+    "sku_cuadro": "CD-PAP-CAT-ROY"
+  },
+  {
+    "especie": "Archonias (=Catasticta) poujadei",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-CAT-A1M",
+    "sku_hembra": "MS-PAP-CAT-A1H",
+    "sku_cuadro": "CD-PAP-CAT-ROY"
+  },
+  {
+    "especie": "Archonias bellona negrina",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-BEL-A1M",
+    "sku_hembra": "MS-PAP-BEL-A1H",
+    "sku_cuadro": "CD-PAP-BEL-ROY"
+  },
+  {
+    "especie": "Ascia buniae",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-BUN-A1M",
+    "sku_hembra": "MS-PAP-BUN-A1H",
+    "sku_cuadro": "CD-PAP-BUN-ROY"
+  },
+  {
+    "especie": "Dismorphia amphione",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-AMP-A1M",
+    "sku_hembra": "MS-PAP-AMP-A1H",
+    "sku_cuadro": "CD-PAP-AMP-ROY"
+  },
+  {
+    "especie": "Eurema arbela",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-ARB-A1M",
+    "sku_hembra": "MS-PAP-ARB-A1H",
+    "sku_cuadro": "CD-PAP-ARB-ROY"
+  },
+  {
+    "especie": "Eurema reticulata",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-RET-A1M",
+    "sku_hembra": "MS-PAP-RET-A1H",
+    "sku_cuadro": "CD-PAP-RET-ROY"
+  },
+  {
+    "especie": "Hesperocharis marchali coloe",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-MAR-A1M",
+    "sku_hembra": "MS-PAP-MAR-A1H",
+    "sku_cuadro": "CD-PAP-MAR-ROY"
+  },
+  {
+    "especie": "Itaballia demophile demophile",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-DEM-A1M",
+    "sku_hembra": "MS-PAP-DEM-A1H",
+    "sku_cuadro": "CD-PAP-DEM-ROY"
+  },
+  {
+    "especie": "Leptophobia aripa aripa",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-ARI-A1M",
+    "sku_hembra": "MS-PAP-ARI-A1H",
+    "sku_cuadro": "CD-PAP-ARI-ROY"
+  },
+  {
+    "especie": "Leptophobia eleone eleone",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-ELE-A1M",
+    "sku_hembra": "MS-PAP-ELE-A1H",
+    "sku_cuadro": "CD-PAP-ELE-ROY"
+  },
+  {
+    "especie": "Leptophobia philoma",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PHI-A1M",
+    "sku_hembra": "MS-PAP-PHI-A1H",
+    "sku_cuadro": "CD-PAP-PHI-ROY"
+  },
+  {
+    "especie": "Leptophobia tovaria maruga",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-TOV-A1M",
+    "sku_hembra": "MS-PAP-TOV-A1H",
+    "sku_cuadro": "CD-PAP-TOV-ROY"
+  },
+  {
+    "especie": "Lieinix (Dismorphia) nemesis",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-DIS-A1M",
+    "sku_hembra": "MS-PAP-DIS-A1H",
+    "sku_cuadro": "CD-PAP-DIS-ROY"
+  },
+  {
+    "especie": "Methania agasicles",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-AGA-A1M",
+    "sku_hembra": "MS-PAP-AGA-A1H",
+    "sku_cuadro": "CD-PAP-AGA-ROY"
+  },
+  {
+    "especie": "Methania aureomaculata",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-AUR-A1M",
+    "sku_hembra": "MS-PAP-AUR-A1H",
+    "sku_cuadro": "CD-PAP-AUR-ROY"
+  },
+  {
+    "especie": "Pereute callinara",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-CAL-A1M",
+    "sku_hembra": "MS-PAP-CAL-A1H",
+    "sku_cuadro": "CD-PAP-CAL-ROY"
+  },
+  {
+    "especie": "Pereute charops peruviana",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-CHA-A1M",
+    "sku_hembra": "MS-PAP-CHA-A1H",
+    "sku_cuadro": "CD-PAP-CHA-ROY"
+  },
+  {
+    "especie": "Perrhybris lorena lorena",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-LOR-A1M",
+    "sku_hembra": "MS-PAP-LOR-A1H",
+    "sku_cuadro": "CD-PAP-LOR-ROY"
+  },
+  {
+    "especie": "Phoebis (Aphrissa) statira",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-APH-A1M",
+    "sku_hembra": "MS-PAP-APH-A1H",
+    "sku_cuadro": "CD-PAP-APH-ROY"
+  },
+  {
+    "especie": "Phoebis (Rhabdodryas) trite",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-RHA-A1M",
+    "sku_hembra": "MS-PAP-RHA-A1H",
+    "sku_cuadro": "CD-PAP-RHA-ROY"
+  },
+  {
+    "especie": "Phoebis argante",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-ARG-A1M",
+    "sku_hembra": "MS-PAP-ARG-A1H",
+    "sku_cuadro": "CD-PAP-ARG-ROY"
+  },
+  {
+    "especie": "Phoebis neocypris rurina",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-NEO-A1M",
+    "sku_hembra": "MS-PAP-NEO-A1H",
+    "sku_cuadro": "CD-PAP-NEO-ROY"
+  },
+  {
+    "especie": "Phoebis philea",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PHI-A1M",
+    "sku_hembra": "MS-PAP-PHI-A1H",
+    "sku_cuadro": "CD-PAP-PHI-ROY"
+  },
+  {
+    "especie": "Pieriballia mandela apicalis",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-MAN-A1M",
+    "sku_hembra": "MS-PAP-MAN-A1H",
+    "sku_cuadro": "CD-PAP-MAN-ROY"
+  },
+  {
+    "especie": "Ancyluris aulestes",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-AUL-A1M",
+    "sku_hembra": "MS-PAP-AUL-A1H",
+    "sku_cuadro": "CD-PAP-AUL-ROY"
+  },
+  {
+    "especie": "Ancyluris etias",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-ETI-A1M",
+    "sku_hembra": "MS-PAP-ETI-A1H",
+    "sku_cuadro": "CD-PAP-ETI-ROY"
+  },
+  {
+    "especie": "Ancyluris formisissima venerabilis",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-FOR-A1M",
+    "sku_hembra": "MS-PAP-FOR-A1H",
+    "sku_cuadro": "CD-PAP-FOR-ROY"
+  },
+  {
+    "especie": "Ancyluris huscar",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-HUS-A1M",
+    "sku_hembra": "MS-PAP-HUS-A1H",
+    "sku_cuadro": "CD-PAP-HUS-ROY"
+  },
+  {
+    "especie": "Ancyluris meliboeus eudaemon",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-MEL-A1M",
+    "sku_hembra": "MS-PAP-MEL-A1H",
+    "sku_cuadro": "CD-PAP-MEL-ROY"
+  },
+  {
+    "especie": "Ancyluris pulchra",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PUL-A1M",
+    "sku_hembra": "MS-PAP-PUL-A1H",
+    "sku_cuadro": "CD-PAP-PUL-ROY"
+  },
+  {
+    "especie": "Cartea vitula",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-VIT-A1M",
+    "sku_hembra": "MS-PAP-VIT-A1H",
+    "sku_cuadro": "CD-PAP-VIT-ROY"
+  },
+  {
+    "especie": "Chorinea amazon",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-AMA-A1M",
+    "sku_hembra": "MS-PAP-AMA-A1H",
+    "sku_cuadro": "CD-PAP-AMA-ROY"
+  },
+  {
+    "especie": "Chorinea batesii",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-BAT-A1M",
+    "sku_hembra": "MS-PAP-BAT-A1H",
+    "sku_cuadro": "CD-PAP-BAT-ROY"
+  },
+  {
+    "especie": "Chorinea sylphina",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-SYL-A1M",
+    "sku_hembra": "MS-PAP-SYL-A1H",
+    "sku_cuadro": "CD-PAP-SYL-ROY"
+  },
+  {
+    "especie": "Cremna acoris",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-ACO-A1M",
+    "sku_hembra": "MS-PAP-ACO-A1H",
+    "sku_cuadro": "CD-PAP-ACO-ROY"
+  },
+  {
+    "especie": "Eurybia halimede",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-HAL-A1M",
+    "sku_hembra": "MS-PAP-HAL-A1H",
+    "sku_cuadro": "CD-PAP-HAL-ROY"
+  },
+  {
+    "especie": "Lyropteryx appollonia",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-APP-A1M",
+    "sku_hembra": "MS-PAP-APP-A1H",
+    "sku_cuadro": "CD-PAP-APP-ROY"
+  },
+  {
+    "especie": "Necyria bellona juturna",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-BEL-A1M",
+    "sku_hembra": "MS-PAP-BEL-A1H",
+    "sku_cuadro": "CD-PAP-BEL-ROY"
+  },
+  {
+    "especie": "Nymphidium cachrus",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-CAC-A1M",
+    "sku_hembra": "MS-PAP-CAC-A1H",
+    "sku_cuadro": "CD-PAP-CAC-ROY"
+  },
+  {
+    "especie": "Rhetus arcius",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-ARC-A1M",
+    "sku_hembra": "MS-PAP-ARC-A1H",
+    "sku_cuadro": "CD-PAP-ARC-ROY"
+  },
+  {
+    "especie": "Rhetus dysoni",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-DYS-A1M",
+    "sku_hembra": "MS-PAP-DYS-A1H",
+    "sku_cuadro": "CD-PAP-DYS-ROY"
+  },
+  {
+    "especie": "Rhetus periander",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PER-A1M",
+    "sku_hembra": "MS-PAP-PER-A1H",
+    "sku_cuadro": "CD-PAP-PER-ROY"
+  },
+  {
+    "especie": "Siseme hellotis",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-HEL-A1M",
+    "sku_hembra": "MS-PAP-HEL-A1H",
+    "sku_cuadro": "CD-PAP-HEL-ROY"
+  },
+  {
+    "especie": "Stalachitis euterpe",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-EUT-A1M",
+    "sku_hembra": "MS-PAP-EUT-A1H",
+    "sku_cuadro": "CD-PAP-EUT-ROY"
+  },
+  {
+    "especie": "Thisbe irene",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-IRE-A1M",
+    "sku_hembra": "MS-PAP-IRE-A1H",
+    "sku_cuadro": "CD-PAP-IRE-ROY"
+  },
+  {
+    "especie": "Siseme neurodes",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-NEU-A1M",
+    "sku_hembra": "MS-PAP-NEU-A1H",
+    "sku_cuadro": "CD-PAP-NEU-ROY"
+  },
+  {
+    "especie": "Cithaerais pireta",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PIR-A1M",
+    "sku_hembra": "MS-PAP-PIR-A1H",
+    "sku_cuadro": "CD-PAP-PIR-ROY"
+  },
+  {
+    "especie": "Cithaerias pyropina",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PYR-A1M",
+    "sku_hembra": "MS-PAP-PYR-A1H",
+    "sku_cuadro": "CD-PAP-PYR-ROY"
+  },
+  {
+    "especie": "Corades enyo",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-ENY-A1M",
+    "sku_hembra": "MS-PAP-ENY-A1H",
+    "sku_cuadro": "CD-PAP-ENY-ROY"
+  },
+  {
+    "especie": "Corades iduna",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-IDU-A1M",
+    "sku_hembra": "MS-PAP-IDU-A1H",
+    "sku_cuadro": "CD-PAP-IDU-ROY"
+  },
+  {
+    "especie": "Corades medeba",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-MED-A1M",
+    "sku_hembra": "MS-PAP-MED-A1H",
+    "sku_cuadro": "CD-PAP-MED-ROY"
+  },
+  {
+    "especie": "Haetera macleannania",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-MAC-A1M",
+    "sku_hembra": "MS-PAP-MAC-A1H",
+    "sku_cuadro": "CD-PAP-MAC-ROY"
+  },
+  {
+    "especie": "Haetera piera",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-PIE-A1M",
+    "sku_hembra": "MS-PAP-PIE-A1H",
+    "sku_cuadro": "CD-PAP-PIE-ROY"
+  },
+  {
+    "especie": "Oressinoma typhia",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-TYP-A1M",
+    "sku_hembra": "MS-PAP-TYP-A1H",
+    "sku_cuadro": "CD-PAP-TYP-ROY"
+  },
+  {
+    "especie": "Oxeoschistus iphigenia",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-IPH-A1M",
+    "sku_hembra": "MS-PAP-IPH-A1H",
+    "sku_cuadro": "CD-PAP-IPH-ROY"
+  },
+  {
+    "especie": "Pierella albofasciata",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-ALB-A1M",
+    "sku_hembra": "MS-PAP-ALB-A1H",
+    "sku_cuadro": "CD-PAP-ALB-ROY"
+  },
+  {
+    "especie": "Pierella amalia",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-AMA-A1M",
+    "sku_hembra": "MS-PAP-AMA-A1H",
+    "sku_cuadro": "CD-PAP-AMA-ROY"
+  },
+  {
+    "especie": "Pierella hortona hortona f. ocellata",
+    "familia": "Papilionidae",
+    "sku_macho": "MS-PAP-HOR-A1M",
+    "sku_hembra": "MS-PAP-HOR-A1H",
+    "sku_cuadro": "CD-PAP-HOR-ROY"
+  },
+  {
+    "especie": "Anteos chlorinde",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-CHL-A1M",
+    "sku_hembra": "MS-PIE-CHL-A1H",
+    "sku_cuadro": "CD-PIE-CHL-ROY"
+  },
+  {
+    "especie": "Archonias (=Catasticta) hebra",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-CAT-A1M",
+    "sku_hembra": "MS-PIE-CAT-A1H",
+    "sku_cuadro": "CD-PIE-CAT-ROY"
+  },
+  {
+    "especie": "Archonias (=Catasticta) eurigania straminea",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-CAT-A1M",
+    "sku_hembra": "MS-PIE-CAT-A1H",
+    "sku_cuadro": "CD-PIE-CAT-ROY"
+  },
+  {
+    "especie": "Archonias (=Catasticta) hebra",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-CAT-A1M",
+    "sku_hembra": "MS-PIE-CAT-A1H",
+    "sku_cuadro": "CD-PIE-CAT-ROY"
+  },
+  {
+    "especie": "Archonias (=Catasticta) poujadei",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-CAT-A1M",
+    "sku_hembra": "MS-PIE-CAT-A1H",
+    "sku_cuadro": "CD-PIE-CAT-ROY"
+  },
+  {
+    "especie": "Archonias bellona negrina",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-BEL-A1M",
+    "sku_hembra": "MS-PIE-BEL-A1H",
+    "sku_cuadro": "CD-PIE-BEL-ROY"
+  },
+  {
+    "especie": "Ascia buniae",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-BUN-A1M",
+    "sku_hembra": "MS-PIE-BUN-A1H",
+    "sku_cuadro": "CD-PIE-BUN-ROY"
+  },
+  {
+    "especie": "Dismorphia amphione",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-AMP-A1M",
+    "sku_hembra": "MS-PIE-AMP-A1H",
+    "sku_cuadro": "CD-PIE-AMP-ROY"
+  },
+  {
+    "especie": "Eurema arbela",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-ARB-A1M",
+    "sku_hembra": "MS-PIE-ARB-A1H",
+    "sku_cuadro": "CD-PIE-ARB-ROY"
+  },
+  {
+    "especie": "Eurema reticulata",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-RET-A1M",
+    "sku_hembra": "MS-PIE-RET-A1H",
+    "sku_cuadro": "CD-PIE-RET-ROY"
+  },
+  {
+    "especie": "Hesperocharis marchali coloe",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-MAR-A1M",
+    "sku_hembra": "MS-PIE-MAR-A1H",
+    "sku_cuadro": "CD-PIE-MAR-ROY"
+  },
+  {
+    "especie": "Itaballia demophile demophile",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-DEM-A1M",
+    "sku_hembra": "MS-PIE-DEM-A1H",
+    "sku_cuadro": "CD-PIE-DEM-ROY"
+  },
+  {
+    "especie": "Leptophobia aripa aripa",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-ARI-A1M",
+    "sku_hembra": "MS-PIE-ARI-A1H",
+    "sku_cuadro": "CD-PIE-ARI-ROY"
+  },
+  {
+    "especie": "Leptophobia eleone eleone",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-ELE-A1M",
+    "sku_hembra": "MS-PIE-ELE-A1H",
+    "sku_cuadro": "CD-PIE-ELE-ROY"
+  },
+  {
+    "especie": "Leptophobia philoma",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-PHI-A1M",
+    "sku_hembra": "MS-PIE-PHI-A1H",
+    "sku_cuadro": "CD-PIE-PHI-ROY"
+  },
+  {
+    "especie": "Leptophobia tovaria maruga",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-TOV-A1M",
+    "sku_hembra": "MS-PIE-TOV-A1H",
+    "sku_cuadro": "CD-PIE-TOV-ROY"
+  },
+  {
+    "especie": "Lieinix (Dismorphia) nemesis",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-DIS-A1M",
+    "sku_hembra": "MS-PIE-DIS-A1H",
+    "sku_cuadro": "CD-PIE-DIS-ROY"
+  },
+  {
+    "especie": "Methania agasicles",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-AGA-A1M",
+    "sku_hembra": "MS-PIE-AGA-A1H",
+    "sku_cuadro": "CD-PIE-AGA-ROY"
+  },
+  {
+    "especie": "Methania aureomaculata",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-AUR-A1M",
+    "sku_hembra": "MS-PIE-AUR-A1H",
+    "sku_cuadro": "CD-PIE-AUR-ROY"
+  },
+  {
+    "especie": "Pereute callinara",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-CAL-A1M",
+    "sku_hembra": "MS-PIE-CAL-A1H",
+    "sku_cuadro": "CD-PIE-CAL-ROY"
+  },
+  {
+    "especie": "Pereute charops peruviana",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-CHA-A1M",
+    "sku_hembra": "MS-PIE-CHA-A1H",
+    "sku_cuadro": "CD-PIE-CHA-ROY"
+  },
+  {
+    "especie": "Perrhybris lorena lorena",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-LOR-A1M",
+    "sku_hembra": "MS-PIE-LOR-A1H",
+    "sku_cuadro": "CD-PIE-LOR-ROY"
+  },
+  {
+    "especie": "Phoebis (Aphrissa) statira",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-APH-A1M",
+    "sku_hembra": "MS-PIE-APH-A1H",
+    "sku_cuadro": "CD-PIE-APH-ROY"
+  },
+  {
+    "especie": "Phoebis (Rhabdodryas) trite",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-RHA-A1M",
+    "sku_hembra": "MS-PIE-RHA-A1H",
+    "sku_cuadro": "CD-PIE-RHA-ROY"
+  },
+  {
+    "especie": "Phoebis argante",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-ARG-A1M",
+    "sku_hembra": "MS-PIE-ARG-A1H",
+    "sku_cuadro": "CD-PIE-ARG-ROY"
+  },
+  {
+    "especie": "Phoebis neocypris rurina",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-NEO-A1M",
+    "sku_hembra": "MS-PIE-NEO-A1H",
+    "sku_cuadro": "CD-PIE-NEO-ROY"
+  },
+  {
+    "especie": "Phoebis philea",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-PHI-A1M",
+    "sku_hembra": "MS-PIE-PHI-A1H",
+    "sku_cuadro": "CD-PIE-PHI-ROY"
+  },
+  {
+    "especie": "Pieriballia mandela apicalis",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-MAN-A1M",
+    "sku_hembra": "MS-PIE-MAN-A1H",
+    "sku_cuadro": "CD-PIE-MAN-ROY"
+  },
+  {
+    "especie": "Ancyluris aulestes",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-AUL-A1M",
+    "sku_hembra": "MS-PIE-AUL-A1H",
+    "sku_cuadro": "CD-PIE-AUL-ROY"
+  },
+  {
+    "especie": "Ancyluris etias",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-ETI-A1M",
+    "sku_hembra": "MS-PIE-ETI-A1H",
+    "sku_cuadro": "CD-PIE-ETI-ROY"
+  },
+  {
+    "especie": "Ancyluris formisissima venerabilis",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-FOR-A1M",
+    "sku_hembra": "MS-PIE-FOR-A1H",
+    "sku_cuadro": "CD-PIE-FOR-ROY"
+  },
+  {
+    "especie": "Ancyluris huscar",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-HUS-A1M",
+    "sku_hembra": "MS-PIE-HUS-A1H",
+    "sku_cuadro": "CD-PIE-HUS-ROY"
+  },
+  {
+    "especie": "Ancyluris meliboeus eudaemon",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-MEL-A1M",
+    "sku_hembra": "MS-PIE-MEL-A1H",
+    "sku_cuadro": "CD-PIE-MEL-ROY"
+  },
+  {
+    "especie": "Ancyluris pulchra",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-PUL-A1M",
+    "sku_hembra": "MS-PIE-PUL-A1H",
+    "sku_cuadro": "CD-PIE-PUL-ROY"
+  },
+  {
+    "especie": "Cartea vitula",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-VIT-A1M",
+    "sku_hembra": "MS-PIE-VIT-A1H",
+    "sku_cuadro": "CD-PIE-VIT-ROY"
+  },
+  {
+    "especie": "Chorinea amazon",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-AMA-A1M",
+    "sku_hembra": "MS-PIE-AMA-A1H",
+    "sku_cuadro": "CD-PIE-AMA-ROY"
+  },
+  {
+    "especie": "Chorinea batesii",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-BAT-A1M",
+    "sku_hembra": "MS-PIE-BAT-A1H",
+    "sku_cuadro": "CD-PIE-BAT-ROY"
+  },
+  {
+    "especie": "Chorinea sylphina",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-SYL-A1M",
+    "sku_hembra": "MS-PIE-SYL-A1H",
+    "sku_cuadro": "CD-PIE-SYL-ROY"
+  },
+  {
+    "especie": "Cremna acoris",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-ACO-A1M",
+    "sku_hembra": "MS-PIE-ACO-A1H",
+    "sku_cuadro": "CD-PIE-ACO-ROY"
+  },
+  {
+    "especie": "Eurybia halimede",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-HAL-A1M",
+    "sku_hembra": "MS-PIE-HAL-A1H",
+    "sku_cuadro": "CD-PIE-HAL-ROY"
+  },
+  {
+    "especie": "Lyropteryx appollonia",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-APP-A1M",
+    "sku_hembra": "MS-PIE-APP-A1H",
+    "sku_cuadro": "CD-PIE-APP-ROY"
+  },
+  {
+    "especie": "Necyria bellona juturna",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-BEL-A1M",
+    "sku_hembra": "MS-PIE-BEL-A1H",
+    "sku_cuadro": "CD-PIE-BEL-ROY"
+  },
+  {
+    "especie": "Nymphidium cachrus",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-CAC-A1M",
+    "sku_hembra": "MS-PIE-CAC-A1H",
+    "sku_cuadro": "CD-PIE-CAC-ROY"
+  },
+  {
+    "especie": "Rhetus arcius",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-ARC-A1M",
+    "sku_hembra": "MS-PIE-ARC-A1H",
+    "sku_cuadro": "CD-PIE-ARC-ROY"
+  },
+  {
+    "especie": "Rhetus dysoni",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-DYS-A1M",
+    "sku_hembra": "MS-PIE-DYS-A1H",
+    "sku_cuadro": "CD-PIE-DYS-ROY"
+  },
+  {
+    "especie": "Rhetus periander",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-PER-A1M",
+    "sku_hembra": "MS-PIE-PER-A1H",
+    "sku_cuadro": "CD-PIE-PER-ROY"
+  },
+  {
+    "especie": "Siseme hellotis",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-HEL-A1M",
+    "sku_hembra": "MS-PIE-HEL-A1H",
+    "sku_cuadro": "CD-PIE-HEL-ROY"
+  },
+  {
+    "especie": "Stalachitis euterpe",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-EUT-A1M",
+    "sku_hembra": "MS-PIE-EUT-A1H",
+    "sku_cuadro": "CD-PIE-EUT-ROY"
+  },
+  {
+    "especie": "Thisbe irene",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-IRE-A1M",
+    "sku_hembra": "MS-PIE-IRE-A1H",
+    "sku_cuadro": "CD-PIE-IRE-ROY"
+  },
+  {
+    "especie": "Siseme neurodes",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-NEU-A1M",
+    "sku_hembra": "MS-PIE-NEU-A1H",
+    "sku_cuadro": "CD-PIE-NEU-ROY"
+  },
+  {
+    "especie": "Cithaerais pireta",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-PIR-A1M",
+    "sku_hembra": "MS-PIE-PIR-A1H",
+    "sku_cuadro": "CD-PIE-PIR-ROY"
+  },
+  {
+    "especie": "Cithaerias pyropina",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-PYR-A1M",
+    "sku_hembra": "MS-PIE-PYR-A1H",
+    "sku_cuadro": "CD-PIE-PYR-ROY"
+  },
+  {
+    "especie": "Corades enyo",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-ENY-A1M",
+    "sku_hembra": "MS-PIE-ENY-A1H",
+    "sku_cuadro": "CD-PIE-ENY-ROY"
+  },
+  {
+    "especie": "Corades iduna",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-IDU-A1M",
+    "sku_hembra": "MS-PIE-IDU-A1H",
+    "sku_cuadro": "CD-PIE-IDU-ROY"
+  },
+  {
+    "especie": "Corades medeba",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-MED-A1M",
+    "sku_hembra": "MS-PIE-MED-A1H",
+    "sku_cuadro": "CD-PIE-MED-ROY"
+  },
+  {
+    "especie": "Haetera macleannania",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-MAC-A1M",
+    "sku_hembra": "MS-PIE-MAC-A1H",
+    "sku_cuadro": "CD-PIE-MAC-ROY"
+  },
+  {
+    "especie": "Haetera piera",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-PIE-A1M",
+    "sku_hembra": "MS-PIE-PIE-A1H",
+    "sku_cuadro": "CD-PIE-PIE-ROY"
+  },
+  {
+    "especie": "Oressinoma typhia",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-TYP-A1M",
+    "sku_hembra": "MS-PIE-TYP-A1H",
+    "sku_cuadro": "CD-PIE-TYP-ROY"
+  },
+  {
+    "especie": "Oxeoschistus iphigenia",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-IPH-A1M",
+    "sku_hembra": "MS-PIE-IPH-A1H",
+    "sku_cuadro": "CD-PIE-IPH-ROY"
+  },
+  {
+    "especie": "Pierella albofasciata",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-ALB-A1M",
+    "sku_hembra": "MS-PIE-ALB-A1H",
+    "sku_cuadro": "CD-PIE-ALB-ROY"
+  },
+  {
+    "especie": "Pierella amalia",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-AMA-A1M",
+    "sku_hembra": "MS-PIE-AMA-A1H",
+    "sku_cuadro": "CD-PIE-AMA-ROY"
+  },
+  {
+    "especie": "Pierella hortona hortona f. ocellata",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-HOR-A1M",
+    "sku_hembra": "MS-PIE-HOR-A1H",
+    "sku_cuadro": "CD-PIE-HOR-ROY"
+  },
+  {
+    "especie": "Pierella hyceta",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-HYC-A1M",
+    "sku_hembra": "MS-PIE-HYC-A1H",
+    "sku_cuadro": "CD-PIE-HYC-ROY"
+  },
+  {
+    "especie": "Pierella lamia chalybaea",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-LAM-A1M",
+    "sku_hembra": "MS-PIE-LAM-A1H",
+    "sku_cuadro": "CD-PIE-LAM-ROY"
+  },
+  {
+    "especie": "Pierella lena",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-LEN-A1M",
+    "sku_hembra": "MS-PIE-LEN-A1H",
+    "sku_cuadro": "CD-PIE-LEN-ROY"
+  },
+  {
+    "especie": "Pierella lucia",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-LUC-A1M",
+    "sku_hembra": "MS-PIE-LUC-A1H",
+    "sku_cuadro": "CD-PIE-LUC-ROY"
+  },
+  {
+    "especie": "Pseudohaetera (Haetera) hypasia",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-HAE-A1M",
+    "sku_hembra": "MS-PIE-HAE-A1H",
+    "sku_cuadro": "CD-PIE-HAE-ROY"
+  },
+  {
+    "especie": "background 0.15s",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-S-A1M",
+    "sku_hembra": "MS-PIE-S-A1H",
+    "sku_cuadro": "CD-PIE-S-ROY"
+  },
+  {
+    "especie": "0 auto",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-AUT-A1M",
+    "sku_hembra": "MS-PIE-AUT-A1H",
+    "sku_cuadro": "CD-PIE-AUT-ROY"
+  },
+  {
+    "especie": "all 0.18s ease",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-S-A1M",
+    "sku_hembra": "MS-PIE-S-A1H",
+    "sku_cuadro": "CD-PIE-S-ROY"
+  },
+  {
+    "especie": "0 auto",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-AUT-A1M",
+    "sku_hembra": "MS-PIE-AUT-A1H",
+    "sku_cuadro": "CD-PIE-AUT-ROY"
+  },
+  {
+    "especie": "0 auto",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-AUT-A1M",
+    "sku_hembra": "MS-PIE-AUT-A1H",
+    "sku_cuadro": "CD-PIE-AUT-ROY"
+  },
+  {
+    "especie": "3px auto",
+    "familia": "Pieridae",
+    "sku_macho": "MS-PIE-AUT-A1M",
+    "sku_hembra": "MS-PIE-AUT-A1H",
+    "sku_cuadro": "CD-PIE-AUT-ROY"
+  },
+  {
+    "especie": "Arawacus seperata",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-SEP-A1M",
+    "sku_hembra": "MS-LYC-SEP-A1H",
+    "sku_cuadro": "CD-LYC-SEP-ROY"
+  },
+  {
+    "especie": "Arcas imperialis",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-IMP-A1M",
+    "sku_hembra": "MS-LYC-IMP-A1H",
+    "sku_cuadro": "CD-LYC-IMP-ROY"
+  },
+  {
+    "especie": "Arcas tuneta",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-TUN-A1M",
+    "sku_hembra": "MS-LYC-TUN-A1H",
+    "sku_cuadro": "CD-LYC-TUN-ROY"
+  },
+  {
+    "especie": "Evenus gannymedes",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-GAN-A1M",
+    "sku_hembra": "MS-LYC-GAN-A1H",
+    "sku_cuadro": "CD-LYC-GAN-ROY"
+  },
+  {
+    "especie": "Thecla gibberosa",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-GIB-A1M",
+    "sku_hembra": "MS-LYC-GIB-A1H",
+    "sku_cuadro": "CD-LYC-GIB-ROY"
+  },
+  {
+    "especie": "Arawacus dolylas",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-DOL-A1M",
+    "sku_hembra": "MS-LYC-DOL-A1H",
+    "sku_cuadro": "CD-LYC-DOL-ROY"
+  },
+  {
+    "especie": "Morpho absoloni",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-ABS-A1M",
+    "sku_hembra": "MS-LYC-ABS-A1H",
+    "sku_cuadro": "CD-LYC-ABS-ROY"
+  },
+  {
+    "especie": "Morpho aurora aureola",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-AUR-A1M",
+    "sku_hembra": "MS-LYC-AUR-A1H",
+    "sku_cuadro": "CD-LYC-AUR-ROY"
+  },
+  {
+    "especie": "Morpho lympharis selenarys",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-LYM-A1M",
+    "sku_hembra": "MS-LYC-LYM-A1H",
+    "sku_cuadro": "CD-LYC-LYM-ROY"
+  },
+  {
+    "especie": "Morpho sulkowskyi  descimokoenigi",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-SUL-A1M",
+    "sku_hembra": "MS-LYC-SUL-A1H",
+    "sku_cuadro": "CD-LYC-SUL-ROY"
+  },
+  {
+    "especie": "Morpho rhetenor cacica",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-RHE-A1M",
+    "sku_hembra": "MS-LYC-RHE-A1H",
+    "sku_cuadro": "CD-LYC-RHE-ROY"
+  },
+  {
+    "especie": "Morpho rhtenor helena",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-RHT-A1M",
+    "sku_hembra": "MS-LYC-RHT-A1H",
+    "sku_cuadro": "CD-LYC-RHT-ROY"
+  },
+  {
+    "especie": "Morpho telemachus",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-TEL-A1M",
+    "sku_hembra": "MS-LYC-TEL-A1H",
+    "sku_cuadro": "CD-LYC-TEL-ROY"
+  },
+  {
+    "especie": "Morpho zephritis",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-ZEP-A1M",
+    "sku_hembra": "MS-LYC-ZEP-A1H",
+    "sku_cuadro": "CD-LYC-ZEP-ROY"
+  },
+  {
+    "especie": "Morpho theseus juturna",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-THE-A1M",
+    "sku_hembra": "MS-LYC-THE-A1H",
+    "sku_cuadro": "CD-LYC-THE-ROY"
+  },
+  {
+    "especie": "Morpho menelaus assarpai",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-MEN-A1M",
+    "sku_hembra": "MS-LYC-MEN-A1H",
+    "sku_cuadro": "CD-LYC-MEN-ROY"
+  },
+  {
+    "especie": "Morpho Cisseis gahua(brows and asure)",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CIS-A1M",
+    "sku_hembra": "MS-LYC-CIS-A1H",
+    "sku_cuadro": "CD-LYC-CIS-ROY"
+  },
+  {
+    "especie": "Morpho cisseis phanademus(azure)",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CIS-A1M",
+    "sku_hembra": "MS-LYC-CIS-A1H",
+    "sku_cuadro": "CD-LYC-CIS-ROY"
+  },
+  {
+    "especie": "Morpho adonis huallaga",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-ADO-A1M",
+    "sku_hembra": "MS-LYC-ADO-A1H",
+    "sku_cuadro": "CD-LYC-ADO-ROY"
+  },
+  {
+    "especie": "Morpho amphitriom cinerous",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-AMP-A1M",
+    "sku_hembra": "MS-LYC-AMP-A1H",
+    "sku_cuadro": "CD-LYC-AMP-ROY"
+  },
+  {
+    "especie": "Morpho deidamia marie",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-DEI-A1M",
+    "sku_hembra": "MS-LYC-DEI-A1H",
+    "sku_cuadro": "CD-LYC-DEI-ROY"
+  },
+  {
+    "especie": "Morpho achilles helenor",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-ACH-A1M",
+    "sku_hembra": "MS-LYC-ACH-A1H",
+    "sku_cuadro": "CD-LYC-ACH-ROY"
+  },
+  {
+    "especie": "Morpho didius",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-DID-A1M",
+    "sku_hembra": "MS-LYC-DID-A1H",
+    "sku_cuadro": "CD-LYC-DID-ROY"
+  },
+  {
+    "especie": "Morpho didius tingomaria",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-DID-A1M",
+    "sku_hembra": "MS-LYC-DID-A1H",
+    "sku_cuadro": "CD-LYC-DID-ROY"
+  },
+  {
+    "especie": "Morpho menelaus michaelus",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-MEN-A1M",
+    "sku_hembra": "MS-LYC-MEN-A1H",
+    "sku_cuadro": "CD-LYC-MEN-ROY"
+  },
+  {
+    "especie": "Morpho Menelaus pucallpensis",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-MEN-A1M",
+    "sku_hembra": "MS-LYC-MEN-A1H",
+    "sku_cuadro": "CD-LYC-MEN-ROY"
+  },
+  {
+    "especie": "Morpho helenor amazonius",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-HEL-A1M",
+    "sku_hembra": "MS-LYC-HEL-A1H",
+    "sku_cuadro": "CD-LYC-HEL-ROY"
+  },
+  {
+    "especie": "Morpho mariosiajane",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-MAR-A1M",
+    "sku_hembra": "MS-LYC-MAR-A1H",
+    "sku_cuadro": "CD-LYC-MAR-ROY"
+  },
+  {
+    "especie": "Morpho sulkowoskii Nieva",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-SUL-A1M",
+    "sku_hembra": "MS-LYC-SUL-A1H",
+    "sku_cuadro": "CD-LYC-SUL-ROY"
+  },
+  {
+    "especie": "Morpho sulkowoskii zachi",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-SUL-A1M",
+    "sku_hembra": "MS-LYC-SUL-A1H",
+    "sku_cuadro": "CD-LYC-SUL-ROY"
+  },
+  {
+    "especie": "Morpho godartii julanthicus",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-GOD-A1M",
+    "sku_hembra": "MS-LYC-GOD-A1H",
+    "sku_cuadro": "CD-LYC-GOD-ROY"
+  },
+  {
+    "especie": "Morpho  Menelaus  ssp. zischkai",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-MEN-A1M",
+    "sku_hembra": "MS-LYC-MEN-A1H",
+    "sku_cuadro": "CD-LYC-MEN-ROY"
+  },
+  {
+    "especie": "Morpho Rethenor mariosiojanae (small)",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-RET-A1M",
+    "sku_hembra": "MS-LYC-RET-A1H",
+    "sku_cuadro": "CD-LYC-RET-ROY"
+  },
+  {
+    "especie": "Morpho  aurora Isidorssoni",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-AUR-A1M",
+    "sku_hembra": "MS-LYC-AUR-A1H",
+    "sku_cuadro": "CD-LYC-AUR-ROY"
+  },
+  {
+    "especie": "Morpho aurora lamasi",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-AUR-A1M",
+    "sku_hembra": "MS-LYC-AUR-A1H",
+    "sku_cuadro": "CD-LYC-AUR-ROY"
+  },
+  {
+    "especie": "Morpho Cisseis gahua ssp. Gahua",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CIS-A1M",
+    "sku_hembra": "MS-LYC-CIS-A1H",
+    "sku_cuadro": "CD-LYC-CIS-ROY"
+  },
+  {
+    "especie": "Morpho Cisseis gahua ssp. Gahua",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CIS-A1M",
+    "sku_hembra": "MS-LYC-CIS-A1H",
+    "sku_cuadro": "CD-LYC-CIS-ROY"
+  },
+  {
+    "especie": "Adelpha mesentina",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-MES-A1M",
+    "sku_hembra": "MS-LYC-MES-A1H",
+    "sku_cuadro": "CD-LYC-MES-ROY"
+  },
+  {
+    "especie": "Adelpha erotia erotia f. erotia",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-ERO-A1M",
+    "sku_hembra": "MS-LYC-ERO-A1H",
+    "sku_cuadro": "CD-LYC-ERO-ROY"
+  },
+  {
+    "especie": "Adelpha iphiclus",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-IPH-A1M",
+    "sku_hembra": "MS-LYC-IPH-A1H",
+    "sku_cuadro": "CD-LYC-IPH-ROY"
+  },
+  {
+    "especie": "Adelpha lycorias lara",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-LYC-A1M",
+    "sku_hembra": "MS-LYC-LYC-A1H",
+    "sku_cuadro": "CD-LYC-LYC-ROY"
+  },
+  {
+    "especie": "Agraulis vanillae lucina f. catella",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-VAN-A1M",
+    "sku_hembra": "MS-LYC-VAN-A1H",
+    "sku_cuadro": "CD-LYC-VAN-ROY"
+  },
+  {
+    "especie": "Agrias amydon zenodorus",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-AMY-A1M",
+    "sku_hembra": "MS-LYC-AMY-A1H",
+    "sku_cuadro": "CD-LYC-AMY-ROY"
+  },
+  {
+    "especie": "Agrias claudina lugens",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CLA-A1M",
+    "sku_hembra": "MS-LYC-CLA-A1H",
+    "sku_cuadro": "CD-LYC-CLA-ROY"
+  },
+  {
+    "especie": "Agrias hewitsonius beata (=beatifica beata)",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-HEW-A1M",
+    "sku_hembra": "MS-LYC-HEW-A1H",
+    "sku_cuadro": "CD-LYC-HEW-ROY"
+  },
+  {
+    "especie": "Agrias hewitsonius stuarti (=beatifica stuarti)",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-HEW-A1M",
+    "sku_hembra": "MS-LYC-HEW-A1H",
+    "sku_cuadro": "CD-LYC-HEW-ROY"
+  },
+  {
+    "especie": "Agrias pericles peruviana",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-PER-A1M",
+    "sku_hembra": "MS-LYC-PER-A1H",
+    "sku_cuadro": "CD-LYC-PER-ROY"
+  },
+  {
+    "especie": "Agrias sardanapulis",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-SAR-A1M",
+    "sku_hembra": "MS-LYC-SAR-A1H",
+    "sku_cuadro": "CD-LYC-SAR-ROY"
+  },
+  {
+    "especie": "Asterope degandii allyni (= A. adamsi)",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-DEG-A1M",
+    "sku_hembra": "MS-LYC-DEG-A1H",
+    "sku_cuadro": "CD-LYC-DEG-ROY"
+  },
+  {
+    "especie": "Asterope degandii bartletti",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-DEG-A1M",
+    "sku_hembra": "MS-LYC-DEG-A1H",
+    "sku_cuadro": "CD-LYC-DEG-ROY"
+  },
+  {
+    "especie": "Asterope markii davisi",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-MAR-A1M",
+    "sku_hembra": "MS-LYC-MAR-A1H",
+    "sku_cuadro": "CD-LYC-MAR-ROY"
+  },
+  {
+    "especie": "Asterope markii hewitsoni",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-MAR-A1M",
+    "sku_hembra": "MS-LYC-MAR-A1H",
+    "sku_cuadro": "CD-LYC-MAR-ROY"
+  },
+  {
+    "especie": "Asterope optima f. eminens",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-OPT-A1M",
+    "sku_hembra": "MS-LYC-OPT-A1H",
+    "sku_cuadro": "CD-LYC-OPT-ROY"
+  },
+  {
+    "especie": "Asterope optima philotina",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-OPT-A1M",
+    "sku_hembra": "MS-LYC-OPT-A1H",
+    "sku_cuadro": "CD-LYC-OPT-ROY"
+  },
+  {
+    "especie": "Asterope whitelyi whitelyi",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-WHI-A1M",
+    "sku_hembra": "MS-LYC-WHI-A1H",
+    "sku_cuadro": "CD-LYC-WHI-ROY"
+  },
+  {
+    "especie": "Baeotus (Megistanis) amazonicus",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-MEG-A1M",
+    "sku_hembra": "MS-LYC-MEG-A1H",
+    "sku_cuadro": "CD-LYC-MEG-ROY"
+  },
+  {
+    "especie": "Baeotus (Megistanis) japetus",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-MEG-A1M",
+    "sku_hembra": "MS-LYC-MEG-A1H",
+    "sku_cuadro": "CD-LYC-MEG-ROY"
+  },
+  {
+    "especie": "Baeotus (Megistanis) deucalion",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-MEG-A1M",
+    "sku_hembra": "MS-LYC-MEG-A1H",
+    "sku_cuadro": "CD-LYC-MEG-ROY"
+  },
+  {
+    "especie": "Batesia hypochlora f.hypochlora",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-HYP-A1M",
+    "sku_hembra": "MS-LYC-HYP-A1H",
+    "sku_cuadro": "CD-LYC-HYP-ROY"
+  },
+  {
+    "especie": "Biblis hyperia",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-HYP-A1M",
+    "sku_hembra": "MS-LYC-HYP-A1H",
+    "sku_cuadro": "CD-LYC-HYP-ROY"
+  },
+  {
+    "especie": "Callicore (Catagramma)hytaspes",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CAT-A1M",
+    "sku_hembra": "MS-LYC-CAT-A1H",
+    "sku_cuadro": "CD-LYC-CAT-ROY"
+  },
+  {
+    "especie": "Callicore cynosura -Verso Aberration",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CYN-A1M",
+    "sku_hembra": "MS-LYC-CYN-A1H",
+    "sku_cuadro": "CD-LYC-CYN-ROY"
+  },
+  {
+    "especie": "Callicore cynosura cynosura",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CYN-A1M",
+    "sku_hembra": "MS-LYC-CYN-A1H",
+    "sku_cuadro": "CD-LYC-CYN-ROY"
+  },
+  {
+    "especie": "Callicore discrepans",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-DIS-A1M",
+    "sku_hembra": "MS-LYC-DIS-A1H",
+    "sku_cuadro": "CD-LYC-DIS-ROY"
+  },
+  {
+    "especie": "Callicore eunomia",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-EUN-A1M",
+    "sku_hembra": "MS-LYC-EUN-A1H",
+    "sku_cuadro": "CD-LYC-EUN-ROY"
+  },
+  {
+    "especie": "Callicore excelsior pastazza",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-EXC-A1M",
+    "sku_hembra": "MS-LYC-EXC-A1H",
+    "sku_cuadro": "CD-LYC-EXC-ROY"
+  },
+  {
+    "especie": "Callicore felderi cajetani",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-FEL-A1M",
+    "sku_hembra": "MS-LYC-FEL-A1H",
+    "sku_cuadro": "CD-LYC-FEL-ROY"
+  },
+  {
+    "especie": "Callicore hesperis",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-HES-A1M",
+    "sku_hembra": "MS-LYC-HES-A1H",
+    "sku_cuadro": "CD-LYC-HES-ROY"
+  },
+  {
+    "especie": "Callicore lyca aegina",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-LYC-A1M",
+    "sku_hembra": "MS-LYC-LYC-A1H",
+    "sku_cuadro": "CD-LYC-LYC-ROY"
+  },
+  {
+    "especie": "Callicore texa maimuna",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-TEX-A1M",
+    "sku_hembra": "MS-LYC-TEX-A1H",
+    "sku_cuadro": "CD-LYC-TEX-ROY"
+  },
+  {
+    "especie": "Callicore tolima",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-TOL-A1M",
+    "sku_hembra": "MS-LYC-TOL-A1H",
+    "sku_cuadro": "CD-LYC-TOL-ROY"
+  },
+  {
+    "especie": "Callidula pyramus",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-PYR-A1M",
+    "sku_hembra": "MS-LYC-PYR-A1H",
+    "sku_cuadro": "CD-LYC-PYR-ROY"
+  },
+  {
+    "especie": "Catenophele salambria",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-SAL-A1M",
+    "sku_hembra": "MS-LYC-SAL-A1H",
+    "sku_cuadro": "CD-LYC-SAL-ROY"
+  },
+  {
+    "especie": "Catonephele acontius",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-ACO-A1M",
+    "sku_hembra": "MS-LYC-ACO-A1H",
+    "sku_cuadro": "CD-LYC-ACO-ROY"
+  },
+  {
+    "especie": "Catonephele chromis chromis",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CHR-A1M",
+    "sku_hembra": "MS-LYC-CHR-A1H",
+    "sku_cuadro": "CD-LYC-CHR-ROY"
+  },
+  {
+    "especie": "Catonephele numilia (Peru)",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-NUM-A1M",
+    "sku_hembra": "MS-LYC-NUM-A1H",
+    "sku_cuadro": "CD-LYC-NUM-ROY"
+  },
+  {
+    "especie": "Catonephele numilia (Peru) F",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-NUM-A1M",
+    "sku_hembra": "MS-LYC-NUM-A1H",
+    "sku_cuadro": "CD-LYC-NUM-ROY"
+  },
+  {
+    "especie": "Catonephele selambria",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-SEL-A1M",
+    "sku_hembra": "MS-LYC-SEL-A1H",
+    "sku_cuadro": "CD-LYC-SEL-ROY"
+  },
+  {
+    "especie": "Coenophlebia (Anaea) archidona",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-ANA-A1M",
+    "sku_hembra": "MS-LYC-ANA-A1H",
+    "sku_cuadro": "CD-LYC-ANA-ROY"
+  },
+  {
+    "especie": "Colubura dirce",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-DIR-A1M",
+    "sku_hembra": "MS-LYC-DIR-A1H",
+    "sku_cuadro": "CD-LYC-DIR-ROY"
+  },
+  {
+    "especie": "Consul (Anaea) fabius divisus",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-ANA-A1M",
+    "sku_hembra": "MS-LYC-ANA-A1H",
+    "sku_cuadro": "CD-LYC-ANA-ROY"
+  },
+  {
+    "especie": "Diaethria (Catacore) kolyma",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CAT-A1M",
+    "sku_hembra": "MS-LYC-CAT-A1H",
+    "sku_cuadro": "CD-LYC-CAT-ROY"
+  },
+  {
+    "especie": "Diaethria (Catacore) kolyma f. pasithea",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CAT-A1M",
+    "sku_hembra": "MS-LYC-CAT-A1H",
+    "sku_cuadro": "CD-LYC-CAT-ROY"
+  },
+  {
+    "especie": "Diaethria clymena peruviana",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CLY-A1M",
+    "sku_hembra": "MS-LYC-CLY-A1H",
+    "sku_cuadro": "CD-LYC-CLY-ROY"
+  },
+  {
+    "especie": "Diaethria neglecta neglecta",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-NEG-A1M",
+    "sku_hembra": "MS-LYC-NEG-A1H",
+    "sku_cuadro": "CD-LYC-NEG-ROY"
+  },
+  {
+    "especie": "Doxocopa agathina",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-AGA-A1M",
+    "sku_hembra": "MS-LYC-AGA-A1H",
+    "sku_cuadro": "CD-LYC-AGA-ROY"
+  },
+  {
+    "especie": "Doxocopa cherubina",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CHE-A1M",
+    "sku_hembra": "MS-LYC-CHE-A1H",
+    "sku_cuadro": "CD-LYC-CHE-ROY"
+  },
+  {
+    "especie": "Doxocopa cyane",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CYA-A1M",
+    "sku_hembra": "MS-LYC-CYA-A1H",
+    "sku_cuadro": "CD-LYC-CYA-ROY"
+  },
+  {
+    "especie": "Doxocopa elis",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-ELI-A1M",
+    "sku_hembra": "MS-LYC-ELI-A1H",
+    "sku_cuadro": "CD-LYC-ELI-ROY"
+  },
+  {
+    "especie": "Doxocopa lavinia",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-LAV-A1M",
+    "sku_hembra": "MS-LYC-LAV-A1H",
+    "sku_cuadro": "CD-LYC-LAV-ROY"
+  },
+  {
+    "especie": "Doxocopa linda f. linda",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-LIN-A1M",
+    "sku_hembra": "MS-LYC-LIN-A1H",
+    "sku_cuadro": "CD-LYC-LIN-ROY"
+  },
+  {
+    "especie": "Doxocopa linda f. selina",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-LIN-A1M",
+    "sku_hembra": "MS-LYC-LIN-A1H",
+    "sku_cuadro": "CD-LYC-LIN-ROY"
+  },
+  {
+    "especie": "Doxocopa pavon",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-PAV-A1M",
+    "sku_hembra": "MS-LYC-PAV-A1H",
+    "sku_cuadro": "CD-LYC-PAV-ROY"
+  },
+  {
+    "especie": "Doxocopa zunilda floris",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-ZUN-A1M",
+    "sku_hembra": "MS-LYC-ZUN-A1H",
+    "sku_cuadro": "CD-LYC-ZUN-ROY"
+  },
+  {
+    "especie": "Eunica carias ninetta",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CAR-A1M",
+    "sku_hembra": "MS-LYC-CAR-A1H",
+    "sku_cuadro": "CD-LYC-CAR-ROY"
+  },
+  {
+    "especie": "Eunica alcmena flora",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-ALC-A1M",
+    "sku_hembra": "MS-LYC-ALC-A1H",
+    "sku_cuadro": "CD-LYC-ALC-ROY"
+  },
+  {
+    "especie": "Eunica ameliae",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-AME-A1M",
+    "sku_hembra": "MS-LYC-AME-A1H",
+    "sku_cuadro": "CD-LYC-AME-ROY"
+  },
+  {
+    "especie": "Eunica bechina",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-BEC-A1M",
+    "sku_hembra": "MS-LYC-BEC-A1H",
+    "sku_cuadro": "CD-LYC-BEC-ROY"
+  },
+  {
+    "especie": "Eunica caralis caralis",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CAR-A1M",
+    "sku_hembra": "MS-LYC-CAR-A1H",
+    "sku_cuadro": "CD-LYC-CAR-ROY"
+  },
+  {
+    "especie": "Eunica carias ninetta",
+    "familia": "Lycaenidae",
+    "sku_macho": "MS-LYC-CAR-A1M",
+    "sku_hembra": "MS-LYC-CAR-A1H",
+    "sku_cuadro": "CD-LYC-CAR-ROY"
+  },
+  {
+    "especie": "Caligo eurilochus livius",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-EUR-A1M",
+    "sku_hembra": "MS-HES-EUR-A1H",
+    "sku_cuadro": "CD-HES-EUR-ROY"
+  },
+  {
+    "especie": "Caligo idomenius idomenides",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-IDO-A1M",
+    "sku_hembra": "MS-HES-IDO-A1H",
+    "sku_cuadro": "CD-HES-IDO-ROY"
+  },
+  {
+    "especie": "Caligo illioneus",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-ILL-A1M",
+    "sku_hembra": "MS-HES-ILL-A1H",
+    "sku_cuadro": "CD-HES-ILL-ROY"
+  },
+  {
+    "especie": "Caligo placidianus",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-PLA-A1M",
+    "sku_hembra": "MS-HES-PLA-A1H",
+    "sku_cuadro": "CD-HES-PLA-ROY"
+  },
+  {
+    "especie": "Caligo prometheus",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-PRO-A1M",
+    "sku_hembra": "MS-HES-PRO-A1H",
+    "sku_cuadro": "CD-HES-PRO-ROY"
+  },
+  {
+    "especie": "Caligo superbus",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-SUP-A1M",
+    "sku_hembra": "MS-HES-SUP-A1H",
+    "sku_cuadro": "CD-HES-SUP-ROY"
+  },
+  {
+    "especie": "Caligo teucer semicaerulea",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-TEU-A1M",
+    "sku_hembra": "MS-HES-TEU-A1H",
+    "sku_cuadro": "CD-HES-TEU-ROY"
+  },
+  {
+    "especie": "Dynastor darius darius",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-DAR-A1M",
+    "sku_hembra": "MS-HES-DAR-A1H",
+    "sku_cuadro": "CD-HES-DAR-ROY"
+  },
+  {
+    "especie": "Opoptera aorsa",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-AOR-A1M",
+    "sku_hembra": "MS-HES-AOR-A1H",
+    "sku_cuadro": "CD-HES-AOR-ROY"
+  },
+  {
+    "especie": "Opoptera arsippe arsippe",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-ARS-A1M",
+    "sku_hembra": "MS-HES-ARS-A1H",
+    "sku_cuadro": "CD-HES-ARS-ROY"
+  },
+  {
+    "especie": "Opsiphanes bogatanus",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-BOG-A1M",
+    "sku_hembra": "MS-HES-BOG-A1H",
+    "sku_cuadro": "CD-HES-BOG-ROY"
+  },
+  {
+    "especie": "Opsiphanes tamarindi incolumis",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-TAM-A1M",
+    "sku_hembra": "MS-HES-TAM-A1H",
+    "sku_cuadro": "CD-HES-TAM-ROY"
+  },
+  {
+    "especie": "Caligo illioneus oberon",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-ILL-A1M",
+    "sku_hembra": "MS-HES-ILL-A1H",
+    "sku_cuadro": "CD-HES-ILL-ROY"
+  },
+  {
+    "especie": "Caligo Oberthuri floklides",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-OBE-A1M",
+    "sku_hembra": "MS-HES-OBE-A1H",
+    "sku_cuadro": "CD-HES-OBE-ROY"
+  },
+  {
+    "especie": "Eryphanis Polyxena",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-POL-A1M",
+    "sku_hembra": "MS-HES-POL-A1H",
+    "sku_cuadro": "CD-HES-POL-ROY"
+  },
+  {
+    "especie": "Catoblepia Berecynthia",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-BER-A1M",
+    "sku_hembra": "MS-HES-BER-A1H",
+    "sku_cuadro": "CD-HES-BER-ROY"
+  },
+  {
+    "especie": "Dynastor macrosirus stix",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-MAC-A1M",
+    "sku_hembra": "MS-HES-MAC-A1H",
+    "sku_cuadro": "CD-HES-MAC-ROY"
+  },
+  {
+    "especie": "Opoptera Arsippe Bracteolata",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-ARS-A1M",
+    "sku_hembra": "MS-HES-ARS-A1H",
+    "sku_cuadro": "CD-HES-ARS-ROY"
+  },
+  {
+    "especie": "Opsiphanes Cassina",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-CAS-A1M",
+    "sku_hembra": "MS-HES-CAS-A1H",
+    "sku_cuadro": "CD-HES-CAS-ROY"
+  },
+  {
+    "especie": "Opsiphanes Sallei",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-SAL-A1M",
+    "sku_hembra": "MS-HES-SAL-A1H",
+    "sku_cuadro": "CD-HES-SAL-ROY"
+  },
+  {
+    "especie": "Opsiphanes Invirae Agasthenes",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-INV-A1M",
+    "sku_hembra": "MS-HES-INV-A1H",
+    "sku_cuadro": "CD-HES-INV-ROY"
+  },
+  {
+    "especie": "Opsiphanes Quiteria Quirinalis",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-QUI-A1M",
+    "sku_hembra": "MS-HES-QUI-A1H",
+    "sku_cuadro": "CD-HES-QUI-ROY"
+  },
+  {
+    "especie": "Danaus plexippus nigrippus",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-PLE-A1M",
+    "sku_hembra": "MS-HES-PLE-A1H",
+    "sku_cuadro": "CD-HES-PLE-ROY"
+  },
+  {
+    "especie": "Lycorea halia",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-HAL-A1M",
+    "sku_hembra": "MS-HES-HAL-A1H",
+    "sku_cuadro": "CD-HES-HAL-ROY"
+  },
+  {
+    "especie": "Lycorea ilione lamaris",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-ILI-A1M",
+    "sku_hembra": "MS-HES-ILI-A1H",
+    "sku_cuadro": "CD-HES-ILI-ROY"
+  },
+  {
+    "especie": "Lycorea Ituna Ilione Phenarete",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-ITU-A1M",
+    "sku_hembra": "MS-HES-ITU-A1H",
+    "sku_cuadro": "CD-HES-ITU-ROY"
+  },
+  {
+    "especie": "Danaus Gilippus thersippus",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-GIL-A1M",
+    "sku_hembra": "MS-HES-GIL-A1H",
+    "sku_cuadro": "CD-HES-GIL-ROY"
+  },
+  {
+    "especie": "Dione juno",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-JUN-A1M",
+    "sku_hembra": "MS-HES-JUN-A1H",
+    "sku_cuadro": "CD-HES-JUN-ROY"
+  },
+  {
+    "especie": "Dione moneta",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-MON-A1M",
+    "sku_hembra": "MS-HES-MON-A1H",
+    "sku_cuadro": "CD-HES-MON-ROY"
+  },
+  {
+    "especie": "Dryas julia",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-JUL-A1M",
+    "sku_hembra": "MS-HES-JUL-A1H",
+    "sku_cuadro": "CD-HES-JUL-ROY"
+  },
+  {
+    "especie": "Eueides (Heliconius) aliphera",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-HEL-A1M",
+    "sku_hembra": "MS-HES-HEL-A1H",
+    "sku_cuadro": "CD-HES-HEL-ROY"
+  },
+  {
+    "especie": "Eueides isabella dissolutus",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-ISA-A1M",
+    "sku_hembra": "MS-HES-ISA-A1H",
+    "sku_cuadro": "CD-HES-ISA-ROY"
+  },
+  {
+    "especie": "Euides tales",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-TAL-A1M",
+    "sku_hembra": "MS-HES-TAL-A1H",
+    "sku_cuadro": "CD-HES-TAL-ROY"
+  },
+  {
+    "especie": "Godyris duillia (Ithomidae)",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-DUI-A1M",
+    "sku_hembra": "MS-HES-DUI-A1H",
+    "sku_cuadro": "CD-HES-DUI-ROY"
+  },
+  {
+    "especie": "Godyris zavalata huanaco",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-ZAV-A1M",
+    "sku_hembra": "MS-HES-ZAV-A1H",
+    "sku_cuadro": "CD-HES-ZAV-ROY"
+  },
+  {
+    "especie": "Heliconius burneyi huebneri",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-BUR-A1M",
+    "sku_hembra": "MS-HES-BUR-A1H",
+    "sku_cuadro": "CD-HES-BUR-ROY"
+  },
+  {
+    "especie": "Heliconius erato microclea",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-ERA-A1M",
+    "sku_hembra": "MS-HES-ERA-A1H",
+    "sku_cuadro": "CD-HES-ERA-ROY"
+  },
+  {
+    "especie": "Heliconius hecale shanki",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-HEC-A1M",
+    "sku_hembra": "MS-HES-HEC-A1H",
+    "sku_cuadro": "CD-HES-HEC-ROY"
+  },
+  {
+    "especie": "Heliconius melpomene amaryllis",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-MEL-A1M",
+    "sku_hembra": "MS-HES-MEL-A1H",
+    "sku_cuadro": "CD-HES-MEL-ROY"
+  },
+  {
+    "especie": "Heliconius melpomene",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-MEL-A1M",
+    "sku_hembra": "MS-HES-MEL-A1H",
+    "sku_cuadro": "CD-HES-MEL-ROY"
+  },
+  {
+    "especie": "Heliconius numata bicoloratus",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-NUM-A1M",
+    "sku_hembra": "MS-HES-NUM-A1H",
+    "sku_cuadro": "CD-HES-NUM-ROY"
+  },
+  {
+    "especie": "Heliconius telesiphe telesiphe",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-TEL-A1M",
+    "sku_hembra": "MS-HES-TEL-A1H",
+    "sku_cuadro": "CD-HES-TEL-ROY"
+  },
+  {
+    "especie": "Heliconius wallacei flavescens",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-WAL-A1M",
+    "sku_hembra": "MS-HES-WAL-A1H",
+    "sku_cuadro": "CD-HES-WAL-ROY"
+  },
+  {
+    "especie": "Methona curvifascia",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-CUR-A1M",
+    "sku_hembra": "MS-HES-CUR-A1H",
+    "sku_cuadro": "CD-HES-CUR-ROY"
+  },
+  {
+    "especie": "Philaethria (Metamorpha) dido",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-MET-A1M",
+    "sku_hembra": "MS-HES-MET-A1H",
+    "sku_cuadro": "CD-HES-MET-ROY"
+  },
+  {
+    "especie": "Thyridia psidii cetoides",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-PSI-A1M",
+    "sku_hembra": "MS-HES-PSI-A1H",
+    "sku_cuadro": "CD-HES-PSI-ROY"
+  },
+  {
+    "especie": "Tithorea harmonia",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-HAR-A1M",
+    "sku_hembra": "MS-HES-HAR-A1H",
+    "sku_cuadro": "CD-HES-HAR-ROY"
+  },
+  {
+    "especie": "Hypothyris semifulva",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-SEM-A1M",
+    "sku_hembra": "MS-HES-SEM-A1H",
+    "sku_cuadro": "CD-HES-SEM-ROY"
+  },
+  {
+    "especie": "Mechanitis polymnia",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-POL-A1M",
+    "sku_hembra": "MS-HES-POL-A1H",
+    "sku_cuadro": "CD-HES-POL-ROY"
+  },
+  {
+    "especie": "Arawacus seperata",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-SEP-A1M",
+    "sku_hembra": "MS-HES-SEP-A1H",
+    "sku_cuadro": "CD-HES-SEP-ROY"
+  },
+  {
+    "especie": "Arcas imperialis",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-IMP-A1M",
+    "sku_hembra": "MS-HES-IMP-A1H",
+    "sku_cuadro": "CD-HES-IMP-ROY"
+  },
+  {
+    "especie": "Arcas tuneta",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-TUN-A1M",
+    "sku_hembra": "MS-HES-TUN-A1H",
+    "sku_cuadro": "CD-HES-TUN-ROY"
+  },
+  {
+    "especie": "Evenus gannymedes",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-GAN-A1M",
+    "sku_hembra": "MS-HES-GAN-A1H",
+    "sku_cuadro": "CD-HES-GAN-ROY"
+  },
+  {
+    "especie": "Thecla gibberosa",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-GIB-A1M",
+    "sku_hembra": "MS-HES-GIB-A1H",
+    "sku_cuadro": "CD-HES-GIB-ROY"
+  },
+  {
+    "especie": "Arawacus dolylas",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-DOL-A1M",
+    "sku_hembra": "MS-HES-DOL-A1H",
+    "sku_cuadro": "CD-HES-DOL-ROY"
+  },
+  {
+    "especie": "Morpho absoloni",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-ABS-A1M",
+    "sku_hembra": "MS-HES-ABS-A1H",
+    "sku_cuadro": "CD-HES-ABS-ROY"
+  },
+  {
+    "especie": "Morpho aurora aureola",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-AUR-A1M",
+    "sku_hembra": "MS-HES-AUR-A1H",
+    "sku_cuadro": "CD-HES-AUR-ROY"
+  },
+  {
+    "especie": "Morpho lympharis selenarys",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-LYM-A1M",
+    "sku_hembra": "MS-HES-LYM-A1H",
+    "sku_cuadro": "CD-HES-LYM-ROY"
+  },
+  {
+    "especie": "Morpho sulkowskyi  descimokoenigi",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-SUL-A1M",
+    "sku_hembra": "MS-HES-SUL-A1H",
+    "sku_cuadro": "CD-HES-SUL-ROY"
+  },
+  {
+    "especie": "Morpho rhetenor cacica",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-RHE-A1M",
+    "sku_hembra": "MS-HES-RHE-A1H",
+    "sku_cuadro": "CD-HES-RHE-ROY"
+  },
+  {
+    "especie": "Morpho rhtenor helena",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-RHT-A1M",
+    "sku_hembra": "MS-HES-RHT-A1H",
+    "sku_cuadro": "CD-HES-RHT-ROY"
+  },
+  {
+    "especie": "Morpho telemachus",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-TEL-A1M",
+    "sku_hembra": "MS-HES-TEL-A1H",
+    "sku_cuadro": "CD-HES-TEL-ROY"
+  },
+  {
+    "especie": "Morpho zephritis",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-ZEP-A1M",
+    "sku_hembra": "MS-HES-ZEP-A1H",
+    "sku_cuadro": "CD-HES-ZEP-ROY"
+  },
+  {
+    "especie": "Morpho theseus juturna",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-THE-A1M",
+    "sku_hembra": "MS-HES-THE-A1H",
+    "sku_cuadro": "CD-HES-THE-ROY"
+  },
+  {
+    "especie": "Morpho menelaus assarpai",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-MEN-A1M",
+    "sku_hembra": "MS-HES-MEN-A1H",
+    "sku_cuadro": "CD-HES-MEN-ROY"
+  },
+  {
+    "especie": "Morpho Cisseis gahua(brows and asure)",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-CIS-A1M",
+    "sku_hembra": "MS-HES-CIS-A1H",
+    "sku_cuadro": "CD-HES-CIS-ROY"
+  },
+  {
+    "especie": "Morpho cisseis phanademus(azure)",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-CIS-A1M",
+    "sku_hembra": "MS-HES-CIS-A1H",
+    "sku_cuadro": "CD-HES-CIS-ROY"
+  },
+  {
+    "especie": "Morpho adonis huallaga",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-ADO-A1M",
+    "sku_hembra": "MS-HES-ADO-A1H",
+    "sku_cuadro": "CD-HES-ADO-ROY"
+  },
+  {
+    "especie": "Morpho amphitriom cinerous",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-AMP-A1M",
+    "sku_hembra": "MS-HES-AMP-A1H",
+    "sku_cuadro": "CD-HES-AMP-ROY"
+  },
+  {
+    "especie": "Morpho deidamia marie",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-DEI-A1M",
+    "sku_hembra": "MS-HES-DEI-A1H",
+    "sku_cuadro": "CD-HES-DEI-ROY"
+  },
+  {
+    "especie": "Morpho achilles helenor",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-ACH-A1M",
+    "sku_hembra": "MS-HES-ACH-A1H",
+    "sku_cuadro": "CD-HES-ACH-ROY"
+  },
+  {
+    "especie": "Morpho didius",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-DID-A1M",
+    "sku_hembra": "MS-HES-DID-A1H",
+    "sku_cuadro": "CD-HES-DID-ROY"
+  },
+  {
+    "especie": "Morpho didius tingomaria",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-DID-A1M",
+    "sku_hembra": "MS-HES-DID-A1H",
+    "sku_cuadro": "CD-HES-DID-ROY"
+  },
+  {
+    "especie": "Morpho menelaus michaelus",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-MEN-A1M",
+    "sku_hembra": "MS-HES-MEN-A1H",
+    "sku_cuadro": "CD-HES-MEN-ROY"
+  },
+  {
+    "especie": "Morpho Menelaus pucallpensis",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-MEN-A1M",
+    "sku_hembra": "MS-HES-MEN-A1H",
+    "sku_cuadro": "CD-HES-MEN-ROY"
+  },
+  {
+    "especie": "Morpho helenor amazonius",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-HEL-A1M",
+    "sku_hembra": "MS-HES-HEL-A1H",
+    "sku_cuadro": "CD-HES-HEL-ROY"
+  },
+  {
+    "especie": "Morpho mariosiajane",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-MAR-A1M",
+    "sku_hembra": "MS-HES-MAR-A1H",
+    "sku_cuadro": "CD-HES-MAR-ROY"
+  },
+  {
+    "especie": "Morpho sulkowoskii Nieva",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-SUL-A1M",
+    "sku_hembra": "MS-HES-SUL-A1H",
+    "sku_cuadro": "CD-HES-SUL-ROY"
+  },
+  {
+    "especie": "Morpho sulkowoskii zachi",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-SUL-A1M",
+    "sku_hembra": "MS-HES-SUL-A1H",
+    "sku_cuadro": "CD-HES-SUL-ROY"
+  },
+  {
+    "especie": "Morpho godartii julanthicus",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-GOD-A1M",
+    "sku_hembra": "MS-HES-GOD-A1H",
+    "sku_cuadro": "CD-HES-GOD-ROY"
+  },
+  {
+    "especie": "Morpho  Menelaus  ssp. zischkai",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-MEN-A1M",
+    "sku_hembra": "MS-HES-MEN-A1H",
+    "sku_cuadro": "CD-HES-MEN-ROY"
+  },
+  {
+    "especie": "Morpho Rethenor mariosiojanae (small)",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-RET-A1M",
+    "sku_hembra": "MS-HES-RET-A1H",
+    "sku_cuadro": "CD-HES-RET-ROY"
+  },
+  {
+    "especie": "Morpho  aurora Isidorssoni",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-AUR-A1M",
+    "sku_hembra": "MS-HES-AUR-A1H",
+    "sku_cuadro": "CD-HES-AUR-ROY"
+  },
+  {
+    "especie": "Morpho aurora lamasi",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-AUR-A1M",
+    "sku_hembra": "MS-HES-AUR-A1H",
+    "sku_cuadro": "CD-HES-AUR-ROY"
+  },
+  {
+    "especie": "Morpho Cisseis gahua ssp. Gahua",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-CIS-A1M",
+    "sku_hembra": "MS-HES-CIS-A1H",
+    "sku_cuadro": "CD-HES-CIS-ROY"
+  },
+  {
+    "especie": "Morpho Cisseis gahua ssp. Gahua",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-CIS-A1M",
+    "sku_hembra": "MS-HES-CIS-A1H",
+    "sku_cuadro": "CD-HES-CIS-ROY"
+  },
+  {
+    "especie": "Adelpha mesentina",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-MES-A1M",
+    "sku_hembra": "MS-HES-MES-A1H",
+    "sku_cuadro": "CD-HES-MES-ROY"
+  },
+  {
+    "especie": "Adelpha erotia erotia f. erotia",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-ERO-A1M",
+    "sku_hembra": "MS-HES-ERO-A1H",
+    "sku_cuadro": "CD-HES-ERO-ROY"
+  },
+  {
+    "especie": "Adelpha iphiclus",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-IPH-A1M",
+    "sku_hembra": "MS-HES-IPH-A1H",
+    "sku_cuadro": "CD-HES-IPH-ROY"
+  },
+  {
+    "especie": "Adelpha lycorias lara",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-LYC-A1M",
+    "sku_hembra": "MS-HES-LYC-A1H",
+    "sku_cuadro": "CD-HES-LYC-ROY"
+  },
+  {
+    "especie": "Agraulis vanillae lucina f. catella",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-VAN-A1M",
+    "sku_hembra": "MS-HES-VAN-A1H",
+    "sku_cuadro": "CD-HES-VAN-ROY"
+  },
+  {
+    "especie": "Agrias amydon zenodorus",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-AMY-A1M",
+    "sku_hembra": "MS-HES-AMY-A1H",
+    "sku_cuadro": "CD-HES-AMY-ROY"
+  },
+  {
+    "especie": "Agrias claudina lugens",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-CLA-A1M",
+    "sku_hembra": "MS-HES-CLA-A1H",
+    "sku_cuadro": "CD-HES-CLA-ROY"
+  },
+  {
+    "especie": "Agrias hewitsonius beata (=beatifica beata)",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-HEW-A1M",
+    "sku_hembra": "MS-HES-HEW-A1H",
+    "sku_cuadro": "CD-HES-HEW-ROY"
+  },
+  {
+    "especie": "Agrias hewitsonius stuarti (=beatifica stuarti)",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-HEW-A1M",
+    "sku_hembra": "MS-HES-HEW-A1H",
+    "sku_cuadro": "CD-HES-HEW-ROY"
+  },
+  {
+    "especie": "Agrias pericles peruviana",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-PER-A1M",
+    "sku_hembra": "MS-HES-PER-A1H",
+    "sku_cuadro": "CD-HES-PER-ROY"
+  },
+  {
+    "especie": "Agrias sardanapulis",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-SAR-A1M",
+    "sku_hembra": "MS-HES-SAR-A1H",
+    "sku_cuadro": "CD-HES-SAR-ROY"
+  },
+  {
+    "especie": "Asterope degandii allyni (= A. adamsi)",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-DEG-A1M",
+    "sku_hembra": "MS-HES-DEG-A1H",
+    "sku_cuadro": "CD-HES-DEG-ROY"
+  },
+  {
+    "especie": "Asterope degandii bartletti",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-DEG-A1M",
+    "sku_hembra": "MS-HES-DEG-A1H",
+    "sku_cuadro": "CD-HES-DEG-ROY"
+  },
+  {
+    "especie": "Asterope markii davisi",
+    "familia": "Hesperiidae",
+    "sku_macho": "MS-HES-MAR-A1M",
+    "sku_hembra": "MS-HES-MAR-A1H",
+    "sku_cuadro": "CD-HES-MAR-ROY"
+  },
+  {
+    "especie": "Ancyluris aulestes",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-AUL-A1M",
+    "sku_hembra": "MS-RIO-AUL-A1H",
+    "sku_cuadro": "CD-RIO-AUL-ROY"
+  },
+  {
+    "especie": "Ancyluris etias",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-ETI-A1M",
+    "sku_hembra": "MS-RIO-ETI-A1H",
+    "sku_cuadro": "CD-RIO-ETI-ROY"
+  },
+  {
+    "especie": "Ancyluris formisissima venerabilis",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-FOR-A1M",
+    "sku_hembra": "MS-RIO-FOR-A1H",
+    "sku_cuadro": "CD-RIO-FOR-ROY"
+  },
+  {
+    "especie": "Ancyluris huscar",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-HUS-A1M",
+    "sku_hembra": "MS-RIO-HUS-A1H",
+    "sku_cuadro": "CD-RIO-HUS-ROY"
+  },
+  {
+    "especie": "Ancyluris meliboeus eudaemon",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-MEL-A1M",
+    "sku_hembra": "MS-RIO-MEL-A1H",
+    "sku_cuadro": "CD-RIO-MEL-ROY"
+  },
+  {
+    "especie": "Ancyluris pulchra",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-PUL-A1M",
+    "sku_hembra": "MS-RIO-PUL-A1H",
+    "sku_cuadro": "CD-RIO-PUL-ROY"
+  },
+  {
+    "especie": "Cartea vitula",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-VIT-A1M",
+    "sku_hembra": "MS-RIO-VIT-A1H",
+    "sku_cuadro": "CD-RIO-VIT-ROY"
+  },
+  {
+    "especie": "Chorinea amazon",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-AMA-A1M",
+    "sku_hembra": "MS-RIO-AMA-A1H",
+    "sku_cuadro": "CD-RIO-AMA-ROY"
+  },
+  {
+    "especie": "Chorinea batesii",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-BAT-A1M",
+    "sku_hembra": "MS-RIO-BAT-A1H",
+    "sku_cuadro": "CD-RIO-BAT-ROY"
+  },
+  {
+    "especie": "Chorinea sylphina",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-SYL-A1M",
+    "sku_hembra": "MS-RIO-SYL-A1H",
+    "sku_cuadro": "CD-RIO-SYL-ROY"
+  },
+  {
+    "especie": "Cremna acoris",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-ACO-A1M",
+    "sku_hembra": "MS-RIO-ACO-A1H",
+    "sku_cuadro": "CD-RIO-ACO-ROY"
+  },
+  {
+    "especie": "Eurybia halimede",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-HAL-A1M",
+    "sku_hembra": "MS-RIO-HAL-A1H",
+    "sku_cuadro": "CD-RIO-HAL-ROY"
+  },
+  {
+    "especie": "Lyropteryx appollonia",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-APP-A1M",
+    "sku_hembra": "MS-RIO-APP-A1H",
+    "sku_cuadro": "CD-RIO-APP-ROY"
+  },
+  {
+    "especie": "Necyria bellona juturna",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-BEL-A1M",
+    "sku_hembra": "MS-RIO-BEL-A1H",
+    "sku_cuadro": "CD-RIO-BEL-ROY"
+  },
+  {
+    "especie": "Nymphidium cachrus",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-CAC-A1M",
+    "sku_hembra": "MS-RIO-CAC-A1H",
+    "sku_cuadro": "CD-RIO-CAC-ROY"
+  },
+  {
+    "especie": "Rhetus arcius",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-ARC-A1M",
+    "sku_hembra": "MS-RIO-ARC-A1H",
+    "sku_cuadro": "CD-RIO-ARC-ROY"
+  },
+  {
+    "especie": "Rhetus dysoni",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-DYS-A1M",
+    "sku_hembra": "MS-RIO-DYS-A1H",
+    "sku_cuadro": "CD-RIO-DYS-ROY"
+  },
+  {
+    "especie": "Rhetus periander",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-PER-A1M",
+    "sku_hembra": "MS-RIO-PER-A1H",
+    "sku_cuadro": "CD-RIO-PER-ROY"
+  },
+  {
+    "especie": "Siseme hellotis",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-HEL-A1M",
+    "sku_hembra": "MS-RIO-HEL-A1H",
+    "sku_cuadro": "CD-RIO-HEL-ROY"
+  },
+  {
+    "especie": "Stalachitis euterpe",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-EUT-A1M",
+    "sku_hembra": "MS-RIO-EUT-A1H",
+    "sku_cuadro": "CD-RIO-EUT-ROY"
+  },
+  {
+    "especie": "Thisbe irene",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-IRE-A1M",
+    "sku_hembra": "MS-RIO-IRE-A1H",
+    "sku_cuadro": "CD-RIO-IRE-ROY"
+  },
+  {
+    "especie": "Siseme neurodes",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-NEU-A1M",
+    "sku_hembra": "MS-RIO-NEU-A1H",
+    "sku_cuadro": "CD-RIO-NEU-ROY"
+  },
+  {
+    "especie": "Cithaerais pireta",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-PIR-A1M",
+    "sku_hembra": "MS-RIO-PIR-A1H",
+    "sku_cuadro": "CD-RIO-PIR-ROY"
+  },
+  {
+    "especie": "Cithaerias pyropina",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-PYR-A1M",
+    "sku_hembra": "MS-RIO-PYR-A1H",
+    "sku_cuadro": "CD-RIO-PYR-ROY"
+  },
+  {
+    "especie": "Corades enyo",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-ENY-A1M",
+    "sku_hembra": "MS-RIO-ENY-A1H",
+    "sku_cuadro": "CD-RIO-ENY-ROY"
+  },
+  {
+    "especie": "Corades iduna",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-IDU-A1M",
+    "sku_hembra": "MS-RIO-IDU-A1H",
+    "sku_cuadro": "CD-RIO-IDU-ROY"
+  },
+  {
+    "especie": "Corades medeba",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-MED-A1M",
+    "sku_hembra": "MS-RIO-MED-A1H",
+    "sku_cuadro": "CD-RIO-MED-ROY"
+  },
+  {
+    "especie": "Haetera macleannania",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-MAC-A1M",
+    "sku_hembra": "MS-RIO-MAC-A1H",
+    "sku_cuadro": "CD-RIO-MAC-ROY"
+  },
+  {
+    "especie": "Haetera piera",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-PIE-A1M",
+    "sku_hembra": "MS-RIO-PIE-A1H",
+    "sku_cuadro": "CD-RIO-PIE-ROY"
+  },
+  {
+    "especie": "Oressinoma typhia",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-TYP-A1M",
+    "sku_hembra": "MS-RIO-TYP-A1H",
+    "sku_cuadro": "CD-RIO-TYP-ROY"
+  },
+  {
+    "especie": "Oxeoschistus iphigenia",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-IPH-A1M",
+    "sku_hembra": "MS-RIO-IPH-A1H",
+    "sku_cuadro": "CD-RIO-IPH-ROY"
+  },
+  {
+    "especie": "Pierella albofasciata",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-ALB-A1M",
+    "sku_hembra": "MS-RIO-ALB-A1H",
+    "sku_cuadro": "CD-RIO-ALB-ROY"
+  },
+  {
+    "especie": "Pierella amalia",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-AMA-A1M",
+    "sku_hembra": "MS-RIO-AMA-A1H",
+    "sku_cuadro": "CD-RIO-AMA-ROY"
+  },
+  {
+    "especie": "Pierella hortona hortona f. ocellata",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-HOR-A1M",
+    "sku_hembra": "MS-RIO-HOR-A1H",
+    "sku_cuadro": "CD-RIO-HOR-ROY"
+  },
+  {
+    "especie": "Pierella hyceta",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-HYC-A1M",
+    "sku_hembra": "MS-RIO-HYC-A1H",
+    "sku_cuadro": "CD-RIO-HYC-ROY"
+  },
+  {
+    "especie": "Pierella lamia chalybaea",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-LAM-A1M",
+    "sku_hembra": "MS-RIO-LAM-A1H",
+    "sku_cuadro": "CD-RIO-LAM-ROY"
+  },
+  {
+    "especie": "Pierella lena",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-LEN-A1M",
+    "sku_hembra": "MS-RIO-LEN-A1H",
+    "sku_cuadro": "CD-RIO-LEN-ROY"
+  },
+  {
+    "especie": "Pierella lucia",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-LUC-A1M",
+    "sku_hembra": "MS-RIO-LUC-A1H",
+    "sku_cuadro": "CD-RIO-LUC-ROY"
+  },
+  {
+    "especie": "Pseudohaetera (Haetera) hypasia",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-HAE-A1M",
+    "sku_hembra": "MS-RIO-HAE-A1H",
+    "sku_cuadro": "CD-RIO-HAE-ROY"
+  },
+  {
+    "especie": "background 0.15s",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-S-A1M",
+    "sku_hembra": "MS-RIO-S-A1H",
+    "sku_cuadro": "CD-RIO-S-ROY"
+  },
+  {
+    "especie": "0 auto",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-AUT-A1M",
+    "sku_hembra": "MS-RIO-AUT-A1H",
+    "sku_cuadro": "CD-RIO-AUT-ROY"
+  },
+  {
+    "especie": "all 0.18s ease",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-S-A1M",
+    "sku_hembra": "MS-RIO-S-A1H",
+    "sku_cuadro": "CD-RIO-S-ROY"
+  },
+  {
+    "especie": "0 auto",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-AUT-A1M",
+    "sku_hembra": "MS-RIO-AUT-A1H",
+    "sku_cuadro": "CD-RIO-AUT-ROY"
+  },
+  {
+    "especie": "0 auto",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-AUT-A1M",
+    "sku_hembra": "MS-RIO-AUT-A1H",
+    "sku_cuadro": "CD-RIO-AUT-ROY"
+  },
+  {
+    "especie": "3px auto",
+    "familia": "Riodinidae",
+    "sku_macho": "MS-RIO-AUT-A1M",
+    "sku_hembra": "MS-RIO-AUT-A1H",
+    "sku_cuadro": "CD-RIO-AUT-ROY"
+  },
+  {
+    "especie": "Caligo eurilochus livius",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-EUR-A1M",
+    "sku_hembra": "MS-SAT-EUR-A1H",
+    "sku_cuadro": "CD-SAT-EUR-ROY"
+  },
+  {
+    "especie": "Caligo idomenius idomenides",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-IDO-A1M",
+    "sku_hembra": "MS-SAT-IDO-A1H",
+    "sku_cuadro": "CD-SAT-IDO-ROY"
+  },
+  {
+    "especie": "Caligo illioneus",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-ILL-A1M",
+    "sku_hembra": "MS-SAT-ILL-A1H",
+    "sku_cuadro": "CD-SAT-ILL-ROY"
+  },
+  {
+    "especie": "Caligo placidianus",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-PLA-A1M",
+    "sku_hembra": "MS-SAT-PLA-A1H",
+    "sku_cuadro": "CD-SAT-PLA-ROY"
+  },
+  {
+    "especie": "Caligo prometheus",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-PRO-A1M",
+    "sku_hembra": "MS-SAT-PRO-A1H",
+    "sku_cuadro": "CD-SAT-PRO-ROY"
+  },
+  {
+    "especie": "Caligo superbus",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-SUP-A1M",
+    "sku_hembra": "MS-SAT-SUP-A1H",
+    "sku_cuadro": "CD-SAT-SUP-ROY"
+  },
+  {
+    "especie": "Caligo teucer semicaerulea",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-TEU-A1M",
+    "sku_hembra": "MS-SAT-TEU-A1H",
+    "sku_cuadro": "CD-SAT-TEU-ROY"
+  },
+  {
+    "especie": "Dynastor darius darius",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-DAR-A1M",
+    "sku_hembra": "MS-SAT-DAR-A1H",
+    "sku_cuadro": "CD-SAT-DAR-ROY"
+  },
+  {
+    "especie": "Opoptera aorsa",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-AOR-A1M",
+    "sku_hembra": "MS-SAT-AOR-A1H",
+    "sku_cuadro": "CD-SAT-AOR-ROY"
+  },
+  {
+    "especie": "Opoptera arsippe arsippe",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-ARS-A1M",
+    "sku_hembra": "MS-SAT-ARS-A1H",
+    "sku_cuadro": "CD-SAT-ARS-ROY"
+  },
+  {
+    "especie": "Opsiphanes bogatanus",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-BOG-A1M",
+    "sku_hembra": "MS-SAT-BOG-A1H",
+    "sku_cuadro": "CD-SAT-BOG-ROY"
+  },
+  {
+    "especie": "Opsiphanes tamarindi incolumis",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-TAM-A1M",
+    "sku_hembra": "MS-SAT-TAM-A1H",
+    "sku_cuadro": "CD-SAT-TAM-ROY"
+  },
+  {
+    "especie": "Caligo illioneus oberon",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-ILL-A1M",
+    "sku_hembra": "MS-SAT-ILL-A1H",
+    "sku_cuadro": "CD-SAT-ILL-ROY"
+  },
+  {
+    "especie": "Caligo Oberthuri floklides",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-OBE-A1M",
+    "sku_hembra": "MS-SAT-OBE-A1H",
+    "sku_cuadro": "CD-SAT-OBE-ROY"
+  },
+  {
+    "especie": "Eryphanis Polyxena",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-POL-A1M",
+    "sku_hembra": "MS-SAT-POL-A1H",
+    "sku_cuadro": "CD-SAT-POL-ROY"
+  },
+  {
+    "especie": "Catoblepia Berecynthia",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-BER-A1M",
+    "sku_hembra": "MS-SAT-BER-A1H",
+    "sku_cuadro": "CD-SAT-BER-ROY"
+  },
+  {
+    "especie": "Dynastor macrosirus stix",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-MAC-A1M",
+    "sku_hembra": "MS-SAT-MAC-A1H",
+    "sku_cuadro": "CD-SAT-MAC-ROY"
+  },
+  {
+    "especie": "Opoptera Arsippe Bracteolata",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-ARS-A1M",
+    "sku_hembra": "MS-SAT-ARS-A1H",
+    "sku_cuadro": "CD-SAT-ARS-ROY"
+  },
+  {
+    "especie": "Opsiphanes Cassina",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-CAS-A1M",
+    "sku_hembra": "MS-SAT-CAS-A1H",
+    "sku_cuadro": "CD-SAT-CAS-ROY"
+  },
+  {
+    "especie": "Opsiphanes Sallei",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-SAL-A1M",
+    "sku_hembra": "MS-SAT-SAL-A1H",
+    "sku_cuadro": "CD-SAT-SAL-ROY"
+  },
+  {
+    "especie": "Opsiphanes Invirae Agasthenes",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-INV-A1M",
+    "sku_hembra": "MS-SAT-INV-A1H",
+    "sku_cuadro": "CD-SAT-INV-ROY"
+  },
+  {
+    "especie": "Opsiphanes Quiteria Quirinalis",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-QUI-A1M",
+    "sku_hembra": "MS-SAT-QUI-A1H",
+    "sku_cuadro": "CD-SAT-QUI-ROY"
+  },
+  {
+    "especie": "Danaus plexippus nigrippus",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-PLE-A1M",
+    "sku_hembra": "MS-SAT-PLE-A1H",
+    "sku_cuadro": "CD-SAT-PLE-ROY"
+  },
+  {
+    "especie": "Lycorea halia",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-HAL-A1M",
+    "sku_hembra": "MS-SAT-HAL-A1H",
+    "sku_cuadro": "CD-SAT-HAL-ROY"
+  },
+  {
+    "especie": "Lycorea ilione lamaris",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-ILI-A1M",
+    "sku_hembra": "MS-SAT-ILI-A1H",
+    "sku_cuadro": "CD-SAT-ILI-ROY"
+  },
+  {
+    "especie": "Lycorea Ituna Ilione Phenarete",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-ITU-A1M",
+    "sku_hembra": "MS-SAT-ITU-A1H",
+    "sku_cuadro": "CD-SAT-ITU-ROY"
+  },
+  {
+    "especie": "Danaus Gilippus thersippus",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-GIL-A1M",
+    "sku_hembra": "MS-SAT-GIL-A1H",
+    "sku_cuadro": "CD-SAT-GIL-ROY"
+  },
+  {
+    "especie": "Dione juno",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-JUN-A1M",
+    "sku_hembra": "MS-SAT-JUN-A1H",
+    "sku_cuadro": "CD-SAT-JUN-ROY"
+  },
+  {
+    "especie": "Dione moneta",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-MON-A1M",
+    "sku_hembra": "MS-SAT-MON-A1H",
+    "sku_cuadro": "CD-SAT-MON-ROY"
+  },
+  {
+    "especie": "Dryas julia",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-JUL-A1M",
+    "sku_hembra": "MS-SAT-JUL-A1H",
+    "sku_cuadro": "CD-SAT-JUL-ROY"
+  },
+  {
+    "especie": "Eueides (Heliconius) aliphera",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-HEL-A1M",
+    "sku_hembra": "MS-SAT-HEL-A1H",
+    "sku_cuadro": "CD-SAT-HEL-ROY"
+  },
+  {
+    "especie": "Eueides isabella dissolutus",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-ISA-A1M",
+    "sku_hembra": "MS-SAT-ISA-A1H",
+    "sku_cuadro": "CD-SAT-ISA-ROY"
+  },
+  {
+    "especie": "Euides tales",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-TAL-A1M",
+    "sku_hembra": "MS-SAT-TAL-A1H",
+    "sku_cuadro": "CD-SAT-TAL-ROY"
+  },
+  {
+    "especie": "Godyris duillia (Ithomidae)",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-DUI-A1M",
+    "sku_hembra": "MS-SAT-DUI-A1H",
+    "sku_cuadro": "CD-SAT-DUI-ROY"
+  },
+  {
+    "especie": "Godyris zavalata huanaco",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-ZAV-A1M",
+    "sku_hembra": "MS-SAT-ZAV-A1H",
+    "sku_cuadro": "CD-SAT-ZAV-ROY"
+  },
+  {
+    "especie": "Heliconius burneyi huebneri",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-BUR-A1M",
+    "sku_hembra": "MS-SAT-BUR-A1H",
+    "sku_cuadro": "CD-SAT-BUR-ROY"
+  },
+  {
+    "especie": "Heliconius erato microclea",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-ERA-A1M",
+    "sku_hembra": "MS-SAT-ERA-A1H",
+    "sku_cuadro": "CD-SAT-ERA-ROY"
+  },
+  {
+    "especie": "Heliconius hecale shanki",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-HEC-A1M",
+    "sku_hembra": "MS-SAT-HEC-A1H",
+    "sku_cuadro": "CD-SAT-HEC-ROY"
+  },
+  {
+    "especie": "Heliconius melpomene amaryllis",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-MEL-A1M",
+    "sku_hembra": "MS-SAT-MEL-A1H",
+    "sku_cuadro": "CD-SAT-MEL-ROY"
+  },
+  {
+    "especie": "Heliconius melpomene",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-MEL-A1M",
+    "sku_hembra": "MS-SAT-MEL-A1H",
+    "sku_cuadro": "CD-SAT-MEL-ROY"
+  },
+  {
+    "especie": "Heliconius numata bicoloratus",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-NUM-A1M",
+    "sku_hembra": "MS-SAT-NUM-A1H",
+    "sku_cuadro": "CD-SAT-NUM-ROY"
+  },
+  {
+    "especie": "Heliconius telesiphe telesiphe",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-TEL-A1M",
+    "sku_hembra": "MS-SAT-TEL-A1H",
+    "sku_cuadro": "CD-SAT-TEL-ROY"
+  },
+  {
+    "especie": "Heliconius wallacei flavescens",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-WAL-A1M",
+    "sku_hembra": "MS-SAT-WAL-A1H",
+    "sku_cuadro": "CD-SAT-WAL-ROY"
+  },
+  {
+    "especie": "Methona curvifascia",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-CUR-A1M",
+    "sku_hembra": "MS-SAT-CUR-A1H",
+    "sku_cuadro": "CD-SAT-CUR-ROY"
+  },
+  {
+    "especie": "Philaethria (Metamorpha) dido",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-MET-A1M",
+    "sku_hembra": "MS-SAT-MET-A1H",
+    "sku_cuadro": "CD-SAT-MET-ROY"
+  },
+  {
+    "especie": "Thyridia psidii cetoides",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-PSI-A1M",
+    "sku_hembra": "MS-SAT-PSI-A1H",
+    "sku_cuadro": "CD-SAT-PSI-ROY"
+  },
+  {
+    "especie": "Tithorea harmonia",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-HAR-A1M",
+    "sku_hembra": "MS-SAT-HAR-A1H",
+    "sku_cuadro": "CD-SAT-HAR-ROY"
+  },
+  {
+    "especie": "Hypothyris semifulva",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-SEM-A1M",
+    "sku_hembra": "MS-SAT-SEM-A1H",
+    "sku_cuadro": "CD-SAT-SEM-ROY"
+  },
+  {
+    "especie": "Mechanitis polymnia",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-POL-A1M",
+    "sku_hembra": "MS-SAT-POL-A1H",
+    "sku_cuadro": "CD-SAT-POL-ROY"
+  },
+  {
+    "especie": "Arawacus seperata",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-SEP-A1M",
+    "sku_hembra": "MS-SAT-SEP-A1H",
+    "sku_cuadro": "CD-SAT-SEP-ROY"
+  },
+  {
+    "especie": "Arcas imperialis",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-IMP-A1M",
+    "sku_hembra": "MS-SAT-IMP-A1H",
+    "sku_cuadro": "CD-SAT-IMP-ROY"
+  },
+  {
+    "especie": "Arcas tuneta",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-TUN-A1M",
+    "sku_hembra": "MS-SAT-TUN-A1H",
+    "sku_cuadro": "CD-SAT-TUN-ROY"
+  },
+  {
+    "especie": "Evenus gannymedes",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-GAN-A1M",
+    "sku_hembra": "MS-SAT-GAN-A1H",
+    "sku_cuadro": "CD-SAT-GAN-ROY"
+  },
+  {
+    "especie": "Thecla gibberosa",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-GIB-A1M",
+    "sku_hembra": "MS-SAT-GIB-A1H",
+    "sku_cuadro": "CD-SAT-GIB-ROY"
+  },
+  {
+    "especie": "Arawacus dolylas",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-DOL-A1M",
+    "sku_hembra": "MS-SAT-DOL-A1H",
+    "sku_cuadro": "CD-SAT-DOL-ROY"
+  },
+  {
+    "especie": "Morpho absoloni",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-ABS-A1M",
+    "sku_hembra": "MS-SAT-ABS-A1H",
+    "sku_cuadro": "CD-SAT-ABS-ROY"
+  },
+  {
+    "especie": "Morpho aurora aureola",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-AUR-A1M",
+    "sku_hembra": "MS-SAT-AUR-A1H",
+    "sku_cuadro": "CD-SAT-AUR-ROY"
+  },
+  {
+    "especie": "Morpho lympharis selenarys",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-LYM-A1M",
+    "sku_hembra": "MS-SAT-LYM-A1H",
+    "sku_cuadro": "CD-SAT-LYM-ROY"
+  },
+  {
+    "especie": "Morpho sulkowskyi  descimokoenigi",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-SUL-A1M",
+    "sku_hembra": "MS-SAT-SUL-A1H",
+    "sku_cuadro": "CD-SAT-SUL-ROY"
+  },
+  {
+    "especie": "Morpho rhetenor cacica",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-RHE-A1M",
+    "sku_hembra": "MS-SAT-RHE-A1H",
+    "sku_cuadro": "CD-SAT-RHE-ROY"
+  },
+  {
+    "especie": "Morpho rhtenor helena",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-RHT-A1M",
+    "sku_hembra": "MS-SAT-RHT-A1H",
+    "sku_cuadro": "CD-SAT-RHT-ROY"
+  },
+  {
+    "especie": "Morpho telemachus",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-TEL-A1M",
+    "sku_hembra": "MS-SAT-TEL-A1H",
+    "sku_cuadro": "CD-SAT-TEL-ROY"
+  },
+  {
+    "especie": "Morpho zephritis",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-ZEP-A1M",
+    "sku_hembra": "MS-SAT-ZEP-A1H",
+    "sku_cuadro": "CD-SAT-ZEP-ROY"
+  },
+  {
+    "especie": "Morpho theseus juturna",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-THE-A1M",
+    "sku_hembra": "MS-SAT-THE-A1H",
+    "sku_cuadro": "CD-SAT-THE-ROY"
+  },
+  {
+    "especie": "Morpho menelaus assarpai",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-MEN-A1M",
+    "sku_hembra": "MS-SAT-MEN-A1H",
+    "sku_cuadro": "CD-SAT-MEN-ROY"
+  },
+  {
+    "especie": "Morpho Cisseis gahua(brows and asure)",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-CIS-A1M",
+    "sku_hembra": "MS-SAT-CIS-A1H",
+    "sku_cuadro": "CD-SAT-CIS-ROY"
+  },
+  {
+    "especie": "Morpho cisseis phanademus(azure)",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-CIS-A1M",
+    "sku_hembra": "MS-SAT-CIS-A1H",
+    "sku_cuadro": "CD-SAT-CIS-ROY"
+  },
+  {
+    "especie": "Morpho adonis huallaga",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-ADO-A1M",
+    "sku_hembra": "MS-SAT-ADO-A1H",
+    "sku_cuadro": "CD-SAT-ADO-ROY"
+  },
+  {
+    "especie": "Morpho amphitriom cinerous",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-AMP-A1M",
+    "sku_hembra": "MS-SAT-AMP-A1H",
+    "sku_cuadro": "CD-SAT-AMP-ROY"
+  },
+  {
+    "especie": "Morpho deidamia marie",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-DEI-A1M",
+    "sku_hembra": "MS-SAT-DEI-A1H",
+    "sku_cuadro": "CD-SAT-DEI-ROY"
+  },
+  {
+    "especie": "Morpho achilles helenor",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-ACH-A1M",
+    "sku_hembra": "MS-SAT-ACH-A1H",
+    "sku_cuadro": "CD-SAT-ACH-ROY"
+  },
+  {
+    "especie": "Morpho didius",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-DID-A1M",
+    "sku_hembra": "MS-SAT-DID-A1H",
+    "sku_cuadro": "CD-SAT-DID-ROY"
+  },
+  {
+    "especie": "Morpho didius tingomaria",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-DID-A1M",
+    "sku_hembra": "MS-SAT-DID-A1H",
+    "sku_cuadro": "CD-SAT-DID-ROY"
+  },
+  {
+    "especie": "Morpho menelaus michaelus",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-MEN-A1M",
+    "sku_hembra": "MS-SAT-MEN-A1H",
+    "sku_cuadro": "CD-SAT-MEN-ROY"
+  },
+  {
+    "especie": "Morpho Menelaus pucallpensis",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-MEN-A1M",
+    "sku_hembra": "MS-SAT-MEN-A1H",
+    "sku_cuadro": "CD-SAT-MEN-ROY"
+  },
+  {
+    "especie": "Morpho helenor amazonius",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-HEL-A1M",
+    "sku_hembra": "MS-SAT-HEL-A1H",
+    "sku_cuadro": "CD-SAT-HEL-ROY"
+  },
+  {
+    "especie": "Morpho mariosiajane",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-MAR-A1M",
+    "sku_hembra": "MS-SAT-MAR-A1H",
+    "sku_cuadro": "CD-SAT-MAR-ROY"
+  },
+  {
+    "especie": "Morpho sulkowoskii Nieva",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-SUL-A1M",
+    "sku_hembra": "MS-SAT-SUL-A1H",
+    "sku_cuadro": "CD-SAT-SUL-ROY"
+  },
+  {
+    "especie": "Morpho sulkowoskii zachi",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-SUL-A1M",
+    "sku_hembra": "MS-SAT-SUL-A1H",
+    "sku_cuadro": "CD-SAT-SUL-ROY"
+  },
+  {
+    "especie": "Morpho godartii julanthicus",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-GOD-A1M",
+    "sku_hembra": "MS-SAT-GOD-A1H",
+    "sku_cuadro": "CD-SAT-GOD-ROY"
+  },
+  {
+    "especie": "Morpho  Menelaus  ssp. zischkai",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-MEN-A1M",
+    "sku_hembra": "MS-SAT-MEN-A1H",
+    "sku_cuadro": "CD-SAT-MEN-ROY"
+  },
+  {
+    "especie": "Morpho Rethenor mariosiojanae (small)",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-RET-A1M",
+    "sku_hembra": "MS-SAT-RET-A1H",
+    "sku_cuadro": "CD-SAT-RET-ROY"
+  },
+  {
+    "especie": "Morpho  aurora Isidorssoni",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-AUR-A1M",
+    "sku_hembra": "MS-SAT-AUR-A1H",
+    "sku_cuadro": "CD-SAT-AUR-ROY"
+  },
+  {
+    "especie": "Morpho aurora lamasi",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-AUR-A1M",
+    "sku_hembra": "MS-SAT-AUR-A1H",
+    "sku_cuadro": "CD-SAT-AUR-ROY"
+  },
+  {
+    "especie": "Morpho Cisseis gahua ssp. Gahua",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-CIS-A1M",
+    "sku_hembra": "MS-SAT-CIS-A1H",
+    "sku_cuadro": "CD-SAT-CIS-ROY"
+  },
+  {
+    "especie": "Morpho Cisseis gahua ssp. Gahua",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-CIS-A1M",
+    "sku_hembra": "MS-SAT-CIS-A1H",
+    "sku_cuadro": "CD-SAT-CIS-ROY"
+  },
+  {
+    "especie": "Adelpha mesentina",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-MES-A1M",
+    "sku_hembra": "MS-SAT-MES-A1H",
+    "sku_cuadro": "CD-SAT-MES-ROY"
+  },
+  {
+    "especie": "Adelpha erotia erotia f. erotia",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-ERO-A1M",
+    "sku_hembra": "MS-SAT-ERO-A1H",
+    "sku_cuadro": "CD-SAT-ERO-ROY"
+  },
+  {
+    "especie": "Adelpha iphiclus",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-IPH-A1M",
+    "sku_hembra": "MS-SAT-IPH-A1H",
+    "sku_cuadro": "CD-SAT-IPH-ROY"
+  },
+  {
+    "especie": "Adelpha lycorias lara",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-LYC-A1M",
+    "sku_hembra": "MS-SAT-LYC-A1H",
+    "sku_cuadro": "CD-SAT-LYC-ROY"
+  },
+  {
+    "especie": "Agraulis vanillae lucina f. catella",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-VAN-A1M",
+    "sku_hembra": "MS-SAT-VAN-A1H",
+    "sku_cuadro": "CD-SAT-VAN-ROY"
+  },
+  {
+    "especie": "Agrias amydon zenodorus",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-AMY-A1M",
+    "sku_hembra": "MS-SAT-AMY-A1H",
+    "sku_cuadro": "CD-SAT-AMY-ROY"
+  },
+  {
+    "especie": "Agrias claudina lugens",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-CLA-A1M",
+    "sku_hembra": "MS-SAT-CLA-A1H",
+    "sku_cuadro": "CD-SAT-CLA-ROY"
+  },
+  {
+    "especie": "Agrias hewitsonius beata (=beatifica beata)",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-HEW-A1M",
+    "sku_hembra": "MS-SAT-HEW-A1H",
+    "sku_cuadro": "CD-SAT-HEW-ROY"
+  },
+  {
+    "especie": "Agrias hewitsonius stuarti (=beatifica stuarti)",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-HEW-A1M",
+    "sku_hembra": "MS-SAT-HEW-A1H",
+    "sku_cuadro": "CD-SAT-HEW-ROY"
+  },
+  {
+    "especie": "Agrias pericles peruviana",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-PER-A1M",
+    "sku_hembra": "MS-SAT-PER-A1H",
+    "sku_cuadro": "CD-SAT-PER-ROY"
+  },
+  {
+    "especie": "Agrias sardanapulis",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-SAR-A1M",
+    "sku_hembra": "MS-SAT-SAR-A1H",
+    "sku_cuadro": "CD-SAT-SAR-ROY"
+  },
+  {
+    "especie": "Asterope degandii allyni (= A. adamsi)",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-DEG-A1M",
+    "sku_hembra": "MS-SAT-DEG-A1H",
+    "sku_cuadro": "CD-SAT-DEG-ROY"
+  },
+  {
+    "especie": "Asterope degandii bartletti",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-DEG-A1M",
+    "sku_hembra": "MS-SAT-DEG-A1H",
+    "sku_cuadro": "CD-SAT-DEG-ROY"
+  },
+  {
+    "especie": "Asterope markii davisi",
+    "familia": "Saturniidae",
+    "sku_macho": "MS-SAT-MAR-A1M",
+    "sku_hembra": "MS-SAT-MAR-A1H",
+    "sku_cuadro": "CD-SAT-MAR-ROY"
+  },
+  {
+    "especie": "background 0.15s",
+    "familia": "Sphingidae",
+    "sku_macho": "MS-SPH-S-A1M",
+    "sku_hembra": "MS-SPH-S-A1H",
+    "sku_cuadro": "CD-SPH-S-ROY"
+  },
+  {
+    "especie": "0 auto",
+    "familia": "Sphingidae",
+    "sku_macho": "MS-SPH-AUT-A1M",
+    "sku_hembra": "MS-SPH-AUT-A1H",
+    "sku_cuadro": "CD-SPH-AUT-ROY"
+  },
+  {
+    "especie": "all 0.18s ease",
+    "familia": "Sphingidae",
+    "sku_macho": "MS-SPH-S-A1M",
+    "sku_hembra": "MS-SPH-S-A1H",
+    "sku_cuadro": "CD-SPH-S-ROY"
+  },
+  {
+    "especie": "0 auto",
+    "familia": "Sphingidae",
+    "sku_macho": "MS-SPH-AUT-A1M",
+    "sku_hembra": "MS-SPH-AUT-A1H",
+    "sku_cuadro": "CD-SPH-AUT-ROY"
+  },
+  {
+    "especie": "0 auto",
+    "familia": "Sphingidae",
+    "sku_macho": "MS-SPH-AUT-A1M",
+    "sku_hembra": "MS-SPH-AUT-A1H",
+    "sku_cuadro": "CD-SPH-AUT-ROY"
+  },
+  {
+    "especie": "3px auto",
+    "familia": "Sphingidae",
+    "sku_macho": "MS-SPH-AUT-A1M",
+    "sku_hembra": "MS-SPH-AUT-A1H",
+    "sku_cuadro": "CD-SPH-AUT-ROY"
+  },
+  {
+    "especie": "background 0.15s",
+    "familia": "Arctiidae",
+    "sku_macho": "MS-ARC-S-A1M",
+    "sku_hembra": "MS-ARC-S-A1H",
+    "sku_cuadro": "CD-ARC-S-ROY"
+  },
+  {
+    "especie": "0 auto",
+    "familia": "Arctiidae",
+    "sku_macho": "MS-ARC-AUT-A1M",
+    "sku_hembra": "MS-ARC-AUT-A1H",
+    "sku_cuadro": "CD-ARC-AUT-ROY"
+  },
+  {
+    "especie": "all 0.18s ease",
+    "familia": "Arctiidae",
+    "sku_macho": "MS-ARC-S-A1M",
+    "sku_hembra": "MS-ARC-S-A1H",
+    "sku_cuadro": "CD-ARC-S-ROY"
+  },
+  {
+    "especie": "0 auto",
+    "familia": "Arctiidae",
+    "sku_macho": "MS-ARC-AUT-A1M",
+    "sku_hembra": "MS-ARC-AUT-A1H",
+    "sku_cuadro": "CD-ARC-AUT-ROY"
+  },
+  {
+    "especie": "0 auto",
+    "familia": "Arctiidae",
+    "sku_macho": "MS-ARC-AUT-A1M",
+    "sku_hembra": "MS-ARC-AUT-A1H",
+    "sku_cuadro": "CD-ARC-AUT-ROY"
+  },
+  {
+    "especie": "3px auto",
+    "familia": "Arctiidae",
+    "sku_macho": "MS-ARC-AUT-A1M",
+    "sku_hembra": "MS-ARC-AUT-A1H",
+    "sku_cuadro": "CD-ARC-AUT-ROY"
+  },
+  {
+    "especie": "background 0.15s",
+    "familia": "Uranidae",
+    "sku_macho": "MS-URA-S-A1M",
+    "sku_hembra": "MS-URA-S-A1H",
+    "sku_cuadro": "CD-URA-S-ROY"
+  },
+  {
+    "especie": "0 auto",
+    "familia": "Uranidae",
+    "sku_macho": "MS-URA-AUT-A1M",
+    "sku_hembra": "MS-URA-AUT-A1H",
+    "sku_cuadro": "CD-URA-AUT-ROY"
+  },
+  {
+    "especie": "all 0.18s ease",
+    "familia": "Uranidae",
+    "sku_macho": "MS-URA-S-A1M",
+    "sku_hembra": "MS-URA-S-A1H",
+    "sku_cuadro": "CD-URA-S-ROY"
+  },
+  {
+    "especie": "0 auto",
+    "familia": "Uranidae",
+    "sku_macho": "MS-URA-AUT-A1M",
+    "sku_hembra": "MS-URA-AUT-A1H",
+    "sku_cuadro": "CD-URA-AUT-ROY"
+  },
+  {
+    "especie": "0 auto",
+    "familia": "Uranidae",
+    "sku_macho": "MS-URA-AUT-A1M",
+    "sku_hembra": "MS-URA-AUT-A1H",
+    "sku_cuadro": "CD-URA-AUT-ROY"
+  },
+  {
+    "especie": "3px auto",
+    "familia": "Uranidae",
+    "sku_macho": "MS-URA-AUT-A1M",
+    "sku_hembra": "MS-URA-AUT-A1H",
+    "sku_cuadro": "CD-URA-AUT-ROY"
+  }
+]
