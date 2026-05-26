@@ -21,10 +21,48 @@ const FAM:F[]=[
 ]
 const FOTOS_BUNNY: Record<string, Record<string, string>> = {
   'Caligo eurilochus livius': {
-    'Frente': 'https://HouseInsects1967.b-cdn.net/brassolidae/MS-BRA-EUR-A1M-cara-A.png',
-    'Lado': 'https://HouseInsects1967.b-cdn.net/brassolidae/MS-BRA-EUR-A1M-lateral.png',
-    'Reverso': 'https://HouseInsects1967.b-cdn.net/brassolidae/MS-BRA-EUR-A1M-reverso-V.png',
-  }
+    'Frente': 'https://HouseInsects1967.b-cdn.net/brassolidae/brassolidae-caligo-eurilochus-livius-cara-a.png',
+    'Lado': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-eurilochus-livius-de-lado-1.png',
+    'Reverso': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-eurilochus-livius-reverso-v.png',
+  },
+  'Caligo idomenius idomenides': {
+    'Frente': 'https://HouseInsects1967.b-cdn.net/brassolidae/brassolidae_caligo-indomenides-f_.png',
+    'Lado': 'https://HouseInsects1967.b-cdn.net/brassolidae/brassolidae-caligo-indomenides-indmeneous-lado.png',
+    'Reverso': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo_idomeneus_idomeneus_reverso-v.png',
+  },
+  'Caligo illioneus': {
+    'Frente': 'https://HouseInsects1967.b-cdn.net/brassolidae/brassolidae-caligo-illeneous-de-tmaria.-peru.png',
+    'Lado': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-ilioneus-praxiodus--lado.png',
+    'Frente2': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-ilioneus-praxiodus-a.png',
+  },
+  'Caligo placidianus': {
+    'Frente': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-placidianus-_peru_tingo-maria-a.png',
+    'Lado': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-placidianus_peru-_t.maria_lado.png',
+    'Reverso': 'https://HouseInsects1967.b-cdn.net/brassolidae/brassolidae-caligo-placidianus-reverso-v.png',
+  },
+  'Caligo prometheus': {
+    'Frente': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-prometheus-.png',
+    'Reverso': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-prometheus.jpg',
+  },
+  'Caligo superbus': {
+    'Frente': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-superbus-superbus--a.png',
+    'Lado': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-superbus-superbus-lado.png',
+    'Reverso': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-superbus-superbus-v.png',
+  },
+  'Caligo teucer semicaerulea': {
+    'Frente': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-teucer-semicarahuela-a.png',
+    'Reverso': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-teucer-semicarahuela-reverso-v.png',
+  },
+  'Caligo illioneus oberon': {
+    'Frente': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-illineous-oberon-a.png',
+    'Reverso': 'https://HouseInsects1967.b-cdn.net/brassolidae/brassolidae-caligo-illenous--oberon-reverso-v.png',
+    'Lado': 'https://HouseInsects1967.b-cdn.net/brassolidae/brassolidae-caligo-illinoeus-oberon-lado.png',
+  },
+  'Caligo Oberthuri floklides': {
+    'Frente': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-oberthuri--foklides-.png',
+    'Lado': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-oberthuri-floklides-lada.png',
+    'Reverso': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-oberthuri-floklides--reverso.png',
+  },
 }
 const VISTAS=['Frente','Lado','Reverso','Video'] as const
 type Vista=typeof VISTAS[number]
