@@ -79,7 +79,8 @@ export default function EspecimenPage(){
   )
   const add=()=>{addItem({n:esp.n,p:esp.p,rubro:fam.nm});setOk(true);setShowCarrito(true);setTimeout(()=>setOk(false),2000)}
   const G='#C9A84C',BG='#0A0A05',CARD='#1A1209',BD='rgba(201,168,76,0.2)'
-  const fotoUrl=v==='Frente'?fotos?.f1:v==='Lado'?fotos?.f2:v==='Reverso'?fotos?.f3:undefined
+  const fotosBunny=FOTOS_BUNNY[esp?.n||'']
+  const fotoUrl=fotosBunny?.[v]||(v==='Frente'?fotos?.f1:v==='Lado'?fotos?.f2:v==='Reverso'?fotos?.f3:undefined)
   const popup=(title:string,rows:{k:string;v:string}[],onClose:()=>void)=>(
     <div onClick={onClose} style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.85)',zIndex:200,display:'flex',alignItems:'center',justifyContent:'center',padding:20}}>
       <div onClick={e=>e.stopPropagation()} style={{background:CARD,border:`1px solid ${BD}`,borderRadius:12,width:300,maxWidth:'90vw',padding:16,position:'relative'}}>
