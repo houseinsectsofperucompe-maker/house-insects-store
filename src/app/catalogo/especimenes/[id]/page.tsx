@@ -21,9 +21,9 @@ const FAM:F[]=[
 ]
 const FOTOS_BUNNY: Record<string, Record<string, string>> = {
   'Caligo eurilochus livius': {
-    'Frente': 'https://HouseInsects1967.b-cdn.net/brassolidae/MS-BRA-EUR-A1M-cara-A.png',
-    'Lado': 'https://HouseInsects1967.b-cdn.net/brassolidae/MS-BRA-EUR-A1M-lateral.png',
-    'Reverso': 'https://HouseInsects1967.b-cdn.net/brassolidae/MS-BRA-EUR-A1M-reverso-V.png',
+    'Frente': 'https://sg.storage.bunnycdn.com/housensectsperu/brassolidae/MS-BRA-EUR-A1M-cara-A.png',
+    'Lado': 'https://sg.storage.bunnycdn.com/housensectsperu/brassolidae/MS-BRA-EUR-A1M-lateral.png',
+    'Reverso': 'https://sg.storage.bunnycdn.com/housensectsperu/brassolidae/MS-BRA-EUR-A1M-reverso-V.png',
   }
 }
 const VISTAS=['Frente','Lado','Reverso','Video'] as const
