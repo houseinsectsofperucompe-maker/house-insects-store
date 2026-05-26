@@ -1,10 +1,10 @@
 // lib/sku-sanity.ts
 import { generarSKU } from "./sku-generator"
-import { sanityClient } from "./sanity-client"
+
 
 export async function generarYGuardarSKU(documentId, data) {
   const sku = generarSKU(data)
-  await sanityClient.patch(documentId).set({ codigoSKU: sku }).commit()
+  // await sanityClient.patch(documentId).set({ codigoSKU: sku }).commit()
   return sku
 }
 
