@@ -125,7 +125,13 @@ export default function EspecimenPage(){
             onTouchEnd={e=>{const d=e.changedTouches[0].clientX-dragStart;if(Math.abs(d)>40){const vs=['Frente','Lado','Reverso'] as const;const ci=vs.indexOf(v as any);if(d<0&&ci<2)setV(vs[ci+1]);else if(d>0&&ci>0)setV(vs[ci-1]);}}}
           >
             {v==='Video'&&fotos?.video?<video src={fotos.video} controls autoPlay muted playsInline style={{width:'100%',height:'100%',objectFit:'contain'}}/>
-            :fotoUrl?<img src={fotoUrl} alt={esp.n} style={{width:'100%',height:'100%',objectFit:'contain'}}/>
+            :fotoUrl?<div style={{position:'relative',width:'100%',height:'100%'}}>
+  <img src={fotoUrl} alt={esp.n} style={{width:'100%',height:'100%',objectFit:'contain'}}/>
+  <div style={{position:'absolute',bottom:16,right:16,textAlign:'right',pointerEvents:'none'}}>
+    <div style={{fontFamily:'Georgia,serif',fontStyle:'italic',color:'rgba(212,175,55,0.85)',fontSize:'1.1rem'}}>Javier Zavala</div>
+    <div style={{fontSize:'0.55rem',color:'rgba(212,175,55,0.6)',letterSpacing:'0.15em',textTransform:'uppercase',lineHeight:1.8}}>Muestra Protegida<br/>Módulo Web Virtual<br/>Propiedad Intelectual</div>
+  </div>
+</div>
             :<div style={{textAlign:'center',color:'rgba(201,168,76,0.25)',fontSize:'.7rem'}}><img src="https://HouseInsects1967.b-cdn.net/logo/logo-hip.png" style={{width:220,opacity:0.4,marginBottom:8}}/><div style={{textTransform:'uppercase',letterSpacing:2,fontSize:'.65rem'}}>{v}</div><div style={{marginTop:4,fontSize:'.6rem'}}>PROXIMAMENTE</div></div>}
             {v!=='Video'&&fotoUrl&&<span style={{position:'absolute',bottom:8,right:8,background:'rgba(0,0,0,0.6)',color:'rgba(201,168,76,0.6)',fontSize:'.55rem',padding:'3px 8px',borderRadius:10,fontFamily:'Georgia,serif'}}>+ ver grande</span>}
           </div>
