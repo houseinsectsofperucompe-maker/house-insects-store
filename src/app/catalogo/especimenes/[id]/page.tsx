@@ -214,6 +214,7 @@ export default function EspecimenPage(){
           <a href={`https://wa.me/51940699405?text=Hola, me interesa: ${encodeURIComponent(esp.n)} - $${esp.p.toFixed(2)} USD - Tipo: ${encodeURIComponent(tipo)}`} target="_blank" rel="noopener noreferrer" style={{display:'block',textAlign:'center',padding:'12px',borderRadius:8,background:'#25D366',color:'white',fontSize:'.8rem',fontFamily:'Georgia,serif',textDecoration:'none',fontWeight:700}}>
             <ST t="Consultar por WhatsApp"/>
           </a>
+          <button onClick={()=>router.back()} style={{width:'100%',padding:'12px',borderRadius:8,fontSize:'.8rem',fontFamily:'Georgia,serif',cursor:'pointer',background:'transparent',color:'rgba(201,168,76,0.5)',border:'1px solid rgba(201,168,76,0.2)',marginTop:8}}>← Volver al catálogo</button>
         </div>
       </div>
     </main>
