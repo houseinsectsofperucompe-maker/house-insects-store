@@ -130,6 +130,7 @@ export default function EspecimenPage(){
   <div style={{position:'absolute',bottom:16,right:16,textAlign:'right',pointerEvents:'none'}}>
     <div style={{fontFamily:'Georgia,serif',fontStyle:'italic',color:'rgba(212,175,55,0.85)',fontSize:'1.1rem'}}>Javier Zavala</div>
     <div style={{fontSize:'0.55rem',color:'rgba(212,175,55,0.6)',letterSpacing:'0.15em',textTransform:'uppercase',lineHeight:1.8}}>Muestra Protegida<br/>Módulo Web Virtual<br/>Propiedad Intelectual</div>
+    <div style={{marginTop:6,fontSize:'0.5rem',color:'rgba(212,175,55,0.45)',letterSpacing:'0.08em',textTransform:'uppercase',lineHeight:1.7}}>Certificados SERFOR & CITES Originales<br/>Permisos de Exportación Oficiales<br/>Customs Code 9705</div>
   </div>
 </div>
             :<div style={{textAlign:'center',color:'rgba(201,168,76,0.25)',fontSize:'.7rem'}}><img src="https://HouseInsects1967.b-cdn.net/logo/logo-hip.png" style={{width:220,opacity:0.4,marginBottom:8}}/><div style={{textTransform:'uppercase',letterSpacing:2,fontSize:'.65rem'}}>{v}</div><div style={{marginTop:4,fontSize:'.6rem'}}>PROXIMAMENTE</div></div>}
