@@ -41,7 +41,7 @@ const FOTOS_BUNNY: Record<string, Record<string, string>> = {
     'Reverso': 'https://HouseInsects1967.b-cdn.net/brassolidae/brassolidae-caligo-placidianus-reverso-v.png',
   },
   'Caligo prometheus': {
-    'Frente': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-prometheus-.png',
+    'Frente': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-prometheus-atlas-a.png',
     'Reverso': 'https://HouseInsects1967.b-cdn.net/brassolidae/caligo-prometheus.jpg',
   },
   'Caligo superbus': {
