@@ -160,7 +160,7 @@ function PopupAbrev({onClose,foto,nombre}:{onClose:()=>void,foto?:string,nombre?
 }
 export default function Page() {
   const [ord, setOrd] = useState('Lepidoptera Diurnae')
-  const [fid, setFid] = useState('Morphidae')
+  const [fid, setFid] = useState('Brassolidae')
   const { items:carrito, addItem, updateItems:setCarrito } = useCarrito()
   const [showCarrito, setShowCarrito] = useState(false)
   const [sel, setSel] = useState<E|null>(null)
