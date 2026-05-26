@@ -127,10 +127,17 @@ export default function EspecimenPage(){
             {v==='Video'&&fotos?.video?<video src={fotos.video} controls autoPlay muted playsInline style={{width:'100%',height:'100%',objectFit:'contain'}}/>
             :fotoUrl?<div style={{position:'relative',width:'100%',height:'100%'}}>
   <img src={fotoUrl} alt={esp.n} style={{width:'100%',height:'100%',objectFit:'contain'}}/>
-  <div style={{position:'absolute',bottom:16,left:16,textAlign:'left',pointerEvents:'none'}}>
-    <div style={{fontFamily:'Georgia,serif',fontStyle:'italic',color:'rgba(212,175,55,0.85)',fontSize:'1.1rem',textAlign:'center',width:'100%',position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}>Javier Zavala</div>
-    <div style={{fontSize:'0.55rem',color:'rgba(212,175,55,0.6)',letterSpacing:'0.15em',textTransform:'uppercase',lineHeight:1.8}}>Muestra Protegida<br/>Módulo Web Virtual<br/>Propiedad Intelectual</div>
-    <div style={{marginTop:6,fontSize:'0.5rem',color:'rgba(212,175,55,0.45)',letterSpacing:'0.08em',textTransform:'uppercase',lineHeight:1.7}}>Certificados SERFOR & CITES Originales<br/>Permisos de Exportación Oficiales<br/>Customs Code 9705</div>
+  <div style={{position:'absolute',inset:0,pointerEvents:'none',zIndex:2}}>
+    <div style={{position:'absolute',top:'42%',left:'50%',transform:'translate(-50%,-50%)',textAlign:'center'}}>
+      <div style={{fontFamily:'Georgia,serif',fontStyle:'italic',color:'rgba(212,175,55,0.7)',fontSize:'1.0rem'}}>Javier Zavala</div>
+    </div>
+    <div style={{position:'absolute',bottom:10,right:10,textAlign:'right'}}>
+      <div style={{fontFamily:'Georgia,serif',fontStyle:'italic',color:'rgba(212,175,55,0.8)',fontSize:'0.75rem'}}>Javier Zavala</div>
+      <div style={{fontSize:'0.42rem',color:'rgba(212,175,55,0.6)',letterSpacing:'0.1em',textTransform:'uppercase',lineHeight:1.7}}>- Muestra Protegida<br/>Módulo Web Virtual -<br/>Propiedad Intelectual</div>
+    </div>
+    <div style={{position:'absolute',bottom:10,left:10,textAlign:'left'}}>
+      <div style={{fontSize:'0.4rem',color:'rgba(212,175,55,0.55)',letterSpacing:'0.06em',textTransform:'uppercase',lineHeight:1.7}}>Calidad A1 (A.1) - Macho / Male<br/>Documentación Legal Completa Incluida:<br/>Certificados SERFOR &amp; CITES Originales<br/>Permisos de Exportación Oficiales<br/>Customs Code 9705 - Importación Verificada</div>
+    </div>
   </div>
 </div>
             :<div style={{textAlign:'center',color:'rgba(201,168,76,0.25)',fontSize:'.7rem'}}><img src="https://HouseInsects1967.b-cdn.net/logo/logo-hip.png" style={{width:220,opacity:0.4,marginBottom:8}}/><div style={{textTransform:'uppercase',letterSpacing:2,fontSize:'.65rem'}}>{v}</div><div style={{marginTop:4,fontSize:'.6rem'}}>PROXIMAMENTE</div></div>}
