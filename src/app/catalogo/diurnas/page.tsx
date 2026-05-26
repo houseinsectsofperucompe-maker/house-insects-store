@@ -13,7 +13,7 @@ export default function DiurnasPage() {
   const precioExtra = vidrio==='uv'?20:vidrio==='resina'?35:0
 
   const FAMILIAS = [
-    {id:'Brassolidae',nm:'Brassolidae',e:[{n:'Caligo eurilochus livius',p:4.0,s:800},{n:'Caligo idomenius idomenides',p:6.5,s:100},{n:'Caligo illioneus',p:3.5,s:200},{n:'Caligo placidianus',p:4.0,s:200},{n:'Caligo prometheus',p:9.0,s:200},{n:'Caligo superbus',p:15.0,s:50},{n:'Caligo teucer semicaerulea',p:3.5,s:300},{n:'Caligo Oberthuri floklides',p:10.0,s:50}]},
+    {id:'Brassolidae',nm:'Brassolidae',e:[{n:'Caligo eurilochus livius',p:8.0,s:800},{n:'Caligo idomenius idomenides',p:6.5,s:100},{n:'Caligo illioneus',p:3.5,s:200},{n:'Caligo placidianus',p:4.0,s:200},{n:'Caligo prometheus',p:9.0,s:200},{n:'Caligo superbus',p:15.0,s:50},{n:'Caligo teucer semicaerulea',p:3.5,s:300},{n:'Caligo Oberthuri floklides',p:10.0,s:50}]},
     {id:'Morphidae',nm:'Morphidae',e:[{n:'Morpho didius',p:7.0,s:5000},{n:'Morpho didius tingomaria',p:7.0,s:5000},{n:'Morpho achilles helenor',p:5.5,s:1000},{n:'Morpho rhetenor cacica',p:33.0,s:500},{n:'Morpho rhtenor helena',p:45.0,s:1000},{n:'Morpho menelaus assarpai',p:12.0,s:500},{n:'Morpho absoloni',p:43.0,s:100},{n:'Morpho aurora aureola',p:13.0,s:200}]},
     {id:'Nymphalidae',nm:'Nymphalidae',e:[{n:'Agrias pericles peruviana',p:120.0,s:10},{n:'Diaethria clymena peruviana',p:1.8,s:5000},{n:'Historis odius',p:1.5,s:5000},{n:'Panacea prola',p:2.5,s:5000},{n:'Siproeta epaphus',p:1.5,s:5000}]},
     {id:'Papilionidae',nm:'Papilionidae',e:[{n:'Papilio xanthopleura',p:40.0,s:10},{n:'Parides aeneas bolivar',p:17.5,s:20},{n:'Pterourus cacicus inca',p:40.0,s:100},{n:'Eurytides serville',p:1.4,s:5000}]},
