@@ -41,7 +41,7 @@ export default function BannersPage(){
     }).catch(()=>{})
   },[])
 
-  const agregar=()=>{
+  const agregar=async()=>{
     if(!form.cliente||!form.email){setMsg('⚠️ Cliente y email son obligatorios');return}
     const plan=PLANES.find(p=>p.id===form.plan)!
     const vence=new Date(Date.now()+plan.dias*86400000).toISOString().split('T')[0]
