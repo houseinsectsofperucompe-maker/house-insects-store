@@ -343,6 +343,10 @@ export default function AdminPanel() {
                 {nm:'🦋 Sanity Studio',url:'/studio',color:'rgba(20,10,5,0.2)',ext:true},
                 {nm:'📈 Metricool',url:'https://app.metricool.com',color:'rgba(20,5,30,0.2)',ext:true},
                 {nm:'☁️ Cloudinary',url:'https://cloudinary.com',color:'rgba(5,20,10,0.2)',ext:true},
+                {nm:'📸 Fotos & Sellos',url:'/admin-panel/sellos',color:'rgba(30,15,5,0.2)',ext:true},
+                {nm:'📢 Avisos & Publicidad',url:'/admin-panel/avisos',color:'rgba(5,5,30,0.2)',ext:true},
+                {nm:'🌍 Demografía',url:'/admin-panel/demografia',color:'rgba(5,20,20,0.2)',ext:true},
+                {nm:'🐰 Bunny.net',url:'https://dash.bunny.net',color:'rgba(20,10,20,0.2)',ext:true},
               ].map(a=>(
                 a.ext ?
                 <a key={a.nm} href={a.url} target="_blank" className="btn" style={{background:a.color,border:'1px solid rgba(201,168,76,0.1)',borderRadius:8,padding:'14px',color:'#C9A84C',fontSize:'.78rem',textDecoration:'none',display:'block',textAlign:'center'}}>{a.nm}</a> :
