@@ -1,28 +1,26 @@
-
 import {createClient} from 'next-sanity'
-import imageUrlBuilder from '@sanity/image-url'
 
-export const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
+export const sanityClient = createClient({
+  projectId: 'lyty7d3g',
+  dataset: 'production',
   apiVersion: '2024-01-01',
   useCdn: true,
-  token: process.env.SANITY_API_TOKEN,
 })
 
-const builder = imageUrlBuilder(client)
-export const urlFor = (source:any) => builder.image(source)
-
-export async function getEspecimenes() {
-  return client.fetch(`*[_type=="especie" && activo==true]{
-    nombre, familia, precio, stock,
-    "fotoFrente": fotoFrente.asset->url,
-    "fotoLado": fotoLado.asset->url,
-    "fotoReverso": fotoReverso.asset->url,
-    video, descripcion, calidad, sexo, tamano
-  } | order(familia asc, nombre asc)`)
-}
-
-export async function getFamilias() {
-  return client.fetch(`*[_type=="familia" && activo==true] | order(orden_display asc){nombre, "id": id.current, orden}`)
+export async function getEspecimenesSanity() {
+  try {
+    const data = await sanityClient.fetch(`*[_type=="especie" && activo==true]{
+      "n": nombre,
+      "p": precio,
+      "s": stock,
+      "foto": fotoFrente.asset->url,
+      "fotoLado": fotoLado.asset->url,
+      "fotoReverso": fotoReverso.asset->url,
+      familia,
+      video
+    } | order(familia asc, nombre asc)`)
+    return data
+  } catch(e) {
+    return []
+  }
 }
