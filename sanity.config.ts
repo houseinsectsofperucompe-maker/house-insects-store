@@ -13,7 +13,9 @@ const especieSchema = defineType({
         'Lepidoptera Diurnae', 'Moths Nocturnas', 'Coleoptera', 'Arthropoda'
       ]}
     }),
-    defineField({ name: 'familia', title: 'Familia', type: 'string' }),
+    defineField({ name: 'orden', title: '1. Orden/Categoria', type: 'string', options: { list: ['Lepidoptera Diurnae','Moths Nocturnas','Coleoptera','Arthropoda'] }, validation: r=>r.required() }),
+    defineField({ name: 'familia', title: '2. Familia', type: 'string', validation: r=>r.required() }),
+    defineField({ name: 'subfamilia', title: '3. Subfamilia (opcional)', type: 'string' }),
     defineField({ name: 'familiaRef', title: 'Familia (Referencia)', type: 'reference', to: [{type: 'familia'}], weak: true }),
     defineField({ name: 'ordenRef', title: 'Orden (Referencia)', type: 'reference', to: [{type: 'orden'}], weak: true }),
     defineField({ name: 'subfamilia', title: 'Subfamilia', type: 'string' }),
