@@ -83,6 +83,19 @@ const MODULOS = [
   { name: 'DHL Express', path: 'https://www.dhl.com/pe-es/home.html', icon: '✈️', ext: true },
   { name: 'FedEx', path: 'https://www.fedex.com/es-pe', icon: '📦', ext: true },
   { name: 'UPS', path: 'https://www.ups.com/pe', icon: '📦', ext: true },
+  { name: 'PromPeru', path: 'https://www.promperu.gob.pe', icon: '🇵🇪', ext: true },
+  { name: 'Promex', path: 'https://www.promex.com.pe', icon: '🇵🇪', ext: true },
+  { name: 'MINCETUR', path: 'https://www.mincetur.gob.pe', icon: '🏛️', ext: true },
+  { name: 'ADEX', path: 'https://www.adexperu.org.pe', icon: '📊', ext: true },
+  { name: 'COMEXPERU', path: 'https://www.comexperu.org.pe', icon: '📊', ext: true },
+  { name: 'SIICEX', path: 'https://www.siicex.gob.pe', icon: '📈', ext: true },
+  { name: 'VUCE', path: 'https://www.vuce.gob.pe', icon: '📋', ext: true },
+  { name: 'PRODUCE', path: 'https://www.produce.gob.pe', icon: '🏭', ext: true },
+  { name: 'MINCUL', path: 'https://www.cultura.gob.pe', icon: '🎭', ext: true },
+  { name: 'SUNAT SOL', path: 'https://so  { nat.gob.pe', icon: '💰', ext: true },
+  { name: 'Aduanas SUNAT', path: 'https://www.sunat.gob.pe/aduanas', icon: '🛃', ext: true },
+  { name: 'Banco de la Nacion', path: 'https://www.bn.com.pe', icon: '🏦', ext: true },
+  { name: 'BCRP', path: 'https://www.bcrp.gob.pe', icon: '🏦', ext: true },
 ]
 
 export default function AdminPanelDashboard() {
