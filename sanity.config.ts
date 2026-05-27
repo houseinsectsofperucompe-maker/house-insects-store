@@ -14,6 +14,8 @@ const especieSchema = defineType({
       ]}
     }),
     defineField({ name: 'familia', title: 'Familia', type: 'string' }),
+    defineField({ name: 'familiaRef', title: 'Familia (Referencia)', type: 'reference', to: [{type: 'familia'}], weak: true }),
+    defineField({ name: 'ordenRef', title: 'Orden (Referencia)', type: 'reference', to: [{type: 'orden'}], weak: true }),
     defineField({ name: 'subfamilia', title: 'Subfamilia', type: 'string' }),
     defineField({ name: 'localidad', title: 'Localidad', type: 'string', initialValue: 'Tingo María, Perú' }),
     defineField({ name: 'calidad', title: 'Calidad', type: 'string',
@@ -93,6 +95,7 @@ const familiaSchema = defineType({
     defineField({ name: 'orden', title: 'Orden (Lepidoptera, Moths, etc)', type: 'string',
       options: { list: ['Lepidoptera Diurnae', 'Moths Nocturnas', 'Coleoptera', 'Arthropoda'] }
     }),
+    defineField({ name: 'ordenRef', title: 'Orden (Referencia)', type: 'reference', to: [{type: 'orden'}], weak: true }),
     defineField({ name: 'descripcion', title: 'Descripción', type: 'text' }),
     defineField({ name: 'activo', title: 'Activo', type: 'boolean', initialValue: true }),
     defineField({ name: 'orden_display', title: 'Orden en lista', type: 'number' }),
