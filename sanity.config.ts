@@ -7,82 +7,33 @@ const especieSchema = defineType({
   title: 'Especie',
   type: 'document',
   fields: [
-    defineField({ name: 'nombre', title: 'Nombre Científico', type: 'string', validation: r => r.required() }),
-    defineField({ name: 'orden', title: 'Orden', type: 'string',
-      options: { list: [
-        'Lepidoptera Diurnae', 'Moths Nocturnas', 'Coleoptera', 'Arthropoda'
-      ]}
+    defineField({ name: 'orden', title: '1. Orden / Categoria', type: 'string',
+      options: { list: ['Lepidoptera Diurnae','Moths Nocturnas','Coleoptera','Arthropoda'] },
+      validation: r=>r.required()
     }),
-    defineField({ name: 'orden', title: '1. Orden/Categoria', type: 'string', options: { list: ['Lepidoptera Diurnae','Moths Nocturnas','Coleoptera','Arthropoda'] }, validation: r=>r.required() }),
     defineField({ name: 'familia', title: '2. Familia', type: 'string', validation: r=>r.required() }),
     defineField({ name: 'subfamilia', title: '3. Subfamilia (opcional)', type: 'string' }),
-    defineField({ name: 'familiaRef', title: 'Familia (Referencia)', type: 'reference', to: [{type: 'familia'}], weak: true }),
-    defineField({ name: 'ordenRef', title: 'Orden (Referencia)', type: 'reference', to: [{type: 'orden'}], weak: true }),
-    defineField({ name: 'localidad', title: 'Localidad', type: 'string', initialValue: 'Tingo María, Perú' }),
-    defineField({ name: 'calidad', title: 'Calidad', type: 'string',
-      options: { list: ['A1', 'A1/A1-', 'A1-', 'VGA2', 'A2'] },
-      initialValue: 'A1'
-    }),
-    defineField({ name: 'sexo', title: 'Sexo', type: 'string',
-      options: { list: ['M', 'F', 'P', 'EP', 'S', 'M or F'] },
-      initialValue: 'M or F'
-    }),
-    defineField({ name: 'tamano', title: 'Tamaño (cm)', type: 'string' }),
-    defineField({ name: 'precio', title: 'Precio USD', type: 'number', validation: r => r.required().min(0) }),
-    defineField({ name: 'stock', title: 'Stock', type: 'number', validation: r => r.required().min(0) }),
-    defineField({ name: 'codigoQR', title: 'Código QR / SKU', type: 'string' }),
-    defineField({ name: 'fotoFrente', title: '📸 Foto Frente', type: 'image',
-      options: { hotspot: true },
-      fields: [defineField({ name: 'alt', type: 'string', title: 'Descripción' })]
-    }),
-    defineField({ name: 'fotoLado', title: '📸 Foto Lado', type: 'image',
-      options: { hotspot: true }
-    }),
-    defineField({ name: 'fotoReverso', title: '📸 Foto Reverso', type: 'image',
-      options: { hotspot: true }
-    }),
-    defineField({ name: 'video', title: '🎥 Video URL (Cloudinary)', type: 'url' }),
-    defineField({ name: 'descripcion', title: 'Descripción', type: 'text', rows: 3 }),
-    defineField({ name: 'activo', title: 'Activo en catálogo', type: 'boolean', initialValue: true }),
-    defineField({ name: 'regiones', title: '🌍 Mercados Destacados', type: 'array',
-      of: [{type:'string'}],
-      options: { list: [
-        {title:'🇨🇳 Asia Premium', value:'asia'},
-        {title:'🇯🇵 Japón & Corea', value:'japon'},
-        {title:'🇩🇪 Europa Museum', value:'europa'},
-        {title:'🇸🇪 Nórdicos', value:'nordico'},
-        {title:'🇺🇸 USA Ultra Lujo', value:'america'},
-        {title:'🇦🇪 Dubai & Medio Oriente', value:'oriente'},
-        {title:'🇧🇷 Latinoamérica', value:'latam'},
-        {title:'🌍 Global', value:'global'},
-      ], layout: 'grid'}
-    }),
-    defineField({ name: 'nicho', title: '🎯 Nicho de Cliente', type: 'string',
-      options: { list: [
-        {title:'🏛️ Museo & Científico', value:'museo'},
-        {title:'💎 Coleccionista Lujo', value:'coleccionista'},
-        {title:'🎨 Galería Arte', value:'galeria'},
-        {title:'💍 Joyería Alta Moda', value:'joyeria'},
-        {title:'🏨 Hotel 5 Estrellas', value:'hotel'},
-        {title:'🔬 Farmacéutica', value:'farmaceutica'},
-        {title:'🍽️ Gastronomía', value:'gastronomia'},
-      ]}
-    }),
-    defineField({ name: 'destacado_global', title: '⭐ Destacado Global', type: 'boolean', initialValue: false }),
-    defineField({ name: 'precio_lujo', title: '💎 Precio Lujo USD', type: 'number' }),
-    defineField({ name: 'orden_display', title: 'Orden en lista (1,2,3...)', type: 'number' }),
+    defineField({ name: 'nombre', title: '4. Nombre Cientifico', type: 'string', validation: r=>r.required() }),
+    defineField({ name: 'precio', title: '5. Precio USD', type: 'number', validation: r=>r.required().min(0) }),
+    defineField({ name: 'stock', title: '6. Stock', type: 'number', validation: r=>r.required().min(0) }),
+    defineField({ name: 'calidad', title: 'Calidad', type: 'string', options: { list: ['A1','A1/A1-','A1-','VGA2','A2'] }, initialValue: 'A1' }),
+    defineField({ name: 'sexo', title: 'Sexo', type: 'string', options: { list: ['M','F','P','EP','S','M or F'] }, initialValue: 'M or F' }),
+    defineField({ name: 'tamano', title: 'Tamano (cm)', type: 'string' }),
+    defineField({ name: 'localidad', title: 'Localidad', type: 'string', initialValue: 'Tingo Maria, Peru' }),
+    defineField({ name: 'fotoFrente', title: 'Foto Frente', type: 'image', options: { hotspot: true }, fields: [defineField({ name: 'alt', type: 'string', title: 'Descripcion' })] }),
+    defineField({ name: 'fotoLado', title: 'Foto Lado', type: 'image', options: { hotspot: true } }),
+    defineField({ name: 'fotoReverso', title: 'Foto Reverso', type: 'image', options: { hotspot: true } }),
+    defineField({ name: 'video', title: 'Video URL', type: 'url' }),
+    defineField({ name: 'descripcion', title: 'Descripcion', type: 'text', rows: 3 }),
+    defineField({ name: 'activo', title: 'Activo en catalogo', type: 'boolean', initialValue: True }),
+    defineField({ name: 'codigoQR', title: 'Codigo QR / SKU', type: 'string' }),
+    defineField({ name: 'precio_lujo', title: 'Precio Lujo USD', type: 'number' }),
+    defineField({ name: 'orden_display', title: 'Orden en lista', type: 'number' }),
   ],
   preview: {
     select: { title: 'nombre', subtitle: 'familia', media: 'fotoFrente' },
-    prepare({ title, subtitle, media }) {
-      return { title, subtitle, media }
-    }
+    prepare({ title, subtitle, media }) { return { title, subtitle, media } }
   },
-  orderings: [
-    { title: 'Nombre A-Z', name: 'nombreAsc', by: [{ field: 'nombre', direction: 'asc' }] },
-    { title: 'Precio Mayor', name: 'precioDesc', by: [{ field: 'precio', direction: 'desc' }] },
-    { title: 'Stock Mayor', name: 'stockDesc', by: [{ field: 'stock', direction: 'desc' }] },
-  ]
 })
 
 // ── SCHEMA: FAMILIA ─────────────────────────────────────────
