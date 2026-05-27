@@ -229,7 +229,7 @@ export default function EspecimenesManager(){
                   <div style={{display:'flex',gap:4,alignItems:'center'}}>
                     <span style={{color:G,fontSize:'.78rem',fontWeight:700}}>${c.p!==undefined?c.p:esp.p}</span>
                     <span style={{color:'rgba(201,168,76,0.4)',fontSize:'.65rem'}}>· {c.s!==undefined?c.s:esp.s} ud</span>
-                    {mod&&<button onClick={()=>guardar(esp)} disabled={guardando[esp._id]} style={{...btn('#25D366','#0A0A05'),padding:'4px 10px',fontSize:'.7rem'}}>{guardando[esp._id]?'...':'💾'}</button>}
+                    {mod&&<button onClick={()=>guardarEsp(esp)} disabled={guardando[esp._id]} style={{...btn('#25D366','#0A0A05'),padding:'4px 10px',fontSize:'.7rem'}}>{guardando[esp._id]?'...':'💾'}</button>}
                     <button onClick={()=>eliminarEsp(esp._id,esp.n)} style={{...btn('rgba(255,80,80,0.1)','#ff5050'),border:'1px solid rgba(255,80,80,0.2)',padding:'4px 7px',fontSize:'.65rem'}}>🗑️</button>
                   </div>
                 </div>
