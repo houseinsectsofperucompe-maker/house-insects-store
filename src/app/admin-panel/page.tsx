@@ -96,6 +96,10 @@ const MODULOS = [
   { name: 'Aduanas SUNAT', path: 'https://www.sunat.gob.pe/aduanas', icon: '🛃', ext: true },
   { name: 'Banco de la Nacion', path: 'https://www.bn.com.pe', icon: '🏦', ext: true },
   { name: 'BCRP', path: 'https://www.bcrp.gob.pe', icon: '🏦', ext: true },
+  { name: 'Interbank', path: 'https://www.interbank.pe', icon: '🏦', ext: true },
+  { name: 'BBVA Peru', path: 'https://www.bbva.pe', icon: '🏦', ext: true },
+  { name: 'BCP', path: 'https://www.viabcp.com', icon: '🏦', ext: true },
+  { name: 'Scotiabank', path: 'https://www.scotiabank.com.pe', icon: '🏦', ext: true },
 ]
 
 export default function AdminPanelDashboard() {
