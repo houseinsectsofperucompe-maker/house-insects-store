@@ -25,7 +25,7 @@ const especieSchema = defineType({
     defineField({ name: 'fotoReverso', title: 'Foto Reverso', type: 'image', options: { hotspot: true } }),
     defineField({ name: 'video', title: 'Video URL', type: 'url' }),
     defineField({ name: 'descripcion', title: 'Descripcion', type: 'text', rows: 3 }),
-    defineField({ name: 'activo', title: 'Activo en catalogo', type: 'boolean', initialValue: True }),
+    defineField({ name: 'activo', title: 'Activo en catalogo', type: 'boolean', initialValue: true }),
     defineField({ name: 'codigoQR', title: 'Codigo QR / SKU', type: 'string' }),
     defineField({ name: 'precio_lujo', title: 'Precio Lujo USD', type: 'number' }),
     defineField({ name: 'orden_display', title: 'Orden en lista', type: 'number' }),
