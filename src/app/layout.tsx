@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Script from 'next/script'
 import LangSelector from '@/components/LangSelector'
 import CurrencySelector from '@/components/CurrencySelector'
 import { CarritoProvider } from '@/components/CarritoContext'
@@ -35,6 +36,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="applicable-device" content="pc,mobile"/>
         <script defer dangerouslySetInnerHTML={{__html:`(function(){var d=document,s=d.createElement('script');s.src='https://tracker.metricool.com/resources/be.js';s.defer=true;s.onload=function(){beTracker.t({hash:'fa2c62a23e07cbf3fed9e83a12f22bd3'})};d.head.appendChild(s)})();`}}/>
       </head>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-1D8T2HQY14" strategy="afterInteractive"/>
+      <Script id="google-analytics" strategy="afterInteractive">{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1D8T2HQY14');
+      `}</Script>
       <body style={{fontFamily:"Georgia,serif"}}>
         <CarritoProvider>
         <div style={{position:"fixed",top:12,right:12,zIndex:9999,display:"flex",gap:8,alignItems:"center"}}><CarritoBoton/><CurrencySelector/><LangSelector/></div>
