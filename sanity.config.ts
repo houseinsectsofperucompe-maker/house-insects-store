@@ -125,16 +125,12 @@ export default defineConfig({
           .items([
             S.listItem().title('📋 Ordenes / Categorias').child(S.documentTypeList('orden').title('Ordenes')),
             S.divider(),
-            S.listItem().title('🦋 Especies').child(
-              S.documentTypeList('especie').title('Todas las Especies')
-            ),
+            S.listItem().title('📁 Familias & Subfamilias').child(S.documentTypeList('familia').title('Familias')),
+            S.divider(),
+            S.listItem().title('🦋 Especies').child(S.documentTypeList('especie').title('Todas las Especies')),
             S.divider(),
             S.listItem().title('📢 Banners').child(S.documentTypeList('banner').title('Banners')),
             S.listItem().title('📣 Avisos').child(S.documentTypeList('aviso').title('Avisos')),
-            S.divider(),
-            S.listItem().title('📁 Familias & Subfamilias').child(
-              S.documentTypeList('familia').title('Familias')
-            ),
           ])
     })
   ],
