@@ -76,6 +76,8 @@ export default function AdminPage() {
   const [seguroSel, setSeguroSel] = useState('BASICO')
   const [incoterm, setIncoterm] = useState('FOB')
   const [saved, setSaved] = useState(false)
+  const [uploadMsg, setUploadMsg] = useState('')
+  const [uploading, setUploading] = useState(false)
 
   const rubroActual = RUBROS.find(r => r.id === rubroSel)!
 
@@ -113,13 +115,58 @@ export default function AdminPage() {
             {id:'qr',label:'🔍 Códigos QR'},
             {id:'sunat',label:'📄 SUNAT & Docs'},
             {id:'pagos',label:'💳 Pagos & Bancos'},
-            {id:'sunat',label:'📄 SUNAT & Docs'},
-            {id:'pagos',label:'💳 Pagos & Bancos'},
+            {id:'fotos',label:'📸 Fotos & Sellos'},
           ].map(t=>(
             <button key={t.id} onClick={()=>setTab(t.id)} className={`tab-btn ${tab===t.id?'active':'inactive'}`}>{t.label}</button>
           ))}
         </div>
 
+        {/* TAB: FOTOS & SELLOS */}
+        {tab==='fotos'&&(
+          <div style={{animation:'fadeInUp 0.5s ease'}}>
+            <div className="section-title">📸 SUBIR FOTOS A BUNNY.NET</div>
+            <div style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:16,marginBottom:16}}>
+              <p style={{color:'rgba(201,168,76,0.7)',fontSize:'.75rem',marginBottom:12}}>Selecciona las fotos — se suben a Bunny.net en WebP optimizado.</p>
+              <select id="carpeta-bunny" style={{background:'#1A1209',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',padding:'6px 10px',borderRadius:6,fontSize:'.75rem',marginBottom:12,width:'100%'}}>
+                <option value="brassolidae">Brassolidae</option>
+                <option value="morphidae">Morphidae</option>
+                <option value="nymphalidae">Nymphalidae</option>
+                <option value="papilionidae">Papilionidae</option>
+                <option value="danaidae">Danaidae</option>
+                <option value="heliconidae">Heliconidae</option>
+                <option value="lycaenidae">Lycaenidae</option>
+                <option value="pieridae">Pieridae</option>
+                <option value="riodinidae">Riodinidae</option>
+                <option value="satyridae">Satyridae</option>
+              </select>
+              <input type="file" accept="image/*" multiple onChange={async(ev)=>{
+                const files=Array.from(ev.target.files||[])
+                const carpeta=(document.getElementById('carpeta-bunny') as HTMLSelectElement).value
+                if(!files.length) return
+                setUploading(true)
+                setUploadMsg('Subiendo '+files.length+' fotos...')
+                let ok=0,fail=0
+                for(const file of files){
+                  try{
+                    const nombre=file.name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9.-]/g,'').replace('.png','.webp').replace('.jpg','.webp')
+                    const res=await fetch('/api/bunny-upload',{method:'POST',headers:{'x-filename':nombre,'x-folder':carpeta,'x-key':'51da13d3-4922-4e5c-8e4a03b36bb5-d3ec-4d2b'},body:file})
+                    if(res.ok) ok++; else fail++
+                  }catch{fail++}
+                }
+                setUploading(false)
+                setUploadMsg(ok+' subidas ✅  '+fail+' errores ❌')
+              }} style={{display:'block',marginBottom:12,color:'#C9A84C',fontSize:'.75rem',cursor:'pointer'}}/>
+              {uploading&&<p style={{color:'#C9A84C',fontSize:'.75rem'}}>⏳ Procesando...</p>}
+              {uploadMsg&&<p style={{color:'#E8C97A',fontSize:'.75rem',marginTop:8}}>{uploadMsg}</p>}
+            </div>
+            <div className="section-title">🔗 BUNNY.NET INFO</div>
+            <div style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:16}}>
+              <p style={{color:'rgba(201,168,76,0.6)',fontSize:'.72rem',marginBottom:6}}>Base URL: <span style={{color:'#E8C97A'}}>https://HouseInsects1967.b-cdn.net/</span></p>
+              <p style={{color:'rgba(201,168,76,0.6)',fontSize:'.72rem',marginBottom:6}}>Storage Zone: <span style={{color:'#E8C97A'}}>housensectsperu</span></p>
+              <p style={{color:'rgba(201,168,76,0.6)',fontSize:'.72rem'}}>Watermark: <span style={{color:'#E8C97A'}}>Javier Zavala + SERFOR & CITES + Customs 9705</span></p>
+            </div>
+          </div>
+        )}
         {/* TAB: NUEVA ESPECIE */}
         {tab==='especie'&&(
           <div style={{animation:'fadeInUp 0.5s ease'}}>
