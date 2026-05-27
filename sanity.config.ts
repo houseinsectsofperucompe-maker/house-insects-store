@@ -7,33 +7,71 @@ const especieSchema = defineType({
   title: 'Especie',
   type: 'document',
   fields: [
-    defineField({ name: 'orden', title: '1. Orden / Categoria', type: 'string',
-      options: { list: ['Lepidoptera Diurnae','Moths Nocturnas','Coleoptera','Arthropoda'] },
+    defineField({ name: 'ordenCategoria', title: '1. Orden / Categoria', type: 'string',
+      options: { list: [
+        {title:'🦋 Lepidoptera Diurnae', value:'Lepidoptera Diurnae'},
+        {title:'🌙 Moths Nocturnas', value:'Moths Nocturnas'},
+        {title:'🪲 Coleoptera', value:'Coleoptera'},
+        {title:'🕷️ Arthropoda', value:'Arthropoda'},
+      ], layout:'radio' },
       validation: r=>r.required()
     }),
-    defineField({ name: 'familia', title: '2. Familia', type: 'string', validation: r=>r.required() }),
-    defineField({ name: 'subfamilia', title: '3. Subfamilia (opcional)', type: 'string' }),
+    defineField({ name: 'familia', title: '2. Familia', type: 'string', validation: r=>r.required(),
+      description: 'Ej: Brassolidae, Morphidae, Dynastidae, etc.'
+    }),
+    defineField({ name: 'subfamilia', title: '3. Subfamilia (si tiene)', type: 'string',
+      description: 'Ej: Erebidae > Acontiinae. Dejar vacio si no tiene subfamilia.'
+    }),
     defineField({ name: 'nombre', title: '4. Nombre Cientifico', type: 'string', validation: r=>r.required() }),
     defineField({ name: 'precio', title: '5. Precio USD', type: 'number', validation: r=>r.required().min(0) }),
-    defineField({ name: 'stock', title: '6. Stock', type: 'number', validation: r=>r.required().min(0) }),
-    defineField({ name: 'calidad', title: 'Calidad', type: 'string', options: { list: ['A1','A1/A1-','A1-','VGA2','A2'] }, initialValue: 'A1' }),
-    defineField({ name: 'sexo', title: 'Sexo', type: 'string', options: { list: ['M','F','P','EP','S','M or F'] }, initialValue: 'M or F' }),
-    defineField({ name: 'tamano', title: 'Tamano (cm)', type: 'string' }),
-    defineField({ name: 'localidad', title: 'Localidad', type: 'string', initialValue: 'Tingo Maria, Peru' }),
-    defineField({ name: 'fotoFrente', title: 'Foto Frente', type: 'image', options: { hotspot: true }, fields: [defineField({ name: 'alt', type: 'string', title: 'Descripcion' })] }),
-    defineField({ name: 'fotoLado', title: 'Foto Lado', type: 'image', options: { hotspot: true } }),
-    defineField({ name: 'fotoReverso', title: 'Foto Reverso', type: 'image', options: { hotspot: true } }),
-    defineField({ name: 'video', title: 'Video URL', type: 'url' }),
-    defineField({ name: 'descripcion', title: 'Descripcion', type: 'text', rows: 3 }),
-    defineField({ name: 'activo', title: 'Activo en catalogo', type: 'boolean', initialValue: true }),
-    defineField({ name: 'codigoQR', title: 'Codigo QR / SKU', type: 'string' }),
-    defineField({ name: 'precio_lujo', title: 'Precio Lujo USD', type: 'number' }),
-    defineField({ name: 'orden_display', title: 'Orden en lista', type: 'number' }),
+    defineField({ name: 'stock', title: '6. Stock (cantidad)', type: 'number', validation: r=>r.required().min(0) }),
+    defineField({ name: 'calidad', title: '7. Calidad', type: 'string',
+      options: { list: [
+        {title:'A1 - Perfecto sin defectos', value:'A1'},
+        {title:'A1- - Con pequeños defectos', value:'A1-'},
+        {title:'A1/A1- - Entre A1 y A1-', value:'A1/A1-'},
+        {title:'VGA2 - Segunda calidad buena', value:'VGA2'},
+        {title:'A2 - Segunda calidad', value:'A2'},
+      ], layout:'radio' },
+      initialValue: 'A1'
+    }),
+    defineField({ name: 'sexo', title: '8. Sexo', type: 'string',
+      options: { list: [
+        {title:'M - Macho', value:'M'},
+        {title:'F - Hembra', value:'F'},
+        {title:'P - Par (macho y hembra)', value:'P'},
+        {title:'EP - Ex-pupae criado en granja', value:'EP'},
+        {title:'S - Set con descuento', value:'S'},
+        {title:'M or F - Indistinto', value:'M or F'},
+      ], layout:'radio' },
+      initialValue: 'M or F'
+    }),
+    defineField({ name: 'tamano', title: '9. Tamano (cm)', type: 'string', description:'Ej: 8-10 cm' }),
+    defineField({ name: 'localidad', title: '10. Localidad de origen', type: 'string', initialValue: 'Tingo Maria, Huanuco, Peru' }),
+    defineField({ name: 'codigoQR', title: '11. Codigo QR / SKU', type: 'string' }),
+    defineField({ name: 'fotoFrente', title: '12. Foto Frente (URL Bunny.net)', type: 'url',
+      description: 'URL de la foto frente en Bunny.net. Ej: https://HouseInsects1967.b-cdn.net/brassolidae/caligo-frente.webp'
+    }),
+    defineField({ name: 'fotoLado', title: '13. Foto Lado (URL Bunny.net)', type: 'url',
+      description: 'URL de la foto lado en Bunny.net'
+    }),
+    defineField({ name: 'fotoReverso', title: '14. Foto Reverso (URL Bunny.net)', type: 'url',
+      description: 'URL de la foto reverso en Bunny.net'
+    }),
+    defineField({ name: 'video', title: '15. Video URL', type: 'url' }),
+    defineField({ name: 'descripcion', title: '16. Descripcion', type: 'text', rows: 3 }),
+    defineField({ name: 'precio_lujo', title: '17. Precio Lujo USD (opcional)', type: 'number' }),
+    defineField({ name: 'activo', title: 'Activo en catalogo web', type: 'boolean', initialValue: true }),
   ],
   preview: {
     select: { title: 'nombre', subtitle: 'familia', media: 'fotoFrente' },
-    prepare({ title, subtitle, media }) { return { title, subtitle, media } }
+    prepare({ title, subtitle, media }) { return { title, subtitle } }
   },
+  orderings: [
+    { title: 'Nombre A-Z', name: 'nombreAsc', by: [{ field: 'nombre', direction: 'asc' }] },
+    { title: 'Precio Mayor', name: 'precioDesc', by: [{ field: 'precio', direction: 'desc' }] },
+    { title: 'Stock Mayor', name: 'stockDesc', by: [{ field: 'stock', direction: 'desc' }] },
+  ]
 })
 
 // ── SCHEMA: FAMILIA ─────────────────────────────────────────

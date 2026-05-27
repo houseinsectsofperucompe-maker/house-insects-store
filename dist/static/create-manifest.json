@@ -1,5 +1,5 @@
 {
-  "createdAt": "2026-05-27T04:20:26.053Z",
+  "createdAt": "2026-05-27T04:30:47.479Z",
   "studioVersion": "5.25.1",
   "version": 3,
   "workspaces": [
@@ -13,7 +13,7 @@
       },
       "name": "house-insects-peru",
       "projectId": "lyty7d3g",
-      "schema": "f8057619.create-schema.json",
+      "schema": "11f9d439.create-schema.json",
       "title": "House Insects of Peru 🦋",
       "tools": "a1fd46b5.create-tools.json"
     }
