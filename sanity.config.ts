@@ -18,7 +18,6 @@ const especieSchema = defineType({
     defineField({ name: 'subfamilia', title: '3. Subfamilia (opcional)', type: 'string' }),
     defineField({ name: 'familiaRef', title: 'Familia (Referencia)', type: 'reference', to: [{type: 'familia'}], weak: true }),
     defineField({ name: 'ordenRef', title: 'Orden (Referencia)', type: 'reference', to: [{type: 'orden'}], weak: true }),
-    defineField({ name: 'subfamilia', title: 'Subfamilia', type: 'string' }),
     defineField({ name: 'localidad', title: 'Localidad', type: 'string', initialValue: 'Tingo María, Perú' }),
     defineField({ name: 'calidad', title: 'Calidad', type: 'string',
       options: { list: ['A1', 'A1/A1-', 'A1-', 'VGA2', 'A2'] },
