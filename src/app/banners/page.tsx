@@ -1,9 +1,7 @@
 'use client'
 import {useCarrito} from '@/components/CarritoContext'
 import CarritoCompras from '@/components/CarritoCompras'
-import {useState as useS2} from 'react'
 import { useState } from 'react'
-import BannerPago from '@/components/BannerPago'
 
 const BANNERS = [
   { id:1, nombre:'Header Principal', desc:'Posición premium en la página de inicio · Máxima visibilidad · 728x90px', precios:{mes:25,semestre:120,anual:200}, icon:'👑', color:'rgba(201,168,76,0.15)' },
@@ -86,7 +84,7 @@ export default function BannersPage() {
               <button onClick={()=>{if(banner){addItem({n:banner.nombre+' (Banner '+PLANES.find(p=>p.id===plan)?.label+')',p:precio,rubro:'Publicidad'});setOk(true);setShowCarrito(true);setTimeout(()=>setOk(false),2000)}}} style={{background:ok?'#5DBB63':'#C9A84C',color:'#1A1209',padding:'12px 28px',borderRadius:4,fontWeight:700,fontSize:'.85rem',border:'none',cursor:'pointer',marginBottom:8,display:'block',width:'100%'}}>{ok?'✅ Agregado':'🛒 Agregar al carrito'}</button>
               <a href={`https://wa.me/51940699405?text=${msg}`} target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'12px 28px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>💬 +51 940 699 405</a>
               <a href={`https://wa.me/51920644433?text=${msg}`} target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'12px 28px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>💬 +51 920 644 433</a>
-              <BannerPago precio={precio} descripcion={`${banner.nombre} · ${PLANES.find(p=>p.id===plan)?.label}`}/>
+              <button onClick={()=>{if(banner){addItem({n:banner.nombre+' Banner '+plan,p:precio,rubro:'Publicidad'});setShowCarrito(true)}}} style={{background:'#C9A84C',color:'#1A1209',padding:'12px 28px',borderRadius:4,fontWeight:700,fontSize:'.85rem',border:'none',cursor:'pointer',width:'100%',marginTop:8}}>🛒 Agregar al carrito</button>
             </div>
           </div>
         )}
@@ -95,6 +93,5 @@ export default function BannersPage() {
         </div>
       </div>
     </div>
-  </>
   )
 }
