@@ -161,6 +161,7 @@ return(<>
 </>}
 {paso==='pago'&&<>
 <button onClick={pagar} disabled={loading} style={{width:'100%',padding:'14px',background:loading?'rgba(201,168,76,0.3)':G,color:BG,border:'none',borderRadius:8,fontWeight:700,fontSize:'1rem',cursor:loading?'not-allowed':'pointer',fontFamily:'Georgia,serif',marginBottom:8}}>{loading?'⏳ Procesando...':'💳 Pagar $'+total.toFixed(2)+' USD'}</button>
+<a href={'https://wa.me/51940699405?text=Pago+QR+Total+$'+total.toFixed(2)+'+USD'} target="_blank" rel="noopener noreferrer" style={{display:'block',width:'100%',padding:'14px',background:'#128C7E',color:'white',borderRadius:8,fontWeight:700,fontSize:'1rem',fontFamily:'Georgia,serif',marginBottom:8,textAlign:'center',textDecoration:'none'}}>📱 Pagar con QR / WhatsApp</a>
 <button onClick={()=>setPaso('orden')} style={{width:'100%',padding:'12px',background:'transparent',color:G,border:'1px solid rgba(201,168,76,0.3)',borderRadius:8,fontWeight:700,fontSize:'.9rem',cursor:'pointer',fontFamily:'Georgia,serif'}}>← Volver a mi orden</button>
 </>}
 </div>
