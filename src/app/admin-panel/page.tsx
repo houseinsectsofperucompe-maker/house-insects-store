@@ -68,7 +68,7 @@ const MODULOS = [
   { name: 'Alipay', path: 'https://www.alipay.com', icon: '💰', ext: true },
   { name: 'Stripe', path: 'https://dashboard.stripe.com', icon: '💳', ext: true },
   { name: 'Izipay', path: 'https://micuentaweb.pe', icon: '💳', ext: true },
-  { name: 'Lloyd's Seguro', path: 'https://www.lloyds.com', icon: '🛡️', ext: true },
+  { name: 'Lloyds Seguro', path: 'https://www.lloyds.com', icon: '🛡️', ext: true },
   { name: 'MAPFRE Seguro', path: 'https://www.mapfre.com.pe', icon: '🛡️', ext: true },
   { name: 'Rimac Seguro', path: 'https://www.rimac.com', icon: '🛡️', ext: true },
   { name: 'ExportaFacil SERPOST', path: 'https://exportafacil.serpost.com.pe', icon: '📦', ext: true },
