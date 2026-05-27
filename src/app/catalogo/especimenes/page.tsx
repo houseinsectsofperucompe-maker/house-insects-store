@@ -1,4 +1,5 @@
 'use client'
+import { getEspecimenesSanity } from '@/lib/sanity'
 import ST from '@/components/ST'
 import { useCarrito } from '@/components/CarritoContext'
 import CarritoCompras from '@/components/CarritoCompras'
@@ -161,6 +162,19 @@ function PopupAbrev({onClose,foto,nombre}:{onClose:()=>void,foto?:string,nombre?
 export default function Page() {
   const [ord, setOrd] = useState('Lepidoptera Diurnae')
   const [fid, setFid] = useState('Brassolidae')
+  const [famSanity, setFamSanity] = useState<F[]>([])
+  useEffect(()=>{
+    getEspecimenesSanity().then(data=>{
+      if(!data||data.length===0) return
+      const grupos: Record<string,F> = {}
+      data.forEach((e:any)=>{
+        const fid = e.familia||'Sin familia'
+        if(!grupos[fid]) grupos[fid]={id:fid,nm:fid,e:[]}
+        grupos[fid].e.push({n:e.n,p:e.p,s:e.s,foto:e.foto,video:e.video})
+      })
+      setFamSanity(Object.values(grupos))
+    })
+  },[])
   const { items:carrito, addItem, updateItems:setCarrito } = useCarrito()
   const [showCarrito, setShowCarrito] = useState(false)
   const [sel, setSel] = useState<E|null>(null)
