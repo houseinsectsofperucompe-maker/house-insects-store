@@ -61,6 +61,8 @@ const MODULOS = [
   { name: 'WorldFirst Bank', path: 'https://www.worldfirst.com/login', icon: '🏦', ext: true },
   { name: 'Metricool', path: 'https://app.metricool.com', icon: '📊', ext: true },
   { name: 'Katenos Business', path: 'https://katenos.com', icon: '🏪', ext: true },
+  { name: 'LinkedIn', path: 'https://www.linkedin.com/company/house-insects-of-peru', icon: '💼', ext: true },
+  { name: 'Flickr', path: 'https://www.flickr.com/photos/houseinsectsofperu', icon: '📷', ext: true },
 ]
 
 export default function AdminPanelDashboard() {
