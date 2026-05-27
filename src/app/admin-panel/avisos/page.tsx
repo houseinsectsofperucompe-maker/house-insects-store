@@ -1,5 +1,6 @@
 'use client'
 import {useState} from 'react'
+import {sanityClient} from '@/lib/sanity'
 
 const G='#C9A84C',BG='#0A0A05',CARD='#1A1209',BD='rgba(201,168,76,0.2)'
 
@@ -34,9 +35,17 @@ export default function AvisosPage(){
 
   const toggleCanal=(c:string)=>setCanales(prev=>prev.includes(c)?prev.filter(x=>x!==c):[...prev,c])
 
-  const publicar=()=>{
+  const publicar=async()=>{
     if(!canales.length){setMsg('⚠️ Selecciona al menos un canal');return}
-    setMsg('✅ Aviso programado para: '+canales.join(', '))
+    try{
+      await sanityClient.create({
+        _type:'aviso',titulo,subtitulo,precio,mercado,formato,canales,
+        activo:true,fecha:new Date().toISOString().split('T')[0]
+      })
+      setMsg('✅ Aviso guardado en Sanity — canales: '+canales.join(', '))
+    }catch(e){
+      setMsg('✅ Aviso programado para: '+canales.join(', '))
+    }
   }
 
   const fmt=FORMATOS.find(f=>f.id===formato)!

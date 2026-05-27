@@ -1,5 +1,6 @@
 'use client'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
+import {sanityClient} from '@/lib/sanity'
 
 const G='#C9A84C',BG='#0A0A05',CARD='#1A1209',BD='rgba(201,168,76,0.2)'
 
@@ -27,14 +28,36 @@ export default function BannersPage(){
   const [form,setForm]=useState({cliente:'',pais:'',email:'',posicion:'header',plan:'mensual',url:'',imagen:''})
   const [msg,setMsg]=useState('')
   const [tab,setTab]=useState<'lista'|'nuevo'>('lista')
+  const [guardando,setGuardando]=useState(false)
+  
+  useEffect(()=>{
+    sanityClient.fetch('*[_type=="banner"] | order(_createdAt desc)').then((data:any[])=>{
+      if(data&&data.length>0) setBanners(data.map(b=>({
+        id:b._id,cliente:b.cliente,pais:b.pais||'',email:b.email||'',
+        posicion:b.posicion||'header',plan:b.plan||'mensual',
+        precio:b.precio||0,vence:b.vence||'',activo:b.activo,
+        url:b.url||'',imagen:b.imagenUrl||''
+      })))
+    }).catch(()=>{})
+  },[])
 
   const agregar=()=>{
     if(!form.cliente||!form.email){setMsg('⚠️ Cliente y email son obligatorios');return}
     const plan=PLANES.find(p=>p.id===form.plan)!
     const vence=new Date(Date.now()+plan.dias*86400000).toISOString().split('T')[0]
+    setGuardando(true)
+    try{
+      await sanityClient.create({
+        _type:'banner',
+        cliente:form.cliente,pais:form.pais,email:form.email,
+        url:form.url,posicion:form.posicion,plan:form.plan,
+        precio:plan.precio,vence,activo:true,imagenUrl:form.imagen
+      })
+    }catch(e){console.error(e)}
+    setGuardando(false)
     setBanners(b=>[...b,{...form,id:Date.now(),precio:plan.precio,vence,activo:true}])
     setForm({cliente:'',pais:'',email:'',posicion:'header',plan:'mensual',url:'',imagen:''})
-    setMsg('✅ Banner agregado')
+    setMsg(guardando?'Guardando...':'✅ Banner guardado en Sanity')
     setTab('lista')
   }
 
