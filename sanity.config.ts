@@ -142,6 +142,20 @@ const avisoSchema = defineType({
   preview:{select:{title:'titulo',subtitle:'mercado'}}
 })
 
+
+const ordenSchema = defineType({
+  name: 'orden',
+  title: 'Ordenes / Categorias',
+  type: 'document',
+  fields: [
+    defineField({name:'nombre',title:'Nombre',type:'string',validation:r=>r.required()}),
+    defineField({name:'icono',title:'Icono',type:'string'}),
+    defineField({name:'activo',title:'Activo',type:'boolean',initialValue:true}),
+    defineField({name:'orden_display',title:'Orden en lista',type:'number'}),
+  ],
+  preview:{select:{title:'nombre',subtitle:'icono'}}
+})
+
 // ── SANITY CONFIG ────────────────────────────────────────────
 export default defineConfig({
   name: 'house-insects-peru',
@@ -154,6 +168,8 @@ export default defineConfig({
         S.list()
           .title('Panel de Administración')
           .items([
+            S.listItem().title('📋 Ordenes / Categorias').child(S.documentTypeList('orden').title('Ordenes')),
+            S.divider(),
             S.listItem().title('🦋 Especies').child(
               S.documentTypeList('especie').title('Todas las Especies')
             ),
@@ -168,6 +184,6 @@ export default defineConfig({
     })
   ],
   schema: {
-    types: [especieSchema, familiaSchema, bannerSchema, avisoSchema],
+    types: [especieSchema, familiaSchema, bannerSchema, avisoSchema, ordenSchema],
   },
 })
