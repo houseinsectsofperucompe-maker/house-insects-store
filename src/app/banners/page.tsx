@@ -1,4 +1,7 @@
 'use client'
+import {useCarrito} from '@/components/CarritoContext'
+import CarritoCompras from '@/components/CarritoCompras'
+import {useState as useS2} from 'react'
 import { useState } from 'react'
 import BannerPago from '@/components/BannerPago'
 
@@ -32,6 +35,9 @@ const CSS = `
 
 export default function BannersPage() {
   const [plan, setPlan] = useState('mes')
+  const {items:carrito,addItem,updateItems:setCarrito}=useCarrito()
+  const [showCarrito,setShowCarrito]=useState(false)
+  const [ok,setOk]=useState(false)
   const [seleccionado, setSeleccionado] = useState<number|null>(null)
   const banner = BANNERS.find(b=>b.id===seleccionado)
   const precio = banner ? banner.precios[plan as keyof typeof banner.precios] : 0
@@ -77,6 +83,7 @@ export default function BannersPage() {
             <p style={{color:'#C9A84C',fontSize:'2rem',fontWeight:700,marginBottom:4}}>${precio} USD</p>
             <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.75rem',marginBottom:20}}>{PLANES.find(p=>p.id===plan)?.label} · Renovable automáticamente</p>
             <div style={{display:'flex',gap:10,justifyContent:'center',flexWrap:'wrap'}}>
+              <button onClick={()=>{if(banner){addItem({n:banner.nombre+' (Banner '+PLANES.find(p=>p.id===plan)?.label+')',p:precio,rubro:'Publicidad'});setOk(true);setShowCarrito(true);setTimeout(()=>setOk(false),2000)}}} style={{background:ok?'#5DBB63':'#C9A84C',color:'#1A1209',padding:'12px 28px',borderRadius:4,fontWeight:700,fontSize:'.85rem',border:'none',cursor:'pointer',marginBottom:8,display:'block',width:'100%'}}>{ok?'✅ Agregado':'🛒 Agregar al carrito'}</button>
               <a href={`https://wa.me/51940699405?text=${msg}`} target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'12px 28px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>💬 +51 940 699 405</a>
               <a href={`https://wa.me/51920644433?text=${msg}`} target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'12px 28px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.85rem'}}>💬 +51 920 644 433</a>
               <BannerPago precio={precio} descripcion={`${banner.nombre} · ${PLANES.find(p=>p.id===plan)?.label}`}/>
@@ -88,5 +95,6 @@ export default function BannersPage() {
         </div>
       </div>
     </div>
+  </>
   )
 }
