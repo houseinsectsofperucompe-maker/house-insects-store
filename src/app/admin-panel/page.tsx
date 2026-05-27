@@ -50,6 +50,17 @@ const MODULOS = [
   { name: 'Maderas & Esculturas', path: '/catalogo/maderas', icon: '🪵', ext: false },
   { name: 'Esencias & Aceites', path: '/catalogo/esencias', icon: '🧴', ext: false },
   { name: 'Bunny.net', path: 'https://dash.bunny.net', icon: '🐰', ext: true },
+  { name: 'Facebook Page', path: 'https://www.facebook.com/houseinsectsofperu', icon: '📘', ext: true },
+  { name: 'Instagram', path: 'https://www.instagram.com/houseinsectsofperu', icon: '📸', ext: true },
+  { name: 'TikTok', path: 'https://www.tiktok.com/@houseinsectsofperu', icon: '🎵', ext: true },
+  { name: 'YouTube', path: 'https://www.youtube.com/@houseinsectsofperu', icon: '▶️', ext: true },
+  { name: 'WeChat Business', path: 'https://work.weixin.qq.com', icon: '💬', ext: true },
+  { name: 'WhatsApp 1', path: 'https://wa.me/51940699405', icon: '📱', ext: true },
+  { name: 'WhatsApp 2', path: 'https://wa.me/51920644433', icon: '📱', ext: true },
+  { name: 'Payoneer', path: 'https://www.payoneer.com/signin', icon: '💳', ext: true },
+  { name: 'WorldFirst Bank', path: 'https://www.worldfirst.com/login', icon: '🏦', ext: true },
+  { name: 'Metricool', path: 'https://app.metricool.com', icon: '📊', ext: true },
+  { name: 'Katenos Business', path: 'https://katenos.com', icon: '🏪', ext: true },
 ]
 
 export default function AdminPanelDashboard() {
