@@ -102,6 +102,46 @@ const familiaSchema = defineType({
   }
 })
 
+
+const bannerSchema = defineType({
+  name: 'banner',
+  title: 'Banners Publicitarios',
+  type: 'document',
+  fields: [
+    defineField({name:'cliente',title:'Cliente/Empresa',type:'string',validation:r=>r.required()}),
+    defineField({name:'pais',title:'País',type:'string'}),
+    defineField({name:'email',title:'Email',type:'string'}),
+    defineField({name:'url',title:'URL destino',type:'url'}),
+    defineField({name:'posicion',title:'Posición',type:'string',options:{list:['header','catalogo','sidebar','footer']}}),
+    defineField({name:'plan',title:'Plan',type:'string',options:{list:['mensual','trimestral','semestral','anual']}}),
+    defineField({name:'precio',title:'Precio USD',type:'number'}),
+    defineField({name:'vence',title:'Fecha vencimiento',type:'date'}),
+    defineField({name:'activo',title:'Activo',type:'boolean',initialValue:true}),
+    defineField({name:'imagen',title:'Imagen del banner',type:'image',options:{hotspot:true}}),
+    defineField({name:'imagenUrl',title:'URL imagen (Bunny.net)',type:'url'}),
+  ],
+  preview:{select:{title:'cliente',subtitle:'plan'}}
+})
+
+
+const avisoSchema = defineType({
+  name: 'aviso',
+  title: 'Avisos & Publicidad',
+  type: 'document',
+  fields: [
+    defineField({name:'titulo',title:'Título',type:'string',validation:r=>r.required()}),
+    defineField({name:'subtitulo',title:'Subtítulo',type:'string'}),
+    defineField({name:'precio',title:'Precio/CTA',type:'string'}),
+    defineField({name:'mercado',title:'Mercado objetivo',type:'string',options:{list:['asia','japon','europa','usa','dubai','latam','global']}}),
+    defineField({name:'formato',title:'Formato',type:'string',options:{list:['instagram','facebook','whatsapp','banner_web','tiktok']}}),
+    defineField({name:'canales',title:'Canales',type:'array',of:[{type:'string'}]}),
+    defineField({name:'activo',title:'Activo',type:'boolean',initialValue:true}),
+    defineField({name:'fecha',title:'Fecha',type:'date'}),
+    defineField({name:'imagen',title:'Imagen',type:'image',options:{hotspot:true}}),
+  ],
+  preview:{select:{title:'titulo',subtitle:'mercado'}}
+})
+
 // ── SANITY CONFIG ────────────────────────────────────────────
 export default defineConfig({
   name: 'house-insects-peru',
@@ -118,6 +158,9 @@ export default defineConfig({
               S.documentTypeList('especie').title('Todas las Especies')
             ),
             S.divider(),
+            S.listItem().title('📢 Banners').child(S.documentTypeList('banner').title('Banners')),
+            S.listItem().title('📣 Avisos').child(S.documentTypeList('aviso').title('Avisos')),
+            S.divider(),
             S.listItem().title('📁 Familias & Subfamilias').child(
               S.documentTypeList('familia').title('Familias')
             ),
@@ -125,6 +168,6 @@ export default defineConfig({
     })
   ],
   schema: {
-    types: [especieSchema, familiaSchema],
+    types: [especieSchema, familiaSchema, bannerSchema, avisoSchema],
   },
 })
