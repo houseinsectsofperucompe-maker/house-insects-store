@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server'
+import { NextResponse, NextRequest } from 'next/server'
 import { createClient } from 'next-sanity'
 
 const client = createClient({
@@ -9,20 +9,22 @@ const client = createClient({
   useCdn: false,
 })
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  const type = req.nextUrl.searchParams.get('type') || 'especie'
   try {
-    const data = await client.fetch(`*[_type=="especie"]{
-      _id,
-      "n": nombre,
-      "p": precio,
-      "s": stock,
-      "foto": fotoFrente,
-      "fotoLado": fotoLado,
-      "fotoReverso": fotoReverso,
-      familia,
-      activo
-    } | order(familia asc, nombre asc)`)
-    return NextResponse.json(data)
+    if (type === 'especie') {
+      const data = await client.fetch(`*[_type=="especie"]{_id,"n":nombre,"p":precio,"s":stock,"foto":fotoFrente,"fotoLado":fotoLado,"fotoReverso":fotoReverso,familia,subfamilia,activo,calidad,sexo,tamano,localidad,descripcion,video}|order(familia asc,nombre asc)`)
+      return NextResponse.json(data)
+    }
+    if (type === 'familia') {
+      const data = await client.fetch(`*[_type=="familia"]{_id,nombre,orden,activo}|order(nombre asc)`)
+      return NextResponse.json(data)
+    }
+    if (type === 'orden') {
+      const data = await client.fetch(`*[_type=="orden"]{_id,nombre,icono,activo}|order(nombre asc)`)
+      return NextResponse.json(data)
+    }
+    return NextResponse.json([])
   } catch(e: any) {
     return NextResponse.json([], { status: 500 })
   }
