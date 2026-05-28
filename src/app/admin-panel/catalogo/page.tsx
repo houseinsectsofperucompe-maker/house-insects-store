@@ -144,6 +144,28 @@ export default function CatalogoPage(){
           </div>
         )}
 
+        {/* FILTROS */}
+        <div style={{background:CARD,border:`1px solid ${BD}`,borderRadius:8,padding:'10px 14px',marginBottom:12,display:'flex',gap:8,flexWrap:'wrap',alignItems:'center'}}>
+          <input value={busq} onChange={e=>{setBusq(e.target.value);setPag(1)}} placeholder="🔍 Buscar..." style={{...s.inp,width:200,flex:'none'}}/>
+          <select value={filtroRubro} onChange={e=>{setFiltroRubro(e.target.value);setPag(1)}} style={{...s.inp,width:150,flex:'none'}}>
+            <option value="todos">Todos los rubros</option>
+            {RUBROS.map(r=><option key={r} value={r}>{r}</option>)}
+          </select>
+          {(tab==='familias'||tab==='subfamilias'||tab==='especies'||tab==='subespecies'||tab==='subordendes')&&(
+            <select value={filtroOrden} onChange={e=>{setFiltroOrden(e.target.value);setPag(1)}} style={{...s.inp,width:180,flex:'none'}}>
+              <option value="Todas">Todas las órdenes</option>
+              {['Lepidoptera Diurnae','Moths Nocturnas','Coleoptera','Arthropoda'].map(o=><option key={o} value={o}>{o}</option>)}
+            </select>
+          )}
+          {(tab==='especies'||tab==='subespecies'||tab==='subfamilias')&&(
+            <select value={filtroFamilia} onChange={e=>{setFiltroFamilia(e.target.value);setPag(1)}} style={{...s.inp,width:160,flex:'none'}}>
+              <option value="Todas">Todas las familias</option>
+              {familias.map((f:any)=><option key={f._id||f.id} value={f.nm||f.nombre||f.id}>{f.nm||f.nombre||f.id} ({contarEspecies(f.id||f.nombre)})</option>)}
+            </select>
+          )}
+          <span style={{color:'rgba(201,168,76,0.4)',fontSize:'.7rem',marginLeft:'auto'}}>{filtrados.length} resultados · pestaña: {tab}</span>
+        </div>
+
         {vista==='lista'&&(
           <div style={{background:CARD,border:`1px solid ${BD}`,borderRadius:8,overflow:'hidden'}}>
             <table style={{width:'100%',borderCollapse:'collapse'}}>
