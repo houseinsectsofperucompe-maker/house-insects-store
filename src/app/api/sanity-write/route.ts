@@ -55,6 +55,15 @@ export async function POST(req: NextRequest) {
       const result = await client.patch(_id).set(rest).commit()
       return NextResponse.json({ ok: true, result })
     }
+        if (action === 'createLogistica') {
+      const result = await client.create({ ...data })
+      return NextResponse.json({ ok: true, result })
+    }
+    if (action === 'updateLogistica') {
+      const {_id,...rest} = data
+      const result = await client.patch(_id).set(rest).commit()
+      return NextResponse.json({ ok: true, result })
+    }
     return NextResponse.json({ ok: false, error: 'Accion no reconocida' })
   } catch (e: any) {
     return NextResponse.json({ ok: false, error: e.message }, { status: 500 })
