@@ -14,7 +14,7 @@ const RUBROS=['especimenes','diurnas','joyeria','rarezas','artesanias','herramie
 const TIPOS_ATRIB=['tamano','sexo','calidad','montaje','color','material','talla','peso','volumen','dimension','presentacion','variedad','tecnica']
 const TALLAS_MARIPOSA=['S (3-5 cm)','M (5-8 cm)','L (8-12 cm)','XL (12-15 cm)','XXL (15-20 cm)','XXXL (20+ cm)']
 
-type TabType='ordenes'|'categorias'|'familias'|'atributos'|'combinaciones'
+type TabType='ordenes'|'subordendes'|'categorias'|'subcategorias'|'familias'|'subfamilias'|'atributos'|'combinaciones'|'subespecies'
 
 export default function CatalogoPage(){
   const [tab,setTab]=useState<TabType>('ordenes')
@@ -32,7 +32,7 @@ export default function CatalogoPage(){
     fetch('/api/sanity-read').then(r=>r.json()).then(d=>setEspecies(Array.isArray(d)?d:[]))
   },[])
 
-  const typeMap:Record<TabType,string>={ordenes:'orden',categorias:'categoria',familias:'familia',atributos:'atributo',combinaciones:'combinacion'}
+  const typeMap:Record<TabType,string>={ordenes:'orden',subordendes:'suborden',categorias:'categoria',subcategorias:'subcategoria',familias:'familia',subfamilias:'subfamilia',atributos:'atributo',combinaciones:'combinacion',subespecies:'subespecie'}
 
   const cargar=async()=>{
     setLoading(true)
@@ -73,10 +73,14 @@ export default function CatalogoPage(){
 
   const TABS:Array<{k:TabType,l:string}> = [
     {k:'ordenes',l:'📋 Órdenes'},
+    {k:'subordendes',l:'📋 Subordendes'},
     {k:'categorias',l:'🗂️ Categorías'},
+    {k:'subcategorias',l:'🗂️ Subcategorías'},
     {k:'familias',l:'📁 Familias'},
+    {k:'subfamilias',l:'📁 Subfamilias'},
     {k:'atributos',l:'🎨 Atributos'},
     {k:'combinaciones',l:'🔀 Combinaciones'},
+    {k:'subespecies',l:'🦋 Subespecies'},
   ]
 
   return(
