@@ -4,7 +4,7 @@ export const sanityClient = createClient({
   projectId: 'lyty7d3g',
   dataset: 'production',
   apiVersion: '2024-01-01',
-  token: 'sklfHrDIKRAM4FzHerAVfprMrhxYUfjuArRwMmhMRtgCb9Bwf6QfSqoLQ2kJwcj1s1awC86sXf6x7DdnZ',
+  token: 'skhMd82U9n5Vf5FwJed24DkdCWUoLvffGbV6nfc0bDhPvjgj34v4n2lRPt5q1xJGqEQsr1UxOJt3TLPtmC2gh6UBtPjyKL343jEHOVbOqVfxGTAfuQ8qOEdywdn8xvzGF0U1Za907rHfhWzI8mzrq9SpPNhhpJnDx8CZT1Hi6sSHgv1Toofr',
   useCdn: false,
 })
 
