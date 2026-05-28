@@ -1,6 +1,6 @@
 'use client'
 import {useState} from 'react'
-import {sanityClient} from '@/lib/sanity'
+import {sanityClient} 
 
 const G='#C9A84C',BG='#0A0A05',CARD='#1A1209',BD='rgba(201,168,76,0.2)'
 
