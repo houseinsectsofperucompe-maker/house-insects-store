@@ -2,6 +2,7 @@
   {
     "id": "Brassolidae",
     "nm": "Brassolidae",
+    "orden": "Lepidoptera Diurnae",
     "e": [
       {
         "n": "Caligo eurilochus livius",
@@ -127,6 +128,7 @@
   {
     "id": "Danaidae",
     "nm": "Danaidae",
+    "orden": "Lepidoptera Diurnae",
     "e": [
       {
         "n": "Danaus plexippus nigrippus",
@@ -158,6 +160,7 @@
   {
     "id": "Heliconidae",
     "nm": "Heliconidae",
+    "orden": "Lepidoptera Diurnae",
     "e": [
       {
         "n": "Dione juno",
@@ -239,6 +242,7 @@
   {
     "id": "Ithomiidae",
     "nm": "Ithomiidae",
+    "orden": "Lepidoptera Diurnae",
     "e": [
       {
         "n": "Godyris duillia",
@@ -280,11 +284,13 @@
   {
     "id": "Hesperiidae",
     "nm": "Hesperiidae",
+    "orden": "Lepidoptera Diurnae",
     "e": []
   },
   {
     "id": "Lycaenidae",
     "nm": "Lycaenidae",
+    "orden": "Lepidoptera Diurnae",
     "e": [
       {
         "n": "Arawacus seperata",
@@ -321,6 +327,7 @@
   {
     "id": "Morphidae",
     "nm": "Morphidae",
+    "orden": "Lepidoptera Diurnae",
     "e": [
       {
         "n": "Morpho absoloni",
@@ -482,6 +489,7 @@
   {
     "id": "Nymphalidae",
     "nm": "Nymphalidae",
+    "orden": "Lepidoptera Diurnae",
     "e": [
       {
         "n": "Adelpha mesentina",
@@ -1313,6 +1321,7 @@
   {
     "id": "Papilionidae",
     "nm": "Papilionidae",
+    "orden": "Lepidoptera Diurnae",
     "e": [
       {
         "n": "Battus crassus",
@@ -1509,6 +1518,7 @@
   {
     "id": "Pieridae",
     "nm": "Pieridae",
+    "orden": "Lepidoptera Diurnae",
     "e": [
       {
         "n": "Anteos chlorinde",
@@ -1655,6 +1665,7 @@
   {
     "id": "Riodinidae",
     "nm": "Riodinidae",
+    "orden": "Lepidoptera Diurnae",
     "e": [
       {
         "n": "Ancyluris aulestes",
@@ -1771,6 +1782,7 @@
   {
     "id": "Satyridae",
     "nm": "Satyridae",
+    "orden": "Lepidoptera Diurnae",
     "e": [
       {
         "n": "Cithaerais pireta",
@@ -1858,5 +1870,353 @@
         "s": 1000
       }
     ]
+  },
+  {
+    "id": "Arctiidae",
+    "nm": "Arctiidae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Castnia",
+    "nm": "Castnia",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Hepalidae",
+    "nm": "Hepalidae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Saturnidae",
+    "nm": "Saturnidae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Sphingidae",
+    "nm": "Sphingidae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Uranidae",
+    "nm": "Uranidae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Geometridae",
+    "nm": "Geometridae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Noctuidae",
+    "nm": "Noctuidae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Erebidae",
+    "nm": "Erebidae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Acontiinae",
+    "nm": "Acontiinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Acronictinae",
+    "nm": "Acronictinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Agaristinae",
+    "nm": "Agaristinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Amphipyrinae",
+    "nm": "Amphipyrinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Bagisarinae",
+    "nm": "Bagisarinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Balsinae",
+    "nm": "Balsinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Bryophilinae",
+    "nm": "Bryophilinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Calpinae",
+    "nm": "Calpinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Catocalinae",
+    "nm": "Catocalinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Cocytiinae",
+    "nm": "Cocytiinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Condicinae",
+    "nm": "Condicinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Cuculliinae",
+    "nm": "Cuculliinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Dilobinae",
+    "nm": "Dilobinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Eustrotiinae",
+    "nm": "Eustrotiinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Euteliinae",
+    "nm": "Euteliinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Hadeninae",
+    "nm": "Hadeninae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Heliothinae",
+    "nm": "Heliothinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Herminiinae",
+    "nm": "Herminiinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Noctuinae",
+    "nm": "Noctuinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Ophiderinae",
+    "nm": "Ophiderinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Pantheinae",
+    "nm": "Pantheinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Plusiinae",
+    "nm": "Plusiinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Stictopterinae",
+    "nm": "Stictopterinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Stiriinae",
+    "nm": "Stiriinae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Strepsimaninae",
+    "nm": "Strepsimaninae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Xyleninae",
+    "nm": "Xyleninae",
+    "orden": "Moths Nocturnas",
+    "e": []
+  },
+  {
+    "id": "Buprestidae",
+    "nm": "Buprestidae",
+    "orden": "Coleoptera",
+    "e": []
+  },
+  {
+    "id": "Cerambycidae",
+    "nm": "Cerambycidae",
+    "orden": "Coleoptera",
+    "e": []
+  },
+  {
+    "id": "Cetonidae",
+    "nm": "Cetonidae",
+    "orden": "Coleoptera",
+    "e": []
+  },
+  {
+    "id": "Chrysomelidae",
+    "nm": "Chrysomelidae",
+    "orden": "Coleoptera",
+    "e": []
+  },
+  {
+    "id": "Cicindelidae",
+    "nm": "Cicindelidae",
+    "orden": "Coleoptera",
+    "e": []
+  },
+  {
+    "id": "Curculionidae",
+    "nm": "Curculionidae",
+    "orden": "Coleoptera",
+    "e": []
+  },
+  {
+    "id": "Dynastidae",
+    "nm": "Dynastidae",
+    "orden": "Coleoptera",
+    "e": []
+  },
+  {
+    "id": "Elateridae",
+    "nm": "Elateridae",
+    "orden": "Coleoptera",
+    "e": []
+  },
+  {
+    "id": "Euchiridae",
+    "nm": "Euchiridae",
+    "orden": "Coleoptera",
+    "e": []
+  },
+  {
+    "id": "Lucanidae",
+    "nm": "Lucanidae",
+    "orden": "Coleoptera",
+    "e": []
+  },
+  {
+    "id": "Rutilidae",
+    "nm": "Rutilidae",
+    "orden": "Coleoptera",
+    "e": []
+  },
+  {
+    "id": "Scarabaeidae",
+    "nm": "Scarabaeidae",
+    "orden": "Coleoptera",
+    "e": []
+  },
+  {
+    "id": "Trictenotomidae",
+    "nm": "Trictenotomidae",
+    "orden": "Coleoptera",
+    "e": []
+  },
+  {
+    "id": "Spider",
+    "nm": "Spider (Araneae)",
+    "orden": "Arthropoda",
+    "e": []
+  },
+  {
+    "id": "Homoptera",
+    "nm": "Homoptera (Cicada)",
+    "orden": "Arthropoda",
+    "e": []
+  },
+  {
+    "id": "Phasmidae",
+    "nm": "Phasmidae",
+    "orden": "Arthropoda",
+    "e": []
+  },
+  {
+    "id": "Phylliidae",
+    "nm": "Phylliidae",
+    "orden": "Arthropoda",
+    "e": []
+  },
+  {
+    "id": "Mantidae",
+    "nm": "Mantidae (Mantis)",
+    "orden": "Arthropoda",
+    "e": []
+  },
+  {
+    "id": "Orthoptera",
+    "nm": "Orthoptera (Grillidae)",
+    "orden": "Arthropoda",
+    "e": []
+  },
+  {
+    "id": "Hemiptera",
+    "nm": "Hemiptera",
+    "orden": "Arthropoda",
+    "e": []
+  },
+  {
+    "id": "Hymenoptera",
+    "nm": "Hymenoptera",
+    "orden": "Arthropoda",
+    "e": []
+  },
+  {
+    "id": "Escorpion",
+    "nm": "Escorpion",
+    "orden": "Arthropoda",
+    "e": []
+  },
+  {
+    "id": "Odonata",
+    "nm": "Odonata",
+    "orden": "Arthropoda",
+    "e": []
   }
 ]
