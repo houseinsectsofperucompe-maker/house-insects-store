@@ -87,40 +87,21 @@ export default function EspecimenesPage(){
   const guardar=async()=>{
     if(!espEdit.n||!espEdit.familia){mostrar('❌ Nombre y familia obligatorios');return}
     setGuardando(true)
-    const action=espEdit._id?'update':'create'
-    const data=espEdit._id?{
-      _id:espEdit._id,
-      precio:espEdit.p||0,
-      precioMayorista:espEdit.precioMayorista||0,
-      precioVIP:espEdit.precioVIP||0,
-      stock:espEdit.s||0,
-      stockMinimo:espEdit.stockMinimo||5,
-      fotoFrente:espEdit.foto||'',
+    const action=espEdit._id?'updateEspecie':'addEspecie'
+    const data={
+      n:espEdit.n,
+      nOriginal:espEdit.n,
+      p:espEdit.p||0,
+      s:espEdit.s||0,
+      foto:espEdit.foto||'',
       fotoLado:espEdit.fotoLado||'',
       fotoReverso:espEdit.fotoReverso||'',
       video:espEdit.video||'',
-      activo:espEdit.activo!==false,
+      familia:espEdit.familia,
       calidad:espEdit.calidad||'A1',
       sexo:espEdit.sexo||'M or F',
       tamano:espEdit.tamano||'',
-      montaje:espEdit.montaje||'',
-      familia:espEdit.familia,
-      subfamilia:espEdit.subfamilia||'',
-      ordenCategoria:espEdit.ordenCategoria||'Lepidoptera Diurnae',
-      descripcion:espEdit.descripcion||'',
-      codigoQR:espEdit.codigoQR||'',
-      partidaArancelaria:espEdit.partidaArancelaria||'9705.00.00',
-      pesoGramos:espEdit.pesoGramos||0,
-    }:{
-      nombre:espEdit.n,
-      familia:espEdit.familia,
-      subfamilia:espEdit.subfamilia||'',
-      ordenCategoria:espEdit.ordenCategoria||'Lepidoptera Diurnae',
-      precio:espEdit.p||0,
-      stock:espEdit.s||0,
-      calidad:espEdit.calidad||'A1',
-      sexo:espEdit.sexo||'M or F',
-      activo:true,
+      activo:espEdit.activo!==false,
     }
     const r=await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,data})})
     const res=await r.json()
