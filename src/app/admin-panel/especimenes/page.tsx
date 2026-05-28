@@ -155,7 +155,7 @@ export default function GestorCatalogo(){
             <h1 style={{color:'#E8C97A',fontSize:'1.1rem',fontWeight:400,margin:0}}>{rubroActual?.nm}</h1>
             {rubro==='especimenes'&&<p style={{color:'rgba(201,168,76,0.4)',fontSize:'.65rem',margin:'4px 0 0'}}>{especies.length} especies · {sinPrecio>0&&<span style={{color:'#ff9966'}}>{sinPrecio} sin precio · </span>}{familias.length} familias · {ordenes.length} órdenes</p>}
           </div>
-          <div style={{display:'flex',gap:8}}>
+          <div style={{display:'flex',gap:8,marginRight:220}}>
             <button onClick={cargar} style={btn('rgba(201,168,76,0.1)',G,{border:`1px solid ${BD}`})}>🔄 Actualizar</button>
             {rubro==='especimenes'&&<button onClick={()=>{setEspEdit({activo:true,calidad:'A1',sexo:'M or F'});setVista('nuevo')}} style={btn(G,CARD)}>+ Nueva especie</button>}
           </div>
