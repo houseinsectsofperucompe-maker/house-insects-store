@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       `}</Script>
       <body style={{fontFamily:"Georgia,serif"}}>
         <CarritoProvider>
-        <div style={{position:"fixed",top:12,left:12,zIndex:9999,display:"flex",gap:8,alignItems:"center"}}><CarritoBoton/><CurrencySelector/><LangSelector/></div>
+        <div style={{position:"fixed",top:12,right:12,zIndex:9999,display:"flex",gap:8,alignItems:"center"}}><CarritoBoton/><CurrencySelector/><LangSelector/></div>
         {children}
         <ContactoFlotante />
         </CarritoProvider>
