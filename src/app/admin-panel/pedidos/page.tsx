@@ -92,7 +92,7 @@ export default function PedidosPage(){
   return(
     <div style={s.page}>
       <div style={{padding:24}}>
-        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:20,flexWrap:'wrap',gap:8}}>
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:20,flexWrap:'wrap',gap:8,paddingRight:300}}>
           <div>
             <h1 style={{color:'#E8C97A',fontSize:'1.1rem',fontWeight:400,margin:0}}>🛒 Pedidos</h1>
             <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.65rem',margin:'4px 0 0'}}>{pedidos.length} pedidos · <span style={{color:'#5DBB63'}}>Total ventas: ${totalVentas.toFixed(2)}</span> · {pendientes} pendientes · {enviados} enviados</p>
