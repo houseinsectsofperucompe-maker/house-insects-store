@@ -12,6 +12,7 @@ const MODULOS = [
   { name: 'Clientes', path: '/admin-panel/clientes', icon: '👥', ext: false },
   { name: 'Stock', path: '/admin-panel/stock', icon: '📦', ext: false },
   { name: 'Logistica y Pagos', path: '/admin-panel/logistica', icon: '🚚', ext: false },
+  { name: 'SEO', path: '/admin-panel/seo', icon: '🔍', ext: false },
   { name: 'Clientes', path: '/admin-panel/clientes', icon: '👥', ext: false },
   { name: 'Fotos & Sellos', path: '/admin-panel/sellos', icon: '🛡️', ext: false },
   { name: 'Archivos', path: '/admin-panel/archivos', icon: '📁', ext: false },
