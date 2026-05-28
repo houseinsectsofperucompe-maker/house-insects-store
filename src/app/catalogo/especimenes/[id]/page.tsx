@@ -24,7 +24,7 @@ export default function EspecimenPage() {
     const idx = parseInt(parts[parts.length - 1])
     const famId = parts.slice(0, parts.length - 1).join('-')
     
-    fetch(`/api/datos?familia=${famId}`)
+    fetch(`/api/familia?id=${famId}`)
       .then(r => r.json())
       .then(fam => {
         if (!fam || !fam.e) { setLoading(false); return }
