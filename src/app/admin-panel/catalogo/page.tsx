@@ -107,7 +107,6 @@ export default function CatalogoPage(){
     {k:'subespecies',l:'↳ Subespecies'},
     {k:'atributos',l:'🎨 Atributos'},
     {k:'combinaciones',l:'🔀 Combinaciones'},
-    {k:'subespecies',l:'🦋 Subespecies'},
   ]
 
   return(
