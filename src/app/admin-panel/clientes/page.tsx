@@ -31,7 +31,7 @@ export default function ClientesPage(){
   const cargar=async()=>{
     setLoading(true)
     try{
-      const r=await fetch('/api/sanity-read?type=cliente')
+      const r=await fetch('/api/datos?tipo=cliente')
       const d=await r.json()
       setClientes(Array.isArray(d)?d:[])
     }catch(e){mostrar('❌ Error')}
@@ -45,7 +45,7 @@ export default function ClientesPage(){
     setGuardando(true)
     const action=cliEdit._id?'updateCliente':'createCliente'
     const data={...cliEdit,fecha:cliEdit.fecha||new Date().toISOString(),activo:cliEdit.activo!==false}
-    const r=await fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,data})})
+    const r=await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,data})})
     const res=await r.json()
     if(res.ok){mostrar('✅ Guardado');setVista('lista');cargar()}
     else mostrar('❌ '+res.error)
@@ -54,7 +54,7 @@ export default function ClientesPage(){
 
   const eliminar=async(id:string,n:string)=>{
     if(!confirm(`¿Eliminar cliente "${n}"?`))return
-    await fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',data:{_id:id}})})
+    await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',data:{_id:id}})})
     mostrar('🗑️ Eliminado');cargar()
   }
 

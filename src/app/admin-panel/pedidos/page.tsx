@@ -43,7 +43,7 @@ export default function PedidosPage(){
   const cargar=async()=>{
     setLoading(true)
     try{
-      const r=await fetch('/api/sanity-read?type=pedido')
+      const r=await fetch('/api/datos?tipo=pedido')
       const d=await r.json()
       setPedidos(Array.isArray(d)?d:[])
     }catch(e){mostrar('❌ Error cargando')}
@@ -60,7 +60,7 @@ export default function PedidosPage(){
     const drawback=total*0.03
     const data={...pedEdit,numero,total,drawback,fecha:pedEdit.fecha||new Date().toISOString(),estado:pedEdit.estado||'pendiente'}
     const action=pedEdit._id?'updatePedido':'createPedido'
-    const r=await fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,data})})
+    const r=await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,data})})
     const res=await r.json()
     if(res.ok){mostrar('✅ Guardado');setVista('lista');cargar()}
     else mostrar('❌ '+res.error)
@@ -68,13 +68,13 @@ export default function PedidosPage(){
   }
 
   const cambiarEstado=async(id:string,estado:string)=>{
-    await fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'updateEstadoPedido',data:{_id:id,estado}})})
+    await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'updateEstadoPedido',data:{_id:id,estado}})})
     mostrar('✅ Estado actualizado');cargar()
   }
 
   const eliminar=async(id:string,n:string)=>{
     if(!confirm(`¿Eliminar pedido "${n}"?`))return
-    await fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',data:{_id:id}})})
+    await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',data:{_id:id}})})
     mostrar('🗑️ Eliminado');cargar()
   }
 

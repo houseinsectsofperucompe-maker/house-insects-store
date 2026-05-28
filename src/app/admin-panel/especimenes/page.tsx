@@ -56,14 +56,15 @@ export default function EspecimenesPage(){
   const cargarTodo=async()=>{
     setLoading(true)
     try{
-      const [e,f,o]=await Promise.all([
-        fetch('/api/datos').then(r=>r.json()),
-        fetch('/api/datos?tipo=resumen').then(r=>r.json()),
-        fetch('/api/datos?tipo=resumen').then(r=>r.json()),
-      ])
-      setEspecies(Array.isArray(e)?e:[])
-      setFamilias(Array.isArray(f)?f:[])
-      setOrdenes(Array.isArray(o)?o:[])
+      const fams = await fetch('/api/datos').then(r=>r.json())
+      const famsList = Array.isArray(fams)?fams:[]
+      // Aplanar todas las especies de todas las familias
+      const especiesList = famsList.flatMap((fam:any)=>
+        (fam.e||[]).map((e:any)=>({...e,familia:fam.id,_id:fam.id+'_'+e.n}))
+      )
+      setEspecies(especiesList)
+      setFamilias(famsList.map((f:any)=>({_id:f.id,nombre:f.nm||f.id,orden:f.orden||'Lepidoptera Diurnae',activo:true})))
+      setOrdenes([])
     }catch(e){mostrar('❌ Error cargando')}
     setLoading(false)
   }

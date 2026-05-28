@@ -41,7 +41,7 @@ export default function LogisticaPage(){
     setGuardando(true)
     const type=tab==='transportistas'?'transportista':tab==='aseguradoras'?'aseguradora':'pagoConfig'
     const action=edit._id?'updateLogistica':'createLogistica'
-    const r=await fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,data:{...edit,_type:type}})})
+    const r=await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,data:{...edit,_type:type}})})
     const res=await r.json()
     if(res.ok){mostrar('✅ Guardado');setVista('lista');cargar()}
     else mostrar('❌ '+res.error)
@@ -50,7 +50,7 @@ export default function LogisticaPage(){
 
   const eliminar=async(id:string,n:string)=>{
     if(!confirm(`¿Eliminar "${n}"?`))return
-    await fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',data:{_id:id}})})
+    await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',data:{_id:id}})})
     mostrar('🗑️ Eliminado');cargar()
   }
 

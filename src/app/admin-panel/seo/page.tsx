@@ -26,7 +26,7 @@ export default function SeoPage(){
   const cargar=async()=>{
     setLoading(true)
     try{
-      const r=await fetch('/api/sanity-read?type=seoConfig')
+      const r=await fetch('/api/datos?tipo=seoConfig')
       const d=await r.json()
       setItems(Array.isArray(d)?d:[])
     }catch(e){}
@@ -39,7 +39,7 @@ export default function SeoPage(){
     if(!edit.rubro){mostrar('❌ Rubro obligatorio');return}
     setGuardando(true)
     const action=edit._id?'updateSeo':'createSeo'
-    const r=await fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,data:edit})})
+    const r=await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,data:edit})})
     const res=await r.json()
     if(res.ok){mostrar('✅ SEO guardado');setVista('lista');cargar()}
     else mostrar('❌ '+res.error)
@@ -48,7 +48,7 @@ export default function SeoPage(){
 
   const eliminar=async(id:string,r:string)=>{
     if(!confirm(`¿Eliminar SEO de "${r}"?`))return
-    await fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',data:{_id:id}})})
+    await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',data:{_id:id}})})
     mostrar('🗑️ Eliminado');cargar()
   }
 
