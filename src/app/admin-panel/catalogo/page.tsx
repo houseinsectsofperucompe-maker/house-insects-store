@@ -30,6 +30,7 @@ export default function CatalogoPage(){
   const [famSelDetalle,setFamSelDetalle]=useState('')
   const [filtroOrden,setFiltroOrden]=useState('Todas')
   const [filtroFamilia,setFiltroFamilia]=useState('Todas')
+  const [filtroRubro,setFiltroRubro]=useState('todos')
   const [especiesFam,setEspeciesFam]=useState<any[]>([])
   const [loadingFam,setLoadingFam]=useState(false)
 
