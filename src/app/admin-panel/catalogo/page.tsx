@@ -159,7 +159,7 @@ export default function CatalogoPage(){
   const filtrados=items.filter((it:any)=>{
     const nombre=(it.nm||it.nombre||it.n||it.familiaName||'').toLowerCase()
     const enBusq=nombre.includes(busq.toLowerCase())
-    const enOrden=filtroOrden==='Todas'||it.orden===filtroOrden||it.ordenCategoria===filtroOrden||tab==='ordenes'||tab==='categorias'||tab==='subcategorias'||tab==='subordendes'
+    const enOrden=filtroOrden==='Todas'||it.orden===filtroOrden||it.ordenCategoria===filtroOrden||tab==='ordenes'||tab==='categorias'||tab==='subcategorias'||tab==='subordendes'||tab==='ordenes'||tab==='categorias'||tab==='subcategorias'||tab==='subordendes'
     const enFam=filtroFamilia==='Todas'||it.familia===filtroFamilia||it.id===filtroFamilia
     const enRubro=filtroRubro==='todos'||it.rubro===filtroRubro||['ordenes','familias','especies','subfamilias','subespecies','subordendes'].includes(tab)
     return enBusq&&enOrden&&enFam&&enRubro
