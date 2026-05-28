@@ -14,7 +14,7 @@ const RUBROS=['especimenes','diurnas','joyeria','rarezas','artesanias','herramie
 const TIPOS_ATRIB=['tamano','sexo','calidad','montaje','color','material','talla','peso','volumen','dimension','presentacion','variedad','tecnica']
 const TALLAS_MARIPOSA=['S (3-5 cm)','M (5-8 cm)','L (8-12 cm)','XL (12-15 cm)','XXL (15-20 cm)','XXXL (20+ cm)']
 
-type TabType='ordenes'|'subordendes'|'categorias'|'subcategorias'|'familias'|'subfamilias'|'atributos'|'combinaciones'|'subespecies'
+type TabType='ordenes'|'subordendes'|'categorias'|'subcategorias'|'familias'|'subfamilias'|'especies'|'subespecies'|'atributos'|'combinaciones'
 
 export default function CatalogoPage(){
   const [tab,setTab]=useState<TabType>('ordenes')
