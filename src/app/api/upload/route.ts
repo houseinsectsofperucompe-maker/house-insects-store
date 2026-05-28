@@ -51,7 +51,7 @@ export async function POST(req: NextRequest) {
       const public_id = `house-insects/${familia.toLowerCase()}/${nombre}-${tipo}`
       const result = await new Promise<any>((resolve, reject) => {
         cloudinary.uploader.upload_stream(
-          {public_id, format:'webp', quality:85, overwrite:true},
+          {public_id, format:'webp', quality:82, overwrite:true, width:800, height:800, crop:'limit'},
           (err, res) => err ? reject(err) : resolve(res)
         ).end(buffer)
       })
