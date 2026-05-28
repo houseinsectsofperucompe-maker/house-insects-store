@@ -29,7 +29,7 @@ export default function StockPage(){
   const cargar=async()=>{
     setLoading(true)
     try{
-      const r=await fetch('/api/sanity-read')
+      const r=await fetch('/api/datos')
       const d=await r.json()
       setEspecies(Array.isArray(d)?d:[])
     }catch(e){mostrar('❌ Error')}
@@ -42,7 +42,7 @@ export default function StockPage(){
     const nuevoStock=editStock[esp._id]
     if(nuevoStock===undefined)return
     setGuardando(p=>({...p,[esp._id]:true}))
-    const r=await fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'update',data:{_id:esp._id,precio:esp.p,stock:nuevoStock,activo:esp.activo}})})
+    const r=await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'update',data:{_id:esp._id,precio:esp.p,stock:nuevoStock,activo:esp.activo}})})
     const res=await r.json()
     if(res.ok){mostrar('✅ Stock actualizado');setEditStock(p=>{const n={...p};delete n[esp._id];return n});cargar()}
     else mostrar('❌ '+res.error)

@@ -57,9 +57,9 @@ export default function EspecimenesPage(){
     setLoading(true)
     try{
       const [e,f,o]=await Promise.all([
-        fetch('/api/sanity-read').then(r=>r.json()),
-        fetch('/api/sanity-read?type=familia').then(r=>r.json()),
-        fetch('/api/sanity-read?type=orden').then(r=>r.json()),
+        fetch('/api/datos').then(r=>r.json()),
+        fetch('/api/datos?tipo=resumen').then(r=>r.json()),
+        fetch('/api/datos?tipo=resumen').then(r=>r.json()),
       ])
       setEspecies(Array.isArray(e)?e:[])
       setFamilias(Array.isArray(f)?f:[])
@@ -121,7 +121,7 @@ export default function EspecimenesPage(){
       sexo:espEdit.sexo||'M or F',
       activo:true,
     }
-    const r=await fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,data})})
+    const r=await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,data})})
     const res=await r.json()
     if(res.ok){mostrar('✅ Guardado');setVista('lista');cargarTodo()}
     else mostrar('❌ '+res.error)
@@ -129,7 +129,7 @@ export default function EspecimenesPage(){
   }
 
   const duplicar=async(esp:Especie)=>{
-    const r=await fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'create',data:{
+    const r=await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'create',data:{
       nombre:esp.n+' (copia)',
       familia:esp.familia,
       subfamilia:esp.subfamilia||'',
@@ -147,18 +147,18 @@ export default function EspecimenesPage(){
 
   const eliminar=async(id:string,n:string)=>{
     if(!confirm(`¿Eliminar "${n}"?`))return
-    await fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',data:{_id:id}})})
+    await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',data:{_id:id}})})
     mostrar('🗑️ Eliminado');cargarTodo()
   }
 
   const eliminarSeleccionados=async()=>{
     if(!seleccionados.length||!confirm(`¿Eliminar ${seleccionados.length} especies?`))return
-    await Promise.all(seleccionados.map(id=>fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',data:{_id:id}})})))
+    await Promise.all(seleccionados.map(id=>fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',data:{_id:id}})})))
     setSeleccionados([]);mostrar(`🗑️ ${seleccionados.length} eliminados`);cargarTodo()
   }
 
   const moverFamilia=async(ids:string[],nuevaFamilia:string,nuevaOrden:string)=>{
-    await Promise.all(ids.map(id=>fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'update',data:{_id:id,familia:nuevaFamilia,ordenCategoria:nuevaOrden,precio:0,stock:0,activo:true}})})))
+    await Promise.all(ids.map(id=>fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'update',data:{_id:id,familia:nuevaFamilia,ordenCategoria:nuevaOrden,precio:0,stock:0,activo:true}})})))
     setSeleccionados([]);mostrar(`✅ ${ids.length} movidas a ${nuevaFamilia}`);cargarTodo()
   }
 

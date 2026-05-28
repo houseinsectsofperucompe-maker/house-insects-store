@@ -33,8 +33,8 @@ export default function CatalogoPage(){
 
   useEffect(()=>{cargar()},[tab])
   useEffect(()=>{
-    fetch("/api/sanity-read").then(r=>r.json()).then(d=>setEspecies(Array.isArray(d)?d:[]))
-    fetch("/api/sanity-read?type=familia").then(r=>r.json()).then(d=>setFamilias(Array.isArray(d)?d:[]))
+    fetch("/api/datos").then(r=>r.json()).then(d=>setEspecies(Array.isArray(d)?d:[]))
+    fetch("/api/datos?tipo=resumen").then(r=>r.json()).then(d=>setFamilias(Array.isArray(d)?d:[]))
   },[])
 
   const typeMap:Record<TabType,string>={ordenes:'orden',subordendes:'suborden',categorias:'categoria',subcategorias:'subcategoria',familias:'familia',subfamilias:'subfamilia',especies:'especie',subespecies:'subespecie',atributos:'atributo',combinaciones:'combinacion'}
@@ -71,7 +71,7 @@ export default function CatalogoPage(){
     setGuardando(true)
     const _type=typeMap[tab]
     const action=edit._id?'updateCatalogo':'createCatalogo'
-    const r=await fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,data:{...edit,_type}})})
+    const r=await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,data:{...edit,_type}})})
     const res=await r.json()
     if(res.ok){mostrar('✅ Guardado');setVista('lista');cargar()}
     else mostrar('❌ '+res.error)
@@ -80,7 +80,7 @@ export default function CatalogoPage(){
 
   const eliminar=async(id:string,n:string)=>{
     if(!confirm(`¿Eliminar "${n}"?`))return
-    await fetch('/api/sanity-write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',data:{_id:id}})})
+    await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',data:{_id:id}})})
     mostrar('🗑️ Eliminado');cargar()
   }
 
