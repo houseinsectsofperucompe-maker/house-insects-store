@@ -163,7 +163,17 @@ function PopupAbrev({onClose,foto,nombre}:{onClose:()=>void,foto?:string,nombre?
 export default function Page() {
   const [ord, setOrd] = useState('Lepidoptera Diurnae')
   const [fid, setFid] = useState('Brassolidae')
+  const [famData, setFamData] = useState<{[k:string]:E[]}>({})
   const { items:carrito, addItem, updateItems:setCarrito } = useCarrito()
+  
+  useEffect(()=>{
+    fetch('/api/datos').then(r=>r.json()).then((data:any[])=>{
+      if(!Array.isArray(data))return
+      const map:{[k:string]:E[]}={}
+      data.forEach(f=>{if(f.id&&Array.isArray(f.e))map[f.id]=f.e})
+      setFamData(map)
+    }).catch(()=>{})
+  },[])
   const [showCarrito, setShowCarrito] = useState(false)
   const [sel, setSel] = useState<E|null>(null)
   const [q, setQ] = useState('')
@@ -175,7 +185,10 @@ export default function Page() {
   const [vidrio, setVidrio] = useState('normal')
   const [vista, setVista] = useState<'frente'|'lado'|'reverso'|'video'>('frente')
   const catAct = ORDS.find(c=>c.o===ord)!
-  const famActivas = catAct.f
+  const famActivas = catAct.f.map(f=>({
+    ...f,
+    e: famData[f.id] || f.e
+  }))
   const fam = famActivas.find(f=>f.id===fid)||famActivas[0]
   const filtrados = fam.e.filter(e=>e.n.toLowerCase().includes(q.toLowerCase()))
   const totalPag = Math.ceil(filtrados.length/POR_PAG)
