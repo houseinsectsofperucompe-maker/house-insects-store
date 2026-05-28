@@ -280,7 +280,7 @@ export default function CatalogoPage(){
                   <tbody>
                     {pagActual.map((it:any,idx:number)=>(
                       <tr key={it._id||it.id||idx}>
-                        <td style={{...ss.td,fontStyle:'italic',fontWeight:600}}>{it.nm||it.nombre||it.n||'—'}</td>
+                        <td style={{...ss.td,fontStyle:'italic',fontWeight:600}}>{it.nombre||it.nm||it.n||'—'}</td>
                         {tab==='ordenes'&&<>
                           <td style={ss.td}>{it.icono||'—'}</td>
                           <td style={{...ss.td,color:'#64A5ED',fontWeight:700}}>{familias.filter((f:any)=>f.orden===it.nombre).length}</td>
