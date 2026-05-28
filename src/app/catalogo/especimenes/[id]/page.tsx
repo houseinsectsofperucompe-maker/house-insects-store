@@ -71,7 +71,7 @@ export default function EspecimenPage() {
               {vista === 'video' && especie.video ? (
                 <video src={especie.video} controls style={{width:'100%',height:'100%',objectFit:'contain'}}/>
               ) : foto ? (
-                <img src={foto} alt={especie.n} style={{width:'100%',height:'100%',objectFit:'contain'}}/>
+                <img src={foto} alt={especie.n} style={{width:'100%',height:'100%',objectFit:'contain'}} onError={(e:any)=>{const cl=`https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/${especie.familia}/${especie.n.toLowerCase().replace(/ /g,'-')}.webp`;e.target.src=cl}}/>
               ) : (
                 <div style={{textAlign:'center',color:'rgba(201,168,76,0.3)'}}>
                   <div style={{fontSize:3+'rem'}}>🦋</div>
