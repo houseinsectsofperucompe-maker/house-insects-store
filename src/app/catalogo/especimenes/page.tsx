@@ -163,19 +163,6 @@ function PopupAbrev({onClose,foto,nombre}:{onClose:()=>void,foto?:string,nombre?
 export default function Page() {
   const [ord, setOrd] = useState('Lepidoptera Diurnae')
   const [fid, setFid] = useState('Brassolidae')
-  const [famSanity, setFamSanity] = useState<F[]>([])
-  useEffect(()=>{
-    getEspecimenesSanity().then(data=>{
-      if(!data||data.length===0) return
-      const grupos: Record<string,F> = {}
-      data.forEach((e:any)=>{
-        const fid = e.familia||'Sin familia'
-        if(!grupos[fid]) grupos[fid]={id:fid,nm:fid,e:[]}
-        grupos[fid].e.push({n:e.n,p:e.p,s:e.s,foto:e.foto,video:e.video})
-      })
-      setFamSanity(Object.values(grupos))
-    })
-  },[])
   const { items:carrito, addItem, updateItems:setCarrito } = useCarrito()
   const [showCarrito, setShowCarrito] = useState(false)
   const [sel, setSel] = useState<E|null>(null)
@@ -188,7 +175,7 @@ export default function Page() {
   const [vidrio, setVidrio] = useState('normal')
   const [vista, setVista] = useState<'frente'|'lado'|'reverso'|'video'>('frente')
   const catAct = ORDS.find(c=>c.o===ord)!
-  const famActivas = famSanity.length>0 ? famSanity : catAct.f
+  const famActivas = catAct.f
   const fam = famActivas.find(f=>f.id===fid)||famActivas[0]
   const filtrados = fam.e.filter(e=>e.n.toLowerCase().includes(q.toLowerCase()))
   const totalPag = Math.ceil(filtrados.length/POR_PAG)
