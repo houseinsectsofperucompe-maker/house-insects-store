@@ -8,43 +8,57 @@
         "n": "Caligo eurilochus livius",
         "p": 8,
         "s": 800,
-        "foto": "https://HouseInsects1967.b-cdn.net/brassolidae/brassolidae-caligo-eurilochus-livius-cara-a.webp"
+        "foto": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/brassolidae-caligo-eurilochus-livius-cara-a.webp",
+        "fotoLado": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-eurilochus-livius-de-lado-1.webp",
+        "fotoReverso": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-eurilochus-livius-reverso-v.webp"
       },
       {
         "n": "Caligo idomenius idomenides",
-        "p": 6.5,
-        "s": 100,
-        "foto": "https://HouseInsects1967.b-cdn.net/brassolidae/brassolidae_caligo-indomenides-f_.webp"
+        "p": 11,
+        "s": 101,
+        "foto": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/brassolidae_caligo-indomenides-f_.webp",
+        "fotoLado": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/brassolidae-caligo-indomenides-indmeneous-lado.webp",
+        "fotoReverso": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo_idomeneus_idomeneus_reverso-v.webp"
       },
       {
         "n": "Caligo illioneus",
         "p": 3.5,
         "s": 200,
-        "foto": "https://HouseInsects1967.b-cdn.net/brassolidae/brassolidae-caligo-illeneous-de-tmaria.-peru.webp"
+        "foto": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/brassolidae-caligo-illeneous-de-tmaria.-peru.webp",
+        "fotoLado": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-ilioneus-praxiodus--lado.webp",
+        "fotoReverso": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/brassolidae-caligo-illenous--oberon-reverso-v.webp"
       },
       {
         "n": "Caligo placidianus",
         "p": 4,
         "s": 200,
-        "foto": "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-placidianus-_peru_tingo-maria-a.webp"
+        "foto": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-placidianus-_peru_tingo-maria-a.webp",
+        "fotoLado": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-placidianus_peru-_t.maria_lado.webp",
+        "fotoReverso": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/brassolidae-caligo-placidianus-reverso-v.webp"
       },
       {
         "n": "Caligo prometheus",
         "p": 9,
         "s": 200,
-        "foto": "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-prometheus-atlas-a.webp"
+        "foto": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-prometheus-atlas-a.webp",
+        "fotoLado": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo_prometheus-_atlas-lado.webp",
+        "fotoReverso": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-meimon-de-reverso.webp"
       },
       {
         "n": "Caligo superbus",
         "p": 15,
         "s": 50,
-        "foto": "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-superbus-superbus--a.webp"
+        "foto": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-superbus-superbus--a.webp",
+        "fotoLado": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-superbus-superbus-lado.webp",
+        "fotoReverso": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-superbus-superbus-v.webp"
       },
       {
         "n": "Caligo teucer semicaerulea",
         "p": 3.5,
         "s": 300,
-        "foto": "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-teucer-semicarahuela-a.webp"
+        "foto": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-teucer-semicarahuela-a.webp",
+        "fotoLado": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-teucer-semicarahuela-a.webp",
+        "fotoReverso": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-teucer-semicarahuela-reverso-v.webp"
       },
       {
         "n": "Dynastor darius darius",
@@ -75,13 +89,17 @@
         "n": "Caligo illioneus oberon",
         "p": 4,
         "s": 200,
-        "foto": "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-illineous-oberon-a.webp"
+        "foto": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-illineous-oberon-a.webp",
+        "fotoLado": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/brassolidae-caligo-illinoeus-oberon-lado.webp",
+        "fotoReverso": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/brassolidae-caligo-illenous--oberon-reverso-v.webp"
       },
       {
         "n": "Caligo Oberthuri floklides",
         "p": 10,
         "s": 50,
-        "foto": "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-oberthuri--foklides-.webp"
+        "foto": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-oberthuri--foklides-.webp",
+        "fotoLado": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-oberthuri-floklides-lada.webp",
+        "fotoReverso": "https://res.cloudinary.com/dv3mvukmq/image/upload/house-insects/brassolidae/caligo-oberthuri-floklides--reverso.webp"
       },
       {
         "n": "Eryphanis Polyxena",
