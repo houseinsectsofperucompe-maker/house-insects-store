@@ -432,8 +432,34 @@ export default function EspecimenesPage(){
                   <input value={espEdit.video||''} onChange={e=>setEspEdit(p=>({...p,video:e.target.value}))} style={{...s.inp,marginBottom:6}} placeholder="https://HouseInsects1967.b-cdn.net/..."/>
                   {espEdit.video&&<video src={espEdit.video} controls style={{width:'100%',maxHeight:150,border:`1px solid ${BD}`,borderRadius:4}}/>}
                   <div style={{marginTop:10,padding:10,background:'rgba(201,168,76,0.04)',borderRadius:6}}>
-                    <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.62rem',marginBottom:4}}>💡 Para subir fotos:</p>
-                    <a href="/admin-panel/imagenes" style={{color:G,fontSize:'.7rem'}}>→ Ir al gestor de imágenes</a>
+                    <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.62rem',marginBottom:6}}>📤 Subir foto directamente:</p>
+                    <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
+                      {(['foto','fotoLado','fotoReverso','video'] as const).map(tipo=>(
+                        <label key={tipo} style={{cursor:'pointer'}}>
+                          <input type="file" accept="image/*,video/*" style={{display:'none'}} onChange={async e=>{
+                            const file=e.target.files?.[0]
+                            if(!file||!espEdit.familia||!espEdit.n)return
+                            mostrar('⏳ Subiendo...')
+                            const fd=new FormData()
+                            fd.append('file',file)
+                            fd.append('familia',espEdit.familia)
+                            fd.append('especie',espEdit.n)
+                            fd.append('tipo',tipo)
+                            fd.append('destino','cloudinary')
+                            const r=await fetch('/api/upload',{method:'POST',body:fd})
+                            const res=await r.json()
+                            if(res.ok){
+                              setEspEdit((p:any)=>({...p,[tipo]:res.url}))
+                              mostrar('✅ Foto subida y guardada')
+                              cargarTodo()
+                            } else mostrar('❌ '+res.error)
+                          }}/>
+                          <span style={{background:'rgba(201,168,76,0.1)',color:G,border:`1px solid ${BD}`,padding:'4px 10px',borderRadius:4,fontSize:'.65rem',cursor:'pointer'}}>
+                            📸 {tipo==='foto'?'Frente':tipo==='fotoLado'?'Lado':tipo==='fotoReverso'?'Reverso':'Video'}
+                          </span>
+                        </label>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
