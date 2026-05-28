@@ -149,7 +149,7 @@ export default function EspecimenPage() {
         {familia && familia.e && familia.e.length > 1 && (
           <div style={{marginTop:32}}>
             <h3 style={{color:'#C9A84C',fontSize:'.85rem',fontWeight:400,marginBottom:12}}>Más de {familia.nm}</h3>
-            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(140px,1fr))',gap:8}}>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(200px,1fr))',gap:8}}>
               {familia.e.slice(0,8).map((e:any,i:number)=>(
                 <button key={i} onClick={()=>router.push(`/catalogo/especimenes/${familia.id}-${i}`)}
                   style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.12)',borderRadius:8,padding:8,cursor:'pointer',textAlign:'left',fontFamily:'Georgia,serif'}}>
