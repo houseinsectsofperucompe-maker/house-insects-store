@@ -10,6 +10,8 @@ const MODULOS = [
   { name: 'Especimenes', path: '/admin-panel/especimenes', icon: '🦋', ext: false },
   { name: 'Pedidos', path: '/admin-panel/pedidos', icon: '🛒', ext: false },
   { name: 'Clientes', path: '/admin-panel/clientes', icon: '👥', ext: false },
+  { name: 'Stock', path: '/admin-panel/stock', icon: '📦', ext: false },
+  { name: 'Clientes', path: '/admin-panel/clientes', icon: '👥', ext: false },
   { name: 'Fotos & Sellos', path: '/admin-panel/sellos', icon: '🛡️', ext: false },
   { name: 'Archivos', path: '/admin-panel/archivos', icon: '📁', ext: false },
   { name: 'Prospectos', path: '/admin-panel/prospectos', icon: '👥', ext: false },
