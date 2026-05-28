@@ -217,11 +217,12 @@ export default function CatalogoPage(){
 
         {/* Filtros */}
         <div style={{background:CARD,border:`1px solid ${BD}`,borderRadius:8,padding:'10px 14px',marginBottom:12,display:'flex',gap:8,flexWrap:'wrap',alignItems:'center'}}>
-          <input value={busq} onChange={e=>{setBusq(e.target.value);setPag(1)}} placeholder="🔍 Buscar..." style={{...ss.inp,width:200,flex:'none'}}/>
+          {(tab==='categorias'||tab==='subcategorias')&&(
           <select value={filtroRubro} onChange={e=>{setFiltroRubro(e.target.value);setPag(1)}} style={{...ss.inp,width:150,flex:'none'}}>
             <option value="todos">📦 Todos los rubros</option>
             {RUBROS.map(r=><option key={r} value={r}>{r}</option>)}
-          </select>
+          </select>)}
+
           <select value={filtroOrden} onChange={e=>{setFiltroOrden(e.target.value);setPag(1)}} style={{...ss.inp,width:180,flex:'none'}}>
             <option value="Todas">🌍 Todas las órdenes</option>
             {ORDENES_LIST.map(o=><option key={o} value={o}>{o}</option>)}
