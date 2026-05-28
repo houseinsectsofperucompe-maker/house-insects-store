@@ -189,7 +189,7 @@ export default function EspecimenesPage(){
             <h1 style={{color:'#E8C97A',fontSize:'1.1rem',fontWeight:400,margin:0}}>🦋 Gestor de Especímenes</h1>
             <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.65rem',margin:'4px 0 0'}}>{especies.length} especies · {sinPrecio>0&&<span style={{color:'#ff9966'}}>{sinPrecio} sin precio · </span>}{familias.length} familias · {ordenes.length} órdenes</p>
           </div>
-          <div style={{display:'flex',gap:8,flexWrap:'wrap',marginRight:220}}>
+          <div style={{display:'flex',gap:8,flexWrap:'wrap',marginRight:280}}>
             <button onClick={cargarTodo} style={btn('rgba(201,168,76,0.1)',G,{border:`1px solid ${BD}`})}>🔄</button>
             <button onClick={()=>{setEspEdit({activo:true,calidad:'A1',sexo:'M or F',ordenCategoria:'Lepidoptera Diurnae',partidaArancelaria:'9705.00.00'});setTab('general');setVista('editar')}} style={btn(G,CARD)}>+ Nueva especie</button>
           </div>
