@@ -122,7 +122,7 @@ export default function EspecimenPage() {
 
             <button
               onClick={()=>{
-                addItem({n:especie.n,p:especie.p,qty,rubro:'especimenes'})
+                for(let i=0;i<qty;i++) addItem({n:especie.n,p:especie.p,rubro:'especimenes'})
                 setShowCarrito(true)
               }}
               disabled={(especie.s||0)===0}
