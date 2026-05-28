@@ -55,7 +55,16 @@ export async function POST(req: NextRequest) {
       const result = await client.patch(_id).set(rest).commit()
       return NextResponse.json({ ok: true, result })
     }
-        if (action === 'createSeo') {
+        if (action === 'createCatalogo') {
+      const result = await client.create({ ...data })
+      return NextResponse.json({ ok: true, result })
+    }
+    if (action === 'updateCatalogo') {
+      const {_id,...rest} = data
+      const result = await client.patch(_id).set(rest).commit()
+      return NextResponse.json({ ok: true, result })
+    }
+    if (action === 'createSeo') {
       const result = await client.create({ _type:'seoConfig', ...data })
       return NextResponse.json({ ok: true, result })
     }
