@@ -13,7 +13,7 @@ export async function GET(req: NextRequest) {
   const type = req.nextUrl.searchParams.get('type') || 'especie'
   try {
     if (type === 'especie') {
-      const data = await client.fetch(`*[_type=="especie"]{_id,"n":nombre,"p":precio,"s":stock,"foto":fotoFrente,"fotoLado":fotoLado,"fotoReverso":fotoReverso,familia,subfamilia,activo,calidad,sexo,tamano,localidad,descripcion,video}|order(familia asc,nombre asc)`)
+      const data = await client.fetch(`*[_type=="especie"][0..200]{_id,"n":nombre,"p":precio,"s":stock,"foto":fotoFrente,"fotoLado":fotoLado,"fotoReverso":fotoReverso,familia,subfamilia,activo,calidad,sexo,video,descripcion}|order(familia asc,nombre asc)`)
       return NextResponse.json(data)
     }
     if (type === 'familia') {
@@ -26,6 +26,6 @@ export async function GET(req: NextRequest) {
     }
     return NextResponse.json([])
   } catch(e: any) {
-    return NextResponse.json([], { status: 500 })
+    return NextResponse.json({error: e.message, token: process.env.SANITY_API_TOKEN ? 'present' : 'missing'}, { status: 500 })
   }
 }
