@@ -21,7 +21,6 @@ export default function CatalogoPage(){
   const [items,setItems]=useState<any[]>([])
   const [especies,setEspecies]=useState<any[]>([])
   const [familias,setFamilias]=useState<any[]>([])
-  const [familias,setFamilias]=useState<any[]>([])
   const [loading,setLoading]=useState(true)
   const [vista,setVista]=useState<'lista'|'nuevo'>('lista')
   const [edit,setEdit]=useState<any>({})
