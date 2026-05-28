@@ -77,9 +77,7 @@ export default function CatalogoPage(){
           subcategorias:'subcategoria',subfamilias:'subfamilia',
           subespecies:'subespecie',atributos:'atributo',combinaciones:'combinacion'
         }
-        const r=await fetch(`/api/sanity-read?type=${typeMap[tab]||tab}`)
-        const d=await r.json()
-        setItems(Array.isArray(d)?d:[])
+        setItems([])
       }
     }catch(e){}
     setLoading(false)

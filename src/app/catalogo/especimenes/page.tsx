@@ -1,5 +1,4 @@
 'use client'
-import { getEspecimenesSanity } from '@/lib/sanity'
 import ST from '@/components/ST'
 import { useCarrito } from '@/components/CarritoContext'
 import CarritoCompras from '@/components/CarritoCompras'
