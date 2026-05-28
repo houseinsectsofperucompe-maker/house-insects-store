@@ -333,7 +333,7 @@ export default function Page() {
               <ST t='Mostrando'/> {(pag-1)*POR_PAG+1}–{Math.min(pag*POR_PAG,filtrados.length)} <ST t='de'/> {filtrados.length} <ST t='especies'/> · <ST t='Página'/> {pag} <ST t='de'/> {totalPag}
             </div>
             <style>{`.esp-card{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.12);border-radius:9px;padding:10px;cursor:pointer;text-align:left;font-family:Georgia,serif;transition:transform 0.18s ease,border-color 0.18s ease,background 0.18s ease,box-shadow 0.18s ease}.esp-card:hover{transform:translateY(-5px) scale(1.04);border-color:rgba(201,168,76,0.55);background:rgba(201,168,76,0.11);box-shadow:0 10px 28px rgba(0,0,0,0.45)}.esp-card img{transition:opacity 0.18s ease}.esp-card:hover img{opacity:0.9}`}</style>
-            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(155px,1fr))',gap:7}}>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(220px,1fr))',gap:7}}>
               {pagEsp.map((e,i)=>(
                 <button key={i} onClick={()=>window.location.href=`/catalogo/especimenes/${fam.id}-${(pag-1)*POR_PAG+i}`} className="esp-card">
                   <div style={{width:'100%',height:75,background:'rgba(201,168,76,0.06)',borderRadius:5,marginBottom:6,display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden'}}>
