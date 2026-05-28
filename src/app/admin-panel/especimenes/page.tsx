@@ -274,7 +274,7 @@ export default function EspecimenesPage(){
                         <td style={{...s.td,color:esp.s>0?'#5DBB63':'#ff5050'}}>{esp.s||0}</td>
                         <td style={{...s.td,fontSize:'.65rem'}}>{esp.calidad||'A1'}</td>
                         <td style={{...s.td,fontSize:'.62rem',color:'rgba(201,168,76,0.5)'}}>{esp.tamano||'—'}</td>
-                        <td style={s.td}><span style={{background:esp.activo?'rgba(93,187,99,0.2)':'rgba(255,80,80,0.2)',color:esp.activo?'#5DBB63':'#ff5050',padding:'3px 7px',borderRadius:10,fontSize:'.6rem',fontWeight:700}}>{esp.activo?'ACTIVO':'INACTIVO'}</span></td>
+                        <td style={s.td}><span style={{background:esp.activo!==false?'rgba(93,187,99,0.2)':'rgba(255,80,80,0.2)',color:esp.activo!==false?'#5DBB63':'#ff5050',padding:'3px 7px',borderRadius:10,fontSize:'.6rem',fontWeight:700}}>{esp.activo!==false?'ACTIVO':'INACTIVO'}</span></td>
                         <td style={s.td}>
                           <div style={{display:'flex',gap:3}}>
                             <button onClick={()=>{setEspEdit({...esp,p:esp.p,s:esp.s});setTab('general');setVista('editar')}} style={btn('rgba(201,168,76,0.1)',G,{border:`1px solid ${BD}`,padding:'4px 8px',fontSize:'.62rem'})}>✏️</button>
