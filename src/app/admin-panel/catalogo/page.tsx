@@ -133,7 +133,7 @@ export default function CatalogoPage(){
       <div style={{background:CARD,border:`1px solid ${BD}`,borderRadius:8,padding:'10px 14px',marginBottom:12,display:'flex',gap:8,flexWrap:'wrap',alignItems:'center'}}>
         <input value={busq} onChange={e=>{setBusq(e.target.value);setPag(1)}} placeholder="🔍 Buscar..." style={{...inp,width:200,flex:'none'}}/>
         {(tab==='familias'||tab==='especies')&&(
-          <select value={selOrden} onChange={e=>{setSelOrden(e.target.value);setSelFamilia('Todas');setPag(1)}} style={{...inp,width:200,flex:'none'}}>
+          <select value={selOrden} onChange={e=>{setSelOrden(e.target.value);setSelFamilia('Todas');setPag(1);setFamDetalle(null)}} style={{...inp,width:200,flex:'none'}}>
             <option value="Todas">🌍 Todas las órdenes</option>
             {ordenes.map((o:any)=><option key={o.id} value={o.nombre||o.id}>{o.icono} {o.nombre}</option>)}
           </select>
