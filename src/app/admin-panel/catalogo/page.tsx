@@ -238,26 +238,7 @@ export default function CatalogoPage(){
 
         {vista==='lista'&&(
           <>
-            {/* Detalle familia */}
-            {tab==='familias'&&famDetalle&&(
-              <div style={{background:'rgba(201,168,76,0.04)',border:`1px solid ${BD}`,borderRadius:8,padding:14,marginBottom:12}}>
-                <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:8}}>
-                  <h3 style={{color:G,fontSize:'.85rem',margin:0}}>🦋 {famDetalle} — {especiesFam.length} especies</h3>
-                  <button onClick={()=>{setFamDetalle('');setEspeciesFam([])}} style={btn('transparent',G,{border:`1px solid ${BD}`,padding:'3px 8px',fontSize:'.6rem'})}>✕</button>
-                </div>
-                <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(260px,1fr))',gap:4}}>
-                  {especiesFam.map((e:any,i:number)=>(
-                    <div key={i} style={{display:'flex',justifyContent:'space-between',background:'rgba(201,168,76,0.05)',border:`1px solid ${BD}`,borderRadius:4,padding:'5px 8px'}}>
-                      <span style={{color:'#E8C97A',fontSize:'.68rem',fontStyle:'italic'}}>{e.n}</span>
-                      <div style={{display:'flex',gap:6}}>
-                        <span style={{color:G,fontSize:'.68rem',fontWeight:700}}>${e.p}</span>
-                        <span style={{color:e.s>0?'#5DBB63':'#ff5050',fontSize:'.65rem'}}>S:{e.s}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+
 
             {loading?<div style={{color:G,padding:40,textAlign:'center'}}>⏳ Cargando...</div>:(
               <div style={{background:CARD,border:`1px solid ${BD}`,borderRadius:8,overflow:'hidden',marginBottom:12}}>
