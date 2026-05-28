@@ -159,7 +159,7 @@ export default function EspecimenesPage(){
   }
 
   const moverFamilia=async(ids:string[],nuevaFamilia:string,nuevaOrden:string)=>{
-    await Promise.all(ids.map(id=>fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'update',data:{_id:id,familia:nuevaFamilia,ordenCategoria:nuevaOrden,precio:0,stock:0,activo:true}})})))
+    await Promise.all(ids.map(id=>fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'updateEspecie',data:{_id:id,familia:nuevaFamilia,ordenCategoria:nuevaOrden,precio:0,stock:0,activo:true}})})))
     setSeleccionados([]);mostrar(`✅ ${ids.length} movidas a ${nuevaFamilia}`);cargarTodo()
   }
 
