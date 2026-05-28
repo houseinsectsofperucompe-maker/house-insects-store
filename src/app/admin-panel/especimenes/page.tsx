@@ -136,6 +136,12 @@ export default function GestorCatalogo(){
           <a href="/admin-panel" style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',textDecoration:'none',display:'block',marginBottom:4}}>← Admin Panel</a>
           <div style={{color:G,fontSize:'.8rem',fontWeight:700,letterSpacing:'.1em'}}>🦋 CATÁLOGO</div>
         </div>
+        <div style={{padding:'8px 0',borderBottom:`1px solid ${BD}`}}>
+          {[{l:'🛒 Pedidos',p:'/admin-panel/pedidos'},{l:'👥 Clientes',p:'/admin-panel/clientes'},{l:'📦 Stock',p:'/admin-panel/stock'},{l:'🚚 Logística',p:'/admin-panel/logistica'},{l:'📦 Catálogo',p:'/admin-panel/catalogo'},{l:'🔍 SEO',p:'/admin-panel/seo'},{l:'🖼️ Imágenes',p:'/admin-panel/imagenes'}].map(m=>(
+            <a key={m.p} href={m.p} style={{display:'block',padding:'8px 14px',color:'rgba(201,168,76,0.5)',textDecoration:'none',fontSize:'.72rem',fontFamily:'Georgia,serif'}}>{m.l}</a>
+          ))}
+        <div style={{padding:'0'}}
+        </div>
         <div style={{padding:'8px 0'}}>
           {RUBROS17.map(r=>(
             <button key={r.id} onClick={()=>{setRubro(r.id);setVista('lista');setBusq('');setFamSel('Todas');setPag(1)}}
