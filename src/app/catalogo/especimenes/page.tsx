@@ -167,7 +167,7 @@ export default function Page() {
   const { items:carrito, addItem, updateItems:setCarrito } = useCarrito()
   
   useEffect(()=>{
-    fetch('/api/datos').then(r=>r.json()).then((data:any[])=>{
+    fetch('/api/catalogo-estatico').then(r=>r.json()).then((data:any[])=>{
       if(!Array.isArray(data))return
       const map:{[k:string]:E[]}={}
       data.forEach(f=>{if(f.id&&Array.isArray(f.e))map[f.id]=f.e})
