@@ -451,8 +451,9 @@ export default function EspecimenesPage(){
                             if(res.ok){
                               setEspEdit((p:any)=>({...p,[tipo]:res.url}))
                               mostrar('✅ Foto subida y guardada')
+                              e.target.value=''
                               cargarTodo()
-                            } else mostrar('❌ '+res.error)
+                            } else{mostrar('❌ '+res.error);e.target.value=''}
                           }}/>
                           <span style={{background:'rgba(201,168,76,0.1)',color:G,border:`1px solid ${BD}`,padding:'4px 10px',borderRadius:4,fontSize:'.65rem',cursor:'pointer'}}>
                             📸 {tipo==='foto'?'Frente':tipo==='fotoLado'?'Lado':tipo==='fotoReverso'?'Reverso':'Video'}
