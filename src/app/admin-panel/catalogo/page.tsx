@@ -48,8 +48,20 @@ export default function CatalogoPage(){
   const [especiesFam,setEspeciesFam]=useState<any[]>([])
   const POR_PAG=30
 
-  useEffect(()=>{ cargarFamilias() },[])
+  useEffect(()=>{ cargarFamilias(); cargarOrdenes() },[])
   useEffect(()=>{ cargar() },[tab])
+
+  const [ordenesList,setOrdenesList]=useState<any[]>([])
+  const [rubrosList,setRubrosList]=useState<any[]>([])
+
+  const cargarOrdenes=async()=>{
+    const [o,rb]=await Promise.all([
+      fetch('/api/datos?tipo=ordenes').then(r=>r.json()),
+      fetch('/api/datos?tipo=rubros').then(r=>r.json()),
+    ])
+    if(Array.isArray(o)) setOrdenesList(o)
+    if(Array.isArray(rb)) setRubrosList(rb)
+  }
 
   const cargarFamilias=async()=>{
     const r=await fetch('/api/datos').catch(()=>null)
