@@ -32,7 +32,10 @@ export default function CatalogoPage(){
     fetch('/api/sanity-read').then(r=>r.json()).then(d=>setEspecies(Array.isArray(d)?d:[]))
   },[])
 
-  const typeMap:Record<TabType,string>={ordenes:'orden',subordendes:'suborden',categorias:'categoria',subcategorias:'subcategoria',familias:'familia',subfamilias:'subfamilia',atributos:'atributo',combinaciones:'combinacion',subespecies:'subespecie'}
+  const typeMap:Record<TabType,string>={ordenes:'orden',subordendes:'suborden',categorias:'categoria',subcategorias:'subcategoria',familias:'familia',subfamilias:'subfamilia',especies:'especie',subespecies:'subespecie',atributos:'atributo',combinaciones:'combinacion'}
+
+  const contarEspecies=(familia:string)=>especies.filter((e:any)=>e.familia===familia).length
+  const contarPorOrden=(orden:string)=>especies.filter((e:any)=>e.ordenCategoria===orden).length
 
   const cargar=async()=>{
     setLoading(true)
@@ -78,6 +81,8 @@ export default function CatalogoPage(){
     {k:'subcategorias',l:'🗂️ Subcategorías'},
     {k:'familias',l:'📁 Familias'},
     {k:'subfamilias',l:'📁 Subfamilias'},
+    {k:'especies',l:'🦋 Especies'},
+    {k:'subespecies',l:'↳ Subespecies'},
     {k:'atributos',l:'🎨 Atributos'},
     {k:'combinaciones',l:'🔀 Combinaciones'},
     {k:'subespecies',l:'🦋 Subespecies'},
@@ -124,9 +129,9 @@ export default function CatalogoPage(){
               <thead>
                 <tr style={{background:'rgba(201,168,76,0.05)'}}>
                   <th style={s.th}>NOMBRE</th>
-                  {tab==='ordenes'&&<th style={s.th}>ICONO</th>}
+                  {tab==='ordenes'&&<><th style={s.th}>ICONO</th><th style={s.th}>ESPECIES</th></>}
                   {tab==='categorias'&&<th style={s.th}>RUBRO</th>}
-                  {tab==='familias'&&<th style={s.th}>ORDEN</th>}
+                  {tab==='familias'&&<><th style={s.th}>ORDEN</th><th style={s.th}>ESPECIES</th></>}
                   {tab==='atributos'&&<><th style={s.th}>TIPO</th><th style={s.th}>RUBRO</th><th style={s.th}>VALORES</th></>}
                   {tab==='combinaciones'&&<><th style={s.th}>SKU</th><th style={s.th}>PRECIO</th><th style={s.th}>STOCK</th></>}
                   <th style={s.th}>ESTADO</th>
@@ -138,9 +143,9 @@ export default function CatalogoPage(){
                 items.map((it:any)=>(
                   <tr key={it._id}>
                     <td style={{...s.td,fontWeight:700,fontStyle:tab==='combinaciones'?'normal':'italic'}}>{it.nombre||it.sku||'—'}</td>
-                    {tab==='ordenes'&&<td style={s.td}>{it.icono||'—'}</td>}
+                    {tab==='ordenes'&&<><td style={s.td}>{it.icono||'—'}</td><td style={{...s.td,color:'#5DBB63',fontWeight:700}}>{contarPorOrden(it.nombre)}</td></>}
                     {tab==='categorias'&&<td style={{...s.td,fontSize:'.7rem',color:'rgba(201,168,76,0.6)'}}>{it.rubro||'—'}</td>}
-                    {tab==='familias'&&<td style={{...s.td,fontSize:'.7rem',color:'rgba(201,168,76,0.6)'}}>{it.orden||'—'}</td>}
+                    {tab==='familias'&&<><td style={{...s.td,fontSize:'.7rem',color:'rgba(201,168,76,0.6)'}}>{it.orden||'—'}</td><td style={{...s.td,color:'#5DBB63',fontWeight:700}}>{contarEspecies(it.nombre)}</td></>}
                     {tab==='atributos'&&<>
                       <td style={{...s.td,fontSize:'.7rem'}}>{it.tipo||'—'}</td>
                       <td style={{...s.td,fontSize:'.65rem',color:'rgba(201,168,76,0.6)'}}>{it.rubro||'todos'}</td>
