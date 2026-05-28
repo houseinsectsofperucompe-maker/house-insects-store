@@ -28,6 +28,8 @@ export default function CatalogoPage(){
   const [msg,setMsg]=useState('')
   const [valorInput,setValorInput]=useState('')
   const [famSelDetalle,setFamSelDetalle]=useState('')
+  const [filtroOrden,setFiltroOrden]=useState('Todas')
+  const [filtroFamilia,setFiltroFamilia]=useState('Todas')
   const [especiesFam,setEspeciesFam]=useState<any[]>([])
   const [loadingFam,setLoadingFam]=useState(false)
 
@@ -39,6 +41,8 @@ export default function CatalogoPage(){
 
   const typeMap:Record<TabType,string>={ordenes:'orden',subordendes:'suborden',categorias:'categoria',subcategorias:'subcategoria',familias:'familia',subfamilias:'subfamilia',especies:'especie',subespecies:'subespecie',atributos:'atributo',combinaciones:'combinacion'}
 
+  const ordenesUnicos=['Todas',...Array.from(new Set(familias.map((f:any)=>f.orden||'Sin orden'))).sort()]
+  const familiasUnicas=['Todas',...familias.map((f:any)=>f.nm||f.id)]
   const contarEspecies=(familia:string)=>{ const f=familias.find((f:any)=>f.id===familia); return f?.count||0 }
   const contarFamiliasPorOrden=(orden:string)=>familias.filter((f:any)=>f.orden===orden).length
   const contarEspeciesPorOrden=(orden:string)=>familias.filter((f:any)=>f.orden===orden).reduce((a:number,f:any)=>a+(f.count||0),0)
