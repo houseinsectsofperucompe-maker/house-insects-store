@@ -24,6 +24,14 @@ export async function GET(req: NextRequest) {
       const data = await client.fetch(`*[_type=="orden"]{_id,nombre,icono,activo}|order(nombre asc)`)
       return NextResponse.json(data)
     }
+    if (type === 'pedido') {
+      const data = await client.fetch(`*[_type=="pedido"]{_id,numero,origen,cliente,email,telefono,whatsapp,wechat,pais,ciudad,direccion,items,subtotal,costoEnvio,seguro,descuento,total,drawback,estado,metodoPago,courier,aseguradora,tracking,urlTracking,factura,notas,notasCliente,fecha,fechaEnvio,fechaEntrega}|order(fecha desc)`)
+      return NextResponse.json(data)
+    }
+    if (type === 'cliente') {
+      const data = await client.fetch(`*[_type=="cliente"]{_id,nombre,email,telefono,whatsapp,instagram,wechat,pais,ciudad,direccion,grupo,descuento,totalCompras,numeroPedidos,ultimaCompra,notas,activo,fecha}|order(nombre asc)`)
+      return NextResponse.json(data)
+    }
     return NextResponse.json([])
   } catch(e: any) {
     return NextResponse.json({error: e.message}, { status: 500 })
