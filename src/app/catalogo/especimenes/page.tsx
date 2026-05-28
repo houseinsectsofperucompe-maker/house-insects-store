@@ -189,7 +189,8 @@ export default function Page() {
   const [vidrio, setVidrio] = useState('normal')
   const [vista, setVista] = useState<'frente'|'lado'|'reverso'|'video'>('frente')
   const catAct = ORDS.find(c=>c.o===ord)!
-  const fam = catAct.f.find(f=>f.id===fid)||catAct.f[0]
+  const famActivas = famSanity.length>0 ? famSanity : catAct.f
+  const fam = famActivas.find(f=>f.id===fid)||famActivas[0]
   const filtrados = fam.e.filter(e=>e.n.toLowerCase().includes(q.toLowerCase()))
   const totalPag = Math.ceil(filtrados.length/POR_PAG)
   const pagEsp = filtrados.slice((pag-1)*POR_PAG, pag*POR_PAG)
@@ -319,7 +320,7 @@ export default function Page() {
           ))}
         </div>
         <div style={{display:'flex',gap:3,flexWrap:'wrap',justifyContent:'center',marginBottom:14,padding:'8px',background:'rgba(201,168,76,0.03)',borderRadius:8,border:'1px solid rgba(201,168,76,0.08)'}}>
-          {catAct.f.map(f=>(
+          {famActivas.map(f=>(
             <button key={f.id} onClick={()=>{setFid(f.id);setQ('');setPag(1)}} className="fam-btn" style={{padding:'4px 10px',background:fid===f.id?'#C9A84C':'transparent',color:fid===f.id?'#1A1209':'rgba(201,168,76,0.6)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:12,fontSize:'.65rem',cursor:'pointer',fontStyle:'italic',fontWeight:fid===f.id?700:400}}>
               {<ST t={f.nm}/>}{f.e.length>0?` (${f.e.length})`:''}</button>
           ))}
