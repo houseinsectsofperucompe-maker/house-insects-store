@@ -27,6 +27,9 @@ export default function CatalogoPage(){
   const [guardando,setGuardando]=useState(false)
   const [msg,setMsg]=useState('')
   const [valorInput,setValorInput]=useState('')
+  const [famSelDetalle,setFamSelDetalle]=useState('')
+  const [especiesFam,setEspeciesFam]=useState<any[]>([])
+  const [loadingFam,setLoadingFam]=useState(false)
 
   useEffect(()=>{cargar()},[tab])
   useEffect(()=>{
@@ -40,6 +43,17 @@ export default function CatalogoPage(){
   const contarFamiliasPorOrden=(orden:string)=>familias.filter((f:any)=>f.orden===orden).length
   const contarEspeciesPorOrden=(orden:string)=>familias.filter((f:any)=>f.orden===orden).reduce((a:number,f:any)=>a+(f.count||0),0)
   const contarPorOrden=(orden:string)=>especies.filter((e:any)=>e.ordenCategoria===orden).length
+
+  const cargarFamilia=async(famId:string)=>{
+    if(!famId)return
+    setLoadingFam(true)
+    try{
+      const r=await fetch(`/api/catalogo-web?familia=${famId}`)
+      const d=await r.json()
+      setEspeciesFam(d?.e||[])
+    }catch(e){}
+    setLoadingFam(false)
+  }
 
   const cargar=async()=>{
     setLoading(true)
