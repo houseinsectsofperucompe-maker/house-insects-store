@@ -161,7 +161,7 @@ export default function CatalogoPage(){
     const enBusq=nombre.includes(busq.toLowerCase())
     const enOrden=filtroOrden==='Todas'||it.orden===filtroOrden||it.ordenCategoria===filtroOrden
     const enFam=filtroFamilia==='Todas'||it.familia===filtroFamilia||it.id===filtroFamilia
-    const enRubro=filtroRubro==='todos'||it.rubro===filtroRubro
+    const enRubro=filtroRubro==='todos'||it.rubro===filtroRubro||['ordenes','familias','especies','subfamilias','subespecies','subordendes'].includes(tab)
     return enBusq&&enOrden&&enFam&&enRubro
   })
   const totalPag=Math.ceil(filtrados.length/POR_PAG)
