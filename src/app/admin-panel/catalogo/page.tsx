@@ -36,8 +36,9 @@ export default function CatalogoPage(){
 
   const typeMap:Record<TabType,string>={ordenes:'orden',subordendes:'suborden',categorias:'categoria',subcategorias:'subcategoria',familias:'familia',subfamilias:'subfamilia',especies:'especie',subespecies:'subespecie',atributos:'atributo',combinaciones:'combinacion'}
 
-  const contarEspecies=(familia:string)=>especies.filter((e:any)=>e.familia===familia).length
+  const contarEspecies=(familia:string)=>{ const f=familias.find((f:any)=>f.id===familia); return f?.count||0 }
   const contarFamiliasPorOrden=(orden:string)=>familias.filter((f:any)=>f.orden===orden).length
+  const contarEspeciesPorOrden=(orden:string)=>familias.filter((f:any)=>f.orden===orden).reduce((a:number,f:any)=>a+(f.count||0),0)
   const contarPorOrden=(orden:string)=>especies.filter((e:any)=>e.ordenCategoria===orden).length
 
   const cargar=async()=>{
