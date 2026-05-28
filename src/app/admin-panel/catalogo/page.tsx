@@ -35,6 +35,7 @@ export default function CatalogoPage(){
   const typeMap:Record<TabType,string>={ordenes:'orden',subordendes:'suborden',categorias:'categoria',subcategorias:'subcategoria',familias:'familia',subfamilias:'subfamilia',especies:'especie',subespecies:'subespecie',atributos:'atributo',combinaciones:'combinacion'}
 
   const contarEspecies=(familia:string)=>especies.filter((e:any)=>e.familia===familia).length
+  const contarFamiliasPorOrden=(orden:string)=>familias.filter((f:any)=>f.orden===orden).length
   const contarPorOrden=(orden:string)=>especies.filter((e:any)=>e.ordenCategoria===orden).length
 
   const cargar=async()=>{
@@ -142,8 +143,8 @@ export default function CatalogoPage(){
                 {loading?<tr><td colSpan={6} style={{...s.td,textAlign:'center',padding:32,color:'rgba(201,168,76,0.3)'}}>⏳ Cargando...</td></tr>:
                 items.map((it:any)=>(
                   <tr key={it._id}>
-                    <td style={{...s.td,fontWeight:700,fontStyle:tab==='combinaciones'?'normal':'italic'}}>{it.nombre||it.sku||'—'}</td>
-                    {tab==='ordenes'&&<><td style={s.td}>{it.icono||'—'}</td><td style={{...s.td,color:'#5DBB63',fontWeight:700}}>{contarPorOrden(it.nombre)}</td></>}
+                    <td style={{...s.td,fontWeight:700,fontStyle:tab==='combinaciones'?'normal':'italic'}}>{tab==='especies'?(it.n||'—'):(it.nombre||it.sku||'—')}</td>
+                    {tab==='ordenes'&&<><td style={s.td}>{it.icono||'—'}</td><td style={{...s.td,color:'#64A5ED',fontWeight:700}}>{contarFamiliasPorOrden(it.nombre)}</td><td style={{...s.td,color:'#5DBB63',fontWeight:700}}>{contarPorOrden(it.nombre)}</td></>}
                     {tab==='categorias'&&<td style={{...s.td,fontSize:'.7rem',color:'rgba(201,168,76,0.6)'}}>{it.rubro||'—'}</td>}
                     {tab==='familias'&&<><td style={{...s.td,fontSize:'.7rem',color:'rgba(201,168,76,0.6)'}}>{it.orden||'—'}</td><td style={{...s.td,color:'#5DBB63',fontWeight:700}}>{contarEspecies(it.nombre)}</td></>}
                     {tab==='atributos'&&<>
