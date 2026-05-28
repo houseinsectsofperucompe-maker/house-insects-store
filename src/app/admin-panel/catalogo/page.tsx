@@ -20,6 +20,7 @@ export default function CatalogoPage(){
   const [tab,setTab]=useState<TabType>('ordenes')
   const [items,setItems]=useState<any[]>([])
   const [especies,setEspecies]=useState<any[]>([])
+  const [familias,setFamilias]=useState<any[]>([])
   const [loading,setLoading]=useState(true)
   const [vista,setVista]=useState<'lista'|'nuevo'>('lista')
   const [edit,setEdit]=useState<any>({})
@@ -29,7 +30,8 @@ export default function CatalogoPage(){
 
   useEffect(()=>{cargar()},[tab])
   useEffect(()=>{
-    fetch('/api/sanity-read').then(r=>r.json()).then(d=>setEspecies(Array.isArray(d)?d:[]))
+    fetch("/api/sanity-read").then(r=>r.json()).then(d=>setEspecies(Array.isArray(d)?d:[]))
+    fetch("/api/sanity-read?type=familia").then(r=>r.json()).then(d=>setFamilias(Array.isArray(d)?d:[]))
   },[])
 
   const typeMap:Record<TabType,string>={ordenes:'orden',subordendes:'suborden',categorias:'categoria',subcategorias:'subcategoria',familias:'familia',subfamilias:'subfamilia',especies:'especie',subespecies:'subespecie',atributos:'atributo',combinaciones:'combinacion'}
