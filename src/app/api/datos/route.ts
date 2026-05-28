@@ -6,6 +6,8 @@ const redis = new Redis({
   token: 'gQAAAAAAAaOLAAIgcDExZGYyODVjMzY1Mjc0OTY1YjcyYjZiMzIzZjhmYTgxOA',
 })
 
+export const revalidate = 60 // cache 60 segundos
+
 export async function GET(req: NextRequest) {
   const tipo = req.nextUrl.searchParams.get('tipo')
   const familia = req.nextUrl.searchParams.get('familia')
