@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
         const fam = data.find((f:any)=>f.id===payload.familia)
         if (fam) {
           const idx = fam.e.findIndex((e:any)=>e.n===payload.nOriginal||e.n===payload.n)
-          if (idx>=0) fam.e[idx]={n:payload.n,p:payload.p,s:payload.s,foto:payload.foto}
+          if (idx>=0) fam.e[idx]={...fam.e[idx],n:payload.n,p:payload.p||0,s:payload.s||0,foto:payload.foto||fam.e[idx].foto||'',fotoLado:payload.fotoLado||fam.e[idx].fotoLado||'',fotoReverso:payload.fotoReverso||fam.e[idx].fotoReverso||'',video:payload.video||fam.e[idx].video||'',calidad:payload.calidad||'A1',sexo:payload.sexo||'M or F',tamano:payload.tamano||'',activo:payload.activo!==false,descripcion:payload.descripcion||'',metaTitulo:payload.metaTitulo||'',descripcionEN:payload.descripcionEN||'',descripcionZH:payload.descripcionZH||''}
           else fam.e.push({n:payload.n,p:payload.p||0,s:payload.s||0,foto:payload.foto})
           await redis.set('catalogo:familias',data)
         }
