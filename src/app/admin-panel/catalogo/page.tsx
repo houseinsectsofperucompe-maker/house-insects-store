@@ -33,8 +33,8 @@ export default function CatalogoPage(){
     setLoading(true)
     try{
       const [o,rb,f]=await Promise.all([
-        fetch('/api/datos?tipo=ordenes').then(r=>r.json()),
-        fetch('/api/datos?tipo=rubros').then(r=>r.json()),
+        fetch('/api/ordenes').then(r=>r.json()),
+        fetch('/api/catalogo-estatico').then(r=>r.json()),
         fetch('/api/datos').then(r=>r.json()),
       ])
       setOrdenes(Array.isArray(o)?o:[])
