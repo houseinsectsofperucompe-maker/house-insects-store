@@ -133,7 +133,7 @@ export default function CatalogoPage(){
               <thead>
                 <tr style={{background:'rgba(201,168,76,0.05)'}}>
                   <th style={s.th}>NOMBRE</th>
-                  {tab==='ordenes'&&<><th style={s.th}>ICONO</th><th style={s.th}>ESPECIES</th></>}
+                  {tab==='ordenes'&&<><th style={s.th}>ICONO</th><th style={s.th}>FAMILIAS</th><th style={s.th}>ESPECIES</th></>}
                   {tab==='categorias'&&<th style={s.th}>RUBRO</th>}
                   {tab==='familias'&&<><th style={s.th}>ORDEN</th><th style={s.th}>ESPECIES</th></>}
                   {tab==='atributos'&&<><th style={s.th}>TIPO</th><th style={s.th}>RUBRO</th><th style={s.th}>VALORES</th></>}
@@ -147,7 +147,7 @@ export default function CatalogoPage(){
                 items.map((it:any)=>(
                   <tr key={it._id}>
                     <td style={{...s.td,fontWeight:700,fontStyle:tab==='combinaciones'?'normal':'italic'}}>{tab==='especies'?(it.n||'—'):(it.nombre||it.sku||'—')}</td>
-                    {tab==='ordenes'&&<><td style={s.td}>{it.icono||'—'}</td><td style={{...s.td,color:'#64A5ED',fontWeight:700}}>{contarFamiliasPorOrden(it.nombre)}</td><td style={{...s.td,color:'#5DBB63',fontWeight:700}}>{contarPorOrden(it.nombre)}</td></>}
+                    {tab==='ordenes'&&<><td style={s.td}>{it.icono||'—'}</td><td style={{...s.td,color:'#64A5ED',fontWeight:700}}>{contarFamiliasPorOrden(it.nombre)}</td><td style={{...s.td,color:'#5DBB63',fontWeight:700}}>{contarEspeciesPorOrden(it.nombre)}</td></>}
                     {tab==='categorias'&&<td style={{...s.td,fontSize:'.7rem',color:'rgba(201,168,76,0.6)'}}>{it.rubro||'—'}</td>}
                     {tab==='familias'&&<><td style={{...s.td,fontSize:'.7rem',color:'rgba(201,168,76,0.6)'}}>{it.orden||'—'}</td><td style={{...s.td,color:'#5DBB63',fontWeight:700}}>{contarEspecies(it.nombre)}</td></>}
                     {tab==='atributos'&&<>
