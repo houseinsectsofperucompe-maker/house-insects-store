@@ -17,8 +17,8 @@ const FAM = [
 ]
 const ORDS = [
   { o:'Lepidoptera Diurnae', f:FAM },
-  { o:'Moths Nocturnas', f:[
-    { id:'Arctiidae', nm:'Arctiidae', e:[] },
+  
+    { id:'Arctiidae', nm:'Arctiidae', e:[,
     { id:'Castnia', nm:'Castnia', e:[] },
     { id:'Hepalidae', nm:'Hepalidae', e:[] },
     { id:'Saturnidae', nm:'Saturnidae', e:[] },
@@ -53,9 +53,9 @@ const ORDS = [
     { id:'Stiriinae', nm:'Stiriinae', e:[] },
     { id:'Strepsimaninae', nm:'Strepsimaninae', e:[] },
     { id:'Xyleninae', nm:'Xyleninae', e:[] },
-  ] as F[] },
-  { o:'Coleoptera', f:[
-    { id:'Buprestidae', nm:'Buprestidae', e:[] },
+  ] },
+  
+    { id:'Buprestidae', nm:'Buprestidae', e:[,
     { id:'Cerambycidae', nm:'Cerambycidae', e:[] },
     { id:'Cetonidae', nm:'Cetonidae', e:[] },
     { id:'Chrysomelidae', nm:'Chrysomelidae', e:[] },
@@ -68,9 +68,9 @@ const ORDS = [
     { id:'Rutilidae', nm:'Rutilidae', e:[] },
     { id:'Scarabaeidae', nm:'Scarabaeidae', e:[] },
     { id:'Trictenotomidae', nm:'Trictenotomidae', e:[] },
-  ] as F[] },
-  { o:'Arthropoda', f:[
-    { id:'Spider', nm:'Spider (Araneae)', e:[] },
+  ] },
+  
+    { id:'Spider', nm:'Spider (Araneae)', e:[,
     { id:'Homoptera', nm:'Homoptera (Cicada)', e:[] },
     { id:'Phasmidae', nm:'Phasmidae', e:[] },
     { id:'Phylliidae', nm:'Phylliidae', e:[] },
@@ -80,7 +80,7 @@ const ORDS = [
     { id:'Hymenoptera', nm:'Hymenoptera', e:[] },
     { id:'Escorpion', nm:'Escorpion', e:[] },
     { id:'Odonata', nm:'Odonata', e:[] },
-  ] as F[] },
+  ] },
 ]
 const POR_PAG = 21
 const QUALITY_CHART = [
