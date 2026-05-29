@@ -1,5 +1,8 @@
 'use client'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
+import {Redis} from '@upstash/redis'
+
+const r=new Redis({url:'https://topical-weasel-107403.upstash.io',token:'gQAAAAAAAaOLAAIgcDExZGYyODVjMzY1Mjc0OTY1YjcyYjZiMzIzZjhmYTgxOA'})
 
 const G='#C9A84C',BD='rgba(201,168,76,0.35)',BG='#1A1209'
 
@@ -50,6 +53,7 @@ const FAMILIAS=[
 ]
 
 type Esp={n:string,foto?:string,precio?:number}
+type FamData={id:string,nm:string,e:{n:string,foto?:string,precio?:number}[]}
 
 export default function DiurnasPage(){
   const [paso,setPaso]=useState(1)
@@ -58,7 +62,20 @@ export default function DiurnasPage(){
   const [marco,setMarco]=useState(MARCOS[0])
   const [modelo,setModelo]=useState('shadowbox')
   const [dropdownOpen,setDropdownOpen]=useState(false)
+  const [familias,setFamilias]=useState<FamData[]>([])
+  const [loadingFams,setLoadingFams]=useState(true)
   const marcoSel=MARCOS.find(m=>m.id===marco.id)||MARCOS[0]
+
+  useEffect(()=>{
+    r.get<FamData[]>('catalogo:familias').then(d=>{
+      if(!d) return
+      const diurnas=d.filter(f=>f.orden==='Lepidoptera Diurnae')
+      setFamilias(diurnas)
+      setLoadingFams(false)
+    })
+  },[])
+
+  const famActual=familias.find(f=>f.id===famSel)||familias[0]
 
   return(
     <div style={{minHeight:'100vh',background:BG,color:G,fontFamily:'Georgia,serif'}}>
@@ -92,26 +109,46 @@ export default function DiurnasPage(){
         {/* PASO 1 */}
         {paso===1&&(
           <div>
-            <div style={{display:'flex',flexWrap:'wrap' as const,gap:8,marginBottom:20,justifyContent:'center'}}>
-              {FAMILIAS.map(f=>(
-                <button key={f} onClick={()=>setFamSel(f)}
-                  style={{background:famSel===f?G:'rgba(201,168,76,0.08)',color:famSel===f?'#1A1209':G,
-                    border:`1px solid ${famSel===f?G:BD}`,borderRadius:20,padding:'6px 14px',
-                    cursor:'pointer',fontSize:'.75rem',fontFamily:'Georgia,serif'}}>
-                  {f}
-                </button>
-              ))}
-            </div>
-            <p style={{textAlign:'center',fontSize:'.75rem',color:'rgba(201,168,76,0.5)',fontStyle:'italic'}}>
-              Especimenes de {famSel} — proximamente en catalogo
-            </p>
-            <div style={{textAlign:'center',marginTop:24}}>
-              <button onClick={()=>{setMariposa({n:'Morpho lympharis selenarys',precio:13.5});setPaso(2)}}
-                style={{padding:'12px 32px',background:'rgba(201,168,76,0.12)',border:`1px solid ${G}`,
-                  color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.85rem',letterSpacing:'0.08em'}}>
-                Continuar con muestra →
-              </button>
-            </div>
+            {loadingFams?(
+              <p style={{textAlign:'center',color:'rgba(201,168,76,0.5)'}}>Cargando familias...</p>
+            ):(
+              <>
+                <div style={{display:'flex',flexWrap:'wrap' as const,gap:8,marginBottom:20,justifyContent:'center'}}>
+                  {familias.map(f=>(
+                    <button key={f.id} onClick={()=>{setFamSel(f.id);setMariposa(null)}}
+                      style={{background:famSel===f.id?G:'rgba(201,168,76,0.08)',color:famSel===f.id?'#1A1209':G,
+                        border:`1px solid ${famSel===f.id?G:BD}`,borderRadius:20,padding:'6px 14px',
+                        cursor:'pointer',fontSize:'.75rem',fontFamily:'Georgia,serif'}}>
+                      {f.id} ({f.e?.length||0})
+                    </button>
+                  ))}
+                </div>
+                <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(180px,1fr))',gap:8,marginBottom:20}}>
+                  {(famActual?.e||[]).map((e,i)=>(
+                    <button key={i} onClick={()=>setMariposa(e)}
+                      style={{background:mariposa?.n===e.n?'rgba(201,168,76,0.15)':'rgba(201,168,76,0.04)',
+                        border:`1px solid ${mariposa?.n===e.n?G:BD}`,borderRadius:9,padding:10,
+                        cursor:'pointer',textAlign:'left' as const,fontFamily:'Georgia,serif',transition:'all 0.15s'}}>
+                      <div style={{width:'100%',height:100,background:'#000',borderRadius:6,marginBottom:6,overflow:'hidden',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                        {e.foto?<img src={e.foto} style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+                          :<span style={{color:'rgba(201,168,76,0.3)',fontSize:'.65rem'}}>Sin foto</span>}
+                      </div>
+                      <p style={{color:G,fontSize:'.72rem',fontStyle:'italic',margin:'0 0 2px'}}>{e.n}</p>
+                      {e.precio&&<p style={{color:'rgba(201,168,76,0.6)',fontSize:'.65rem',margin:0}}>${e.precio} USD</p>}
+                    </button>
+                  ))}
+                </div>
+                {mariposa&&(
+                  <div style={{textAlign:'center'}}>
+                    <button onClick={()=>setPaso(2)}
+                      style={{padding:'12px 32px',background:'rgba(201,168,76,0.12)',border:`1px solid ${G}`,
+                        color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.85rem',letterSpacing:'0.08em'}}>
+                      Continuar con {mariposa.n} →
+                    </button>
+                  </div>
+                )}
+              </>
+            )}
           </div>
         )}
 
