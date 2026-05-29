@@ -427,7 +427,7 @@ export default function EspecimenesPage(){
                     {(espEdit as any)[f.k]&&(
                       <div style={{position:'relative',display:'inline-block'}}>
                         <img src={(espEdit as any)[f.k]} style={{width:'100%',maxHeight:150,objectFit:'contain',border:`1px solid ${BD}`,borderRadius:4,background:'#050501'}} onError={e=>{(e.target as HTMLImageElement).style.display='none'}}/>
-                        <button onClick={()=>setEspEdit(p=>({...p,[f.k]:''}))} style={{position:'absolute',top:4,right:4,...btn('rgba(255,80,80,0.8)','white',{padding:'2px 6px',fontSize:'.6rem'})}}>✕</button>
+                        <button onClick={async()=>{setEspEdit(p=>({...p,[f.k]:''}));try{await fetch('/api/upload',{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({familia:espEdit.familia,especie:espEdit.n,tipo:f.k})})}catch(e){console.warn(e)}}} style={{position:'absolute',top:4,right:4,...btn('rgba(255,80,80,0.8)','white',{padding:'2px 6px',fontSize:'.6rem'})}}>✕</button>
                       </div>
                     )}
                   </div>
