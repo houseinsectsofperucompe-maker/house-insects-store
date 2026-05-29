@@ -5,7 +5,12 @@ import {Redis} from '@upstash/redis'
 const G='#C9A84C', BD='rgba(201,168,76,0.35)', BG='#0a0a0a'
 const r=new Redis({url:'https://topical-weasel-107403.upstash.io',token:'gQAAAAAAAaOLAAIgcDExZGYyODVjMzY1Mjc0OTY1YjcyYjZiMzIzZjhmYTgxOA'})
 
-const MARCOS=['Negro Clasico','Caoba','Bambu Natural','Dorado Antiguo','Plateado Moderno']
+const MARCOS=[
+  'Negro Clasico','Negro Azul','Negro Mate','Caoba','Caoba Oscuro',
+  'Bambu Natural','Bambu Dorado','Roble Natural','Cerezo','Nogal',
+  'Dorado Antiguo','Dorado Brillante','Plateado Moderno','Plateado Mate',
+  'Bronce','Cobre','Marfil','Blanco Perla','Rojo Borgoña','Verde Ingles'
+]
 const VIDRIOS=['Antirreflejo UV','Crystal Clear','Museum Glass']
 
 type FamRaw={id:string,nm:string,orden:string,padre?:string,e:string[]}
