@@ -336,7 +336,7 @@ export default function Page() {
             <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(220px,1fr))',gap:7}}>
               {pagEsp.map((e,i)=>(
                 <button key={i} onClick={()=>window.location.href=`/catalogo/especimenes/${fam.id}-${(pag-1)*POR_PAG+i}`} className="esp-card">
-                  <div style={{width:'100%',height:75,background:'rgba(201,168,76,0.06)',borderRadius:5,marginBottom:6,display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden'}}>
+                  <div style={{width:'100%',height:175,background:'#000',borderRadius:5,marginBottom:6,display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden'}}>
                     {e.foto?<img src={e.foto} style={{width:'100%',height:'100%',objectFit:'contain',background:'#000'}}/>:(
                     <div style={{width:'100%',height:'100%',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',background:'linear-gradient(135deg,rgba(26,18,9,0.9),rgba(42,32,16,0.95))',position:'relative',overflow:'hidden'}}>
                       <div style={{position:'absolute',inset:0,backgroundImage:'radial-gradient(circle at 30% 40%, rgba(201,168,76,0.08) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(201,168,76,0.05) 0%, transparent 50%)'}}/>
