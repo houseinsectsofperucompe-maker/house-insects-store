@@ -129,7 +129,7 @@ return(<>
 <div style={{textAlign:'center',marginBottom:8}}>
 <div style={{color:'rgba(232,201,122,0.3)',fontSize:'.65rem',letterSpacing:'.08em',marginBottom:6}}>FORMAS DE PAGO ACEPTADAS</div>
 <div style={{display:'flex',gap:5,justifyContent:'center',flexWrap:'wrap'}}>
-{['VISA','MASTERCARD','AMEX','DINERS','VISA DÉB.','MC DÉB.'].map(c=><span key={c} style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:4,padding:'3px 8px',color:'rgba(232,201,122,0.5)',fontSize:'.65rem'}}>{c}</span>)}
+{['VISA','MASTERCARD','AMEX','DINERS','VISA DÉB.','MC DÉB.'].map(c=><span key={c} style={{background:'rgba(255,255,255,0.08)',border:'1px solid rgba(255,255,255,0.25)',borderRadius:4,padding:'4px 10px',color:'rgba(255,255,255,0.85)',fontSize:'.72rem',fontWeight:'bold',letterSpacing:'.05em'}}>{c}</span>)}
 </div></div>
 </>)}
 {paso==='pago'&&(<>
@@ -147,7 +147,7 @@ return(<>
 {courier&&<div style={{display:'flex',justifyContent:'space-between'}}><span style={{color:'rgba(232,201,122,0.5)',fontSize:'.8rem'}}>Courier</span><span style={{color:'rgba(232,201,122,0.5)',fontSize:'.78rem'}}>{CI[courier as keyof typeof CI]?.n}</span></div>}
 </div>
 {error&&<div style={{background:'rgba(255,80,80,0.08)',border:'1px solid rgba(255,80,80,0.25)',borderRadius:8,padding:'12px 14px',marginBottom:12}}><p style={{color:'#ff9090',fontSize:'.82rem',margin:0}}>⚠️ {error}</p></div>}
-<div style={{textAlign:'center',marginBottom:8}}><div style={{color:'rgba(232,201,122,0.2)',fontSize:'.65rem'}}>🔒 Pago seguro · Izipay · VISA · MASTERCARD · AMEX · DINERS</div></div>
+<div style={{textAlign:'center',marginBottom:8}}><div style={{color:'rgba(232,201,122,0.6)',fontSize:'.72rem',letterSpacing:'.05em'}}>🔒 Pago seguro · Izipay · VISA · MASTERCARD · AMEX · DINERS</div></div>
 </>)}
 </div>
 <div style={{padding:'16px 24px 20px',borderTop:'1px solid rgba(201,168,76,0.15)',flexShrink:0}}>
