@@ -222,20 +222,41 @@ export default function DiurnasPage(){
                     padding:modelo==='shadowbox2'?'12px':'0',
                   }}>
                     {modelo==='shadowbox2'?(
+                      /* Fondo 1: blanco amplio */
                       <div style={{
                         flex:1,width:'100%',
-                        border:'6px solid #e8dcc8',
-                        display:'flex',flexDirection:'column' as const,
-                        alignItems:'center',justifyContent:'center',
-                        background:'#fff',position:'relative' as const,
+                        background:'#f8f8f8',
+                        display:'flex',alignItems:'center',justifyContent:'center',
+                        padding:16,
+                        position:'relative' as const,
                       }}>
-                        {mariposa.foto
-                          ?<img src={mariposa.foto} style={{width:'80%',height:'75%',objectFit:'contain'}}/>
-                          :<span style={{color:'#999',fontSize:'.8rem'}}>Sin foto</span>
-                        }
-                        <div style={{position:'absolute',bottom:8,textAlign:'center' as const}}>
-                          <p style={{fontSize:'.55rem',fontStyle:'italic',color:'#333',margin:0}}>{mariposa.n}</p>
-                          <p style={{fontSize:'.5rem',color:'#666',margin:0}}>House Insects of Peru</p>
+                        {/* Paspartu crema */}
+                        <div style={{
+                          width:'100%',height:'100%',
+                          border:'10px solid #e8dcc8',
+                          background:'#fff',
+                          display:'flex',flexDirection:'column' as const,
+                          alignItems:'center',justifyContent:'center',
+                          position:'relative' as const,
+                          padding:8,
+                        }}>
+                          {/* Fondo 2: interior blanco con espécimen */}
+                          <div style={{
+                            flex:1,width:'100%',
+                            background:'#ffffff',
+                            display:'flex',alignItems:'center',justifyContent:'center',
+                            position:'relative' as const,
+                          }}>
+                            {mariposa.foto
+                              ?<img src={mariposa.foto} style={{width:'85%',height:'85%',objectFit:'contain'}}/>
+                              :<span style={{color:'#999',fontSize:'.8rem'}}>Sin foto</span>
+                            }
+                          </div>
+                          {/* Etiqueta */}
+                          <div style={{textAlign:'center' as const,padding:'6px 0 2px'}}>
+                            <p style={{fontSize:'.55rem',fontStyle:'italic',color:'#333',margin:0}}>{mariposa.n}</p>
+                            <p style={{fontSize:'.5rem',color:'#666',margin:0}}>House Insects of Peru · CITES/SERFOR</p>
+                          </div>
                         </div>
                       </div>
                     ):(
