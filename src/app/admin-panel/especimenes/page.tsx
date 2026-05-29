@@ -102,6 +102,11 @@ export default function EspecimenesPage(){
       sexo:espEdit.sexo||'M or F',
       tamano:espEdit.tamano||'',
       activo:espEdit.activo!==false,
+      descripcion:espEdit.descripcion||'',
+      metaTitulo:(espEdit as any).metaTitulo||'',
+      metaDescripcion:(espEdit as any).metaDescripcion||'',
+      descripcionEN:(espEdit as any).descripcionEN||'',
+      descripcionZH:(espEdit as any).descripcionZH||'',
     }
     const r=await fetch('/api/datos',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,data})})
     const res=await r.json()
