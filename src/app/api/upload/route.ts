@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
 
     // Subir a Bunny.net (principal)
     const bunnyPath = `${familia.toLowerCase()}/${nombre}-${tipo}.webp`
-    const bunnyRes = await fetch(`https://storage.bunnycdn.com/${BUNNY_ZONE}/${bunnyPath}`, {
+    const bunnyRes = await fetch(`https://sg.storage.bunnycdn.com/${BUNNY_ZONE}/${bunnyPath}`, {
       method: 'PUT',
       headers: {'AccessKey': BUNNY_KEY, 'Content-Type': 'image/webp'},
       body: buffer,
@@ -81,7 +81,7 @@ export async function DELETE(req: NextRequest) {
 
     // Eliminar de Bunny.net
     const bunnyPath = `${familia.toLowerCase()}/${nombre}-${tipo}.webp`
-    await fetch(`https://storage.bunnycdn.com/${BUNNY_ZONE}/${bunnyPath}`, {
+    await fetch(`https://sg.storage.bunnycdn.com/${BUNNY_ZONE}/${bunnyPath}`, {
       method: 'DELETE',
       headers: {'AccessKey': BUNNY_KEY},
     })
