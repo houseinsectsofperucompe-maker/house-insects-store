@@ -110,7 +110,7 @@ export default function RubroClient({ rubro }:{ rubro:Rubro|null }) {
                   <span style={{color:G,fontSize:'1rem',minWidth:32,textAlign:'center'}}>{qty}</span>
                   <button onClick={()=>setQty(q=>q+1)} style={{background:'rgba(93,187,99,0.15)',border:'1px solid rgba(93,187,99,0.3)',color:'#5DBB63',borderRadius:6,width:36,height:36,cursor:'pointer',fontSize:'1.2rem'}}>+</button>
                 </div>
-                <button onClick={()=>addItem({...sel,qty,rubro:rubro.id})} style={{width:'100%',padding:'12px',background:G,color:'#1A1209',border:'none',borderRadius:8,fontWeight:700,fontSize:'1rem',cursor:'pointer',fontFamily:'Georgia,serif',marginBottom:8}}>
+                <button onClick={()=>{addItem({...sel,cantidad:qty,rubro:rubro.id})}} style={{width:'100%',padding:'12px',background:G,color:'#1A1209',border:'none',borderRadius:8,fontWeight:700,fontSize:'1rem',cursor:'pointer',fontFamily:'Georgia,serif',marginBottom:8}}>
                   🛒 Agregar al carrito
                 </button>
                 <a href={`https://wa.me/51940699405?text=Hola, me interesa: ${sel.n} $${sel.p}`} target="_blank"
