@@ -54,7 +54,7 @@ const FAMILIAS=[
 ]
 
 type Esp={n:string,foto?:string,precio?:number}
-type FamData={id:string,nm:string,orden:string,e:{n:string,foto?:string,precio?:number}[]}
+type FamData={id:string,nm:string,orden:string,e:{n:string,foto?:string,p?:number,s?:number,calidad?:string,activo?:boolean}[]}
 
 export default function DiurnasPage(){
   const [paso,setPaso]=useState(1)
@@ -135,7 +135,7 @@ export default function DiurnasPage(){
                           :<span style={{color:'rgba(201,168,76,0.3)',fontSize:'.65rem'}}>Sin foto</span>}
                       </div>
                       <p style={{color:G,fontSize:'.72rem',fontStyle:'italic',margin:'0 0 2px'}}>{e.n}</p>
-                      {e.precio&&<p style={{color:'rgba(201,168,76,0.6)',fontSize:'.65rem',margin:0}}>${e.precio} USD</p>}
+                      {e.p&&<p style={{color:'rgba(201,168,76,0.6)',fontSize:'.65rem',margin:0}}>${e.p} USD</p>}
                     </button>
                   ))}
                 </div>
@@ -160,7 +160,7 @@ export default function DiurnasPage(){
               background:'rgba(201,168,76,0.06)',borderRadius:8,border:`1px solid ${BD}`}}>
               <div>
                 <p style={{color:G,fontStyle:'italic',margin:0,fontSize:'.9rem'}}>{mariposa.n}</p>
-                <p style={{color:'rgba(201,168,76,0.6)',margin:0,fontSize:'.75rem'}}>${mariposa.precio} USD</p>
+                <p style={{color:'rgba(201,168,76,0.6)',margin:0,fontSize:'.75rem'}}>${mariposa.p} USD</p>
               </div>
               <button onClick={()=>setPaso(1)} style={{marginLeft:'auto',background:'none',
                 border:`1px solid ${BD}`,color:G,borderRadius:6,padding:'4px 12px',
