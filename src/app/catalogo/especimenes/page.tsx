@@ -169,7 +169,7 @@ function CatalogoInner() {
           </p>
           <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(200px,1fr))',gap:8}}>
             {pagEsp.map((e,i)=>(
-              <button key={i} onClick={()=>{setSel(e);setVista('foto')}} className="esp-card">
+              <button key={i} onClick={()=>window.location.href=`/catalogo/especimenes/${famSel}-${(pag-1)*POR_PAG+i}`} className="esp-card">
                 <div style={{width:'100%',height:160,background:'#000',borderRadius:6,marginBottom:6,overflow:'hidden',display:'flex',alignItems:'center',justifyContent:'center'}}>
                   {e.foto
                     ? <img src={e.foto} style={{width:'100%',height:'100%',objectFit:'cover'}} onError={ev=>{(ev.target as HTMLImageElement).style.display='none'}}/>
