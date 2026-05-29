@@ -31,7 +31,7 @@ function CatalogoInner() {
   const POR_PAG = 21
 
   useEffect(()=>{
-    fetch('/api/datos')
+    fetch('/api/datos',{next:{revalidate:3600}})
       .then(r=>r.json())
       .then((data:any[])=>{
         if(data&&data.length){
