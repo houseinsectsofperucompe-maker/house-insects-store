@@ -6,12 +6,7 @@ const redis = new Redis({
   token: 'gQAAAAAAAaOLAAIgcDExZGYyODVjMzY1Mjc0OTY1YjcyYjZiMzIzZjhmYTgxOA',
 })
 
-export const revalidate = 3600
-
-export async function generateStaticParams() {
-  const rubros = await redis.get('catalogo:rubros') as any[]
-  return (rubros||[]).map((r:any) => ({ id: r.id }))
-}
+export const dynamic = 'force-dynamic'
 
 export default async function Page({ params }: { params: { id: string } }) {
   const rubros = await redis.get('catalogo:rubros') as any[]
