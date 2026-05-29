@@ -53,7 +53,7 @@ const FAMILIAS=[
   'Riodinidae','Satyridae'
 ]
 
-type Esp={n:string,foto?:string,precio?:number}
+type Esp={n:string,foto?:string,p?:number,s?:number,calidad?:string,activo?:boolean}
 type FamData={id:string,nm:string,orden:string,e:{n:string,foto?:string,p?:number,s?:number,calidad?:string,activo?:boolean}[]}
 
 export default function DiurnasPage(){
