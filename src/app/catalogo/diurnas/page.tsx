@@ -54,7 +54,7 @@ const FAMILIAS=[
 ]
 
 type Esp={n:string,foto?:string,precio?:number}
-type FamData={id:string,nm:string,e:{n:string,foto?:string,precio?:number}[]}
+type FamData={id:string,nm:string,orden:string,e:{n:string,foto?:string,precio?:number}[]}
 
 export default function DiurnasPage(){
   const [paso,setPaso]=useState(1)
