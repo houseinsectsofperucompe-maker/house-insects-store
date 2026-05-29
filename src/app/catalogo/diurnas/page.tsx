@@ -48,6 +48,14 @@ export default function DiurnasPage() {
   const [famSel, setFamSel] = useState('Morphidae')
   const [mariposa, setMariposa] = useState<any>(null)
   const [marco, setMarco] = useState(MARCOS[0])
+  const [modelo, setModelo] = useState('shadowbox')
+  const MODELOS=[
+    {id:'shadowbox', nm:'Shadow Box', desc:'Marco + Paspartu interior'},
+    {id:'ovalo', nm:'Marco Ovalado', desc:'Forma oval clasica'},
+    {id:'redondo', nm:'Marco Redondo', desc:'Forma circular'},
+    {id:'triangulo', nm:'Marco Triangular', desc:'Forma triangular'},
+    {id:'glass', nm:'Todo Vidrio', desc:'Transparente dos lados'},
+  ]
   const [paso, setPaso] = useState<1|2|3>(1)
   const [loading, setLoading] = useState(true)
 
@@ -183,22 +191,45 @@ export default function DiurnasPage() {
               <div style={{padding:20,background:'#f5f5f5',borderRadius:12,display:'flex',alignItems:'center',justifyContent:'center',minHeight:350}}>
                 <div style={{
                   width:340,height:340,
-                  background:marcoSel.color,
-                  padding:40,
-                  borderRadius:6,
-                  boxShadow:'0 12px 40px rgba(0,0,0,0.6),inset 0 2px 8px rgba(0,0,0,0.3)',
-                  display:'flex',alignItems:'center',justifyContent:'center'
+                  background:modelo==='glass'?'transparent':marcoSel.color,
+                  padding:modelo==='glass'?8:40,
+                  borderRadius:modelo==='ovalo'?'50%':modelo==='redondo'?'50%':modelo==='triangulo'?'0':6,
+                  boxShadow:modelo==='glass'?'0 4px 24px rgba(0,0,0,0.15)':'0 12px 40px rgba(0,0,0,0.6),inset 0 2px 8px rgba(0,0,0,0.3)',
+                  border:modelo==='glass'?'3px solid rgba(200,220,255,0.5)':'none',
+                  clipPath:modelo==='triangulo'?'polygon(50% 0%, 0% 100%, 100% 100%)':'none',
+                  display:'flex',alignItems:'center',justifyContent:'center',
+                  position:'relative' as const,
+                  backdropFilter:modelo==='glass'?'blur(2px)':'none',
                 }}>
+                  {modelo==='shadowbox'&&(
+                    <div style={{position:'absolute',inset:12,border:'6px solid rgba(240,230,200,0.6)',borderRadius:2,pointerEvents:'none',zIndex:1}}/>
+                  )}
                   <div style={{
                     width:'100%',height:'100%',
-                    background:marcoSel.fondo,
+                    background:modelo==='glass'?'rgba(255,255,255,0.15)':marcoSel.fondo,
                     display:'flex',alignItems:'center',justifyContent:'center',
-                    borderRadius:2
+                    borderRadius:modelo==='ovalo'||modelo==='redondo'?'50%':2,
+                    clipPath:modelo==='triangulo'?'polygon(50% 0%, 0% 100%, 100% 100%)':'none',
                   }}>
                     {mariposa.foto
                       ? <img src={mariposa.foto} style={{width:'85%',height:'85%',objectFit:'contain'}}/>
                       : <span style={{color:'#999',fontSize:'.8rem'}}>Sin foto</span>
                     }
+                  </div>
+                </div>
+                {/* Selector de modelos */}
+                <div style={{marginTop:16,width:'100%'}}>
+                  <p style={{color:G,fontSize:'.72rem',marginBottom:8,textAlign:'center',letterSpacing:'0.06em'}}>MODELO DE CUADRO</p>
+                  <div style={{display:'flex',gap:8,flexWrap:'wrap',justifyContent:'center'}}>
+                    {MODELOS.map(m=>(
+                      <button key={m.id} onClick={()=>setModelo(m.id)}
+                        style={{padding:'6px 14px',background:modelo===m.id?'rgba(201,168,76,0.2)':'transparent',
+                          border:`1px solid ${modelo===m.id?G:BD}`,color:G,borderRadius:6,cursor:'pointer',
+                          fontFamily:'Georgia,serif',fontSize:'.7rem',textAlign:'center'}}>
+                        {m.nm}
+                        <span style={{display:'block',fontSize:'.58rem',color:'rgba(201,168,76,0.5)'}}>{m.desc}</span>
+                      </button>
+                    ))}
                   </div>
                 </div>
               </div>
