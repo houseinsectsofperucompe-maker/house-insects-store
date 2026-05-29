@@ -85,11 +85,6 @@ function CatalogoInner() {
         .pag-btn:hover:not(:disabled){transform:translateY(-2px) scale(1.1);box-shadow:0 4px 12px rgba(201,168,76,0.3)}
       `}</style>
 
-      <div style={{position:'fixed',bottom:24,left:24,zIndex:50}}>
-        <button onClick={()=>setShowCarrito(true)} style={{background:'rgba(201,168,76,0.15)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:8,padding:'8px 16px',cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.8rem'}}>
-          🛒 Mi Carrito {carrito.length>0?`(${carrito.length})`:''}
-        </button>
-      </div>
       {/* Header */}
       <div style={{textAlign:'center',marginBottom:32}}>
         <a href="/"><img src="/logo-house-insects-peru.png" style={{width:80,height:80,objectFit:'contain',marginBottom:10}} onError={e=>{(e.target as HTMLImageElement).src='/logo.png'}}/></a>
