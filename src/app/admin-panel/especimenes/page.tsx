@@ -439,32 +439,38 @@ export default function EspecimenesPage(){
                   <div style={{marginTop:10,padding:10,background:'rgba(201,168,76,0.04)',borderRadius:6}}>
                     <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.62rem',marginBottom:6}}>📤 Subir foto directamente:</p>
                     <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
-                      {(['foto','fotoLado','fotoReverso','video'] as const).map(tipo=>(
-                        <label key={tipo} style={{cursor:'pointer'}}>
-                          <input key={`${tipo}-${espEdit.n}`} type="file" accept="image/*,video/*" style={{display:'none'}} onChange={async e=>{
-                            const file=e.target.files?.[0]
-                            if(!file||!espEdit.familia||!espEdit.n)return
-                            mostrar('⏳ Subiendo...')
-                            const fd=new FormData()
-                            fd.append('file',file)
-                            fd.append('familia',espEdit.familia)
-                            fd.append('especie',espEdit.n)
-                            fd.append('tipo',tipo)
-                            fd.append('destino','cloudinary')
-                            const r=await fetch('/api/upload',{method:'POST',body:fd})
-                            const res=await r.json()
-                            if(res.ok){
-                              setEspEdit((p:any)=>({...p,[tipo]:res.url}))
-                              mostrar('✅ Foto subida y guardada')
-                              e.target.value=''
-                              cargarTodo()
-                            } else{mostrar('❌ '+res.error);e.target.value=''}
-                          }}/>
-                          <span style={{background:'rgba(201,168,76,0.1)',color:G,border:`1px solid ${BD}`,padding:'4px 10px',borderRadius:4,fontSize:'.65rem',cursor:'pointer'}}>
-                            📸 {tipo==='foto'?'Frente':tipo==='fotoLado'?'Lado':tipo==='fotoReverso'?'Reverso':'Video'}
-                          </span>
-                        </label>
-                      ))}
+                      {(['foto','fotoLado','fotoReverso','video'] as const).map(tipo=>{
+                        const subirFoto=async(file:File)=>{
+                          if(!file||!espEdit.familia||!espEdit.n)return
+                          mostrar('⏳ Subiendo '+tipo+'...')
+                          const fd=new FormData()
+                          fd.append('file',file)
+                          fd.append('familia',espEdit.familia||'')
+                          fd.append('especie',espEdit.n||'')
+                          fd.append('tipo',tipo)
+                          fd.append('destino','cloudinary')
+                          const r=await fetch('/api/upload',{method:'POST',body:fd})
+                          const res=await r.json()
+                          if(res.ok){setEspEdit((p:any)=>({...p,[tipo]:res.url}));mostrar('✅ '+tipo+' subido')}
+                          else mostrar('❌ '+res.error)
+                        }
+                        return(
+                          <label key={tipo} style={{cursor:'pointer'}} onClick={e=>{
+                            const inp=document.createElement('input')
+                            inp.type='file'
+                            inp.accept='image/*,video/*'
+                            inp.onchange=async(ev:any)=>{
+                              const file=ev.target.files?.[0]
+                              if(file) await subirFoto(file)
+                            }
+                            inp.click()
+                          }}>
+                            <span style={{background:'rgba(201,168,76,0.1)',color:G,border:`1px solid ${BD}`,padding:'4px 10px',borderRadius:4,fontSize:'.65rem',cursor:'pointer'}}>
+                              📸 {tipo==='foto'?'Frente':tipo==='fotoLado'?'Lado':tipo==='fotoReverso'?'Reverso':'Video'}
+                            </span>
+                          </label>
+                        )
+                      })}
                     </div>
                   </div>
                 </div>
