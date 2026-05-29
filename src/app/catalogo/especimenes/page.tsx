@@ -2,6 +2,7 @@
 import ST from '@/components/ST'
 import { useCarrito } from '@/components/CarritoContext'
 import { useState, useEffect, Suspense } from 'react'
+import CarritoCompras from '@/components/CarritoCompras'
 import { useSearchParams } from 'next/navigation'
 
 type E = { n:string; p:number; s:number; foto?:string; fotoLado?:string; fotoReverso?:string; video?:string; activo?:boolean; familia?:string }
@@ -19,6 +20,8 @@ function CatalogoInner() {
   const searchParams = useSearchParams()
   const [ordenes, setOrdenes] = useState<Orden[]>(ORDENES_BASE)
   const [loading, setLoading] = useState(true)
+  const [carrito, setCarrito] = useState<any[]>([])
+  const [showCarrito, setShowCarrito] = useState(false)
   const [ord, setOrd] = useState('Lepidoptera Diurnae')
   const [famSel, setFamSel] = useState('Brassolidae')
   const [pag, setPag] = useState(1)
@@ -72,6 +75,7 @@ function CatalogoInner() {
 
   return (
     <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'40px 20px'}}>
+      {showCarrito && <CarritoCompras items={carrito} onClose={()=>setShowCarrito(false)} onUpdateItems={setCarrito} onPagar={()=>{}}/>}
       <style>{`
         .esp-card{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.12);border-radius:9px;padding:10px;cursor:pointer;text-align:left;font-family:Georgia,serif;transition:transform 0.18s ease,border-color 0.18s ease,background 0.18s ease,box-shadow 0.18s ease}
         .esp-card:hover{transform:translateY(-5px) scale(1.04);border-color:rgba(201,168,76,0.55);background:rgba(201,168,76,0.11);box-shadow:0 10px 28px rgba(0,0,0,0.45)}
@@ -81,6 +85,11 @@ function CatalogoInner() {
         .pag-btn:hover:not(:disabled){transform:translateY(-2px) scale(1.1);box-shadow:0 4px 12px rgba(201,168,76,0.3)}
       `}</style>
 
+      <div style={{position:'fixed',top:16,right:16,zIndex:50}}>
+        <button onClick={()=>setShowCarrito(true)} style={{background:'rgba(201,168,76,0.15)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:8,padding:'8px 16px',cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.8rem'}}>
+          🛒 Mi Carrito {carrito.length>0?`(${carrito.length})`:''}
+        </button>
+      </div>
       {/* Header */}
       <div style={{textAlign:'center',marginBottom:32}}>
         <a href="/"><img src="/logo-house-insects-peru.png" style={{width:80,height:80,objectFit:'contain',marginBottom:10}} onError={e=>{(e.target as HTMLImageElement).src='/logo.png'}}/></a>
