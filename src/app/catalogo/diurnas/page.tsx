@@ -16,7 +16,24 @@ const MARCOS = [
   { id:'madera-lino', nm:'Marco Madera / Fondo Lino', color:'#8B6914', fondo:'#d4c5a9' },
   { id:'acrilico', nm:'Marco Acrilico Transparente', color:'#ccc', fondo:'#fff' },
   { id:'mixto', nm:'Cuadro Mixto (varias mariposas)', color:'#5a3e1b', fondo:'#fff' },
+  { id:'negro-azul', nm:'Marco Negro / Fondo Azul Noche', color:'#000', fondo:'#0d1b2a' },
+  { id:'negro-mate', nm:'Marco Negro Mate', color:'#111', fondo:'#1a1a1a' },
+  { id:'caoba-oscuro', nm:'Marco Caoba Oscuro', color:'#3b1a08', fondo:'#fff' },
+  { id:'bambu-dorado', nm:'Marco Bambu Dorado', color:'#c8a951', fondo:'#fdf6e3' },
+  { id:'roble', nm:'Marco Roble Natural', color:'#a0522d', fondo:'#fff' },
+  { id:'cerezo', nm:'Marco Cerezo', color:'#7a1f2e', fondo:'#fff' },
+  { id:'nogal', nm:'Marco Nogal', color:'#4e2a04', fondo:'#f5f0e8' },
+  { id:'dorado-brillante', nm:'Marco Dorado Brillante', color:'#ffd700', fondo:'#fff' },
+  { id:'plateado-mate', nm:'Marco Plateado Mate', color:'#aaa', fondo:'#f8f8f8' },
+  { id:'bronce', nm:'Marco Bronce', color:'#cd7f32', fondo:'#fff' },
+  { id:'cobre', nm:'Marco Cobre', color:'#b87333', fondo:'#fdf5e6' },
+  { id:'marfil', nm:'Marco Marfil', color:'#fffff0', fondo:'#fffff0' },
+  { id:'rojo-borgona', nm:'Marco Rojo Borgona', color:'#800020', fondo:'#fff' },
+  { id:'verde-ingles', nm:'Marco Verde Ingles', color:'#355e3b', fondo:'#f0fff0' },
+  { id:'azul-marino', nm:'Marco Azul Marino', color:'#001f3f', fondo:'#fff' },
+  { id:'azul-real', nm:'Marco Azul Real', color:'#4169e1', fondo:'#fff' },
 ]
+
 
 const FAMILIAS = [
   'Brassolidae','Danaidae','Heliconidae','Ithomiidae','Hesperiidae',
