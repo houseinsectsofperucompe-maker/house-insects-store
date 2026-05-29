@@ -80,12 +80,23 @@ export default function DiurnasPage(){
 
   return(
     <div style={{minHeight:'100vh',background:BG,color:G,fontFamily:'Georgia,serif'}}>
-      {/* Header */}
-      <div style={{textAlign:'center',padding:'2rem 1rem 1rem'}}>
-        <h1 style={{fontSize:'1.8rem',letterSpacing:'0.12em',marginBottom:'0.3rem'}}>Cuadros Mariposas Diurnas</h1>
-        <p style={{fontSize:'0.75rem',color:'rgba(201,168,76,0.6)',letterSpacing:'0.08em'}}>
-          Especimenes A1 enmarcados - Shadow Box 3D - Exportacion CITES/SERFOR
-        </p>
+      {/* Navbar */}
+      <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'12px 24px',borderBottom:'1px solid rgba(201,168,76,0.2)',background:'rgba(26,18,9,0.97)'}}>
+        <div style={{display:'flex',gap:8}}>
+          <a href='/' style={{display:'flex',alignItems:'center',gap:6,padding:'7px 14px',background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:8,textDecoration:'none',fontFamily:'Georgia,serif',fontSize:'.75rem'}}>
+            🏠 Inicio
+          </a>
+          <a href='/catalogo/especimenes' style={{display:'flex',alignItems:'center',gap:6,padding:'7px 14px',background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:8,textDecoration:'none',fontFamily:'Georgia,serif',fontSize:'.75rem'}}>
+            ← Catálogo
+          </a>
+        </div>
+        <div style={{textAlign:'center'}}>
+          <h1 style={{fontSize:'1.1rem',letterSpacing:'0.1em',margin:0,color:'#C9A84C'}}>Cuadros Mariposas Diurnas</h1>
+          <p style={{fontSize:'0.65rem',color:'rgba(201,168,76,0.5)',margin:0}}>Especimenes A1 - Shadow Box 3D - CITES/SERFOR</p>
+        </div>
+        <a href='/carrito' style={{display:'flex',alignItems:'center',gap:6,padding:'7px 14px',background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:8,textDecoration:'none',fontFamily:'Georgia,serif',fontSize:'.75rem'}}>
+          🛒 Carrito
+        </a>
       </div>
 
       {/* Steps */}
