@@ -1,30 +1,29 @@
 'use client'
-import ST from '@/components/ST'
-import { useState, useEffect } from 'react'
-import { useCarrito } from '@/components/CarritoContext'
-import CarritoCompras from '@/components/CarritoCompras'
+import {useState} from 'react'
 
-const MARCOS = [
+const G='#C9A84C',BD='rgba(201,168,76,0.35)',BG='#1A1209'
+
+const MARCOS=[
   { id:'negro-blanco', nm:'Marco Negro / Fondo Blanco', color:'#000', fondo:'#fff' },
   { id:'negro-rojo', nm:'Marco Negro / Fondo Rojo', color:'#000', fondo:'#c0392b' },
-  { id:'negro-azul', nm:'Marco Negro / Fondo Azul', color:'#000', fondo:'#1a3a6b' },
+  { id:'negro-azul', nm:'Marco Negro / Fondo Azul', color:'#000', fondo:'#1a3a5c' },
+  { id:'negro-azul-noche', nm:'Marco Negro / Fondo Azul Noche', color:'#000', fondo:'#0d1b2a' },
   { id:'negro-amarillo', nm:'Marco Negro / Fondo Amarillo', color:'#000', fondo:'#f1c40f' },
   { id:'negro-gris', nm:'Marco Negro / Fondo Gris', color:'#000', fondo:'#555' },
+  { id:'negro-mate', nm:'Marco Negro Mate', color:'#111', fondo:'#1a1a1a' },
   { id:'blanco-blanco', nm:'Marco Blanco / Fondo Blanco', color:'#eee', fondo:'#fff' },
   { id:'gris-blanco', nm:'Marco Gris / Fondo Blanco', color:'#888', fondo:'#fff' },
-  { id:'madera-blanco', nm:'Marco Madera / Fondo Blanco', color:'#8B6914', fondo:'#fff' },
-  { id:'madera-lino', nm:'Marco Madera / Fondo Lino', color:'#8B6914', fondo:'#d4c5a9' },
-  { id:'acrilico', nm:'Marco Acrilico Transparente', color:'#ccc', fondo:'#fff' },
-  { id:'mixto', nm:'Cuadro Mixto (varias mariposas)', color:'#5a3e1b', fondo:'#fff' },
-  { id:'negro-azul', nm:'Marco Negro / Fondo Azul Noche', color:'#000', fondo:'#0d1b2a' },
-  { id:'negro-mate', nm:'Marco Negro Mate', color:'#111', fondo:'#1a1a1a' },
+  { id:'caoba', nm:'Marco Caoba', color:'#8B6914', fondo:'#fff' },
   { id:'caoba-oscuro', nm:'Marco Caoba Oscuro', color:'#3b1a08', fondo:'#fff' },
+  { id:'bambu', nm:'Marco Bambu Natural', color:'#8B6914', fondo:'#d4c5a9' },
   { id:'bambu-dorado', nm:'Marco Bambu Dorado', color:'#c8a951', fondo:'#fdf6e3' },
   { id:'roble', nm:'Marco Roble Natural', color:'#a0522d', fondo:'#fff' },
   { id:'cerezo', nm:'Marco Cerezo', color:'#7a1f2e', fondo:'#fff' },
   { id:'nogal', nm:'Marco Nogal', color:'#4e2a04', fondo:'#f5f0e8' },
+  { id:'dorado', nm:'Marco Dorado Antiguo', color:'#b8960c', fondo:'#fff' },
   { id:'dorado-brillante', nm:'Marco Dorado Brillante', color:'#ffd700', fondo:'#fff' },
-  { id:'plateado-mate', nm:'Marco Plateado Mate', color:'#aaa', fondo:'#f8f8f8' },
+  { id:'plateado', nm:'Marco Plateado Moderno', color:'#aaa', fondo:'#f8f8f8' },
+  { id:'plateado-mate', nm:'Marco Plateado Mate', color:'#888', fondo:'#f8f8f8' },
   { id:'bronce', nm:'Marco Bronce', color:'#cd7f32', fondo:'#fff' },
   { id:'cobre', nm:'Marco Cobre', color:'#b87333', fondo:'#fdf5e6' },
   { id:'marfil', nm:'Marco Marfil', color:'#fffff0', fondo:'#fffff0' },
@@ -32,295 +31,243 @@ const MARCOS = [
   { id:'verde-ingles', nm:'Marco Verde Ingles', color:'#355e3b', fondo:'#f0fff0' },
   { id:'azul-marino', nm:'Marco Azul Marino', color:'#001f3f', fondo:'#fff' },
   { id:'azul-real', nm:'Marco Azul Real', color:'#4169e1', fondo:'#fff' },
+  { id:'acrilico', nm:'Marco Acrilico Transparente', color:'#ccc', fondo:'#fff' },
+  { id:'mixto', nm:'Cuadro Mixto (varias mariposas)', color:'#5a3e1b', fondo:'#fff' },
 ]
 
+const MODELOS=[
+  {id:'shadowbox', nm:'Shadow Box', desc:'Marco + Paspartu interior'},
+  {id:'ovalo', nm:'Marco Ovalado', desc:'Forma oval clasica'},
+  {id:'redondo', nm:'Marco Redondo', desc:'Forma circular'},
+  {id:'triangulo', nm:'Marco Triangular', desc:'Forma triangular'},
+  {id:'glass', nm:'Todo Vidrio', desc:'Transparente dos lados'},
+]
 
-const FAMILIAS = [
+const FAMILIAS=[
   'Brassolidae','Danaidae','Heliconidae','Ithomiidae','Hesperiidae',
   'Lycaenidae','Morphidae','Nymphalidae','Papilionidae','Pieridae',
   'Riodinidae','Satyridae'
 ]
 
-export default function DiurnasPage() {
-  const { items: carrito, updateItems: setCarrito } = useCarrito()
-  const [showCarrito, setShowCarrito] = useState(false)
-  const [familias, setFamilias] = useState<any[]>([])
-  const [famSel, setFamSel] = useState('Morphidae')
-  const [mariposa, setMariposa] = useState<any>(null)
-  const [marco, setMarco] = useState(MARCOS[0])
-  const [modelo, setModelo] = useState('shadowbox')
-  const [dropdownOpen, setDropdownOpen] = useState(false)
-  const [dropdownOpen, setDropdownOpen] = useState(false)
-  const MODELOS=[
-    {id:'shadowbox', nm:'Shadow Box', desc:'Marco + Paspartu interior'},
-    {id:'ovalo', nm:'Marco Ovalado', desc:'Forma oval clasica'},
-    {id:'redondo', nm:'Marco Redondo', desc:'Forma circular'},
-    {id:'triangulo', nm:'Marco Triangular', desc:'Forma triangular'},
-    {id:'glass', nm:'Todo Vidrio', desc:'Transparente dos lados'},
-  ]
-  const [paso, setPaso] = useState<1|2|3>(1)
-  const [loading, setLoading] = useState(true)
+type Esp={n:string,foto?:string,precio?:number}
 
-  const G = '#C9A84C', BD = 'rgba(201,168,76,0.2)'
+export default function DiurnasPage(){
+  const [paso,setPaso]=useState(1)
+  const [famSel,setFamSel]=useState(FAMILIAS[0])
+  const [mariposa,setMariposa]=useState<Esp|null>(null)
+  const [marco,setMarco]=useState(MARCOS[0])
+  const [modelo,setModelo]=useState('shadowbox')
+  const [dropdownOpen,setDropdownOpen]=useState(false)
+  const marcoSel=MARCOS.find(m=>m.id===marco.id)||MARCOS[0]
 
-  useEffect(()=>{
-    fetch('/api/datos')
-      .then(r=>r.json())
-      .then((data:any[])=>{
-        const diurnas = data.filter(f=>FAMILIAS.includes(f.id))
-        setFamilias(diurnas)
-        setLoading(false)
-      })
-  },[])
-
-  const famActual = familias.find(f=>f.id===famSel)
-  const especies = famActual?.e || []
-
-  const marcoSel = MARCOS.find(m=>m.id===marco.id)||MARCOS[0]
-
-  return (
-    <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'0'}}>
-      {showCarrito && <CarritoCompras items={carrito} onClose={()=>setShowCarrito(false)} onUpdateItems={setCarrito} onPagar={()=>{}}/>}
-
-      {/* Navbar */}
-      <div style={{position:'sticky',top:0,zIndex:100,background:'rgba(26,18,9,0.97)',borderBottom:`1px solid ${BD}`,display:'flex',alignItems:'center',padding:'0 24px',height:56}}>
-        <a href="/" style={{display:'flex',alignItems:'center',gap:10,textDecoration:'none'}}>
-          <img src="/logo-house-insects-peru.png" style={{width:36,height:36,objectFit:'contain'}} onError={(e:any)=>{e.target.src='/logo.png'}}/>
-          <span style={{color:G,fontSize:'.85rem'}}>House Insects of Peru</span>
-        </a>
-        <div style={{flex:1}}/>
-        <button onClick={()=>setShowCarrito(true)} style={{background:'rgba(201,168,76,0.12)',border:`1px solid ${BD}`,color:G,borderRadius:8,padding:'7px 16px',cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.8rem'}}>
-          Carrito {carrito.length>0&&<span style={{background:G,color:'#1A1209',borderRadius:10,padding:'1px 7px',fontSize:'.72rem',fontWeight:'bold',marginLeft:6}}>{carrito.length}</span>}
-        </button>
+  return(
+    <div style={{minHeight:'100vh',background:BG,color:G,fontFamily:'Georgia,serif'}}>
+      {/* Header */}
+      <div style={{textAlign:'center',padding:'2rem 1rem 1rem'}}>
+        <h1 style={{fontSize:'1.8rem',letterSpacing:'0.12em',marginBottom:'0.3rem'}}>Cuadros Mariposas Diurnas</h1>
+        <p style={{fontSize:'0.75rem',color:'rgba(201,168,76,0.6)',letterSpacing:'0.08em'}}>
+          Especimenes A1 enmarcados - Shadow Box 3D - Exportacion CITES/SERFOR
+        </p>
       </div>
 
-      <div style={{maxWidth:1100,margin:'0 auto',padding:'32px 20px'}}>
-        <div style={{textAlign:'center',marginBottom:32}}>
-          <h1 style={{color:G,fontSize:'clamp(1.6rem,4vw,2.4rem)',fontWeight:'normal',margin:'0 0 8px'}}>Cuadros Mariposas Diurnas</h1>
-          <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.85rem',margin:0}}>Especimenes A1 enmarcados - Shadow Box 3D - Exportacion CITES/SERFOR</p>
-        </div>
-
-        {/* Pasos */}
-        <div style={{display:'flex',justifyContent:'center',gap:0,marginBottom:32}}>
-          {[{n:1,t:'Escoge tu Mariposa'},{n:2,t:'Escoge tu Marco'},{n:3,t:'Tu Cuadro'}].map((p,i)=>(
-            <div key={p.n} style={{display:'flex',alignItems:'center'}}>
-              <div onClick={()=>{ if(p.n<=paso) setPaso(p.n as 1|2|3) }}
-                style={{display:'flex',flexDirection:'column',alignItems:'center',cursor:p.n<=paso?'pointer':'default',padding:'0 16px'}}>
-                <div style={{width:36,height:36,borderRadius:'50%',background:paso>=p.n?G:'rgba(201,168,76,0.15)',color:paso>=p.n?'#1A1209':G,display:'flex',alignItems:'center',justifyContent:'center',fontWeight:'bold',fontSize:'.9rem',marginBottom:4}}>
-                  {p.n}
-                </div>
-                <span style={{color:paso>=p.n?G:'rgba(201,168,76,0.4)',fontSize:'.65rem',textAlign:'center',maxWidth:80}}>{p.t}</span>
+      {/* Steps */}
+      <div style={{display:'flex',justifyContent:'center',alignItems:'center',gap:16,padding:'1rem',marginBottom:'1rem'}}>
+        {[{n:1,nm:'Escoge tu Mariposa'},{n:2,nm:'Escoge tu Marco'},{n:3,nm:'Tu Cuadro'}].map((p,i)=>(
+          <div key={p.n} style={{display:'flex',alignItems:'center',gap:16}}>
+            <div style={{textAlign:'center'}}>
+              <div style={{width:36,height:36,borderRadius:'50%',background:paso>=p.n?G:'rgba(201,168,76,0.15)',
+                color:paso>=p.n?'#1A1209':G,display:'flex',alignItems:'center',justifyContent:'center',
+                fontWeight:'bold',fontSize:'.9rem',margin:'0 auto 4px'}}>
+                {p.n}
               </div>
-              {i<2&&<div style={{width:40,height:1,background:paso>p.n?G:'rgba(201,168,76,0.2)',marginBottom:20}}/>}
+              <p style={{fontSize:'.65rem',color:paso>=p.n?G:'rgba(201,168,76,0.4)',margin:0,maxWidth:70,textAlign:'center'}}>{p.nm}</p>
             </div>
-          ))}
-        </div>
+            {i<2&&<div style={{width:60,height:1,background:BD}}/>}
+          </div>
+        ))}
+      </div>
 
-        {/* PASO 1: Seleccionar mariposa */}
+      <div style={{maxWidth:1100,margin:'0 auto',padding:'0 1rem 2rem'}}>
+
+        {/* PASO 1 */}
         {paso===1&&(
           <div>
-            {loading ? (
-              <div style={{textAlign:'center',color:G,padding:40}}>Cargando familias...</div>
-            ) : (
-              <>
-                <div style={{display:'flex',flexWrap:'wrap',justifyContent:'center',gap:6,marginBottom:24}}>
-                  {familias.map(f=>(
-                    <button key={f.id} onClick={()=>setFamSel(f.id)}
-                      style={{background:famSel===f.id?G:'rgba(201,168,76,0.08)',color:famSel===f.id?'#1A1209':G,border:`1px solid ${famSel===f.id?G:BD}`,borderRadius:20,padding:'6px 14px',cursor:'pointer',fontSize:'.75rem',fontFamily:'Georgia,serif'}}>
-                      {f.id} ({f.e?.length||0})
-                    </button>
-                  ))}
-                </div>
-                <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(180px,1fr))',gap:8}}>
-                  {especies.map((e:any,i:number)=>(
-                    <button key={i} onClick={()=>{setMariposa(e);setPaso(2)}}
-                      style={{background:mariposa?.n===e.n?'rgba(201,168,76,0.15)':'rgba(201,168,76,0.04)',border:`1px solid ${mariposa?.n===e.n?G:BD}`,borderRadius:9,padding:10,cursor:'pointer',textAlign:'left',fontFamily:'Georgia,serif',transition:'all 0.15s'}}>
-                      <div style={{width:'100%',height:140,background:'#000',borderRadius:6,marginBottom:6,overflow:'hidden',display:'flex',alignItems:'center',justifyContent:'center'}}>
-                        {e.foto
-                          ? <img src={e.foto} style={{width:'100%',height:'100%',objectFit:'cover'}} onError={(ev:any)=>{ev.target.style.display='none'}}/>
-                          : <span style={{color:'rgba(201,168,76,0.3)',fontSize:'.6rem'}}>SIN FOTO</span>
-                        }
-                      </div>
-                      <p style={{color:G,fontSize:'.7rem',margin:'0 0 2px',fontStyle:'italic'}}>{e.n}</p>
-                      <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',margin:0}}>${e.p} USD</p>
-                    </button>
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
-        )}
-
-        {/* PASO 2: Seleccionar marco */}
-        {paso===2&&(
-          <div>
-            <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:24,padding:16,background:'rgba(201,168,76,0.06)',borderRadius:8,border:`1px solid ${BD}`}}>
-              {mariposa?.foto&&<img src={mariposa.foto} style={{width:60,height:60,objectFit:'cover',borderRadius:6,background:'#000'}}/>}
-              <div>
-                <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',margin:'0 0 2px'}}>MARIPOSA SELECCIONADA</p>
-                <p style={{color:G,fontSize:'.85rem',fontStyle:'italic',margin:'0 0 2px'}}>{mariposa?.n}</p>
-                <p style={{color:'#5DBB63',fontSize:'.8rem',margin:0}}>${mariposa?.p} USD</p>
-              </div>
-              <button onClick={()=>setPaso(1)} style={{marginLeft:'auto',background:'none',border:`1px solid ${BD}`,color:G,borderRadius:6,padding:'4px 12px',cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.72rem'}}>Cambiar</button>
-            </div>
-
-            <h3 style={{color:G,fontWeight:'normal',marginBottom:16,fontSize:'1.1rem'}}>Selecciona tu Marco</h3>
-            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(200px,1fr))',gap:10,marginBottom:24}}>
-              {MARCOS.map(m=>(
-                <button key={m.id} onClick={()=>setMarco(m)}
-                  style={{background:marco.id===m.id?'rgba(201,168,76,0.12)':'rgba(201,168,76,0.04)',border:`2px solid ${marco.id===m.id?G:BD}`,borderRadius:10,padding:12,cursor:'pointer',textAlign:'left',fontFamily:'Georgia,serif',transition:'all 0.15s'}}>
-                  <div style={{display:'flex',gap:8,alignItems:'center',marginBottom:8}}>
-                    <div style={{width:32,height:32,borderRadius:4,background:m.color,border:'3px solid '+m.fondo,boxShadow:'0 0 0 1px rgba(201,168,76,0.3)'}}/>
-                    <div style={{width:20,height:20,borderRadius:3,background:m.fondo,border:'1px solid rgba(201,168,76,0.2)'}}/>
-                  </div>
-                  <p style={{color:G,fontSize:'.72rem',margin:'0 0 4px'}}>{m.nm}</p>
-                  {m.id==='mixto'&&<p style={{color:'rgba(201,168,76,0.5)',fontSize:'.62rem',margin:0}}>Varias mariposas</p>}
+            <div style={{display:'flex',flexWrap:'wrap' as const,gap:8,marginBottom:20,justifyContent:'center'}}>
+              {FAMILIAS.map(f=>(
+                <button key={f} onClick={()=>setFamSel(f)}
+                  style={{background:famSel===f?G:'rgba(201,168,76,0.08)',color:famSel===f?'#1A1209':G,
+                    border:`1px solid ${famSel===f?G:BD}`,borderRadius:20,padding:'6px 14px',
+                    cursor:'pointer',fontSize:'.75rem',fontFamily:'Georgia,serif'}}>
+                  {f}
                 </button>
               ))}
             </div>
-            <button onClick={()=>setPaso(3)} disabled={!marco}
-              style={{width:'100%',padding:'14px',background:G,color:'#1A1209',border:'none',borderRadius:8,fontWeight:700,fontSize:'1rem',cursor:'pointer',fontFamily:'Georgia,serif'}}>
-              Ver mi Cuadro
-            </button>
+            <p style={{textAlign:'center',fontSize:'.75rem',color:'rgba(201,168,76,0.5)',fontStyle:'italic'}}>
+              Especimenes de {famSel} — proximamente en catalogo
+            </p>
+            <div style={{textAlign:'center',marginTop:24}}>
+              <button onClick={()=>{setMariposa({n:'Morpho lympharis selenarys',precio:13.5});setPaso(2)}}
+                style={{padding:'12px 32px',background:'rgba(201,168,76,0.12)',border:`1px solid ${G}`,
+                  color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.85rem',letterSpacing:'0.08em'}}>
+                Continuar con muestra →
+              </button>
+            </div>
           </div>
         )}
 
-        {/* PASO 3: Vista previa del cuadro */}
+        {/* PASO 2 */}
+        {paso===2&&mariposa&&(
+          <div>
+            <div style={{display:'flex',alignItems:'center',gap:12,marginBottom:24,padding:16,
+              background:'rgba(201,168,76,0.06)',borderRadius:8,border:`1px solid ${BD}`}}>
+              <div>
+                <p style={{color:G,fontStyle:'italic',margin:0,fontSize:'.9rem'}}>{mariposa.n}</p>
+                <p style={{color:'rgba(201,168,76,0.6)',margin:0,fontSize:'.75rem'}}>${mariposa.precio} USD</p>
+              </div>
+              <button onClick={()=>setPaso(1)} style={{marginLeft:'auto',background:'none',
+                border:`1px solid ${BD}`,color:G,borderRadius:6,padding:'4px 12px',
+                cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.72rem'}}>Cambiar</button>
+            </div>
+            <p style={{marginBottom:12,fontSize:'.8rem',color:'rgba(201,168,76,0.7)'}}>Selecciona tu Marco:</p>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(160px,1fr))',gap:8,marginBottom:24}}>
+              {MARCOS.map(m=>(
+                <button key={m.id} onClick={()=>setMarco(m)}
+                  style={{background:marco.id===m.id?'rgba(201,168,76,0.12)':'rgba(201,168,76,0.04)',
+                    border:`2px solid ${marco.id===m.id?G:BD}`,borderRadius:10,padding:12,
+                    cursor:'pointer',textAlign:'left' as const,fontFamily:'Georgia,serif',transition:'all 0.15s'}}>
+                  <div style={{display:'flex',gap:8,alignItems:'center',marginBottom:4}}>
+                    <span style={{width:20,height:20,borderRadius:3,background:m.color,border:'1px solid rgba(255,255,255,0.2)',flexShrink:0}}/>
+                    <span style={{width:20,height:20,borderRadius:3,background:m.fondo,border:'1px solid rgba(255,255,255,0.2)',flexShrink:0}}/>
+                  </div>
+                  <p style={{color:G,fontSize:'.72rem',margin:0,lineHeight:1.3}}>{m.nm}</p>
+                </button>
+              ))}
+            </div>
+            <div style={{textAlign:'center'}}>
+              <button onClick={()=>setPaso(3)}
+                style={{padding:'12px 32px',background:'rgba(201,168,76,0.12)',border:`1px solid ${G}`,
+                  color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.85rem',letterSpacing:'0.08em'}}>
+                Ver mi Cuadro →
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* PASO 3 */}
         {paso===3&&mariposa&&(
-          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:32}}>
-            <div>
-              <h3 style={{color:G,fontWeight:'normal',marginBottom:16}}>Vista Previa</h3>
-              <div style={{padding:20,background:'#f5f5f5',borderRadius:12,display:'flex',alignItems:'center',justifyContent:'center',minHeight:350}}>
+          <div>
+            {/* Layout: cuadro grande + dropdown al lado */}
+            <div style={{display:'flex',gap:32,alignItems:'flex-start',justifyContent:'center',flexWrap:'wrap' as const}}>
+              {/* Cuadro grande */}
+              <div style={{background:'#111',borderRadius:12,padding:24,display:'flex',flexDirection:'column' as const,alignItems:'center'}}>
                 <div style={{
-                  width:340,height:340,
+                  width:460,height:460,
                   background:modelo==='glass'?'transparent':marcoSel.color,
-                  padding:modelo==='glass'?8:40,
-                  borderRadius:modelo==='ovalo'?'50%':modelo==='redondo'?'50%':modelo==='triangulo'?'0':6,
-                  boxShadow:modelo==='glass'?'0 4px 24px rgba(0,0,0,0.15)':'0 12px 40px rgba(0,0,0,0.6),inset 0 2px 8px rgba(0,0,0,0.3)',
-                  border:modelo==='glass'?'3px solid rgba(200,220,255,0.5)':'none',
+                  padding:modelo==='glass'?8:60,
+                  borderRadius:modelo==='ovalo'||modelo==='redondo'?'50%':modelo==='triangulo'?'0':8,
+                  boxShadow:modelo==='glass'?'0 4px 24px rgba(0,0,0,0.3)':'0 16px 48px rgba(0,0,0,0.8),inset 0 3px 12px rgba(0,0,0,0.5)',
+                  border:modelo==='glass'?'3px solid rgba(200,220,255,0.4)':'none',
                   clipPath:modelo==='triangulo'?'polygon(50% 0%, 0% 100%, 100% 100%)':'none',
                   display:'flex',alignItems:'center',justifyContent:'center',
                   position:'relative' as const,
-                  backdropFilter:modelo==='glass'?'blur(2px)':'none',
                 }}>
                   {modelo==='shadowbox'&&(
-                    <div style={{position:'absolute',inset:12,border:'6px solid rgba(240,230,200,0.6)',borderRadius:2,pointerEvents:'none',zIndex:1}}/>
+                    <div style={{position:'absolute',inset:14,border:'8px solid rgba(240,230,200,0.45)',borderRadius:2,pointerEvents:'none',zIndex:1}}/>
                   )}
                   <div style={{
                     width:'100%',height:'100%',
-                    background:modelo==='glass'?'rgba(255,255,255,0.15)':marcoSel.fondo,
+                    background:modelo==='glass'?'rgba(255,255,255,0.1)':marcoSel.fondo,
                     display:'flex',alignItems:'center',justifyContent:'center',
                     borderRadius:modelo==='ovalo'||modelo==='redondo'?'50%':2,
                     clipPath:modelo==='triangulo'?'polygon(50% 0%, 0% 100%, 100% 100%)':'none',
                   }}>
                     {mariposa.foto
-                      ? <img src={mariposa.foto} style={{width:'85%',height:'85%',objectFit:'contain'}}/>
-                      : <span style={{color:'#999',fontSize:'.8rem'}}>Sin foto</span>
+                      ?<img src={mariposa.foto} style={{width:'85%',height:'85%',objectFit:'contain'}}/>
+                      :<span style={{color:'#999',fontSize:'.8rem'}}>Sin foto</span>
                     }
                   </div>
                 </div>
-                {/* Selector de modelos */}
-                <div style={{marginTop:16,width:'100%'}}>
-                  <p style={{color:G,fontSize:'.72rem',marginBottom:8,textAlign:'center',letterSpacing:'0.06em'}}>MODELO DE CUADRO</p>
-                  <div style={{display:'flex',gap:8,flexWrap:'wrap',justifyContent:'center'}}>
-                    {MODELOS.map(m=>(
-                      <button key={m.id} onClick={()=>setModelo(m.id)}
-                        style={{padding:'6px 14px',background:modelo===m.id?'rgba(201,168,76,0.2)':'transparent',
-                          border:`1px solid ${modelo===m.id?G:BD}`,color:G,borderRadius:6,cursor:'pointer',
-                          fontFamily:'Georgia,serif',fontSize:'.7rem',textAlign:'center'}}>
-                        {m.nm}
-                        <span style={{display:'block',fontSize:'.58rem',color:'rgba(201,168,76,0.5)'}}>{m.desc}</span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              {/* Dropdown selector de marcos */}
-                  <div style={{minWidth:200,position:'relative' as const}}>
-                    <p style={{color:G,fontSize:'.7rem',letterSpacing:'0.08em',marginBottom:8}}>COLOR DE MARCO</p>
-                    <button onClick={()=>setDropdownOpen(!dropdownOpen)}
-                      style={{width:'100%',padding:'10px 14px',background:'rgba(201,168,76,0.08)',
-                        border:`1px solid ${G}`,color:G,borderRadius:8,cursor:'pointer',
-                        fontFamily:'Georgia,serif',fontSize:'.78rem',display:'flex',alignItems:'center',gap:10,justifyContent:'space-between'}}>
-                      <span style={{display:'flex',alignItems:'center',gap:8}}>
-                        <span style={{width:18,height:18,borderRadius:3,background:marcoSel.color,display:'inline-block',border:'1px solid rgba(255,255,255,0.2)'}}/>
-                        {marcoSel.nm}
-                      </span>
-                      <span>{dropdownOpen?'▲':'▼'}</span>
-                    </button>
-                    {dropdownOpen&&(
-                      <div style={{position:'absolute' as const,top:'100%',left:0,right:0,zIndex:50,
-                        background:'#1a1209',border:`1px solid ${G}`,borderRadius:8,marginTop:4,
-                        maxHeight:320,overflowY:'auto' as const,boxShadow:'0 8px 32px rgba(0,0,0,0.6)'}}>
-                        {MARCOS.map(m=>(
-                          <button key={m.id} onClick={()=>{setMarco(m);setDropdownOpen(false)}}
-                            style={{width:'100%',padding:'8px 14px',background:marco.id===m.id?'rgba(201,168,76,0.15)':'transparent',
-                              border:'none',borderBottom:`1px solid rgba(201,168,76,0.1)`,color:G,cursor:'pointer',
-                              fontFamily:'Georgia,serif',fontSize:'.75rem',display:'flex',alignItems:'center',gap:10,textAlign:'left' as const}}>
-                            <span style={{width:16,height:16,borderRadius:2,background:m.color,flexShrink:0,border:'1px solid rgba(255,255,255,0.2)'}}/>
-                            {m.nm}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-                {/* Modelos abajo */}
-                <div style={{marginTop:20,width:'100%',maxWidth:700}}>
-                  <p style={{color:G,fontSize:'.72rem',letterSpacing:'0.08em',marginBottom:10,textAlign:'center'}}>MODELO DE CUADRO</p>
+                {/* Modelos abajo del cuadro */}
+                <div style={{marginTop:20,width:'100%'}}>
+                  <p style={{color:'rgba(201,168,76,0.6)',fontSize:'.7rem',letterSpacing:'0.08em',marginBottom:10,textAlign:'center'}}>MODELO DE CUADRO</p>
                   <div style={{display:'flex',gap:8,flexWrap:'wrap' as const,justifyContent:'center'}}>
                     {MODELOS.map(m=>(
                       <button key={m.id} onClick={()=>setModelo(m.id)}
-                        style={{padding:'8px 16px',background:modelo===m.id?'rgba(201,168,76,0.2)':'transparent',
+                        style={{padding:'8px 14px',background:modelo===m.id?'rgba(201,168,76,0.2)':'transparent',
                           border:`1px solid ${modelo===m.id?G:BD}`,color:G,borderRadius:8,cursor:'pointer',
-                          fontFamily:'Georgia,serif',fontSize:'.75rem',textAlign:'center' as const}}>
+                          fontFamily:'Georgia,serif',fontSize:'.72rem',textAlign:'center' as const}}>
                         {m.nm}
-                        <span style={{display:'block',fontSize:'.6rem',color:'rgba(201,168,76,0.45)',marginTop:2}}>{m.desc}</span>
+                        <span style={{display:'block',fontSize:'.58rem',color:'rgba(201,168,76,0.45)',marginTop:2}}>{m.desc}</span>
                       </button>
                     ))}
                   </div>
                 </div>
               </div>
-            </div>
-            <div>
-              <h3 style={{color:G,fontWeight:'normal',marginBottom:16}}>Resumen de tu Cuadro</h3>
-              <div style={{background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,borderRadius:8,padding:20,marginBottom:16}}>
-                <div style={{marginBottom:12,paddingBottom:12,borderBottom:`1px solid ${BD}`}}>
-                  <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',margin:'0 0 4px'}}>MARIPOSA</p>
-                  <p style={{color:G,fontSize:'.85rem',fontStyle:'italic',margin:0}}>{mariposa.n}</p>
-                  <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.7rem',margin:'2px 0 0'}}>Familia: {famSel}</p>
+
+              {/* Panel derecho: dropdown + resumen */}
+              <div style={{minWidth:260,maxWidth:320}}>
+                {/* Dropdown marcos */}
+                <div style={{position:'relative' as const,marginBottom:24}}>
+                  <p style={{color:'rgba(201,168,76,0.6)',fontSize:'.7rem',letterSpacing:'0.08em',marginBottom:8}}>COLOR DE MARCO</p>
+                  <button onClick={()=>setDropdownOpen(!dropdownOpen)}
+                    style={{width:'100%',padding:'10px 14px',background:'rgba(201,168,76,0.08)',
+                      border:`1px solid ${G}`,color:G,borderRadius:8,cursor:'pointer',
+                      fontFamily:'Georgia,serif',fontSize:'.78rem',display:'flex',alignItems:'center',gap:10,justifyContent:'space-between'}}>
+                    <span style={{display:'flex',alignItems:'center',gap:8}}>
+                      <span style={{width:18,height:18,borderRadius:3,background:marcoSel.color,display:'inline-block',border:'1px solid rgba(255,255,255,0.2)'}}/>
+                      {marcoSel.nm}
+                    </span>
+                    <span>{dropdownOpen?'▲':'▼'}</span>
+                  </button>
+                  {dropdownOpen&&(
+                    <div style={{position:'absolute' as const,top:'100%',left:0,right:0,zIndex:50,
+                      background:'#1a1209',border:`1px solid ${G}`,borderRadius:8,marginTop:4,
+                      maxHeight:300,overflowY:'auto' as const,boxShadow:'0 8px 32px rgba(0,0,0,0.7)'}}>
+                      {MARCOS.map(m=>(
+                        <button key={m.id} onClick={()=>{setMarco(m);setDropdownOpen(false)}}
+                          style={{width:'100%',padding:'8px 14px',background:marco.id===m.id?'rgba(201,168,76,0.15)':'transparent',
+                            border:'none',borderBottom:`1px solid rgba(201,168,76,0.1)`,color:G,cursor:'pointer',
+                            fontFamily:'Georgia,serif',fontSize:'.75rem',display:'flex',alignItems:'center',gap:10,textAlign:'left' as const}}>
+                          <span style={{width:16,height:16,borderRadius:2,background:m.color,flexShrink:0,border:'1px solid rgba(255,255,255,0.2)'}}/>
+                          <span style={{width:16,height:16,borderRadius:2,background:m.fondo,flexShrink:0,border:'1px solid rgba(255,255,255,0.2)'}}/>
+                          {m.nm}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                <div style={{marginBottom:12,paddingBottom:12,borderBottom:`1px solid ${BD}`}}>
-                  <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',margin:'0 0 4px'}}>MARCO</p>
-                  <p style={{color:G,fontSize:'.85rem',margin:0}}>{marcoSel.nm}</p>
+
+                {/* Resumen */}
+                <div style={{background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,borderRadius:8,padding:20,marginBottom:16}}>
+                  <div style={{marginBottom:12,paddingBottom:12,borderBottom:`1px solid ${BD}`}}>
+                    <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',margin:'0 0 4px'}}>MARIPOSA</p>
+                    <p style={{color:G,fontSize:'.85rem',fontStyle:'italic',margin:0}}>{mariposa.n}</p>
+                  </div>
+                  <div style={{marginBottom:12,paddingBottom:12,borderBottom:`1px solid ${BD}`}}>
+                    <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',margin:'0 0 4px'}}>MARCO</p>
+                    <p style={{color:G,fontSize:'.85rem',margin:0}}>{marcoSel.nm}</p>
+                  </div>
+                  <div style={{marginBottom:12,paddingBottom:12,borderBottom:`1px solid ${BD}`}}>
+                    <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',margin:'0 0 4px'}}>MODELO</p>
+                    <p style={{color:G,fontSize:'.85rem',margin:0}}>{MODELOS.find(m=>m.id===modelo)?.nm}</p>
+                  </div>
+                  <div>
+                    <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',margin:'0 0 4px'}}>PRECIO</p>
+                    <p style={{color:G,fontSize:'1.8rem',margin:0,fontWeight:'bold'}}>Consultar</p>
+                  </div>
                 </div>
-                <div>
-                  <p style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',margin:'0 0 4px'}}>PRECIO</p>
-                  <p style={{color:G,fontSize:'1.8rem',margin:0,fontWeight:'bold'}}>Consultar</p>
-                  <p style={{color:'rgba(201,168,76,0.4)',fontSize:'.65rem',margin:'4px 0 0'}}>Precio segun especie y marco seleccionado</p>
-                </div>
-              </div>
-              <div style={{background:'rgba(201,168,76,0.04)',border:`1px solid ${BD}`,borderRadius:8,padding:16,marginBottom:16}}>
-                <p style={{color:G,fontSize:'.75rem',fontWeight:'bold',margin:'0 0 8px'}}>Incluye:</p>
-                <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.72rem',margin:'0 0 4px',lineHeight:1.6}}>
-                  Especimen A1 calidad museo<br/>
-                  Shadow Box 3D con vidrio<br/>
-                  Certificado CITES/SERFOR<br/>
-                  Factura electronica SUNAT<br/>
-                  Empaque especial exportacion
-                </p>
-              </div>
-              <a href={`https://wa.me/51940699405?text=Hola, quiero un cuadro de ${mariposa.n} con ${marcoSel.nm}. Consulto precio.`}
-                target="_blank"
-                style={{display:'block',width:'100%',padding:'14px',background:'#25D366',color:'white',border:'none',borderRadius:8,fontWeight:700,fontSize:'1rem',textAlign:'center',textDecoration:'none',fontFamily:'Georgia,serif',marginBottom:8,boxSizing:'border-box' as const}}>
-                Consultar Precio por WhatsApp
-              </a>
-              <div style={{display:'flex',gap:8}}>
-                <button onClick={()=>setPaso(1)} style={{flex:1,padding:'10px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.78rem'}}>
-                  Cambiar Mariposa
-                </button>
-                <button onClick={()=>setPaso(2)} style={{flex:1,padding:'10px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.78rem'}}>
-                  Cambiar Marco
+
+                <a href={`https://wa.me/51940699405?text=Hola, quiero un cuadro de ${mariposa.n} con ${marcoSel.nm} modelo ${modelo}. Consulto precio.`}
+                  target="_blank" rel="noopener noreferrer"
+                  style={{display:'block',width:'100%',padding:'14px',background:G,color:'#1A1209',
+                    borderRadius:8,textAlign:'center' as const,textDecoration:'none',
+                    fontFamily:'Georgia,serif',fontSize:'.9rem',fontWeight:'bold',marginBottom:12}}>
+                  Consultar por WhatsApp
+                </a>
+                <button onClick={()=>setPaso(1)}
+                  style={{width:'100%',padding:'10px',background:'transparent',border:`1px solid ${BD}`,
+                    color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.78rem'}}>
+                  ← Cambiar Mariposa
                 </button>
               </div>
             </div>
