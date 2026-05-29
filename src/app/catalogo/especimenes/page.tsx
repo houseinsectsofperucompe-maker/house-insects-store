@@ -3,7 +3,6 @@ import ST from '@/components/ST'
 import { useCarrito } from '@/components/CarritoContext'
 import { useState, useEffect, Suspense } from 'react'
 import CarritoCompras from '@/components/CarritoCompras'
-import { useCarrito } from '@/components/CarritoContext'
 import { useSearchParams } from 'next/navigation'
 
 type E = { n:string; p:number; s:number; foto?:string; fotoLado?:string; fotoReverso?:string; video?:string; activo?:boolean; familia?:string }
