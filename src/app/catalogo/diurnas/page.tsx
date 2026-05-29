@@ -49,6 +49,8 @@ export default function DiurnasPage() {
   const [mariposa, setMariposa] = useState<any>(null)
   const [marco, setMarco] = useState(MARCOS[0])
   const [modelo, setModelo] = useState('shadowbox')
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
   const MODELOS=[
     {id:'shadowbox', nm:'Shadow Box', desc:'Marco + Paspartu interior'},
     {id:'ovalo', nm:'Marco Ovalado', desc:'Forma oval clasica'},
