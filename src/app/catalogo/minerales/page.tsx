@@ -13,6 +13,9 @@ export default function MineralesPage() {
     {id:'proteccion',nm:'🛡️ Protección Espiritual'},
     {id:'coleccion',nm:'🔬 Colección & Museos'},
     {id:'materia',nm:'⚙️ Materia Prima Industrial'},
+    {id:'gemas',nm:'💎 Gemas Talladas'},
+    {id:'brutos',nm:'🪨 Minerales Brutos'},
+    {id:'joyeria_exc',nm:'👑 Joyería Exclusiva'},
   ]
 
   const PESOS = [
@@ -48,8 +51,9 @@ export default function MineralesPage() {
     ],
   }
 
+  const COLECCIONES_EXT:any = {gemas:[], brutos:[], joyeria_exc:[]}
   const piezasActuales = cat==='todas'
-    ? [...COLECCIONES.suerte,...COLECCIONES.proteccion,...COLECCIONES.coleccion,...COLECCIONES.materia]
+    ? [...COLECCIONES.suerte,...COLECCIONES.proteccion,...COLECCIONES.coleccion,...COLECCIONES.materia,...COLECCIONES_EXT.gemas,...COLECCIONES_EXT.brutos,...COLECCIONES_EXT.joyeria_exc]
     : COLECCIONES[cat as keyof typeof COLECCIONES] || []
 
   const pesoActual = PESOS.find(p=>p.id===peso)
@@ -164,7 +168,10 @@ export default function MineralesPage() {
               {cat==='todas'?'💎 TODAS LAS PIEDRAS':
                cat==='suerte'?'🍀 SUERTE & ABUNDANCIA':
                cat==='proteccion'?'🛡️ PROTECCIÓN ESPIRITUAL':
-               cat==='coleccion'?'🔬 COLECCIÓN & MUSEOS':'⚙️ MATERIA PRIMA INDUSTRIAL'}
+               cat==='coleccion'?'🔬 COLECCIÓN & MUSEOS':
+               cat==='gemas'?'💎 GEMAS TALLADAS':
+               cat==='brutos'?'🪨 MINERALES BRUTOS':
+               cat==='joyeria_exc'?'👑 JOYERÍA EXCLUSIVA':'⚙️ MATERIA PRIMA INDUSTRIAL'}
             </div>
             {piezasActuales.map(p=>(
               <div key={p.nm} className="pieza-card">
