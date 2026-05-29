@@ -235,12 +235,51 @@ export default function DiurnasPage() {
                   </div>
                 </div>
               </div>
-              <div style={{display:'flex',gap:8,marginTop:12,flexWrap:'wrap'}}>
-                {MARCOS.map(m=>(
-                  <button key={m.id} onClick={()=>setMarco(m)}
-                    style={{width:28,height:28,borderRadius:4,background:m.color,border:marco.id===m.id?'3px solid '+G:'2px solid rgba(201,168,76,0.3)',cursor:'pointer',padding:0}}
-                    title={m.nm}/>
-                ))}
+              {/* Dropdown selector de marcos */}
+                  <div style={{minWidth:200,position:'relative' as const}}>
+                    <p style={{color:G,fontSize:'.7rem',letterSpacing:'0.08em',marginBottom:8}}>COLOR DE MARCO</p>
+                    <button onClick={()=>setDropdownOpen(!dropdownOpen)}
+                      style={{width:'100%',padding:'10px 14px',background:'rgba(201,168,76,0.08)',
+                        border:`1px solid ${G}`,color:G,borderRadius:8,cursor:'pointer',
+                        fontFamily:'Georgia,serif',fontSize:'.78rem',display:'flex',alignItems:'center',gap:10,justifyContent:'space-between'}}>
+                      <span style={{display:'flex',alignItems:'center',gap:8}}>
+                        <span style={{width:18,height:18,borderRadius:3,background:marcoSel.color,display:'inline-block',border:'1px solid rgba(255,255,255,0.2)'}}/>
+                        {marcoSel.nm}
+                      </span>
+                      <span>{dropdownOpen?'▲':'▼'}</span>
+                    </button>
+                    {dropdownOpen&&(
+                      <div style={{position:'absolute' as const,top:'100%',left:0,right:0,zIndex:50,
+                        background:'#1a1209',border:`1px solid ${G}`,borderRadius:8,marginTop:4,
+                        maxHeight:320,overflowY:'auto' as const,boxShadow:'0 8px 32px rgba(0,0,0,0.6)'}}>
+                        {MARCOS.map(m=>(
+                          <button key={m.id} onClick={()=>{setMarco(m);setDropdownOpen(false)}}
+                            style={{width:'100%',padding:'8px 14px',background:marco.id===m.id?'rgba(201,168,76,0.15)':'transparent',
+                              border:'none',borderBottom:`1px solid rgba(201,168,76,0.1)`,color:G,cursor:'pointer',
+                              fontFamily:'Georgia,serif',fontSize:'.75rem',display:'flex',alignItems:'center',gap:10,textAlign:'left' as const}}>
+                            <span style={{width:16,height:16,borderRadius:2,background:m.color,flexShrink:0,border:'1px solid rgba(255,255,255,0.2)'}}/>
+                            {m.nm}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                {/* Modelos abajo */}
+                <div style={{marginTop:20,width:'100%',maxWidth:700}}>
+                  <p style={{color:G,fontSize:'.72rem',letterSpacing:'0.08em',marginBottom:10,textAlign:'center'}}>MODELO DE CUADRO</p>
+                  <div style={{display:'flex',gap:8,flexWrap:'wrap' as const,justifyContent:'center'}}>
+                    {MODELOS.map(m=>(
+                      <button key={m.id} onClick={()=>setModelo(m.id)}
+                        style={{padding:'8px 16px',background:modelo===m.id?'rgba(201,168,76,0.2)':'transparent',
+                          border:`1px solid ${modelo===m.id?G:BD}`,color:G,borderRadius:8,cursor:'pointer',
+                          fontFamily:'Georgia,serif',fontSize:'.75rem',textAlign:'center' as const}}>
+                        {m.nm}
+                        <span style={{display:'block',fontSize:'.6rem',color:'rgba(201,168,76,0.45)',marginTop:2}}>{m.desc}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
             <div>
