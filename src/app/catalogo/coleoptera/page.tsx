@@ -1,202 +1,160 @@
 'use client'
-import ST from '@/components/ST'
-import { useState } from 'react'
-export default function ColeopteraPage() {
-  const [vista, setVista] = useState('frente')
-  const [tipo, setTipo] = useState('coleoptera')
-  const [marco, setMarco] = useState('rectangular')
-  const [vidrio, setVidrio] = useState('normal')
-  const [tamano, setTamano] = useState('80mm')
+import {useState,useEffect} from 'react'
+import {Redis} from '@upstash/redis'
 
-  const precioExtra = vidrio==='uv'?20:vidrio==='resina'?35:0
+const G='#C9A84C',BD='rgba(201,168,76,0.35)',BG='#0a0a0a'
+const r=new Redis({url:'https://topical-weasel-107403.upstash.io',token:'gQAAAAAAAaOLAAIgcDExZGYyODVjMzY1Mjc0OTY1YjcyYjZiMzIzZjhmYTgxOA'})
+const MARCOS=['Negro Clasico','Caoba','Bambu Natural','Dorado Antiguo','Plateado Moderno']
+const VIDRIOS=['Antirreflejo UV','Crystal Clear','Museum Glass']
+type F={id:string,nm:string,orden:string,e:string[]}
 
-  const ESPECIES = {
-    coleoptera:[
-      {icon:'🪲',nm:'Megasoma actaeon',desc:'El escarabajo más pesado · Gigante · Amazónico · SERFOR+CITES'},
-      {icon:'🦏',nm:'Dynastes hercules',desc:'El más largo del mundo · Cuernos imponentes · Colección élite'},
-      {icon:'🪲',nm:'Titanus giganteus',desc:'Cerambycidae gigante · Amazónico · Rarísimo · Museo'},
-      {icon:'✨',nm:'Escarabajos Metálicos',desc:'Colores iridiscentes · Buprestidae · Colección decorativa'},
-      {icon:'🪲',nm:'Dynastidae Tropicales',desc:'Cuernos · Amazónicos · Tingo María · SERFOR · CITES'},
-      {icon:'🟤',nm:'Lucanidae — Ciervos Volantes',desc:'Mandíbulas gigantes · Colección · Europa · Dubai'},
-    ],
-    artropodos:[
-      {icon:'🦂',nm:'Escorpiones Amazónicos',desc:'Luminiscentes · Secos · Colección científica · SERFOR'},
-      {icon:'🕷️',nm:'Tarántulas Tropicales',desc:'Selva peruana · Secas · Display · Coleccionistas élite'},
-      {icon:'🦗',nm:'Mantis Religiosa Gigante',desc:'Posición de caza · Montada · Arte científico · Lujo'},
-      {icon:'🪰',nm:'Fásmidos — Insectos Palo',desc:'Camuflaje perfecto · Rarísimos · Colección · Museos'},
-      {icon:'🐛',nm:'Ciempiés Gigantes Amazónicos',desc:'Scolopendra gigantea · Impresionantes · Colección'},
-      {icon:'🦟',nm:'Artrópodos Raros de la Selva',desc:'Especies únicas · Tingo María · SERFOR + CITES'},
-    ],
+export default function ColeopteraPage(){
+  const [tab,setTab]=useState<'Coleoptera'|'Arthropoda'>('Coleoptera')
+  const [col,setCol]=useState<F[]>([])
+  const [art,setArt]=useState<F[]>([])
+  const [loading,setLoading]=useState(true)
+  const [paso,setPaso]=useState(1)
+  const [famSel,setFamSel]=useState('')
+  const [marco,setMarco]=useState(MARCOS[0])
+  const [vidrio,setVidrio]=useState(VIDRIOS[0])
+
+  useEffect(()=>{
+    r.get<F[]>('catalogo:familias').then(d=>{
+      if(!d)return
+      const c=d.filter(f=>f.orden==='Coleoptera')
+      const a=d.filter(f=>f.orden==='Arthropoda')
+      setCol(c);setArt(a);setFamSel(c[0]?.id||'');setLoading(false)
+    })
+  },[])
+
+  const fams=tab==='Coleoptera'?col:art
+  const famAct=fams.find(f=>f.id===famSel)||fams[0]
+
+  const handleTab=(t:'Coleoptera'|'Arthropoda')=>{
+    setTab(t);setPaso(1)
+    setFamSel(t==='Coleoptera'?col[0]?.id:art[0]?.id)
   }
 
-  return (
-    <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'32px 16px'}}>
-      <style>{`
-        @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        .pc{animation:fadeInUp 0.6s ease both}
-        .opt-btn{transition:all 0.18s ease;cursor:pointer}
-        .opt-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(201,168,76,0.2)}
-        .wa-btn{transition:transform 0.18s ease,box-shadow 0.18s ease}
-        .wa-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.4)}
-        .esp-card{background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.08);border-radius:8px;padding:10px;margin-bottom:8px;display:flex;gap:10px;align-items:center;transition:all 0.18s ease}
-        .esp-card:hover{background:rgba(201,168,76,0.08);transform:translateX(4px);border-color:rgba(201,168,76,0.25)}
-      
-  @media(max-width:768px){
-    .wa-btn{padding:14px 20px!important;fontSize:1rem!important;width:100%!important;display:block!important;textAlign:center!important;marginBottom:8px!important}
-    .pieza-card{flexDirection:column!important}
-    h1{fontSize:1.4rem!important}
-  }
-`}</style>
-      <div className="pc" style={{maxWidth:1000,margin:'0 auto'}}>
-        <a href="/" style={{color:'#C9A84C',fontSize:'1.2rem',fontWeight:700,textDecoration:'none',display:'inline-block',marginBottom:20,padding:'10px 20px',background:'rgba(201,168,76,0.15)',borderRadius:8,border:'1px solid rgba(201,168,76,0.4)'}}><ST t="← Inicio"/></a>
+  if(loading)return(
+    <div style={{minHeight:'100vh',background:BG,display:'flex',alignItems:'center',justifyContent:'center',color:G,fontFamily:'Georgia,serif'}}>
+      Cargando coleccion...
+    </div>
+  )
 
-        <div style={{textAlign:'center',marginBottom:32}}>
-          <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,marginBottom:12,objectFit:'contain'}}/></a>
-          <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · MÁS DE 40 AÑOS DE EXPERIENCIA</div>
-          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}><ST t="🪲 Cuadros de Coleópteros & Artrópodos Tropicales Secos"/></h1>
-          <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
-          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
-            Escarabajos titán, hércules, dinastidos metálicos, escorpiones, tarántulas y artrópodos amazónicos secos. Montados en marcos profundos, cúpulas y resina para coleccionistas y museos de élite. Certificado SERFOR + CITES.
+  return(
+    <div style={{minHeight:'100vh',background:BG,color:G,fontFamily:'Georgia,serif',padding:'2rem 1rem'}}>
+      <h1 style={{textAlign:'center',fontSize:'1.4rem',letterSpacing:'0.12em',marginBottom:'0.3rem'}}>CUADROS DE INSECTOS</h1>
+      <p style={{textAlign:'center',fontSize:'0.75rem',color:'rgba(201,168,76,0.6)',marginBottom:'1.5rem',letterSpacing:'0.08em'}}>COLECCION PREMIUM TROPICAL</p>
+
+      <div style={{display:'flex',justifyContent:'center',gap:12,marginBottom:'2rem'}}>
+        {(['Coleoptera','Arthropoda'] as const).map(t=>(
+          <button key={t} onClick={()=>handleTab(t)}
+            style={{padding:'10px 28px',background:tab===t?'rgba(201,168,76,0.18)':'transparent',
+              border:`1px solid ${tab===t?G:BD}`,color:G,borderRadius:8,cursor:'pointer',
+              fontFamily:'Georgia,serif',fontSize:'0.85rem',fontWeight:tab===t?'bold':'normal'}}>
+            {t==='Coleoptera'?'🪲 Coleoptera':'🦂 Arthropoda'}
+          </button>
+        ))}
+      </div>
+
+      {paso===1&&(
+        <div style={{maxWidth:900,margin:'0 auto'}}>
+          <p style={{textAlign:'center',marginBottom:'1rem',fontSize:'0.8rem',color:'rgba(201,168,76,0.7)'}}>
+            Paso 1 — Selecciona la familia ({fams.length} familias)
           </p>
-          <div style={{marginTop:12,color:'rgba(232,201,122,0.35)',fontSize:'.65rem',letterSpacing:'.15em'}}>
-            PARTIDA 9705.21.00.00 · SERFOR · CITES · RUC 20447397804
+          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(140px,1fr))',gap:8,marginBottom:'1.5rem'}}>
+            {fams.map(f=>(
+              <button key={f.id} onClick={()=>setFamSel(f.id)}
+                style={{padding:'10px 6px',background:famSel===f.id?'rgba(201,168,76,0.18)':'transparent',
+                  border:`1px solid ${famSel===f.id?G:BD}`,color:G,borderRadius:6,cursor:'pointer',
+                  fontFamily:'Georgia,serif',fontSize:'0.72rem',textAlign:'center',
+                  fontWeight:famSel===f.id?'bold':'normal'}}>
+                {f.nm}
+              </button>
+            ))}
+          </div>
+          <div style={{border:`1px solid ${BD}`,borderRadius:8,padding:'1rem',marginBottom:'1.5rem',minHeight:60}}>
+            <p style={{fontSize:'0.7rem',color:'rgba(201,168,76,0.35)',fontStyle:'italic'}}>
+              Especimenes en catalogacion — proximamente
+            </p>
+          </div>
+          <div style={{textAlign:'center'}}>
+            <button onClick={()=>setPaso(2)}
+              style={{padding:'12px 32px',background:'rgba(201,168,76,0.12)',border:`1px solid ${G}`,
+                color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'0.85rem',letterSpacing:'0.08em'}}>
+              Siguiente: Elegir Marco
+            </button>
           </div>
         </div>
+      )}
 
-        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
-
-          {/* CONFIGURADOR */}
-          <div style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:12,padding:20}}>
-            <div style={{color:'#C9A84C',fontSize:'.7rem',letterSpacing:'.1em',marginBottom:14}}>🖼️ CONFIGURA TU CUADRO</div>
-
-            <div style={{display:'flex',gap:6,justifyContent:'center',marginBottom:10}}>
-              {['frente','lado','reverso','video'].map(v=>(
-                <button key={v} onClick={()=>setVista(v)} className="opt-btn" style={{
-                  padding:'4px 10px',borderRadius:16,fontSize:'.65rem',fontFamily:'Georgia,serif',
-                  background:vista===v?'#C9A84C':'rgba(201,168,76,0.08)',
-                  color:vista===v?'#1A1209':'#C9A84C',
-                  border:`1px solid ${vista===v?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-                }}>{v==='frente'?'📸 Frente':v==='lado'?'📸 Lado':v==='reverso'?'📸 Reverso':'🎥 Video'}</button>
+      {paso===2&&(
+        <div style={{maxWidth:700,margin:'0 auto'}}>
+          <p style={{textAlign:'center',marginBottom:'1.5rem',fontSize:'0.8rem',color:'rgba(201,168,76,0.7)'}}>Paso 2 — Personaliza tu cuadro</p>
+          <div style={{marginBottom:'1.5rem'}}>
+            <p style={{fontSize:'0.75rem',marginBottom:'0.5rem'}}>Marco:</p>
+            <div style={{display:'flex',flexWrap:'wrap',gap:8}}>
+              {MARCOS.map(m=>(
+                <button key={m} onClick={()=>setMarco(m)}
+                  style={{padding:'8px 14px',background:marco===m?'rgba(201,168,76,0.2)':'transparent',
+                    border:`1px solid ${marco===m?G:BD}`,color:G,borderRadius:6,cursor:'pointer',
+                    fontFamily:'Georgia,serif',fontSize:'0.75rem'}}>
+                  {m}
+                </button>
               ))}
             </div>
-            <div style={{width:'100%',height:180,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',marginBottom:14}}>
-              <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="logo-pulse" style={{width:160,height:160,objectFit:'contain',opacity:.6,marginBottom:8}}/></a>
-              <p style={{color:'rgba(232,201,122,0.4)',fontSize:'.7rem'}}><ST t="FOTO PRÓXIMAMENTE"/></p>
-            </div>
-
-            {/* TIPO */}
-            <div style={{marginBottom:12}}>
-              <div style={{color:'rgba(232,201,122,0.5)',fontSize:'.65rem',letterSpacing:'.08em',marginBottom:8}}>1️⃣ TIPO DE ESPECIE</div>
-              <div style={{display:'flex',gap:8}}>
-                {[{id:'coleoptera',nm:'🪲 Coleópteros'},{id:'artropodos',nm:'🦂 Artrópodos'}].map(o=>(
-                  <button key={o.id} onClick={()=>setTipo(o.id)} className="opt-btn" style={{
-                    padding:'6px 14px',borderRadius:20,fontSize:'.75rem',fontFamily:'Georgia,serif',
-                    background:tipo===o.id?'#C9A84C':'rgba(201,168,76,0.08)',
-                    color:tipo===o.id?'#1A1209':'#C9A84C',
-                    border:`1px solid ${tipo===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-                  }}>{<ST t={o.nm}/>}</button>
-                ))}
-              </div>
-            </div>
-
-            {/* TAMANO */}
-            <div style={{marginBottom:12}}>
-              <div style={{color:'rgba(232,201,122,0.5)',fontSize:'.65rem',letterSpacing:'.08em',marginBottom:8}}>📏 TAMAÑO (mm)</div>
-              <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
-                {['40mm','60mm','80mm','100mm','120mm+'].map(t=>(
-                  <button key={t} onClick={()=>setTamano(t)} className="opt-btn" style={{
-                    padding:'5px 10px',borderRadius:16,fontSize:'.7rem',fontFamily:'Georgia,serif',
-                    background:tamano===t?'#C9A84C':'rgba(201,168,76,0.08)',
-                    color:tamano===t?'#1A1209':'#C9A84C',
-                    border:`1px solid ${tamano===t?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-                  }}>{t}</button>
-                ))}
-              </div>
-            </div>
-
-            {/* MARCO */}
-            <div style={{marginBottom:12}}>
-              <div style={{color:'rgba(232,201,122,0.5)',fontSize:'.65rem',letterSpacing:'.08em',marginBottom:8}}>2️⃣ FORMATO DE EXHIBICIÓN</div>
-              <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
-                {[
-                  {id:'rectangular',nm:'⬛ Marco Profundo'},
-                  {id:'cupula',nm:'🔮 Cúpula Victoriana'},
-                  {id:'cubo',nm:'📦 Cubo Cristal'},
-                  {id:'resina',nm:'💎 Resina Sólida'},
-                ].map(o=>(
-                  <button key={o.id} onClick={()=>setMarco(o.id)} className="opt-btn" style={{
-                    padding:'5px 10px',borderRadius:16,fontSize:'.7rem',fontFamily:'Georgia,serif',
-                    background:marco===o.id?'#C9A84C':'rgba(201,168,76,0.08)',
-                    color:marco===o.id?'#1A1209':'#C9A84C',
-                    border:`1px solid ${marco===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-                  }}>{<ST t={o.nm}/>}</button>
-                ))}
-              </div>
-            </div>
-
-            {/* VIDRIO */}
-            <div style={{marginBottom:14}}>
-              <div style={{color:'rgba(232,201,122,0.5)',fontSize:'.65rem',letterSpacing:'.08em',marginBottom:8}}>3️⃣ TIPO DE PROTECCIÓN</div>
-              <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
-                {[
-                  {id:'normal',nm:'🔲 Cristal Normal',extra:0},
-                  {id:'uv',nm:'☀️ Cristal UV Premium',extra:20},
-                ].map(o=>(
-                  <button key={o.id} onClick={()=>setVidrio(o.id)} className="opt-btn" style={{
-                    padding:'5px 12px',borderRadius:16,fontSize:'.7rem',fontFamily:'Georgia,serif',
-                    background:vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.08)',
-                    color:vidrio===o.id?'#1A1209':'#C9A84C',
-                    border:`1px solid ${vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,
-                  }}>{<ST t={o.nm}/>}{o.extra>0?` +$${o.extra}`:''}</button>
-                ))}
-              </div>
-            </div>
-
-            {/* RESUMEN */}
-            <div style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:12,marginBottom:14}}>
-              <div style={{color:'#C9A84C',fontSize:'.7rem',fontWeight:700,marginBottom:6}}>📋 TU CONFIGURACIÓN:</div>
-              <div style={{color:'rgba(232,201,122,0.7)',fontSize:'.72rem',lineHeight:1.8}}>
-                {tipo==='coleoptera'?'🪲 Coleóptero':'🦂 Artrópodo'} · {tamano}<br/>
-                🖼️ {marco==='rectangular'?'Marco Profundo':marco==='cupula'?'Cúpula Victoriana':marco==='cubo'?'Cubo Cristal':'Resina Sólida'}<br/>
-                🛡️ {vidrio==='normal'?'Cristal Normal':'Cristal UV Premium'}
-                {precioExtra>0&&<span style={{color:'#C9A84C'}}> (+${precioExtra} USD)</span>}
-              </div>
-            </div>
-
-            <div style={{display:'flex',gap:8,justifyContent:'center',flexWrap:'wrap'}}>
-              <a href="https://wa.me/51940699405" target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'10px 16px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.78rem'}}>💬 +51 940 699 405</a>
-              <a href="https://wa.me/51920644433" target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'10px 16px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.78rem'}}>💬 +51 920 644 433</a>
+          </div>
+          <div style={{marginBottom:'2rem'}}>
+            <p style={{fontSize:'0.75rem',marginBottom:'0.5rem'}}>Vidrio:</p>
+            <div style={{display:'flex',gap:8}}>
+              {VIDRIOS.map(v=>(
+                <button key={v} onClick={()=>setVidrio(v)}
+                  style={{padding:'8px 14px',background:vidrio===v?'rgba(201,168,76,0.2)':'transparent',
+                    border:`1px solid ${vidrio===v?G:BD}`,color:G,borderRadius:6,cursor:'pointer',
+                    fontFamily:'Georgia,serif',fontSize:'0.75rem'}}>
+                  {v}
+                </button>
+              ))}
             </div>
           </div>
-
-          {/* ESPECIES */}
-          <div style={{background:'rgba(201,168,76,0.03)',border:'1px solid rgba(201,168,76,0.1)',borderRadius:12,padding:20}}>
-            <div style={{color:'#C9A84C',fontSize:'.7rem',letterSpacing:'.1em',marginBottom:12}}>
-              {tipo==='coleoptera'?'🪲 COLEÓPTEROS DISPONIBLES':'🦂 ARTRÓPODOS DISPONIBLES'}
-            </div>
-            {ESPECIES[tipo as keyof typeof ESPECIES].map(p=>(
-              <div key={p.nm} className="esp-card">
-                <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
-                <div>
-                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700,fontStyle:'italic'}}>{<ST t={p.nm}/>}</div>
-                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{<ST t={p.desc}/>}</div>
-                </div>
-              </div>
-            ))}
-            <div style={{marginTop:12,background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:12}}>
-              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}>📦 Incluye:</p>
-              <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.68rem',marginTop:4,lineHeight:1.8}}>
-                ✅ Certificado SERFOR<br/>
-                ✅ Certificado CITES<br/>
-                ✅ Medición en mm incluida<br/>
-                ✅ Factura electrónica SUNAT<br/>
-                ✅ Embalaje especializado<br/>
-                ✅ Más de 40 años de experiencia
-              </p>
-            </div>
+          <div style={{display:'flex',gap:10,justifyContent:'center'}}>
+            <button onClick={()=>setPaso(1)}
+              style={{padding:'10px 24px',background:'transparent',border:`1px solid ${BD}`,color:G,
+                borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'0.78rem'}}>
+              Volver
+            </button>
+            <button onClick={()=>setPaso(3)}
+              style={{padding:'10px 24px',background:'rgba(201,168,76,0.12)',border:`1px solid ${G}`,
+                color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'0.78rem'}}>
+              Ver Resumen
+            </button>
           </div>
         </div>
-      </div>
+      )}
+
+      {paso===3&&(
+        <div style={{maxWidth:600,margin:'0 auto',textAlign:'center'}}>
+          <p style={{fontSize:'0.8rem',color:'rgba(201,168,76,0.7)',marginBottom:'1.5rem'}}>Paso 3 — Tu cuadro personalizado</p>
+          <div style={{border:`1px solid ${G}`,borderRadius:12,padding:'2rem',marginBottom:'1.5rem',background:'rgba(201,168,76,0.04)'}}>
+            <p style={{fontSize:'1rem',marginBottom:'0.5rem'}}>{tab==='Coleoptera'?'🪲':'🦂'} {famAct?.nm}</p>
+            <p style={{fontSize:'0.75rem',color:'rgba(201,168,76,0.7)',marginBottom:'0.3rem'}}>Orden: {tab}</p>
+            <p style={{fontSize:'0.75rem',color:'rgba(201,168,76,0.7)',marginBottom:'0.3rem'}}>Marco: {marco}</p>
+            <p style={{fontSize:'0.75rem',color:'rgba(201,168,76,0.7)'}}>Vidrio: {vidrio}</p>
+          </div>
+          <div style={{display:'flex',gap:10,justifyContent:'center'}}>
+            <button onClick={()=>setPaso(1)}
+              style={{flex:1,padding:'10px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,
+                color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.78rem'}}>
+              Cambiar Insecto
+            </button>
+            <button onClick={()=>setPaso(2)}
+              style={{flex:1,padding:'10px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,
+                color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.78rem'}}>
+              Cambiar Marco
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
