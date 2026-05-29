@@ -263,7 +263,7 @@ export default function EspecimenesPage(){
                         <td style={s.td}><span style={{background:esp.activo!==false?'rgba(93,187,99,0.2)':'rgba(255,80,80,0.2)',color:esp.activo!==false?'#5DBB63':'#ff5050',padding:'3px 7px',borderRadius:10,fontSize:'.6rem',fontWeight:700}}>{esp.activo!==false?'ACTIVO':'INACTIVO'}</span></td>
                         <td style={s.td}>
                           <div style={{display:'flex',gap:3}}>
-                            <button onClick={()=>{setEspEdit({...esp,p:esp.p,s:esp.s});setTab('general');setVista('editar')}} style={btn('rgba(201,168,76,0.1)',G,{border:`1px solid ${BD}`,padding:'4px 8px',fontSize:'.62rem'})}>✏️</button>
+                            <button onClick={()=>{setEspEdit({...esp});setTab('general');setVista('editar')}} style={btn('rgba(201,168,76,0.1)',G,{border:`1px solid ${BD}`,padding:'4px 8px',fontSize:'.62rem'})}>✏️</button>
                             <button onClick={()=>duplicar(esp)} style={btn('rgba(100,149,237,0.15)','#64A5ED',{border:'1px solid rgba(100,149,237,0.3)',padding:'4px 8px',fontSize:'.62rem'})}>⧉</button>
                             <button onClick={()=>eliminar(esp._id,esp.n)} style={btn('rgba(255,80,80,0.1)','#ff5050',{border:'1px solid rgba(255,80,80,0.2)',padding:'4px 7px',fontSize:'.62rem'})}>🗑️</button>
                           </div>
@@ -441,7 +441,7 @@ export default function EspecimenesPage(){
                     <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
                       {(['foto','fotoLado','fotoReverso','video'] as const).map(tipo=>(
                         <label key={tipo} style={{cursor:'pointer'}}>
-                          <input type="file" accept="image/*,video/*" style={{display:'none'}} onChange={async e=>{
+                          <input key={`${tipo}-${espEdit.n}`} type="file" accept="image/*,video/*" style={{display:'none'}} onChange={async e=>{
                             const file=e.target.files?.[0]
                             if(!file||!espEdit.familia||!espEdit.n)return
                             mostrar('⏳ Subiendo...')
