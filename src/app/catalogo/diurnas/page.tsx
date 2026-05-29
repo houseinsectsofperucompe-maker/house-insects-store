@@ -40,6 +40,7 @@ const MARCOS=[
 
 const MODELOS=[
   {id:'shadowbox', nm:'Shadow Box', desc:'Marco + Paspartu interior'},
+  {id:'shadowbox2', nm:'Shadow Box Doble', desc:'Doble paspartu + etiqueta'},
   {id:'ovalo', nm:'Marco Ovalado', desc:'Forma oval clasica'},
   {id:'redondo', nm:'Marco Redondo', desc:'Forma circular'},
   {id:'triangulo', nm:'Marco Triangular', desc:'Forma triangular'},
@@ -217,11 +218,34 @@ export default function DiurnasPage(){
                     display:'flex',alignItems:'center',justifyContent:'center',
                     borderRadius:modelo==='ovalo'||modelo==='redondo'?'50%':2,
                     clipPath:modelo==='triangulo'?'polygon(50% 0%, 0% 100%, 100% 100%)':'none',
+                    flexDirection:'column' as const,
+                    padding:modelo==='shadowbox2'?'12px':'0',
                   }}>
-                    {mariposa.foto
-                      ?<img src={mariposa.foto} style={{width:'85%',height:'85%',objectFit:'contain'}}/>
-                      :<span style={{color:'#999',fontSize:'.8rem'}}>Sin foto</span>
-                    }
+                    {modelo==='shadowbox2'?(
+                      <div style={{
+                        flex:1,width:'100%',
+                        border:'6px solid #e8dcc8',
+                        display:'flex',flexDirection:'column' as const,
+                        alignItems:'center',justifyContent:'center',
+                        background:'#fff',position:'relative' as const,
+                      }}>
+                        {mariposa.foto
+                          ?<img src={mariposa.foto} style={{width:'80%',height:'75%',objectFit:'contain'}}/>
+                          :<span style={{color:'#999',fontSize:'.8rem'}}>Sin foto</span>
+                        }
+                        <div style={{position:'absolute',bottom:8,textAlign:'center' as const}}>
+                          <p style={{fontSize:'.55rem',fontStyle:'italic',color:'#333',margin:0}}>{mariposa.n}</p>
+                          <p style={{fontSize:'.5rem',color:'#666',margin:0}}>House Insects of Peru</p>
+                        </div>
+                      </div>
+                    ):(
+                      <>
+                        {mariposa.foto
+                          ?<img src={mariposa.foto} style={{width:'85%',height:'85%',objectFit:'contain'}}/>
+                          :<span style={{color:'#999',fontSize:'.8rem'}}>Sin foto</span>
+                        }
+                      </>
+                    )}
                   </div>
                 </div>
                 {/* Modelos abajo del cuadro */}
