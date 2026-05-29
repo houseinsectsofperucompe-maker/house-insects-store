@@ -1,7 +1,6 @@
 'use client'
 import ST from '@/components/ST'
 import { useCarrito } from '@/components/CarritoContext'
-import CarritoCompras from '@/components/CarritoCompras'
 import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 
@@ -17,7 +16,6 @@ const ORDENES_BASE:Orden[] = [
 ]
 
 function CatalogoInner() {
-  const carrito = useCarrito()
   const searchParams = useSearchParams()
   const [ordenes, setOrdenes] = useState<Orden[]>(ORDENES_BASE)
   const [loading, setLoading] = useState(true)
@@ -72,7 +70,6 @@ function CatalogoInner() {
 
   return (
     <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'40px 20px'}}>
-      <CarritoCompras/>
       <style>{`
         .esp-card{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.12);border-radius:9px;padding:10px;cursor:pointer;text-align:left;font-family:Georgia,serif;transition:transform 0.18s ease,border-color 0.18s ease,background 0.18s ease,box-shadow 0.18s ease}
         .esp-card:hover{transform:translateY(-5px) scale(1.04);border-color:rgba(201,168,76,0.55);background:rgba(201,168,76,0.11);box-shadow:0 10px 28px rgba(0,0,0,0.45)}
