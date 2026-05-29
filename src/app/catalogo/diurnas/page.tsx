@@ -182,11 +182,11 @@ export default function DiurnasPage() {
               <h3 style={{color:G,fontWeight:'normal',marginBottom:16}}>Vista Previa</h3>
               <div style={{padding:20,background:'#f5f5f5',borderRadius:12,display:'flex',alignItems:'center',justifyContent:'center',minHeight:350}}>
                 <div style={{
-                  width:280,height:280,
+                  width:340,height:340,
                   background:marcoSel.color,
-                  padding:16,
-                  borderRadius:4,
-                  boxShadow:'0 8px 32px rgba(0,0,0,0.4)',
+                  padding:40,
+                  borderRadius:6,
+                  boxShadow:'0 12px 40px rgba(0,0,0,0.6),inset 0 2px 8px rgba(0,0,0,0.3)',
                   display:'flex',alignItems:'center',justifyContent:'center'
                 }}>
                   <div style={{
