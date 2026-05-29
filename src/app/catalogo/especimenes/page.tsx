@@ -17,7 +17,7 @@ const ORDENES_BASE:Orden[] = [
 ]
 
 function CatalogoInner() {
-  const {abrirCarrito} = useCarrito()
+  const carrito = useCarrito()
   const searchParams = useSearchParams()
   const [ordenes, setOrdenes] = useState<Orden[]>(ORDENES_BASE)
   const [loading, setLoading] = useState(true)
