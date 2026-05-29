@@ -85,6 +85,19 @@ function CatalogoInner() {
         .pag-btn:hover:not(:disabled){transform:translateY(-2px) scale(1.1);box-shadow:0 4px 12px rgba(201,168,76,0.3)}
       `}</style>
 
+      {/* Navbar */}
+      <div style={{position:'fixed',top:0,left:0,right:0,zIndex:100,background:'rgba(26,18,9,0.95)',borderBottom:'1px solid rgba(201,168,76,0.2)',backdropFilter:'blur(8px)',display:'flex',alignItems:'center',padding:'0 24px',height:56}}>
+        <a href="/" style={{display:'flex',alignItems:'center',gap:10,textDecoration:'none'}}>
+          <img src="/logo-house-insects-peru.png" style={{width:36,height:36,objectFit:'contain'}} onError={(e:any)=>{e.target.src='/logo.png'}}/>
+          <span style={{color:'#C9A84C',fontSize:'.85rem',fontFamily:'Georgia,serif'}}>House Insects of Peru</span>
+        </a>
+        <div style={{flex:1}}/>
+        <button onClick={()=>setShowCarrito(true)} style={{background:'rgba(201,168,76,0.12)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:8,padding:'7px 16px',cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.8rem',display:'flex',alignItems:'center',gap:8}}>
+          🛒 <span>Carrito</span>
+          {carrito.length>0&&<span style={{background:'#C9A84C',color:'#1A1209',borderRadius:10,padding:'1px 7px',fontSize:'.72rem',fontWeight:'bold'}}>{carrito.length}</span>}
+        </button>
+      </div>
+      <div style={{height:56}}/>
       {/* Header */}
       <div style={{textAlign:'center',marginBottom:32}}>
         <a href="/"><img src="/logo-house-insects-peru.png" style={{width:80,height:80,objectFit:'contain',marginBottom:10}} onError={e=>{(e.target as HTMLImageElement).src='/logo.png'}}/></a>
