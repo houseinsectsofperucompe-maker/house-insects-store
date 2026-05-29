@@ -12,6 +12,10 @@ export async function GET(req: NextRequest) {
   const tipo = req.nextUrl.searchParams.get('tipo')
   const familia = req.nextUrl.searchParams.get('familia')
 
+  if (tipo === 'rubros') {
+    const data = await redis.get('catalogo:rubros') as any[]
+    return NextResponse.json(data || [])
+  }
   if (tipo === 'ordenes') {
     const data = await redis.get('catalogo:ordenes') as any[]
     return NextResponse.json(data || [])
