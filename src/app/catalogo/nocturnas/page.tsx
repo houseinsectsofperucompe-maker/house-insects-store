@@ -1,132 +1,202 @@
 'use client'
-import ST from '@/components/ST'
-import { useState } from 'react'
-export default function NocturnasPage() {
-  const [vista, setVista] = useState('frente')
-  const [composicion, setComposicion] = useState('individual')
-  const [marco, setMarco] = useState('rectangular')
-  const [vidrio, setVidrio] = useState('normal')
-  const precioExtra = vidrio==='uv'?20:vidrio==='resina'?35:0
-  return (
-    <div style={{minHeight:'100vh',background:'#1A1209',fontFamily:'Georgia,serif',padding:'32px 16px'}}>
-      <style>{`
-        @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        @keyframes pulse-gold{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,0.4)}50%{box-shadow:0 0 0 16px rgba(201,168,76,0)}}
-        .pc{animation:fadeInUp 0.6s ease both}
-        .sello{animation:pulse-gold 2.5s ease-in-out infinite;transition:transform 0.3s ease;cursor:pointer;border-radius:50%}
-        .sello:hover{transform:scale(1.15) rotate(6deg);animation:none;box-shadow:0 0 40px rgba(201,168,76,0.7)}
-        .opt-btn{transition:all 0.18s ease;cursor:pointer}
-        .opt-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(201,168,76,0.25)}
-        .card-tipo{transition:all 0.22s ease;cursor:pointer}
-        .card-tipo:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 8px 24px rgba(201,168,76,0.3)!important;border-color:rgba(201,168,76,0.5)!important;background:rgba(201,168,76,0.1)!important}
-        .back-link{transition:all 0.18s ease;display:inline-block}
-        .back-link:hover{transform:translateX(-4px);color:#E8C97A!important}
-        .wa-btn{transition:transform 0.18s ease,box-shadow 0.18s ease}
-        .wa-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 8px 20px rgba(37,211,102,0.4)}
-      
-  @media(max-width:768px){
-    .wa-btn{padding:14px 20px!important;fontSize:1rem!important;width:100%!important;display:block!important;textAlign:center!important;marginBottom:8px!important}
-    .pieza-card{flexDirection:column!important}
-    h1{fontSize:1.4rem!important}
-  }
-`}</style>
-      <div className="pc" style={{maxWidth:1000,margin:'0 auto'}}>
-        <a href="/" className="back-link" style={{color:'#C9A84C',fontSize:'.8rem',textDecoration:'none',display:'block',marginBottom:16}}>Inicio</a>
-        <div style={{textAlign:'center',marginBottom:32}}>
-          <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="sello" style={{width:160,height:160,marginBottom:16,objectFit:'contain'}}/></a>
-          <div style={{color:'rgba(201,168,76,0.5)',fontSize:'.65rem',letterSpacing:'.2em',marginBottom:8}}>HOUSE INSECTS OF PERU · MAS DE 40 ANOS DE EXPERIENCIA</div>
-          <h1 style={{fontSize:'2rem',fontWeight:300,color:'#E8C97A',marginBottom:8}}><ST t="Cuadros de Mariposas Tropicales Naturales"/></h1>
-          <div style={{height:1,background:'linear-gradient(to right,transparent,#C9A84C,transparent)',margin:'12px auto',maxWidth:400}}/>
-          <p style={{color:'rgba(232,201,122,0.6)',fontSize:'.85rem',lineHeight:1.9,maxWidth:700,margin:'0 auto'}}>
-            Especimenes secos naturales de la Amazonia peruana, montados en marcos de lujo. Personaliza tu cuadro — elige composicion, formato del marco y tipo de proteccion. Certificado SERFOR + CITES.
+import {useState} from 'react'
+
+const G='#C9A84C', BD='rgba(201,168,76,0.35)', BG='#0a0a0a'
+
+type SubFam={id:string,nm:string,e:string[]}
+type Fam={id:string,nm:string,e:string[],sub?:SubFam[]}
+
+const NOCTURNAS:Fam[]=[
+  {id:'Arctiidae',nm:'Arctiidae',e:[]},
+  {id:'Castnia',nm:'Castnia',e:[]},
+  {id:'Hepalidae',nm:'Hepalidae',e:[]},
+  {id:'Saturnidae',nm:'Saturnidae',e:[]},
+  {id:'Sphingidae',nm:'Sphingidae',e:[]},
+  {id:'Uranidae',nm:'Uranidae',e:[]},
+  {id:'Geometridae',nm:'Geometridae',e:[]},
+  {id:'Noctuidae',nm:'Noctuidae',e:[]},
+  {id:'Erebidae',nm:'Erebidae',e:[],sub:[
+    {id:'Acontiinae',nm:'Acontiinae',e:[]},
+    {id:'Acronictinae',nm:'Acronictinae',e:[]},
+    {id:'Agaristinae',nm:'Agaristinae',e:[]},
+    {id:'Amphipyrinae',nm:'Amphipyrinae',e:[]},
+    {id:'Bagisarinae',nm:'Bagisarinae',e:[]},
+    {id:'Balsinae',nm:'Balsinae',e:[]},
+    {id:'Bryophilinae',nm:'Bryophilinae',e:[]},
+    {id:'Calpinae',nm:'Calpinae',e:[]},
+    {id:'Catocalinae',nm:'Catocalinae',e:[]},
+    {id:'Cocytiinae',nm:'Cocytiinae',e:[]},
+    {id:'Condicinae',nm:'Condicinae',e:[]},
+    {id:'Cuculliinae',nm:'Cuculliinae',e:[]},
+    {id:'Dilobinae',nm:'Dilobinae',e:[]},
+    {id:'Eustrotiinae',nm:'Eustrotiinae',e:[]},
+    {id:'Euteliinae',nm:'Euteliinae',e:[]},
+    {id:'Hadeninae',nm:'Hadeninae',e:[]},
+    {id:'Heliothinae',nm:'Heliothinae',e:[]},
+    {id:'Herminiinae',nm:'Herminiinae',e:[]},
+    {id:'Noctuinae',nm:'Noctuinae',e:[]},
+    {id:'Ophiderinae',nm:'Ophiderinae',e:[]},
+    {id:'Pantheinae',nm:'Pantheinae',e:[]},
+    {id:'Plusiinae',nm:'Plusiinae',e:[]},
+    {id:'Stictopterinae',nm:'Stictopterinae',e:[]},
+    {id:'Stiriinae',nm:'Stiriinae',e:[]},
+    {id:'Strepsimaninae',nm:'Strepsimaninae',e:[]},
+    {id:'Xyleninae',nm:'Xyleninae',e:[]},
+  ]},
+]
+
+const MARCOS=['Negro Clasico','Caoba','Bambu Natural','Dorado Antiguo','Plateado Moderno']
+const VIDRIOS=['Antirreflejo UV','Crystal Clear','Museum Glass']
+
+export default function NocturnasPage(){
+  const [paso,setPaso]=useState(1)
+  const [famSel,setFamSel]=useState('Arctiidae')
+  const [subSel,setSubSel]=useState('')
+  const [espSel,setEspSel]=useState('')
+  const [marco,setMarco]=useState(MARCOS[0])
+  const [vidrio,setVidrio]=useState(VIDRIOS[0])
+
+  const famActual=NOCTURNAS.find(f=>f.id===famSel)||NOCTURNAS[0]
+
+  return(
+    <div style={{minHeight:'100vh',background:BG,color:G,fontFamily:'Georgia,serif',padding:'2rem 1rem'}}>
+      <h1 style={{textAlign:'center',fontSize:'1.4rem',letterSpacing:'0.12em',marginBottom:'0.3rem'}}>
+        CUADROS DE MARIPOSAS NOCTURNAS
+      </h1>
+      <p style={{textAlign:'center',fontSize:'0.75rem',color:'rgba(201,168,76,0.6)',marginBottom:'2rem',letterSpacing:'0.08em'}}>
+        MOTHS TROPICALES · COLECCION PREMIUM
+      </p>
+
+      {paso===1&&(
+        <div style={{maxWidth:900,margin:'0 auto'}}>
+          <p style={{textAlign:'center',marginBottom:'1rem',fontSize:'0.8rem',color:'rgba(201,168,76,0.7)'}}>
+            Paso 1 — Selecciona la familia
           </p>
-          <div style={{marginTop:12,color:'rgba(232,201,122,0.35)',fontSize:'.65rem',letterSpacing:'.15em'}}>
-            PARTIDA 9705.21.00.00 · SERFOR · CITES · RUC 20447397804
+
+          {/* 9 Familias principales */}
+          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(130px,1fr))',gap:8,marginBottom:'1.5rem'}}>
+            {NOCTURNAS.map(f=>(
+              <button key={f.id} onClick={()=>{setFamSel(f.id);setSubSel('');setEspSel('')}}
+                style={{padding:'10px 6px',background:famSel===f.id?'rgba(201,168,76,0.18)':'transparent',
+                  border:`1px solid ${famSel===f.id?G:BD}`,color:G,borderRadius:6,cursor:'pointer',
+                  fontFamily:'Georgia,serif',fontSize:'0.72rem',textAlign:'center',
+                  fontWeight:famSel===f.id?'bold':'normal'}}>
+                {f.nm}
+                {f.sub&&<span style={{display:'block',fontSize:'0.6rem',color:'rgba(201,168,76,0.5)',marginTop:2}}>{f.sub.length} subfamilias</span>}
+              </button>
+            ))}
+          </div>
+
+          {/* Subfamilias si la familia tiene */}
+          {famActual.sub&&(
+            <div style={{border:`1px solid ${BD}`,borderRadius:8,padding:'1rem',marginBottom:'1rem'}}>
+              <p style={{fontSize:'0.72rem',color:'rgba(201,168,76,0.6)',marginBottom:'0.75rem'}}>
+                Subfamilias de {famActual.nm}:
+              </p>
+              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(140px,1fr))',gap:6}}>
+                {famActual.sub.map(s=>(
+                  <button key={s.id} onClick={()=>setSubSel(s.id)}
+                    style={{padding:'7px 8px',background:subSel===s.id?'rgba(201,168,76,0.15)':'transparent',
+                      border:`1px solid ${subSel===s.id?G:BD}`,color:G,borderRadius:5,cursor:'pointer',
+                      fontFamily:'Georgia,serif',fontSize:'0.68rem',textAlign:'center'}}>
+                    {s.nm}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Especies */}
+          <div style={{border:`1px solid ${BD}`,borderRadius:8,padding:'1rem',marginBottom:'1.5rem',minHeight:60}}>
+            <p style={{fontSize:'0.7rem',color:'rgba(201,168,76,0.35)',fontStyle:'italic'}}>
+              Especimenes en catalogacion — proximamente
+            </p>
+          </div>
+
+          <div style={{textAlign:'center'}}>
+            <button onClick={()=>setPaso(2)}
+              style={{padding:'12px 32px',background:'rgba(201,168,76,0.12)',border:`1px solid ${G}`,
+                color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'0.85rem',
+                letterSpacing:'0.08em'}}>
+              Siguiente: Elegir Marco
+            </button>
           </div>
         </div>
-        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
-          <div style={{background:'rgba(201,168,76,0.05)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:12,padding:20}}>
-            <div style={{color:'#C9A84C',fontSize:'.7rem',letterSpacing:'.1em',marginBottom:16}}>CONFIGURA TU CUADRO</div>
-            <div style={{display:'flex',gap:6,justifyContent:'center',marginBottom:10}}>
-              {['frente','lado','reverso','video'].map(v=>(
-                <button key={v} onClick={()=>setVista(v)} className="opt-btn" style={{padding:'4px 10px',borderRadius:16,fontSize:'.65rem',fontFamily:'Georgia,serif',background:vista===v?'#C9A84C':'rgba(201,168,76,0.08)',color:vista===v?'#1A1209':'#C9A84C',border:`1px solid ${vista===v?'#C9A84C':'rgba(201,168,76,0.2)'}`}}>{v==='frente'?'Frente':v==='lado'?'Lado':v==='reverso'?'Reverso':'Video'}</button>
+      )}
+
+      {paso===2&&(
+        <div style={{maxWidth:700,margin:'0 auto'}}>
+          <p style={{textAlign:'center',marginBottom:'1.5rem',fontSize:'0.8rem',color:'rgba(201,168,76,0.7)'}}>
+            Paso 2 — Personaliza tu cuadro
+          </p>
+          <div style={{marginBottom:'1.5rem'}}>
+            <p style={{fontSize:'0.75rem',marginBottom:'0.5rem'}}>Marco:</p>
+            <div style={{display:'flex',flexWrap:'wrap',gap:8}}>
+              {MARCOS.map(m=>(
+                <button key={m} onClick={()=>setMarco(m)}
+                  style={{padding:'8px 14px',background:marco===m?'rgba(201,168,76,0.2)':'transparent',
+                    border:`1px solid ${marco===m?G:BD}`,color:G,borderRadius:6,cursor:'pointer',
+                    fontFamily:'Georgia,serif',fontSize:'0.75rem'}}>
+                  {m}
+                </button>
               ))}
             </div>
-            <div style={{width:'100%',height:200,background:'linear-gradient(135deg,#1A1209,#2A1A08)',border:'2px solid rgba(201,168,76,0.25)',borderRadius:12,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',marginBottom:16}}>
-              <a href="/" style={{display:"inline-block"}}><img src="/logo-house-insects-peru.png" className="sello" style={{width:120,height:120,objectFit:"contain",marginBottom:8}}/></a><p style={{color:"rgba(232,201,122,0.4)",fontSize:".7rem"}}>FOTO PROXIMAMENTE</p>
-              <p style={{color:'rgba(232,201,122,0.2)',fontSize:'.6rem',marginTop:4}}>HOUSE INSECTS OF PERU</p>
-            </div>
-            <div style={{marginBottom:14}}>
-              <div style={{color:'rgba(232,201,122,0.5)',fontSize:'.65rem',letterSpacing:'.08em',marginBottom:8}}>1 COMPOSICION</div>
-              <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
-                {[{id:'individual',nm:'Individual'},{id:'mixto',nm:'Mixto/Combinado'}].map(o=>(
-                  <button key={o.id} onClick={()=>setComposicion(o.id)} className="opt-btn" style={{padding:'6px 14px',borderRadius:20,fontSize:'.75rem',fontFamily:'Georgia,serif',background:composicion===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:composicion===o.id?'#1A1209':'#C9A84C',border:`1px solid ${composicion===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`}}>{<ST t={o.nm}/>}</button>
-                ))}
-              </div>
-            </div>
-            <div style={{marginBottom:14}}>
-              <div style={{color:'rgba(232,201,122,0.5)',fontSize:'.65rem',letterSpacing:'.08em',marginBottom:8}}>2 FORMATO DEL MARCO</div>
-              <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
-                {[{id:'rectangular',nm:'Rectangular'},{id:'redondo',nm:'Redondo'},{id:'triangular',nm:'Triangular'},{id:'cubo',nm:'Cubo 3D'},{id:'cupula',nm:'Cupula'},{id:'reloj',nm:'Tipo Reloj'}].map(o=>(
-                  <button key={o.id} onClick={()=>setMarco(o.id)} className="opt-btn" style={{padding:'5px 12px',borderRadius:16,fontSize:'.7rem',fontFamily:'Georgia,serif',background:marco===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:marco===o.id?'#1A1209':'#C9A84C',border:`1px solid ${marco===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`}}>{<ST t={o.nm}/>}</button>
-                ))}
-              </div>
-            </div>
-            <div style={{marginBottom:16}}>
-              <div style={{color:'rgba(232,201,122,0.5)',fontSize:'.65rem',letterSpacing:'.08em',marginBottom:8}}>3 TIPO DE PROTECCION</div>
-              <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
-                {[{id:'normal',nm:'Cristal Normal',extra:0},{id:'uv',nm:'Cristal UV Premium',extra:20},{id:'resina',nm:'Resina Epoxica',extra:35}].map(o=>(
-                  <button key={o.id} onClick={()=>setVidrio(o.id)} className="opt-btn" style={{padding:'5px 12px',borderRadius:16,fontSize:'.7rem',fontFamily:'Georgia,serif',background:vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.08)',color:vidrio===o.id?'#1A1209':'#C9A84C',border:`1px solid ${vidrio===o.id?'#C9A84C':'rgba(201,168,76,0.2)'}`}}>{<ST t={o.nm}/>}{o.extra>0?` +$${o.extra}`:''}</button>
-                ))}
-              </div>
-            </div>
-            <div style={{background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.2)',borderRadius:8,padding:12,marginBottom:14}}>
-              <div style={{color:'#C9A84C',fontSize:'.7rem',fontWeight:700,marginBottom:6}}>TU CONFIGURACION:</div>
-              <div style={{color:'rgba(232,201,122,0.7)',fontSize:'.72rem',lineHeight:1.8}}>
-                {composicion==='individual'?'Individual':'Mixto/Combinado'}<br/>
-                Marco {marco.charAt(0).toUpperCase()+marco.slice(1)}<br/>
-                {vidrio==='normal'?'Cristal Normal':vidrio==='uv'?'Cristal UV Premium':'Resina Epoxica'}
-                {precioExtra>0&&<span style={{color:'#C9A84C'}}> (+${precioExtra} USD)</span>}
-              </div>
-            </div>
-            <div style={{display:'flex',gap:8,justifyContent:'center',flexWrap:'wrap'}}>
-              <a href="https://wa.me/51940699405" target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'10px 16px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.78rem'}}>+51 940 699 405</a>
-              <a href="https://wa.me/51920644433" target="_blank" className="wa-btn" style={{background:'#25D366',color:'white',padding:'10px 16px',borderRadius:4,fontWeight:700,textDecoration:'none',fontSize:'.78rem'}}>+51 920 644 433</a>
+          </div>
+          <div style={{marginBottom:'2rem'}}>
+            <p style={{fontSize:'0.75rem',marginBottom:'0.5rem'}}>Vidrio:</p>
+            <div style={{display:'flex',gap:8}}>
+              {VIDRIOS.map(v=>(
+                <button key={v} onClick={()=>setVidrio(v)}
+                  style={{padding:'8px 14px',background:vidrio===v?'rgba(201,168,76,0.2)':'transparent',
+                    border:`1px solid ${vidrio===v?G:BD}`,color:G,borderRadius:6,cursor:'pointer',
+                    fontFamily:'Georgia,serif',fontSize:'0.75rem'}}>
+                  {v}
+                </button>
+              ))}
             </div>
           </div>
-          <div style={{background:'rgba(201,168,76,0.03)',border:'1px solid rgba(201,168,76,0.1)',borderRadius:12,padding:20}}>
-            <div style={{color:'#C9A84C',fontSize:'.7rem',letterSpacing:'.1em',marginBottom:12}}>TIPOS DE CUADROS DISPONIBLES</div>
-            {[
-              {icon:'⬛',nm:'Rectangular & Cuadrado',desc:'Marco clasico de ebanisteria · El mas elegante · Para cualquier espacio'},
-              {icon:'⭕',nm:'Redondo & Oval',desc:'Marcos curvos de lujo · Muy pedidos en Europa · Diseno exclusivo'},
-              {icon:'🔺',nm:'Triangular',desc:'Diseno moderno geometrico · Arte contemporaneo · Vanguardia'},
-              {icon:'📦',nm:'Cubo & Urna 3D',desc:'Caja de cristal · Vista 360 · Ver el insecto por todos lados'},
-              {icon:'🔮',nm:'Cupula & Campana',desc:'Domo de vidrio victoriano · Exhibicion de museo · Lujo clasico'},
-              {icon:'🕐',nm:'Tipo Reloj',desc:'Marco circular con reloj de alta gama integrado · Dubai · Lujo extremo'},
-              {icon:'🎨',nm:'Composiciones Mixtas',desc:'Varias especies juntas · Arte cromatico · Colores amazonicos'},
-              {icon:'💎',nm:'Encapsulado en Resina',desc:'Eterno · Irrompible · Moderno · El mas exclusivo del mundo'},
-            ].map(p=>(
-              <div key={p.nm} className="card-tipo" style={{display:'flex',gap:10,alignItems:'center',marginBottom:10,padding:'8px',borderRadius:6,background:'rgba(201,168,76,0.04)',border:'1px solid rgba(201,168,76,0.08)'}}>
-                <span style={{fontSize:'1.4rem'}}>{p.icon}</span>
-                <div>
-                  <div style={{color:'#E8C97A',fontSize:'.82rem',fontWeight:700}}>{<ST t={p.nm}/>}</div>
-                  <div style={{color:'rgba(232,201,122,0.4)',fontSize:'.65rem'}}>{<ST t={p.desc}/>}</div>
-                </div>
-              </div>
-            ))}
-            <div style={{marginTop:12,background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.15)',borderRadius:8,padding:12}}>
-              <p style={{color:'#C9A84C',fontSize:'.75rem',fontWeight:700}}><ST t="Incluye:"/></p>
-              <p style={{color:'rgba(232,201,122,0.5)',fontSize:'.68rem',marginTop:4,lineHeight:1.8}}>
-                Certificado SERFOR<br/>
-                Certificado CITES<br/>
-                Factura electronica SUNAT<br/>
-                Embalaje de arte premium<br/>
-                Mas de 40 anos de experiencia
-              </p>
-            </div>
+          <div style={{display:'flex',gap:10,justifyContent:'center'}}>
+            <button onClick={()=>setPaso(1)}
+              style={{padding:'10px 24px',background:'transparent',border:`1px solid ${BD}`,color:G,
+                borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'0.78rem'}}>
+              Volver
+            </button>
+            <button onClick={()=>setPaso(3)}
+              style={{padding:'10px 24px',background:'rgba(201,168,76,0.12)',border:`1px solid ${G}`,
+                color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'0.78rem'}}>
+              Ver Resumen
+            </button>
           </div>
         </div>
-      </div>
+      )}
+
+      {paso===3&&(
+        <div style={{maxWidth:600,margin:'0 auto',textAlign:'center'}}>
+          <p style={{fontSize:'0.8rem',color:'rgba(201,168,76,0.7)',marginBottom:'1.5rem'}}>
+            Paso 3 — Tu cuadro personalizado
+          </p>
+          <div style={{border:`1px solid ${G}`,borderRadius:12,padding:'2rem',marginBottom:'1.5rem',
+            background:'rgba(201,168,76,0.04)'}}>
+            <p style={{fontSize:'1rem',marginBottom:'0.5rem'}}>
+              {famActual.nm}{subSel?' / '+subSel:''}
+            </p>
+            <p style={{fontSize:'0.75rem',color:'rgba(201,168,76,0.7)',marginBottom:'0.3rem'}}>Marco: {marco}</p>
+            <p style={{fontSize:'0.75rem',color:'rgba(201,168,76,0.7)'}}>Vidrio: {vidrio}</p>
+          </div>
+          <div style={{display:'flex',gap:10,justifyContent:'center'}}>
+            <button onClick={()=>setPaso(1)}
+              style={{flex:1,padding:'10px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,
+                color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.78rem'}}>
+              Cambiar Mariposa
+            </button>
+            <button onClick={()=>setPaso(2)}
+              style={{flex:1,padding:'10px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,
+                color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.78rem'}}>
+              Cambiar Marco
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
