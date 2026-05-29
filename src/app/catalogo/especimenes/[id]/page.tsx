@@ -135,6 +135,16 @@ export default function EspecimenPage() {
               style={{display:'block',width:'100%',padding:'12px',background:'rgba(37,211,102,0.15)',color:'#25D366',border:'1px solid rgba(37,211,102,0.3)',borderRadius:8,textAlign:'center',textDecoration:'none',fontSize:'.85rem',fontFamily:'Georgia,serif'}}>
               💬 Consultar por WhatsApp
             </a>
+            <div style={{display:'flex',gap:8,marginTop:8}}>
+              <button onClick={()=>router.push(`/catalogo/especimenes?familia=${especie.familia}`)}
+                style={{flex:1,padding:'10px',background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.25)',color:'#C9A84C',borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.78rem'}}>
+                ← Continuar en {especie.familia}
+              </button>
+              <button onClick={()=>router.push('/catalogo/especimenes')}
+                style={{flex:1,padding:'10px',background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.25)',color:'#C9A84C',borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.78rem'}}>
+                🦋 Ver todas las familias
+              </button>
+            </div>
           </div>
         </div>
 
