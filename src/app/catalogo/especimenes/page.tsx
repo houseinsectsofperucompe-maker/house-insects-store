@@ -30,16 +30,18 @@ function CatalogoInner() {
   useEffect(()=>{
     fetch('/api/datos')
       .then(r=>r.json())
-      .then(data=>{
-        if(data.familias){
-          const nuevosOrdenes = ORDENES_BASE.map(o=>({
-            ...o,
-            f: o.f.map(f=>{
-              const found = data.familias.find((d:any)=>d.id===f.id)
-              return found ? {...f, nm:found.nm||f.nm, e:found.e||[]} : f
-            })
-          }))
+      .then((data:any[])=>{
+        if(data&&data.length){
+          const ordenMap:Record<string,F[]>={}
+          data.forEach((f:any)=>{
+            const o=f.orden||'Lepidoptera Diurnae'
+            if(!ordenMap[o]) ordenMap[o]=[]
+            ordenMap[o].push({id:f.id,nm:f.nm||f.id,e:f.e||[]})
+          })
+          const nuevosOrdenes=Object.entries(ordenMap).map(([o,f])=>({o,f}))
           setOrdenes(nuevosOrdenes)
+          if(nuevosOrdenes.length>0) setOrd(nuevosOrdenes[0].o)
+          if(nuevosOrdenes[0]?.f.length>0) setFamSel(nuevosOrdenes[0].f[0].id)
         }
         setLoading(false)
       })
