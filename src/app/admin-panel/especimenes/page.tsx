@@ -448,7 +448,7 @@ export default function EspecimenesPage(){
                           fd.append('familia',espEdit.familia||'')
                           fd.append('especie',espEdit.n||'')
                           fd.append('tipo',tipo)
-                          fd.append('destino','cloudinary')
+                          fd.append('destino','bunny')
                           const r=await fetch('/api/upload',{method:'POST',body:fd})
                           const res=await r.json()
                           if(res.ok){setEspEdit((p:any)=>({...p,[tipo]:res.url}));mostrar('✅ '+tipo+' subido')}
