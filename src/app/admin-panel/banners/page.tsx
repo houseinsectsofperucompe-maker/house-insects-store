@@ -37,6 +37,29 @@ export default function BannersAdmin(){
   const [url,setUrl]=useState('')
   const [imagen,setImagen]=useState('')
   const [video,setVideo]=useState('')
+  const [subiendo,setSubiendo]=useState(false)
+  const [uploadMsg,setUploadMsg]=useState('')
+
+  const subirArchivo=async(e:React.ChangeEvent<HTMLInputElement>)=>{
+    const file=e.target.files?.[0]
+    if(!file)return
+    setSubiendo(true)
+    setUploadMsg('Subiendo...')
+    const fd=new FormData()
+    fd.append('file',file)
+    try{
+      const res=await fetch('/api/upload-banner',{method:'POST',body:fd})
+      const d=await res.json()
+      if(d.ok){
+        if(d.tipo==='video') setVideo(d.url)
+        else setImagen(d.url)
+        setUploadMsg('✅ Subido: '+d.url.split('/').pop())
+      }else{
+        setUploadMsg('❌ Error: '+d.error)
+      }
+    }catch{setUploadMsg('❌ Error al subir')}
+    setSubiendo(false)
+  }
   const [colorFondo,setColorFondo]=useState('#1a1209')
   const [colorTexto,setColorTexto]=useState('#C9A84C')
   const [rubrosSel,setRubrosSel]=useState<string[]>(['todos'])
@@ -359,6 +382,15 @@ export default function BannersAdmin(){
                 </div>
               )}
 
+              {/* Uploader directo */}
+              <div style={{marginBottom:16,padding:16,background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.3)',borderRadius:8}}>
+                <p style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',marginBottom:8}}>📁 SUBIR ARCHIVO (GIF, PNG, JPG, WebP, WebM, MP4)</p>
+                <input type="file" accept=".gif,.png,.jpg,.jpeg,.webp,.mp4,.webm,.mov"
+                  onChange={subirArchivo} disabled={subiendo}
+                  style={{color:'#C9A84C',fontSize:'.8rem',cursor:'pointer'}}/>
+                {uploadMsg&&<p style={{fontSize:'.72rem',marginTop:6,color:uploadMsg.startsWith('✅')?'#2ecc71':'#e74c3c'}}>{uploadMsg}</p>}
+                {subiendo&&<p style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',marginTop:4}}>⏳ Subiendo a Bunny.net...</p>}
+              </div>
               <button onClick={guardarNuevo} disabled={guardando||!empresa||!titulo}
                 style={{width:'100%',padding:'14px',background:G,color:'#0a0a0a',border:'none',
                   borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'1rem',
