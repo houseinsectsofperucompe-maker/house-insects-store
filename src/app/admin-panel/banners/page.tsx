@@ -292,7 +292,7 @@ export default function BannersAdmin(){
                             border:`1px solid ${editando===b.id?G:BD}`,color:G,borderRadius:6,cursor:'pointer',fontSize:'.72rem'}}>
                           ✏️ Editar
                         </button>
-                        {/* Activar/Desactivar */}}
+                        {/* Activar/Desactivar */}
                         <button onClick={()=>toggleActivo(b.id)}
                           style={{padding:'5px 12px',background:b.activo?'rgba(46,204,113,0.15)':'rgba(231,76,60,0.15)',
                             border:`1px solid ${b.activo?'#2ecc71':'#e74c3c'}`,
