@@ -1,4 +1,5 @@
 'use client'
+import {useCarrito} from '@/components/CarritoContext'
 import BannerSlot from '@/components/BannerSlot'
 import {useState,useEffect} from 'react'
 import {Redis} from '@upstash/redis'
