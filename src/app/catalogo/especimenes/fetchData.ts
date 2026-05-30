@@ -6,6 +6,13 @@ const redis = new Redis({
 })
 
 export async function getFamilias() {
-  const data = await redis.get('catalogo:familias') as any[]
-  return data || []
+  let data = await redis.get('catalogo:familias') as any
+  if (typeof data === 'string') data = JSON.parse(data)
+  if (typeof data === 'string') data = JSON.parse(data)
+  if (!data) return []
+  // Solo especies con precio > 0 para reducir payload
+  return data.map((f: any) => ({
+    ...f,
+    e: (f.e || []).filter((e: any) => e.p > 0)
+  }))
 }
