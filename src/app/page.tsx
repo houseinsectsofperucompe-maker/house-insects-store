@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import CurrencySelector from '@/components/CurrencySelector'
 import Image from 'next/image'
 import ST from '@/components/ST'
+import BannerSlot from '@/components/BannerSlot'
 
 
 
@@ -173,6 +174,7 @@ export default function Home() {
         <h2 style={{fontSize:'.9rem',color:'rgba(232,201,122,0.5)',letterSpacing:'.3em',textTransform:'uppercase',marginBottom:30}}><ST t="Seleccione su Categoría"/></h2>
       </div>
 
+      <BannerSlot espacio='hero' intervalo={6000}/>
       {/* Grid de catálogos — FIX: aspect-ratio en el wrapper, imagen absoluta dentro */}
       <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(300px,45vw),1fr))',gap:3,maxWidth:1200,margin:'0 auto',padding:'0 3px 60px'}}>
         {CATALOGOS.map(c => (
