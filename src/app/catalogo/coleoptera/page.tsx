@@ -51,6 +51,7 @@ type Esp={n:string,foto?:string,p?:number,s?:number,calidad?:string,activo?:bool
 type Fam={id:string,nm:string,orden:string,e:Esp[]}
 
 export default function ColeopteraPage(){
+  const {addItem}=useCarrito()
   const [tab,setTab]=useState<'Coleoptera'|'Arthropoda'>('Coleoptera')
   const [col,setCol]=useState<Fam[]>([])
   const [art,setArt]=useState<Fam[]>([])
@@ -331,6 +332,16 @@ export default function ColeopteraPage(){
                     <p style={{color:G,fontSize:'1.8rem',margin:0,fontWeight:'bold'}}>Consultar</p>
                   </div>
                 </div>
+                <button onClick={()=>addItem({
+                    n:`Cuadro ${insecto.n} - ${marcoSel.nm} - ${modelo}`,
+                    p:0,foto:insecto.foto||'',
+                    familia:'cuadros',qty:1
+                  })}
+                  style={{width:'100%',padding:'14px',background:'#2ecc71',color:'#fff',
+                    border:'none',borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',
+                    fontSize:'.9rem',fontWeight:'bold',marginBottom:8}}>
+                  🛒 Agregar al Carrito
+                </button>
                 <a href={`https://wa.me/51940699405?text=Hola, quiero un cuadro de ${insecto.n} con ${marcoSel.nm} modelo ${modelo}. Consulto precio.`}
                   target="_blank" rel="noopener noreferrer"
                   style={{display:'block',width:'100%',padding:'14px',background:G,color:'#1A1209',

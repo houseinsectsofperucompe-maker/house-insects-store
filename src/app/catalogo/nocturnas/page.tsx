@@ -52,6 +52,7 @@ type SubFam={id:string,nm:string,padre?:string,orden:string,e:Esp[]}
 type Fam={id:string,nm:string,orden:string,e:Esp[],sub:SubFam[]}
 
 export default function NocturnasPage(){
+  const {addItem}=useCarrito()
   const [paso,setPaso]=useState(1)
   const [familias,setFamilias]=useState<Fam[]>([])
   const [loading,setLoading]=useState(true)
@@ -347,6 +348,16 @@ export default function NocturnasPage(){
                     <p style={{color:G,fontSize:'1.8rem',margin:0,fontWeight:'bold'}}>Consultar</p>
                   </div>
                 </div>
+                <button onClick={()=>addItem({
+                    n:`Cuadro ${mariposa.n} - ${marcoSel.nm} - ${modelo}`,
+                    p:0,foto:mariposa.foto||'',
+                    familia:'cuadros',qty:1
+                  })}
+                  style={{width:'100%',padding:'14px',background:'#2ecc71',color:'#fff',
+                    border:'none',borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',
+                    fontSize:'.9rem',fontWeight:'bold',marginBottom:8}}>
+                  🛒 Agregar al Carrito
+                </button>
                 <a href={`https://wa.me/51940699405?text=Hola, quiero un cuadro de ${mariposa.n} con ${marcoSel.nm} modelo ${modelo}. Consulto precio.`}
                   target="_blank" rel="noopener noreferrer"
                   style={{display:'block',width:'100%',padding:'14px',background:G,color:'#1A1209',
