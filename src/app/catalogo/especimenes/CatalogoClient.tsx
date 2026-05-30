@@ -7,7 +7,7 @@ import CarritoCompras from '@/components/CarritoCompras'
 import { useSearchParams } from 'next/navigation'
 
 type E = { n:string; p:number; s:number; foto?:string; fotoLado?:string; fotoReverso?:string; video?:string; activo?:boolean; familia?:string }
-type F = { id:string; nm:string; e:E[] }
+type F = { id:string; nm:string; e:E[]; sub?:any[] }
 type Orden = { o:string; f:F[] }
 
 const ORDENES_BASE:Orden[] = [
