@@ -15,6 +15,35 @@ export default function BannerSlot({espacio,rubro='todos',className=''}:{espacio
 
   if(!banner)return null
 
+  // Banner video
+  if(banner.video){
+    return(
+      <div style={{width:'100%',display:'flex',justifyContent:'center'}}>
+        <a href={banner.url||'#'} target="_blank" rel="noopener noreferrer"
+          style={{display:'block',width:'100%',maxWidth:1200,textDecoration:'none',position:'relative' as const}}>
+          <video autoPlay loop muted playsInline
+            style={{width:'100%',height:'auto',display:'block',objectFit:'cover',borderRadius:6}}>
+            <source src={banner.video} type={banner.video.endsWith('.webm')?'video/webm':'video/mp4'}/>
+          </video>
+          {banner.titulo&&(
+            <div style={{position:'absolute' as const,inset:0,display:'flex',alignItems:'center',
+              justifyContent:'center',background:'rgba(0,0,0,0.3)',borderRadius:6}}>
+              <div style={{textAlign:'center' as const,padding:20}}>
+                <p style={{color:'#fff',fontSize:'1.2rem',fontWeight:'bold',margin:'0 0 8px',
+                  textShadow:'0 2px 8px rgba(0,0,0,0.8)',fontFamily:'Georgia,serif'}}>{banner.titulo}</p>
+                {banner.subtitulo&&<p style={{color:'rgba(255,255,255,0.85)',fontSize:'.85rem',
+                  margin:'0 0 12px',fontFamily:'Georgia,serif'}}>{banner.subtitulo}</p>}
+                {banner.cta&&<span style={{padding:'8px 20px',background:banner.colorTexto||'#C9A84C',
+                  color:banner.color||'#1a1209',borderRadius:6,fontWeight:'bold',fontSize:'.85rem',
+                  fontFamily:'Georgia,serif'}}>{banner.cta}</span>}
+              </div>
+            </div>
+          )}
+        </a>
+      </div>
+    )
+  }
+
   // Si tiene imagen y no tiene titulo — mostrar como banner imagen completa
   if(banner.imagen && !banner.titulo){
     return(
