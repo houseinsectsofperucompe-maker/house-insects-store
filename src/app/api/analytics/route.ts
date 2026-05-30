@@ -7,7 +7,7 @@ export async function GET(){
       method:'POST',
       headers:{'Content-Type':'application/x-www-form-urlencoded'},
       body:new URLSearchParams({
-        client_id:'407408718192.apps.googleusercontent.com',
+        client_id:process.env.GA_CLIENT_ID||'700549469010-rdos751i96a3r9dq4ocus9a5a1044h7t.apps.googleusercontent.com',
         client_secret:process.env.GA_CLIENT_SECRET||'',
         refresh_token:process.env.GA_REFRESH_TOKEN||'',
         grant_type:'refresh_token'
