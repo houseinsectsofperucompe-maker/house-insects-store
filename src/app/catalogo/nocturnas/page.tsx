@@ -50,7 +50,7 @@ const MODELOS=[
 
 type Esp={n:string,foto?:string,p?:number,s?:number,calidad?:string,activo?:boolean}
 type SubFam={id:string,nm:string,padre?:string,orden?:string,e:Esp[],sub?:SubFam[]}
-type Fam={id:string,nm:string,orden:string,e:Esp[],sub:SubFam[]}
+type Fam={id:string,nm:string,orden?:string,e:Esp[],sub:SubFam[]}
 
 export default function NocturnasPage(){
   const {addItem}=useCarrito()
