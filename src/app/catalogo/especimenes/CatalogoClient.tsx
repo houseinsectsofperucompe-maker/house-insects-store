@@ -190,6 +190,24 @@ function CatalogoInner({familias}:{familias:any[]}) {
         </div>
       ) : (
         <div style={{maxWidth:1200,margin:'0 auto'}}>
+          {hasSubs&&(
+            <div style={{display:'flex',flexWrap:'wrap',gap:5,margin:'0 0 12px',justifyContent:'center',padding:'8px 12px',background:'rgba(201,168,76,0.04)',borderRadius:8,border:'1px solid rgba(201,168,76,0.15)'}}>
+              <button onClick={()=>setSubSel('')}
+                style={{background:!subSel?'rgba(201,168,76,0.2)':'transparent',color:'#C9A84C',
+                  border:`1px solid ${!subSel?'#C9A84C':'rgba(201,168,76,0.2)'}`,borderRadius:16,padding:'3px 10px',
+                  cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif'}}>
+                Todas ({todasEsp.length})
+              </button>
+              {famActual?.sub?.map((s:any)=>(
+                <button key={s.id} onClick={()=>setSubSel(s.id)}
+                  style={{background:subSel===s.id?'rgba(201,168,76,0.2)':'transparent',color:'#C9A84C',
+                    border:`1px solid ${subSel===s.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,borderRadius:16,padding:'3px 10px',
+                    cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif'}}>
+                  {s.nm}{s.e?.length>0&&` (${s.e.length})`}
+                </button>
+              ))}
+            </div>
+          )}
           <p style={{textAlign:'center',color:'rgba(201,168,76,0.4)',fontSize:'.72rem',marginBottom:16}}>
             Mostrando {(pag-1)*POR_PAG+1}–{Math.min(pag*POR_PAG,espFiltradas.length)} de {espFiltradas.length} especies · Página {pag} de {totalPags||1}
           </p>
@@ -213,24 +231,6 @@ function CatalogoInner({familias}:{familias:any[]}) {
               </button>
             ))}
           </div>
-          {hasSubs&&(
-            <div style={{display:'flex',flexWrap:'wrap',gap:5,margin:'8px 0 12px',justifyContent:'center',padding:'8px 12px',background:'rgba(201,168,76,0.04)',borderRadius:8,border:'1px solid rgba(201,168,76,0.15)'}}>
-              <button onClick={()=>setSubSel('')}
-                style={{background:!subSel?'rgba(201,168,76,0.2)':'transparent',color:'#C9A84C',
-                  border:`1px solid ${!subSel?'#C9A84C':'rgba(201,168,76,0.2)'}`,borderRadius:16,padding:'3px 10px',
-                  cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif'}}>
-                Todas ({todasEsp.length})
-              </button>
-              {famActual?.sub?.map((s:any)=>(
-                <button key={s.id} onClick={()=>setSubSel(s.id)}
-                  style={{background:subSel===s.id?'rgba(201,168,76,0.2)':'transparent',color:'#C9A84C',
-                    border:`1px solid ${subSel===s.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,borderRadius:16,padding:'3px 10px',
-                    cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif'}}>
-                  {s.nm}{s.e?.length>0&&` (${s.e.length})`}
-                </button>
-              ))}
-            </div>
-          )}
           <BannerSlot espacio='entre-productos'/>
           {totalPags>1&&(
             <div style={{display:'flex',justifyContent:'center',gap:8,marginTop:24}}>
