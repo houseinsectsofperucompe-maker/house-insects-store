@@ -1,7 +1,7 @@
 import {NextRequest,NextResponse} from 'next/server'
 
-const BUNNY_API_KEY='358ac34e-296c-4335-9e5a-7ea9ccc41229273a7d16-2b42-4d8c-beb5-dc62d5d73ef0'
-const BUNNY_ZONE='HouseInsects1967'
+const BUNNY_API_KEY=process.env.BUNNY_API_KEY||''
+const BUNNY_ZONE=process.env.BUNNY_STORAGE_ZONE||'HouseInsects1967'
 const CDN_URL='https://HouseInsects1967.b-cdn.net'
 
 export async function POST(req:NextRequest){
