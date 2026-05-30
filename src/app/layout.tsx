@@ -46,8 +46,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body style={{fontFamily:"Georgia,serif"}}>
         <CarritoProvider>
         <div style={{position:"fixed",top:12,right:12,zIndex:9999,display:"flex",gap:8,alignItems:"center"}}><CarritoBoton/><CurrencySelector/><LangSelector/></div>
+        <BannerSlot espacio='header'/>
         {children}
         <ContactoFlotante />
+        <BannerSlot espacio='footer'/>
         </CarritoProvider>
       </body>
     </html>
