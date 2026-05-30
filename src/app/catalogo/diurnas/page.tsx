@@ -355,8 +355,10 @@ export default function DiurnasPage(){
 
                 <button onClick={()=>addItem({
                     n:`Cuadro ${mariposa.n} - ${marcoSel.nm} - ${modelo}`,
-                    p:0,foto:mariposa.foto||'',
-                    familia:'cuadros',qty:1
+                    p:0,rubro:'cuadros',
+                    foto:mariposa.foto||'',
+                    marco:marcoSel.nm,
+                    modelo:modelo
                   })}
                   style={{width:'100%',padding:'14px',background:'#2ecc71',color:'#fff',
                     border:'none',borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',

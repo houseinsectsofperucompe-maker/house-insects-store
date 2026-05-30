@@ -1,7 +1,7 @@
 'use client'
 import { createContext, useContext, useState, ReactNode } from 'react'
 
-type Item = { n:string; p:number; qty:number; rubro:string }
+type Item = { n:string; p:number; qty:number; rubro:string; foto?:string; marco?:string; modelo?:string }
 type CarritoCtx = {
   items: Item[]
   addItem: (item: Omit<Item,'qty'>) => void

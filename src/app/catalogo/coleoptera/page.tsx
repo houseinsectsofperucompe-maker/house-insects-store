@@ -335,8 +335,10 @@ export default function ColeopteraPage(){
                 </div>
                 <button onClick={()=>addItem({
                     n:`Cuadro ${insecto.n} - ${marcoSel.nm} - ${modelo}`,
-                    p:0,foto:insecto.foto||'',
-                    familia:'cuadros',qty:1
+                    p:0,rubro:'cuadros',
+                    foto:insecto.foto||'',
+                    marco:marcoSel.nm,
+                    modelo:modelo
                   })}
                   style={{width:'100%',padding:'14px',background:'#2ecc71',color:'#fff',
                     border:'none',borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',
