@@ -15,6 +15,15 @@ export default function BannerSlot({espacio,rubro='todos',className=''}:{espacio
 
   if(!banner)return null
 
+  // Si tiene imagen y no tiene titulo — mostrar como banner imagen completa
+  if(banner.imagen && !banner.titulo){
+    return(
+      <a href={banner.url||'#'} target="_blank" rel="noopener noreferrer" style={{display:'block',width:'100%',textDecoration:'none'}}>
+        <img src={banner.imagen} alt={banner.empresa||'Banner'} style={{width:'100%',height:'auto',display:'block',objectFit:'cover'}}/>
+      </a>
+    )
+  }
+
   const estilos:Record<string,React.CSSProperties>={
     hero:{width:'100%',minHeight:120,padding:'24px 32px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:16},
     header:{width:'100%',height:60,maxWidth:460,padding:'0 16px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:12,margin:'0 auto'},
