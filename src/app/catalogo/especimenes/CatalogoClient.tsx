@@ -194,7 +194,7 @@ function CatalogoInner({familias}:{familias:any[]}) {
             Mostrando {(pag-1)*POR_PAG+1}–{Math.min(pag*POR_PAG,espFiltradas.length)} de {espFiltradas.length} especies · Página {pag} de {totalPags||1}
           </p>
           <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(200px,1fr))',gap:8}}>
-            {pagEsp.map((e,i)=>(
+            {pagEsp.map((e:any,i:number)=>(
               <button key={i} onClick={()=>window.location.href=`/catalogo/especimenes/${famSel}-${(pag-1)*POR_PAG+i}`} className="esp-card">
                 <div style={{width:'100%',height:160,background:'#000',borderRadius:6,marginBottom:6,overflow:'hidden',display:'flex',alignItems:'center',justifyContent:'center'}}>
                   {e.foto
