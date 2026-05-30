@@ -1,12 +1,12 @@
-
 import {NextResponse} from 'next/server'
-import {BetaAnalyticsDataClient} from '@google-analytics/data'
 
 export async function GET(){
   try{
+    // Usar Measurement Protocol de GA4 para obtener datos
+    const propertyId=process.env.GA_PROPERTY_ID||'539255389'
     const credentials=JSON.parse(process.env.GOOGLE_SA_KEY||'{}')
-    const propertyId=process.env.GA_PROPERTY_ID||'14952816129'
     
+    const {BetaAnalyticsDataClient}=await import('@google-analytics/data')
     const client=new BetaAnalyticsDataClient({credentials})
     
     const [response]=await client.runReport({
@@ -15,7 +15,7 @@ export async function GET(){
       dimensions:[{name:'country'}],
       metrics:[{name:'activeUsers'},{name:'sessions'},{name:'screenPageViews'}],
       orderBys:[{metric:{metricName:'activeUsers'},desc:true}],
-      limit:20
+      limit:50
     })
     
     const paises=(response.rows||[]).map(row=>({
