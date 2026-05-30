@@ -6,6 +6,8 @@ const redis = new Redis({
   token: 'gQAAAAAAAaOLAAIgcDExZGYyODVjMzY1Mjc0OTY1YjcyYjZiMzIzZjhmYTgxOA',
 })
 
+export const revalidate = 3600
+
 export async function GET(
   req: Request,
   context: { params: Promise<{ id: string }> }
@@ -19,5 +21,9 @@ export async function GET(
     const fam = todas?.find((f: any) => f.id === id)
     data = fam?.e || []
   }
-  return NextResponse.json(data || [])
+  return NextResponse.json(data || [], {
+    headers: {
+      'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+    }
+  })
 }
