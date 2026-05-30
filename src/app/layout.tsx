@@ -7,6 +7,7 @@ import { CarritoProvider } from '@/components/CarritoContext'
 import CarritoBoton from '@/components/CarritoBoton'
 import DivisionesMenu from '@/components/DivisionesMenu'
 import ContactoFlotante from '@/components/ContactoFlotante'
+import BannerSlot from '@/components/BannerSlot'
 
 export const metadata: Metadata = {
   icons: { icon: '/favicon.png', shortcut: '/favicon.png', apple: '/favicon.png' },
