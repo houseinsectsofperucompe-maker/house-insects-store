@@ -69,10 +69,9 @@ export default function NocturnasPage(){
     r.get<SubFam[]>('catalogo:familias').then(d=>{
       if(!d)return
       const noc=d.filter(f=>f.orden==='Moths Nocturnas')
-      const principales=noc.filter(f=>!f.padre)
-      const resultado:Fam[]=principales.map(f=>({
+      const resultado:Fam[]=noc.map(f=>({
         ...f,
-        sub:noc.filter(s=>s.padre===f.id)
+        sub:f.sub||[]
       }))
       setFamilias(resultado)
       if(resultado.length>0)setFamSel(resultado[0].id)
