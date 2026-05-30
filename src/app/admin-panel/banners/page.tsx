@@ -102,7 +102,7 @@ export default function BannersAdmin(){
     setGuardando(true)
     const res=await accion({
       accion:'crear',
-      banner:{espacioId:espacioSel,empresa,titulo,subtitulo,cta,url,imagen,video,video,
+      banner:{espacioId:espacioSel,empresa,titulo,subtitulo,cta,url,imagen,video,
         color:colorFondo,colorTexto,rubros:rubrosSel,idiomas:['es','en'],
         fechaInicio,fechaFin,orden:banners.length+1}
     })
