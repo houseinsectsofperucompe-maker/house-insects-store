@@ -2,29 +2,47 @@ import {NextResponse} from 'next/server'
 
 export async function GET(){
   try{
-    // Usar Measurement Protocol de GA4 para obtener datos
-    const propertyId=process.env.GA_PROPERTY_ID||'539255389'
-    const credentials=JSON.parse(process.env.GOOGLE_SA_KEY||'{}')
-    
-    const {BetaAnalyticsDataClient}=await import('@google-analytics/data')
-    const client=new BetaAnalyticsDataClient({credentials})
-    
-    const [response]=await client.runReport({
-      property:`properties/${propertyId}`,
-      dateRanges:[{startDate:'30daysAgo',endDate:'today'}],
-      dimensions:[{name:'country'}],
-      metrics:[{name:'activeUsers'},{name:'sessions'},{name:'screenPageViews'}],
-      orderBys:[{metric:{metricName:'activeUsers'},desc:true}],
-      limit:50
+    // Obtener access token con refresh token
+    const tokenRes=await fetch('https://oauth2.googleapis.com/token',{
+      method:'POST',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:new URLSearchParams({
+        client_id:'407408718192.apps.googleusercontent.com',
+        client_secret:process.env.GA_CLIENT_SECRET||'',
+        refresh_token:process.env.GA_REFRESH_TOKEN||'',
+        grant_type:'refresh_token'
+      })
     })
-    
-    const paises=(response.rows||[]).map(row=>({
+    const tokenData=await tokenRes.json()
+    const accessToken=tokenData.access_token
+    if(!accessToken) return NextResponse.json({ok:false,error:'No access token',paises:[]})
+
+    // Llamar a GA4 Data API
+    const propertyId=process.env.GA_PROPERTY_ID||'539255389'
+    const gaRes=await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`,{
+      method:'POST',
+      headers:{
+        'Authorization':`Bearer ${accessToken}`,
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify({
+        dateRanges:[{startDate:'30daysAgo',endDate:'today'}],
+        dimensions:[{name:'country'}],
+        metrics:[{name:'activeUsers'},{name:'sessions'},{name:'screenPageViews'}],
+        orderBys:[{metric:{metricName:'activeUsers'},desc:true}],
+        limit:50
+      })
+    })
+    const gaData=await gaRes.json()
+    if(gaData.error) return NextResponse.json({ok:false,error:gaData.error.message,paises:[]})
+
+    const paises=(gaData.rows||[]).map((row:any)=>({
       pais:row.dimensionValues?.[0]?.value||'Unknown',
       usuarios:parseInt(row.metricValues?.[0]?.value||'0'),
       sesiones:parseInt(row.metricValues?.[1]?.value||'0'),
       vistas:parseInt(row.metricValues?.[2]?.value||'0'),
     }))
-    
+
     return NextResponse.json({ok:true,paises})
   }catch(e:any){
     return NextResponse.json({ok:false,error:e.message,paises:[]})
