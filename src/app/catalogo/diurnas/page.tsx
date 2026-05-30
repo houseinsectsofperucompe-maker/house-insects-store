@@ -86,7 +86,7 @@ export default function DiurnasPage(){
           <a href='/' style={{display:'flex',alignItems:'center',gap:6,padding:'7px 14px',background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:8,textDecoration:'none',fontFamily:'Georgia,serif',fontSize:'.75rem'}}>
             🏠 Inicio
           </a>
-          <a href='/catalogo/especimenes' style={{display:'flex',alignItems:'center',gap:6,padding:'7px 14px',background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:8,textDecoration:'none',fontFamily:'Georgia,serif',fontSize:'.75rem'}}>
+          <a href='/catalogo/diurnas' style={{display:'flex',alignItems:'center',gap:6,padding:'7px 14px',background:'rgba(201,168,76,0.08)',border:'1px solid rgba(201,168,76,0.3)',color:'#C9A84C',borderRadius:8,textDecoration:'none',fontFamily:'Georgia,serif',fontSize:'.75rem'}}>
             ← Catálogo
           </a>
         </div>
