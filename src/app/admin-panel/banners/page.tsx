@@ -37,6 +37,7 @@ export default function BannersAdmin(){
   const [url,setUrl]=useState('')
   const [imagen,setImagen]=useState('')
   const [video,setVideo]=useState('')
+  const [video,setVideo]=useState('')
   const [colorFondo,setColorFondo]=useState('#1a1209')
   const [colorTexto,setColorTexto]=useState('#C9A84C')
   const [rubrosSel,setRubrosSel]=useState<string[]>(['todos'])
@@ -102,7 +103,7 @@ export default function BannersAdmin(){
     setGuardando(true)
     const res=await accion({
       accion:'crear',
-      banner:{espacioId:espacioSel,empresa,titulo,subtitulo,cta,url,imagen,video,
+      banner:{espacioId:espacioSel,empresa,titulo,subtitulo,cta,url,imagen,video,video,
         color:colorFondo,colorTexto,rubros:rubrosSel,idiomas:['es','en'],
         fechaInicio,fechaFin,orden:banners.length+1}
     })
