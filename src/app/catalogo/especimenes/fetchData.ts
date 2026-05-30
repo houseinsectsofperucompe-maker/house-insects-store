@@ -10,7 +10,6 @@ export async function getFamilias() {
   if (typeof data === 'string') data = JSON.parse(data)
   if (typeof data === 'string') data = JSON.parse(data)
   if (!data) return []
-  // Solo especies con precio > 0 para reducir payload
   return data.map((f: any) => ({
     ...f,
     e: (f.e || []).filter((e: any) => e.p > 0)
