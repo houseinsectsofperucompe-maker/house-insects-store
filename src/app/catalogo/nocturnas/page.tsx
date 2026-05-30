@@ -80,8 +80,12 @@ export default function NocturnasPage(){
   },[])
 
   const famActual=familias.find(f=>f.id===famSel)||familias[0]
-  const subActual=famActual?.sub.find(s=>s.id===subSel)
-  const especies=subSel?subActual?.e||[]:famActual?.e||[]
+  const subActual=famActual?.sub?.find(s=>s.id===subSel)
+  const especies=subSel
+    ? (subActual?.e||[])
+    : famActual?.sub?.length>0
+      ? famActual.sub.flatMap(s=>s.e||[])
+      : (famActual?.e||[])
 
   return(
     <div style={{minHeight:'100vh',background:BG,color:G,fontFamily:'Georgia,serif'}}>
