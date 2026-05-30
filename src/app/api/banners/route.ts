@@ -18,8 +18,12 @@ export async function GET(req:NextRequest){
     .filter(b=>b.activo&&b.espacioId===espacio)
     .filter(b=>b.rubros?.includes('todos')||b.rubros?.includes(rubro))
     .sort((a,b)=>(a.orden||0)-(b.orden||0))
+
+  // Si pide todos los banners del espacio
+  const todosEspacio=req.nextUrl.searchParams.get('todos')
+  if(todosEspacio) return NextResponse.json({banners:candidatos})
   
-  return NextResponse.json({banner:candidatos[0]||null})
+  return NextResponse.json({banner:candidatos[0]||null,banners:candidatos})
 }
 
 export async function POST(req:NextRequest){
