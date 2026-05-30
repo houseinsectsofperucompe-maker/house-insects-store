@@ -36,6 +36,7 @@ export default function BannersAdmin(){
   const [cta,setCta]=useState('Ver más →')
   const [url,setUrl]=useState('')
   const [imagen,setImagen]=useState('')
+  const [video,setVideo]=useState('')
   const [colorFondo,setColorFondo]=useState('#1a1209')
   const [colorTexto,setColorTexto]=useState('#C9A84C')
   const [rubrosSel,setRubrosSel]=useState<string[]>(['todos'])
@@ -101,7 +102,7 @@ export default function BannersAdmin(){
     setGuardando(true)
     const res=await accion({
       accion:'crear',
-      banner:{espacioId:espacioSel,empresa,titulo,subtitulo,cta,url,imagen,
+      banner:{espacioId:espacioSel,empresa,titulo,subtitulo,cta,url,imagen,video,
         color:colorFondo,colorTexto,rubros:rubrosSel,idiomas:['es','en'],
         fechaInicio,fechaFin,orden:banners.length+1}
     })
@@ -293,7 +294,8 @@ export default function BannersAdmin(){
                 {l:'SUBTÍTULO',v:subtitulo,s:setSubtitulo,p:'Descripción corta'},
                 {l:'BOTÓN CTA',v:cta,s:setCta,p:'Ver más →'},
                 {l:'URL DESTINO',v:url,s:setUrl,p:'https://...'},
-                {l:'URL IMAGEN',v:imagen,s:setImagen,p:'https://...imagen.jpg'},
+                {l:'URL IMAGEN (WebP/JPG)',v:imagen,s:setImagen,p:'https://...imagen.webp'},
+                {l:'URL VIDEO (WebM/MP4 — 3D/4D)',v:url,s:setUrl,p:'https://...video.webm'},
               ].map(f=>(
                 <div key={f.l} style={{marginBottom:10}}>
                   <label style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>{f.l}</label>
