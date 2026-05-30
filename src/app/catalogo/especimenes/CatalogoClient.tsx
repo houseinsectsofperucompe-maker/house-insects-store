@@ -28,6 +28,7 @@ function CatalogoInner({familias}:{familias:any[]}) {
   const [pag, setPag] = useState(1)
   const [busq, setBusq] = useState('')
   const [sel, setSel] = useState<E|null>(null)
+  const [subSel, setSubSel] = useState('')
   const [vista, setVista] = useState<'foto'|'fotoLado'|'fotoReverso'|'video'>('foto')
   const POR_PAG = 21
 
@@ -37,7 +38,7 @@ function CatalogoInner({familias}:{familias:any[]}) {
       familias.forEach((f:any)=>{
         const o=f.orden||'Lepidoptera Diurnae'
         if(!ordenMap[o]) ordenMap[o]=[]
-        ordenMap[o].push({id:f.id,nm:f.nm||f.id,e:f.e||[]})
+        ordenMap[o].push({id:f.id,nm:f.nm||f.id,e:f.e||[],sub:f.sub||[]})
       })
       const nuevosOrdenes=Object.entries(ordenMap).map(([o,f])=>({o,f}))
       setOrdenes(nuevosOrdenes)
@@ -57,7 +58,10 @@ function CatalogoInner({familias}:{familias:any[]}) {
   const ordenActual = ordenes.find(o=>o.o===ord)
   const fams = ordenActual?.f.filter(f=>f.e.length>0)||[]
   const famActual = ordenActual?.f.find(f=>f.id===famSel)
-  const espFiltradas = (famActual?.e||[]).filter(e=>!busq||e.n.toLowerCase().includes(busq.toLowerCase()))
+  const hasSubs=(famActual?.sub?.length||0)>0
+  const subActual=famActual?.sub?.find((s:any)=>s.id===subSel)
+  const todasEsp=hasSubs?(famActual?.sub?.flatMap((s:any)=>s.e||[])||[]):(famActual?.e||[])
+  const espFiltradas = (subSel&&subActual?subActual.e:todasEsp).filter(e=>!busq||e.n.toLowerCase().includes(busq.toLowerCase()))
   const totalPags = Math.ceil(espFiltradas.length/POR_PAG)
   const pagEsp = espFiltradas.slice((pag-1)*POR_PAG, pag*POR_PAG)
 
@@ -133,7 +137,7 @@ function CatalogoInner({familias}:{familias:any[]}) {
       {/* Familias */}
       <div style={{display:'flex',justifyContent:'center',gap:6,marginBottom:24,flexWrap:'wrap'}}>
         {ordenActual?.f.map(f=>(
-          <button key={f.id} className="fam-btn" onClick={()=>{setFamSel(f.id);setPag(1)}}
+          <button key={f.id} className="fam-btn" onClick={()=>{setFamSel(f.id);setPag(1);setSubSel('')}}
             style={{background:famSel===f.id?'rgba(201,168,76,0.2)':'transparent',color:famSel===f.id?G:'rgba(201,168,76,0.5)',border:`1px solid ${famSel===f.id?G:'rgba(201,168,76,0.2)'}`,borderRadius:20,padding:'4px 12px',cursor:'pointer',fontSize:'.72rem',fontFamily:'Georgia,serif'}}>
             {f.nm}{f.e.length>0?` (${f.e.length})`:''}
           </button>
@@ -209,6 +213,24 @@ function CatalogoInner({familias}:{familias:any[]}) {
               </button>
             ))}
           </div>
+          {hasSubs&&(
+            <div style={{display:'flex',flexWrap:'wrap',gap:5,margin:'8px 0 12px',justifyContent:'center',padding:'8px 12px',background:'rgba(201,168,76,0.04)',borderRadius:8,border:'1px solid rgba(201,168,76,0.15)'}}>
+              <button onClick={()=>setSubSel('')}
+                style={{background:!subSel?'rgba(201,168,76,0.2)':'transparent',color:'#C9A84C',
+                  border:`1px solid ${!subSel?'#C9A84C':'rgba(201,168,76,0.2)'}`,borderRadius:16,padding:'3px 10px',
+                  cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif'}}>
+                Todas ({todasEsp.length})
+              </button>
+              {famActual?.sub?.map((s:any)=>(
+                <button key={s.id} onClick={()=>setSubSel(s.id)}
+                  style={{background:subSel===s.id?'rgba(201,168,76,0.2)':'transparent',color:'#C9A84C',
+                    border:`1px solid ${subSel===s.id?'#C9A84C':'rgba(201,168,76,0.2)'}`,borderRadius:16,padding:'3px 10px',
+                    cursor:'pointer',fontSize:'.68rem',fontFamily:'Georgia,serif'}}>
+                  {s.nm}{s.e?.length>0&&` (${s.e.length})`}
+                </button>
+              ))}
+            </div>
+          )}
           <BannerSlot espacio='entre-productos'/>
           {totalPags>1&&(
             <div style={{display:'flex',justifyContent:'center',gap:8,marginTop:24}}>
