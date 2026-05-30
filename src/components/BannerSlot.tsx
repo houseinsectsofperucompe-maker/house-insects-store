@@ -37,6 +37,7 @@ export default function BannerSlot({espacio,rubro='todos',className=''}:{espacio
   const estilo=estilos[espacio]||estilos.header
 
   return(
+    <div style={{width:'100%',display:'flex',justifyContent:'center'}}>
     <div style={{background:banner.color,borderRadius:espacio==='sidebar'?12:6,...estilo}} className={className}>
       {banner.imagen&&(
         <img src={banner.imagen} alt={banner.titulo}
@@ -65,6 +66,7 @@ export default function BannerSlot({espacio,rubro='todos',className=''}:{espacio
           {banner.cta||'Ver más →'}
         </a>
       )}
+    </div>
     </div>
   )
 }
