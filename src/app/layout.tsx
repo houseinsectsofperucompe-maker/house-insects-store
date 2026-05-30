@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div style={{display:'flex',justifyContent:'center',width:'100%'}}><BannerSlot espacio='header'/></div>
         {children}
         <ContactoFlotante />
-        <BannerSlot espacio='footer'/>
+        <div style={{display:'flex',justifyContent:'center',width:'100%'}}><BannerSlot espacio='footer'/></div>
         </CarritoProvider>
       </body>
     </html>
