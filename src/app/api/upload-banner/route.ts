@@ -1,7 +1,7 @@
 import {NextRequest,NextResponse} from 'next/server'
 
-const BUNNY_API_KEY=process.env.BUNNY_API_KEY||''
-const BUNNY_ZONE=process.env.BUNNY_STORAGE_ZONE||'HouseInsects1967'
+const BUNNY_API_KEY=process.env.BUNNY_API_KEY||'51da13d3-4922-4e5c-8e4a03b36bb5-d3ec-4d2b'
+const BUNNY_ZONE=process.env.BUNNY_STORAGE_ZONE||'housensectsperu'
 const CDN_URL='https://HouseInsects1967.b-cdn.net'
 
 export async function POST(req:NextRequest){
@@ -23,7 +23,7 @@ export async function POST(req:NextRequest){
     const nombre=`banners/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g,'_')}`
 
     // Subir a Bunny.net
-    const res=await fetch(`https://storage.bunnycdn.com/${BUNNY_ZONE}/${nombre}`,{
+    const res=await fetch(`https://sg.storage.bunnycdn.com/${BUNNY_ZONE}/${nombre}`,{
       method:'PUT',
       headers:{
         'AccessKey':BUNNY_API_KEY,
