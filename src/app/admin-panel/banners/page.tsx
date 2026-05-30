@@ -37,7 +37,6 @@ export default function BannersAdmin(){
   const [url,setUrl]=useState('')
   const [imagen,setImagen]=useState('')
   const [video,setVideo]=useState('')
-  const [video,setVideo]=useState('')
   const [colorFondo,setColorFondo]=useState('#1a1209')
   const [colorTexto,setColorTexto]=useState('#C9A84C')
   const [rubrosSel,setRubrosSel]=useState<string[]>(['todos'])
