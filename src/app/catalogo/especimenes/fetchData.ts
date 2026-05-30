@@ -9,9 +9,5 @@ export async function getFamilias() {
   let data = await redis.get('catalogo:familias') as any
   if (typeof data === 'string') data = JSON.parse(data)
   if (typeof data === 'string') data = JSON.parse(data)
-  if (!data) return []
-  return data.map((f: any) => ({
-    ...f,
-    e: (f.e || []).filter((e: any) => e.p > 0)
-  }))
+  return data || []
 }
