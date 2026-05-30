@@ -17,7 +17,7 @@ export default function BannerSlot({espacio,rubro='todos',className=''}:{espacio
 
   const estilos:Record<string,React.CSSProperties>={
     hero:{width:'100%',minHeight:120,padding:'24px 32px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:16},
-    header:{width:'100%',padding:'8px 24px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:12},
+    header:{width:'100%',height:60,maxWidth:460,padding:'0 16px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:12,margin:'0 auto'},
     footer:{width:'100%',padding:'16px 24px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:12},
     sidebar:{width:260,padding:'20px 16px',display:'flex',flexDirection:'column',alignItems:'center',textAlign:'center',gap:12},
     'entre-productos':{width:'100%',padding:'16px 24px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:12},
