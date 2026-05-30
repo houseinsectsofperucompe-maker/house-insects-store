@@ -1,7 +1,7 @@
 'use client'
 import {useState,useEffect} from 'react'
 
-type Banner={id:string,espacioId:string,titulo:string,subtitulo:string,cta:string,url:string,imagen:string,color:string,colorTexto:string,activo:boolean,orden:number,rubros:string[],idiomas:string[]}
+type Banner={id:string,espacioId:string,empresa?:string,titulo:string,subtitulo:string,cta:string,url:string,imagen:string,video?:string,color:string,colorTexto:string,activo:boolean,orden:number,rubros:string[],idiomas:string[]}
 
 export default function BannerSlot({espacio,rubro='todos',className=''}:{espacio:string,rubro?:string,className?:string}){
   const [banner,setBanner]=useState<Banner|null>(null)
