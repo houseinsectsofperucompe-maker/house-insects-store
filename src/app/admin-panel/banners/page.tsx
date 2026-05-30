@@ -27,6 +27,39 @@ export default function BannersAdmin(){
   const [loading,setLoading]=useState(true)
   const [guardando,setGuardando]=useState(false)
   const [moviendo,setMoviendo]=useState<string|null>(null)
+  const [editando,setEditando]=useState<string|null>(null)
+  const [editData,setEditData]=useState<Record<string,string>>({})
+  const [subiendoEdit,setSubiendoEdit]=useState(false)
+  const [uploadMsgEdit,setUploadMsgEdit]=useState('')
+
+  const subirArchivoEdit=async(e:React.ChangeEvent<HTMLInputElement>)=>{
+    const file=e.target.files?.[0]
+    if(!file)return
+    setSubiendoEdit(true)
+    setUploadMsgEdit('Subiendo...')
+    const fd=new FormData()
+    fd.append('file',file)
+    try{
+      const res=await fetch('/api/upload-banner',{method:'POST',body:fd})
+      const d=await res.json()
+      if(d.ok){
+        if(d.tipo==='video') setEditData(prev=>({...prev,video:d.url}))
+        else setEditData(prev=>({...prev,imagen:d.url}))
+        setUploadMsgEdit('✅ '+d.url.split('/').pop())
+      }else setUploadMsgEdit('❌ '+d.error)
+    }catch{setUploadMsgEdit('❌ Error')}
+    setSubiendoEdit(false)
+  }
+
+  const guardarEdicion=async(id:string)=>{
+    for(const [campo,valor] of Object.entries(editData)){
+      await accion({accion:'actualizar',id,campo,valor})
+    }
+    setBanners(prev=>prev.map(b=>b.id===id?{...b,...editData}:b))
+    setEditando(null)
+    setEditData({})
+    setUploadMsgEdit('')
+  }
 
   // Form nuevo
   const [espacioSel,setEspacioSel]=useState('hero')
@@ -253,7 +286,13 @@ export default function BannersAdmin(){
                           )}
                         </div>
 
-                        {/* Activar/Desactivar */}
+                        {/* Editar */}
+                        <button onClick={()=>{setEditando(editando===b.id?null:b.id);setEditData({});setUploadMsgEdit('')}}
+                          style={{padding:'5px 10px',background:editando===b.id?'rgba(201,168,76,0.2)':'rgba(201,168,76,0.08)',
+                            border:`1px solid ${editando===b.id?G:BD}`,color:G,borderRadius:6,cursor:'pointer',fontSize:'.72rem'}}>
+                          ✏️ Editar
+                        </button>
+                        {/* Activar/Desactivar */}}
                         <button onClick={()=>toggleActivo(b.id)}
                           style={{padding:'5px 12px',background:b.activo?'rgba(46,204,113,0.15)':'rgba(231,76,60,0.15)',
                             border:`1px solid ${b.activo?'#2ecc71':'#e74c3c'}`,
@@ -270,6 +309,59 @@ export default function BannersAdmin(){
                       </div>
                     </div>
 
+                    {/* Panel edicion */}
+                    {editando===b.id&&(
+                      <div style={{marginTop:12,padding:16,background:'rgba(201,168,76,0.06)',borderRadius:8,border:`1px solid ${G}`}}>
+                        <p style={{fontSize:'.75rem',fontWeight:'bold',marginBottom:12}}>✏️ Editar Banner</p>
+                        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:12}}>
+                          {[
+                            {l:'Título',k:'titulo',v:b.titulo},
+                            {l:'Subtítulo',k:'subtitulo',v:b.subtitulo},
+                            {l:'Botón CTA',k:'cta',v:b.cta},
+                            {l:'URL destino',k:'url',v:b.url},
+                          ].map(f=>(
+                            <div key={f.k}>
+                              <label style={{fontSize:'.68rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:3}}>{f.l}</label>
+                              <input defaultValue={f.v} onChange={e=>setEditData(prev=>({...prev,[f.k]:e.target.value}))}
+                                style={{width:'100%',padding:'7px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:6,fontSize:'.78rem'}}/>
+                            </div>
+                          ))}
+                        </div>
+                        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:12}}>
+                          <div>
+                            <label style={{fontSize:'.68rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:3}}>Color fondo</label>
+                            <div style={{display:'flex',gap:6}}>
+                              <input type="color" defaultValue={b.color} onChange={e=>setEditData(prev=>({...prev,color:e.target.value}))} style={{width:34,height:34,border:'none',borderRadius:4,cursor:'pointer'}}/>
+                              <input defaultValue={b.color} onChange={e=>setEditData(prev=>({...prev,color:e.target.value}))} style={{flex:1,padding:'7px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:6,fontSize:'.72rem'}}/>
+                            </div>
+                          </div>
+                          <div>
+                            <label style={{fontSize:'.68rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:3}}>Color texto</label>
+                            <div style={{display:'flex',gap:6}}>
+                              <input type="color" defaultValue={b.colorTexto} onChange={e=>setEditData(prev=>({...prev,colorTexto:e.target.value}))} style={{width:34,height:34,border:'none',borderRadius:4,cursor:'pointer'}}/>
+                              <input defaultValue={b.colorTexto} onChange={e=>setEditData(prev=>({...prev,colorTexto:e.target.value}))} style={{flex:1,padding:'7px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:6,fontSize:'.72rem'}}/>
+                            </div>
+                          </div>
+                        </div>
+                        <div style={{marginBottom:12,padding:12,background:'rgba(201,168,76,0.04)',borderRadius:6,border:`1px solid ${BD}`}}>
+                          <p style={{fontSize:'.68rem',color:'rgba(201,168,76,0.6)',marginBottom:6}}>📁 Subir imagen/video (GIF,PNG,JPG,WebP,MP4,WebM)</p>
+                          <input type="file" accept=".gif,.png,.jpg,.jpeg,.webp,.mp4,.webm,.mov"
+                            onChange={subirArchivoEdit} disabled={subiendoEdit}
+                            style={{color:G,fontSize:'.75rem',cursor:'pointer'}}/>
+                          {uploadMsgEdit&&<p style={{fontSize:'.7rem',marginTop:4,color:uploadMsgEdit.startsWith('✅')?'#2ecc71':'#e74c3c'}}>{uploadMsgEdit}</p>}
+                        </div>
+                        <div style={{display:'flex',gap:8}}>
+                          <button onClick={()=>guardarEdicion(b.id)}
+                            style={{flex:1,padding:'8px',background:G,color:'#0a0a0a',border:'none',borderRadius:6,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.8rem',fontWeight:'bold'}}>
+                            💾 Guardar cambios
+                          </button>
+                          <button onClick={()=>{setEditando(null);setEditData({});setUploadMsgEdit('')}}
+                            style={{padding:'8px 16px',background:'transparent',border:`1px solid ${BD}`,color:G,borderRadius:6,cursor:'pointer',fontSize:'.8rem'}}>
+                            Cancelar
+                          </button>
+                        </div>
+                      </div>
+                    )}
                     {/* Cambiar rubros */}
                     <div style={{marginTop:10,paddingTop:10,borderTop:`1px solid ${BD}`}}>
                       <p style={{fontSize:'.68rem',color:'rgba(201,168,76,0.5)',margin:'0 0 6px'}}>CATEGORÍAS/RUBROS:</p>
