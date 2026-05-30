@@ -1,4 +1,5 @@
 'use client'
+import BannerSlot from '@/components/BannerSlot'
 import ST from '@/components/ST'
 import { useCarrito } from '@/components/CarritoContext'
 import { useState, useEffect, Suspense } from 'react'
@@ -208,6 +209,7 @@ function CatalogoInner({familias}:{familias:any[]}) {
               </button>
             ))}
           </div>
+          <BannerSlot espacio='entre-productos'/>
           {totalPags>1&&(
             <div style={{display:'flex',justifyContent:'center',gap:8,marginTop:24}}>
               <button className="pag-btn" onClick={()=>setPag(p=>Math.max(1,p-1))} disabled={pag===1}
