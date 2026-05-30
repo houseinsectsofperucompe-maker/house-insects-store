@@ -61,7 +61,7 @@ function CatalogoInner({familias}:{familias:any[]}) {
   const hasSubs=(famActual?.sub?.length||0)>0
   const subActual=famActual?.sub?.find((s:any)=>s.id===subSel)
   const todasEsp=hasSubs?(famActual?.sub?.flatMap((s:any)=>s.e||[])||[]):(famActual?.e||[])
-  const espFiltradas = (subSel&&subActual?subActual.e:todasEsp).filter(e=>!busq||e.n.toLowerCase().includes(busq.toLowerCase()))
+  const espFiltradas = (subSel&&subActual?subActual.e:todasEsp).filter((e:any)=>!busq||e.n.toLowerCase().includes(busq.toLowerCase()))
   const totalPags = Math.ceil(espFiltradas.length/POR_PAG)
   const pagEsp = espFiltradas.slice((pag-1)*POR_PAG, pag*POR_PAG)
 
