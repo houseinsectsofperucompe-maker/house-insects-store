@@ -12,6 +12,8 @@ export async function GET(req:NextRequest){
   const banners=await r.get<Banner[]>('banners:activos')
   if(!banners) return NextResponse.json({banner:null})
   
+  if(espacio==='all') return NextResponse.json({todos:banners})
+
   const candidatos=banners
     .filter(b=>b.activo&&b.espacioId===espacio)
     .filter(b=>b.rubros?.includes('todos')||b.rubros?.includes(rubro))

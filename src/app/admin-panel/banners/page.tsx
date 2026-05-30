@@ -1,140 +1,124 @@
 'use client'
 import {useState,useEffect} from 'react'
-import {Redis} from '@upstash/redis'
 
 const G='#C9A84C',BD='rgba(201,168,76,0.35)',BG='#0a0a0a'
-const r=new Redis({url:'https://topical-weasel-107403.upstash.io',token:'gQAAAAAAAaOLAAIgcDExZGYyODVjMzY1Mjc0OTY1YjcyYjZiMzIzZjhmYTgxOA'})
 
-const IDIOMAS=[
-  {code:'es',nm:'Español 🇵🇪'},{code:'en',nm:'English 🇺🇸'},{code:'zh',nm:'中文 🇨🇳'},
-  {code:'ja',nm:'日本語 🇯🇵'},{code:'ko',nm:'한국어 🇰🇷'},{code:'ar',nm:'العربية 🇸🇦'},
-  {code:'de',nm:'Deutsch 🇩🇪'},{code:'fr',nm:'Français 🇫🇷'},{code:'pt',nm:'Português 🇧🇷'},
-  {code:'it',nm:'Italiano 🇮🇹'},{code:'ru',nm:'Русский 🇷🇺'},{code:'tr',nm:'Türkçe 🇹🇷'},
-  {code:'th',nm:'ไทย 🇹🇭'},{code:'vi',nm:'Tiếng Việt 🇻🇳'},{code:'id',nm:'Bahasa 🇮🇩'},
-  {code:'nl',nm:'Nederlands 🇳🇱'},{code:'pl',nm:'Polski 🇵🇱'},{code:'sv',nm:'Svenska 🇸🇪'},
-  {code:'da',nm:'Dansk 🇩🇰'},{code:'fi',nm:'Suomi 🇫🇮'},{code:'no',nm:'Norsk 🇳🇴'},
-  {code:'he',nm:'עברית 🇮🇱'},{code:'hi',nm:'हिन्दी 🇮🇳'},{code:'fa',nm:'فارسی 🇮🇷'},
-  {code:'ms',nm:'Melayu 🇲🇾'},{code:'uk',nm:'Українська 🇺🇦'},{code:'cs',nm:'Čeština 🇨🇿'},
-  {code:'ro',nm:'Română 🇷🇴'},{code:'hu',nm:'Magyar 🇭🇺'},{code:'el',nm:'Ελληνικά 🇬🇷'},
-  {code:'bg',nm:'Български 🇧🇬'},{code:'hr',nm:'Hrvatski 🇭🇷'},{code:'sk',nm:'Slovenčina 🇸🇰'},
-  {code:'lt',nm:'Lietuvių 🇱🇹'},{code:'lv',nm:'Latviešu 🇱🇻'},{code:'et',nm:'Eesti 🇪🇪'},
-  {code:'sr',nm:'Српски 🇷🇸'},{code:'af',nm:'Afrikaans 🇿🇦'},{code:'sw',nm:'Kiswahili 🇰🇪'},
-  {code:'tl',nm:'Filipino 🇵🇭'},{code:'bn',nm:'বাংলা 🇧🇩'},{code:'ur',nm:'اردو 🇵🇰'},
-  {code:'ta',nm:'தமிழ் 🇱🇰'},{code:'ca',nm:'Català 🇪🇸'},{code:'is',nm:'Íslenska 🇮🇸'},
-  {code:'mt',nm:'Malti 🇲🇹'},{code:'sl',nm:'Slovenščina 🇸🇮'},{code:'mk',nm:'Македонски 🇲🇰'},
-  {code:'sq',nm:'Shqip 🇦🇱'},{code:'az',nm:'Azərbaycan 🇦🇿'},
+const ESPACIOS_NM:Record<string,string>={
+  hero:'Banner Hero',header:'Banner Header',footer:'Banner Footer',
+  sidebar:'Banner Sidebar',
+  'entre-productos':'Entre Productos',carrito:'Banner Carrito',especimen:'Banner Espécimen'
+}
+
+const RUBROS=[
+  'todos','Especímenes Biológicos Secos','Cuadros Mariposas Diurnas','Joyería Natural',
+  'Rarezas & Gynandromorphs','Artesanías & Cúpulas','Herramientas Biológicas',
+  'Cuadros Mariposas Nocturnas','Cuadros Coleópteros & Artrópodos',
+  'Minerales & Piedras Preciosas','Semillas & Plantas Medicinales',
+  'Frutas Exóticas & Deshidratadas','Hongos & Productos Naturales',
+  'Textilería & Alpaca','Alimentos Deshidratados','Pinturas & Arte Rupestre',
+  'Maderas Finas & Esculturas','Esencias & Aceites Naturales'
 ]
 
-type Espacio={id:string,nm:string,desc:string,precio:number,dim:string,paginas:string}
-type Cliente={id:string,empresa:string,contacto:string,email:string,whatsapp:string,pais:string,idioma:string}
-type BannerActivo={id:string,espacioId:string,clienteId:string,empresa:string,titulo:string,subtitulo:string,url:string,imagen:string,color:string,colorTexto:string,fechaInicio:string,fechaFin:string,activo:boolean,idiomas:string[]}
+type Banner={id:string,espacioId:string,empresa:string,titulo:string,subtitulo:string,cta:string,url:string,imagen:string,color:string,colorTexto:string,activo:boolean,orden:number,rubros:string[],idiomas:string[],fechaInicio:string,fechaFin:string}
 
-export default function BannersPanel(){
-  const [tab,setTab]=useState<'espacios'|'clientes'|'activos'|'nuevo'>('espacios')
-  const [espacios,setEspacios]=useState<Espacio[]>([])
-  const [clientes,setClientes]=useState<Cliente[]>([])
-  const [activos,setActivos]=useState<BannerActivo[]>([])
+export default function BannersAdmin(){
+  const [tab,setTab]=useState<'activos'|'nuevo'|'espacios'>('activos')
+  const [banners,setBanners]=useState<Banner[]>([])
   const [loading,setLoading]=useState(true)
+  const [guardando,setGuardando]=useState(false)
+  const [moviendo,setMoviendo]=useState<string|null>(null)
 
-  // Form nuevo banner
-  const [espacioSel,setEspacioSel]=useState('')
+  // Form nuevo
+  const [espacioSel,setEspacioSel]=useState('hero')
   const [empresa,setEmpresa]=useState('')
-  const [contacto,setContacto]=useState('')
-  const [email,setEmail]=useState('')
-  const [whatsapp,setWhatsapp]=useState('')
-  const [pais,setPais]=useState('')
-  const [idiomaCliente,setIdiomaCliente]=useState('es')
   const [titulo,setTitulo]=useState('')
   const [subtitulo,setSubtitulo]=useState('')
-  const [urlBanner,setUrlBanner]=useState('')
-  const [imagenUrl,setImagenUrl]=useState('')
+  const [cta,setCta]=useState('Ver más →')
+  const [url,setUrl]=useState('')
+  const [imagen,setImagen]=useState('')
   const [colorFondo,setColorFondo]=useState('#1a1209')
   const [colorTexto,setColorTexto]=useState('#C9A84C')
+  const [rubrosSel,setRubrosSel]=useState<string[]>(['todos'])
   const [fechaInicio,setFechaInicio]=useState('')
   const [fechaFin,setFechaFin]=useState('')
-  const [idiomasBanner,setIdiomasBanner]=useState<string[]>(['es','en'])
-  const [guardando,setGuardando]=useState(false)
-  const [dropIdioma,setDropIdioma]=useState(false)
-  const [generando,setGenerando]=useState(false)
-  const [textoGen,setTextoGen]=useState('')
 
   useEffect(()=>{
-    Promise.all([
-      r.get<Espacio[]>('banners:espacios'),
-      r.get<Cliente[]>('banners:clientes'),
-      r.get<BannerActivo[]>('banners:activos'),
-    ]).then(([e,c,a])=>{
-      setEspacios(e||[])
-      setClientes(c||[])
-      setActivos(a||[])
-      setLoading(false)
-    })
+    fetch('/api/banners?espacio=all')
+      .then(r=>r.json())
+      .then(d=>{
+        if(d.todos) setBanners(d.todos)
+        setLoading(false)
+      })
+      .catch(()=>setLoading(false))
   },[])
 
-  const toggleIdiomaBanner=(code:string)=>{
-    setIdiomasBanner(prev=>prev.includes(code)?prev.filter(i=>i!==code):[...prev,code])
+  const accion=async(body:object)=>{
+    const res=await fetch('/api/banners',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+    const d=await res.json()
+    return d
   }
 
-  const generarTextoIA=async()=>{
-    if(!empresa||!espacioSel)return
-    setGenerando(true)
-    const espacio=espacios.find(e=>e.id===espacioSel)
-    const base=`${empresa} — Anúnciate en House Insects of Peru. ${espacio?.desc}. Contáctanos: houseinsectsofperu.com`
-    setTitulo(empresa)
-    setSubtitulo(base)
-    setTextoGen(base)
-    setGenerando(false)
-  }
-
-  const guardarBanner=async()=>{
-    if(!espacioSel||!empresa||!titulo)return
-    setGuardando(true)
-    const clienteId='cli_'+Date.now()
-    const bannerId='ban_'+Date.now()
-    const nuevoCliente:Cliente={id:clienteId,empresa,contacto,email,whatsapp,pais,idioma:idiomaCliente}
-    const nuevoBanner:BannerActivo={
-      id:bannerId,espacioId:espacioSel,clienteId,empresa,
-      titulo,subtitulo,url:urlBanner,imagen:imagenUrl,
-      color:colorFondo,colorTexto,
-      fechaInicio,fechaFin,activo:true,idiomas:idiomasBanner
-    }
-    const nuevosClientes=[...clientes,nuevoCliente]
-    const nuevosActivos=[...activos,nuevoBanner]
-    await r.set('banners:clientes',nuevosClientes)
-    await r.set('banners:activos',nuevosActivos)
-    setClientes(nuevosClientes)
-    setActivos(nuevosActivos)
-    // Reset
-    setEmpresa('');setContacto('');setEmail('');setWhatsapp('');setPais('')
-    setTitulo('');setSubtitulo('');setUrlBanner('');setImagenUrl('')
-    setFechaInicio('');setFechaFin('')
-    setGuardando(false)
-    alert('✅ Banner guardado exitosamente')
-    setTab('activos')
+  const recargar=async()=>{
+    const res=await fetch('/api/banners?espacio=all')
+    const d=await res.json()
+    if(d.todos) setBanners(d.todos)
   }
 
   const toggleActivo=async(id:string)=>{
-    const nuevos=activos.map(b=>b.id===id?{...b,activo:!b.activo}:b)
-    await r.set('banners:activos',nuevos)
-    setActivos(nuevos)
+    await accion({accion:'toggleActivo',id})
+    setBanners(prev=>prev.map(b=>b.id===id?{...b,activo:!b.activo}:b))
   }
 
-  const eliminarBanner=async(id:string)=>{
+  const eliminar=async(id:string)=>{
     if(!confirm('¿Eliminar este banner?'))return
-    const nuevos=activos.filter(b=>b.id!==id)
-    await r.set('banners:activos',nuevos)
-    setActivos(nuevos)
+    await accion({accion:'eliminar',id})
+    setBanners(prev=>prev.filter(b=>b.id!==id))
   }
 
-  const contactarWhatsApp=(cliente:Cliente,banner:BannerActivo)=>{
-    const espacio=espacios.find(e=>e.id===banner.espacioId)
-    const msg=`Hola ${cliente.contacto}, confirmamos tu banner "${banner.titulo}" en el espacio ${espacio?.nm} ($${espacio?.precio}/mes) en houseinsectsofperu.com. Período: ${banner.fechaInicio} al ${banner.fechaFin}.`
-    window.open(`https://wa.me/${cliente.whatsapp.replace(/\D/g,'')}?text=${encodeURIComponent(msg)}`,'_blank')
+  const subir=async(id:string)=>{
+    await accion({accion:'subir',id})
+    await recargar()
   }
+
+  const bajar=async(id:string)=>{
+    await accion({accion:'bajar',id})
+    await recargar()
+  }
+
+  const moverEspacio=async(id:string,nuevoEspacio:string)=>{
+    await accion({accion:'moverEspacio',id,valor:nuevoEspacio})
+    setBanners(prev=>prev.map(b=>b.id===id?{...b,espacioId:nuevoEspacio}:b))
+    setMoviendo(null)
+  }
+
+  const cambiarRubros=async(id:string,rubros:string[])=>{
+    await accion({accion:'cambiarRubros',id,valor:rubros})
+    setBanners(prev=>prev.map(b=>b.id===id?{...b,rubros}:b))
+  }
+
+  const guardarNuevo=async()=>{
+    if(!empresa||!titulo||!espacioSel)return
+    setGuardando(true)
+    const res=await accion({
+      accion:'crear',
+      banner:{espacioId:espacioSel,empresa,titulo,subtitulo,cta,url,imagen,
+        color:colorFondo,colorTexto,rubros:rubrosSel,idiomas:['es','en'],
+        fechaInicio,fechaFin,orden:banners.length+1}
+    })
+    if(res.banner) setBanners(prev=>[...prev,res.banner])
+    setEmpresa('');setTitulo('');setSubtitulo('');setUrl('');setImagen('')
+    setGuardando(false)
+    alert('✅ Banner creado')
+    setTab('activos')
+  }
+
+  const toggleRubro=(r:string)=>setRubrosSel(prev=>
+    prev.includes(r)?prev.filter(x=>x!==r):[...prev,r]
+  )
 
   if(loading) return(
     <div style={{minHeight:'100vh',background:BG,display:'flex',alignItems:'center',justifyContent:'center',color:G,fontFamily:'Georgia,serif'}}>
-      Cargando sistema de banners...
+      Cargando banners...
     </div>
   )
 
@@ -144,24 +128,24 @@ export default function BannersPanel(){
       <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'12px 24px',borderBottom:`1px solid ${BD}`,background:'rgba(10,10,10,0.97)'}}>
         <div style={{display:'flex',gap:8}}>
           <a href='/' style={{padding:'7px 14px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:8,textDecoration:'none',fontSize:'.75rem'}}>🏠 Inicio</a>
-          <a href='/admin-panel' style={{padding:'7px 14px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:8,textDecoration:'none',fontSize:'.75rem'}}>← Admin Panel</a>
+          <a href='/admin-panel' style={{padding:'7px 14px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:8,textDecoration:'none',fontSize:'.75rem'}}>← Admin</a>
         </div>
         <div style={{textAlign:'center'}}>
-          <h1 style={{fontSize:'1rem',letterSpacing:'0.1em',margin:0}}>📢 Sistema de Banners Publicitarios</h1>
-          <p style={{fontSize:'.65rem',color:'rgba(201,168,76,0.5)',margin:0}}>7 espacios · 50 idiomas · Alquiler mensual</p>
+          <h1 style={{fontSize:'1rem',margin:0}}>📢 Gestión de Banners</h1>
+          <p style={{fontSize:'.65rem',color:'rgba(201,168,76,0.5)',margin:0}}>{banners.filter(b=>b.activo).length} activos · {banners.length} total</p>
         </div>
-        <div style={{fontSize:'.8rem',color:G}}>
-          {activos.filter(b=>b.activo).length} activos · {clientes.length} clientes
+        <div style={{display:'flex',gap:8}}>
+          <a href='/admin-panel/avisos' style={{padding:'7px 14px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:8,textDecoration:'none',fontSize:'.75rem'}}>📣 Avisos</a>
+          <a href='/admin-panel/social' style={{padding:'7px 14px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:8,textDecoration:'none',fontSize:'.75rem'}}>📱 Social</a>
         </div>
       </div>
 
       {/* Tabs */}
       <div style={{display:'flex',gap:4,padding:'12px 24px',borderBottom:`1px solid ${BD}`}}>
         {([
-          {id:'espacios',nm:'📐 Espacios'},
-          {id:'activos',nm:'🟢 Banners Activos'},
-          {id:'clientes',nm:'👥 Clientes'},
+          {id:'activos',nm:`🟢 Banners (${banners.length})`},
           {id:'nuevo',nm:'➕ Nuevo Banner'},
+          {id:'espacios',nm:'📐 Espacios'},
         ] as const).map(t=>(
           <button key={t.id} onClick={()=>setTab(t.id)}
             style={{padding:'8px 18px',background:tab===t.id?'rgba(201,168,76,0.2)':'transparent',
@@ -174,148 +158,111 @@ export default function BannersPanel(){
 
       <div style={{maxWidth:1100,margin:'0 auto',padding:'24px'}}>
 
-        {/* ESPACIOS */}
-        {tab==='espacios'&&(
-          <div>
-            <p style={{fontSize:'.8rem',color:'rgba(201,168,76,0.6)',marginBottom:20}}>
-              Espacios publicitarios disponibles en houseinsectsofperu.com
-            </p>
-            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))',gap:16}}>
-              {espacios.map(e=>{
-                const ocupado=activos.filter(b=>b.espacioId===e.id&&b.activo).length
-                return(
-                  <div key={e.id} style={{background:'rgba(201,168,76,0.04)',border:`1px solid ${ocupado>0?'#2ecc71':BD}`,borderRadius:12,padding:20}}>
-                    <div style={{display:'flex',justifyContent:'space-between',marginBottom:12}}>
-                      <p style={{fontSize:'.9rem',fontWeight:'bold',margin:0}}>{e.nm}</p>
-                      <span style={{fontSize:'.7rem',padding:'3px 10px',background:ocupado>0?'rgba(46,204,113,0.2)':'rgba(201,168,76,0.1)',
-                        border:`1px solid ${ocupado>0?'#2ecc71':BD}`,borderRadius:20,color:ocupado>0?'#2ecc71':G}}>
-                        {ocupado>0?`${ocupado} activo`:'Disponible'}
-                      </span>
-                    </div>
-                    <p style={{fontSize:'.75rem',color:'rgba(201,168,76,0.6)',margin:'0 0 8px'}}>{e.desc}</p>
-                    <p style={{fontSize:'.72rem',color:'rgba(201,168,76,0.5)',margin:'0 0 12px'}}>📐 {e.dim} · 📄 {e.paginas}</p>
-                    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
-                      <p style={{fontSize:'1.4rem',fontWeight:'bold',margin:0,color:G}}>${e.precio}<span style={{fontSize:'.65rem',color:'rgba(201,168,76,0.5)'}}>/mes</span></p>
-                      <button onClick={()=>{setEspacioSel(e.id);setTab('nuevo')}}
-                        style={{padding:'6px 14px',background:'rgba(201,168,76,0.12)',border:`1px solid ${G}`,
-                          color:G,borderRadius:6,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.75rem'}}>
-                        Contratar
-                      </button>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-            <div style={{marginTop:24,padding:20,background:'rgba(201,168,76,0.04)',border:`1px solid ${BD}`,borderRadius:12}}>
-              <p style={{fontSize:'.85rem',fontWeight:'bold',margin:'0 0 8px'}}>💰 Ingresos potenciales mensuales</p>
-              <p style={{fontSize:'1.4rem',color:G,margin:0,fontWeight:'bold'}}>
-                ${espacios.reduce((sum,e)=>sum+e.precio,0)}/mes
-                <span style={{fontSize:'.75rem',color:'rgba(201,168,76,0.5)',marginLeft:8}}>si todos están ocupados</span>
-              </p>
-            </div>
-          </div>
-        )}
-
         {/* BANNERS ACTIVOS */}
         {tab==='activos'&&(
           <div>
-            {activos.length===0?(
+            {banners.length===0?(
               <div style={{textAlign:'center',padding:40,border:`1px dashed ${BD}`,borderRadius:12}}>
-                <p style={{color:'rgba(201,168,76,0.3)'}}>No hay banners activos aún</p>
+                <p style={{color:'rgba(201,168,76,0.3)'}}>No hay banners — crea el primero</p>
                 <button onClick={()=>setTab('nuevo')}
-                  style={{marginTop:12,padding:'8px 20px',background:'rgba(201,168,76,0.12)',border:`1px solid ${G}`,
-                    color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.8rem'}}>
-                  + Agregar primer banner
+                  style={{marginTop:12,padding:'8px 20px',background:'rgba(201,168,76,0.12)',border:`1px solid ${G}`,color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.8rem'}}>
+                  + Nuevo Banner
                 </button>
               </div>
             ):(
-              <div style={{display:'flex',flexDirection:'column' as const,gap:16}}>
-                {activos.map(b=>{
-                  const espacio=espacios.find(e=>e.id===b.espacioId)
-                  const cliente=clientes.find(c=>c.id===b.clienteId)
-                  return(
-                    <div key={b.id} style={{background:'rgba(201,168,76,0.04)',border:`1px solid ${b.activo?'#2ecc71':BD}`,borderRadius:12,padding:20}}>
-                      {/* Preview del banner */}
-                      <div style={{background:b.color,borderRadius:8,padding:'16px 24px',marginBottom:16,display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-                        {b.imagen&&<img src={b.imagen} style={{height:50,objectFit:'contain',marginRight:16}} alt={b.empresa}/>}
-                        <div style={{flex:1}}>
-                          <p style={{color:b.colorTexto,fontSize:'.9rem',fontWeight:'bold',margin:0}}>{b.titulo}</p>
-                          <p style={{color:b.colorTexto,fontSize:'.75rem',margin:0,opacity:.8}}>{b.subtitulo}</p>
-                        </div>
-                        {b.url&&<a href={b.url} target="_blank" rel="noreferrer"
-                          style={{padding:'6px 14px',background:b.colorTexto,color:b.color,borderRadius:6,textDecoration:'none',fontSize:'.75rem',fontWeight:'bold'}}>
-                          Ver más
-                        </a>}
+              <div style={{display:'flex',flexDirection:'column' as const,gap:12}}>
+                {[...banners].sort((a,b)=>(a.orden||0)-(b.orden||0)).map((b,idx,arr)=>(
+                  <div key={b.id} style={{background:'rgba(201,168,76,0.04)',border:`1px solid ${b.activo?'#2ecc71':BD}`,borderRadius:12,padding:16}}>
+                    {/* Preview */}
+                    <div style={{background:b.color,borderRadius:8,padding:'12px 20px',marginBottom:12,display:'flex',alignItems:'center',gap:12,justifyContent:'space-between'}}>
+                      {b.imagen&&<img src={b.imagen} style={{height:36,objectFit:'contain',flexShrink:0}} alt={b.empresa}/>}
+                      <div style={{flex:1}}>
+                        <p style={{color:b.colorTexto,fontSize:'.85rem',fontWeight:'bold',margin:0}}>{b.titulo}</p>
+                        {b.subtitulo&&<p style={{color:b.colorTexto,fontSize:'.72rem',margin:0,opacity:.8}}>{b.subtitulo}</p>}
                       </div>
-                      <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',flexWrap:'wrap' as const,gap:12}}>
-                        <div>
-                          <p style={{margin:'0 0 4px',fontSize:'.8rem'}}><strong>{b.empresa}</strong> — {espacio?.nm}</p>
-                          <p style={{margin:'0 0 4px',fontSize:'.72rem',color:'rgba(201,168,76,0.6)'}}>📐 {espacio?.dim} · ${espacio?.precio}/mes</p>
-                          <p style={{margin:'0 0 4px',fontSize:'.72rem',color:'rgba(201,168,76,0.6)'}}>📅 {b.fechaInicio} → {b.fechaFin}</p>
-                          <div style={{display:'flex',gap:4,flexWrap:'wrap' as const,marginTop:6}}>
-                            {b.idiomas.map(l=><span key={l} style={{fontSize:'.6rem',padding:'1px 6px',background:'rgba(201,168,76,0.1)',borderRadius:10}}>{IDIOMAS.find(i=>i.code===l)?.nm}</span>)}
-                          </div>
+                      <span style={{padding:'4px 12px',background:b.colorTexto,color:b.color,borderRadius:4,fontSize:'.72rem',fontWeight:'bold',flexShrink:0}}>{b.cta}</span>
+                    </div>
+
+                    {/* Info y controles */}
+                    <div style={{display:'flex',gap:12,alignItems:'flex-start',flexWrap:'wrap' as const}}>
+                      <div style={{flex:1,minWidth:200}}>
+                        <p style={{margin:'0 0 4px',fontSize:'.8rem',fontWeight:'bold'}}>{b.empresa}</p>
+                        <p style={{margin:'0 0 4px',fontSize:'.72rem',color:'rgba(201,168,76,0.6)'}}>
+                          📐 {ESPACIOS_NM[b.espacioId]||b.espacioId} · Orden #{b.orden}
+                        </p>
+                        {b.fechaInicio&&<p style={{margin:'0 0 4px',fontSize:'.7rem',color:'rgba(201,168,76,0.5)'}}>📅 {b.fechaInicio} → {b.fechaFin}</p>}
+                        <div style={{display:'flex',gap:4,flexWrap:'wrap' as const,marginTop:4}}>
+                          {(b.rubros||[]).map(r=>(
+                            <span key={r} style={{fontSize:'.6rem',padding:'1px 6px',background:'rgba(201,168,76,0.1)',borderRadius:10}}>{r}</span>
+                          ))}
                         </div>
-                        <div style={{display:'flex',gap:8,flexWrap:'wrap' as const}}>
-                          {cliente?.whatsapp&&(
-                            <button onClick={()=>contactarWhatsApp(cliente,b)}
-                              style={{padding:'6px 12px',background:'rgba(37,211,102,0.15)',border:'1px solid #25d366',
-                                color:'#25d366',borderRadius:6,cursor:'pointer',fontSize:'.75rem'}}>
-                              📱 WhatsApp
-                            </button>
+                      </div>
+
+                      {/* Controles */}
+                      <div style={{display:'flex',gap:6,flexWrap:'wrap' as const,alignItems:'center'}}>
+                        {/* Subir/Bajar orden */}
+                        <button onClick={()=>subir(b.id)} disabled={idx===0}
+                          style={{padding:'5px 10px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:idx===0?'rgba(201,168,76,0.3)':G,borderRadius:6,cursor:idx===0?'default':'pointer',fontSize:'.8rem'}}>
+                          ▲
+                        </button>
+                        <button onClick={()=>bajar(b.id)} disabled={idx===arr.length-1}
+                          style={{padding:'5px 10px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:idx===arr.length-1?'rgba(201,168,76,0.3)':G,borderRadius:6,cursor:idx===arr.length-1?'default':'pointer',fontSize:'.8rem'}}>
+                          ▼
+                        </button>
+
+                        {/* Mover de espacio */}
+                        <div style={{position:'relative' as const}}>
+                          <button onClick={()=>setMoviendo(moviendo===b.id?null:b.id)}
+                            style={{padding:'5px 10px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:6,cursor:'pointer',fontSize:'.72rem'}}>
+                            📐 Mover
+                          </button>
+                          {moviendo===b.id&&(
+                            <div style={{position:'absolute' as const,top:'100%',left:0,zIndex:50,background:'#0a0a0a',border:`1px solid ${G}`,borderRadius:8,padding:6,minWidth:180,boxShadow:'0 8px 24px rgba(0,0,0,0.8)'}}>
+                              {Object.entries(ESPACIOS_NM).map(([id,nm])=>(
+                                <button key={id} onClick={()=>moverEspacio(b.id,id)}
+                                  style={{display:'block',width:'100%',padding:'6px 10px',background:b.espacioId===id?'rgba(201,168,76,0.2)':'transparent',
+                                    border:'none',color:G,cursor:'pointer',fontSize:'.72rem',textAlign:'left' as const,borderRadius:4}}>
+                                  {b.espacioId===id?'✅ ':''}{nm}
+                                </button>
+                              ))}
+                            </div>
                           )}
-                          <button onClick={()=>toggleActivo(b.id)}
-                            style={{padding:'6px 12px',background:b.activo?'rgba(46,204,113,0.15)':'rgba(231,76,60,0.15)',
-                              border:`1px solid ${b.activo?'#2ecc71':'#e74c3c'}`,
-                              color:b.activo?'#2ecc71':'#e74c3c',borderRadius:6,cursor:'pointer',fontSize:'.75rem'}}>
-                            {b.activo?'✅ Activo':'❌ Inactivo'}
-                          </button>
-                          <button onClick={()=>eliminarBanner(b.id)}
-                            style={{padding:'6px 12px',background:'rgba(231,76,60,0.1)',border:'1px solid rgba(231,76,60,0.3)',
-                              color:'#e74c3c',borderRadius:6,cursor:'pointer',fontSize:'.75rem'}}>
-                            🗑️
-                          </button>
                         </div>
+
+                        {/* Activar/Desactivar */}
+                        <button onClick={()=>toggleActivo(b.id)}
+                          style={{padding:'5px 12px',background:b.activo?'rgba(46,204,113,0.15)':'rgba(231,76,60,0.15)',
+                            border:`1px solid ${b.activo?'#2ecc71':'#e74c3c'}`,
+                            color:b.activo?'#2ecc71':'#e74c3c',borderRadius:6,cursor:'pointer',fontSize:'.72rem'}}>
+                          {b.activo?'✅ Activo':'❌ Inactivo'}
+                        </button>
+
+                        {/* Eliminar */}
+                        <button onClick={()=>eliminar(b.id)}
+                          style={{padding:'5px 10px',background:'rgba(231,76,60,0.1)',border:'1px solid rgba(231,76,60,0.3)',
+                            color:'#e74c3c',borderRadius:6,cursor:'pointer',fontSize:'.8rem'}}>
+                          🗑️
+                        </button>
                       </div>
                     </div>
-                  )
-                })}
-              </div>
-            )}
-          </div>
-        )}
 
-        {/* CLIENTES */}
-        {tab==='clientes'&&(
-          <div>
-            {clientes.length===0?(
-              <div style={{textAlign:'center',padding:40,border:`1px dashed ${BD}`,borderRadius:12}}>
-                <p style={{color:'rgba(201,168,76,0.3)'}}>No hay clientes registrados aún</p>
-              </div>
-            ):(
-              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(260px,1fr))',gap:12}}>
-                {clientes.map(c=>(
-                  <div key={c.id} style={{background:'rgba(201,168,76,0.04)',border:`1px solid ${BD}`,borderRadius:10,padding:16}}>
-                    <p style={{fontSize:'.9rem',fontWeight:'bold',margin:'0 0 8px'}}>{c.empresa}</p>
-                    <p style={{fontSize:'.75rem',color:'rgba(201,168,76,0.6)',margin:'0 0 4px'}}>👤 {c.contacto}</p>
-                    {c.email&&<p style={{fontSize:'.72rem',color:'rgba(201,168,76,0.5)',margin:'0 0 4px'}}>✉️ {c.email}</p>}
-                    {c.pais&&<p style={{fontSize:'.72rem',color:'rgba(201,168,76,0.5)',margin:'0 0 4px'}}>🌍 {c.pais}</p>}
-                    <p style={{fontSize:'.72rem',color:'rgba(201,168,76,0.5)',margin:'0 0 8px'}}>🗣️ {IDIOMAS.find(i=>i.code===c.idioma)?.nm}</p>
-                    <div style={{display:'flex',gap:8}}>
-                      {c.whatsapp&&(
-                        <a href={`https://wa.me/${c.whatsapp.replace(/\D/g,'')}`} target="_blank" rel="noreferrer"
-                          style={{padding:'5px 12px',background:'rgba(37,211,102,0.15)',border:'1px solid #25d366',
-                            color:'#25d366',borderRadius:6,textDecoration:'none',fontSize:'.72rem'}}>
-                          📱 WhatsApp
-                        </a>
-                      )}
-                      {c.email&&(
-                        <a href={`mailto:${c.email}`}
-                          style={{padding:'5px 12px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,
-                            color:G,borderRadius:6,textDecoration:'none',fontSize:'.72rem'}}>
-                          ✉️ Email
-                        </a>
-                      )}
+                    {/* Cambiar rubros */}
+                    <div style={{marginTop:10,paddingTop:10,borderTop:`1px solid ${BD}`}}>
+                      <p style={{fontSize:'.68rem',color:'rgba(201,168,76,0.5)',margin:'0 0 6px'}}>CATEGORÍAS/RUBROS:</p>
+                      <div style={{display:'flex',flexWrap:'wrap' as const,gap:4}}>
+                        {RUBROS.map(r=>(
+                          <button key={r} onClick={()=>{
+                            const curr=b.rubros||['todos']
+                            const nuevo=curr.includes(r)?curr.filter(x=>x!==r):[...curr,r]
+                            cambiarRubros(b.id,nuevo.length===0?['todos']:nuevo)
+                          }}
+                            style={{padding:'2px 8px',background:(b.rubros||['todos']).includes(r)?'rgba(201,168,76,0.2)':'transparent',
+                              border:`1px solid ${(b.rubros||['todos']).includes(r)?G:BD}`,color:G,
+                              borderRadius:16,cursor:'pointer',fontSize:'.62rem'}}>
+                            {r}
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -326,154 +273,132 @@ export default function BannersPanel(){
 
         {/* NUEVO BANNER */}
         {tab==='nuevo'&&(
-          <div>
-            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:24}}>
-              {/* Columna izquierda */}
-              <div>
-                <p style={{fontSize:'.8rem',fontWeight:'bold',color:G,marginBottom:16}}>DATOS DEL CLIENTE</p>
+          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:24}}>
+            <div>
+              <p style={{fontSize:'.8rem',fontWeight:'bold',marginBottom:16}}>DATOS DEL BANNER</p>
 
-                <div style={{marginBottom:12}}>
-                  <label style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>ESPACIO PUBLICITARIO</label>
-                  <select value={espacioSel} onChange={e=>setEspacioSel(e.target.value)}
-                    style={{width:'100%',padding:'10px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:8,fontFamily:'Georgia,serif',fontSize:'.85rem'}}>
-                    <option value="" style={{background:'#0a0a0a'}}>Selecciona espacio...</option>
-                    {espacios.map(e=><option key={e.id} value={e.id} style={{background:'#0a0a0a'}}>{e.nm} — ${e.precio}/mes</option>)}
-                  </select>
-                </div>
-
-                {[
-                  {label:'EMPRESA',val:empresa,set:setEmpresa,ph:'Nombre de la empresa'},
-                  {label:'CONTACTO',val:contacto,set:setContacto,ph:'Nombre del contacto'},
-                  {label:'EMAIL',val:email,set:setEmail,ph:'email@empresa.com'},
-                  {label:'WHATSAPP',val:whatsapp,set:setWhatsapp,ph:'+51 999 999 999'},
-                  {label:'PAÍS',val:pais,set:setPais,ph:'País de la empresa'},
-                ].map(f=>(
-                  <div key={f.label} style={{marginBottom:12}}>
-                    <label style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>{f.label}</label>
-                    <input value={f.val} onChange={e=>f.set(e.target.value)} placeholder={f.ph}
-                      style={{width:'100%',padding:'10px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:8,fontFamily:'Georgia,serif',fontSize:'.85rem'}}/>
-                  </div>
-                ))}
-
-                <div style={{marginBottom:12}}>
-                  <label style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>IDIOMA DEL CLIENTE</label>
-                  <select value={idiomaCliente} onChange={e=>setIdiomaCliente(e.target.value)}
-                    style={{width:'100%',padding:'10px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:8,fontFamily:'Georgia,serif',fontSize:'.85rem'}}>
-                    {IDIOMAS.map(i=><option key={i.code} value={i.code} style={{background:'#0a0a0a'}}>{i.nm}</option>)}
-                  </select>
-                </div>
-
-                <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:12}}>
-                  <div>
-                    <label style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>FECHA INICIO</label>
-                    <input type="date" value={fechaInicio} onChange={e=>setFechaInicio(e.target.value)}
-                      style={{width:'100%',padding:'10px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:8,fontFamily:'Georgia,serif',fontSize:'.85rem'}}/>
-                  </div>
-                  <div>
-                    <label style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>FECHA FIN</label>
-                    <input type="date" value={fechaFin} onChange={e=>setFechaFin(e.target.value)}
-                      style={{width:'100%',padding:'10px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:8,fontFamily:'Georgia,serif',fontSize:'.85rem'}}/>
-                  </div>
-                </div>
+              <div style={{marginBottom:12}}>
+                <label style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>ESPACIO</label>
+                <select value={espacioSel} onChange={e=>setEspacioSel(e.target.value)}
+                  style={{width:'100%',padding:'10px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:8,fontFamily:'Georgia,serif',fontSize:'.85rem'}}>
+                  {Object.entries(ESPACIOS_NM).map(([id,nm])=>(
+                    <option key={id} value={id} style={{background:'#0a0a0a'}}>{nm}</option>
+                  ))}
+                </select>
               </div>
 
-              {/* Columna derecha */}
-              <div>
-                <p style={{fontSize:'.8rem',fontWeight:'bold',color:G,marginBottom:16}}>CONTENIDO DEL BANNER</p>
+              {[
+                {l:'EMPRESA',v:empresa,s:setEmpresa,p:'Nombre empresa o propio'},
+                {l:'TÍTULO',v:titulo,s:setTitulo,p:'Título del banner'},
+                {l:'SUBTÍTULO',v:subtitulo,s:setSubtitulo,p:'Descripción corta'},
+                {l:'BOTÓN CTA',v:cta,s:setCta,p:'Ver más →'},
+                {l:'URL DESTINO',v:url,s:setUrl,p:'https://...'},
+                {l:'URL IMAGEN',v:imagen,s:setImagen,p:'https://...imagen.jpg'},
+              ].map(f=>(
+                <div key={f.l} style={{marginBottom:10}}>
+                  <label style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>{f.l}</label>
+                  <input value={f.v} onChange={e=>f.s(e.target.value)} placeholder={f.p}
+                    style={{width:'100%',padding:'9px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:8,fontFamily:'Georgia,serif',fontSize:'.85rem'}}/>
+                </div>
+              ))}
 
-                <button onClick={generarTextoIA} disabled={generando||!empresa}
-                  style={{width:'100%',padding:'10px',background:'rgba(201,168,76,0.12)',border:`1px solid ${G}`,
-                    color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.8rem',marginBottom:12}}>
-                  {generando?'Generando...':'🤖 Generar texto con IA'}
-                </button>
-
-                {[
-                  {label:'TÍTULO DEL BANNER',val:titulo,set:setTitulo,ph:'Ej: Empresa XYZ — Calidad Premium'},
-                  {label:'SUBTÍTULO',val:subtitulo,set:setSubtitulo,ph:'Descripción corta del anuncio'},
-                  {label:'URL DE DESTINO',val:urlBanner,set:setUrlBanner,ph:'https://empresa.com'},
-                  {label:'URL DE IMAGEN (opcional)',val:imagenUrl,set:setImagenUrl,ph:'https://...imagen.jpg'},
-                ].map(f=>(
-                  <div key={f.label} style={{marginBottom:12}}>
-                    <label style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>{f.label}</label>
-                    <input value={f.val} onChange={e=>f.set(e.target.value)} placeholder={f.ph}
-                      style={{width:'100%',padding:'10px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:8,fontFamily:'Georgia,serif',fontSize:'.85rem'}}/>
+              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:12}}>
+                {[{l:'FONDO',v:colorFondo,s:setColorFondo},{l:'TEXTO',v:colorTexto,s:setColorTexto}].map(f=>(
+                  <div key={f.l}>
+                    <label style={{fontSize:'.7rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>{f.l}</label>
+                    <div style={{display:'flex',gap:6,alignItems:'center'}}>
+                      <input type="color" value={f.v} onChange={e=>f.s(e.target.value)} style={{width:34,height:34,border:'none',borderRadius:4,cursor:'pointer'}}/>
+                      <input value={f.v} onChange={e=>f.s(e.target.value)} style={{flex:1,padding:'7px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:6,fontSize:'.72rem'}}/>
+                    </div>
                   </div>
                 ))}
+              </div>
 
-                <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:12}}>
-                  <div>
-                    <label style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>COLOR FONDO</label>
-                    <div style={{display:'flex',gap:8,alignItems:'center'}}>
-                      <input type="color" value={colorFondo} onChange={e=>setColorFondo(e.target.value)}
-                        style={{width:40,height:40,border:'none',borderRadius:6,cursor:'pointer',background:'none'}}/>
-                      <input value={colorFondo} onChange={e=>setColorFondo(e.target.value)}
-                        style={{flex:1,padding:'8px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:6,fontSize:'.8rem'}}/>
-                    </div>
-                  </div>
-                  <div>
-                    <label style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>COLOR TEXTO</label>
-                    <div style={{display:'flex',gap:8,alignItems:'center'}}>
-                      <input type="color" value={colorTexto} onChange={e=>setColorTexto(e.target.value)}
-                        style={{width:40,height:40,border:'none',borderRadius:6,cursor:'pointer',background:'none'}}/>
-                      <input value={colorTexto} onChange={e=>setColorTexto(e.target.value)}
-                        style={{flex:1,padding:'8px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:6,fontSize:'.8rem'}}/>
-                    </div>
-                  </div>
+              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:16}}>
+                <div>
+                  <label style={{fontSize:'.7rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>FECHA INICIO</label>
+                  <input type="date" value={fechaInicio} onChange={e=>setFechaInicio(e.target.value)}
+                    style={{width:'100%',padding:'8px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:6,fontSize:'.8rem'}}/>
                 </div>
-
-                {/* Idiomas del banner */}
-                <div style={{marginBottom:16}}>
-                  <label style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:6}}>MOSTRAR EN IDIOMAS ({idiomasBanner.length})</label>
-                  <button onClick={()=>setDropIdioma(!dropIdioma)}
-                    style={{padding:'7px 14px',background:'rgba(201,168,76,0.08)',border:`1px solid ${G}`,
-                      color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.75rem',marginBottom:6}}>
-                    {dropIdioma?'▲':'▼'} Seleccionar idiomas
-                  </button>
-                  {dropIdioma&&(
-                    <div style={{background:'#0a0a0a',border:`1px solid ${G}`,borderRadius:8,padding:8,
-                      maxHeight:200,overflowY:'auto' as const,display:'grid',gridTemplateColumns:'repeat(2,1fr)',gap:4}}>
-                      {IDIOMAS.map(i=>(
-                        <button key={i.code} onClick={()=>toggleIdiomaBanner(i.code)}
-                          style={{padding:'4px 8px',background:idiomasBanner.includes(i.code)?'rgba(201,168,76,0.2)':'transparent',
-                            border:`1px solid ${idiomasBanner.includes(i.code)?G:BD}`,color:G,borderRadius:6,cursor:'pointer',
-                            fontFamily:'Georgia,serif',fontSize:'.68rem',textAlign:'left' as const}}>
-                          {i.nm}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                  <div style={{display:'flex',flexWrap:'wrap' as const,gap:4,marginTop:6}}>
-                    {idiomasBanner.map(code=>(
-                      <span key={code} style={{padding:'2px 8px',background:'rgba(201,168,76,0.15)',border:`1px solid ${G}`,borderRadius:16,fontSize:'.65rem'}}>
-                        {IDIOMAS.find(i=>i.code===code)?.nm}
-                      </span>
-                    ))}
-                  </div>
+                <div>
+                  <label style={{fontSize:'.7rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>FECHA FIN</label>
+                  <input type="date" value={fechaFin} onChange={e=>setFechaFin(e.target.value)}
+                    style={{width:'100%',padding:'8px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:6,fontSize:'.8rem'}}/>
                 </div>
-
-                {/* Preview */}
-                {titulo&&(
-                  <div style={{marginBottom:16}}>
-                    <label style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:6}}>PREVIEW</label>
-                    <div style={{background:colorFondo,borderRadius:8,padding:'16px 20px',display:'flex',alignItems:'center',gap:12}}>
-                      {imagenUrl&&<img src={imagenUrl} style={{height:40,objectFit:'contain'}} alt={empresa}/>}
-                      <div style={{flex:1}}>
-                        <p style={{color:colorTexto,fontSize:'.85rem',fontWeight:'bold',margin:0}}>{titulo}</p>
-                        <p style={{color:colorTexto,fontSize:'.72rem',margin:0,opacity:.8}}>{subtitulo}</p>
-                      </div>
-                      <span style={{padding:'4px 10px',background:colorTexto,color:colorFondo,borderRadius:4,fontSize:'.7rem',fontWeight:'bold'}}>Ver más</span>
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
 
-            <button onClick={guardarBanner} disabled={guardando||!espacioSel||!empresa||!titulo}
-              style={{width:'100%',padding:'14px',background:G,color:'#0a0a0a',border:'none',
-                borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'1rem',
-                fontWeight:'bold',marginTop:8,opacity:!espacioSel||!empresa||!titulo?0.5:1}}>
-              {guardando?'Guardando...':'💾 Guardar Banner'}
-            </button>
+            <div>
+              <p style={{fontSize:'.8rem',fontWeight:'bold',marginBottom:16}}>CATEGORÍAS Y PREVIEW</p>
+
+              <p style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',marginBottom:8}}>MOSTRAR EN RUBROS:</p>
+              <div style={{display:'flex',flexWrap:'wrap' as const,gap:4,marginBottom:16}}>
+                {RUBROS.map(r=>(
+                  <button key={r} onClick={()=>toggleRubro(r)}
+                    style={{padding:'3px 8px',background:rubrosSel.includes(r)?'rgba(201,168,76,0.2)':'transparent',
+                      border:`1px solid ${rubrosSel.includes(r)?G:BD}`,color:G,borderRadius:16,cursor:'pointer',fontSize:'.68rem'}}>
+                    {r}
+                  </button>
+                ))}
+              </div>
+
+              {/* Preview */}
+              {titulo&&(
+                <div>
+                  <p style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',marginBottom:8}}>PREVIEW:</p>
+                  <div style={{background:colorFondo,borderRadius:8,padding:'16px 20px',display:'flex',alignItems:'center',gap:12,justifyContent:'space-between',marginBottom:12}}>
+                    {imagen&&<img src={imagen} style={{height:40,objectFit:'contain',flexShrink:0}} alt={empresa}/>}
+                    <div style={{flex:1}}>
+                      <p style={{color:colorTexto,fontSize:'.9rem',fontWeight:'bold',margin:0}}>{titulo}</p>
+                      {subtitulo&&<p style={{color:colorTexto,fontSize:'.75rem',margin:0,opacity:.8}}>{subtitulo}</p>}
+                    </div>
+                    <span style={{padding:'5px 12px',background:colorTexto,color:colorFondo,borderRadius:4,fontSize:'.72rem',fontWeight:'bold',flexShrink:0}}>{cta}</span>
+                  </div>
+                </div>
+              )}
+
+              <button onClick={guardarNuevo} disabled={guardando||!empresa||!titulo}
+                style={{width:'100%',padding:'14px',background:G,color:'#0a0a0a',border:'none',
+                  borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'1rem',
+                  fontWeight:'bold',opacity:!empresa||!titulo?0.5:1}}>
+                {guardando?'Guardando...':'💾 Crear Banner'}
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* ESPACIOS */}
+        {tab==='espacios'&&(
+          <div>
+            <p style={{fontSize:'.8rem',color:'rgba(201,168,76,0.6)',marginBottom:20}}>Espacios publicitarios en houseinsectsofperu.com</p>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(260px,1fr))',gap:12}}>
+              {Object.entries(ESPACIOS_NM).map(([id,nm])=>{
+                const count=banners.filter(b=>b.espacioId===id&&b.activo).length
+                return(
+                  <div key={id} style={{background:'rgba(201,168,76,0.04)',border:`1px solid ${count>0?'#2ecc71':BD}`,borderRadius:10,padding:16}}>
+                    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:8}}>
+                      <p style={{fontSize:'.85rem',fontWeight:'bold',margin:0}}>{nm}</p>
+                      <span style={{fontSize:'.65rem',padding:'2px 8px',background:count>0?'rgba(46,204,113,0.2)':'rgba(201,168,76,0.1)',
+                        border:`1px solid ${count>0?'#2ecc71':BD}`,borderRadius:16,color:count>0?'#2ecc71':G}}>
+                        {count>0?`${count} activo`:'Libre'}
+                      </span>
+                    </div>
+                    <div style={{display:'flex',flexDirection:'column' as const,gap:4}}>
+                      {banners.filter(b=>b.espacioId===id).map(b=>(
+                        <div key={b.id} style={{fontSize:'.7rem',padding:'4px 8px',background:'rgba(201,168,76,0.08)',borderRadius:4,color:G}}>
+                          {b.activo?'🟢':'🔴'} {b.empresa||b.titulo}
+                        </div>
+                      ))}
+                    </div>
+                    <button onClick={()=>{setEspacioSel(id);setTab('nuevo')}}
+                      style={{marginTop:10,width:'100%',padding:'6px',background:'rgba(201,168,76,0.1)',border:`1px solid ${G}`,
+                        color:G,borderRadius:6,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.72rem'}}>
+                      + Agregar banner aquí
+                    </button>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         )}
       </div>
