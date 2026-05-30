@@ -72,7 +72,7 @@ function CatalogoInner({familias}:{familias:any[]}) {
         setPag(1)
       })
       .finally(()=>setLoadingEsp(false))
-  },[famSel])
+  },[famSel, ordenes.length])
 
   const ordenActual = ordenes.find(o=>o.o===ord)
   const fams = ordenActual?.f||[]
