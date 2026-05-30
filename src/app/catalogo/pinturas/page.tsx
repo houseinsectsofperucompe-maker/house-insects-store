@@ -1,4 +1,5 @@
 'use client'
+import BannerSlot from '@/components/BannerSlot'
 import ST from '@/components/ST'
 import { useState } from 'react'
 export default function PinturasPage() {
@@ -154,6 +155,7 @@ export default function PinturasPage() {
           </div>
         </div>
       </div>
+    <BannerSlot espacio='entre-productos' rubro='pinturas' intervalo={7000}/>
     </div>
   )
 }

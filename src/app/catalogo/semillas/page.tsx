@@ -1,4 +1,5 @@
 'use client'
+import BannerSlot from '@/components/BannerSlot'
 import ST from '@/components/ST'
 import { useState } from 'react'
 export default function SemillasPage() {
@@ -141,6 +142,7 @@ export default function SemillasPage() {
           </div>
         </div>
       </div>
+    <BannerSlot espacio='entre-productos' rubro='semillas' intervalo={7000}/>
     </div>
   )
 }

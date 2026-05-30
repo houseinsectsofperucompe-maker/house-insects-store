@@ -1,4 +1,5 @@
 'use client'
+import BannerSlot from '@/components/BannerSlot'
 import {useState,useEffect} from 'react'
 import {Redis} from '@upstash/redis'
 
@@ -347,6 +348,7 @@ export default function ColeopteraPage(){
           </div>
         )}
       </div>
+    <BannerSlot espacio='entre-productos' rubro='coleoptera' intervalo={7000}/>
     </div>
   )
 }

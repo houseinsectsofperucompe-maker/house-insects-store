@@ -1,4 +1,5 @@
 'use client'
+import BannerSlot from '@/components/BannerSlot'
 import ST from '@/components/ST'
 import { useState } from 'react'
 export default function JoeriaPage() {
@@ -98,6 +99,7 @@ export default function JoeriaPage() {
           </div>
         </div>
       </div>
+    <BannerSlot espacio='entre-productos' rubro='joyeria' intervalo={7000}/>
     </div>
   )
 }

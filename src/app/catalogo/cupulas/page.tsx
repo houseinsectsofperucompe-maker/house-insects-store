@@ -1,4 +1,5 @@
 'use client'
+import BannerSlot from '@/components/BannerSlot'
 import ST from '@/components/ST'
 import { useState } from 'react'
 
@@ -106,6 +107,7 @@ export default function ArtesaniasPage() {
           </div>
         </div>
       </div>
+    <BannerSlot espacio='entre-productos' rubro='cupulas' intervalo={7000}/>
     </div>
   )
 }

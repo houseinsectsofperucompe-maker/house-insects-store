@@ -1,4 +1,5 @@
 'use client'
+import BannerSlot from '@/components/BannerSlot'
 import {useState,useEffect} from 'react'
 import {Redis} from '@upstash/redis'
 
@@ -363,6 +364,7 @@ export default function NocturnasPage(){
           </div>
         )}
       </div>
+    <BannerSlot espacio='entre-productos' rubro='nocturnas' intervalo={7000}/>
     </div>
   )
 }
