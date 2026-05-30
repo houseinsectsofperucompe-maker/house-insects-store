@@ -21,6 +21,8 @@ function CatalogoInner({familias}:{familias:any[]}) {
   const searchParams = useSearchParams()
   const [ordenes, setOrdenes] = useState<Orden[]>(ORDENES_BASE)
   const [loading, setLoading] = useState(true)
+  const [loadingEsp, setLoadingEsp] = useState(false)
+  const [espCache, setEspCache] = useState<Record<string,any[]>>({})
   const { items: carrito, updateItems: setCarrito } = useCarrito()
   const [showCarrito, setShowCarrito] = useState(false)
   const [ord, setOrd] = useState('Lepidoptera Diurnae')
@@ -55,8 +57,25 @@ function CatalogoInner({familias}:{familias:any[]}) {
     if(o) setOrd(o)
   },[searchParams])
 
+  useEffect(()=>{
+    if(!famSel) return
+    if(espCache[famSel]) {
+      setOrdenes(prev=>prev.map(o=>({...o,f:o.f.map(f=>f.id===famSel?{...f,e:espCache[famSel]}:f)})))
+      return
+    }
+    setLoadingEsp(true)
+    fetch(`/api/familia/${famSel}`)
+      .then(r=>r.json())
+      .then(data=>{
+        setEspCache(prev=>({...prev,[famSel]:data}))
+        setOrdenes(prev=>prev.map(o=>({...o,f:o.f.map(f=>f.id===famSel?{...f,e:data}:f)})))
+        setPag(1)
+      })
+      .finally(()=>setLoadingEsp(false))
+  },[famSel])
+
   const ordenActual = ordenes.find(o=>o.o===ord)
-  const fams = ordenActual?.f.filter(f=>f.e.length>0)||[]
+  const fams = ordenActual?.f||[]
   const famActual = ordenActual?.f.find(f=>f.id===famSel)
   const hasSubs=(famActual?.sub?.length||0)>0
   const subActual=famActual?.sub?.find((s:any)=>s.id===subSel)
@@ -212,7 +231,11 @@ function CatalogoInner({familias}:{familias:any[]}) {
             Mostrando {(pag-1)*POR_PAG+1}–{Math.min(pag*POR_PAG,espFiltradas.length)} de {espFiltradas.length} especies · Página {pag} de {totalPags||1}
           </p>
           <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(200px,1fr))',gap:8}}>
-            {pagEsp.map((e:any,i:number)=>(
+            {loadingEsp?(
+              <div style={{gridColumn:'1/-1',textAlign:'center',padding:'40px 0',color:'rgba(201,168,76,0.5)',fontSize:'.9rem'}}>
+                Cargando especies...
+              </div>
+            ):pagEsp.map((e:any,i:number)=>(
               <button key={i} onClick={()=>window.location.href=`/catalogo/especimenes/${famSel}-${(pag-1)*POR_PAG+i}`} className="esp-card">
                 <div style={{width:'100%',height:160,background:'#000',borderRadius:6,marginBottom:6,overflow:'hidden',display:'flex',alignItems:'center',justifyContent:'center'}}>
                   {e.foto

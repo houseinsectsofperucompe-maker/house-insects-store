@@ -6,8 +6,14 @@ const redis = new Redis({
 })
 
 export async function getFamilias() {
-  const data = await redis.get('catalogo:familias') as any[]
-  if (!data) return []
-  // Solo retornar familias con sus especies, sin filtrar
-  return data
+  // Solo devolver índice sin especies - las especies se cargan lazy por familia
+  const index = await redis.get('catalogo:familias:index') as any[]
+  if (index && Array.isArray(index) && index.length > 0) {
+    return index.map((f: any) => ({ ...f, e: [] }))
+  }
+  // fallback: devolver familias sin especies
+  let data = await redis.get('catalogo:familias') as any
+  if (typeof data === 'string') data = JSON.parse(data)
+  if (typeof data === 'string') data = JSON.parse(data)
+  return (data || []).map((f: any) => ({ ...f, e: [] }))
 }
