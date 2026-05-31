@@ -1,0 +1,12 @@
+{
+  "rubro": {
+    "id": "pinturas-arte-rupestre",
+    "slug": "pinturas-arte-rupestre",
+    "nombre": "Pinturas & Arte Rupestre",
+    "descripcion": "Arte rupestre, pinturas y expresiones artísticas inspiradas en la cultura amazónica y andina del Perú.",
+    "tipo": "arte",
+    "activo": true
+  },
+  "familias": [],
+  "especies": []
+}

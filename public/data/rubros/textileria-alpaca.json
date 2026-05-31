@@ -1,0 +1,12 @@
+{
+  "rubro": {
+    "id": "textileria-alpaca",
+    "slug": "textileria-alpaca",
+    "nombre": "Textilería & Alpaca",
+    "descripcion": "Tejidos artesanales peruanos en fibra de alpaca y lana natural. Arte textil andino.",
+    "tipo": "artesanias",
+    "activo": true
+  },
+  "familias": [],
+  "especies": []
+}

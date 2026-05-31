@@ -1,0 +1,12 @@
+{
+  "rubro": {
+    "id": "artesanias-cupulas",
+    "slug": "artesanias-cupulas",
+    "nombre": "Artesanías & Cúpulas",
+    "descripcion": "Cúpulas de cristal y artesanías con insectos tropicales. Ideales para decoración y colección.",
+    "tipo": "artesanias",
+    "activo": true
+  },
+  "familias": [],
+  "especies": []
+}

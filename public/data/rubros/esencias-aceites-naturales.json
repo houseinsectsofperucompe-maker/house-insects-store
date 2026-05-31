@@ -1,0 +1,12 @@
+{
+  "rubro": {
+    "id": "esencias-aceites-naturales",
+    "slug": "esencias-aceites-naturales",
+    "nombre": "Esencias & Aceites Naturales",
+    "descripcion": "Aceites esenciales y esencias naturales extraídas de plantas medicinales y árboles amazónicos.",
+    "tipo": "botanica",
+    "activo": true
+  },
+  "familias": [],
+  "especies": []
+}

@@ -1,0 +1,12 @@
+{
+  "rubro": {
+    "id": "alimentos-deshidratados",
+    "slug": "alimentos-deshidratados",
+    "nombre": "Alimentos Deshidratados",
+    "descripcion": "Alimentos naturales deshidratados del Perú: hierbas, especias, superfoods amazónicos.",
+    "tipo": "alimentos",
+    "activo": true
+  },
+  "familias": [],
+  "especies": []
+}

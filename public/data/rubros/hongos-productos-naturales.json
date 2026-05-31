@@ -1,0 +1,12 @@
+{
+  "rubro": {
+    "id": "hongos-productos-naturales",
+    "slug": "hongos-productos-naturales",
+    "nombre": "Hongos & Productos Naturales",
+    "descripcion": "Hongos medicinales y productos naturales de los bosques amazónicos peruanos.",
+    "tipo": "botanica",
+    "activo": true
+  },
+  "familias": [],
+  "especies": []
+}

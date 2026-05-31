@@ -1,0 +1,16 @@
+{
+  "rubro": {
+    "id": "cuadros-mariposas-nocturnas",
+    "slug": "cuadros-mariposas-nocturnas",
+    "nombre": "Cuadro de Mariposas Nocturnas Tropical",
+    "descripcion": "Cuadros con polillas y lepidópteros nocturnos tropicales enmarcados. Shadow Box 3D. CITES/SERFOR.",
+    "tipo": "cuadros",
+    "activo": true
+  },
+  "familias": [
+    { "id": "Saturniidae", "nombre": "Saturniidae", "total": 0 },
+    { "id": "Sphingidae", "nombre": "Sphingidae", "total": 0 },
+    { "id": "Arctiidae", "nombre": "Arctiidae", "total": 0 }
+  ],
+  "especies": []
+}

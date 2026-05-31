@@ -1,0 +1,12 @@
+{
+  "rubro": {
+    "id": "herramientas-biologicas",
+    "slug": "herramientas-biologicas",
+    "nombre": "Herramientas Biológicas",
+    "descripcion": "Equipos y materiales para entomología: alfileres, cajas entomológicas, relajadores, pinzas y más.",
+    "tipo": "herramientas",
+    "activo": true
+  },
+  "familias": [],
+  "especies": []
+}

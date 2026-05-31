@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "total_rubros": 17,
+  "generado": "2026-05-31",
+  "rubros": [
+    { "id": "especimenes-biologicos-secos", "nombre": "Especímenes Biológicos Secos", "slug": "especimenes-biologicos-secos", "orden": 1, "tipo": "lepidoptera", "activo": true },
+    { "id": "cuadros-mariposa-tropical", "nombre": "Cuadros de Mariposa Tropical Secos", "slug": "cuadros-mariposa-tropical", "orden": 2, "tipo": "cuadros", "activo": true },
+    { "id": "joyeria-natural", "nombre": "Joyería Natural", "slug": "joyeria-natural", "orden": 3, "tipo": "joyeria", "activo": true },
+    { "id": "rarezas-gynandromorphs", "nombre": "Rarezas & Gynandromorphs", "slug": "rarezas-gynandromorphs", "orden": 4, "tipo": "rarezas", "activo": true },
+    { "id": "artesanias-cupulas", "nombre": "Artesanías & Cúpulas", "slug": "artesanias-cupulas", "orden": 5, "tipo": "artesanias", "activo": true },
+    { "id": "herramientas-biologicas", "nombre": "Herramientas Biológicas", "slug": "herramientas-biologicas", "orden": 6, "tipo": "herramientas", "activo": true },
+    { "id": "cuadros-mariposas-nocturnas", "nombre": "Cuadro de Mariposas Nocturnas Tropical", "slug": "cuadros-mariposas-nocturnas", "orden": 7, "tipo": "cuadros", "activo": true },
+    { "id": "cuadros-coleopteros-artropodos", "nombre": "Cuadros de Coleópteros & Artrópodos Tropicales", "slug": "cuadros-coleopteros-artropodos", "orden": 8, "tipo": "cuadros", "activo": true },
+    { "id": "minerales-piedras-preciosas", "nombre": "Minerales & Piedras Preciosas", "slug": "minerales-piedras-preciosas", "orden": 9, "tipo": "minerales", "activo": true },
+    { "id": "semillas-plantas-medicinales", "nombre": "Semillas & Plantas Medicinales", "slug": "semillas-plantas-medicinales", "orden": 10, "tipo": "botanica", "activo": true },
+    { "id": "frutas-exoticas-deshidratadas", "nombre": "Frutas Exóticas & Deshidratadas", "slug": "frutas-exoticas-deshidratadas", "orden": 11, "tipo": "alimentos", "activo": true },
+    { "id": "hongos-productos-naturales", "nombre": "Hongos & Productos Naturales", "slug": "hongos-productos-naturales", "orden": 12, "tipo": "botanica", "activo": true },
+    { "id": "textileria-alpaca", "nombre": "Textilería & Alpaca", "slug": "textileria-alpaca", "orden": 13, "tipo": "artesanias", "activo": true },
+    { "id": "alimentos-deshidratados", "nombre": "Alimentos Deshidratados", "slug": "alimentos-deshidratados", "orden": 14, "tipo": "alimentos", "activo": true },
+    { "id": "pinturas-arte-rupestre", "nombre": "Pinturas & Arte Rupestre", "slug": "pinturas-arte-rupestre", "orden": 15, "tipo": "arte", "activo": true },
+    { "id": "maderas-finas-esculturas", "nombre": "Maderas Finas & Esculturas", "slug": "maderas-finas-esculturas", "orden": 16, "tipo": "artesanias", "activo": true },
+    { "id": "esencias-aceites-naturales", "nombre": "Esencias & Aceites Naturales", "slug": "esencias-aceites-naturales", "orden": 17, "tipo": "botanica", "activo": true }
+  ]
+}

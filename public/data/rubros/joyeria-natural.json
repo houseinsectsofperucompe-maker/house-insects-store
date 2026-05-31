@@ -1,0 +1,12 @@
+{
+  "rubro": {
+    "id": "joyeria-natural",
+    "slug": "joyeria-natural",
+    "nombre": "Joyería Natural",
+    "descripcion": "Joyería artesanal elaborada con insectos, semillas y elementos naturales de la Amazonía peruana.",
+    "tipo": "joyeria",
+    "activo": true
+  },
+  "familias": [],
+  "especies": []
+}

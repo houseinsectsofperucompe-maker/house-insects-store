@@ -1,0 +1,12 @@
+{
+  "rubro": {
+    "id": "frutas-exoticas-deshidratadas",
+    "slug": "frutas-exoticas-deshidratadas",
+    "nombre": "Frutas Exóticas & Deshidratadas",
+    "descripcion": "Frutas exóticas deshidratadas de la Amazonía peruana: camu camu, aguaje, copoazú y más.",
+    "tipo": "alimentos",
+    "activo": true
+  },
+  "familias": [],
+  "especies": []
+}

@@ -1,0 +1,12 @@
+{
+  "rubro": {
+    "id": "minerales-piedras-preciosas",
+    "slug": "minerales-piedras-preciosas",
+    "nombre": "Minerales & Piedras Preciosas",
+    "descripcion": "Minerales, cristales y piedras preciosas extraídas de las regiones mineras del Perú.",
+    "tipo": "minerales",
+    "activo": true
+  },
+  "familias": [],
+  "especies": []
+}

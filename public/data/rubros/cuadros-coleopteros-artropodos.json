@@ -1,0 +1,15 @@
+{
+  "rubro": {
+    "id": "cuadros-coleopteros-artropodos",
+    "slug": "cuadros-coleopteros-artropodos",
+    "nombre": "Cuadros de Coleópteros & Artrópodos Tropicales",
+    "descripcion": "Cuadros artísticos con coleópteros y artrópodos tropicales de la Amazonía. Shadow Box 3D. CITES/SERFOR.",
+    "tipo": "cuadros",
+    "activo": true
+  },
+  "familias": [
+    { "id": "Coleoptera", "nombre": "Coleoptera", "total": 0 },
+    { "id": "Arthropoda", "nombre": "Arthropoda", "total": 0 }
+  ],
+  "especies": []
+}

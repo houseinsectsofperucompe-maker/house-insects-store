@@ -1,0 +1,12 @@
+{
+  "rubro": {
+    "id": "maderas-finas-esculturas",
+    "slug": "maderas-finas-esculturas",
+    "nombre": "Maderas Finas & Esculturas",
+    "descripcion": "Esculturas y artesanías en maderas finas de la Amazonía peruana: cedro, caoba, tornillo.",
+    "tipo": "artesanias",
+    "activo": true
+  },
+  "familias": [],
+  "especies": []
+}

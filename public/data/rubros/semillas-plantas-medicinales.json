@@ -1,0 +1,12 @@
+{
+  "rubro": {
+    "id": "semillas-plantas-medicinales",
+    "slug": "semillas-plantas-medicinales",
+    "nombre": "Semillas & Plantas Medicinales",
+    "descripcion": "Semillas nativas y plantas medicinales de la Amazonía y sierra peruana.",
+    "tipo": "botanica",
+    "activo": true
+  },
+  "familias": [],
+  "especies": []
+}

@@ -1,0 +1,17 @@
+{
+  "rubro": {
+    "id": "cuadros-mariposa-tropical",
+    "slug": "cuadros-mariposa-tropical",
+    "nombre": "Cuadros de Mariposa Tropical Secos",
+    "descripcion": "Cuadros artísticos con mariposas tropicales secas enmarcadas. Shadow Box. CITES/SERFOR.",
+    "tipo": "cuadros",
+    "activo": true
+  },
+  "familias": [
+    { "id": "Morphidae", "nombre": "Morphidae", "total": 0 },
+    { "id": "Papilionidae", "nombre": "Papilionidae", "total": 0 },
+    { "id": "Brassolidae", "nombre": "Brassolidae", "total": 0 },
+    { "id": "Nymphalidae", "nombre": "Nymphalidae", "total": 0 }
+  ],
+  "especies": []
+}

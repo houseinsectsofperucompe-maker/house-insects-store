@@ -1,0 +1,12 @@
+{
+  "rubro": {
+    "id": "rarezas-gynandromorphs",
+    "slug": "rarezas-gynandromorphs",
+    "nombre": "Rarezas & Gynandromorphs",
+    "descripcion": "Especímenes excepcionales: gynandromorphos, aberraciones, albinos y rarezas entomológicas únicas.",
+    "tipo": "rarezas",
+    "activo": true
+  },
+  "familias": [],
+  "especies": []
+}
