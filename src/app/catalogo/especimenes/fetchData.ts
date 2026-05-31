@@ -10,49 +10,81 @@ function leerJSON(archivo: string) {
 }
 
 export async function getFamilias() {
-  const fuentes = [
-    { archivo: 'especimenes-biologicos-secos.json', orden: 'Lepidoptera Diurnae',
-      familias: ['Brassolidae','Danidae','Heliconidae','Hesperiidae','Ithomiidae',
-                 'Lycaenidae','Morphidae','Nymphalidae','Papilionidae','Pieridae',
-                 'Riodinidae','Satyridae'] },
-    { archivo: 'especimenes-nocturnas.json', orden: 'Moths Nocturnas',
-      familias: ['Saturniidae','Sphingidae','Erebidae','Geometridae','Noctuidae',
-                 'Arctiidae','Castniidae','Hepalidae','Uranidae'] },
-    { archivo: 'especimenes-coleopteros.json', orden: 'Coleoptera',
-      familias: ['Buprestidae','Cerambycidae','Dynastidae','Cetonidae','Chrysomelidae',
-                 'Scarabaeidae','Cicindelidae','Curculionidae','Elateridae','Lucanidae',
-                 'Rutilidae','Euchiridae','Trictenotomidae'] },
-    { archivo: 'especimenes-artropodos.json', orden: 'Arthropoda',
-      familias: ['Theraphosidae','Sparassidae','Nephilidae','Araneidae',
-                 'Buthidae','Chactidae','Scorpionidae',
-                 'Scolopendridae','Scutigeridae',
-                 'Phasmatidae','Diapheromeridae'] },
-  ]
-
   const familias: any[] = []
 
-  for (const fuente of fuentes) {
-    const data = leerJSON(fuente.archivo)
-    if (!data) continue
-    const especies = data.especies || []
-
-    for (const famId of fuente.familias) {
-      const espFam = especies.filter((e: any) => e.familia === famId)
-      // Construir subfamilias si existen
-      const subfamiliaSet = new Set(espFam.map((e: any) => e.subfamilia).filter(Boolean))
-      const sub = Array.from(subfamiliaSet).map((sf: any) => ({
-        id: sf,
-        nm: sf,
-        e:  espFam.filter((e: any) => e.subfamilia === sf),
-      }))
-      familias.push({
-        id:    famId,
-        nm:    famId,
-        orden: fuente.orden,
-        total: espFam.length,
-        e:     espFam,
-        sub:   sub,
+  // ── 1. Lepidoptera Diurna ──────────────────────────────────────
+  const diurna = leerJSON('especimenes-biologicos-secos.json')
+  if (diurna) {
+    const fams = ['Brassolidae','Danidae','Heliconidae','Hesperiidae','Ithomiidae',
+                  'Lycaenidae','Morphidae','Nymphalidae','Papilionidae','Pieridae',
+                  'Riodinidae','Satyridae']
+    for (const famId of fams) {
+      const esp = diurna.especies.filter((e: any) => e.familia === famId)
+      const sub = [...new Set(esp.map((e: any) => e.subfamilia).filter(Boolean))]
+      familias.push({ id: famId, nm: famId, orden: 'Lepidoptera Diurnae',
+        total: esp.length, e: esp,
+        sub: sub.map((sf: any) => ({ id:sf, nm:sf, e: esp.filter((e:any)=>e.subfamilia===sf) }))
       })
+    }
+  }
+
+  // ── 2. Moths Nocturnas ─────────────────────────────────────────
+  const noc = leerJSON('especimenes-nocturnas.json')
+  if (noc) {
+    const fams = ['Saturniidae','Sphingidae','Erebidae','Geometridae','Noctuidae',
+                  'Arctiidae','Castniidae','Hepalidae','Uranidae']
+    for (const famId of fams) {
+      const esp = noc.especies.filter((e: any) => e.familia === famId)
+      const sub = [...new Set(esp.map((e: any) => e.subfamilia).filter(Boolean))]
+      familias.push({ id: famId, nm: famId, orden: 'Moths Nocturnas',
+        total: esp.length, e: esp,
+        sub: sub.map((sf: any) => ({ id:sf, nm:sf, e: esp.filter((e:any)=>e.subfamilia===sf) }))
+      })
+    }
+  }
+
+  // ── 3. Coleoptera ─────────────────────────────────────────────
+  const col = leerJSON('especimenes-coleopteros.json')
+  if (col) {
+    const fams = ['Buprestidae','Cerambycidae','Dynastidae','Cetonidae','Chrysomelidae',
+                  'Scarabaeidae','Cicindelidae','Curculionidae','Elateridae','Lucanidae',
+                  'Rutilidae','Euchiridae','Trictenotomidae']
+    for (const famId of fams) {
+      const esp = col.especies.filter((e: any) => e.familia === famId)
+      const sub = [...new Set(esp.map((e: any) => e.subfamilia).filter(Boolean))]
+      familias.push({ id: famId, nm: famId, orden: 'Coleoptera',
+        total: esp.length, e: esp,
+        sub: sub.map((sf: any) => ({ id:sf, nm:sf, e: esp.filter((e:any)=>e.subfamilia===sf) }))
+      })
+    }
+  }
+
+  // ── 4. Arthropoda — cada orden separado ───────────────────────
+  const art = leerJSON('especimenes-artropodos.json')
+  if (art) {
+    const ORDENES_ART: Record<string, string[]> = {
+      'Araneae':     ['Theraphosidae','Sparassidae','Nephilidae','Araneidae','Ctenidae','Trechaleidae','Lycosidae','Dipluridae'],
+      'Scorpiones':  ['Buthidae','Chactidae','Scorpionidae','Bothriuridae','Diplocentridae'],
+      'Chilopoda':   ['Scolopendridae','Scutigeridae','Lithobiidae','Geophilidae'],
+      'Phasmatodea': ['Phasmatidae','Diapheromeridae','Pseudophasmatidae','Heteropterygidae','Phylliidae'],
+      'Mantodea':    ['Mantidae'],
+      'Orthoptera':  ['Tettigoniidae','Acrididae','Gryllidae'],
+      'Homoptera':   ['Cicadidae','Fulgoridae'],
+      'Hemiptera':   ['Reduviidae'],
+      'Hymenoptera': ['Formicidae','Vespidae','Apidae'],
+      'Decapoda':    ['Brachyuridae','Astacidae'],
+      'Odonata':     ['Libellulidae','Coenagrionidae','Aeshnidae','Agrionidae'],
+    }
+    for (const [orden, fams] of Object.entries(ORDENES_ART)) {
+      for (const famId of fams) {
+        const esp = art.especies.filter((e: any) => e.familia === famId)
+        if (esp.length === 0) continue
+        const sub = [...new Set(esp.map((e: any) => e.subfamilia).filter(Boolean))]
+        familias.push({ id: famId, nm: famId, orden,
+          total: esp.length, e: esp,
+          sub: sub.map((sf: any) => ({ id:sf, nm:sf, e: esp.filter((e:any)=>e.subfamilia===sf) }))
+        })
+      }
     }
   }
 
