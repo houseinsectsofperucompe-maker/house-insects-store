@@ -1,0 +1,1256 @@
+{
+  "rubro": {
+    "id": "especimenes-coleopteros",
+    "slug": "especimenes-coleopteros",
+    "nombre": "Especímenes Coleópteros",
+    "tipo": "coleoptera",
+    "activo": true,
+    "descripcion": "Coleópteros secos de la Amazonía peruana. CITES/SERFOR."
+  },
+  "familias": [
+    {
+      "id": "Buprestidae",
+      "nombre": "Buprestidae",
+      "total": 8
+    },
+    {
+      "id": "Cerambycidae",
+      "nombre": "Cerambycidae",
+      "total": 14
+    },
+    {
+      "id": "Dynastidae",
+      "nombre": "Dynastidae",
+      "total": 12
+    },
+    {
+      "id": "Cetonidae",
+      "nombre": "Cetonidae",
+      "total": 12
+    },
+    {
+      "id": "Chrysomelidae",
+      "nombre": "Chrysomelidae",
+      "total": 16
+    },
+    {
+      "id": "Scarabaeidae",
+      "nombre": "Scarabaeidae",
+      "total": 9
+    },
+    {
+      "id": "Cicindelidae",
+      "nombre": "Cicindelidae",
+      "total": 5
+    },
+    {
+      "id": "Curculionidae",
+      "nombre": "Curculionidae",
+      "total": 6
+    },
+    {
+      "id": "Elateridae",
+      "nombre": "Elateridae",
+      "total": 10
+    },
+    {
+      "id": "Lucanidae",
+      "nombre": "Lucanidae",
+      "total": 5
+    },
+    {
+      "id": "Rutilidae",
+      "nombre": "Rutilidae",
+      "total": 7
+    },
+    {
+      "id": "Euchiridae",
+      "nombre": "Euchiridae",
+      "total": 3
+    },
+    {
+      "id": "Trictenotomidae",
+      "nombre": "Trictenotomidae",
+      "total": 1
+    }
+  ],
+  "especies": [
+    {
+      "id": "BUP-001",
+      "nombre": "Euchroma gigantea",
+      "familia": "Buprestidae",
+      "precio": 12,
+      "stock": 100,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Buprestinae",
+      "imagenes": []
+    },
+    {
+      "id": "BUP-002",
+      "nombre": "Colobogaster resplendens",
+      "familia": "Buprestidae",
+      "precio": 15,
+      "stock": 80,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Buprestinae",
+      "imagenes": []
+    },
+    {
+      "id": "BUP-003",
+      "nombre": "Colobogaster weingaertneri",
+      "familia": "Buprestidae",
+      "precio": 14,
+      "stock": 85,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Buprestinae",
+      "imagenes": []
+    },
+    {
+      "id": "BUP-004",
+      "nombre": "Conognatha clara",
+      "familia": "Buprestidae",
+      "precio": 10,
+      "stock": 120,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Buprestinae",
+      "imagenes": []
+    },
+    {
+      "id": "BUP-005",
+      "nombre": "Spaethaspis peruviana",
+      "familia": "Buprestidae",
+      "precio": 11,
+      "stock": 110,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Buprestinae",
+      "imagenes": []
+    },
+    {
+      "id": "BUP-006",
+      "nombre": "Chrysochroa buqueti",
+      "familia": "Buprestidae",
+      "precio": 18,
+      "stock": 60,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Buprestinae",
+      "imagenes": []
+    },
+    {
+      "id": "BUP-007",
+      "nombre": "Megaloxantha bicolor",
+      "familia": "Buprestidae",
+      "precio": 16,
+      "stock": 70,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Buprestinae",
+      "imagenes": []
+    },
+    {
+      "id": "BUP-008",
+      "nombre": "Aaaba amazona",
+      "familia": "Buprestidae",
+      "precio": 9,
+      "stock": 130,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Agrilinae",
+      "imagenes": []
+    },
+    {
+      "id": "CER-001",
+      "nombre": "Acrocinus longimanus",
+      "familia": "Cerambycidae",
+      "precio": 20,
+      "stock": 50,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Lamiinae",
+      "imagenes": []
+    },
+    {
+      "id": "CER-002",
+      "nombre": "Batocera wallacei",
+      "familia": "Cerambycidae",
+      "precio": 18,
+      "stock": 60,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Lamiinae",
+      "imagenes": []
+    },
+    {
+      "id": "CER-003",
+      "nombre": "Callipogon barbatus",
+      "familia": "Cerambycidae",
+      "precio": 25,
+      "stock": 40,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Prioninae",
+      "imagenes": []
+    },
+    {
+      "id": "CER-004",
+      "nombre": "Derobrachus geminatus",
+      "familia": "Cerambycidae",
+      "precio": 15,
+      "stock": 80,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Prioninae",
+      "imagenes": []
+    },
+    {
+      "id": "CER-005",
+      "nombre": "Eburodacrys sexmaculata",
+      "familia": "Cerambycidae",
+      "precio": 12,
+      "stock": 100,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cerambycinae",
+      "imagenes": []
+    },
+    {
+      "id": "CER-006",
+      "nombre": "Hypselotropis prasinata",
+      "familia": "Cerambycidae",
+      "precio": 10,
+      "stock": 120,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Lamiinae",
+      "imagenes": []
+    },
+    {
+      "id": "CER-007",
+      "nombre": "Mecosarthron buphagum",
+      "familia": "Cerambycidae",
+      "precio": 14,
+      "stock": 85,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Prioninae",
+      "imagenes": []
+    },
+    {
+      "id": "CER-008",
+      "nombre": "Oreodera glauca",
+      "familia": "Cerambycidae",
+      "precio": 10,
+      "stock": 120,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Lamiinae",
+      "imagenes": []
+    },
+    {
+      "id": "CER-009",
+      "nombre": "Petrognatha gigas",
+      "familia": "Cerambycidae",
+      "precio": 22,
+      "stock": 45,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Lamiinae",
+      "imagenes": []
+    },
+    {
+      "id": "CER-010",
+      "nombre": "Psalidognathus superbus",
+      "familia": "Cerambycidae",
+      "precio": 28,
+      "stock": 35,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Prioninae",
+      "imagenes": []
+    },
+    {
+      "id": "CER-011",
+      "nombre": "Sphaerion lugubre",
+      "familia": "Cerambycidae",
+      "precio": 12,
+      "stock": 100,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cerambycinae",
+      "imagenes": []
+    },
+    {
+      "id": "CER-012",
+      "nombre": "Taeniotes scalaris",
+      "familia": "Cerambycidae",
+      "precio": 11,
+      "stock": 110,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Lamiinae",
+      "imagenes": []
+    },
+    {
+      "id": "CER-013",
+      "nombre": "Trachyderes succinctus",
+      "familia": "Cerambycidae",
+      "precio": 13,
+      "stock": 90,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cerambycinae",
+      "imagenes": []
+    },
+    {
+      "id": "CER-014",
+      "nombre": "Xenohammus bimaculosus",
+      "familia": "Cerambycidae",
+      "precio": 10,
+      "stock": 120,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Lamiinae",
+      "imagenes": []
+    },
+    {
+      "id": "DYN-001",
+      "nombre": "Dynastes hercules hercules",
+      "familia": "Dynastidae",
+      "precio": 45,
+      "stock": 15,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Dynastinae",
+      "imagenes": []
+    },
+    {
+      "id": "DYN-002",
+      "nombre": "Dynastes neptunus",
+      "familia": "Dynastidae",
+      "precio": 40,
+      "stock": 18,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Dynastinae",
+      "imagenes": []
+    },
+    {
+      "id": "DYN-003",
+      "nombre": "Megasoma actaeon",
+      "familia": "Dynastidae",
+      "precio": 35,
+      "stock": 20,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Dynastinae",
+      "imagenes": []
+    },
+    {
+      "id": "DYN-004",
+      "nombre": "Megasoma elephas",
+      "familia": "Dynastidae",
+      "precio": 38,
+      "stock": 18,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Dynastinae",
+      "imagenes": []
+    },
+    {
+      "id": "DYN-005",
+      "nombre": "Megasoma mars",
+      "familia": "Dynastidae",
+      "precio": 30,
+      "stock": 25,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Dynastinae",
+      "imagenes": []
+    },
+    {
+      "id": "DYN-006",
+      "nombre": "Golofa porteri",
+      "familia": "Dynastidae",
+      "precio": 22,
+      "stock": 40,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Dynastinae",
+      "imagenes": []
+    },
+    {
+      "id": "DYN-007",
+      "nombre": "Golofa claviger",
+      "familia": "Dynastidae",
+      "precio": 20,
+      "stock": 45,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Dynastinae",
+      "imagenes": []
+    },
+    {
+      "id": "DYN-008",
+      "nombre": "Enema pan",
+      "familia": "Dynastidae",
+      "precio": 18,
+      "stock": 55,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Dynastinae",
+      "imagenes": []
+    },
+    {
+      "id": "DYN-009",
+      "nombre": "Lycomedes reichei",
+      "familia": "Dynastidae",
+      "precio": 25,
+      "stock": 35,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Dynastinae",
+      "imagenes": []
+    },
+    {
+      "id": "DYN-010",
+      "nombre": "Strategus aloeus",
+      "familia": "Dynastidae",
+      "precio": 15,
+      "stock": 70,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Dynastinae",
+      "imagenes": []
+    },
+    {
+      "id": "DYN-011",
+      "nombre": "Xylotrupes gideon",
+      "familia": "Dynastidae",
+      "precio": 12,
+      "stock": 90,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Dynastinae",
+      "imagenes": []
+    },
+    {
+      "id": "DYN-012",
+      "nombre": "Coelosis biloba",
+      "familia": "Dynastidae",
+      "precio": 14,
+      "stock": 80,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Dynastinae",
+      "imagenes": []
+    },
+    {
+      "id": "CET-001",
+      "nombre": "Cotinis mutabilis",
+      "familia": "Cetonidae",
+      "precio": 8,
+      "stock": 150,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cetoniinae",
+      "imagenes": []
+    },
+    {
+      "id": "CET-002",
+      "nombre": "Gymnetis caseyi",
+      "familia": "Cetonidae",
+      "precio": 9,
+      "stock": 140,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cetoniinae",
+      "imagenes": []
+    },
+    {
+      "id": "CET-003",
+      "nombre": "Gymnetis stellata",
+      "familia": "Cetonidae",
+      "precio": 8,
+      "stock": 160,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cetoniinae",
+      "imagenes": []
+    },
+    {
+      "id": "CET-004",
+      "nombre": "Hoplopyga liturata",
+      "familia": "Cetonidae",
+      "precio": 7,
+      "stock": 180,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cetoniinae",
+      "imagenes": []
+    },
+    {
+      "id": "CET-005",
+      "nombre": "Macrocallia batesi",
+      "familia": "Cetonidae",
+      "precio": 12,
+      "stock": 100,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cetoniinae",
+      "imagenes": []
+    },
+    {
+      "id": "CET-006",
+      "nombre": "Mecynorhina torquata",
+      "familia": "Cetonidae",
+      "precio": 20,
+      "stock": 55,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cetoniinae",
+      "imagenes": []
+    },
+    {
+      "id": "CET-007",
+      "nombre": "Phanaeus demon",
+      "familia": "Cetonidae",
+      "precio": 14,
+      "stock": 85,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cetoniinae",
+      "imagenes": []
+    },
+    {
+      "id": "CET-008",
+      "nombre": "Phanaeus splendidulus",
+      "familia": "Cetonidae",
+      "precio": 15,
+      "stock": 80,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cetoniinae",
+      "imagenes": []
+    },
+    {
+      "id": "CET-009",
+      "nombre": "Stephanorrhina guttata",
+      "familia": "Cetonidae",
+      "precio": 10,
+      "stock": 130,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cetoniinae",
+      "imagenes": []
+    },
+    {
+      "id": "CET-010",
+      "nombre": "Trigonopeltastes delta",
+      "familia": "Cetonidae",
+      "precio": 8,
+      "stock": 160,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cetoniinae",
+      "imagenes": []
+    },
+    {
+      "id": "CET-011",
+      "nombre": "Inca clathrata",
+      "familia": "Cetonidae",
+      "precio": 16,
+      "stock": 75,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cetoniinae",
+      "imagenes": []
+    },
+    {
+      "id": "CET-012",
+      "nombre": "Euphoria sepulcralis",
+      "familia": "Cetonidae",
+      "precio": 7,
+      "stock": 180,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cremastocheilinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHR-001",
+      "nombre": "Alurnus ornatus",
+      "familia": "Chrysomelidae",
+      "precio": 8,
+      "stock": 160,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cassidinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHR-002",
+      "nombre": "Calligrapha serpentina",
+      "familia": "Chrysomelidae",
+      "precio": 7,
+      "stock": 180,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Chrysomelinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHR-003",
+      "nombre": "Chelymorpha cassidea",
+      "familia": "Chrysomelidae",
+      "precio": 6,
+      "stock": 200,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cassidinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHR-004",
+      "nombre": "Chrysochus auratus",
+      "familia": "Chrysomelidae",
+      "precio": 7,
+      "stock": 180,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Chrysomelinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHR-005",
+      "nombre": "Cryptocephalus fulvus",
+      "familia": "Chrysomelidae",
+      "precio": 6,
+      "stock": 200,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cryptocephalinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHR-006",
+      "nombre": "Diabrotica balteata",
+      "familia": "Chrysomelidae",
+      "precio": 5,
+      "stock": 250,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Galerucinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHR-007",
+      "nombre": "Disonycha discoidea",
+      "familia": "Chrysomelidae",
+      "precio": 5,
+      "stock": 250,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Galerucinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHR-008",
+      "nombre": "Eurypedus nigrosignatus",
+      "familia": "Chrysomelidae",
+      "precio": 8,
+      "stock": 160,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Chrysomelinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHR-009",
+      "nombre": "Leptinotarsa decemlineata",
+      "familia": "Chrysomelidae",
+      "precio": 6,
+      "stock": 200,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Chrysomelinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHR-010",
+      "nombre": "Nodonota tristis",
+      "familia": "Chrysomelidae",
+      "precio": 6,
+      "stock": 200,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Chrysomelinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHR-011",
+      "nombre": "Odontota dorsalis",
+      "familia": "Chrysomelidae",
+      "precio": 5,
+      "stock": 250,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cassidinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHR-012",
+      "nombre": "Omophoita cyanipennis",
+      "familia": "Chrysomelidae",
+      "precio": 7,
+      "stock": 180,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Galerucinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHR-013",
+      "nombre": "Pachybrachis subfasciatus",
+      "familia": "Chrysomelidae",
+      "precio": 5,
+      "stock": 250,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cryptocephalinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHR-014",
+      "nombre": "Plagiometriona clavata",
+      "familia": "Chrysomelidae",
+      "precio": 6,
+      "stock": 200,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cassidinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHR-015",
+      "nombre": "Stilodes cincta",
+      "familia": "Chrysomelidae",
+      "precio": 7,
+      "stock": 180,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Chrysomelinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHR-016",
+      "nombre": "Timbola ferruginea",
+      "familia": "Chrysomelidae",
+      "precio": 6,
+      "stock": 200,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Chrysomelinae",
+      "imagenes": []
+    },
+    {
+      "id": "SCA-001",
+      "nombre": "Coprophanaeus lancifer",
+      "familia": "Scarabaeidae",
+      "precio": 15,
+      "stock": 80,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Scarabaeinae",
+      "imagenes": []
+    },
+    {
+      "id": "SCA-002",
+      "nombre": "Deltochilum gibbosum",
+      "familia": "Scarabaeidae",
+      "precio": 12,
+      "stock": 100,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Scarabaeinae",
+      "imagenes": []
+    },
+    {
+      "id": "SCA-003",
+      "nombre": "Dichotomius carolinus",
+      "familia": "Scarabaeidae",
+      "precio": 10,
+      "stock": 130,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Scarabaeinae",
+      "imagenes": []
+    },
+    {
+      "id": "SCA-004",
+      "nombre": "Eurysternus caribaeus",
+      "familia": "Scarabaeidae",
+      "precio": 9,
+      "stock": 150,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Scarabaeinae",
+      "imagenes": []
+    },
+    {
+      "id": "SCA-005",
+      "nombre": "Onthophagus gazella",
+      "familia": "Scarabaeidae",
+      "precio": 8,
+      "stock": 180,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Scarabaeinae",
+      "imagenes": []
+    },
+    {
+      "id": "SCA-006",
+      "nombre": "Phanaeus igneus",
+      "familia": "Scarabaeidae",
+      "precio": 16,
+      "stock": 75,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Scarabaeinae",
+      "imagenes": []
+    },
+    {
+      "id": "SCA-007",
+      "nombre": "Oxysternon conspicillatum",
+      "familia": "Scarabaeidae",
+      "precio": 13,
+      "stock": 95,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Scarabaeinae",
+      "imagenes": []
+    },
+    {
+      "id": "SCA-008",
+      "nombre": "Sulcophanaeus leander",
+      "familia": "Scarabaeidae",
+      "precio": 14,
+      "stock": 85,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Scarabaeinae",
+      "imagenes": []
+    },
+    {
+      "id": "SCA-009",
+      "nombre": "Diabroctis mirabilis",
+      "familia": "Scarabaeidae",
+      "precio": 12,
+      "stock": 100,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Dynastinae",
+      "imagenes": []
+    },
+    {
+      "id": "CIC-001",
+      "nombre": "Cicindela formosa",
+      "familia": "Cicindelidae",
+      "precio": 8,
+      "stock": 150,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cicindelinae",
+      "imagenes": []
+    },
+    {
+      "id": "CIC-002",
+      "nombre": "Cicindela repanda",
+      "familia": "Cicindelidae",
+      "precio": 7,
+      "stock": 170,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cicindelinae",
+      "imagenes": []
+    },
+    {
+      "id": "CIC-003",
+      "nombre": "Tetracha carolina",
+      "familia": "Cicindelidae",
+      "precio": 9,
+      "stock": 130,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cicindelinae",
+      "imagenes": []
+    },
+    {
+      "id": "CIC-004",
+      "nombre": "Megacephala carolina",
+      "familia": "Cicindelidae",
+      "precio": 10,
+      "stock": 120,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cicindelinae",
+      "imagenes": []
+    },
+    {
+      "id": "CIC-005",
+      "nombre": "Oxycheila tristis",
+      "familia": "Cicindelidae",
+      "precio": 8,
+      "stock": 150,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Cicindelinae",
+      "imagenes": []
+    },
+    {
+      "id": "CUR-001",
+      "nombre": "Macromerus bicinctus",
+      "familia": "Curculionidae",
+      "precio": 9,
+      "stock": 140,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Curculioninae",
+      "imagenes": []
+    },
+    {
+      "id": "CUR-002",
+      "nombre": "Heilipus lauri",
+      "familia": "Curculionidae",
+      "precio": 8,
+      "stock": 155,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Entiminae",
+      "imagenes": []
+    },
+    {
+      "id": "CUR-003",
+      "nombre": "Metamasius hemipterus",
+      "familia": "Curculionidae",
+      "precio": 7,
+      "stock": 170,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Baridinae",
+      "imagenes": []
+    },
+    {
+      "id": "CUR-004",
+      "nombre": "Rhinostomus barbirostris",
+      "familia": "Curculionidae",
+      "precio": 10,
+      "stock": 130,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Curculioninae",
+      "imagenes": []
+    },
+    {
+      "id": "CUR-005",
+      "nombre": "Dynamis borassi",
+      "familia": "Curculionidae",
+      "precio": 11,
+      "stock": 120,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Curculioninae",
+      "imagenes": []
+    },
+    {
+      "id": "CUR-006",
+      "nombre": "Rhynchophorus palmarum",
+      "familia": "Curculionidae",
+      "precio": 12,
+      "stock": 110,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Curculioninae",
+      "imagenes": []
+    },
+    {
+      "id": "ELA-001",
+      "nombre": "Chalcolepidius limbatus",
+      "familia": "Elateridae",
+      "precio": 10,
+      "stock": 130,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Agrypninae",
+      "imagenes": []
+    },
+    {
+      "id": "ELA-002",
+      "nombre": "Chalcolepidius porcatus",
+      "familia": "Elateridae",
+      "precio": 11,
+      "stock": 120,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Agrypninae",
+      "imagenes": []
+    },
+    {
+      "id": "ELA-003",
+      "nombre": "Chalcolepidius virens",
+      "familia": "Elateridae",
+      "precio": 12,
+      "stock": 110,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Agrypninae",
+      "imagenes": []
+    },
+    {
+      "id": "ELA-004",
+      "nombre": "Alaus oculatus",
+      "familia": "Elateridae",
+      "precio": 9,
+      "stock": 140,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Agrypninae",
+      "imagenes": []
+    },
+    {
+      "id": "ELA-005",
+      "nombre": "Alaus myops",
+      "familia": "Elateridae",
+      "precio": 9,
+      "stock": 140,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Agrypninae",
+      "imagenes": []
+    },
+    {
+      "id": "ELA-006",
+      "nombre": "Semiotus distinctus",
+      "familia": "Elateridae",
+      "precio": 8,
+      "stock": 155,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Elaterinae",
+      "imagenes": []
+    },
+    {
+      "id": "ELA-007",
+      "nombre": "Semiotus ligneus",
+      "familia": "Elateridae",
+      "precio": 8,
+      "stock": 155,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Elaterinae",
+      "imagenes": []
+    },
+    {
+      "id": "ELA-008",
+      "nombre": "Conoderus amplicollis",
+      "familia": "Elateridae",
+      "precio": 7,
+      "stock": 170,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Elaterinae",
+      "imagenes": []
+    },
+    {
+      "id": "ELA-009",
+      "nombre": "Agrypnus murinus",
+      "familia": "Elateridae",
+      "precio": 7,
+      "stock": 170,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Agrypninae",
+      "imagenes": []
+    },
+    {
+      "id": "ELA-010",
+      "nombre": "Oxynopterus mucronatus",
+      "familia": "Elateridae",
+      "precio": 10,
+      "stock": 130,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Agrypninae",
+      "imagenes": []
+    },
+    {
+      "id": "LUC-001",
+      "nombre": "Odontolabis cuvera",
+      "familia": "Lucanidae",
+      "precio": 15,
+      "stock": 80,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Lucaninae",
+      "imagenes": []
+    },
+    {
+      "id": "LUC-002",
+      "nombre": "Dorcus titanus",
+      "familia": "Lucanidae",
+      "precio": 18,
+      "stock": 65,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Lucaninae",
+      "imagenes": []
+    },
+    {
+      "id": "LUC-003",
+      "nombre": "Lucanus cervus",
+      "familia": "Lucanidae",
+      "precio": 20,
+      "stock": 55,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Lucaninae",
+      "imagenes": []
+    },
+    {
+      "id": "LUC-004",
+      "nombre": "Hexarthrius parryi",
+      "familia": "Lucanidae",
+      "precio": 22,
+      "stock": 45,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Lucaninae",
+      "imagenes": []
+    },
+    {
+      "id": "LUC-005",
+      "nombre": "Prosopocoilus giraffa",
+      "familia": "Lucanidae",
+      "precio": 16,
+      "stock": 75,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "subfamilia": "Lucaninae",
+      "imagenes": []
+    },
+    {
+      "id": "RUT-001",
+      "nombre": "Rutela lineola",
+      "familia": "Rutilidae",
+      "precio": 10,
+      "stock": 130,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "imagenes": []
+    },
+    {
+      "id": "RUT-002",
+      "nombre": "Rutela formosa",
+      "familia": "Rutilidae",
+      "precio": 11,
+      "stock": 120,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "imagenes": []
+    },
+    {
+      "id": "RUT-003",
+      "nombre": "Rutela palliata",
+      "familia": "Rutilidae",
+      "precio": 9,
+      "stock": 140,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "imagenes": []
+    },
+    {
+      "id": "RUT-004",
+      "nombre": "Ixorida mirabilis",
+      "familia": "Rutilidae",
+      "precio": 12,
+      "stock": 110,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "imagenes": []
+    },
+    {
+      "id": "RUT-005",
+      "nombre": "Ixorida tricolor",
+      "familia": "Rutilidae",
+      "precio": 13,
+      "stock": 100,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "imagenes": []
+    },
+    {
+      "id": "RUT-006",
+      "nombre": "Macraspis tristis",
+      "familia": "Rutilidae",
+      "precio": 8,
+      "stock": 155,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "imagenes": []
+    },
+    {
+      "id": "RUT-007",
+      "nombre": "Chrysina aurigans",
+      "familia": "Rutilidae",
+      "precio": 18,
+      "stock": 65,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "imagenes": []
+    },
+    {
+      "id": "EUC-001",
+      "nombre": "Euchirus longimanus",
+      "familia": "Euchiridae",
+      "precio": 25,
+      "stock": 40,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "imagenes": []
+    },
+    {
+      "id": "EUC-002",
+      "nombre": "Propomacrus bimucronatus",
+      "familia": "Euchiridae",
+      "precio": 22,
+      "stock": 45,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "imagenes": []
+    },
+    {
+      "id": "EUC-003",
+      "nombre": "Cheirotonus jansoni",
+      "familia": "Euchiridae",
+      "precio": 20,
+      "stock": 50,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "imagenes": []
+    },
+    {
+      "id": "TRI-001",
+      "nombre": "Trictenotoma childreni",
+      "familia": "Trictenotomidae",
+      "precio": 18,
+      "stock": 60,
+      "orden": "Coleoptera",
+      "suborden": "Polyphaga",
+      "imagenes": []
+    }
+  ]
+}

@@ -1,0 +1,794 @@
+{
+  "rubro": {
+    "id": "especimenes-artropodos",
+    "slug": "especimenes-artropodos",
+    "nombre": "Especímenes Artrópodos",
+    "tipo": "artropodos",
+    "activo": true,
+    "descripcion": "Arañas, escorpiones, ciempiés e insectos palo de la Amazonía peruana."
+  },
+  "familias": [
+    {
+      "id": "Theraphosidae",
+      "nombre": "Theraphosidae",
+      "total": 20
+    },
+    {
+      "id": "Sparassidae",
+      "nombre": "Sparassidae",
+      "total": 8
+    },
+    {
+      "id": "Nephilidae",
+      "nombre": "Nephilidae",
+      "total": 5
+    },
+    {
+      "id": "Araneidae",
+      "nombre": "Araneidae",
+      "total": 7
+    },
+    {
+      "id": "Buthidae",
+      "nombre": "Buthidae",
+      "total": 8
+    },
+    {
+      "id": "Chactidae",
+      "nombre": "Chactidae",
+      "total": 2
+    },
+    {
+      "id": "Scorpionidae",
+      "nombre": "Scorpionidae",
+      "total": 4
+    },
+    {
+      "id": "Scolopendridae",
+      "nombre": "Scolopendridae",
+      "total": 7
+    },
+    {
+      "id": "Scutigeridae",
+      "nombre": "Scutigeridae",
+      "total": 2
+    },
+    {
+      "id": "Phasmatidae",
+      "nombre": "Phasmatidae",
+      "total": 9
+    },
+    {
+      "id": "Diapheromeridae",
+      "nombre": "Diapheromeridae",
+      "total": 3
+    }
+  ],
+  "especies": [
+    {
+      "id": "THE-001",
+      "nombre": "Theraphosa blondi",
+      "familia": "Theraphosidae",
+      "precio": 35,
+      "stock": 20,
+      "orden": "Araneae",
+      "subfamilia": "Theraphosinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-002",
+      "nombre": "Theraphosa apophysis",
+      "familia": "Theraphosidae",
+      "precio": 32,
+      "stock": 22,
+      "orden": "Araneae",
+      "subfamilia": "Theraphosinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-003",
+      "nombre": "Acanthoscurria geniculata",
+      "familia": "Theraphosidae",
+      "precio": 25,
+      "stock": 35,
+      "orden": "Araneae",
+      "subfamilia": "Theraphosinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-004",
+      "nombre": "Acanthoscurria musculosa",
+      "familia": "Theraphosidae",
+      "precio": 22,
+      "stock": 40,
+      "orden": "Araneae",
+      "subfamilia": "Theraphosinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-005",
+      "nombre": "Pamphobeteus antinous",
+      "familia": "Theraphosidae",
+      "precio": 30,
+      "stock": 25,
+      "orden": "Araneae",
+      "subfamilia": "Theraphosinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-006",
+      "nombre": "Pamphobeteus platyomma",
+      "familia": "Theraphosidae",
+      "precio": 28,
+      "stock": 28,
+      "orden": "Araneae",
+      "subfamilia": "Theraphosinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-007",
+      "nombre": "Pamphobeteus fortis",
+      "familia": "Theraphosidae",
+      "precio": 26,
+      "stock": 30,
+      "orden": "Araneae",
+      "subfamilia": "Theraphosinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-008",
+      "nombre": "Nhandu chromatus",
+      "familia": "Theraphosidae",
+      "precio": 20,
+      "stock": 50,
+      "orden": "Araneae",
+      "subfamilia": "Theraphosinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-009",
+      "nombre": "Nhandu coloratovillosus",
+      "familia": "Theraphosidae",
+      "precio": 18,
+      "stock": 55,
+      "orden": "Araneae",
+      "subfamilia": "Theraphosinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-010",
+      "nombre": "Avicularia avicularia",
+      "familia": "Theraphosidae",
+      "precio": 18,
+      "stock": 55,
+      "orden": "Araneae",
+      "subfamilia": "Aviculariinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-011",
+      "nombre": "Avicularia metallica",
+      "familia": "Theraphosidae",
+      "precio": 20,
+      "stock": 50,
+      "orden": "Araneae",
+      "subfamilia": "Aviculariinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-012",
+      "nombre": "Avicularia purpurea",
+      "familia": "Theraphosidae",
+      "precio": 22,
+      "stock": 45,
+      "orden": "Araneae",
+      "subfamilia": "Aviculariinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-013",
+      "nombre": "Avicularia minatrix",
+      "familia": "Theraphosidae",
+      "precio": 20,
+      "stock": 50,
+      "orden": "Araneae",
+      "subfamilia": "Aviculariinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-014",
+      "nombre": "Avicularia juruensis",
+      "familia": "Theraphosidae",
+      "precio": 18,
+      "stock": 55,
+      "orden": "Araneae",
+      "subfamilia": "Aviculariinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-015",
+      "nombre": "Chromatopelma cyaneopubescens",
+      "familia": "Theraphosidae",
+      "precio": 28,
+      "stock": 30,
+      "orden": "Araneae",
+      "subfamilia": "Theraphosinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-016",
+      "nombre": "Xenesthis immanis",
+      "familia": "Theraphosidae",
+      "precio": 30,
+      "stock": 25,
+      "orden": "Araneae",
+      "subfamilia": "Theraphosinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-017",
+      "nombre": "Xenesthis monstrosa",
+      "familia": "Theraphosidae",
+      "precio": 28,
+      "stock": 28,
+      "orden": "Araneae",
+      "subfamilia": "Theraphosinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-018",
+      "nombre": "Iridopelma hirsutum",
+      "familia": "Theraphosidae",
+      "precio": 16,
+      "stock": 65,
+      "orden": "Araneae",
+      "subfamilia": "Aviculariinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-019",
+      "nombre": "Iridopelma zorodes",
+      "familia": "Theraphosidae",
+      "precio": 16,
+      "stock": 65,
+      "orden": "Araneae",
+      "subfamilia": "Aviculariinae",
+      "imagenes": []
+    },
+    {
+      "id": "THE-020",
+      "nombre": "Tapinauchenius plumipes",
+      "familia": "Theraphosidae",
+      "precio": 17,
+      "stock": 60,
+      "orden": "Araneae",
+      "subfamilia": "Aviculariinae",
+      "imagenes": []
+    },
+    {
+      "id": "SPA-001",
+      "nombre": "Heteropoda venatoria",
+      "familia": "Sparassidae",
+      "precio": 12,
+      "stock": 100,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "SPA-002",
+      "nombre": "Heteropoda maxima",
+      "familia": "Sparassidae",
+      "precio": 15,
+      "stock": 80,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "SPA-003",
+      "nombre": "Sparassus argelasius",
+      "familia": "Sparassidae",
+      "precio": 10,
+      "stock": 120,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "SPA-004",
+      "nombre": "Olios giganteus",
+      "familia": "Sparassidae",
+      "precio": 11,
+      "stock": 110,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "SPA-005",
+      "nombre": "Olios argelasius",
+      "familia": "Sparassidae",
+      "precio": 10,
+      "stock": 120,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "SPA-006",
+      "nombre": "Delena cancerides",
+      "familia": "Sparassidae",
+      "precio": 9,
+      "stock": 130,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "SPA-007",
+      "nombre": "Micrommata virescens",
+      "familia": "Sparassidae",
+      "precio": 10,
+      "stock": 120,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "SPA-008",
+      "nombre": "Palystes castaneus",
+      "familia": "Sparassidae",
+      "precio": 9,
+      "stock": 130,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "NEP-001",
+      "nombre": "Nephila clavipes",
+      "familia": "Nephilidae",
+      "precio": 14,
+      "stock": 80,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "NEP-002",
+      "nombre": "Nephila pilipes",
+      "familia": "Nephilidae",
+      "precio": 15,
+      "stock": 75,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "NEP-003",
+      "nombre": "Nephilengys cruentata",
+      "familia": "Nephilidae",
+      "precio": 12,
+      "stock": 100,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "NEP-004",
+      "nombre": "Nephila senegalensis",
+      "familia": "Nephilidae",
+      "precio": 13,
+      "stock": 90,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "NEP-005",
+      "nombre": "Nephilingis livida",
+      "familia": "Nephilidae",
+      "precio": 11,
+      "stock": 110,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "ARA-001",
+      "nombre": "Argiope argentata",
+      "familia": "Araneidae",
+      "precio": 8,
+      "stock": 160,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "ARA-002",
+      "nombre": "Argiope aurantia",
+      "familia": "Araneidae",
+      "precio": 8,
+      "stock": 160,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "ARA-003",
+      "nombre": "Argiope trifasciata",
+      "familia": "Araneidae",
+      "precio": 7,
+      "stock": 175,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "ARA-004",
+      "nombre": "Gasteracantha cancriformis",
+      "familia": "Araneidae",
+      "precio": 9,
+      "stock": 145,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "ARA-005",
+      "nombre": "Micrathena gracilis",
+      "familia": "Araneidae",
+      "precio": 7,
+      "stock": 175,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "ARA-006",
+      "nombre": "Micrathena sagittata",
+      "familia": "Araneidae",
+      "precio": 7,
+      "stock": 175,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "ARA-007",
+      "nombre": "Larinioides cornutus",
+      "familia": "Araneidae",
+      "precio": 6,
+      "stock": 190,
+      "orden": "Araneae",
+      "imagenes": []
+    },
+    {
+      "id": "SCO-001",
+      "nombre": "Tityus serrulatus",
+      "familia": "Buthidae",
+      "precio": 18,
+      "stock": 55,
+      "orden": "Scorpiones",
+      "subfamilia": "Buthidae",
+      "imagenes": []
+    },
+    {
+      "id": "SCO-002",
+      "nombre": "Tityus cambridgei",
+      "familia": "Buthidae",
+      "precio": 16,
+      "stock": 65,
+      "orden": "Scorpiones",
+      "subfamilia": "Buthidae",
+      "imagenes": []
+    },
+    {
+      "id": "SCO-003",
+      "nombre": "Tityus bahiensis",
+      "familia": "Buthidae",
+      "precio": 15,
+      "stock": 70,
+      "orden": "Scorpiones",
+      "subfamilia": "Buthidae",
+      "imagenes": []
+    },
+    {
+      "id": "SCO-004",
+      "nombre": "Tityus fasciolatus",
+      "familia": "Buthidae",
+      "precio": 15,
+      "stock": 70,
+      "orden": "Scorpiones",
+      "subfamilia": "Buthidae",
+      "imagenes": []
+    },
+    {
+      "id": "SCO-005",
+      "nombre": "Centruroides sculpturatus",
+      "familia": "Buthidae",
+      "precio": 16,
+      "stock": 65,
+      "orden": "Scorpiones",
+      "subfamilia": "Buthidae",
+      "imagenes": []
+    },
+    {
+      "id": "SCO-006",
+      "nombre": "Centruroides gracilis",
+      "familia": "Buthidae",
+      "precio": 14,
+      "stock": 80,
+      "orden": "Scorpiones",
+      "subfamilia": "Buthidae",
+      "imagenes": []
+    },
+    {
+      "id": "SCO-007",
+      "nombre": "Rhopalurus junceus",
+      "familia": "Buthidae",
+      "precio": 18,
+      "stock": 55,
+      "orden": "Scorpiones",
+      "subfamilia": "Buthidae",
+      "imagenes": []
+    },
+    {
+      "id": "SCO-008",
+      "nombre": "Androctonus australis",
+      "familia": "Buthidae",
+      "precio": 20,
+      "stock": 50,
+      "orden": "Scorpiones",
+      "subfamilia": "Buthidae",
+      "imagenes": []
+    },
+    {
+      "id": "SCO-009",
+      "nombre": "Hadrurus arizonensis",
+      "familia": "Chactidae",
+      "precio": 15,
+      "stock": 70,
+      "orden": "Scorpiones",
+      "subfamilia": "Chactidae",
+      "imagenes": []
+    },
+    {
+      "id": "SCO-010",
+      "nombre": "Vaejovis spinigerus",
+      "familia": "Chactidae",
+      "precio": 12,
+      "stock": 100,
+      "orden": "Scorpiones",
+      "subfamilia": "Chactidae",
+      "imagenes": []
+    },
+    {
+      "id": "SCO-011",
+      "nombre": "Pandinus imperator",
+      "familia": "Scorpionidae",
+      "precio": 22,
+      "stock": 45,
+      "orden": "Scorpiones",
+      "subfamilia": "Scorpionidae",
+      "imagenes": []
+    },
+    {
+      "id": "SCO-012",
+      "nombre": "Pandinus cavimanus",
+      "familia": "Scorpionidae",
+      "precio": 20,
+      "stock": 50,
+      "orden": "Scorpiones",
+      "subfamilia": "Scorpionidae",
+      "imagenes": []
+    },
+    {
+      "id": "SCO-013",
+      "nombre": "Heterometrus longimanus",
+      "familia": "Scorpionidae",
+      "precio": 18,
+      "stock": 55,
+      "orden": "Scorpiones",
+      "subfamilia": "Scorpionidae",
+      "imagenes": []
+    },
+    {
+      "id": "SCO-014",
+      "nombre": "Opistophthalmus carinatus",
+      "familia": "Scorpionidae",
+      "precio": 16,
+      "stock": 65,
+      "orden": "Scorpiones",
+      "subfamilia": "Scorpionidae",
+      "imagenes": []
+    },
+    {
+      "id": "CHI-001",
+      "nombre": "Scolopendra gigantea",
+      "familia": "Scolopendridae",
+      "precio": 20,
+      "stock": 50,
+      "orden": "Chilopoda",
+      "subfamilia": "Scolopendrinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHI-002",
+      "nombre": "Scolopendra polymorpha",
+      "familia": "Scolopendridae",
+      "precio": 15,
+      "stock": 75,
+      "orden": "Chilopoda",
+      "subfamilia": "Scolopendrinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHI-003",
+      "nombre": "Scolopendra subspinipes",
+      "familia": "Scolopendridae",
+      "precio": 14,
+      "stock": 80,
+      "orden": "Chilopoda",
+      "subfamilia": "Scolopendrinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHI-004",
+      "nombre": "Scolopendra morsitans",
+      "familia": "Scolopendridae",
+      "precio": 13,
+      "stock": 90,
+      "orden": "Chilopoda",
+      "subfamilia": "Scolopendrinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHI-005",
+      "nombre": "Scolopendra cingulata",
+      "familia": "Scolopendridae",
+      "precio": 12,
+      "stock": 100,
+      "orden": "Chilopoda",
+      "subfamilia": "Scolopendrinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHI-006",
+      "nombre": "Rhysida longipes",
+      "familia": "Scolopendridae",
+      "precio": 11,
+      "stock": 110,
+      "orden": "Chilopoda",
+      "subfamilia": "Scolopendrinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHI-007",
+      "nombre": "Ethmostigmus rubripes",
+      "familia": "Scolopendridae",
+      "precio": 12,
+      "stock": 100,
+      "orden": "Chilopoda",
+      "subfamilia": "Scolopendrinae",
+      "imagenes": []
+    },
+    {
+      "id": "CHI-008",
+      "nombre": "Scutigera coleoptrata",
+      "familia": "Scutigeridae",
+      "precio": 8,
+      "stock": 160,
+      "orden": "Chilopoda",
+      "imagenes": []
+    },
+    {
+      "id": "CHI-009",
+      "nombre": "Thereuopoda longicornis",
+      "familia": "Scutigeridae",
+      "precio": 9,
+      "stock": 145,
+      "orden": "Chilopoda",
+      "imagenes": []
+    },
+    {
+      "id": "PHA-001",
+      "nombre": "Phasma gigas",
+      "familia": "Phasmatidae",
+      "precio": 18,
+      "stock": 60,
+      "orden": "Phasmatodea",
+      "subfamilia": "Phasmatinae",
+      "imagenes": []
+    },
+    {
+      "id": "PHA-002",
+      "nombre": "Phobaeticus chani",
+      "familia": "Phasmatidae",
+      "precio": 22,
+      "stock": 45,
+      "orden": "Phasmatodea",
+      "subfamilia": "Phasmatinae",
+      "imagenes": []
+    },
+    {
+      "id": "PHA-003",
+      "nombre": "Phobaeticus serratipes",
+      "familia": "Phasmatidae",
+      "precio": 20,
+      "stock": 50,
+      "orden": "Phasmatodea",
+      "subfamilia": "Phasmatinae",
+      "imagenes": []
+    },
+    {
+      "id": "PHA-004",
+      "nombre": "Phobaeticus kirbyii",
+      "familia": "Phasmatidae",
+      "precio": 18,
+      "stock": 58,
+      "orden": "Phasmatodea",
+      "subfamilia": "Phasmatinae",
+      "imagenes": []
+    },
+    {
+      "id": "PHA-005",
+      "nombre": "Ctenomorpha chronus",
+      "familia": "Phasmatidae",
+      "precio": 16,
+      "stock": 70,
+      "orden": "Phasmatodea",
+      "subfamilia": "Cladomorphinae",
+      "imagenes": []
+    },
+    {
+      "id": "PHA-006",
+      "nombre": "Ctenomorpha marginipennis",
+      "familia": "Phasmatidae",
+      "precio": 15,
+      "stock": 75,
+      "orden": "Phasmatodea",
+      "subfamilia": "Cladomorphinae",
+      "imagenes": []
+    },
+    {
+      "id": "PHA-007",
+      "nombre": "Tropidoderus childrenii",
+      "familia": "Phasmatidae",
+      "precio": 14,
+      "stock": 80,
+      "orden": "Phasmatodea",
+      "subfamilia": "Phasmatinae",
+      "imagenes": []
+    },
+    {
+      "id": "PHA-008",
+      "nombre": "Extatosoma tiaratum",
+      "familia": "Phasmatidae",
+      "precio": 16,
+      "stock": 70,
+      "orden": "Phasmatodea",
+      "subfamilia": "Phasmatinae",
+      "imagenes": []
+    },
+    {
+      "id": "PHA-009",
+      "nombre": "Haaniella echinata",
+      "familia": "Phasmatidae",
+      "precio": 15,
+      "stock": 75,
+      "orden": "Phasmatodea",
+      "subfamilia": "Cladomorphinae",
+      "imagenes": []
+    },
+    {
+      "id": "PHA-010",
+      "nombre": "Diapheromera femorata",
+      "familia": "Diapheromeridae",
+      "precio": 10,
+      "stock": 120,
+      "orden": "Phasmatodea",
+      "imagenes": []
+    },
+    {
+      "id": "PHA-011",
+      "nombre": "Medauroidea extradentata",
+      "familia": "Diapheromeridae",
+      "precio": 12,
+      "stock": 100,
+      "orden": "Phasmatodea",
+      "imagenes": []
+    },
+    {
+      "id": "PHA-012",
+      "nombre": "Bacillus rossius",
+      "familia": "Diapheromeridae",
+      "precio": 8,
+      "stock": 150,
+      "orden": "Phasmatodea",
+      "imagenes": []
+    }
+  ]
+}
