@@ -38,14 +38,20 @@ export async function getFamilias() {
 
     for (const famId of fuente.familias) {
       const espFam = especies.filter((e: any) => e.familia === famId)
-      const famInfo = (data.familias || []).find((f: any) => f.id === famId)
+      // Construir subfamilias si existen
+      const subfamiliaSet = new Set(espFam.map((e: any) => e.subfamilia).filter(Boolean))
+      const sub = Array.from(subfamiliaSet).map((sf: any) => ({
+        id: sf,
+        nm: sf,
+        e:  espFam.filter((e: any) => e.subfamilia === sf),
+      }))
       familias.push({
         id:    famId,
         nm:    famId,
         orden: fuente.orden,
         total: espFam.length,
         e:     espFam,
-        sub:   [],
+        sub:   sub,
       })
     }
   }
