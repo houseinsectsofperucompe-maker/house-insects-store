@@ -5,8 +5,11 @@ const G='#C9A84C',BD='rgba(201,168,76,0.35)',BG='#0a0a0a'
 
 const ESPACIOS_NM:Record<string,string>={
   hero:'Banner Hero',header:'Banner Header',footer:'Banner Footer',
-  sidebar:'Banner Sidebar',
-  'entre-productos':'Entre Productos',carrito:'Banner Carrito',especimen:'Banner Espécimen'
+  'sidebar-izquierdo':'Sidebar Izquierdo',
+  'sidebar-derecho':'Sidebar Derecho',
+  'entre-productos':'Entre Productos',carrito:'Banner Carrito',especimen:'Banner Espécimen',
+  'popup':'Popup / Modal',
+  'flotante':'Banner Flotante'
 }
 
 const RUBROS=[
