@@ -70,8 +70,19 @@ export default function EspecimenPage() {
         // Buscar en el JSON de especimenes-biologicos-secos
         const res = await fetch('/data/rubros/especimenes-biologicos-secos.json')
         const data = await res.json()
+        // Buscar por id exacto O por formato legacy (Brassolidae-2 → BRA-002)
         const found: Especie | undefined = data.especies.find(
-          (e: Especie) => e.id === id
+          (e: Especie) => {
+            if (e.id === id) return true
+            // convertir Brassolidae-2 a BRA-002 para compatibilidad
+            const parts = id.split('-')
+            if (parts.length === 2) {
+              const prefix = parts[0].slice(0,3).toUpperCase()
+              const num = parts[1].padStart(3,'0')
+              return e.id === `${prefix}-${num}`
+            }
+            return false
+          }
         )
         if (found) {
           setEspecie(found)
