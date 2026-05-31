@@ -13,11 +13,11 @@
   "footer": {
     "derechos": "© 2026 House Insects of Peru E.I.R.L. Todos los derechos reservados."
   },
-  "especimen_desc": "Espécimen biológico seco de la Amazonía peruana. Certificado SERFOR/CITES.",
-  "agregar_carrito": "Agregar al Carrito",
-  "ver_catalogo": "Ver Catálogo",
-  "en_stock": "En stock",
-  "sin_stock": "Sin stock",
+  "especimen_desc": "Dry biological specimen from the Peruvian Amazon. SERFOR/CITES certified.",
+  "agregar_carrito": "Add to Cart",
+  "ver_catalogo": "View Catalogue",
+  "en_stock": "In stock",
+  "sin_stock": "Out of stock",
   "precio_desde": "Precio desde",
   "calidad_label": "Calidad",
   "sexo_label": "Sexo/Tipo",
@@ -25,10 +25,10 @@
   "familia_label": "Familia",
   "orden_label": "Orden",
   "exportacion": "Exportación mundial certificada",
-  "seo_titulo": "Especímenes Biológicos — House Insects of Peru",
-  "seo_desc": "Mariposas, coleópteros y artrópodos secos de la Amazonía peruana. SERFOR, CITES.",
-  "mayorista": "Mayorista",
-  "minorista": "Minorista",
-  "consultar_whatsapp": "Consultar por WhatsApp",
-  "volver_catalogo": "← Volver al catálogo"
+  "seo_titulo": "Biological Specimens — House Insects of Peru",
+  "seo_desc": "Butterflies, beetles and arthropods from the Peruvian Amazon. SERFOR, CITES.",
+  "mayorista": "Wholesale",
+  "minorista": "Retail",
+  "consultar_whatsapp": "Contact via WhatsApp",
+  "volver_catalogo": "← Back to catalogue"
 }
