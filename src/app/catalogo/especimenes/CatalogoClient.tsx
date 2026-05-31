@@ -56,7 +56,6 @@ const ORDENES_BASE:Orden[] = [
   { o:'Coleoptera', f:['Buprestidae','Carabidae','Cerambycidae','Cicindelidae','Curculionidae','Dynastidae','Lampyridae','Lucanidae','Scarabaeidae','Staphylinidae'].map(id=>({id,nm:id,e:[]})) },
   { o:'Arthropoda', f:['Arachnida','Chilopoda','Diplopoda','Mantodea','Phasmatodea','Scorpiones','Solifugae','Tarantulas'].map(id=>({id,nm:id,e:[]})) },
 ]
-
 function CatalogoInner({familias}:{familias:any[]}) {
   const searchParams = useSearchParams()
   const [ordenes, setOrdenes] = useState<Orden[]>(ORDENES_BASE)
