@@ -66,7 +66,7 @@ export default function ColeopteraPage(){
   const marcoSel=MARCOS.find(m=>m.id===marco.id)||MARCOS[0]
 
   useEffect(()=>{
-    r.get<Fam[]>('catalogo:familias').then(d=>{
+    r.get('catalogo:familias').then((raw:any)=>{ let d=typeof raw==='string'?JSON.parse(raw):raw
       if(!d)return
       setCol(d.filter(f=>f.orden==='Coleoptera'))
       setArt(d.filter(f=>f.orden==='Arthropoda'))
