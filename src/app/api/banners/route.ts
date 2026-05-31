@@ -1,93 +1,131 @@
-import {NextRequest,NextResponse} from 'next/server'
-import {Redis} from '@upstash/redis'
+import { NextRequest, NextResponse } from 'next/server'
+import fs from 'fs'
+import path from 'path'
 
-const r=new Redis({url:'https://topical-weasel-107403.upstash.io',token:'gQAAAAAAAaOLAAIgcDExZGYyODVjMzY1Mjc0OTY1YjcyYjZiMzIzZjhmYTgxOA'})
+const FILE = path.join(process.cwd(), 'public', 'data', 'banners.json')
 
-type Banner={id:string,espacioId:string,titulo:string,subtitulo:string,cta:string,url:string,imagen:string,color:string,colorTexto:string,activo:boolean,orden:number,rubros:string[],idiomas:string[]}
-
-export async function GET(req:NextRequest){
-  const espacio=req.nextUrl.searchParams.get('espacio')||''
-  const rubro=req.nextUrl.searchParams.get('rubro')||'todos'
-  
-  const banners=await r.get<Banner[]>('banners:activos')
-  if(!banners) return NextResponse.json({banner:null})
-  
-  if(espacio==='all') return NextResponse.json({todos:banners})
-
-  const candidatos=banners
-    .filter(b=>b.activo&&b.espacioId===espacio)
-    .filter(b=>b.rubros?.includes('todos')||b.rubros?.includes(rubro))
-    .sort((a,b)=>(a.orden||0)-(b.orden||0))
-
-  // Si pide todos los banners del espacio
-  const todosEspacio=req.nextUrl.searchParams.get('todos')
-  if(todosEspacio) return NextResponse.json({banners:candidatos})
-  
-  return NextResponse.json({banner:candidatos[0]||null,banners:candidatos})
+type Banner = {
+  id: string
+  espacioId: string
+  empresa: string
+  titulo: string
+  subtitulo: string
+  cta: string
+  url: string
+  imagen: string
+  video?: string
+  color: string
+  colorTexto: string
+  activo: boolean
+  orden: number
+  rubros: string[]
+  idiomas: string[]
+  fechaInicio: string
+  fechaFin: string
 }
 
-export async function POST(req:NextRequest){
-  const body=await req.json()
-  const {accion,banner,id,campo,valor}=body
-  
-  const banners=await r.get<Banner[]>('banners:activos')||[]
-  
-  if(accion==='crear'){
-    const nuevo={...banner,id:'ban_'+Date.now(),orden:banners.length+1,activo:true}
-    await r.set('banners:activos',[...banners,nuevo])
-    return NextResponse.json({ok:true,banner:nuevo})
-  }
-  
-  if(accion==='toggleActivo'){
-    const nuevos=banners.map(b=>b.id===id?{...b,activo:!b.activo}:b)
-    await r.set('banners:activos',nuevos)
-    return NextResponse.json({ok:true})
-  }
-  
-  if(accion==='eliminar'){
-    await r.set('banners:activos',banners.filter(b=>b.id!==id))
-    return NextResponse.json({ok:true})
-  }
-  
-  if(accion==='subir'){
-    const idx=banners.findIndex(b=>b.id===id)
-    if(idx>0){
-      const nuevos=[...banners]
-      ;[nuevos[idx-1],nuevos[idx]]=[nuevos[idx],nuevos[idx-1]]
-      nuevos.forEach((b,i)=>b.orden=i+1)
-      await r.set('banners:activos',nuevos)
+function leer(): Banner[] {
+  try {
+    if (!fs.existsSync(FILE)) return []
+    return JSON.parse(fs.readFileSync(FILE, 'utf-8'))
+  } catch { return [] }
+}
+
+function guardar(data: Banner[]) {
+  fs.mkdirSync(path.dirname(FILE), { recursive: true })
+  fs.writeFileSync(FILE, JSON.stringify(data, null, 2), 'utf-8')
+}
+
+export async function GET(req: NextRequest) {
+  const espacio = req.nextUrl.searchParams.get('espacio') || ''
+  const rubro   = req.nextUrl.searchParams.get('rubro')   || 'todos'
+  const banners = leer()
+
+  if (espacio === 'all') return NextResponse.json({ todos: banners })
+
+  const candidatos = banners
+    .filter(b => b.activo && b.espacioId === espacio)
+    .filter(b => b.rubros?.includes('todos') || b.rubros?.includes(rubro))
+    .sort((a, b) => (a.orden||0) - (b.orden||0))
+
+  const todosEspacio = req.nextUrl.searchParams.get('todos')
+  if (todosEspacio) return NextResponse.json({ banners: candidatos })
+
+  return NextResponse.json({ banner: candidatos[0]||null, banners: candidatos })
+}
+
+export async function POST(req: NextRequest) {
+  const body    = await req.json()
+  const accion  = body.accion
+  const id      = body.id
+  const valor   = body.valor
+  const campo   = body.campo
+  let banners   = leer()
+
+  if (accion === 'crear') {
+    const nuevo: Banner = {
+      id:          `banner-${Date.now()}`,
+      espacioId:   body.espacioId || 'hero',
+      empresa:     body.empresa   || '',
+      titulo:      body.titulo    || '',
+      subtitulo:   body.subtitulo || '',
+      cta:         body.cta       || '',
+      url:         body.url       || '',
+      imagen:      body.imagen    || '',
+      video:       body.video     || '',
+      color:       body.color     || '#1a1000',
+      colorTexto:  body.colorTexto|| '#d4af37',
+      activo:      true,
+      orden:       banners.length,
+      rubros:      body.rubros    || ['todos'],
+      idiomas:     body.idiomas   || ['todos'],
+      fechaInicio: body.fechaInicio || '',
+      fechaFin:    body.fechaFin    || '',
     }
-    return NextResponse.json({ok:true})
+    banners.push(nuevo)
+    guardar(banners)
+    return NextResponse.json({ ok: true, id: nuevo.id })
   }
-  
-  if(accion==='bajar'){
-    const idx=banners.findIndex(b=>b.id===id)
-    if(idx<banners.length-1){
-      const nuevos=[...banners]
-      ;[nuevos[idx],nuevos[idx+1]]=[nuevos[idx+1],nuevos[idx]]
-      nuevos.forEach((b,i)=>b.orden=i+1)
-      await r.set('banners:activos',nuevos)
-    }
-    return NextResponse.json({ok:true})
+
+  if (accion === 'eliminar') {
+    banners = banners.filter(b => b.id !== id)
+    guardar(banners)
+    return NextResponse.json({ ok: true })
   }
-  
-  if(accion==='moverEspacio'){
-    const nuevos=banners.map(b=>b.id===id?{...b,espacioId:valor}:b)
-    await r.set('banners:activos',nuevos)
-    return NextResponse.json({ok:true})
+
+  if (accion === 'toggleActivo') {
+    banners = banners.map(b => b.id === id ? {...b, activo: !b.activo} : b)
+    guardar(banners)
+    return NextResponse.json({ ok: true })
   }
-  
-  if(accion==='cambiarRubros'){
-    const nuevos=banners.map(b=>b.id===id?{...b,rubros:valor}:b)
-    await r.set('banners:activos',nuevos)
-    return NextResponse.json({ok:true})
+
+  if (accion === 'reordenar') {
+    const ids: string[] = body.ids || []
+    banners = ids.map((bid, i) => {
+      const b = banners.find(x => x.id === bid)
+      return b ? {...b, orden: i} : null
+    }).filter(Boolean) as Banner[]
+    guardar(banners)
+    return NextResponse.json({ ok: true })
   }
-  
-  if(accion==='actualizar'){
-    const nuevos=banners.map(b=>b.id===id?{...b,[campo]:valor}:b)
-    await r.set('banners:activos',nuevos)
-    return NextResponse.json({ok:true})
+
+  if (accion === 'moverEspacio') {
+    banners = banners.map(b => b.id === id ? {...b, espacioId: valor} : b)
+    guardar(banners)
+    return NextResponse.json({ ok: true })
   }
-  
-  return NextResponse.json({ok:false,error:'Acción no reconocida'})
+
+  if (accion === 'cambiarRubros') {
+    banners = banners.map(b => b.id === id ? {...b, rubros: valor} : b)
+    guardar(banners)
+    return NextResponse.json({ ok: true })
+  }
+
+  if (accion === 'actualizar') {
+    banners = banners.map(b => b.id === id ? {...b, [campo]: valor} : b)
+    guardar(banners)
+    return NextResponse.json({ ok: true })
+  }
+
+  return NextResponse.json({ ok: false, error: 'Acción no reconocida' })
 }
