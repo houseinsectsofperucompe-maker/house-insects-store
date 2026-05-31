@@ -437,7 +437,9 @@ export default function EspecimenPage() {
                   {especie.orden     && <div><b style={{color:'#d4af37'}}>Orden:</b> {especie.orden}</div>}
                   {especie.suborden  && <div><b style={{color:'#d4af37'}}>Suborden:</b> {especie.suborden}</div>}
                   {especie.subespecie&& <div><b style={{color:'#d4af37'}}>Subespecie:</b> {especie.subespecie}</div>}
-                  <div><b style={{color:'#d4af37'}}>Calidad:</b> {calidad}</div>
+                  {(especie as any).sexo && <div><b style={{color:'#d4af37'}}>Sexo/Tipo:</b> {(especie as any).sexo}</div>}
+                  {(especie as any).diametro && <div><b style={{color:'#d4af37'}}>Diámetro:</b> {(especie as any).diametro} cm</div>}
+                  {(especie as any).calidad && <div><b style={{color:'#d4af37'}}>Calidad:</b> {(especie as any).calidad}</div>}
                   <div><b style={{color:'#d4af37'}}>Partida:</b> 9705.21.00.00</div>
                   <div><b style={{color:'#d4af37'}}>CITES:</b> Apéndice II</div>
                   <div><b style={{color:'#d4af37'}}>Permiso:</b> SERFOR</div>
