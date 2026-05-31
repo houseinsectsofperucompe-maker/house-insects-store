@@ -8,17 +8,25 @@ import { useCarrito, ItemCarrito } from '@/components/CarritoContext'
 // TIPOS
 // ══════════════════════════════════════════════════════════════════
 interface Especie {
-  id:          string
-  nombre:      string
-  familia:     string
-  precio:      number
-  stock:       number
-  imagenes:    string[]
-  videos?:     string[]
-  orden?:      string
-  suborden?:   string
-  subfamilia?: string
-  subespecie?: string
+  id:            string
+  nombre:        string
+  familia:       string
+  precio:        number
+  stock:         number
+  imagenes:      string[]
+  videos?:       string[]
+  orden?:        string
+  suborden?:     string
+  subfamilia?:   string
+  subespecie?:   string
+  sexo?:         string
+  diametro?:     string
+  calidad?:      string
+  presentacion?: string
+  seoTitulo?:    string
+  seoDesc?:      string
+  seoKeywords?:  string
+  desc?:         string
 }
 
 type TabFoto = 'Frente' | 'Lado' | 'Reverso' | 'Video'
@@ -86,6 +94,32 @@ export default function EspecimenPage() {
         )
         if (found) {
           setEspecie(found)
+        // Meta tags SEO dinamicos
+        if (found) {
+          const titulo = (found as any).seoTitulo || `${found.nombre} — House Insects of Peru`
+          const desc = (found as any).seoDesc || `${found.nombre} · ${found.familia} · Amazonia peruana · SERFOR/CITES`
+          const keywords = (found as any).seoKeywords || `${found.nombre}, ${found.familia}, specimen Peru, mariposa seca, CITES`
+          document.title = titulo
+          // meta description
+          let metaDesc = document.querySelector('meta[name=description]')
+          if (!metaDesc) { metaDesc = document.createElement('meta'); (metaDesc as any).name='description'; document.head.appendChild(metaDesc) }
+          ;(metaDesc as any).content = desc
+          // meta keywords
+          let metaKw = document.querySelector('meta[name=keywords]')
+          if (!metaKw) { metaKw = document.createElement('meta'); (metaKw as any).name='keywords'; document.head.appendChild(metaKw) }
+          ;(metaKw as any).content = keywords
+          // Open Graph
+          const setOg = (prop:string, val:string) => {
+            let el = document.querySelector(`meta[property='${prop}']`)
+            if (!el) { el = document.createElement('meta'); (el as any).setAttribute('property',prop); document.head.appendChild(el) }
+            ;(el as any).content = val
+          }
+          setOg('og:title', titulo)
+          setOg('og:description', desc)
+          setOg('og:image', found.imagenes?.[0] || '')
+          setOg('og:type', 'product')
+          setOg('og:url', `https://houseinsectsofperu.com/catalogo/especimenes/${found.id}`)
+        }
         }
       } catch (err) {
         console.error('Error cargando espécimen:', err)
