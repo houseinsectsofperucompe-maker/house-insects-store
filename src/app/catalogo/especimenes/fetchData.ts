@@ -10,29 +10,40 @@ function leerJSON(archivo: string) {
 }
 
 export async function getFamilias() {
-  const archivos = [
-    { archivo: 'especimenes-biologicos-secos.json', orden: 'Lepidoptera Diurnae' },
-    { archivo: 'especimenes-nocturnas.json',        orden: 'Moths Nocturnas' },
-    { archivo: 'especimenes-coleopteros.json',      orden: 'Coleoptera' },
-    { archivo: 'especimenes-artropodos.json',       orden: 'Arthropoda' },
+  const fuentes = [
+    { archivo: 'especimenes-biologicos-secos.json', orden: 'Lepidoptera Diurnae',
+      familias: ['Brassolidae','Danidae','Heliconidae','Hesperiidae','Ithomiidae',
+                 'Lycaenidae','Morphidae','Nymphalidae','Papilionidae','Pieridae',
+                 'Riodinidae','Satyridae'] },
+    { archivo: 'especimenes-nocturnas.json', orden: 'Moths Nocturnas',
+      familias: ['Saturniidae','Sphingidae','Erebidae','Geometridae','Noctuidae',
+                 'Arctiidae','Castniidae','Hepalidae','Uranidae'] },
+    { archivo: 'especimenes-coleopteros.json', orden: 'Coleoptera',
+      familias: ['Buprestidae','Cerambycidae','Dynastidae','Cetonidae','Chrysomelidae',
+                 'Scarabaeidae','Cicindelidae','Curculionidae','Elateridae','Lucanidae',
+                 'Rutilidae','Euchiridae','Trictenotomidae'] },
+    { archivo: 'especimenes-artropodos.json', orden: 'Arthropoda',
+      familias: ['Theraphosidae','Sparassidae','Nephilidae','Araneidae',
+                 'Buthidae','Chactidae','Scorpionidae',
+                 'Scolopendridae','Scutigeridae',
+                 'Phasmatidae','Diapheromeridae'] },
   ]
 
   const familias: any[] = []
 
-  for (const { archivo, orden } of archivos) {
-    const data = leerJSON(archivo)
+  for (const fuente of fuentes) {
+    const data = leerJSON(fuente.archivo)
     if (!data) continue
-
     const especies = data.especies || []
-    const fams = data.familias || []
 
-    for (const fam of fams) {
-      const espFam = especies.filter((e: any) => e.familia === fam.id)
+    for (const famId of fuente.familias) {
+      const espFam = especies.filter((e: any) => e.familia === famId)
+      const famInfo = (data.familias || []).find((f: any) => f.id === famId)
       familias.push({
-        id:    fam.id,
-        nm:    fam.nombre || fam.id,
-        orden: orden,
-        total: fam.total || espFam.length,
+        id:    famId,
+        nm:    famId,
+        orden: fuente.orden,
+        total: espFam.length,
         e:     espFam,
         sub:   [],
       })
