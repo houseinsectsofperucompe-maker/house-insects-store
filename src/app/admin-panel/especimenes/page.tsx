@@ -554,6 +554,22 @@ export default function GestorEspecimenes() {
                     </div>
                   </div>
 
+                  {/* Sexo / Tipo */}
+                  <div style={{marginBottom:12}}>
+                    <label style={{fontSize:11,color:'#6b5a2e',display:'block',marginBottom:6}}>Sexo / Tipo</label>
+                    <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
+                      {['Male','Female','Pair','Gynandromorph','Aberration','Freak','Hybrid','Dimorphisme'].map(s => (
+                        <button key={s} onClick={()=>setEditando((p:any)=>({...p,sexo:s}))}
+                          style={{padding:'5px 10px',borderRadius:6,cursor:'pointer',fontSize:11,
+                            border:`1px solid ${(editando.sexo||espSel.sexo)===s?G:BD}`,
+                            background:(editando.sexo||espSel.sexo)===s?'rgba(201,168,76,0.15)':'transparent',
+                            color:(editando.sexo||espSel.sexo)===s?G:'#6b5a2e'}}>
+                          {s}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* Talla */}
                   <div style={{marginBottom:12}}>
                     <label style={{fontSize:11,color:'#6b5a2e',display:'block',marginBottom:6}}>Talla</label>
