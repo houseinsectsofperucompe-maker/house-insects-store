@@ -146,7 +146,7 @@ export default function NocturnasPage(){
                     <span style={{color:e.p?G:'rgba(201,168,76,0.4)',fontSize:'.8rem',fontWeight:e.p?700:400}}>
                       {e.p?`$${e.p} USD`:'Consultar'}
                     </span>
-                    <button onClick={()=>addItem({n:e.n,p:e.p||0,rubro:'nocturnas',foto:e.foto||''})}
+                    <button onClick={()=>addItem({id: String(Date.now()), nombre: e.n, p: e.p||0, rubro: 'nocturnas', foto: '', familia: ''})}
                       style={{padding:'5px 10px',background:G,color:'#0a0a0a',border:'none',
                         borderRadius:6,cursor:'pointer',fontSize:'.65rem',fontWeight:700,fontFamily:'Georgia,serif'}}>
                       🛒

@@ -355,13 +355,8 @@ export default function DiurnasPage(){
                   </div>
                 </div>
 
-                <button onClick={()=>addItem({
-                    n:`Cuadro ${mariposa.n} - ${marcoSel.nm} - ${modelo}`,
-                    p:0,rubro:'cuadros',
-                    foto:mariposa.foto||'',
-                    marco:marcoSel.nm,
-                    modelo:modelo
-                  })}
+                <button onClick={()=>addItem({id: String(Date.now()), nombre: `Cuadro ${mariposa.n} - ${marcoSel.nm} - ${modelo}`, p: 0, rubro: 'cuadros',
+                    foto: '', familia: ''})}
                   style={{width:'100%',padding:'14px',background:'#2ecc71',color:'#fff',
                     border:'none',borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',
                     fontSize:'.9rem',fontWeight:'bold',marginBottom:8}}>

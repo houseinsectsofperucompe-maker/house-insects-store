@@ -333,13 +333,8 @@ export default function ColeopteraPage(){
                     <p style={{color:G,fontSize:'1.8rem',margin:0,fontWeight:'bold'}}>Consultar</p>
                   </div>
                 </div>
-                <button onClick={()=>addItem({
-                    n:`Cuadro ${insecto.n} - ${marcoSel.nm} - ${modelo}`,
-                    p:0,rubro:'cuadros',
-                    foto:insecto.foto||'',
-                    marco:marcoSel.nm,
-                    modelo:modelo
-                  })}
+                <button onClick={()=>addItem({id: String(Date.now()), nombre: `Cuadro ${insecto.n} - ${marcoSel.nm} - ${modelo}`, p: 0, rubro: 'cuadros',
+                    foto: '', familia: ''})}
                   style={{width:'100%',padding:'14px',background:'#2ecc71',color:'#fff',
                     border:'none',borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',
                     fontSize:'.9rem',fontWeight:'bold',marginBottom:8}}>

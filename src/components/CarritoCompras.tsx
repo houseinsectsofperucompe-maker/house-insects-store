@@ -3,14 +3,14 @@ import BannerSlot from '@/components/BannerSlot'
 import dynamic from 'next/dynamic'
 const IzipayForm = dynamic(() => import('./IzipayForm'), { ssr: false })
 import { useState } from 'react'
-type Item={n:string;p:number;qty:number;rubro:string}
+type Item = any
 type C='exportafacil'|'ems'|'dhl'|'fedex'|'ups'|'aramex'|''
 type S='lloyds'|'ship'|'insurtech'|''
 const CI={exportafacil:{n:'Exporta Fácil',s:'Serpost · Económico',t:'15-30 días',i:'📦'},ems:{n:'EMS Serpost',s:'Express Internacional',t:'7-15 días',i:'✈️'},dhl:{n:'DHL Express',s:'Premium Mundial',t:'3-5 días',i:'🚀'},fedex:{n:'FedEx Intl.',s:'Premium Mundial',t:'3-5 días',i:'🚀'},ups:{n:'UPS Worldwide',s:'Confiable Global',t:'3-7 días',i:'📮'},aramex:{n:'Aramex',s:'Medio Oriente & Asia',t:'5-10 días',i:'🌍'}}
 const SI={lloyds:{n:"Lloyd's London",s:'Premium Internacional',i:'🛡️'},ship:{n:'Ship Insurance',s:'Marítimo & Carga',i:'🚢'},insurtech:{n:'Insurtech Digital',s:'Cobertura Digital',i:'📲'}}
 function permisos(r:string[]){const s=new Set(r);return{serfor:['especimenes','cuadros','nocturnas','coleoptera','rarezas','maderas'].some(x=>s.has(x)),fito:['especimenes','cuadros','nocturnas','coleoptera','rarezas','semillas','hongos','frutas','alimentos'].some(x=>s.has(x)),digesa:['semillas','hongos','frutas','alimentos','esencias'].some(x=>s.has(x))}}
 function desc(t:number){if(t>=2500)return 0.20;if(t>=1000)return 0.15;if(t>=500)return 0.10;if(t>=300)return 0.05;return 0}
-interface P{items:Item[];onClose:()=>void;onUpdateItems:(i:Item[])=>void;onPagar:(d:any)=>void}
+interface P{items:any[];onClose:()=>void;onUpdateItems:(i:any[])=>void;onPagar:(d:any)=>void}
 export default function CarritoCompras({items,onClose,onUpdateItems,onPagar}:P){
 const [courier,setCourier]=useState<C>('')
 const [seguro,setSeguro]=useState<S>('')

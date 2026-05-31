@@ -33,14 +33,7 @@ export default function PublicidadPage(){
   }
 
   const agregar=(e:typeof ESPACIOS[0])=>{
-    addItem({
-      n:`Publicidad ${e.nm} — ${plan.nm}`,
-      p:precio(e),
-      rubro:'publicidad',
-      foto:'',
-      marco:e.dim,
-      modelo:plan.nm
-    })
+    addItem({id: String(Date.now()), nombre: `Publicidad ${e.nm} — ${plan.nm}`, n: `Publicidad ${e.nm} — ${plan.nm}`, p: precio(e), rubro: 'publicidad', foto: '', familia: ''})
     setAgregados(prev=>[...prev,e.id])
   }
 
