@@ -724,6 +724,51 @@ Responde SOLO en JSON con esta estructura exacta:
                   </div>
 
                   {/* Botones de acción */}
+                  <div style={{ background: BG2, border: `1px solid ${G}`, borderRadius: 10, padding: 14, marginBottom: 14 }}>
+                    <div style={{ fontSize: 11, color: G, fontWeight: 700, marginBottom: 10 }}>🚀 Publicar este aviso</div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                      <button onClick={async () => {
+                        const res = await fetch('/api/banners', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({ accion: 'crear', empresa: 'House Insects of Peru',
+                            titulo: aviso.titular, subtitulo: aviso.subtitulo, cta: aviso.cta,
+                            url: 'https://houseinsectsofperu.com/catalogo/especimenes',
+                            imagen: imagenUrl, color: paleta.bg, colorTexto: paleta.accent,
+                            espacioId: 'hero', rubros: [rubro?.id || 'todos'],
+                            idiomas: [pais?.idioma || 'es'], activo: true }) })
+                        const d = await res.json()
+                        if (d.ok) alert('Banner publicado en website') else alert('Error: ' + d.error)
+                      }} style={{ width:'100%', padding:'10px', borderRadius:8, cursor:'pointer',
+                        background:'rgba(76,175,80,0.15)', color:'#4caf50', border:'1px solid rgba(76,175,80,0.3)',
+                        fontWeight:700, fontSize:13, fontFamily:'Georgia,serif', textAlign:'left' }}>
+                        🌐 Publicar como Banner en Website
+                      </button>
+                      <button onClick={async () => {
+                        const res = await fetch('/api/publicaciones', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({ accion: 'guardar', titular: aviso.titular, cuerpo: aviso.cuerpo,
+                            imagen: imagenUrl, hashtags: aviso.hashtags, cta: aviso.cta,
+                            url: 'https://houseinsectsofperu.com/catalogo/especimenes',
+                            plataformas: pais?.redes || [], rubroId: rubro?.id || '',
+                            paisId: pais?.id || '', idioma: pais?.idioma || 'es', formato: formato?.id || 'post' }) })
+                        const d = await res.json()
+                        if (d.ok) alert('Guardado en publicaciones') else alert('Error')
+                      }} style={{ width:'100%', padding:'10px', borderRadius:8, cursor:'pointer',
+                        background:'rgba(33,150,243,0.15)', color:'#2196f3', border:'1px solid rgba(33,150,243,0.3)',
+                        fontWeight:700, fontSize:13, fontFamily:'Georgia,serif', textAlign:'left' }}>
+                        📡 Guardar en Panel de Publicaciones
+                      </button>
+                      <div style={{ background:'#0a0600', border:`1px solid ${BD}`, borderRadius:6, padding:10 }}>
+                        <div style={{ fontSize:10, color:'#4a3a1a', marginBottom:6 }}>🔗 Link automático:</div>
+                        <div style={{ display:'flex', gap:6 }}>
+                          <input readOnly value={nombreEspecie ? `https://houseinsectsofperu.com/catalogo/especimenes?busq=${encodeURIComponent(nombreEspecie)}` : 'https://houseinsectsofperu.com/catalogo/especimenes'}
+                            style={{ flex:1, background:'transparent', border:'none', color:'#a08040', fontSize:10, fontFamily:'monospace' }}/>
+                          <button onClick={() => navigator.clipboard.writeText(nombreEspecie ? `https://houseinsectsofperu.com/catalogo/especimenes?busq=${encodeURIComponent(nombreEspecie)}` : 'https://houseinsectsofperu.com/catalogo/especimenes')}
+                            style={{ padding:'4px 8px', borderRadius:4, cursor:'pointer', background:'rgba(201,168,76,0.1)', color:'#C9A84C', border:'1px solid #2a1f0a', fontSize:10 }}>
+                            📋
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div style={{ display: 'flex', gap: 10 }}>
                     <button onClick={generarAviso}
                       style={{ flex: 1, padding: '10px', borderRadius: 8, cursor: 'pointer',
