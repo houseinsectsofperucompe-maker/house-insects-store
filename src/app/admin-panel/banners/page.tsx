@@ -1,536 +1,694 @@
 'use client'
-import {useState,useEffect} from 'react'
+import { useState, useEffect, useRef } from 'react'
 
-const G='#C9A84C',BD='rgba(201,168,76,0.35)',BG='#0a0a0a'
+const G = '#C9A84C', BG = '#0d0800', BG2 = '#111005', BD = '#2a1f0a'
+const btn = (bg: string, color: string, extra?: any) => ({
+  background: bg, color, border: 'none', padding: '6px 12px', borderRadius: 6,
+  cursor: 'pointer', fontSize: 11, fontFamily: 'Georgia,serif', fontWeight: 700, ...extra
+})
 
-const ESPACIOS_NM:Record<string,string>={
-  hero:'Banner Hero',header:'Banner Header',footer:'Banner Footer',
-  'sidebar-izquierdo':'Sidebar Izquierdo',
-  'sidebar-derecho':'Sidebar Derecho',
-  'entre-productos':'Entre Productos',carrito:'Banner Carrito',especimen:'Banner Espécimen',
-  'popup':'Popup / Modal',
-  'flotante':'Banner Flotante'
+const ESPACIOS: Record<string, string> = {
+  'hero':             '🎯 Banner Hero (Página principal)',
+  'header':           '📌 Banner Header (Todas las páginas)',
+  'sidebar-izquierdo':'◀️ Sidebar Izquierdo',
+  'sidebar-derecho':  '▶️ Sidebar Derecho',
+  'entre-productos':  '🛍️ Entre Productos (Catálogo)',
+  'carrito':          '🛒 Banner Carrito',
+  'especimen':        '🦋 Banner Espécimen',
+  'popup':            '💬 Popup / Modal',
+  'flotante':         '🎪 Banner Flotante',
 }
 
-const RUBROS=[
-  'todos','Especímenes Biológicos Secos','Cuadros Mariposas Diurnas','Joyería Natural',
-  'Rarezas & Gynandromorphs','Artesanías & Cúpulas','Herramientas Biológicas',
-  'Cuadros Mariposas Nocturnas','Cuadros Coleópteros & Artrópodos',
-  'Minerales & Piedras Preciosas','Semillas & Plantas Medicinales',
-  'Frutas Exóticas & Deshidratadas','Hongos & Productos Naturales',
-  'Textilería & Alpaca','Alimentos Deshidratados','Pinturas & Arte Rupestre',
-  'Maderas Finas & Esculturas','Esencias & Aceites Naturales'
+const RUBROS = [
+  'todos',
+  'especimenes','nocturnas','coleoptera','arthropoda',
+  'cuadros','joyeria','rarezas','artesanias','herramientas',
+  'minerales','semillas','frutas','hongos','textileria',
+  'alimentos','pinturas','maderas','esencias',
 ]
 
-type Banner={id:string,espacioId:string,empresa:string,titulo:string,subtitulo:string,cta:string,url:string,imagen:string,color:string,colorTexto:string,activo:boolean,orden:number,rubros:string[],idiomas:string[],fechaInicio:string,fechaFin:string}
+const IDIOMAS_DISP = [
+  'todos','es','en','zh','ja','ko','ar','de','fr','pt','it',
+  'ru','tr','th','vi','id','nl','pl','sv','da','fi','no',
+  'he','hi','fa','ms','uk','cs','ro','hu','el','bg','hr',
+  'sk','lt','lv','et','sr','af','sw','tl','bn','ur','ta',
+  'ca','is','mt','sl','mk','sq','az',
+]
 
-export default function BannersAdmin(){
-  const [tab,setTab]=useState<'activos'|'nuevo'|'espacios'>('activos')
-  const [banners,setBanners]=useState<Banner[]>([])
-  const [loading,setLoading]=useState(true)
-  const [guardando,setGuardando]=useState(false)
-  const [moviendo,setMoviendo]=useState<string|null>(null)
-  const [editando,setEditando]=useState<string|null>(null)
-  const [editData,setEditData]=useState<Record<string,string>>({})
-  const [subiendoEdit,setSubiendoEdit]=useState(false)
-  const [uploadMsgEdit,setUploadMsgEdit]=useState('')
+type Banner = {
+  id: string
+  espacioId: string
+  empresa: string
+  titulo: string
+  subtitulo: string
+  cta: string
+  url: string
+  imagen: string
+  video?: string
+  color: string
+  colorTexto: string
+  activo: boolean
+  orden: number
+  rubros: string[]
+  idiomas: string[]
+  fechaInicio: string
+  fechaFin: string
+  clics?: number
+  impresiones?: number
+}
 
-  const subirArchivoEdit=async(e:React.ChangeEvent<HTMLInputElement>)=>{
-    const file=e.target.files?.[0]
-    if(!file)return
-    setSubiendoEdit(true)
-    setUploadMsgEdit('Subiendo...')
-    const fd=new FormData()
-    fd.append('file',file)
-    try{
-      const res=await fetch('/api/upload-banner',{method:'POST',body:fd})
-      const d=await res.json()
-      if(d.ok){
-        if(d.tipo==='video') setEditData(prev=>({...prev,video:d.url}))
-        else setEditData(prev=>({...prev,imagen:d.url}))
-        setUploadMsgEdit('✅ '+d.url.split('/').pop())
-      }else setUploadMsgEdit('❌ '+d.error)
-    }catch{setUploadMsgEdit('❌ Error')}
-    setSubiendoEdit(false)
+const BANNER_VACIO: Omit<Banner,'id'|'orden'|'clics'|'impresiones'> = {
+  espacioId: 'hero', empresa: '', titulo: '', subtitulo: '', cta: 'Ver más',
+  url: '', imagen: '', video: '', color: '#1a1000', colorTexto: '#d4af37',
+  activo: true, rubros: ['todos'], idiomas: ['todos'],
+  fechaInicio: '', fechaFin: '',
+}
+
+export default function BannersAdmin() {
+  const [banners,    setBanners]    = useState<Banner[]>([])
+  const [loading,    setLoading]    = useState(true)
+  const [tab,        setTab]        = useState<'lista'|'editor'|'espacios'>('lista')
+  const [editando,   setEditando]   = useState<Banner | null>(null)
+  const [form,       setForm]       = useState<any>({...BANNER_VACIO})
+  const [subiendo,   setSubiendo]   = useState(false)
+  const [msg,        setMsg]        = useState('')
+  const [guardando,  setGuardando]  = useState(false)
+  const [filtroEsp,  setFiltroEsp]  = useState('todos')
+  const fileRef = useRef<HTMLInputElement>(null)
+  const vidRef  = useRef<HTMLInputElement>(null)
+
+  const mostrar = (m: string) => { setMsg(m); setTimeout(() => setMsg(''), 3000) }
+
+  // ── Cargar banners ─────────────────────────────────────────────
+  const cargar = async () => {
+    setLoading(true)
+    try {
+      const res = await fetch('/api/banners?espacio=all')
+      const d = await res.json()
+      setBanners(d.todos || [])
+    } catch { mostrar('❌ Error cargando') }
+    setLoading(false)
   }
 
-  const guardarEdicion=async(id:string)=>{
-    for(const [campo,valor] of Object.entries(editData)){
-      await accion({accion:'actualizar',id,campo,valor})
-    }
-    setBanners(prev=>prev.map(b=>b.id===id?{...b,...editData}:b))
-    setEditando(null)
-    setEditData({})
-    setUploadMsgEdit('')
-  }
+  useEffect(() => { cargar() }, [])
 
-  // Form nuevo
-  const [espacioSel,setEspacioSel]=useState('hero')
-  const [empresa,setEmpresa]=useState('')
-  const [titulo,setTitulo]=useState('')
-  const [subtitulo,setSubtitulo]=useState('')
-  const [cta,setCta]=useState('Ver más →')
-  const [url,setUrl]=useState('')
-  const [imagen,setImagen]=useState('')
-  const [video,setVideo]=useState('')
-  const [subiendo,setSubiendo]=useState(false)
-  const [uploadMsg,setUploadMsg]=useState('')
-
-  const subirArchivo=async(e:React.ChangeEvent<HTMLInputElement>)=>{
-    const file=e.target.files?.[0]
-    if(!file)return
+  // ── Subir imagen/video a Bunny.net ─────────────────────────────
+  const subirArchivo = async (file: File, tipo: 'imagen' | 'video') => {
     setSubiendo(true)
-    setUploadMsg('Subiendo...')
-    const fd=new FormData()
-    fd.append('file',file)
-    try{
-      const res=await fetch('/api/upload-banner',{method:'POST',body:fd})
-      const d=await res.json()
-      if(d.ok){
-        if(d.tipo==='video') setVideo(d.url)
-        else setImagen(d.url)
-        setUploadMsg('✅ Subido: '+d.url.split('/').pop())
-      }else{
-        setUploadMsg('❌ Error: '+d.error)
-      }
-    }catch{setUploadMsg('❌ Error al subir')}
+    const fd = new FormData()
+    fd.append('file', file)
+    try {
+      const res = await fetch('/api/upload-banner', { method: 'POST', body: fd })
+      const d = await res.json()
+      if (d.ok) {
+        setForm((p: any) => ({ ...p, [tipo]: d.url }))
+        mostrar(`✅ ${tipo} subido`)
+      } else mostrar('❌ ' + d.error)
+    } catch { mostrar('❌ Error de conexión') }
     setSubiendo(false)
   }
-  const [colorFondo,setColorFondo]=useState('#1a1209')
-  const [colorTexto,setColorTexto]=useState('#C9A84C')
-  const [rubrosSel,setRubrosSel]=useState<string[]>(['todos'])
-  const [fechaInicio,setFechaInicio]=useState('')
-  const [fechaFin,setFechaFin]=useState('')
 
-  useEffect(()=>{
-    fetch('/api/banners?espacio=all')
-      .then(r=>r.json())
-      .then(d=>{
-        if(d.todos) setBanners(d.todos)
-        setLoading(false)
-      })
-      .catch(()=>setLoading(false))
-  },[])
-
-  const accion=async(body:object)=>{
-    const res=await fetch('/api/banners',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
-    const d=await res.json()
-    return d
-  }
-
-  const recargar=async()=>{
-    const res=await fetch('/api/banners?espacio=all')
-    const d=await res.json()
-    if(d.todos) setBanners(d.todos)
-  }
-
-  const toggleActivo=async(id:string)=>{
-    await accion({accion:'toggleActivo',id})
-    setBanners(prev=>prev.map(b=>b.id===id?{...b,activo:!b.activo}:b))
-  }
-
-  const eliminar=async(id:string)=>{
-    if(!confirm('¿Eliminar este banner?'))return
-    await accion({accion:'eliminar',id})
-    setBanners(prev=>prev.filter(b=>b.id!==id))
-  }
-
-  const subir=async(id:string)=>{
-    await accion({accion:'subir',id})
-    await recargar()
-  }
-
-  const bajar=async(id:string)=>{
-    await accion({accion:'bajar',id})
-    await recargar()
-  }
-
-  const moverEspacio=async(id:string,nuevoEspacio:string)=>{
-    await accion({accion:'moverEspacio',id,valor:nuevoEspacio})
-    setBanners(prev=>prev.map(b=>b.id===id?{...b,espacioId:nuevoEspacio}:b))
-    setMoviendo(null)
-  }
-
-  const cambiarRubros=async(id:string,rubros:string[])=>{
-    await accion({accion:'cambiarRubros',id,valor:rubros})
-    setBanners(prev=>prev.map(b=>b.id===id?{...b,rubros}:b))
-  }
-
-  const guardarNuevo=async()=>{
-    if(!empresa||!titulo||!espacioSel)return
+  // ── Guardar (crear o actualizar) ───────────────────────────────
+  const guardar = async () => {
     setGuardando(true)
-    const res=await accion({
-      accion:'crear',
-      banner:{espacioId:espacioSel,empresa,titulo,subtitulo,cta,url,imagen,video,
-        color:colorFondo,colorTexto,rubros:rubrosSel,idiomas:['es','en'],
-        fechaInicio,fechaFin,orden:banners.length+1}
-    })
-    if(res.banner) setBanners(prev=>[...prev,res.banner])
-    setEmpresa('');setTitulo('');setSubtitulo('');setUrl('');setImagen('')
+    try {
+      if (editando) {
+        // Actualizar campo por campo
+        const campos = ['empresa','titulo','subtitulo','cta','url','imagen','video',
+                        'color','colorTexto','espacioId','rubros','idiomas','fechaInicio','fechaFin']
+        for (const campo of campos) {
+          if (form[campo] !== editando[campo as keyof Banner]) {
+            await fetch('/api/banners', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ accion: 'actualizar', id: editando.id, campo, valor: form[campo] })
+            })
+          }
+        }
+        mostrar('✅ Banner actualizado')
+      } else {
+        await fetch('/api/banners', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ accion: 'crear', ...form })
+        })
+        mostrar('✅ Banner creado')
+      }
+      await cargar()
+      setTab('lista')
+      setEditando(null)
+      setForm({ ...BANNER_VACIO })
+    } catch { mostrar('❌ Error guardando') }
     setGuardando(false)
-    alert('✅ Banner creado')
-    setTab('activos')
   }
 
-  const toggleRubro=(r:string)=>setRubrosSel(prev=>
-    prev.includes(r)?prev.filter(x=>x!==r):[...prev,r]
-  )
+  // ── Acciones rápidas ───────────────────────────────────────────
+  const toggleActivo = async (b: Banner) => {
+    await fetch('/api/banners', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ accion: 'toggleActivo', id: b.id })
+    })
+    await cargar()
+  }
 
-  if(loading) return(
-    <div style={{minHeight:'100vh',background:BG,display:'flex',alignItems:'center',justifyContent:'center',color:G,fontFamily:'Georgia,serif'}}>
-      Cargando banners...
-    </div>
-  )
+  const eliminar = async (b: Banner) => {
+    if (!confirm(`¿Eliminar banner "${b.titulo || b.empresa}"?`)) return
+    await fetch('/api/banners', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ accion: 'eliminar', id: b.id })
+    })
+    mostrar('🗑️ Eliminado')
+    await cargar()
+  }
 
-  return(
-    <div style={{minHeight:'100vh',background:BG,color:G,fontFamily:'Georgia,serif'}}>
-      {/* Navbar */}
-      <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'12px 24px',borderBottom:`1px solid ${BD}`,background:'rgba(10,10,10,0.97)'}}>
-        <div style={{display:'flex',gap:8}}>
-          <a href='/' style={{padding:'7px 14px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:8,textDecoration:'none',fontSize:'.75rem'}}>🏠 Inicio</a>
-          <a href='/admin-panel' style={{padding:'7px 14px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:8,textDecoration:'none',fontSize:'.75rem'}}>← Admin</a>
+  const moverEspacio = async (b: Banner, nuevoEspacio: string) => {
+    await fetch('/api/banners', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ accion: 'moverEspacio', id: b.id, valor: nuevoEspacio })
+    })
+    mostrar(`✅ Movido a ${ESPACIOS[nuevoEspacio]}`)
+    await cargar()
+  }
+
+  const subirOrden = async (b: Banner) => {
+    const lista = [...banners].sort((a, b) => a.orden - b.orden)
+    const idx = lista.findIndex(x => x.id === b.id)
+    if (idx === 0) return
+    const ids = lista.map(x => x.id)
+    ;[ids[idx-1], ids[idx]] = [ids[idx], ids[idx-1]]
+    await fetch('/api/banners', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ accion: 'reordenar', ids })
+    })
+    await cargar()
+  }
+
+  const bajarOrden = async (b: Banner) => {
+    const lista = [...banners].sort((a, b) => a.orden - b.orden)
+    const idx = lista.findIndex(x => x.id === b.id)
+    if (idx === lista.length - 1) return
+    const ids = lista.map(x => x.id)
+    ;[ids[idx], ids[idx+1]] = [ids[idx+1], ids[idx]]
+    await fetch('/api/banners', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ accion: 'reordenar', ids })
+    })
+    await cargar()
+  }
+
+  const duplicar = async (b: Banner) => {
+    await fetch('/api/banners', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ accion: 'crear', ...b, titulo: b.titulo + ' (copia)', id: undefined })
+    })
+    mostrar('✅ Duplicado')
+    await cargar()
+  }
+
+  const editarBanner = (b: Banner) => {
+    setEditando(b)
+    setForm({ ...b })
+    setTab('editor')
+  }
+
+  const nuevoBanner = (espacioId?: string) => {
+    setEditando(null)
+    setForm({ ...BANNER_VACIO, espacioId: espacioId || 'hero' })
+    setTab('editor')
+  }
+
+  // ── Banners filtrados ──────────────────────────────────────────
+  const bannersF = filtroEsp === 'todos'
+    ? banners
+    : banners.filter(b => b.espacioId === filtroEsp)
+
+  const bannersPorEspacio = Object.keys(ESPACIOS).reduce((acc, esp) => {
+    acc[esp] = banners.filter(b => b.espacioId === esp).sort((a,b) => a.orden - b.orden)
+    return acc
+  }, {} as Record<string, Banner[]>)
+
+  // ══════════════════════════════════════════════════════════════
+  return (
+    <div style={{ background: BG, minHeight: '100vh', color: '#e8d5a3', fontFamily: 'Georgia,serif' }}>
+
+      {/* HEADER */}
+      <div style={{ background: BG2, borderBottom: `1px solid ${BD}`, padding: '12px 24px',
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div>
+          <h1 style={{ margin: 0, color: G, fontSize: 18 }}>🎯 Gestor de Banners Publicitarios</h1>
+          <p style={{ margin: 0, color: '#6b5a2e', fontSize: 11 }}>
+            {banners.length} banners · {banners.filter(b=>b.activo).length} activos · House Insects of Peru
+          </p>
         </div>
-        <div style={{textAlign:'center'}}>
-          <h1 style={{fontSize:'1rem',margin:0}}>📢 Gestión de Banners</h1>
-          <p style={{fontSize:'.65rem',color:'rgba(201,168,76,0.5)',margin:0}}>{banners.filter(b=>b.activo).length} activos · {banners.length} total</p>
-        </div>
-        <div style={{display:'flex',gap:8}}>
-          <a href='/admin-panel/avisos' style={{padding:'7px 14px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:8,textDecoration:'none',fontSize:'.75rem'}}>📣 Avisos</a>
-          <a href='/admin-panel/social' style={{padding:'7px 14px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:8,textDecoration:'none',fontSize:'.75rem'}}>📱 Social</a>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button onClick={() => nuevoBanner()} style={btn('rgba(201,168,76,0.15)', G, { fontSize: 13 })}>
+            + Nuevo Banner
+          </button>
+          <a href="/admin-panel" style={{ ...btn('#333', '#aaa'), textDecoration: 'none' }}>← Panel</a>
         </div>
       </div>
 
-      {/* Tabs */}
-      <div style={{display:'flex',gap:4,padding:'12px 24px',borderBottom:`1px solid ${BD}`}}>
-        {([
-          {id:'activos',nm:`🟢 Banners (${banners.length})`},
-          {id:'nuevo',nm:'➕ Nuevo Banner'},
-          {id:'espacios',nm:'📐 Espacios'},
-        ] as const).map(t=>(
-          <button key={t.id} onClick={()=>setTab(t.id)}
-            style={{padding:'8px 18px',background:tab===t.id?'rgba(201,168,76,0.2)':'transparent',
-              border:`1px solid ${tab===t.id?G:BD}`,color:G,borderRadius:8,cursor:'pointer',
-              fontFamily:'Georgia,serif',fontSize:'.8rem'}}>
-            {t.nm}
+      {/* TABS */}
+      <div style={{ display: 'flex', gap: 8, padding: '10px 24px', borderBottom: `1px solid ${BD}` }}>
+        {[['lista','📋 Lista'],['espacios','🗂️ Por Espacio'],['editor', editando?'✏️ Editando':'➕ Nuevo']].map(([t,l]) => (
+          <button key={t} onClick={() => { if(t!=='editor') { setEditando(null); setForm({...BANNER_VACIO}) } setTab(t as any) }}
+            style={{ padding: '6px 14px', borderRadius: 8, cursor: 'pointer', fontSize: 12,
+              fontFamily: 'Georgia,serif', border: `1px solid ${tab===t?G:BD}`,
+              background: tab===t?'rgba(201,168,76,0.12)':'transparent',
+              color: tab===t?G:'#8a7040' }}>
+            {l}
           </button>
         ))}
       </div>
 
-      <div style={{maxWidth:1100,margin:'0 auto',padding:'24px'}}>
+      {/* ══ TAB LISTA ══════════════════════════════════════════════ */}
+      {tab === 'lista' && (
+        <div style={{ padding: 24 }}>
+          {/* Filtro por espacio */}
+          <div style={{ display: 'flex', gap: 8, marginBottom: 16, flexWrap: 'wrap' }}>
+            <button onClick={() => setFiltroEsp('todos')}
+              style={{ ...btn(filtroEsp==='todos'?G:'transparent', filtroEsp==='todos'?'#0d0800':G,
+                { border: `1px solid ${filtroEsp==='todos'?G:BD}` }) }}>
+              Todos ({banners.length})
+            </button>
+            {Object.entries(ESPACIOS).map(([id, nm]) => (
+              <button key={id} onClick={() => setFiltroEsp(id)}
+                style={{ ...btn(filtroEsp===id?G:'transparent', filtroEsp===id?'#0d0800':G,
+                  { border: `1px solid ${filtroEsp===id?G:BD}`, fontSize:10 }) }}>
+                {nm.split(' ').slice(1).join(' ')} ({banners.filter(b=>b.espacioId===id).length})
+              </button>
+            ))}
+          </div>
 
-        {/* BANNERS ACTIVOS */}
-        {tab==='activos'&&(
-          <div>
-            {banners.length===0?(
-              <div style={{textAlign:'center',padding:40,border:`1px dashed ${BD}`,borderRadius:12}}>
-                <p style={{color:'rgba(201,168,76,0.3)'}}>No hay banners — crea el primero</p>
-                <button onClick={()=>setTab('nuevo')}
-                  style={{marginTop:12,padding:'8px 20px',background:'rgba(201,168,76,0.12)',border:`1px solid ${G}`,color:G,borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.8rem'}}>
-                  + Nuevo Banner
-                </button>
-              </div>
-            ):(
-              <div style={{display:'flex',flexDirection:'column' as const,gap:12}}>
-                {[...banners].sort((a,b)=>(a.orden||0)-(b.orden||0)).map((b,idx,arr)=>(
-                  <div key={b.id} style={{background:'rgba(201,168,76,0.04)',border:`1px solid ${b.activo?'#2ecc71':BD}`,borderRadius:12,padding:16}}>
-                    {/* Preview */}
-                    <div style={{background:b.color,borderRadius:8,padding:'12px 20px',marginBottom:12,display:'flex',alignItems:'center',gap:12,justifyContent:'space-between'}}>
-                      {b.imagen&&<img src={b.imagen} style={{height:36,objectFit:'contain',flexShrink:0}} alt={b.empresa}/>}
-                      <div style={{flex:1}}>
-                        <p style={{color:b.colorTexto,fontSize:'.85rem',fontWeight:'bold',margin:0}}>{b.titulo}</p>
-                        {b.subtitulo&&<p style={{color:b.colorTexto,fontSize:'.72rem',margin:0,opacity:.8}}>{b.subtitulo}</p>}
-                      </div>
-                      <span style={{padding:'4px 12px',background:b.colorTexto,color:b.color,borderRadius:4,fontSize:'.72rem',fontWeight:'bold',flexShrink:0}}>{b.cta}</span>
-                    </div>
+          {loading ? (
+            <div style={{ textAlign: 'center', padding: 40, color: '#6b5a2e' }}>⏳ Cargando...</div>
+          ) : bannersF.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: 40, color: '#4a3a1a' }}>
+              <div style={{ fontSize: 32, marginBottom: 8 }}>🎯</div>
+              No hay banners. <button onClick={() => nuevoBanner()}
+                style={{ ...btn('rgba(201,168,76,0.15)', G), marginLeft: 8 }}>+ Crear primero</button>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {bannersF.sort((a,b) => a.orden-b.orden).map(b => (
+                <div key={b.id} style={{ background: BG2, border: `1px solid ${b.activo?BD:'rgba(229,57,53,0.2)'}`,
+                  borderRadius: 10, padding: 14, display: 'grid',
+                  gridTemplateColumns: '80px 1fr auto', gap: 14, alignItems: 'center' }}>
 
-                    {/* Info y controles */}
-                    <div style={{display:'flex',gap:12,alignItems:'flex-start',flexWrap:'wrap' as const}}>
-                      <div style={{flex:1,minWidth:200}}>
-                        <p style={{margin:'0 0 4px',fontSize:'.8rem',fontWeight:'bold'}}>{b.empresa}</p>
-                        <p style={{margin:'0 0 4px',fontSize:'.72rem',color:'rgba(201,168,76,0.6)'}}>
-                          📐 {ESPACIOS_NM[b.espacioId]||b.espacioId} · Orden #{b.orden}
-                        </p>
-                        {b.fechaInicio&&<p style={{margin:'0 0 4px',fontSize:'.7rem',color:'rgba(201,168,76,0.5)'}}>📅 {b.fechaInicio} → {b.fechaFin}</p>}
-                        <div style={{display:'flex',gap:4,flexWrap:'wrap' as const,marginTop:4}}>
-                          {(b.rubros||[]).map(r=>(
-                            <span key={r} style={{fontSize:'.6rem',padding:'1px 6px',background:'rgba(201,168,76,0.1)',borderRadius:10}}>{r}</span>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Controles */}
-                      <div style={{display:'flex',gap:6,flexWrap:'wrap' as const,alignItems:'center'}}>
-                        {/* Subir/Bajar orden */}
-                        <button onClick={()=>subir(b.id)} disabled={idx===0}
-                          style={{padding:'5px 10px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:idx===0?'rgba(201,168,76,0.3)':G,borderRadius:6,cursor:idx===0?'default':'pointer',fontSize:'.8rem'}}>
-                          ▲
-                        </button>
-                        <button onClick={()=>bajar(b.id)} disabled={idx===arr.length-1}
-                          style={{padding:'5px 10px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:idx===arr.length-1?'rgba(201,168,76,0.3)':G,borderRadius:6,cursor:idx===arr.length-1?'default':'pointer',fontSize:'.8rem'}}>
-                          ▼
-                        </button>
-
-                        {/* Mover de espacio */}
-                        <div style={{position:'relative' as const}}>
-                          <button onClick={()=>setMoviendo(moviendo===b.id?null:b.id)}
-                            style={{padding:'5px 10px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:6,cursor:'pointer',fontSize:'.72rem'}}>
-                            📐 Mover
-                          </button>
-                          {moviendo===b.id&&(
-                            <div style={{position:'absolute' as const,top:'100%',left:0,zIndex:50,background:'#0a0a0a',border:`1px solid ${G}`,borderRadius:8,padding:6,minWidth:180,boxShadow:'0 8px 24px rgba(0,0,0,0.8)'}}>
-                              {Object.entries(ESPACIOS_NM).map(([id,nm])=>(
-                                <button key={id} onClick={()=>moverEspacio(b.id,id)}
-                                  style={{display:'block',width:'100%',padding:'6px 10px',background:b.espacioId===id?'rgba(201,168,76,0.2)':'transparent',
-                                    border:'none',color:G,cursor:'pointer',fontSize:'.72rem',textAlign:'left' as const,borderRadius:4}}>
-                                  {b.espacioId===id?'✅ ':''}{nm}
-                                </button>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Editar */}
-                        <button onClick={()=>{setEditando(editando===b.id?null:b.id);setEditData({});setUploadMsgEdit('')}}
-                          style={{padding:'5px 10px',background:editando===b.id?'rgba(201,168,76,0.2)':'rgba(201,168,76,0.08)',
-                            border:`1px solid ${editando===b.id?G:BD}`,color:G,borderRadius:6,cursor:'pointer',fontSize:'.72rem'}}>
-                          ✏️ Editar
-                        </button>
-                        {/* Activar/Desactivar */}
-                        <button onClick={()=>toggleActivo(b.id)}
-                          style={{padding:'5px 12px',background:b.activo?'rgba(46,204,113,0.15)':'rgba(231,76,60,0.15)',
-                            border:`1px solid ${b.activo?'#2ecc71':'#e74c3c'}`,
-                            color:b.activo?'#2ecc71':'#e74c3c',borderRadius:6,cursor:'pointer',fontSize:'.72rem'}}>
-                          {b.activo?'✅ Activo':'❌ Inactivo'}
-                        </button>
-
-                        {/* Eliminar */}
-                        <button onClick={()=>eliminar(b.id)}
-                          style={{padding:'5px 10px',background:'rgba(231,76,60,0.1)',border:'1px solid rgba(231,76,60,0.3)',
-                            color:'#e74c3c',borderRadius:6,cursor:'pointer',fontSize:'.8rem'}}>
-                          🗑️
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Panel edicion */}
-                    {editando===b.id&&(
-                      <div style={{marginTop:12,padding:16,background:'rgba(201,168,76,0.06)',borderRadius:8,border:`1px solid ${G}`}}>
-                        <p style={{fontSize:'.75rem',fontWeight:'bold',marginBottom:12}}>✏️ Editar Banner</p>
-                        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:12}}>
-                          {[
-                            {l:'Título',k:'titulo',v:b.titulo},
-                            {l:'Subtítulo',k:'subtitulo',v:b.subtitulo},
-                            {l:'Botón CTA',k:'cta',v:b.cta},
-                            {l:'URL destino',k:'url',v:b.url},
-                          ].map(f=>(
-                            <div key={f.k}>
-                              <label style={{fontSize:'.68rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:3}}>{f.l}</label>
-                              <input defaultValue={f.v} onChange={e=>setEditData(prev=>({...prev,[f.k]:e.target.value}))}
-                                style={{width:'100%',padding:'7px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:6,fontSize:'.78rem'}}/>
-                            </div>
-                          ))}
-                        </div>
-                        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:12}}>
-                          <div>
-                            <label style={{fontSize:'.68rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:3}}>Color fondo</label>
-                            <div style={{display:'flex',gap:6}}>
-                              <input type="color" defaultValue={b.color} onChange={e=>setEditData(prev=>({...prev,color:e.target.value}))} style={{width:34,height:34,border:'none',borderRadius:4,cursor:'pointer'}}/>
-                              <input defaultValue={b.color} onChange={e=>setEditData(prev=>({...prev,color:e.target.value}))} style={{flex:1,padding:'7px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:6,fontSize:'.72rem'}}/>
-                            </div>
-                          </div>
-                          <div>
-                            <label style={{fontSize:'.68rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:3}}>Color texto</label>
-                            <div style={{display:'flex',gap:6}}>
-                              <input type="color" defaultValue={b.colorTexto} onChange={e=>setEditData(prev=>({...prev,colorTexto:e.target.value}))} style={{width:34,height:34,border:'none',borderRadius:4,cursor:'pointer'}}/>
-                              <input defaultValue={b.colorTexto} onChange={e=>setEditData(prev=>({...prev,colorTexto:e.target.value}))} style={{flex:1,padding:'7px',background:'rgba(201,168,76,0.08)',border:`1px solid ${BD}`,color:G,borderRadius:6,fontSize:'.72rem'}}/>
-                            </div>
-                          </div>
-                        </div>
-                        <div style={{marginBottom:12,padding:12,background:'rgba(201,168,76,0.04)',borderRadius:6,border:`1px solid ${BD}`}}>
-                          <p style={{fontSize:'.68rem',color:'rgba(201,168,76,0.6)',marginBottom:6}}>📁 Subir imagen/video (GIF,PNG,JPG,WebP,MP4,WebM)</p>
-                          <input type="file" accept=".gif,.png,.jpg,.jpeg,.webp,.mp4,.webm,.mov"
-                            onChange={subirArchivoEdit} disabled={subiendoEdit}
-                            style={{color:G,fontSize:'.75rem',cursor:'pointer'}}/>
-                          {uploadMsgEdit&&<p style={{fontSize:'.7rem',marginTop:4,color:uploadMsgEdit.startsWith('✅')?'#2ecc71':'#e74c3c'}}>{uploadMsgEdit}</p>}
-                        </div>
-                        <div style={{display:'flex',gap:8}}>
-                          <button onClick={()=>guardarEdicion(b.id)}
-                            style={{flex:1,padding:'8px',background:G,color:'#0a0a0a',border:'none',borderRadius:6,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.8rem',fontWeight:'bold'}}>
-                            💾 Guardar cambios
-                          </button>
-                          <button onClick={()=>{setEditando(null);setEditData({});setUploadMsgEdit('')}}
-                            style={{padding:'8px 16px',background:'transparent',border:`1px solid ${BD}`,color:G,borderRadius:6,cursor:'pointer',fontSize:'.8rem'}}>
-                            Cancelar
-                          </button>
-                        </div>
-                      </div>
+                  {/* Preview */}
+                  <div style={{ width: 80, height: 60, background: b.color||'#000',
+                    borderRadius: 6, overflow: 'hidden', border: `1px solid ${BD}`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    {b.imagen ? (
+                      <img src={b.imagen} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }}/>
+                    ) : b.video ? (
+                      <span style={{ fontSize: 24 }}>🎬</span>
+                    ) : (
+                      <span style={{ fontSize: 10, color: b.colorTexto||G, textAlign: 'center', padding: 4 }}>
+                        {b.titulo||'Sin imagen'}
+                      </span>
                     )}
-                    {/* Cambiar rubros */}
-                    <div style={{marginTop:10,paddingTop:10,borderTop:`1px solid ${BD}`}}>
-                      <p style={{fontSize:'.68rem',color:'rgba(201,168,76,0.5)',margin:'0 0 6px'}}>CATEGORÍAS/RUBROS:</p>
-                      <div style={{display:'flex',flexWrap:'wrap' as const,gap:4}}>
-                        {RUBROS.map(r=>(
-                          <button key={r} onClick={()=>{
-                            const curr=b.rubros||['todos']
-                            const nuevo=curr.includes(r)?curr.filter(x=>x!==r):[...curr,r]
-                            cambiarRubros(b.id,nuevo.length===0?['todos']:nuevo)
-                          }}
-                            style={{padding:'2px 8px',background:(b.rubros||['todos']).includes(r)?'rgba(201,168,76,0.2)':'transparent',
-                              border:`1px solid ${(b.rubros||['todos']).includes(r)?G:BD}`,color:G,
-                              borderRadius:16,cursor:'pointer',fontSize:'.62rem'}}>
-                            {r}
-                          </button>
-                        ))}
-                      </div>
+                  </div>
+
+                  {/* Info */}
+                  <div>
+                    <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 4 }}>
+                      <span style={{ fontSize: 13, color: G, fontWeight: 700 }}>{b.titulo||'Sin título'}</span>
+                      <span style={{ fontSize: 10, background: b.activo?'rgba(76,175,80,0.15)':'rgba(229,57,53,0.15)',
+                        color: b.activo?'#4caf50':'#e53935', padding: '2px 6px', borderRadius: 4 }}>
+                        {b.activo?'🟢 Activo':'🔴 Inactivo'}
+                      </span>
+                    </div>
+                    <div style={{ fontSize: 11, color: '#6b5a2e', display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                      <span>📍 {ESPACIOS[b.espacioId]||b.espacioId}</span>
+                      {b.empresa && <span>🏢 {b.empresa}</span>}
+                      {b.url && <span>🔗 {b.url.slice(0,30)}...</span>}
+                      {b.fechaInicio && <span>📅 {b.fechaInicio} → {b.fechaFin||'indefinido'}</span>}
+                      <span>🎯 {b.rubros?.join(', ')}</span>
                     </div>
                   </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
 
-        {/* NUEVO BANNER */}
-        {tab==='nuevo'&&(
-          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:24}}>
-            <div>
-              <p style={{fontSize:'.8rem',fontWeight:'bold',marginBottom:16}}>DATOS DEL BANNER</p>
-
-              <div style={{marginBottom:12}}>
-                <label style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>ESPACIO</label>
-                <select value={espacioSel} onChange={e=>setEspacioSel(e.target.value)}
-                  style={{width:'100%',padding:'10px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:8,fontFamily:'Georgia,serif',fontSize:'.85rem'}}>
-                  {Object.entries(ESPACIOS_NM).map(([id,nm])=>(
-                    <option key={id} value={id} style={{background:'#0a0a0a'}}>{nm}</option>
-                  ))}
-                </select>
-              </div>
-
-              {[
-                {l:'EMPRESA',v:empresa,s:setEmpresa,p:'Nombre empresa o propio'},
-                {l:'TÍTULO',v:titulo,s:setTitulo,p:'Título del banner'},
-                {l:'SUBTÍTULO',v:subtitulo,s:setSubtitulo,p:'Descripción corta'},
-                {l:'BOTÓN CTA',v:cta,s:setCta,p:'Ver más →'},
-                {l:'URL DESTINO',v:url,s:setUrl,p:'https://...'},
-                {l:'URL IMAGEN (WebP/JPG)',v:imagen,s:setImagen,p:'https://...imagen.webp'},
-                {l:'URL VIDEO (WebM/MP4 — 3D/4D)',v:url,s:setUrl,p:'https://...video.webm'},
-              ].map(f=>(
-                <div key={f.l} style={{marginBottom:10}}>
-                  <label style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>{f.l}</label>
-                  <input value={f.v} onChange={e=>f.s(e.target.value)} placeholder={f.p}
-                    style={{width:'100%',padding:'9px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:8,fontFamily:'Georgia,serif',fontSize:'.85rem'}}/>
+                  {/* Acciones */}
+                  <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
+                    <button onClick={() => subirOrden(b)} title="Subir" style={btn(BG2, G, { padding: '4px 8px' })}>↑</button>
+                    <button onClick={() => bajarOrden(b)} title="Bajar" style={btn(BG2, G, { padding: '4px 8px' })}>↓</button>
+                    <button onClick={() => toggleActivo(b)} style={btn(
+                      b.activo?'rgba(229,57,53,0.1)':'rgba(76,175,80,0.1)',
+                      b.activo?'#e53935':'#4caf50')}>
+                      {b.activo?'Pausar':'Activar'}
+                    </button>
+                    <button onClick={() => editarBanner(b)} style={btn('rgba(201,168,76,0.1)', G)}>✏️ Editar</button>
+                    <button onClick={() => duplicar(b)} style={btn('rgba(33,150,243,0.1)', '#2196f3')}>⧉ Duplicar</button>
+                    <button onClick={() => eliminar(b)} style={btn('rgba(229,57,53,0.1)', '#e53935')}>🗑️</button>
+                  </div>
                 </div>
               ))}
+            </div>
+          )}
+        </div>
+      )}
 
-              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:12}}>
-                {[{l:'FONDO',v:colorFondo,s:setColorFondo},{l:'TEXTO',v:colorTexto,s:setColorTexto}].map(f=>(
-                  <div key={f.l}>
-                    <label style={{fontSize:'.7rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>{f.l}</label>
-                    <div style={{display:'flex',gap:6,alignItems:'center'}}>
-                      <input type="color" value={f.v} onChange={e=>f.s(e.target.value)} style={{width:34,height:34,border:'none',borderRadius:4,cursor:'pointer'}}/>
-                      <input value={f.v} onChange={e=>f.s(e.target.value)} style={{flex:1,padding:'7px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:6,fontSize:'.72rem'}}/>
-                    </div>
-                  </div>
-                ))}
+      {/* ══ TAB ESPACIOS ═══════════════════════════════════════════ */}
+      {tab === 'espacios' && (
+        <div style={{ padding: 24, display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(300px,1fr))', gap: 16 }}>
+          {Object.entries(ESPACIOS).map(([espId, espNm]) => (
+            <div key={espId} style={{ background: BG2, border: `1px solid ${BD}`, borderRadius: 10, padding: 16 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                <span style={{ color: G, fontSize: 13, fontWeight: 700 }}>{espNm}</span>
+                <span style={{ fontSize: 11, color: '#6b5a2e' }}>
+                  {bannersPorEspacio[espId]?.length||0} banners
+                </span>
               </div>
+              {(bannersPorEspacio[espId]||[]).map(b => (
+                <div key={b.id} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6,
+                  padding: '6px 8px', background: 'rgba(201,168,76,0.05)', borderRadius: 6 }}>
+                  <span style={{ width: 8, height: 8, borderRadius: '50%', flexShrink: 0,
+                    background: b.activo?'#4caf50':'#e53935' }}/>
+                  <span style={{ flex: 1, fontSize: 11, color: '#e8d5a3', overflow: 'hidden',
+                    textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{b.titulo||b.empresa||b.id}</span>
+                  <div style={{ display: 'flex', gap: 4 }}>
+                    <button onClick={() => editarBanner(b)} style={btn('transparent', G, { padding: '2px 6px', fontSize: 10 })}>✏️</button>
+                    <button onClick={() => eliminar(b)} style={btn('transparent', '#e53935', { padding: '2px 6px', fontSize: 10 })}>🗑️</button>
+                  </div>
+                </div>
+              ))}
+              <button onClick={() => nuevoBanner(espId)}
+                style={{ ...btn('rgba(201,168,76,0.08)', G), width: '100%', marginTop: 8, padding: '6px' }}>
+                + Agregar banner aquí
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
 
-              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,marginBottom:16}}>
-                <div>
-                  <label style={{fontSize:'.7rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>FECHA INICIO</label>
-                  <input type="date" value={fechaInicio} onChange={e=>setFechaInicio(e.target.value)}
-                    style={{width:'100%',padding:'8px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:6,fontSize:'.8rem'}}/>
+      {/* ══ TAB EDITOR ═════════════════════════════════════════════ */}
+      {tab === 'editor' && (
+        <div style={{ padding: 24, display: 'grid', gridTemplateColumns: '1fr 350px', gap: 24 }}>
+
+          {/* Formulario */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+
+            {/* Espacio */}
+            <div>
+              <label style={{ fontSize: 11, color: '#6b5a2e', display: 'block', marginBottom: 6 }}>
+                📍 Espacio publicitario
+              </label>
+              <select value={form.espacioId}
+                onChange={e => setForm((p:any) => ({ ...p, espacioId: e.target.value }))}
+                style={{ width: '100%', background: BG2, border: `1px solid ${BD}`, color: G,
+                  padding: '8px 10px', borderRadius: 6, fontSize: 13, fontFamily: 'Georgia,serif' }}>
+                {Object.entries(ESPACIOS).map(([id, nm]) => (
+                  <option key={id} value={id}>{nm}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Empresa y título */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+              {[['empresa','🏢 Empresa/Anunciante'],['titulo','📝 Título del banner']].map(([f,l]) => (
+                <div key={f}>
+                  <label style={{ fontSize: 11, color: '#6b5a2e', display: 'block', marginBottom: 6 }}>{l}</label>
+                  <input value={form[f]||''} onChange={e => setForm((p:any) => ({...p,[f]:e.target.value}))}
+                    style={{ width: '100%', background: BG2, border: `1px solid ${BD}`, color: '#e8d5a3',
+                      padding: '7px 10px', borderRadius: 6, fontSize: 12, fontFamily: 'Georgia,serif',
+                      boxSizing: 'border-box' as any }}/>
                 </div>
-                <div>
-                  <label style={{fontSize:'.7rem',color:'rgba(201,168,76,0.6)',display:'block',marginBottom:4}}>FECHA FIN</label>
-                  <input type="date" value={fechaFin} onChange={e=>setFechaFin(e.target.value)}
-                    style={{width:'100%',padding:'8px',background:'rgba(201,168,76,0.06)',border:`1px solid ${BD}`,color:G,borderRadius:6,fontSize:'.8rem'}}/>
+              ))}
+            </div>
+
+            {/* Subtítulo y CTA */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+              {[['subtitulo','💬 Subtítulo'],['cta','🔘 Texto del botón CTA']].map(([f,l]) => (
+                <div key={f}>
+                  <label style={{ fontSize: 11, color: '#6b5a2e', display: 'block', marginBottom: 6 }}>{l}</label>
+                  <input value={form[f]||''} onChange={e => setForm((p:any) => ({...p,[f]:e.target.value}))}
+                    style={{ width: '100%', background: BG2, border: `1px solid ${BD}`, color: '#e8d5a3',
+                      padding: '7px 10px', borderRadius: 6, fontSize: 12, fontFamily: 'Georgia,serif',
+                      boxSizing: 'border-box' as any }}/>
                 </div>
+              ))}
+            </div>
+
+            {/* URL destino */}
+            <div>
+              <label style={{ fontSize: 11, color: '#6b5a2e', display: 'block', marginBottom: 6 }}>
+                🔗 URL de destino (al hacer clic)
+              </label>
+              <input value={form.url||''} onChange={e => setForm((p:any) => ({...p,url:e.target.value}))}
+                placeholder="https://..."
+                style={{ width: '100%', background: BG2, border: `1px solid ${BD}`, color: '#e8d5a3',
+                  padding: '7px 10px', borderRadius: 6, fontSize: 12, fontFamily: 'monospace',
+                  boxSizing: 'border-box' as any }}/>
+            </div>
+
+            {/* Imagen */}
+            <div style={{ background: BG2, border: `1px solid ${BD}`, borderRadius: 8, padding: 14 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                <label style={{ fontSize: 12, color: G, fontWeight: 700 }}>📸 Imagen (GIF, PNG, JPG, WebP)</label>
+                <button onClick={() => fileRef.current?.click()}
+                  style={btn('rgba(201,168,76,0.15)', G)} disabled={subiendo}>
+                  {subiendo ? '⏳ Subiendo...' : '⬆️ Subir imagen'}
+                </button>
+                <input ref={fileRef} type="file" accept=".gif,.png,.jpg,.jpeg,.webp"
+                  style={{ display: 'none' }}
+                  onChange={e => { const f=e.target.files?.[0]; if(f) subirArchivo(f,'imagen'); e.target.value='' }}
+                />
+              </div>
+              {form.imagen ? (
+                <div style={{ position: 'relative' }}>
+                  <img src={form.imagen} alt="" style={{ width: '100%', maxHeight: 200,
+                    objectFit: 'cover', borderRadius: 6 }}/>
+                  <button onClick={() => setForm((p:any) => ({...p,imagen:''}))}
+                    style={{ position: 'absolute', top: 6, right: 6, ...btn('rgba(229,57,53,0.8)', '#fff', { padding: '3px 8px' }) }}>
+                    ✕
+                  </button>
+                </div>
+              ) : (
+                <div onClick={() => fileRef.current?.click()}
+                  style={{ height: 120, border: `2px dashed ${BD}`, borderRadius: 6, display: 'flex',
+                    alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#4a3a1a', fontSize: 12 }}>
+                  Click para subir imagen
+                </div>
+              )}
+              <input value={form.imagen||''} onChange={e => setForm((p:any) => ({...p,imagen:e.target.value}))}
+                placeholder="O pega URL de Bunny.net..."
+                style={{ width: '100%', background: '#0a0600', border: `1px solid ${BD}`, color: '#a08040',
+                  padding: '5px 8px', borderRadius: 5, fontSize: 10, fontFamily: 'monospace',
+                  marginTop: 8, boxSizing: 'border-box' as any }}/>
+            </div>
+
+            {/* Video */}
+            <div style={{ background: BG2, border: `1px solid ${BD}`, borderRadius: 8, padding: 14 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                <label style={{ fontSize: 12, color: G, fontWeight: 700 }}>🎬 Video (WebM / MP4)</label>
+                <button onClick={() => vidRef.current?.click()}
+                  style={btn('rgba(201,168,76,0.15)', G)} disabled={subiendo}>
+                  {subiendo ? '⏳ Subiendo...' : '⬆️ Subir video'}
+                </button>
+                <input ref={vidRef} type="file" accept=".webm,.mp4"
+                  style={{ display: 'none' }}
+                  onChange={e => { const f=e.target.files?.[0]; if(f) subirArchivo(f,'video'); e.target.value='' }}
+                />
+              </div>
+              {form.video ? (
+                <div style={{ position: 'relative' }}>
+                  <video src={form.video} controls style={{ width: '100%', borderRadius: 6 }}/>
+                  <button onClick={() => setForm((p:any) => ({...p,video:''}))}
+                    style={{ position: 'absolute', top: 6, right: 6, ...btn('rgba(229,57,53,0.8)', '#fff', { padding: '3px 8px' }) }}>
+                    ✕
+                  </button>
+                </div>
+              ) : (
+                <div onClick={() => vidRef.current?.click()}
+                  style={{ height: 80, border: `2px dashed ${BD}`, borderRadius: 6, display: 'flex',
+                    alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#4a3a1a', fontSize: 12 }}>
+                  Click para subir video WebM/MP4
+                </div>
+              )}
+              <input value={form.video||''} onChange={e => setForm((p:any) => ({...p,video:e.target.value}))}
+                placeholder="O pega URL de Bunny.net..."
+                style={{ width: '100%', background: '#0a0600', border: `1px solid ${BD}`, color: '#a08040',
+                  padding: '5px 8px', borderRadius: 5, fontSize: 10, fontFamily: 'monospace',
+                  marginTop: 8, boxSizing: 'border-box' as any }}/>
+            </div>
+
+            {/* Colores */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+              {[['color','🎨 Color de fondo'],['colorTexto','✍️ Color de texto']].map(([f,l]) => (
+                <div key={f}>
+                  <label style={{ fontSize: 11, color: '#6b5a2e', display: 'block', marginBottom: 6 }}>{l}</label>
+                  <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                    <input type="color" value={form[f]||'#1a1000'}
+                      onChange={e => setForm((p:any) => ({...p,[f]:e.target.value}))}
+                      style={{ width: 40, height: 36, borderRadius: 6, border: `1px solid ${BD}`,
+                        cursor: 'pointer', background: 'none' }}/>
+                    <input value={form[f]||''} onChange={e => setForm((p:any) => ({...p,[f]:e.target.value}))}
+                      style={{ flex: 1, background: BG2, border: `1px solid ${BD}`, color: '#e8d5a3',
+                        padding: '7px 8px', borderRadius: 6, fontSize: 11, fontFamily: 'monospace',
+                        boxSizing: 'border-box' as any }}/>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Fechas */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+              {[['fechaInicio','📅 Fecha inicio'],['fechaFin','📅 Fecha fin']].map(([f,l]) => (
+                <div key={f}>
+                  <label style={{ fontSize: 11, color: '#6b5a2e', display: 'block', marginBottom: 6 }}>{l}</label>
+                  <input type="date" value={form[f]||''} onChange={e => setForm((p:any) => ({...p,[f]:e.target.value}))}
+                    style={{ width: '100%', background: BG2, border: `1px solid ${BD}`, color: '#e8d5a3',
+                      padding: '7px 10px', borderRadius: 6, fontSize: 12, fontFamily: 'Georgia,serif',
+                      boxSizing: 'border-box' as any }}/>
+                </div>
+              ))}
+            </div>
+
+            {/* Rubros */}
+            <div>
+              <label style={{ fontSize: 11, color: '#6b5a2e', display: 'block', marginBottom: 6 }}>
+                🗂️ Rubros donde aparece
+              </label>
+              <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+                {RUBROS.map(r => {
+                  const sel = (form.rubros||[]).includes(r)
+                  return (
+                    <button key={r} onClick={() => {
+                      const rubros = sel
+                        ? (form.rubros||[]).filter((x:string)=>x!==r)
+                        : [...(form.rubros||[]), r]
+                      setForm((p:any) => ({...p, rubros}))
+                    }} style={{ padding: '4px 10px', borderRadius: 6, cursor: 'pointer', fontSize: 11,
+                      border: `1px solid ${sel?G:BD}`,
+                      background: sel?'rgba(201,168,76,0.15)':'transparent',
+                      color: sel?G:'#6b5a2e' }}>
+                      {r}
+                    </button>
+                  )
+                })}
               </div>
             </div>
 
+            {/* Idiomas */}
             <div>
-              <p style={{fontSize:'.8rem',fontWeight:'bold',marginBottom:16}}>CATEGORÍAS Y PREVIEW</p>
-
-              <p style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',marginBottom:8}}>MOSTRAR EN RUBROS:</p>
-              <div style={{display:'flex',flexWrap:'wrap' as const,gap:4,marginBottom:16}}>
-                {RUBROS.map(r=>(
-                  <button key={r} onClick={()=>toggleRubro(r)}
-                    style={{padding:'3px 8px',background:rubrosSel.includes(r)?'rgba(201,168,76,0.2)':'transparent',
-                      border:`1px solid ${rubrosSel.includes(r)?G:BD}`,color:G,borderRadius:16,cursor:'pointer',fontSize:'.68rem'}}>
-                    {r}
-                  </button>
-                ))}
+              <label style={{ fontSize: 11, color: '#6b5a2e', display: 'block', marginBottom: 6 }}>
+                🌍 Idiomas donde aparece
+              </label>
+              <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', maxHeight: 120, overflowY: 'auto' }}>
+                {IDIOMAS_DISP.map(lang => {
+                  const sel = (form.idiomas||[]).includes(lang)
+                  return (
+                    <button key={lang} onClick={() => {
+                      const idiomas = sel
+                        ? (form.idiomas||[]).filter((x:string)=>x!==lang)
+                        : [...(form.idiomas||[]), lang]
+                      setForm((p:any) => ({...p, idiomas}))
+                    }} style={{ padding: '3px 8px', borderRadius: 6, cursor: 'pointer', fontSize: 10,
+                      border: `1px solid ${sel?G:BD}`,
+                      background: sel?'rgba(201,168,76,0.15)':'transparent',
+                      color: sel?G:'#6b5a2e' }}>
+                      {lang}
+                    </button>
+                  )
+                })}
               </div>
+            </div>
 
-              {/* Preview */}
-              {titulo&&(
-                <div>
-                  <p style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',marginBottom:8}}>PREVIEW:</p>
-                  <div style={{background:colorFondo,borderRadius:8,padding:'16px 20px',display:'flex',alignItems:'center',gap:12,justifyContent:'space-between',marginBottom:12}}>
-                    {imagen&&<img src={imagen} style={{height:40,objectFit:'contain',flexShrink:0}} alt={empresa}/>}
-                    <div style={{flex:1}}>
-                      <p style={{color:colorTexto,fontSize:'.9rem',fontWeight:'bold',margin:0}}>{titulo}</p>
-                      {subtitulo&&<p style={{color:colorTexto,fontSize:'.75rem',margin:0,opacity:.8}}>{subtitulo}</p>}
-                    </div>
-                    <span style={{padding:'5px 12px',background:colorTexto,color:colorFondo,borderRadius:4,fontSize:'.72rem',fontWeight:'bold',flexShrink:0}}>{cta}</span>
-                  </div>
+            {/* Estado activo */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <label style={{ fontSize: 12, color: '#6b5a2e' }}>Estado:</label>
+              <button onClick={() => setForm((p:any) => ({...p, activo: !p.activo}))}
+                style={btn(form.activo?'rgba(76,175,80,0.15)':'rgba(229,57,53,0.15)',
+                  form.activo?'#4caf50':'#e53935')}>
+                {form.activo ? '🟢 Activo' : '🔴 Inactivo'}
+              </button>
+            </div>
+
+            {/* Mover espacio (solo en edición) */}
+            {editando && (
+              <div style={{ background: BG2, border: `1px solid ${BD}`, borderRadius: 8, padding: 12 }}>
+                <div style={{ fontSize: 11, color: '#6b5a2e', marginBottom: 8 }}>
+                  📦 Mover a otro espacio:
                 </div>
-              )}
-
-              {/* Uploader directo */}
-              <div style={{marginBottom:16,padding:16,background:'rgba(201,168,76,0.06)',border:'1px solid rgba(201,168,76,0.3)',borderRadius:8}}>
-                <p style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',marginBottom:8}}>📁 SUBIR ARCHIVO (GIF, PNG, JPG, WebP, WebM, MP4)</p>
-                <input type="file" accept=".gif,.png,.jpg,.jpeg,.webp,.mp4,.webm,.mov"
-                  onChange={subirArchivo} disabled={subiendo}
-                  style={{color:'#C9A84C',fontSize:'.8rem',cursor:'pointer'}}/>
-                {uploadMsg&&<p style={{fontSize:'.72rem',marginTop:6,color:uploadMsg.startsWith('✅')?'#2ecc71':'#e74c3c'}}>{uploadMsg}</p>}
-                {subiendo&&<p style={{fontSize:'.72rem',color:'rgba(201,168,76,0.6)',marginTop:4}}>⏳ Subiendo a Bunny.net...</p>}
+                <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+                  {Object.entries(ESPACIOS).filter(([id]) => id !== editando.espacioId).map(([id, nm]) => (
+                    <button key={id} onClick={() => { moverEspacio(editando, id); setForm((p:any)=>({...p,espacioId:id})) }}
+                      style={btn('rgba(201,168,76,0.08)', G, { fontSize: 10 })}>
+                      → {nm.split(' ').slice(1).join(' ')}
+                    </button>
+                  ))}
+                </div>
               </div>
-              <button onClick={guardarNuevo} disabled={guardando||!empresa||!titulo}
-                style={{width:'100%',padding:'14px',background:G,color:'#0a0a0a',border:'none',
-                  borderRadius:8,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'1rem',
-                  fontWeight:'bold',opacity:!empresa||!titulo?0.5:1}}>
-                {guardando?'Guardando...':'💾 Crear Banner'}
+            )}
+
+            {msg && (
+              <div style={{ padding: '8px 12px', borderRadius: 6,
+                background: msg.startsWith('✅')?'rgba(76,175,80,0.1)':'rgba(229,57,53,0.1)',
+                color: msg.startsWith('✅')?'#4caf50':'#e53935', fontSize: 12 }}>
+                {msg}
+              </div>
+            )}
+
+            <div style={{ display: 'flex', gap: 10 }}>
+              <button onClick={guardar} disabled={guardando}
+                style={{ ...btn(G, '#0d0800'), flex: 1, padding: '12px', fontSize: 14 }}>
+                {guardando ? 'Guardando...' : editando ? '💾 Actualizar Banner' : '✅ Crear Banner'}
+              </button>
+              <button onClick={() => { setTab('lista'); setEditando(null); setForm({...BANNER_VACIO}) }}
+                style={btn('#333', '#aaa', { padding: '12px 20px' })}>
+                Cancelar
               </button>
             </div>
           </div>
-        )}
 
-        {/* ESPACIOS */}
-        {tab==='espacios'&&(
+          {/* Preview */}
           <div>
-            <p style={{fontSize:'.8rem',color:'rgba(201,168,76,0.6)',marginBottom:20}}>Espacios publicitarios en houseinsectsofperu.com</p>
-            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(260px,1fr))',gap:12}}>
-              {Object.entries(ESPACIOS_NM).map(([id,nm])=>{
-                const count=banners.filter(b=>b.espacioId===id&&b.activo).length
-                return(
-                  <div key={id} style={{background:'rgba(201,168,76,0.04)',border:`1px solid ${count>0?'#2ecc71':BD}`,borderRadius:10,padding:16}}>
-                    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:8}}>
-                      <p style={{fontSize:'.85rem',fontWeight:'bold',margin:0}}>{nm}</p>
-                      <span style={{fontSize:'.65rem',padding:'2px 8px',background:count>0?'rgba(46,204,113,0.2)':'rgba(201,168,76,0.1)',
-                        border:`1px solid ${count>0?'#2ecc71':BD}`,borderRadius:16,color:count>0?'#2ecc71':G}}>
-                        {count>0?`${count} activo`:'Libre'}
-                      </span>
-                    </div>
-                    <div style={{display:'flex',flexDirection:'column' as const,gap:4}}>
-                      {banners.filter(b=>b.espacioId===id).map(b=>(
-                        <div key={b.id} style={{fontSize:'.7rem',padding:'4px 8px',background:'rgba(201,168,76,0.08)',borderRadius:4,color:G}}>
-                          {b.activo?'🟢':'🔴'} {b.empresa||b.titulo}
-                        </div>
-                      ))}
-                    </div>
-                    <button onClick={()=>{setEspacioSel(id);setTab('nuevo')}}
-                      style={{marginTop:10,width:'100%',padding:'6px',background:'rgba(201,168,76,0.1)',border:`1px solid ${G}`,
-                        color:G,borderRadius:6,cursor:'pointer',fontFamily:'Georgia,serif',fontSize:'.72rem'}}>
-                      + Agregar banner aquí
-                    </button>
-                  </div>
-                )
-              })}
+            <div style={{ fontSize: 12, color: '#6b5a2e', marginBottom: 10 }}>👁 Preview del banner</div>
+            <div style={{ background: form.color||'#1a1000', borderRadius: 10, overflow: 'hidden',
+              border: `1px solid ${BD}`, padding: 20, minHeight: 150 }}>
+              {form.imagen && (
+                <img src={form.imagen} alt="" style={{ width: '100%', maxHeight: 120,
+                  objectFit: 'cover', borderRadius: 6, marginBottom: 10 }}/>
+              )}
+              {form.video && !form.imagen && (
+                <video src={form.video} muted loop autoPlay playsInline
+                  style={{ width: '100%', maxHeight: 120, objectFit: 'cover', borderRadius: 6, marginBottom: 10 }}/>
+              )}
+              {form.titulo && (
+                <div style={{ color: form.colorTexto||G, fontSize: 16, fontWeight: 700, marginBottom: 4 }}>
+                  {form.titulo}
+                </div>
+              )}
+              {form.subtitulo && (
+                <div style={{ color: form.colorTexto||'#e8d5a3', fontSize: 12, marginBottom: 10, opacity: 0.8 }}>
+                  {form.subtitulo}
+                </div>
+              )}
+              {form.cta && (
+                <div style={{ display: 'inline-block', background: form.colorTexto||G, color: form.color||'#0d0800',
+                  padding: '6px 16px', borderRadius: 6, fontSize: 12, fontWeight: 700, cursor: 'pointer' }}>
+                  {form.cta}
+                </div>
+              )}
+              {!form.titulo && !form.imagen && !form.video && (
+                <div style={{ color: '#4a3a1a', textAlign: 'center', fontSize: 12, padding: 20 }}>
+                  Preview del banner aquí
+                </div>
+              )}
+            </div>
+
+            <div style={{ marginTop: 12, background: BG2, border: `1px solid ${BD}`,
+              borderRadius: 8, padding: 12, fontSize: 11, color: '#6b5a2e' }}>
+              <div style={{ fontWeight: 700, color: G, marginBottom: 6 }}>Resumen</div>
+              <div>📍 {ESPACIOS[form.espacioId]||form.espacioId}</div>
+              <div>🎯 Rubros: {(form.rubros||[]).join(', ')}</div>
+              <div>🌍 Idiomas: {(form.idiomas||[]).slice(0,5).join(', ')}{(form.idiomas||[]).length>5?'...':''}</div>
+              {form.fechaInicio && <div>📅 {form.fechaInicio} → {form.fechaFin||'indefinido'}</div>}
+              <div>Estado: {form.activo?'🟢 Activo':'🔴 Inactivo'}</div>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   )
 }
