@@ -7,6 +7,11 @@ const redis = new Redis({
 })
 
 export const revalidate = 0
+async function getFamilias() {
+  let data = await getFamilias()
+  while(typeof data === 'string') data = JSON.parse(data)
+  return data || []
+}
 
 export async function GET(req: NextRequest) {
   const tipo = req.nextUrl.searchParams.get('tipo')
@@ -25,15 +30,15 @@ export async function GET(req: NextRequest) {
     return NextResponse.json(data || [])
   }
   if (tipo === 'resumen') {
-    const data = await redis.get('catalogo:familias') as any[]
+    const data = await getFamilias()
     return NextResponse.json((data||[]).map((f:any)=>({id:f.id,nm:f.nm,count:f.e?.length||0,orden:f.orden})))
   }
   if (familia) {
-    const data = await redis.get('catalogo:familias') as any[]
+    const data = await getFamilias()
     const fam = (data||[]).find((f:any)=>f.id===familia)
     return NextResponse.json(fam||null)
   }
-  const data = await redis.get('catalogo:familias') as any[]
+  const data = await getFamilias()
   return NextResponse.json(data||[])
 }
 
@@ -42,7 +47,7 @@ export async function POST(req: NextRequest) {
     const { action, data: payload } = await req.json()
 
     if (action === 'updateEspecie'||action === 'addEspecie'||action === 'deleteEspecie'||action === 'addFamilia'||action === 'deleteFamilia'||action === 'updateFamilia') {
-      const data = await redis.get('catalogo:familias') as any[]
+      const data = await getFamilias()
       if (action === 'updateEspecie') {
         const fam = data.find((f:any)=>f.id===payload.familia)
         if (fam) {
