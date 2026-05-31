@@ -7,7 +7,7 @@ const redis = new Redis({
 })
 
 export const revalidate = 0
-async function getFamilias() {
+async function getFamilias(): Promise<any[]> {
   let data = await getFamilias()
   while(typeof data === 'string') data = JSON.parse(data)
   return data || []

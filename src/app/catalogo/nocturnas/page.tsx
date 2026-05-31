@@ -23,7 +23,7 @@ export default function NocturnasPage(){
     r.get('catalogo:nocturnas').then((raw:any)=>{
       if(!raw)return
       const noc=typeof raw==='string'?JSON.parse(raw):raw
-      const fams:Fam[]=noc.map((f:any)=>({
+      const fams:Fam[]=(Array.isArray(noc)?noc:[]).map((f:any)=>({
         id:f.id, nm:f.nm||f.id,
         e:f.e||[],
         sub:(f.sub||[]).map((s:any)=>({id:s.id,nm:s.nm||s.id,e:s.e||[]}))
