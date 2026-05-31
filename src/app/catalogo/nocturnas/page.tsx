@@ -22,7 +22,7 @@ export default function NocturnasPage(){
   useEffect(()=>{
     r.get<any[]>('catalogo:familias').then(d=>{
       if(!d)return
-      const noc=d.filter(f=>f.orden==='Moths Nocturnas')
+      const noc=d
       const fams:Fam[]=noc.map(f=>({
         id:f.id, nm:f.nm||f.id,
         e:f.e||[],

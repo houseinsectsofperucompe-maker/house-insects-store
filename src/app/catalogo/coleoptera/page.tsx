@@ -66,11 +66,11 @@ export default function ColeopteraPage(){
   const marcoSel=MARCOS.find(m=>m.id===marco.id)||MARCOS[0]
 
   useEffect(()=>{
-    r.get('catalogo:familias').then((raw:any)=>{ let d=typeof raw==='string'?JSON.parse(raw):raw
+    r.get('catalogo:coleoptera').then((raw:any)=>{ let d=typeof raw==='string'?JSON.parse(raw):raw
       if(!d)return
-      setCol(d.filter(f=>f.orden==='Coleoptera'))
-      setArt(d.filter(f=>f.orden==='Arthropoda'))
-      setFamSel(d.filter(f=>f.orden==='Coleoptera')[0]?.id||'')
+      setCol(d)
+      setArt([])
+      setFamSel(d[0]?.id||'')
       setLoading(false)
     })
   },[])

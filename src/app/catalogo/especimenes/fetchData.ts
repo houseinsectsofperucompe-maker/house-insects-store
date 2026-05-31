@@ -6,7 +6,7 @@ const redis = new Redis({
 })
 
 export async function getFamilias() {
-  let data = await redis.get('catalogo:familias') as any
+  let data = await redis.get('catalogo:diurnae') as any
   if (typeof data === 'string') data = JSON.parse(data)
   if (typeof data === 'string') data = JSON.parse(data)
   return data || []

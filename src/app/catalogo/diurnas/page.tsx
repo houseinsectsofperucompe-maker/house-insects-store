@@ -71,7 +71,7 @@ export default function DiurnasPage(){
   const marcoSel=MARCOS.find(m=>m.id===marco.id)||MARCOS[0]
 
   useEffect(()=>{
-    r.get('catalogo:familias').then((raw:any)=>{
+    r.get('catalogo:diurnae').then((raw:any)=>{
       let d=raw
       if(typeof d==='string') d=JSON.parse(d)
       if(!d) return
