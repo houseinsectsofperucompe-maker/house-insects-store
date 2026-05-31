@@ -14,18 +14,7 @@ const ORDENES_BASE:Orden[] = [
   {o:'Lepidoptera Diurnae',f:['Brassolidae','Danidae','Heliconidae','Hesperiidae','Ithomiidae','Lycaenidae','Morphidae','Nymphalidae','Papilionidae','Pieridae','Riodinidae','Satyridae'].map(id=>({id,nm:id,e:[]}))},
   {o:'Moths Nocturnas',f:['Saturniidae','Sphingidae','Erebidae','Geometridae','Noctuidae','Arctiidae','Castniidae','Hepalidae','Uranidae'].map(id=>({id,nm:id,e:[]}))},
   {o:'Coleoptera',f:['Buprestidae','Cerambycidae','Dynastidae','Cetonidae','Chrysomelidae','Scarabaeidae','Cicindelidae','Curculionidae','Elateridae','Lucanidae','Rutilidae','Euchiridae','Trictenotomidae'].map(id=>({id,nm:id,e:[]}))},
-  {o:'Arthropoda',f:['Theraphosidae','Sparassidae','Nephilidae','Araneidae','Ctenidae','Trechaleidae','Lycosidae','Dipluridae','Buthidae','Chactidae','Scorpionidae','Bothriuridae','Diplocentridae','Scolopendridae','Scutigeridae','Lithobiidae','Geophilidae','Phasmatidae','Diapheromeridae','Pseudophasmatidae','Heteropterygidae','Phylliidae','Mantidae','Tettigoniidae','Acrididae','Gryllidae','Cicadidae','Fulgoridae','Reduviidae','Formicidae','Vespidae','Apidae','Brachyuridae','Astacidae','Libellulidae','Coenagrionidae','Aeshnidae','Agrionidae'].map(id=>({id,nm:id,e:[]}))},
-  {o:'Araneae',f:['Theraphosidae','Sparassidae','Nephilidae','Araneidae','Ctenidae','Trechaleidae','Lycosidae','Dipluridae'].map(id=>({id,nm:id,e:[]}))},
-  {o:'Scorpiones',f:['Buthidae','Chactidae','Scorpionidae','Bothriuridae','Diplocentridae'].map(id=>({id,nm:id,e:[]}))},
-  {o:'Chilopoda',f:['Scolopendridae','Scutigeridae','Lithobiidae','Geophilidae'].map(id=>({id,nm:id,e:[]}))},
-  {o:'Phasmatodea',f:['Phasmatidae','Diapheromeridae','Pseudophasmatidae','Heteropterygidae','Phylliidae'].map(id=>({id,nm:id,e:[]}))},
-  {o:'Mantodea',f:['Mantidae'].map(id=>({id,nm:id,e:[]}))},
-  {o:'Orthoptera',f:['Tettigoniidae','Acrididae','Gryllidae'].map(id=>({id,nm:id,e:[]}))},
-  {o:'Homoptera',f:['Cicadidae','Fulgoridae'].map(id=>({id,nm:id,e:[]}))},
-  {o:'Hemiptera',f:['Reduviidae'].map(id=>({id,nm:id,e:[]}))},
-  {o:'Hymenoptera',f:['Formicidae','Vespidae','Apidae'].map(id=>({id,nm:id,e:[]}))},
-  {o:'Decapoda',f:['Brachyuridae','Astacidae'].map(id=>({id,nm:id,e:[]}))},
-  {o:'Odonata',f:['Libellulidae','Coenagrionidae','Aeshnidae','Agrionidae'].map(id=>({id,nm:id,e:[]}))},
+  {o:'Arthropoda',f:['Araneae','Scorpiones','Chilopoda','Phasmatodea','Mantodea','Orthoptera','Homoptera','Hemiptera','Hymenoptera','Decapoda','Odonata'].map(id=>({id,nm:id,e:[]}))},
 ]
 function CatalogoInner({familias}:{familias:any[]}) {
   const searchParams = useSearchParams()
