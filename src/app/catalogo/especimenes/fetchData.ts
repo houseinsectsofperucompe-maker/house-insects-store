@@ -75,16 +75,24 @@ export async function getFamilias() {
       'Decapoda':    ['Brachyuridae','Astacidae'],
       'Odonata':     ['Libellulidae','Coenagrionidae','Aeshnidae','Agrionidae'],
     }
+    // Cada orden de Arthropoda es una "familia" en el tab
+    // Sus familias reales son las subfamilias
     for (const [orden, fams] of Object.entries(ORDENES_ART)) {
-      for (const famId of fams) {
-        const esp = art.especies.filter((e: any) => e.familia === famId)
-        if (esp.length === 0) continue
-        const sub = [...new Set(esp.map((e: any) => e.subfamilia).filter(Boolean))]
-        familias.push({ id: famId, nm: famId, orden,
-          total: esp.length, e: esp,
-          sub: sub.map((sf: any) => ({ id:sf, nm:sf, e: esp.filter((e:any)=>e.subfamilia===sf) }))
+      const espOrden = art.especies.filter((e: any) => e.orden === orden)
+      if (espOrden.length === 0) continue
+      // Las familias reales del orden van como subfamilias
+      const subfams = fams
+        .map((famId: string) => {
+          const espFam = art.especies.filter((e: any) => e.familia === famId)
+          if (espFam.length === 0) return null
+          return { id: famId, nm: famId, e: espFam }
         })
-      }
+        .filter(Boolean)
+      familias.push({
+        id: orden, nm: orden, orden: 'Arthropoda',
+        total: espOrden.length, e: espOrden,
+        sub: subfams,
+      })
     }
   }
 
