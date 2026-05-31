@@ -61,7 +61,7 @@ function CatalogoInner({familias}:{familias:any[]}) {
   const hasSubs=(famActual?.sub?.length||0)>0
   const subActual=famActual?.sub?.find((s:any)=>s.id===subSel)
   const todasEsp=hasSubs?(famActual?.sub?.flatMap((s:any)=>s.e||[])||[]):(famActual?.e||[])
-  const espFiltradas = (subSel&&subActual?subActual.e:todasEsp).filter((e:any)=>!busq||e.n.toLowerCase().includes(busq.toLowerCase()))
+  const espFiltradas = (subSel&&subActual?subActual.e:todasEsp).filter((e:any)=>!busq||(e.nombre||e.n||'').toLowerCase().includes(busq.toLowerCase()))
   const totalPags = Math.ceil(espFiltradas.length/POR_PAG)
   const pagEsp = espFiltradas.slice((pag-1)*POR_PAG, pag*POR_PAG)
 
@@ -223,7 +223,7 @@ function CatalogoInner({familias}:{familias:any[]}) {
                       </div>
                   }
                 </div>
-                <p style={{color:G,fontSize:'.72rem',margin:'0 0 4px',fontStyle:'italic'}}>{e.n}</p>
+                <p style={{color:G,fontSize:'.72rem',margin:'0 0 4px',fontStyle:'italic'}}>{e.nombre||e.n||e.id}</p>
                 <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
                   <span style={{color:'#5DBB63',fontSize:'.75rem',fontWeight:'bold'}}>${e.p}</span>
                   <span style={{color:'rgba(201,168,76,0.4)',fontSize:'.6rem'}}>🇵🇪 {e.s} unid</span>
