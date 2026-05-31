@@ -161,13 +161,13 @@
     {
       "id": "Cicadidae",
       "nombre": "Cicadidae",
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "total": 12
     },
     {
       "id": "Fulgoridae",
       "nombre": "Fulgoridae",
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "total": 10
     },
     {
@@ -2165,7 +2165,7 @@
       "familia": "Cicadidae",
       "precio": 12,
       "stock": 110,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Cicadinae"
     },
@@ -2175,7 +2175,7 @@
       "familia": "Cicadidae",
       "precio": 10,
       "stock": 130,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Cicadinae"
     },
@@ -2185,7 +2185,7 @@
       "familia": "Cicadidae",
       "precio": 9,
       "stock": 140,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Cicadinae"
     },
@@ -2195,7 +2195,7 @@
       "familia": "Cicadidae",
       "precio": 11,
       "stock": 120,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Cicadinae"
     },
@@ -2205,7 +2205,7 @@
       "familia": "Cicadidae",
       "precio": 9,
       "stock": 140,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Cicadinae"
     },
@@ -2215,7 +2215,7 @@
       "familia": "Cicadidae",
       "precio": 8,
       "stock": 150,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Cicadinae"
     },
@@ -2225,7 +2225,7 @@
       "familia": "Cicadidae",
       "precio": 7,
       "stock": 165,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Cicadinae"
     },
@@ -2235,7 +2235,7 @@
       "familia": "Cicadidae",
       "precio": 7,
       "stock": 165,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Cicadinae"
     },
@@ -2245,7 +2245,7 @@
       "familia": "Cicadidae",
       "precio": 10,
       "stock": 130,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Cicadinae"
     },
@@ -2255,7 +2255,7 @@
       "familia": "Cicadidae",
       "precio": 8,
       "stock": 150,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Cicadinae"
     },
@@ -2265,7 +2265,7 @@
       "familia": "Cicadidae",
       "precio": 12,
       "stock": 110,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Cicadinae"
     },
@@ -2275,7 +2275,7 @@
       "familia": "Cicadidae",
       "precio": 11,
       "stock": 120,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Cicadinae"
     },
@@ -2285,7 +2285,7 @@
       "familia": "Fulgoridae",
       "precio": 18,
       "stock": 60,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Fulgorinae"
     },
@@ -2295,7 +2295,7 @@
       "familia": "Fulgoridae",
       "precio": 16,
       "stock": 70,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Fulgorinae"
     },
@@ -2305,7 +2305,7 @@
       "familia": "Fulgoridae",
       "precio": 14,
       "stock": 80,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Fulgorinae"
     },
@@ -2315,7 +2315,7 @@
       "familia": "Fulgoridae",
       "precio": 13,
       "stock": 90,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Fulgorinae"
     },
@@ -2325,7 +2325,7 @@
       "familia": "Fulgoridae",
       "precio": 12,
       "stock": 100,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Fulgorinae"
     },
@@ -2335,7 +2335,7 @@
       "familia": "Fulgoridae",
       "precio": 10,
       "stock": 120,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Fulgorinae"
     },
@@ -2345,7 +2345,7 @@
       "familia": "Fulgoridae",
       "precio": 11,
       "stock": 110,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Fulgorinae"
     },
@@ -2355,7 +2355,7 @@
       "familia": "Fulgoridae",
       "precio": 13,
       "stock": 90,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Fulgorinae"
     },
@@ -2365,7 +2365,7 @@
       "familia": "Fulgoridae",
       "precio": 12,
       "stock": 100,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Fulgorinae"
     },
@@ -2375,7 +2375,7 @@
       "familia": "Fulgoridae",
       "precio": 10,
       "stock": 120,
-      "orden": "Hemiptera",
+      "orden": "Homoptera",
       "imagenes": [],
       "subfamilia": "Fulgorinae"
     },
