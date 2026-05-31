@@ -585,6 +585,61 @@ export default function GestorEspecimenes() {
                     </select>
                   </div>
 
+                  {/* Tipo de Presentación */}
+                  <div style={{marginBottom:12}}>
+                    <label style={{fontSize:11,color:'#6b5a2e',display:'block',marginBottom:6}}>Tipo de Presentación</label>
+                    <div style={{display:'flex',gap:6,flexWrap:'wrap'}}>
+                      {['Desmontado a granel','Montado','Resina','Cúpula','Enmarcado','Enmarcado en oro','Enmarcado en plata','Artesanía','Nueva llegada'].map(t => (
+                        <button key={t} onClick={()=>setEditando((p:any)=>({...p,presentacion:t}))}
+                          style={{padding:'5px 10px',borderRadius:6,cursor:'pointer',fontSize:11,
+                            border:`1px solid ${(editando.presentacion||espSel.presentacion)===t?G:BD}`,
+                            background:(editando.presentacion||espSel.presentacion)===t?'rgba(201,168,76,0.15)':'transparent',
+                            color:(editando.presentacion||espSel.presentacion)===t?G:'#6b5a2e'}}>
+                          {t}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* SEO / Meta Tags */}
+                  <div style={{marginBottom:12,background:BG2,border:`1px solid ${BD}`,borderRadius:7,padding:12}}>
+                    <div style={{fontSize:10,color:'#4a3a1a',textTransform:'uppercase',letterSpacing:1,marginBottom:8}}>🔍 SEO / Meta Tags</div>
+                    <div style={{marginBottom:8}}>
+                      <label style={{fontSize:11,color:'#6b5a2e',display:'block',marginBottom:4}}>Título SEO</label>
+                      <input value={editando.seoTitulo||espSel.seoTitulo||''}
+                        onChange={e=>setEditando((p:any)=>({...p,seoTitulo:e.target.value}))}
+                        placeholder={`${espSel.nombre} - House Insects of Peru`}
+                        style={{width:'100%',background:'#0a0600',border:`1px solid ${BD}`,
+                          color:'#e8d5a3',padding:'6px 8px',borderRadius:5,fontSize:11,
+                          fontFamily:'Georgia,serif',boxSizing:'border-box' as any}}
+                      />
+                    </div>
+                    <div style={{marginBottom:8}}>
+                      <label style={{fontSize:11,color:'#6b5a2e',display:'block',marginBottom:4}}>Meta Descripción (160 chars)</label>
+                      <textarea rows={3}
+                        value={editando.seoDesc||espSel.seoDesc||''}
+                        onChange={e=>setEditando((p:any)=>({...p,seoDesc:e.target.value.slice(0,160)}))}
+                        placeholder='Especimen biologico seco - Amazonia peruana - SERFOR/CITES'
+                        style={{width:'100%',background:'#0a0600',border:`1px solid ${BD}`,
+                          color:'#e8d5a3',padding:'6px 8px',borderRadius:5,fontSize:11,
+                          fontFamily:'Georgia,serif',resize:'none',boxSizing:'border-box' as any}}
+                      />
+                      <div style={{fontSize:10,color:'#4a3a1a',textAlign:'right'}}>
+                        {(editando.seoDesc||espSel.seoDesc||'').length}/160
+                      </div>
+                    </div>
+                    <div>
+                      <label style={{fontSize:11,color:'#6b5a2e',display:'block',marginBottom:4}}>Keywords</label>
+                      <input value={editando.seoKeywords||espSel.seoKeywords||''}
+                        onChange={e=>setEditando((p:any)=>({...p,seoKeywords:e.target.value}))}
+                        placeholder='mariposa seca, Morpho didius, specimen Peru, CITES'
+                        style={{width:'100%',background:'#0a0600',border:`1px solid ${BD}`,
+                          color:'#e8d5a3',padding:'6px 8px',borderRadius:5,fontSize:11,
+                          fontFamily:'Georgia,serif',boxSizing:'border-box' as any}}
+                      />
+                    </div>
+                  </div>
+
                   {/* Descripción */}
                   <div style={{marginBottom:14}}>
                     <label style={{fontSize:11,color:'#6b5a2e',display:'block',marginBottom:6}}>Descripción</label>
