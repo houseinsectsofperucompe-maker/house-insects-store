@@ -109,9 +109,9 @@ export async function GET(req: NextRequest) {
     return NextResponse.json(fam || null)
   }
 
-  // Default: todas las familias con especies (para admin-panel/especimenes)
+  // Default: solo resumen SIN especies
   const fams = getFamilias()
-  return NextResponse.json(fams)
+  return NextResponse.json(fams.map((f:any)=>({id:f.id,nm:f.nm,orden:f.orden,total:f.total,e:[],sub:[]})))
 }
 
 // ══════════════════════════════════════════════════════════════════
