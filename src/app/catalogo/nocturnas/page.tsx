@@ -20,9 +20,9 @@ export default function NocturnasPage(){
   const [busqueda,setBusqueda]=useState('')
 
   useEffect(()=>{
-    r.get('catalogo:nocturnas').then(d=>{
-      if(!d)return
-      const noc=d
+    r.get('catalogo:nocturnas').then((raw:any)=>{
+      if(!raw)return
+      const noc=typeof raw==='string'?JSON.parse(raw):raw
       const fams:Fam[]=noc.map(f=>({
         id:f.id, nm:f.nm||f.id,
         e:f.e||[],
