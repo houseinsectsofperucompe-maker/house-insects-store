@@ -66,7 +66,7 @@ export default function ColeopteraPage(){
   const marcoSel=MARCOS.find(m=>m.id===marco.id)||MARCOS[0]
 
   useEffect(()=>{
-    r.get('catalogo:coleoptera').then((raw:any)=>{ let d=typeof raw==='string'?JSON.parse(raw):raw
+    r.get('catalogo:coleoptera').then((raw:any)=>{ let d=(()=>{ let x=raw; while(typeof x==='string') x=JSON.parse(x); return x })()
       if(!d)return
       setCol(d)
       setArt([])
