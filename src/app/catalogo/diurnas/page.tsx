@@ -71,9 +71,11 @@ export default function DiurnasPage(){
   const marcoSel=MARCOS.find(m=>m.id===marco.id)||MARCOS[0]
 
   useEffect(()=>{
-    r.get<FamData[]>('catalogo:familias').then(d=>{
+    r.get('catalogo:familias').then((raw:any)=>{
+      let d=raw
+      if(typeof d==='string') d=JSON.parse(d)
       if(!d) return
-      const diurnas=d.filter(f=>f.orden==='Lepidoptera Diurnae')
+      const diurnas=d.filter((f:any)=>f.orden==='Lepidoptera Diurnae')
       setFamilias(diurnas)
       setLoadingFams(false)
     })
