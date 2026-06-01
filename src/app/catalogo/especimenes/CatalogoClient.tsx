@@ -215,7 +215,7 @@ function CatalogoInner({familias}:{familias:any[]}) {
               <button key={i} onClick={()=>window.location.href=`/catalogo/especimenes/${e.id||e.n?.replace(/ /g,'_')}`} className="esp-card">
                 <div style={{width:'100%',height:160,background:'#000',borderRadius:6,marginBottom:6,overflow:'hidden',display:'flex',alignItems:'center',justifyContent:'center'}}>
                   {(e.imagenes?.[0] || e.foto)
-                    ? <img src={e.foto} style={{width:'100%',height:'100%',objectFit:'cover'}} onError={ev=>{(ev.target as HTMLImageElement).style.display='none'}}/>
+                    ? <img src={e.imagenes?.[0]||e.foto||''} style={{width:'100%',height:'100%',objectFit:'contain',background:'#000',padding:'4px'}} onError={ev=>{(ev.target as HTMLImageElement).style.display='none'}}/>
                     : <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',width:'100%',height:'100%'}}>
                         <img src="/logo-house-insects-peru.png" style={{width:44,height:44,objectFit:'contain',opacity:.5}} onError={ev=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>
                         <span style={{color:'rgba(201,168,76,0.35)',fontSize:'.5rem',letterSpacing:'.1em',marginTop:6}}><ST t="FOTO PRÓXIMAMENTE"/></span>
