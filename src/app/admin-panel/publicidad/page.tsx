@@ -736,7 +736,7 @@ Responde SOLO en JSON con esta estructura exacta:
                             espacioId: 'hero', rubros: [rubro?.id || 'todos'],
                             idiomas: [pais?.idioma || 'es'], activo: true }) })
                         const d = await res.json()
-                        if (d.ok) alert('Banner publicado en website') else alert('Error: ' + d.error)
+                        if (d.ok) { alert('Banner publicado en website') } else { alert('Error: ' + d.error) }
                       }} style={{ width:'100%', padding:'10px', borderRadius:8, cursor:'pointer',
                         background:'rgba(76,175,80,0.15)', color:'#4caf50', border:'1px solid rgba(76,175,80,0.3)',
                         fontWeight:700, fontSize:13, fontFamily:'Georgia,serif', textAlign:'left' }}>
@@ -750,7 +750,7 @@ Responde SOLO en JSON con esta estructura exacta:
                             plataformas: pais?.redes || [], rubroId: rubro?.id || '',
                             paisId: pais?.id || '', idioma: pais?.idioma || 'es', formato: formato?.id || 'post' }) })
                         const d = await res.json()
-                        if (d.ok) alert('Guardado en publicaciones') else alert('Error')
+                        if (d.ok) { alert('Guardado en publicaciones') } else { alert('Error') }
                       }} style={{ width:'100%', padding:'10px', borderRadius:8, cursor:'pointer',
                         background:'rgba(33,150,243,0.15)', color:'#2196f3', border:'1px solid rgba(33,150,243,0.3)',
                         fontWeight:700, fontSize:13, fontFamily:'Georgia,serif', textAlign:'left' }}>
