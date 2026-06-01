@@ -725,7 +725,12 @@
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
       "subespecie": "livius",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-eurilochus-livius-frente-v3.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-eurilochus-livius-de-lado-1.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-eurilochus-livius-reverso-v.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-eurilochus-livius-foto.webp"
+      ]
     },
     {
       "id": "BRA-002",
@@ -736,7 +741,11 @@
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
       "subespecie": "idomenides",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/brassolidae_caligo-indomenides-f_.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/brassolidae-caligo-indomenides-indmeneous-lado.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo_idomeneus_idomeneus_reverso-v.webp"
+      ]
     },
     {
       "id": "BRA-003",
@@ -746,7 +755,12 @@
       "stock": 200,
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-illineous-oberon-a.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-ilioneus-praxiodus--lado.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/brassolidae-caligo-illeneous-de-tmaria.-peru.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-ilioneus-praxiodus-a.webp"
+      ]
     },
     {
       "id": "BRA-004",
@@ -756,7 +770,11 @@
       "stock": 200,
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-placidianus-_peru_tingo-maria-a.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-placidianus_peru-_t.maria_lado.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/brassolidae-caligo-placidianus-reverso-v.webp"
+      ]
     },
     {
       "id": "BRA-005",
@@ -766,7 +784,11 @@
       "stock": 200,
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-prometheus-atlas-a.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-prometheus-atlas-lado.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-prometheus-atlas-reverso.webp"
+      ]
     },
     {
       "id": "BRA-006",
@@ -776,7 +798,11 @@
       "stock": 50,
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-superbus-superbus--a.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-superbus-superbus-lado.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-superbus-superbus-v.webp"
+      ]
     },
     {
       "id": "BRA-007",
@@ -787,7 +813,10 @@
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
       "subespecie": "semicaerulea",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-teucer-semicarahuela-a.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-teucer-semicarahuela-reverso-v.webp"
+      ]
     },
     {
       "id": "BRA-008",
@@ -798,7 +827,11 @@
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
       "subespecie": "darius",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/dynastor-darius-darius-foto.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/dynastor-darius-darius-fotoLado.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/dynastor-darius-darius-fotoReverso.webp"
+      ]
     },
     {
       "id": "BRA-009",
@@ -808,7 +841,9 @@
       "stock": 200,
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-aterus-a2.webp"
+      ]
     },
     {
       "id": "BRA-010",
@@ -819,7 +854,11 @@
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
       "subespecie": "arsippe",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-atreus-a.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-atreus-lado.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-atreus--reverso-v.webp"
+      ]
     },
     {
       "id": "BRA-011",
@@ -851,7 +890,11 @@
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
       "subespecie": "oberon",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-oberthuri--foklides-.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-oberthuri-floklides-lada.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-oberthuri-floklides--reverso.webp"
+      ]
     },
     {
       "id": "BRA-014",
@@ -912,7 +955,9 @@
       "stock": 200,
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-meimon-de-reverso.webp"
+      ]
     },
     {
       "id": "BRA-020",
@@ -933,7 +978,10 @@
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
       "subespecie": "oileus",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-oileus-umbratilis-mâle-stichel-a.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-oileus-umbratilis-mâle-stichel-reverso--v.webp"
+      ]
     },
     {
       "id": "BRA-022",
