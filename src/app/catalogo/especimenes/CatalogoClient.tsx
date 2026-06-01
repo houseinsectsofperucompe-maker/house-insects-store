@@ -6,7 +6,7 @@ import { useState, useEffect, Suspense } from 'react'
 import CarritoCompras from '@/components/CarritoCompras'
 import { useSearchParams } from 'next/navigation'
 
-type E = { n:string; p:number; s:number; foto?:string; fotoLado?:string; fotoReverso?:string; video?:string; activo?:boolean; familia?:string }
+type E = { id?:string; n:string; nombre?:string; p:number; s:number; foto?:string; fotoLado?:string; fotoReverso?:string; video?:string; activo?:boolean; familia?:string; imagenes?:string[]; videos?:string[] }
 type F = { id:string; nm:string; e:E[]; sub?:any[] }
 type Orden = { o:string; f:F[] }
 
@@ -167,7 +167,7 @@ function CatalogoInner({familias}:{familias:any[]}) {
               {vista==='video'&&sel.video
                 ? <video autoPlay loop muted playsInline style={{width:'100%',borderRadius:12,border:`2px solid ${G}`}}><source src={sel.video} type="video/mp4"/></video>
                 : (sel as any)[vista]
-                  ? <img src={(sel as any)[vista]} alt={sel.n} style={{width:'100%',height:300,objectFit:'contain',borderRadius:12,border:`2px solid ${G}`,background:'#000'}}/>
+                  ? <img src={vista==='foto'?(sel.imagenes?.[0]||sel.foto):vista==='fotoLado'?(sel.imagenes?.[1]||sel.fotoLado):vista==='fotoReverso'?(sel.imagenes?.[2]||sel.fotoReverso):''} alt={sel.n} style={{width:'100%',height:300,objectFit:'contain',borderRadius:12,border:`2px solid ${G}`,background:'#000'}}/>
                   : <div style={{width:'100%',height:300,background:'rgba(201,168,76,0.05)',borderRadius:12,border:`2px solid ${BD}`,display:'flex',alignItems:'center',justifyContent:'center',color:'rgba(201,168,76,0.3)',fontSize:'.8rem'}}>Sin foto</div>
               }
             </div>
@@ -214,7 +214,7 @@ function CatalogoInner({familias}:{familias:any[]}) {
             {pagEsp.map((e:any,i:number)=>(
               <button key={i} onClick={()=>window.location.href=`/catalogo/especimenes/${e.id||e.n?.replace(/ /g,'_')}`} className="esp-card">
                 <div style={{width:'100%',height:160,background:'#000',borderRadius:6,marginBottom:6,overflow:'hidden',display:'flex',alignItems:'center',justifyContent:'center'}}>
-                  {e.foto
+                  {(e.imagenes?.[0] || e.foto)
                     ? <img src={e.foto} style={{width:'100%',height:'100%',objectFit:'cover'}} onError={ev=>{(ev.target as HTMLImageElement).style.display='none'}}/>
                     : <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',width:'100%',height:'100%'}}>
                         <img src="/logo-house-insects-peru.png" style={{width:44,height:44,objectFit:'contain',opacity:.5}} onError={ev=>{(ev.target as HTMLImageElement).src='/logo.png'}}/>
