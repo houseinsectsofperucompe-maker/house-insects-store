@@ -171,6 +171,15 @@ return(<>
   <p style={{color:'rgba(255,255,255,0.7)',fontSize:'.68rem',margin:0}}>Monto: <strong>${total.toFixed(2)} USD</strong></p>
 </div>
 <a href={'https://wa.me/51940699405?text=Pago+QR+Total+$'+total.toFixed(2)+'+USD'} target="_blank" rel="noopener noreferrer" style={{display:'block',width:'100%',padding:'14px',background:'linear-gradient(135deg,#128C7E,#075E54)',color:'#F0FFF4',borderRadius:8,fontWeight:700,fontSize:'1rem',textShadow:'0 1px 2px rgba(0,0,0,0.3)',fontFamily:'Georgia,serif',marginBottom:8,textAlign:'center',textDecoration:'none'}}><span style={{display:'flex',alignItems:'center',justifyContent:'center',gap:8}}><span>Pagar</span><span style={{fontSize:'1.1rem'}}>▦</span><span style={{background:'rgba(255,255,255,0.2)',borderRadius:4,padding:'2px 6px',fontSize:'.65rem',fontWeight:'bold'}}>PLIN QR</span><span style={{background:'rgba(255,255,255,0.2)',borderRadius:4,padding:'2px 6px',fontSize:'.65rem',fontWeight:'bold'}}>Link Izipay</span><span style={{background:'#fff',color:'#000',borderRadius:4,padding:'2px 6px',fontSize:'.65rem',fontWeight:'bold'}}>G Pay</span><span style={{fontSize:'.75rem',opacity:0.85}}>+51 940 699 405</span></span></a>
+                <button disabled style={{width:'100%',padding:'12px',background:'rgba(7,193,96,0.08)',color:'#07c160',border:'1px solid rgba(7,193,96,0.2)',borderRadius:8,fontWeight:700,fontSize:'.9rem',cursor:'not-allowed',fontFamily:'Georgia,serif',marginBottom:6,display:'flex',alignItems:'center',justifyContent:'center',gap:8}}>
+                  <span>💚 WeChat Pay</span><span style={{background:'rgba(7,193,96,0.15)',borderRadius:4,padding:'2px 8px',fontSize:'.6rem'}}>Próximamente · World First</span>
+                </button>
+                <button disabled style={{width:'100%',padding:'12px',background:'rgba(0,160,233,0.08)',color:'#00a0e9',border:'1px solid rgba(0,160,233,0.2)',borderRadius:8,fontWeight:700,fontSize:'.9rem',cursor:'not-allowed',fontFamily:'Georgia,serif',marginBottom:6,display:'flex',alignItems:'center',justifyContent:'center',gap:8}}>
+                  <span>🔵 Alipay</span><span style={{background:'rgba(0,160,233,0.15)',borderRadius:4,padding:'2px 8px',fontSize:'.6rem'}}>Próximamente · World First</span>
+                </button>
+                <button disabled style={{width:'100%',padding:'12px',background:'rgba(255,102,0,0.08)',color:'#ff6600',border:'1px solid rgba(255,102,0,0.2)',borderRadius:8,fontWeight:700,fontSize:'.9rem',cursor:'not-allowed',fontFamily:'Georgia,serif',marginBottom:6,display:'flex',alignItems:'center',justifyContent:'center',gap:8}}>
+                  <span>🟠 Payoneer</span><span style={{background:'rgba(255,102,0,0.15)',borderRadius:4,padding:'2px 8px',fontSize:'.6rem'}}>Próximamente</span>
+                </button>
 <button onClick={()=>setPaso('orden')} style={{width:'100%',padding:'12px',background:'transparent',color:G,border:'1px solid rgba(201,168,76,0.3)',borderRadius:8,fontWeight:700,fontSize:'.9rem',cursor:'pointer',fontFamily:'Georgia,serif'}}>← Volver a mi orden</button>
 </>}
 </div>
