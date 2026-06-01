@@ -76,10 +76,12 @@ export default function EspecimenPage() {
       try {
         // El id tiene formato "Familia-NNN" ej: "MOR-001", "Brassolidae-1"
         // Buscar en el JSON de especimenes-biologicos-secos
-        const res = await fetch('/data/rubros/especimenes-biologicos-secos.json')
-        const data = await res.json()
-        // Buscar por id exacto O por formato legacy (Brassolidae-2 → BRA-002)
-        const found: Especie | undefined = data.especies.find(
+        const RUBROS4 = ['especimenes-biologicos-secos','especimenes-nocturnas','especimenes-coleopteros','especimenes-artropodos']
+        let found: Especie | undefined
+        for (const rubro of RUBROS4) {
+          const res2 = await fetch(`/data/rubros/${rubro}.json`)
+          const data2 = await res2.json()
+          found = data2.especies.find(
           (e: Especie) => {
             if (e.id === id) return true
             // convertir Brassolidae-2 a BRA-002 para compatibilidad
@@ -92,6 +94,8 @@ export default function EspecimenPage() {
             return false
           }
         )
+          if (found) break
+        }
         if (found) {
           setEspecie(found)
         // Meta tags SEO dinamicos

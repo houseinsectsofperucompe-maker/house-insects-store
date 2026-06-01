@@ -29,7 +29,7 @@ function CatalogoInner({familias}:{familias:any[]}) {
   const [sel, setSel] = useState<E|null>(null)
   const [subSel, setSubSel] = useState('')
   const [vista, setVista] = useState<'foto'|'fotoLado'|'fotoReverso'|'video'>('foto')
-  const POR_PAG = 21
+  const POR_PAG = 20
 
   useEffect(()=>{
     if(familias&&familias.length){
