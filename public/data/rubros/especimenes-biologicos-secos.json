@@ -801,7 +801,8 @@
       "imagenes": [
         "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-superbus-superbus--a.webp",
         "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-superbus-superbus-lado.webp",
-        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-superbus-superbus-v.webp"
+        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-superbus-superbus-v.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/Caligo V.png"
       ]
     },
     {
@@ -830,7 +831,8 @@
       "imagenes": [
         "https://HouseInsects1967.b-cdn.net/brassolidae/dynastor-darius-darius-foto.webp",
         "https://HouseInsects1967.b-cdn.net/brassolidae/dynastor-darius-darius-fotoLado.webp",
-        "https://HouseInsects1967.b-cdn.net/brassolidae/dynastor-darius-darius-fotoReverso.webp"
+        "https://HouseInsects1967.b-cdn.net/brassolidae/dynastor-darius-darius-fotoReverso.webp",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/Dynastor darius darius_A .png"
       ]
     },
     {
@@ -842,7 +844,8 @@
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
       "imagenes": [
-        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-aterus-a2.webp"
+        "https://HouseInsects1967.b-cdn.net/brassolidae/Opoptera aorsa A.png",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/Opoptera aorsa V.png"
       ]
     },
     {
@@ -855,9 +858,8 @@
       "suborden": "Rhopalocera",
       "subespecie": "arsippe",
       "imagenes": [
-        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-atreus-a.webp",
-        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-atreus-lado.webp",
-        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-atreus--reverso-v.webp"
+        "https://HouseInsects1967.b-cdn.net/brassolidae/Optotera arsipe A.png",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/OPOPTERA ARSSIPE V.png"
       ]
     },
     {
@@ -868,7 +870,10 @@
       "stock": 100,
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/Opsiphanes Sallei A .png",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/Opsiphanes Sallei v.png"
+      ]
     },
     {
       "id": "BRA-012",
@@ -915,7 +920,11 @@
       "stock": 200,
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/Catoblepia berecynthia A.png",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/Catoblepia berecynthia Lado C.png",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/Catoblepia berecynthia V.png"
+      ]
     },
     {
       "id": "BRA-016",
@@ -925,7 +934,10 @@
       "stock": 150,
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/Brassolis sophorae A.jpg",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/Brassolis sophorae V.png"
+      ]
     },
     {
       "id": "BRA-017",
@@ -967,7 +979,10 @@
       "stock": 100,
       "orden": "Lepidoptera",
       "suborden": "Rhopalocera",
-      "imagenes": []
+      "imagenes": [
+        "https://HouseInsects1967.b-cdn.net/brassolidae/ERYPHANES LYCOMEDON A.png",
+        "https://HouseInsects1967.b-cdn.net/brassolidae/Eryphanes lycomedon lado.png"
+      ]
     },
     {
       "id": "BRA-021",
@@ -979,8 +994,7 @@
       "suborden": "Rhopalocera",
       "subespecie": "oileus",
       "imagenes": [
-        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-oileus-umbratilis-mâle-stichel-a.webp",
-        "https://HouseInsects1967.b-cdn.net/brassolidae/caligo-oileus-umbratilis-mâle-stichel-reverso--v.webp"
+        "https://HouseInsects1967.b-cdn.net/brassolidae/Caligo  zuzana  A.png"
       ]
     },
     {
